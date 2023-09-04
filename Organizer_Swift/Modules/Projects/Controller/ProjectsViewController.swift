@@ -16,5 +16,16 @@ final class ProjectsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.setupNavigationBar()
+    }
+}
+
+private extension ProjectsViewController {
+    // MARK: - Setup
+
+    func setupNavigationBar() {
+        self.title = "Projects"
+        self.navigationController?.navigationBar.applyAppearance()
     }
 }
