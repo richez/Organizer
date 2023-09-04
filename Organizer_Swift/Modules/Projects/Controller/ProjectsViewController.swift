@@ -8,6 +8,21 @@
 import UIKit
 
 final class ProjectsViewController: UIViewController {
+    // MARK: - Properties
+
+    private let viewModel: ProjectsViewModelProtocol
+
+    // MARK: - Initialization
+
+    init(viewModel: ProjectsViewModelProtocol) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - Life Cycle
 
     override func loadView() {
@@ -25,7 +40,7 @@ private extension ProjectsViewController {
     // MARK: - Setup
 
     func setupNavigationBar() {
-        self.title = "Projects"
+        self.title = self.viewModel.navigationBarTitle
         self.navigationController?.navigationBar.applyAppearance()
     }
 }
