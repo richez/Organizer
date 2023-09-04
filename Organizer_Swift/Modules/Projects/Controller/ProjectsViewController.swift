@@ -7,11 +7,10 @@
 
 import UIKit
 
-class ProjectsViewController: UIViewController {
+final class ProjectsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = .white
     }
 }
-
