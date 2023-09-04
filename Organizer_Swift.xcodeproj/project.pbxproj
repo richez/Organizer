@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F03693912AA6944D005C373A /* ProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03693902AA6944D005C373A /* ProjectsView.swift */; };
 		F03693942AA6A30F005C373A /* UINavigationBar+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03693932AA6A30F005C373A /* UINavigationBar+Appearance.swift */; };
+		F03693972AA6A42C005C373A /* ProjectsViewRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03693962AA6A42C005C373A /* ProjectsViewRepresentation.swift */; };
 		F0732B9E2AA61A7B0027EC4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0732B9D2AA61A7B0027EC4F /* AppDelegate.swift */; };
 		F0732BA02AA61A7B0027EC4F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0732B9F2AA61A7B0027EC4F /* SceneDelegate.swift */; };
 		F0732BA22AA61A7B0027EC4F /* ProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0732BA12AA61A7B0027EC4F /* ProjectsViewController.swift */; };
@@ -42,6 +43,7 @@
 /* Begin PBXFileReference section */
 		F03693902AA6944D005C373A /* ProjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsView.swift; sourceTree = "<group>"; };
 		F03693932AA6A30F005C373A /* UINavigationBar+Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Appearance.swift"; sourceTree = "<group>"; };
+		F03693962AA6A42C005C373A /* ProjectsViewRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsViewRepresentation.swift; sourceTree = "<group>"; };
 		F0732B9A2AA61A7B0027EC4F /* Organizer_Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Organizer_Swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0732B9D2AA61A7B0027EC4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0732B9F2AA61A7B0027EC4F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -165,7 +167,7 @@
 				F0732BD02AA639BD0027EC4F /* Controller */,
 				F0732BD12AA639CB0027EC4F /* Coordinator */,
 				F0732BD32AA639E10027EC4F /* Model */,
-				F0732BD22AA639D20027EC4F /* Views */,
+				F0732BD22AA639D20027EC4F /* View */,
 			);
 			path = Projects;
 			sourceTree = "<group>";
@@ -186,12 +188,13 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
-		F0732BD22AA639D20027EC4F /* Views */ = {
+		F0732BD22AA639D20027EC4F /* View */ = {
 			isa = PBXGroup;
 			children = (
 				F03693902AA6944D005C373A /* ProjectsView.swift */,
+				F03693962AA6A42C005C373A /* ProjectsViewRepresentation.swift */,
 			);
-			path = Views;
+			path = View;
 			sourceTree = "<group>";
 		};
 		F0732BD32AA639E10027EC4F /* Model */ = {
@@ -358,6 +361,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0732BD82AA63C810027EC4F /* Coordinator.swift in Sources */,
+				F03693972AA6A42C005C373A /* ProjectsViewRepresentation.swift in Sources */,
 				F0732BA22AA61A7B0027EC4F /* ProjectsViewController.swift in Sources */,
 				F03693942AA6A30F005C373A /* UINavigationBar+Appearance.swift in Sources */,
 				F0732BDC2AA63E5E0027EC4F /* ProjectsCoordinator.swift in Sources */,

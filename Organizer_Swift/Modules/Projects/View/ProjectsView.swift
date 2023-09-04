@@ -8,6 +8,10 @@
 import UIKit
 
 final class ProjectsView: UIView {
+    // MARK: - Properties
+
+    private let viewRepresentation = ProjectsViewRepresentation()
+
     // MARK: - Initialization
 
     override init(frame: CGRect) {
@@ -25,6 +29,6 @@ private extension ProjectsView {
     // MARK: - Setup
 
     func setup() {
-        self.backgroundColor = UIColor.background
+        self.backgroundColor = self.viewRepresentation.backgroundColor
     }
 }
