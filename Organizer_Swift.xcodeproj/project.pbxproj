@@ -99,8 +99,7 @@
 		F0732B9C2AA61A7B0027EC4F /* Organizer_Swift */ = {
 			isa = PBXGroup;
 			children = (
-				F0732B9D2AA61A7B0027EC4F /* AppDelegate.swift */,
-				F0732B9F2AA61A7B0027EC4F /* SceneDelegate.swift */,
+				F0732BCD2AA626780027EC4F /* AppLaunch */,
 				F0732BA12AA61A7B0027EC4F /* ViewController.swift */,
 				F0732BA32AA61A7B0027EC4F /* Main.storyboard */,
 				F0732BA62AA61A7C0027EC4F /* Assets.xcassets */,
@@ -125,6 +124,15 @@
 				F0732BC02AA61A7D0027EC4F /* Organizer_SwiftUITestsLaunchTests.swift */,
 			);
 			path = Organizer_SwiftUITests;
+			sourceTree = "<group>";
+		};
+		F0732BCD2AA626780027EC4F /* AppLaunch */ = {
+			isa = PBXGroup;
+			children = (
+				F0732B9D2AA61A7B0027EC4F /* AppDelegate.swift */,
+				F0732B9F2AA61A7B0027EC4F /* SceneDelegate.swift */,
+			);
+			path = AppLaunch;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
