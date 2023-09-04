@@ -25,6 +25,6 @@ private extension ProjectsView {
     // MARK: - Setup
 
     func setup() {
-        self.backgroundColor = .red
+        self.backgroundColor = UIColor.background
     }
 }
