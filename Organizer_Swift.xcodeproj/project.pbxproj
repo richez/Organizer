@@ -100,7 +100,6 @@
 				F0732BCD2AA626780027EC4F /* AppLaunch */,
 				F0732BCE2AA638C10027EC4F /* Modules */,
 				F0732BA62AA61A7C0027EC4F /* Assets.xcassets */,
-				F0732BA82AA61A7C0027EC4F /* LaunchScreen.storyboard */,
 				F0732BAB2AA61A7C0027EC4F /* Info.plist */,
 			);
 			path = Organizer_Swift;
@@ -127,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				F0732B9D2AA61A7B0027EC4F /* AppDelegate.swift */,
+				F0732BA82AA61A7C0027EC4F /* LaunchScreen.storyboard */,
 				F0732B9F2AA61A7B0027EC4F /* SceneDelegate.swift */,
 			);
 			path = AppLaunch;
