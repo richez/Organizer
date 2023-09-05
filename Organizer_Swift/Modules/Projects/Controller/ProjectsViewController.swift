@@ -44,6 +44,8 @@ private extension ProjectsViewController {
     // MARK: - Setup
 
     func setup() {
+        self.contentView.delegate = self
+
         self.title = self.viewModel.navigationBarTitle
         self.navigationController?.navigationBar.applyAppearance()
     }
@@ -56,5 +58,13 @@ private extension ProjectsViewController {
             projects: self.viewModel.projects(for:),
             animated: false
         )
+    }
+}
+
+// MARK: - ProjectsViewDelegate
+
+extension ProjectsViewController: ProjectsViewDelegate {
+    func didSelectRow(at indexPath: IndexPath) {
+
     }
 }

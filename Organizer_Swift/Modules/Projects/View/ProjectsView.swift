@@ -7,10 +7,15 @@
 
 import UIKit
 
+protocol ProjectsViewDelegate: AnyObject {
+    func didSelectRow(at indexPath: IndexPath)
+}
+
 final class ProjectsView: UIView {
     // MARK: - Properties
 
     private let viewRepresentation = ProjectsViewRepresentation()
+    weak var delegate: ProjectsViewDelegate?
 
     let tableView: UITableView = UITableView()
 
@@ -37,6 +42,7 @@ private extension ProjectsView {
     }
 
     func setupTableView() {
+        self.tableView.delegate = self
         self.tableView.backgroundColor = self.viewRepresentation.tableViewBackgroundColor
 
         self.tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -47,5 +53,17 @@ private extension ProjectsView {
             self.tableView.topAnchor.constraint(equalTo: self.topAnchor),
             self.tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
+    }
+}
+
+// MARK: - UITableViewDelegate
+
+extension ProjectsView: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return self.viewRepresentation.cellHeight
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.delegate?.didSelectRow(at: indexPath)
     }
 }
