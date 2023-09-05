@@ -8,6 +8,6 @@
 import UIKit
 
 struct ProjectsViewRepresentation {
-    var backgroundColor: UIColor = .background
+    var backgroundColor: UIColor = .primaryDark
     var tableViewBackgroundColor: UIColor = .clear
 }

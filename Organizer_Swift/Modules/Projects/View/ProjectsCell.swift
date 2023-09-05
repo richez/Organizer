@@ -33,7 +33,7 @@ private extension ProjectsCell {
     func setup() {
         self.backgroundColor = .clear
 
-        self.titleLabel.textColor = UIColor.navbarTitle // TODO: rename color (appWhite ou autre)
+        self.titleLabel.textColor = .primaryLight
 
         self.addSubview(self.titleLabel)
         NSLayoutConstraint.activate([
