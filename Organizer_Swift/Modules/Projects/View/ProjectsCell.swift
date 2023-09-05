@@ -10,6 +10,8 @@ import UIKit
 final class ProjectsCell: UITableViewCell {
     // MARK: - Properties
 
+    private let cellRepresentation = ProjectsCellRepresentation()
+
     private let titleLabel = UILabel()
 
     // MARK: - Initialization
@@ -31,9 +33,9 @@ private extension ProjectsCell {
     // MARK: - Setup
 
     func setup() {
-        self.backgroundColor = .clear
+        self.backgroundColor = self.cellRepresentation.backgroundColor
 
-        self.titleLabel.textColor = .primaryLight
+        self.titleLabel.textColor = self.cellRepresentation.titleColor
 
         self.addSubview(self.titleLabel)
         NSLayoutConstraint.activate([
