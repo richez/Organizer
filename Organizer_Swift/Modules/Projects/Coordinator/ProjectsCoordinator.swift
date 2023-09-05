@@ -16,7 +16,7 @@ final class ProjectsCoordinator: ChildCoordinator {
     }
 
     func start() {
-        let projectsViewModel = ProjectsViewModel()
+        let projectsViewModel = ProjectsViewModel(projects: Projects.sample)
         let projectsViewController = ProjectsViewController(viewModel: projectsViewModel)
         let projectsNavigationController = UINavigationController(rootViewController: projectsViewController)
         self.window.rootViewController = projectsNavigationController
