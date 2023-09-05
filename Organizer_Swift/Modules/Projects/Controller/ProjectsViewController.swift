@@ -12,12 +12,12 @@ final class ProjectsViewController: UIViewController {
 
     private lazy var contentView = ProjectsView()
 
-    private let viewModel: ProjectsViewModelProtocol
+    private let viewModel: ProjectsViewModel
     private lazy var dataSource = ProjectsTableViewDataSource(tableView: self.contentView.tableView)
 
     // MARK: - Initialization
 
-    init(viewModel: ProjectsViewModelProtocol) {
+    init(viewModel: ProjectsViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }

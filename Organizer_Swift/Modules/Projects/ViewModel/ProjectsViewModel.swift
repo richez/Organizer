@@ -7,13 +7,6 @@
 
 import Foundation
 
-// TODO: remove protocol ?
-protocol ProjectsViewModelProtocol {
-    var navigationBarTitle: String { get }
-    var projectsSection: ProjectsSection { get }
-    var projectsData: [ProjectCellData] { get }
-}
-
 struct ProjectsViewModel {
     private let projects: [Projects]
 
@@ -22,9 +15,9 @@ struct ProjectsViewModel {
     }
 }
 
-// MARK: - ProjectsViewModelProtocol
+// MARK: - Public
 
-extension ProjectsViewModel: ProjectsViewModelProtocol {
+extension ProjectsViewModel {
     var navigationBarTitle: String { "Projects" }
 
     var projectsSection: ProjectsSection { .main }
