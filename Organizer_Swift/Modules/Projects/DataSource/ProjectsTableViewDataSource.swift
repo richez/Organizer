@@ -8,6 +8,10 @@
 import UIKit
 
 final class ProjectsTableViewDataSource: UITableViewDiffableDataSource<ProjectsSection, ProjectCellData> {
+    // MARK: - Properties
+    
+    var dataStore: ProjectsDataStore?
+
     // MARK: - Initialization
 
     init(tableView: UITableView) {
@@ -25,16 +29,15 @@ final class ProjectsTableViewDataSource: UITableViewDiffableDataSource<ProjectsS
 
     // MARK: - Snapshot
 
-    func applySnapshot(
-        sections: [ProjectsSection],
-        projects: (ProjectsSection) -> [ProjectCellData],
-        animated: Bool
-    ) {
+    func applySnapshot(dataStore: ProjectsDataStore, animated: Bool) {
         var snapshot = NSDiffableDataSourceSnapshot<ProjectsSection, ProjectCellData>()
-        snapshot.appendSections(sections)
-        sections.forEach { section in
-            snapshot.appendItems(projects(section), toSection: section)
+        snapshot.appendSections(dataStore.sections)
+        dataStore.sections.forEach { section in
+            let projectsCellData = dataStore.projectsCellData(for: section)
+            snapshot.appendItems(projectsCellData, toSection: section)
         }
+
         self.apply(snapshot, animatingDifferences: animated)
+        self.dataStore = dataStore
     }
 }

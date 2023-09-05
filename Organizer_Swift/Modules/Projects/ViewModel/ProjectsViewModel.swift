@@ -8,24 +8,9 @@
 import Foundation
 
 struct ProjectsViewModel {
-    private let projects: [Projects]
+    var navigationBarTitle: String = "Projects"
 
-    init(projects: [Projects]) {
-        self.projects = projects
-    }
-}
-
-// MARK: - Public
-
-extension ProjectsViewModel {
-    var navigationBarTitle: String { "Projects" }
-
-    var projectsSections: [ProjectsSection] { [.main] }
-
-    func projects(for section: ProjectsSection) -> [ProjectCellData] {
-        switch section {
-        case .main:
-            return self.projects.map(ProjectCellData.init)
-        }
+    func fetchProjectsDataStore() -> ProjectsDataStore {
+        return ProjectsDataStore(projects: Projects.sample)
     }
 }

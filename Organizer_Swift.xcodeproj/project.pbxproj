@@ -11,6 +11,7 @@
 		F03693942AA6A30F005C373A /* UINavigationBar+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03693932AA6A30F005C373A /* UINavigationBar+Appearance.swift */; };
 		F03693972AA6A42C005C373A /* ProjectsViewRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03693962AA6A42C005C373A /* ProjectsViewRepresentation.swift */; };
 		F036939A2AA6A512005C373A /* ProjectsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03693992AA6A512005C373A /* ProjectsViewModel.swift */; };
+		F052F06B2AA7D7B30018AD96 /* ProjectsDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F052F06A2AA7D7B30018AD96 /* ProjectsDataStore.swift */; };
 		F0732B9E2AA61A7B0027EC4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0732B9D2AA61A7B0027EC4F /* AppDelegate.swift */; };
 		F0732BA02AA61A7B0027EC4F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0732B9F2AA61A7B0027EC4F /* SceneDelegate.swift */; };
 		F0732BA22AA61A7B0027EC4F /* ProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0732BA12AA61A7B0027EC4F /* ProjectsViewController.swift */; };
@@ -53,6 +54,7 @@
 		F03693932AA6A30F005C373A /* UINavigationBar+Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Appearance.swift"; sourceTree = "<group>"; };
 		F03693962AA6A42C005C373A /* ProjectsViewRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsViewRepresentation.swift; sourceTree = "<group>"; };
 		F03693992AA6A512005C373A /* ProjectsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsViewModel.swift; sourceTree = "<group>"; };
+		F052F06A2AA7D7B30018AD96 /* ProjectsDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsDataStore.swift; sourceTree = "<group>"; };
 		F0732B9A2AA61A7B0027EC4F /* Organizer_Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Organizer_Swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0732B9D2AA61A7B0027EC4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0732B9F2AA61A7B0027EC4F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 				F090AAB32AA7678D00480249 /* Projects.swift */,
 				F090AAB52AA7698B00480249 /* ProjectsSection.swift */,
 				F090AAB72AA7699900480249 /* ProjectCellData.swift */,
+				F052F06A2AA7D7B30018AD96 /* ProjectsDataStore.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				F090AAB22AA765E200480249 /* ProjectsCellRepresentation.swift in Sources */,
 				F090AAB62AA7698B00480249 /* ProjectsSection.swift in Sources */,
 				F090AAB82AA7699900480249 /* ProjectCellData.swift in Sources */,
+				F052F06B2AA7D7B30018AD96 /* ProjectsDataStore.swift in Sources */,
 				F036939A2AA6A512005C373A /* ProjectsViewModel.swift in Sources */,
 				F0732BD82AA63C810027EC4F /* Coordinator.swift in Sources */,
 				F03693972AA6A42C005C373A /* ProjectsViewRepresentation.swift in Sources */,

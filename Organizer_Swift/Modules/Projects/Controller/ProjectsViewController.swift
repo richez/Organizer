@@ -53,11 +53,8 @@ private extension ProjectsViewController {
     // MARK: - Configuration
 
     func configure() {
-        self.dataSource.applySnapshot(
-            sections: self.viewModel.projectsSections,
-            projects: self.viewModel.projects(for:),
-            animated: false
-        )
+        let projectsDataStore = self.viewModel.fetchProjectsDataStore()
+        self.dataSource.applySnapshot(dataStore: projectsDataStore, animated: false)
     }
 }
 
