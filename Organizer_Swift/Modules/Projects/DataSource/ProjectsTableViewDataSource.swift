@@ -25,10 +25,16 @@ final class ProjectsTableViewDataSource: UITableViewDiffableDataSource<ProjectsS
 
     // MARK: - Snapshot
 
-    func applySnapshot(section: ProjectsSection, projects: [ProjectCellData], animated: Bool) {
+    func applySnapshot(
+        sections: [ProjectsSection],
+        projects: (ProjectsSection) -> [ProjectCellData],
+        animated: Bool
+    ) {
         var snapshot = NSDiffableDataSourceSnapshot<ProjectsSection, ProjectCellData>()
-        snapshot.appendSections([section])
-        snapshot.appendItems(projects, toSection: section)
+        snapshot.appendSections(sections)
+        sections.forEach { section in
+            snapshot.appendItems(projects(section), toSection: section)
+        }
         self.apply(snapshot, animatingDifferences: animated)
     }
 }

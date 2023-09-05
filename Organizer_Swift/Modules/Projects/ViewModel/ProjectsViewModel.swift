@@ -20,6 +20,12 @@ struct ProjectsViewModel {
 extension ProjectsViewModel {
     var navigationBarTitle: String { "Projects" }
 
-    var projectsSection: ProjectsSection { .main }
-    var projectsData: [ProjectCellData] { self.projects.map(ProjectCellData.init) }
+    var projectsSections: [ProjectsSection] { [.main] }
+
+    func projects(for section: ProjectsSection) -> [ProjectCellData] {
+        switch section {
+        case .main:
+            return self.projects.map(ProjectCellData.init)
+        }
+    }
 }

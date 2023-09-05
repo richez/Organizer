@@ -52,8 +52,8 @@ private extension ProjectsViewController {
 
     func configure() {
         self.dataSource.applySnapshot(
-            section: self.viewModel.projectsSection,
-            projects: self.viewModel.projectsData,
+            sections: self.viewModel.projectsSections,
+            projects: self.viewModel.projects(for:),
             animated: false
         )
     }
