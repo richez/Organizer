@@ -40,4 +40,31 @@ final class ProjectsTableViewDataSource: UITableViewDiffableDataSource<ProjectsS
         self.apply(snapshot, animatingDifferences: animated)
         self.dataStore = dataStore
     }
+
+    func applySnapshot(deleting projectCellData: ProjectCellData) {
+        var snapshot = self.snapshot()
+        snapshot.deleteItems([projectCellData])
+        self.apply(snapshot, animatingDifferences: true)
+
+        self.dataStore?.deleteProject(with: projectCellData.id)
+    }
+
+    // MARK: - UITableViewDataSource
+
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+    override func tableView(
+        _ tableView: UITableView,
+        commit editingStyle: UITableViewCell.EditingStyle,
+        forRowAt indexPath: IndexPath) {
+            switch editingStyle {
+            case .delete:
+                guard let projectCellData = self.dataStore?.projectCellData(at: indexPath) else { return }
+                self.applySnapshot(deleting: projectCellData)
+            default:
+                break
+            }
+        }
 }
