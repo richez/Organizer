@@ -25,8 +25,10 @@
 		F090AAB02AA7633300480249 /* ProjectsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F090AAAF2AA7633300480249 /* ProjectsCell.swift */; };
 		F090AAB22AA765E200480249 /* ProjectsCellRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F090AAB12AA765E200480249 /* ProjectsCellRepresentation.swift */; };
 		F090AAB42AA7678D00480249 /* Projects.swift in Sources */ = {isa = PBXBuildFile; fileRef = F090AAB32AA7678D00480249 /* Projects.swift */; };
-		F090AAB62AA7698B00480249 /* ProjectsSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = F090AAB52AA7698B00480249 /* ProjectsSections.swift */; };
-		F090AAB82AA7699900480249 /* ProjectsCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F090AAB72AA7699900480249 /* ProjectsCellData.swift */; };
+		F090AAB62AA7698B00480249 /* ProjectsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F090AAB52AA7698B00480249 /* ProjectsSection.swift */; };
+		F090AAB82AA7699900480249 /* ProjectCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F090AAB72AA7699900480249 /* ProjectCellData.swift */; };
+		F0D2B0DF2AA770EC000D34CA /* ProjectsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D2B0DE2AA770EC000D34CA /* ProjectsTableViewDataSource.swift */; };
+		F0D2B0E12AA776E3000D34CA /* UIView+Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D2B0E02AA776E3000D34CA /* UIView+Identifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,8 +71,10 @@
 		F090AAAF2AA7633300480249 /* ProjectsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsCell.swift; sourceTree = "<group>"; };
 		F090AAB12AA765E200480249 /* ProjectsCellRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsCellRepresentation.swift; sourceTree = "<group>"; };
 		F090AAB32AA7678D00480249 /* Projects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projects.swift; sourceTree = "<group>"; };
-		F090AAB52AA7698B00480249 /* ProjectsSections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsSections.swift; sourceTree = "<group>"; };
-		F090AAB72AA7699900480249 /* ProjectsCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsCellData.swift; sourceTree = "<group>"; };
+		F090AAB52AA7698B00480249 /* ProjectsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsSection.swift; sourceTree = "<group>"; };
+		F090AAB72AA7699900480249 /* ProjectCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCellData.swift; sourceTree = "<group>"; };
+		F0D2B0DE2AA770EC000D34CA /* ProjectsTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsTableViewDataSource.swift; sourceTree = "<group>"; };
+		F0D2B0E02AA776E3000D34CA /* UIView+Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Identifier.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				F03693932AA6A30F005C373A /* UINavigationBar+Appearance.swift */,
+				F0D2B0E02AA776E3000D34CA /* UIView+Identifier.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -186,6 +191,7 @@
 			children = (
 				F0732BD02AA639BD0027EC4F /* Controller */,
 				F0732BD12AA639CB0027EC4F /* Coordinator */,
+				F0D2B0DD2AA770CB000D34CA /* DataSource */,
 				F0732BD32AA639E10027EC4F /* Model */,
 				F0732BD22AA639D20027EC4F /* View */,
 				F03693982AA6A4FE005C373A /* ViewModel */,
@@ -224,8 +230,8 @@
 			isa = PBXGroup;
 			children = (
 				F090AAB32AA7678D00480249 /* Projects.swift */,
-				F090AAB52AA7698B00480249 /* ProjectsSections.swift */,
-				F090AAB72AA7699900480249 /* ProjectsCellData.swift */,
+				F090AAB52AA7698B00480249 /* ProjectsSection.swift */,
+				F090AAB72AA7699900480249 /* ProjectCellData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -254,6 +260,14 @@
 				F0732BD92AA63E020027EC4F /* AppLaunchCoordinator.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		F0D2B0DD2AA770CB000D34CA /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				F0D2B0DE2AA770EC000D34CA /* ProjectsTableViewDataSource.swift */,
+			);
+			path = DataSource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -387,17 +401,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				F090AAB22AA765E200480249 /* ProjectsCellRepresentation.swift in Sources */,
-				F090AAB62AA7698B00480249 /* ProjectsSections.swift in Sources */,
-				F090AAB82AA7699900480249 /* ProjectsCellData.swift in Sources */,
+				F090AAB62AA7698B00480249 /* ProjectsSection.swift in Sources */,
+				F090AAB82AA7699900480249 /* ProjectCellData.swift in Sources */,
 				F036939A2AA6A512005C373A /* ProjectsViewModel.swift in Sources */,
 				F0732BD82AA63C810027EC4F /* Coordinator.swift in Sources */,
 				F03693972AA6A42C005C373A /* ProjectsViewRepresentation.swift in Sources */,
+				F0D2B0E12AA776E3000D34CA /* UIView+Identifier.swift in Sources */,
 				F0732BA22AA61A7B0027EC4F /* ProjectsViewController.swift in Sources */,
 				F03693942AA6A30F005C373A /* UINavigationBar+Appearance.swift in Sources */,
 				F0732BDC2AA63E5E0027EC4F /* ProjectsCoordinator.swift in Sources */,
 				F0732B9E2AA61A7B0027EC4F /* AppDelegate.swift in Sources */,
 				F03693912AA6944D005C373A /* ProjectsView.swift in Sources */,
 				F0732BDA2AA63E020027EC4F /* AppLaunchCoordinator.swift in Sources */,
+				F0D2B0DF2AA770EC000D34CA /* ProjectsTableViewDataSource.swift in Sources */,
 				F090AAB42AA7678D00480249 /* Projects.swift in Sources */,
 				F090AAB02AA7633300480249 /* ProjectsCell.swift in Sources */,
 				F0732BA02AA61A7B0027EC4F /* SceneDelegate.swift in Sources */,

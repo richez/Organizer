@@ -7,6 +7,7 @@
 
 import Foundation
 
-enum ProjectsSections {
+// TODO: remove section logic
+enum ProjectsSection {
     case main
 }

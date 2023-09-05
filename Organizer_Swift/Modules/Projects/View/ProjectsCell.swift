@@ -27,6 +27,10 @@ final class ProjectsCell: UITableViewCell {
 
         self.setup()
     }
+
+    func configure(with project: ProjectCellData) {
+        self.titleLabel.text = project.title
+    }
 }
 
 private extension ProjectsCell {
@@ -37,6 +41,7 @@ private extension ProjectsCell {
 
         self.titleLabel.textColor = self.cellRepresentation.titleColor
 
+        self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(self.titleLabel)
         NSLayoutConstraint.activate([
             self.titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),

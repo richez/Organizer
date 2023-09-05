@@ -10,7 +10,10 @@ import UIKit
 final class ProjectsViewController: UIViewController {
     // MARK: - Properties
 
+    private lazy var contentView = ProjectsView()
+
     private let viewModel: ProjectsViewModelProtocol
+    private lazy var dataSource = ProjectsTableViewDataSource(tableView: self.contentView.tableView)
 
     // MARK: - Initialization
 
@@ -26,21 +29,32 @@ final class ProjectsViewController: UIViewController {
     // MARK: - Life Cycle
 
     override func loadView() {
-        self.view = ProjectsView()
+        self.view = self.contentView
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.setupNavigationBar()
+        self.setup()
+        self.configure()
     }
 }
 
 private extension ProjectsViewController {
     // MARK: - Setup
 
-    func setupNavigationBar() {
+    func setup() {
         self.title = self.viewModel.navigationBarTitle
         self.navigationController?.navigationBar.applyAppearance()
+    }
+
+    // MARK: - Configuration
+
+    func configure() {
+        self.dataSource.applySnapshot(
+            section: self.viewModel.projectsSection,
+            projects: self.viewModel.projectsData,
+            animated: false
+        )
     }
 }

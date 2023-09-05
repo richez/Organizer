@@ -7,10 +7,12 @@
 
 import Foundation
 
-struct ProjectsCellData {
+struct ProjectCellData: Hashable {
+    var id: UUID
     var title: String
 
-    init(projects: Projects) {
-        self.title = projects.title
+    init(project: Projects) {
+        self.id = project.id
+        self.title = project.title
     }
 }

@@ -7,10 +7,11 @@
 
 import Foundation
 
+// TODO: remove protocol ?
 protocol ProjectsViewModelProtocol {
     var navigationBarTitle: String { get }
-    var projectsSections: [ProjectsSections] { get }
-    var projectsData: [ProjectsCellData] { get }
+    var projectsSection: ProjectsSection { get }
+    var projectsData: [ProjectCellData] { get }
 }
 
 struct ProjectsViewModel {
@@ -26,6 +27,6 @@ struct ProjectsViewModel {
 extension ProjectsViewModel: ProjectsViewModelProtocol {
     var navigationBarTitle: String { "Projects" }
 
-    var projectsSections: [ProjectsSections] { [.main] }
-    var projectsData: [ProjectsCellData] { self.projects.map(ProjectsCellData.init) }
+    var projectsSection: ProjectsSection { .main }
+    var projectsData: [ProjectCellData] { self.projects.map(ProjectCellData.init) }
 }

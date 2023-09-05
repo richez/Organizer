@@ -8,9 +8,11 @@
 import Foundation
 
 final class Projects {
+    let id: UUID
     var title: String
 
-    init(title: String) {
+    init(id: UUID = .init(), title: String) {
+        self.id = id
         self.title = title
     }
 }
