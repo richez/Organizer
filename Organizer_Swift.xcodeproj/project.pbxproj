@@ -22,6 +22,7 @@
 		F0732BD82AA63C810027EC4F /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0732BD72AA63C810027EC4F /* Coordinator.swift */; };
 		F0732BDA2AA63E020027EC4F /* AppLaunchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0732BD92AA63E020027EC4F /* AppLaunchCoordinator.swift */; };
 		F0732BDC2AA63E5E0027EC4F /* ProjectsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0732BDB2AA63E5E0027EC4F /* ProjectsCoordinator.swift */; };
+		F090AAB02AA7633300480249 /* ProjectsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F090AAAF2AA7633300480249 /* ProjectsCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		F0732BD72AA63C810027EC4F /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		F0732BD92AA63E020027EC4F /* AppLaunchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLaunchCoordinator.swift; sourceTree = "<group>"; };
 		F0732BDB2AA63E5E0027EC4F /* ProjectsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsCoordinator.swift; sourceTree = "<group>"; };
+		F090AAAF2AA7633300480249 /* ProjectsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +206,7 @@
 			children = (
 				F03693902AA6944D005C373A /* ProjectsView.swift */,
 				F03693962AA6A42C005C373A /* ProjectsViewRepresentation.swift */,
+				F090AAAF2AA7633300480249 /* ProjectsCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				F0732B9E2AA61A7B0027EC4F /* AppDelegate.swift in Sources */,
 				F03693912AA6944D005C373A /* ProjectsView.swift in Sources */,
 				F0732BDA2AA63E020027EC4F /* AppLaunchCoordinator.swift in Sources */,
+				F090AAB02AA7633300480249 /* ProjectsCell.swift in Sources */,
 				F0732BA02AA61A7B0027EC4F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
