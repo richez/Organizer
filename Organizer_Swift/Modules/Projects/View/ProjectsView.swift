@@ -12,6 +12,8 @@ final class ProjectsView: UIView {
 
     private let viewRepresentation = ProjectsViewRepresentation()
 
+    let tableView: UITableView = UITableView()
+
     // MARK: - Initialization
 
     override init(frame: CGRect) {
@@ -30,5 +32,20 @@ private extension ProjectsView {
 
     func setup() {
         self.backgroundColor = self.viewRepresentation.backgroundColor
+
+        self.setupTableView()
+    }
+
+    func setupTableView() {
+        self.tableView.backgroundColor = self.viewRepresentation.tableViewBackgroundColor
+
+        self.tableView.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(self.tableView)
+        NSLayoutConstraint.activate([
+            self.tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            self.tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            self.tableView.topAnchor.constraint(equalTo: self.topAnchor),
+            self.tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+        ])
     }
 }
