@@ -38,7 +38,17 @@ private extension ProjectsCell {
 
     func setup() {
         self.backgroundColor = self.cellRepresentation.backgroundColor
+        self.setupSelectedBackgroundView()
+        self.setTitleView()
+    }
 
+    func setupSelectedBackgroundView() {
+        let selectedBackgroundView = UIView()
+        selectedBackgroundView.backgroundColor = self.cellRepresentation.selectedBackgroundColor
+        self.selectedBackgroundView = selectedBackgroundView
+    }
+
+    func setTitleView() {
         self.titleLabel.textColor = self.cellRepresentation.titleColor
 
         self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
