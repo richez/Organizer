@@ -14,7 +14,7 @@ struct ProjectCreatorViewRepresentation {
         distribution: .fill,
         alignment: .center,
         spacing: 8,
-        layoutMargins: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+        layoutMargins: UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
     )
 
     var labelsHeight: CGFloat = 30
