@@ -8,6 +8,7 @@
 import UIKit
 
 protocol ProjectCreatorViewDelegate: AnyObject {
+    func didEditFields(name: String, theme: String)
     func didTapSaveButton()
 }
 
@@ -19,6 +20,12 @@ final class ProjectCreatorView: UIView {
 
     private let fieldsView: ProjectCreatorFieldsView = .init()
     private let saveButton: FloatingActionButton = .init()
+
+    var isSaveButtonEnabled: Bool = false {
+        didSet {
+            self.saveButton.isEnabled = self.isSaveButtonEnabled
+        }
+    }
 
     // MARK: - Initialization
 
@@ -39,6 +46,15 @@ final class ProjectCreatorView: UIView {
     }
 }
 
+// MARK: - ProjectCreatorFieldsViewDelegate
+
+extension ProjectCreatorView: ProjectCreatorFieldsViewDelegate {
+    func didEditFields(name: String, theme: String) {
+        self.delegate?.didEditFields(name: name, theme: theme)
+    }
+}
+
+
 private extension ProjectCreatorView {
     // MARK: - Setup
 
@@ -49,6 +65,8 @@ private extension ProjectCreatorView {
     }
 
     func setupFieldsView() {
+        self.fieldsView.delegate = self
+        
         self.addSubview(self.fieldsView)
         self.fieldsView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -59,6 +77,7 @@ private extension ProjectCreatorView {
     }
 
     func setupSaveButton() {
+        self.saveButton.isEnabled = self.isSaveButtonEnabled
         self.saveButton.setup(with: self.viewRepresentation.saveButtonViewRepresentation)
 
         self.saveButton.addAction(UIAction(handler: { [weak self] _ in

@@ -5,7 +5,12 @@
 //  Created by Thibaut Richez on 06/09/2023.
 //
 
+import Combine
 import UIKit
+
+protocol ProjectCreatorFieldsViewDelegate: AnyObject {
+    func didEditFields(name: String, theme: String)
+}
 
 final class ProjectCreatorFieldsView: UIView {
     // MARK: - Properties
@@ -18,6 +23,10 @@ final class ProjectCreatorFieldsView: UIView {
     private let nameTextField: UITextField = .init()
     private let themeLabel: UILabel = .init()
     private let themeTextField: UITextField = .init()
+
+    weak var delegate: ProjectCreatorFieldsViewDelegate?
+
+    var subscriptions = Set<AnyCancellable>()
 
     // MARK: - Initialization
 
@@ -87,6 +96,16 @@ private extension ProjectCreatorFieldsView {
         textField.borderStyle = self.viewRepresentation.textFieldsBorderStyle
         textField.autocapitalizationType = .sentences
         textField.clearButtonMode = .always
+
+        NotificationCenter.default
+                .publisher(for: UITextField.textDidChangeNotification, object: textField)
+                .sink { [weak self] text in
+                    self?.delegate?.didEditFields(
+                        name: self?.nameTextField.text ?? "",
+                        theme: self?.themeTextField.text ?? ""
+                    )
+                }
+                .store(in: &self.subscriptions)
 
         textField.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
