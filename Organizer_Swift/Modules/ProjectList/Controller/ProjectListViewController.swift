@@ -13,12 +13,15 @@ final class ProjectListViewController: UIViewController {
     private lazy var contentView = ProjectListView()
 
     private let viewModel: ProjectListViewModel
+    private unowned var coordinator: ProjectListCoordinatorProtocol
+
     private lazy var dataSource = ProjectListDataSource(tableView: self.contentView.tableView)
 
     // MARK: - Initialization
 
-    init(viewModel: ProjectListViewModel) {
+    init(viewModel: ProjectListViewModel, coordinator: ProjectListCoordinatorProtocol) {
         self.viewModel = viewModel
+        self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -66,6 +69,6 @@ extension ProjectListViewController: ProjectListViewDelegate {
     }
 
     func didSelectProjectCreatorButton() {
-
+        self.coordinator.showProjectCreator()
     }
 }
