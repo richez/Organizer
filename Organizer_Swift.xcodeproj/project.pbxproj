@@ -15,6 +15,7 @@
 		F0307C822AA8A97800DC3958 /* ProjectCreatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0307C812AA8A97800DC3958 /* ProjectCreatorViewModel.swift */; };
 		F0307C842AA8BF0E00DC3958 /* ProjectCreatorViewRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0307C832AA8BF0E00DC3958 /* ProjectCreatorViewRepresentation.swift */; };
 		F0307C862AA8DDAB00DC3958 /* NSLayoutAnchor+Priority.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0307C852AA8DDAB00DC3958 /* NSLayoutAnchor+Priority.swift */; };
+		F0307C882AA8E1B100DC3958 /* UIStackView+ViewRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0307C872AA8E1B100DC3958 /* UIStackView+ViewRepresentation.swift */; };
 		F03693912AA6944D005C373A /* ProjectListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03693902AA6944D005C373A /* ProjectListView.swift */; };
 		F03693942AA6A30F005C373A /* UINavigationBar+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03693932AA6A30F005C373A /* UINavigationBar+Appearance.swift */; };
 		F03693972AA6A42C005C373A /* ProjectListViewRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03693962AA6A42C005C373A /* ProjectListViewRepresentation.swift */; };
@@ -66,6 +67,7 @@
 		F0307C812AA8A97800DC3958 /* ProjectCreatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCreatorViewModel.swift; sourceTree = "<group>"; };
 		F0307C832AA8BF0E00DC3958 /* ProjectCreatorViewRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCreatorViewRepresentation.swift; sourceTree = "<group>"; };
 		F0307C852AA8DDAB00DC3958 /* NSLayoutAnchor+Priority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutAnchor+Priority.swift"; sourceTree = "<group>"; };
+		F0307C872AA8E1B100DC3958 /* UIStackView+ViewRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+ViewRepresentation.swift"; sourceTree = "<group>"; };
 		F03693902AA6944D005C373A /* ProjectListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListView.swift; sourceTree = "<group>"; };
 		F03693932AA6A30F005C373A /* UINavigationBar+Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Appearance.swift"; sourceTree = "<group>"; };
 		F03693962AA6A42C005C373A /* ProjectListViewRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListViewRepresentation.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 				F03693932AA6A30F005C373A /* UINavigationBar+Appearance.swift */,
 				F0D2B0E02AA776E3000D34CA /* UIView+Identifier.swift */,
 				F0307C852AA8DDAB00DC3958 /* NSLayoutAnchor+Priority.swift */,
+				F0307C872AA8E1B100DC3958 /* UIStackView+ViewRepresentation.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -532,6 +535,7 @@
 				F0732BDA2AA63E020027EC4F /* AppLaunchCoordinator.swift in Sources */,
 				F0307C862AA8DDAB00DC3958 /* NSLayoutAnchor+Priority.swift in Sources */,
 				F0D2B0DF2AA770EC000D34CA /* ProjectListDataSource.swift in Sources */,
+				F0307C882AA8E1B100DC3958 /* UIStackView+ViewRepresentation.swift in Sources */,
 				F0307C702AA87EEE00DC3958 /* FloatingActionButtonViewRepresentation.swift in Sources */,
 				F0307C842AA8BF0E00DC3958 /* ProjectCreatorViewRepresentation.swift in Sources */,
 				F090AAB42AA7678D00480249 /* Project.swift in Sources */,
