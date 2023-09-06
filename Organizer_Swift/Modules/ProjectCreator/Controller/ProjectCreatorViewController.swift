@@ -57,7 +57,11 @@ extension ProjectCreatorViewController: ProjectCreatorViewDelegate {
             self.contentView.isSaveButtonEnabled = isFieldsValid
         }
     }
-    
+
+    func didTapOnView() {
+        self.view.endEditing(true)
+    }
+
     func didTapSaveButton() {
         self.view.endEditing(true)
         self.dismiss(animated: true)

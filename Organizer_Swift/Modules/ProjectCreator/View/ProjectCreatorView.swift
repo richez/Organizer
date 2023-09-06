@@ -9,6 +9,7 @@ import UIKit
 
 protocol ProjectCreatorViewDelegate: AnyObject {
     func didEditFields(name: String, theme: String)
+    func didTapOnView()
     func didTapSaveButton()
 }
 
@@ -60,6 +61,11 @@ private extension ProjectCreatorView {
 
     func setup() {
         self.backgroundColor = self.viewRepresentation.backgroundColor
+
+        self.addGestureRecognizer(
+            UITapGestureRecognizer(target: self, action: #selector(self.didTapOnView(sender:)))
+        )
+
         self.setupFieldsView()
         self.setupSaveButton()
     }
@@ -97,5 +103,12 @@ private extension ProjectCreatorView {
                 equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -20
             )
         ])
+    }
+
+    // MARK: - Tap Gesture Action
+
+    @objc
+    func didTapOnView(sender: UIView) {
+        self.delegate?.didTapOnView()
     }
 }
