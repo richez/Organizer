@@ -141,6 +141,23 @@
 			path = FloatingActionButton;
 			sourceTree = "<group>";
 		};
+		F0307C712AA8A81900DC3958 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F0307C722AA8A82800DC3958 /* Project */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F0307C722AA8A82800DC3958 /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				F090AAB32AA7678D00480249 /* Project.swift */,
+				F052F06A2AA7D7B30018AD96 /* ProjectListDataStore.swift */,
+			);
+			path = Project;
+			sourceTree = "<group>";
+		};
 		F03693922AA6A2F3005C373A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,6 +201,7 @@
 				F0732BCD2AA626780027EC4F /* AppLaunch */,
 				F03693922AA6A2F3005C373A /* Extensions */,
 				F0307C692AA87EA500DC3958 /* Helpers */,
+				F0307C712AA8A81900DC3958 /* Models */,
 				F0732BCE2AA638C10027EC4F /* Modules */,
 				F0732BA62AA61A7C0027EC4F /* Assets.xcassets */,
 				F0732BAB2AA61A7C0027EC4F /* Info.plist */,
@@ -269,10 +287,8 @@
 		F0732BD32AA639E10027EC4F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F090AAB32AA7678D00480249 /* Project.swift */,
 				F090AAB52AA7698B00480249 /* ProjectListSection.swift */,
 				F090AAB72AA7699900480249 /* ProjectCellData.swift */,
-				F052F06A2AA7D7B30018AD96 /* ProjectListDataStore.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
