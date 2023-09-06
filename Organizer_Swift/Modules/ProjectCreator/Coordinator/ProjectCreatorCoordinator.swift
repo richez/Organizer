@@ -7,7 +7,11 @@
 
 import UIKit
 
-final class ProjectCreatorCoordinator: ChildCoordinator {
+protocol ProjectCreatorCoordinatorProtocol: AnyObject {
+    func finish()
+}
+
+final class ProjectCreatorCoordinator: ChildCoordinator, ProjectCreatorCoordinatorProtocol {
     // MARK: - Properties
 
     unowned private let navigationController: UINavigationController
@@ -24,7 +28,10 @@ final class ProjectCreatorCoordinator: ChildCoordinator {
 
     func start() {
         let projectCreatorViewModel = ProjectCreatorViewModel()
-        let projectCreatorViewController = ProjectCreatorViewController(viewModel: projectCreatorViewModel)
+        let projectCreatorViewController = ProjectCreatorViewController(
+            viewModel: projectCreatorViewModel,
+            coordinator: self
+        )
         self.navigationController.present(projectCreatorViewController, animated: true)
     }
 }

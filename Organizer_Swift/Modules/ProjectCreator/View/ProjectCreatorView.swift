@@ -62,7 +62,6 @@ private extension ProjectCreatorView {
         self.saveButton.setup(with: self.viewRepresentation.saveButtonViewRepresentation)
 
         self.saveButton.addAction(UIAction(handler: { [weak self] _ in
-            self?.endEditing(true)
             self?.delegate?.didTapSaveButton()
         }), for: .touchUpInside)
 

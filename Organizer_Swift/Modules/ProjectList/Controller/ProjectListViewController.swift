@@ -13,7 +13,7 @@ final class ProjectListViewController: UIViewController {
     private lazy var contentView = ProjectListView()
 
     private let viewModel: ProjectListViewModel
-    private unowned var coordinator: ProjectListCoordinatorProtocol
+    private unowned let coordinator: ProjectListCoordinatorProtocol
 
     private lazy var dataSource = ProjectListDataSource(tableView: self.contentView.tableView)
 

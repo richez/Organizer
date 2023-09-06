@@ -12,12 +12,14 @@ final class ProjectCreatorViewController: UIViewController {
 
     private lazy var contentView = ProjectCreatorView()
 
+    private unowned let coordinator: ProjectCreatorCoordinatorProtocol
     private let viewModel: ProjectCreatorViewModel
 
     // MARK: - Initialization
 
-    init(viewModel: ProjectCreatorViewModel) {
+    init(viewModel: ProjectCreatorViewModel, coordinator: ProjectCreatorCoordinatorProtocol) {
         self.viewModel = viewModel
+        self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -50,5 +52,8 @@ private extension ProjectCreatorViewController {
 
 extension ProjectCreatorViewController: ProjectCreatorViewDelegate {
     func didTapSaveButton() {
+        self.view.endEditing(true)
+        self.dismiss(animated: true)
+        self.coordinator.finish()
     }
 }
