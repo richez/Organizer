@@ -18,12 +18,8 @@ final class ProjectListView: UIView {
     private let viewRepresentation = ProjectListViewRepresentation()
     weak var delegate: ProjectListViewDelegate?
 
-    let tableView: UITableView = UITableView()
-    private lazy var projectCreatorButton: FloatingActionButton = {
-        FloatingActionButton(
-            viewRepresentation: self.viewRepresentation.projectCreatorButtonViewRepresentation
-        )
-    }()
+    let tableView: UITableView = .init()
+    private lazy var projectCreatorButton: FloatingActionButton = .init()
 
     // MARK: - Initialization
 
@@ -63,6 +59,10 @@ private extension ProjectListView {
     }
 
     func setupProjectCreatorButton() {
+        self.projectCreatorButton.setup(
+            with: self.viewRepresentation.projectCreatorButtonViewRepresentation
+        )
+
         self.projectCreatorButton.addTarget(
             self,
             action: #selector(self.projectCreatorButtonTapped(_:)),

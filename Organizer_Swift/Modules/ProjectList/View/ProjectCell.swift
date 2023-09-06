@@ -12,7 +12,7 @@ final class ProjectCell: UITableViewCell {
 
     private let viewRepresentation = ProjectCellViewRepresentation()
 
-    private let titleLabel = UILabel()
+    private let titleLabel: UILabel = .init()
 
     // MARK: - Initialization
 
