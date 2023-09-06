@@ -105,13 +105,16 @@ private extension ProjectCreatorView {
         self.saveButton.setup(with: self.viewRepresentation.saveButtonViewRepresentation)
 
         self.saveButton.addAction(UIAction(handler: { [weak self] _ in
+            self?.endEditing(true)
             self?.delegate?.didTapSaveButton()
         }), for: .touchUpInside)
 
         self.addSubview(self.saveButton)
         self.saveButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            self.saveButton.topAnchor.constraint(greaterThanOrEqualTo: self.formStackView.bottomAnchor, constant: 8),
+            self.saveButton.topAnchor.constraint(
+                greaterThanOrEqualTo: self.formStackView.bottomAnchor, constant: 8
+            ),
             self.saveButton.bottomAnchor.constraint(
                 equalTo: self.keyboardLayoutGuide.topAnchor, constant: -8, priority: .defaultLow
             ),
