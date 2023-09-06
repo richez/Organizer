@@ -1,5 +1,5 @@
 //
-//  ProjectsDataStore.swift
+//  ProjectListDataStore.swift
 //  Organizer_Swift
 //
 //  Created by Thibaut Richez on 05/09/2023.
@@ -7,20 +7,20 @@
 
 import Foundation
 
-final class ProjectsDataStore {
-    private var projects: [Projects]
+final class ProjectListDataStore {
+    private var projects: [Project]
 
-    init(projects: [Projects]) {
+    init(projects: [Project]) {
         self.projects = projects
     }
 }
 
 // MARK: - Public
 
-extension ProjectsDataStore {
-    var sections: [ProjectsSection] { [.main] }
+extension ProjectListDataStore {
+    var sections: [ProjectListSection] { [.main] }
 
-    func projectsCellData(for section: ProjectsSection) -> [ProjectCellData] {
+    func projectListCellData(for section: ProjectListSection) -> [ProjectCellData] {
         switch section {
         case .main:
             return self.projects.map(ProjectCellData.init)

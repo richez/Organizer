@@ -7,6 +7,6 @@
 
 import Foundation
 
-enum ProjectsSection {
+enum ProjectListSection {
     case main
 }

@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ProjectListViewController.swift
 //  Organizer_Swift
 //
 //  Created by Thibaut Richez on 04/09/2023.
@@ -7,17 +7,17 @@
 
 import UIKit
 
-final class ProjectsViewController: UIViewController {
+final class ProjectListViewController: UIViewController {
     // MARK: - Properties
 
-    private lazy var contentView = ProjectsView()
+    private lazy var contentView = ProjectListView()
 
-    private let viewModel: ProjectsViewModel
-    private lazy var dataSource = ProjectsTableViewDataSource(tableView: self.contentView.tableView)
+    private let viewModel: ProjectListViewModel
+    private lazy var dataSource = ProjectListDataSource(tableView: self.contentView.tableView)
 
     // MARK: - Initialization
 
-    init(viewModel: ProjectsViewModel) {
+    init(viewModel: ProjectListViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -40,7 +40,7 @@ final class ProjectsViewController: UIViewController {
     }
 }
 
-private extension ProjectsViewController {
+private extension ProjectListViewController {
     // MARK: - Setup
 
     func setup() {
@@ -53,19 +53,19 @@ private extension ProjectsViewController {
     // MARK: - Configuration
 
     func configure() {
-        let projectsDataStore = self.viewModel.fetchProjectsDataStore()
-        self.dataSource.applySnapshot(dataStore: projectsDataStore, animated: false)
+        let projectListDataStore = self.viewModel.fetchProjectListDataStore()
+        self.dataSource.applySnapshot(dataStore: projectListDataStore, animated: false)
     }
 }
 
-// MARK: - ProjectsViewDelegate
+// MARK: - ProjectListViewDelegate
 
-extension ProjectsViewController: ProjectsViewDelegate {
+extension ProjectListViewController: ProjectListViewDelegate {
     func didSelectProject(at indexPath: IndexPath) {
 
     }
 
-    func didSelectNewProject() {
+    func didSelectProjectCreatorButton() {
 
     }
 }

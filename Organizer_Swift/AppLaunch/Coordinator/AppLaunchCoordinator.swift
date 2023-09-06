@@ -23,7 +23,7 @@ final class AppLaunchCoordinator: ParentCoordinator {
 
 private extension AppLaunchCoordinator {
     func startProjectsCoordinator() {
-        let projectsCoordinator = ProjectsCoordinator(window: self.window)
-        self.start(child: projectsCoordinator)
+        let projectListCoordinator = ProjectListCoordinator(window: self.window)
+        self.start(child: projectListCoordinator)
     }
 }

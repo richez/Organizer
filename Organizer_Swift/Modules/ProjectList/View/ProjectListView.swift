@@ -1,5 +1,5 @@
 //
-//  ProjectsView.swift
+//  ProjectListView.swift
 //  Organizer_Swift
 //
 //  Created by Thibaut Richez on 05/09/2023.
@@ -7,21 +7,21 @@
 
 import UIKit
 
-protocol ProjectsViewDelegate: AnyObject {
+protocol ProjectListViewDelegate: AnyObject {
     func didSelectProject(at indexPath: IndexPath)
-    func didSelectNewProject()
+    func didSelectProjectCreatorButton()
 }
 
-final class ProjectsView: UIView {
+final class ProjectListView: UIView {
     // MARK: - Properties
 
-    private let viewRepresentation = ProjectsViewRepresentation()
-    weak var delegate: ProjectsViewDelegate?
+    private let viewRepresentation = ProjectListViewRepresentation()
+    weak var delegate: ProjectListViewDelegate?
 
     let tableView: UITableView = UITableView()
-    private lazy var newProjectButton: FloatingActionButton = {
+    private lazy var projectCreatorButton: FloatingActionButton = {
         FloatingActionButton(
-            viewRepresentation: self.viewRepresentation.newProjectButtonViewRepresentation
+            viewRepresentation: self.viewRepresentation.projectCreatorButtonViewRepresentation
         )
     }()
 
@@ -38,14 +38,14 @@ final class ProjectsView: UIView {
     }
 }
 
-private extension ProjectsView {
+private extension ProjectListView {
     // MARK: - Setup
 
     func setup() {
         self.backgroundColor = self.viewRepresentation.backgroundColor
 
         self.setupTableView()
-        self.setupFloatingActionButton()
+        self.setupProjectCreatorButton()
     }
 
     func setupTableView() {
@@ -62,34 +62,34 @@ private extension ProjectsView {
         ])
     }
 
-    func setupFloatingActionButton() {
-        self.newProjectButton.addTarget(
+    func setupProjectCreatorButton() {
+        self.projectCreatorButton.addTarget(
             self,
-            action: #selector(self.newProjectButtonTapped(_:)),
+            action: #selector(self.projectCreatorButtonTapped(_:)),
             for: .touchUpInside
         )
 
-        self.addSubview(self.newProjectButton)
-        self.newProjectButton.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(self.projectCreatorButton)
+        self.projectCreatorButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            self.newProjectButton.bottomAnchor.constraint(
+            self.projectCreatorButton.bottomAnchor.constraint(
                 equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -10
             ),
-            self.newProjectButton.trailingAnchor.constraint(
+            self.projectCreatorButton.trailingAnchor.constraint(
                 equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -20
             )
         ])
     }
 
     @IBAction
-    func newProjectButtonTapped(_ sender: UIButton) {
-        self.delegate?.didSelectNewProject()
+    func projectCreatorButtonTapped(_ sender: UIButton) {
+        self.delegate?.didSelectProjectCreatorButton()
     }
 }
 
 // MARK: - UITableViewDelegate
 
-extension ProjectsView: UITableViewDelegate {
+extension ProjectListView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return self.viewRepresentation.cellHeight
     }

@@ -11,7 +11,7 @@ struct ProjectCellData: Hashable {
     var id: UUID
     var title: String
 
-    init(project: Projects) {
+    init(project: Project) {
         self.id = project.id
         self.title = project.title
     }

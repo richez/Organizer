@@ -1,5 +1,5 @@
 //
-//  Projects.swift
+//  Project.swift
 //  Organizer_Swift
 //
 //  Created by Thibaut Richez on 05/09/2023.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class Projects {
+final class Project {
     let id: UUID
     var title: String
 
@@ -17,12 +17,12 @@ final class Projects {
     }
 }
 
-extension Projects {
-    static var sample: [Projects] {
+extension Project {
+    static var sample: [Project] {
         [
-            Projects(title: "Auto-Construction"),
-            Projects(title: "Menuiserie"),
-            Projects(title: "Recherche Emploi")
+            Project(title: "Auto-Construction"),
+            Project(title: "Menuiserie"),
+            Project(title: "Recherche Emploi")
         ]
     }
 }

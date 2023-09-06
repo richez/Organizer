@@ -1,5 +1,5 @@
 //
-//  ProjectsTableViewDataSource.swift
+//  ProjectListDataSource.swift
 //  Organizer_Swift
 //
 //  Created by Thibaut Richez on 05/09/2023.
@@ -7,33 +7,33 @@
 
 import UIKit
 
-final class ProjectsTableViewDataSource: UITableViewDiffableDataSource<ProjectsSection, ProjectCellData> {
+final class ProjectListDataSource: UITableViewDiffableDataSource<ProjectListSection, ProjectCellData> {
     // MARK: - Properties
     
-    var dataStore: ProjectsDataStore?
+    var dataStore: ProjectListDataStore?
 
     // MARK: - Initialization
 
     init(tableView: UITableView) {
-        tableView.register(ProjectsCell.self, forCellReuseIdentifier: ProjectsCell.identifier)
+        tableView.register(ProjectCell.self, forCellReuseIdentifier: ProjectCell.identifier)
 
-        super.init(tableView: tableView) { tableView, indexPath, project in
+        super.init(tableView: tableView) { tableView, indexPath, projectCellData in
             let cell = tableView.dequeueReusableCell(
-                withIdentifier: ProjectsCell.identifier,
+                withIdentifier: ProjectCell.identifier,
                 for: indexPath
-            ) as! ProjectsCell
-            cell.configure(with: project)
+            ) as! ProjectCell
+            cell.configure(with: projectCellData)
             return cell
         }
     }
 
     // MARK: - Snapshot
 
-    func applySnapshot(dataStore: ProjectsDataStore, animated: Bool) {
-        var snapshot = NSDiffableDataSourceSnapshot<ProjectsSection, ProjectCellData>()
+    func applySnapshot(dataStore: ProjectListDataStore, animated: Bool) {
+        var snapshot = NSDiffableDataSourceSnapshot<ProjectListSection, ProjectCellData>()
         snapshot.appendSections(dataStore.sections)
         dataStore.sections.forEach { section in
-            let projectsCellData = dataStore.projectsCellData(for: section)
+            let projectsCellData = dataStore.projectListCellData(for: section)
             snapshot.appendItems(projectsCellData, toSection: section)
         }
 
