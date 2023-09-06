@@ -7,10 +7,15 @@
 
 import UIKit
 
+protocol ProjectCreatorViewDelegate: AnyObject {
+    func didTapSaveButton()
+}
+
 final class ProjectCreatorView: UIView {
     // MARK: - Properties
 
     private let viewRepresentation = ProjectCreatorViewRepresentation()
+    weak var delegate: ProjectCreatorViewDelegate?
 
     private let formStackView: UIStackView = .init()
 
@@ -98,6 +103,10 @@ private extension ProjectCreatorView {
 
     func setupSaveButton() {
         self.saveButton.setup(with: self.viewRepresentation.saveButtonViewRepresentation)
+
+        self.saveButton.addAction(UIAction(handler: { [weak self] _ in
+            self?.delegate?.didTapSaveButton()
+        }), for: .touchUpInside)
 
         self.addSubview(self.saveButton)
         self.saveButton.translatesAutoresizingMaskIntoConstraints = false

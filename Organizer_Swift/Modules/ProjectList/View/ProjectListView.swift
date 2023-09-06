@@ -9,7 +9,7 @@ import UIKit
 
 protocol ProjectListViewDelegate: AnyObject {
     func didSelectProject(at indexPath: IndexPath)
-    func didSelectProjectCreatorButton()
+    func didTapProjectCreatorButton()
 }
 
 final class ProjectListView: UIView {
@@ -63,11 +63,9 @@ private extension ProjectListView {
             with: self.viewRepresentation.projectCreatorButtonViewRepresentation
         )
 
-        self.projectCreatorButton.addTarget(
-            self,
-            action: #selector(self.projectCreatorButtonTapped(_:)),
-            for: .touchUpInside
-        )
+        self.projectCreatorButton.addAction(UIAction(handler: { [weak self] _ in
+            self?.delegate?.didTapProjectCreatorButton()
+        }), for: .touchUpInside)
 
         self.addSubview(self.projectCreatorButton)
         self.projectCreatorButton.translatesAutoresizingMaskIntoConstraints = false
@@ -79,11 +77,6 @@ private extension ProjectListView {
                 equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -20
             )
         ])
-    }
-
-    @IBAction
-    func projectCreatorButtonTapped(_ sender: UIButton) {
-        self.delegate?.didSelectProjectCreatorButton()
     }
 }
 

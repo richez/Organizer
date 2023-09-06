@@ -33,5 +33,20 @@ final class ProjectCreatorViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.setup()
+    }
+}
+
+private extension ProjectCreatorViewController {
+    func setup() {
+        self.contentView.delegate = self
+    }
+}
+
+// MARK: - ProjectCreatorViewDelegate
+
+extension ProjectCreatorViewController: ProjectCreatorViewDelegate {
+    func didTapSaveButton() {
     }
 }

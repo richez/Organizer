@@ -68,7 +68,7 @@ extension ProjectListViewController: ProjectListViewDelegate {
 
     }
 
-    func didSelectProjectCreatorButton() {
+    func didTapProjectCreatorButton() {
         self.coordinator.showProjectCreator()
     }
 }
