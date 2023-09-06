@@ -20,22 +20,22 @@ final class ProjectListDataStore {
 extension ProjectListDataStore {
     var sections: [ProjectListSection] { [.main] }
 
-    func projectListCellData(for section: ProjectListSection) -> [ProjectCellData] {
+    func projectCellDescriptions(for section: ProjectListSection) -> [ProjectCellDescription] {
         switch section {
         case .main:
-            return self.projects.map(ProjectCellData.init)
+            return self.projects.map(ProjectCellDescription.init)
         }
     }
 
-    func projectCellData(at indexPath: IndexPath) -> ProjectCellData? {
+    func projectCellDescription(at indexPath: IndexPath) -> ProjectCellDescription? {
         guard self.projects.indices.contains(indexPath.row) else { return nil }
 
         let project = self.projects[indexPath.row]
-        return ProjectCellData(project: project)
+        return ProjectCellDescription(project: project)
     }
 
-    func deleteProject(with id: UUID) {
-        guard let index = self.projects.firstIndex(where: { $0.id == id }) else {
+    func deleteProject(description: ProjectCellDescription) {
+        guard let index = self.projects.firstIndex(where: { $0.id == description.id }) else {
             return
         }
 

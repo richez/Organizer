@@ -30,8 +30,8 @@ final class ProjectCell: UITableViewCell {
 
     // MARK: - Configuration
 
-    func configure(with project: ProjectCellData) {
-        self.titleLabel.text = project.title
+    func configure(with description: ProjectCellDescription) {
+        self.titleLabel.text = description.title
     }
 }
 

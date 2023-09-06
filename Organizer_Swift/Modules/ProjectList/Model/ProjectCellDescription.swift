@@ -6,8 +6,8 @@
 //
 
 import Foundation
-// TODO: rename Description
-struct ProjectCellData: Hashable {
+
+struct ProjectCellDescription: Hashable {
     var id: UUID
     var title: String
 

@@ -38,7 +38,7 @@
 		F090AAB22AA765E200480249 /* ProjectCellViewRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F090AAB12AA765E200480249 /* ProjectCellViewRepresentation.swift */; };
 		F090AAB42AA7678D00480249 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = F090AAB32AA7678D00480249 /* Project.swift */; };
 		F090AAB62AA7698B00480249 /* ProjectListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F090AAB52AA7698B00480249 /* ProjectListSection.swift */; };
-		F090AAB82AA7699900480249 /* ProjectCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F090AAB72AA7699900480249 /* ProjectCellData.swift */; };
+		F090AAB82AA7699900480249 /* ProjectCellDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = F090AAB72AA7699900480249 /* ProjectCellDescription.swift */; };
 		F0D2B0DF2AA770EC000D34CA /* ProjectListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D2B0DE2AA770EC000D34CA /* ProjectListDataSource.swift */; };
 		F0D2B0E12AA776E3000D34CA /* UIView+Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D2B0E02AA776E3000D34CA /* UIView+Identifier.swift */; };
 /* End PBXBuildFile section */
@@ -96,7 +96,7 @@
 		F090AAB12AA765E200480249 /* ProjectCellViewRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCellViewRepresentation.swift; sourceTree = "<group>"; };
 		F090AAB32AA7678D00480249 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		F090AAB52AA7698B00480249 /* ProjectListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListSection.swift; sourceTree = "<group>"; };
-		F090AAB72AA7699900480249 /* ProjectCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCellData.swift; sourceTree = "<group>"; };
+		F090AAB72AA7699900480249 /* ProjectCellDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCellDescription.swift; sourceTree = "<group>"; };
 		F0D2B0DE2AA770EC000D34CA /* ProjectListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListDataSource.swift; sourceTree = "<group>"; };
 		F0D2B0E02AA776E3000D34CA /* UIView+Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Identifier.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -355,7 +355,7 @@
 			isa = PBXGroup;
 			children = (
 				F090AAB52AA7698B00480249 /* ProjectListSection.swift */,
-				F090AAB72AA7699900480249 /* ProjectCellData.swift */,
+				F090AAB72AA7699900480249 /* ProjectCellDescription.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -527,7 +527,7 @@
 				F090AAB22AA765E200480249 /* ProjectCellViewRepresentation.swift in Sources */,
 				F0307C802AA8A95C00DC3958 /* ProjectCreatorView.swift in Sources */,
 				F090AAB62AA7698B00480249 /* ProjectListSection.swift in Sources */,
-				F090AAB82AA7699900480249 /* ProjectCellData.swift in Sources */,
+				F090AAB82AA7699900480249 /* ProjectCellDescription.swift in Sources */,
 				F052F06B2AA7D7B30018AD96 /* ProjectListDataStore.swift in Sources */,
 				F036939A2AA6A512005C373A /* ProjectListViewModel.swift in Sources */,
 				F0732BD82AA63C810027EC4F /* Coordinator.swift in Sources */,

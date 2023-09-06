@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ProjectListDataSource: UITableViewDiffableDataSource<ProjectListSection, ProjectCellData> {
+final class ProjectListDataSource: UITableViewDiffableDataSource<ProjectListSection, ProjectCellDescription> {
     // MARK: - Properties
     
     var dataStore: ProjectListDataStore?
@@ -17,12 +17,12 @@ final class ProjectListDataSource: UITableViewDiffableDataSource<ProjectListSect
     init(tableView: UITableView) {
         tableView.register(ProjectCell.self, forCellReuseIdentifier: ProjectCell.identifier)
 
-        super.init(tableView: tableView) { tableView, indexPath, projectCellData in
+        super.init(tableView: tableView) { tableView, indexPath, projectCellDescription in
             let cell = tableView.dequeueReusableCell(
                 withIdentifier: ProjectCell.identifier,
                 for: indexPath
             ) as! ProjectCell
-            cell.configure(with: projectCellData)
+            cell.configure(with: projectCellDescription)
             return cell
         }
     }
@@ -30,23 +30,23 @@ final class ProjectListDataSource: UITableViewDiffableDataSource<ProjectListSect
     // MARK: - Snapshot
 
     func applySnapshot(dataStore: ProjectListDataStore, animated: Bool) {
-        var snapshot = NSDiffableDataSourceSnapshot<ProjectListSection, ProjectCellData>()
+        var snapshot = NSDiffableDataSourceSnapshot<ProjectListSection, ProjectCellDescription>()
         snapshot.appendSections(dataStore.sections)
         dataStore.sections.forEach { section in
-            let projectsCellData = dataStore.projectListCellData(for: section)
-            snapshot.appendItems(projectsCellData, toSection: section)
+            let projectsCellDescriptions = dataStore.projectCellDescriptions(for: section)
+            snapshot.appendItems(projectsCellDescriptions, toSection: section)
         }
 
         self.apply(snapshot, animatingDifferences: animated)
         self.dataStore = dataStore
     }
 
-    func applySnapshot(deleting projectCellData: ProjectCellData) {
+    func applySnapshot(deleting projectCellDescription: ProjectCellDescription) {
         var snapshot = self.snapshot()
-        snapshot.deleteItems([projectCellData])
+        snapshot.deleteItems([projectCellDescription])
         self.apply(snapshot, animatingDifferences: true)
 
-        self.dataStore?.deleteProject(with: projectCellData.id)
+        self.dataStore?.deleteProject(description: projectCellDescription)
     }
 
     // MARK: - UITableViewDataSource
@@ -61,8 +61,8 @@ final class ProjectListDataSource: UITableViewDiffableDataSource<ProjectListSect
         forRowAt indexPath: IndexPath) {
             switch editingStyle {
             case .delete:
-                guard let projectCellData = self.dataStore?.projectCellData(at: indexPath) else { return }
-                self.applySnapshot(deleting: projectCellData)
+                guard let projectCellDescription = self.dataStore?.projectCellDescription(at: indexPath) else { return }
+                self.applySnapshot(deleting: projectCellDescription)
             default:
                 break
             }
