@@ -41,6 +41,8 @@ final class ProjectCreatorViewController: UIViewController {
 private extension ProjectCreatorViewController {
     func setup() {
         self.contentView.delegate = self
+
+        self.contentView.configure(with: self.viewModel.fieldsDescription)
     }
 }
 

@@ -17,14 +17,8 @@ final class ProjectCreatorView: UIView {
     private let viewRepresentation = ProjectCreatorViewRepresentation()
     weak var delegate: ProjectCreatorViewDelegate?
 
-    private let formStackView: UIStackView = .init()
-
-    private let nameLabel: UILabel = .init()
-    private let nameTextField: UITextField = .init()
-    private let themeLabel: UILabel = .init()
-    private let themeTextField: UITextField = .init()
-
-    private lazy var saveButton: FloatingActionButton = .init()
+    private let fieldsView: ProjectCreatorFieldsView = .init()
+    private let saveButton: FloatingActionButton = .init()
 
     // MARK: - Initialization
 
@@ -40,8 +34,8 @@ final class ProjectCreatorView: UIView {
 
     // MARK: - Configuration
 
-    func configure() {
-
+    func configure(with fieldsDescription: ProjectCreatorFieldsDescription) {
+        self.fieldsView.configure(with: fieldsDescription)
     }
 }
 
@@ -50,54 +44,17 @@ private extension ProjectCreatorView {
 
     func setup() {
         self.backgroundColor = self.viewRepresentation.backgroundColor
-        self.setupStackView()
-        self.setupLabel(self.nameLabel, text: "Name")
-        self.setupTextField(self.nameTextField, placeholder: "My project")
-        self.setupLabel(self.themeLabel, text: "Theme")
-        self.setupTextField(self.themeTextField, placeholder: "sport, construction, work")
+        self.setupFieldsView()
         self.setupSaveButton()
     }
 
-    func setupStackView() {
-        self.formStackView.setup(with: self.viewRepresentation.stackViewRepresentation)
-
-        self.addSubview(self.formStackView)
-        self.formStackView.translatesAutoresizingMaskIntoConstraints = false
+    func setupFieldsView() {
+        self.addSubview(self.fieldsView)
+        self.fieldsView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            self.formStackView.topAnchor.constraint(equalTo: self.topAnchor),
-            self.formStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            self.formStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
-        ])
-    }
-
-    func setupLabel(_ label: UILabel, text: String) {
-        self.formStackView.addArrangedSubview(label)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = self.viewRepresentation.labelsTextColor
-        label.font = self.viewRepresentation.labelsFont
-        label.text = text
-        NSLayoutConstraint.activate([
-            label.heightAnchor.constraint(equalToConstant: self.viewRepresentation.labelsHeight),
-            label.leadingAnchor.constraint(equalTo: self.formStackView.layoutMarginsGuide.leadingAnchor),
-            label.trailingAnchor.constraint(equalTo: self.formStackView.layoutMarginsGuide.trailingAnchor)
-        ])
-
-    }
-
-    func setupTextField(_ textField: UITextField, placeholder: String) {
-        self.formStackView.addArrangedSubview(textField)
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.placeholder = placeholder
-        textField.font = self.viewRepresentation.textFieldsFont
-        textField.borderStyle = self.viewRepresentation.textFieldsBorderStyle
-        textField.autocapitalizationType = .sentences
-        textField.clearButtonMode = .always
-        NSLayoutConstraint.activate([
-            textField.heightAnchor.constraint(equalToConstant: self.viewRepresentation.textFieldsHeight),
-            textField.leadingAnchor.constraint(equalTo: self.formStackView.layoutMarginsGuide.leadingAnchor),
-            textField.trailingAnchor.constraint(
-                equalTo: self.formStackView.layoutMarginsGuide.trailingAnchor
-            )
+            self.fieldsView.topAnchor.constraint(equalTo: self.topAnchor),
+            self.fieldsView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            self.fieldsView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
         ])
     }
 
@@ -113,7 +70,7 @@ private extension ProjectCreatorView {
         self.saveButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             self.saveButton.topAnchor.constraint(
-                greaterThanOrEqualTo: self.formStackView.bottomAnchor, constant: 8
+                greaterThanOrEqualTo: self.fieldsView.bottomAnchor, constant: 8
             ),
             self.saveButton.bottomAnchor.constraint(
                 equalTo: self.keyboardLayoutGuide.topAnchor, constant: -8, priority: .defaultLow
