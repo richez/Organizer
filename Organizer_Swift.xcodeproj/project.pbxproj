@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		F0307C6E2AA87ED100DC3958 /* FloatingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0307C6D2AA87ED100DC3958 /* FloatingActionButton.swift */; };
 		F0307C702AA87EEE00DC3958 /* FloatingActionButtonViewRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0307C6F2AA87EEE00DC3958 /* FloatingActionButtonViewRepresentation.swift */; };
+		F0307C7A2AA8A8D500DC3958 /* ProjectCreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0307C792AA8A8D500DC3958 /* ProjectCreatorViewController.swift */; };
+		F0307C7E2AA8A91800DC3958 /* ProjectCreatorCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0307C7D2AA8A91800DC3958 /* ProjectCreatorCoordinator.swift */; };
+		F0307C802AA8A95C00DC3958 /* ProjectCreatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0307C7F2AA8A95C00DC3958 /* ProjectCreatorView.swift */; };
+		F0307C822AA8A97800DC3958 /* ProjectCreatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0307C812AA8A97800DC3958 /* ProjectCreatorViewModel.swift */; };
 		F03693912AA6944D005C373A /* ProjectListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03693902AA6944D005C373A /* ProjectListView.swift */; };
 		F03693942AA6A30F005C373A /* UINavigationBar+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03693932AA6A30F005C373A /* UINavigationBar+Appearance.swift */; };
 		F03693972AA6A42C005C373A /* ProjectListViewRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03693962AA6A42C005C373A /* ProjectListViewRepresentation.swift */; };
@@ -54,6 +58,10 @@
 /* Begin PBXFileReference section */
 		F0307C6D2AA87ED100DC3958 /* FloatingActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingActionButton.swift; sourceTree = "<group>"; };
 		F0307C6F2AA87EEE00DC3958 /* FloatingActionButtonViewRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingActionButtonViewRepresentation.swift; sourceTree = "<group>"; };
+		F0307C792AA8A8D500DC3958 /* ProjectCreatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCreatorViewController.swift; sourceTree = "<group>"; };
+		F0307C7D2AA8A91800DC3958 /* ProjectCreatorCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCreatorCoordinator.swift; sourceTree = "<group>"; };
+		F0307C7F2AA8A95C00DC3958 /* ProjectCreatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCreatorView.swift; sourceTree = "<group>"; };
+		F0307C812AA8A97800DC3958 /* ProjectCreatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCreatorViewModel.swift; sourceTree = "<group>"; };
 		F03693902AA6944D005C373A /* ProjectListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListView.swift; sourceTree = "<group>"; };
 		F03693932AA6A30F005C373A /* UINavigationBar+Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Appearance.swift"; sourceTree = "<group>"; };
 		F03693962AA6A42C005C373A /* ProjectListViewRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListViewRepresentation.swift; sourceTree = "<group>"; };
@@ -158,6 +166,49 @@
 			path = Project;
 			sourceTree = "<group>";
 		};
+		F0307C732AA8A88100DC3958 /* ProjectCreator */ = {
+			isa = PBXGroup;
+			children = (
+				F0307C782AA8A8C500DC3958 /* Controller */,
+				F0307C772AA8A8BA00DC3958 /* Coordinator */,
+				F0307C762AA8A8B000DC3958 /* View */,
+				F0307C752AA8A8A800DC3958 /* ViewModel */,
+			);
+			path = ProjectCreator;
+			sourceTree = "<group>";
+		};
+		F0307C752AA8A8A800DC3958 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F0307C812AA8A97800DC3958 /* ProjectCreatorViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F0307C762AA8A8B000DC3958 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F0307C7F2AA8A95C00DC3958 /* ProjectCreatorView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F0307C772AA8A8BA00DC3958 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				F0307C7D2AA8A91800DC3958 /* ProjectCreatorCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		F0307C782AA8A8C500DC3958 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F0307C792AA8A8D500DC3958 /* ProjectCreatorViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		F03693922AA6A2F3005C373A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,6 +291,7 @@
 			isa = PBXGroup;
 			children = (
 				F0732BCF2AA638CB0027EC4F /* ProjectList */,
+				F0307C732AA8A88100DC3958 /* ProjectCreator */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -458,6 +510,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F090AAB22AA765E200480249 /* ProjectCellViewRepresentation.swift in Sources */,
+				F0307C802AA8A95C00DC3958 /* ProjectCreatorView.swift in Sources */,
 				F090AAB62AA7698B00480249 /* ProjectListSection.swift in Sources */,
 				F090AAB82AA7699900480249 /* ProjectCellData.swift in Sources */,
 				F052F06B2AA7D7B30018AD96 /* ProjectListDataStore.swift in Sources */,
@@ -475,7 +528,10 @@
 				F0307C702AA87EEE00DC3958 /* FloatingActionButtonViewRepresentation.swift in Sources */,
 				F090AAB42AA7678D00480249 /* Project.swift in Sources */,
 				F090AAB02AA7633300480249 /* ProjectCell.swift in Sources */,
+				F0307C822AA8A97800DC3958 /* ProjectCreatorViewModel.swift in Sources */,
 				F0307C6E2AA87ED100DC3958 /* FloatingActionButton.swift in Sources */,
+				F0307C7E2AA8A91800DC3958 /* ProjectCreatorCoordinator.swift in Sources */,
+				F0307C7A2AA8A8D500DC3958 /* ProjectCreatorViewController.swift in Sources */,
 				F0732BA02AA61A7B0027EC4F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
