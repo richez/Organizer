@@ -34,6 +34,13 @@ final class FloatingActionButton: UIButton {
             }
             .store(in: &self.subscriptions)
 
+        self
+            .publisher(for: \.isEnabled)
+            .sink { isEnabled in
+                self.backgroundColor = isEnabled ? viewRepresentation.backgroundColor : viewRepresentation.disabledBackgroundColor
+            }
+            .store(in: &self.subscriptions)
+
         NSLayoutConstraint.activate([
             self.widthAnchor.constraint(equalToConstant: viewRepresentation.size),
             self.heightAnchor.constraint(equalToConstant: viewRepresentation.size)

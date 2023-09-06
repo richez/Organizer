@@ -12,6 +12,7 @@ struct FloatingActionButtonViewRepresentation {
     var backgroundColor: UIColor
     var highlightedBackgroundColor: UIColor
     var selectedBackgroundColor: UIColor
+    var disabledBackgroundColor: UIColor
     var tintColor: UIColor
     var image: UIImage?
 }

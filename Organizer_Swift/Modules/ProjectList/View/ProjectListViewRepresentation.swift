@@ -16,6 +16,7 @@ struct ProjectListViewRepresentation {
         backgroundColor: .projectCreatorButtonBackground,
         highlightedBackgroundColor: .projectCreatorButtonBackground.withAlphaComponent(0.3),
         selectedBackgroundColor: .projectCreatorButtonBackground.withAlphaComponent(0.3),
+        disabledBackgroundColor: .projectCreatorButtonBackground.withAlphaComponent(0.1),
         tintColor: .black,
         image: UIImage(
             systemName: "square.and.pencil",
