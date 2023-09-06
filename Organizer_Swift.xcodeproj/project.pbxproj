@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F0307C6E2AA87ED100DC3958 /* FloatingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0307C6D2AA87ED100DC3958 /* FloatingActionButton.swift */; };
+		F0307C702AA87EEE00DC3958 /* FloatingActionButtonViewRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0307C6F2AA87EEE00DC3958 /* FloatingActionButtonViewRepresentation.swift */; };
 		F03693912AA6944D005C373A /* ProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03693902AA6944D005C373A /* ProjectsView.swift */; };
 		F03693942AA6A30F005C373A /* UINavigationBar+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03693932AA6A30F005C373A /* UINavigationBar+Appearance.swift */; };
 		F03693972AA6A42C005C373A /* ProjectsViewRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03693962AA6A42C005C373A /* ProjectsViewRepresentation.swift */; };
@@ -50,6 +52,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F0307C6D2AA87ED100DC3958 /* FloatingActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingActionButton.swift; sourceTree = "<group>"; };
+		F0307C6F2AA87EEE00DC3958 /* FloatingActionButtonViewRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingActionButtonViewRepresentation.swift; sourceTree = "<group>"; };
 		F03693902AA6944D005C373A /* ProjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsView.swift; sourceTree = "<group>"; };
 		F03693932AA6A30F005C373A /* UINavigationBar+Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Appearance.swift"; sourceTree = "<group>"; };
 		F03693962AA6A42C005C373A /* ProjectsViewRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsViewRepresentation.swift; sourceTree = "<group>"; };
@@ -104,6 +108,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F0307C692AA87EA500DC3958 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F0307C6A2AA87EAE00DC3958 /* Views */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		F0307C6A2AA87EAE00DC3958 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F0307C6B2AA87EB400DC3958 /* Buttons */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F0307C6B2AA87EB400DC3958 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				F0307C6C2AA87EC500DC3958 /* FloatingActionButton */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		F0307C6C2AA87EC500DC3958 /* FloatingActionButton */ = {
+			isa = PBXGroup;
+			children = (
+				F0307C6D2AA87ED100DC3958 /* FloatingActionButton.swift */,
+				F0307C6F2AA87EEE00DC3958 /* FloatingActionButtonViewRepresentation.swift */,
+			);
+			path = FloatingActionButton;
+			sourceTree = "<group>";
+		};
 		F03693922AA6A2F3005C373A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +183,7 @@
 			children = (
 				F0732BCD2AA626780027EC4F /* AppLaunch */,
 				F03693922AA6A2F3005C373A /* Extensions */,
+				F0307C692AA87EA500DC3958 /* Helpers */,
 				F0732BCE2AA638C10027EC4F /* Modules */,
 				F0732BA62AA61A7C0027EC4F /* Assets.xcassets */,
 				F0732BAB2AA61A7C0027EC4F /* Info.plist */,
@@ -418,8 +456,10 @@
 				F03693912AA6944D005C373A /* ProjectsView.swift in Sources */,
 				F0732BDA2AA63E020027EC4F /* AppLaunchCoordinator.swift in Sources */,
 				F0D2B0DF2AA770EC000D34CA /* ProjectsTableViewDataSource.swift in Sources */,
+				F0307C702AA87EEE00DC3958 /* FloatingActionButtonViewRepresentation.swift in Sources */,
 				F090AAB42AA7678D00480249 /* Projects.swift in Sources */,
 				F090AAB02AA7633300480249 /* ProjectsCell.swift in Sources */,
+				F0307C6E2AA87ED100DC3958 /* FloatingActionButton.swift in Sources */,
 				F0732BA02AA61A7B0027EC4F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

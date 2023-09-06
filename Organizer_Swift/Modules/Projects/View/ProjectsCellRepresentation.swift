@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+// TODO: rename ProjectsCellViewRepresentation
 struct ProjectsCellRepresentation {
     var backgroundColor: UIColor = .clear
     var selectedBackgroundColor: UIColor = .projectCellSelectedBackground

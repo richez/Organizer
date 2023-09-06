@@ -61,7 +61,11 @@ private extension ProjectsViewController {
 // MARK: - ProjectsViewDelegate
 
 extension ProjectsViewController: ProjectsViewDelegate {
-    func didSelectRow(at indexPath: IndexPath) {
+    func didSelectProject(at indexPath: IndexPath) {
+
+    }
+
+    func didSelectNewProject() {
 
     }
 }
