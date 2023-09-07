@@ -11,7 +11,8 @@ struct ProjectCellViewRepresentation {
     var backgroundColor: UIColor = .clear
     var selectedBackgroundColor: UIColor = .projectCellSelectedBackground
 
-    var titleColor: UIColor = .primaryLight
+    var titleColor: UIColor = .projectTitle
+    var titleFont: UIFont = .systemFont(ofSize: 15, weight: .bold)
 
     var separatorColor: UIColor = .projectCellSeparator
     var separatorHeight: CGFloat = 1

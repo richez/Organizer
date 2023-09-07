@@ -17,7 +17,7 @@ struct ProjectCreatorFieldsViewRepresentation {
     )
 
     var labelsHeight: CGFloat = 30
-    var labelsTextColor: UIColor = .primaryLight
+    var labelsTextColor: UIColor = .projectCreatorLabel
     var labelsFont: UIFont = .systemFont(ofSize: 15, weight: .bold)
 
     var textFieldsHeight: CGFloat = 30

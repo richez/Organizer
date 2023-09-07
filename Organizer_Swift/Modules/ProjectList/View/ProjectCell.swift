@@ -54,6 +54,7 @@ private extension ProjectCell {
 
     func setTitleView() {
         self.titleLabel.textColor = self.viewRepresentation.titleColor
+        self.titleLabel.font = self.viewRepresentation.titleFont
 
         self.addSubview(self.titleLabel)
         self.titleLabel.translatesAutoresizingMaskIntoConstraints = false

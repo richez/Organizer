@@ -8,7 +8,7 @@
 import UIKit
 
 struct ProjectListViewRepresentation {
-    var backgroundColor: UIColor = .primaryDark
+    var backgroundColor: UIColor = .background
 
     var tableViewBackgroundColor: UIColor = .clear
     var tableViewEdgeInsets: NSDirectionalEdgeInsets = .init(top: 0, leading: 20, bottom: 0, trailing: 20)

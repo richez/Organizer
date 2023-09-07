@@ -11,7 +11,7 @@ extension UINavigationBar {
     func applyAppearance() {
         let appearance = UINavigationBarAppearance()
         appearance.configureWithTransparentBackground()
-        appearance.titleTextAttributes = [.foregroundColor: UIColor.primaryLight]
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.navbarTitle]
 
         self.standardAppearance = appearance
         self.compactAppearance = appearance
