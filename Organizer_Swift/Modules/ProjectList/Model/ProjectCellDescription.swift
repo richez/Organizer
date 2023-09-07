@@ -10,9 +10,12 @@ import Foundation
 struct ProjectCellDescription: Hashable {
     var id: UUID
     var title: String
+    var lastUpdatedDate: String
 
     init(project: Project) {
         self.id = project.id
         self.title = project.title
+        // TODO: this should be done in a VM
+        self.lastUpdatedDate = project.lastUpdatedDate.formatted(.dateTime.day().month(.abbreviated))
     }
 }
