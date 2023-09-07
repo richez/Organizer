@@ -9,9 +9,13 @@ import UIKit
 
 struct ProjectListViewRepresentation {
     var backgroundColor: UIColor = .primaryDark
+
     var tableViewBackgroundColor: UIColor = .clear
     var tableViewEdgeInsets: NSDirectionalEdgeInsets = .init(top: 0, leading: 20, bottom: 0, trailing: 20)
+    var tableViewseparatorStyle: UITableViewCell.SeparatorStyle = .none
+
     var cellHeight: CGFloat = 100
+
     var projectCreatorButtonViewRepresentation: FloatingActionButtonViewRepresentation = .init(
         size: 50,
         backgroundColor: .projectCreatorButtonBackground,

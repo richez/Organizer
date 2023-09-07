@@ -10,5 +10,9 @@ import UIKit
 struct ProjectCellViewRepresentation {
     var backgroundColor: UIColor = .clear
     var selectedBackgroundColor: UIColor = .projectCellSelectedBackground
+
     var titleColor: UIColor = .primaryLight
+
+    var separatorColor: UIColor = .projectCellSeparator
+    var separatorHeight: CGFloat = 1
 }

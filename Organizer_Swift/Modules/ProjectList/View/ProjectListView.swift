@@ -48,6 +48,7 @@ private extension ProjectListView {
         self.tableView.delegate = self
         self.tableView.backgroundColor = self.viewRepresentation.tableViewBackgroundColor
         self.tableView.directionalLayoutMargins = self.viewRepresentation.tableViewEdgeInsets
+        self.tableView.separatorStyle = self.viewRepresentation.tableViewseparatorStyle
 
         self.addSubview(self.tableView)
         self.tableView.translatesAutoresizingMaskIntoConstraints = false
