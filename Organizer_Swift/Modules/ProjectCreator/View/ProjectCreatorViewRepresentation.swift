@@ -11,7 +11,7 @@ struct ProjectCreatorViewRepresentation {
     var backgroundColor: UIColor = .background
 
     var saveButtonViewRepresentation = FloatingActionButtonViewRepresentation(
-        size: 50,
+        size: 60,
         backgroundColor: .projectCreatorButtonBackground,
         highlightedBackgroundColor: .projectCreatorButtonBackground.withAlphaComponent(0.3),
         selectedBackgroundColor: .projectCreatorButtonBackground.withAlphaComponent(0.3),

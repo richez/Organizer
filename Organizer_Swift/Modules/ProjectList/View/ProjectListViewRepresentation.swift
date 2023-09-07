@@ -17,7 +17,7 @@ struct ProjectListViewRepresentation {
     var cellHeight: CGFloat = 100
 
     var projectCreatorButtonViewRepresentation: FloatingActionButtonViewRepresentation = .init(
-        size: 50,
+        size: 60,
         backgroundColor: .projectCreatorButtonBackground,
         highlightedBackgroundColor: .projectCreatorButtonBackground.withAlphaComponent(0.3),
         selectedBackgroundColor: .projectCreatorButtonBackground.withAlphaComponent(0.3),
