@@ -47,6 +47,7 @@ private extension ProjectListView {
     func setupTableView() {
         self.tableView.delegate = self
         self.tableView.backgroundColor = self.viewRepresentation.tableViewBackgroundColor
+        self.tableView.directionalLayoutMargins = self.viewRepresentation.tableViewEdgeInsets
 
         self.addSubview(self.tableView)
         self.tableView.translatesAutoresizingMaskIntoConstraints = false
