@@ -14,7 +14,7 @@ enum ProjectListViewModelError: Error {
 final class ProjectListViewModel {
     let navigationBarTitle: String = "Projects"
     let section: ProjectListSection = .main
-    var projects: [Project] = []
+    private var projects: [Project] = []
 
     func fetchProjectDescriptions() -> [ProjectDescription] {
         let projects = Project.sample
