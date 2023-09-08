@@ -7,10 +7,14 @@
 
 import UIKit
 
+protocol ProjectListDataSourceDelegate: AnyObject {
+    func didTapDelete(on projectDescription: ProjectCellDescription)
+}
+
 final class ProjectListDataSource: UITableViewDiffableDataSource<ProjectListSection, ProjectCellDescription> {
     // MARK: - Properties
     
-    var dataStore: ProjectListDataStore?
+    weak var delegate: ProjectListDataSourceDelegate?
 
     // MARK: - Initialization
 
@@ -29,42 +33,39 @@ final class ProjectListDataSource: UITableViewDiffableDataSource<ProjectListSect
 
     // MARK: - Snapshot
 
-    func applySnapshot(dataStore: ProjectListDataStore, animated: Bool) {
+    func applySnapshot(section: ProjectListSection,
+                       projectDescriptions: [ProjectCellDescription],
+                       animated: Bool) {
         var snapshot = NSDiffableDataSourceSnapshot<ProjectListSection, ProjectCellDescription>()
-        snapshot.appendSections(dataStore.sections)
-        dataStore.sections.forEach { section in
-            let projectsCellDescriptions = dataStore.projectCellDescriptions(for: section)
-            snapshot.appendItems(projectsCellDescriptions, toSection: section)
-        }
-
+        snapshot.appendSections([section])
+        snapshot.appendItems(projectDescriptions, toSection: section)
         self.apply(snapshot, animatingDifferences: animated)
-        self.dataStore = dataStore
     }
 
-    func applySnapshot(deleting projectCellDescription: ProjectCellDescription) {
+    func applySnapshot(deleting projectCellDescription: ProjectCellDescription, animated: Bool) {
         var snapshot = self.snapshot()
         snapshot.deleteItems([projectCellDescription])
-        self.apply(snapshot, animatingDifferences: true)
-
-        self.dataStore?.deleteProject(description: projectCellDescription)
+        self.apply(snapshot, animatingDifferences: animated)
     }
+
 
     // MARK: - UITableViewDataSource
 
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-
+    
     override func tableView(
         _ tableView: UITableView,
         commit editingStyle: UITableViewCell.EditingStyle,
-        forRowAt indexPath: IndexPath) {
-            switch editingStyle {
-            case .delete:
-                guard let projectCellDescription = self.dataStore?.projectCellDescription(at: indexPath) else { return }
-                self.applySnapshot(deleting: projectCellDescription)
-            default:
-                break
-            }
+        forRowAt indexPath: IndexPath
+    ) {
+        switch editingStyle {
+        case .delete:
+            guard let projectDescription = self.itemIdentifier(for: indexPath) else { return }
+            self.delegate?.didTapDelete(on: projectDescription)
+        default:
+            break
         }
+    }
 }

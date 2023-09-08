@@ -47,6 +47,7 @@ private extension ProjectListViewController {
     // MARK: - Setup
 
     func setup() {
+        self.dataSource.delegate = self
         self.contentView.delegate = self
 
         self.title = self.viewModel.navigationBarTitle
@@ -56,8 +57,26 @@ private extension ProjectListViewController {
     // MARK: - Configuration
 
     func configure() {
-        let projectListDataStore = self.viewModel.fetchProjectListDataStore()
-        self.dataSource.applySnapshot(dataStore: projectListDataStore, animated: false)
+        let projectDescriptions = self.viewModel.fetchProjectDescriptions()
+
+        self.dataSource.applySnapshot(
+            section: self.viewModel.section,
+            projectDescriptions: projectDescriptions,
+            animated: false
+        )
+    }
+}
+
+// MARK: - ProjectListDataSourceDelegate
+
+extension ProjectListViewController: ProjectListDataSourceDelegate {
+    func didTapDelete(on projectDescription: ProjectCellDescription) {
+        do {
+            try self.viewModel.deleteProject(id: projectDescription.id)
+            self.dataSource.applySnapshot(deleting: projectDescription, animated: true)
+        } catch {
+            print("Fail to delete project: \(error)")
+        }
     }
 }
 
