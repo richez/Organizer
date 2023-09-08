@@ -16,11 +16,11 @@ final class ProjectListViewModel {
     let section: ProjectListSection = .main
     var projects: [Project] = []
 
-    func fetchProjectDescriptions() -> [ProjectCellDescription] {
+    func fetchProjectDescriptions() -> [ProjectDescription] {
         let projects = Project.sample
         self.projects = projects
         return projects.map { project in
-            return ProjectCellDescription(
+            return ProjectDescription(
                 id: project.id,
                 title: project.title,
                 lastUpdatedDate: project.lastUpdatedDate.formatted(.dateTime.day().month(.abbreviated))
@@ -28,7 +28,7 @@ final class ProjectListViewModel {
         }
     }
 
-    func deleteProject(id: UUID) throws {
+    func deleteProject(with id: UUID) throws {
         guard let index = self.projects.firstIndex(where: { $0.id == id }) else {
             throw ProjectListViewModelError.invalid(id: id)
         }

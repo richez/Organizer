@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ProjectCellDescription: Hashable {    
+struct ProjectDescription: Hashable {
     var id: UUID
     var title: String
     var lastUpdatedDate: String

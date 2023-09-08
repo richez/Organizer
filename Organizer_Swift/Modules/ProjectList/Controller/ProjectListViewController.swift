@@ -70,9 +70,9 @@ private extension ProjectListViewController {
 // MARK: - ProjectListDataSourceDelegate
 
 extension ProjectListViewController: ProjectListDataSourceDelegate {
-    func didTapDelete(on projectDescription: ProjectCellDescription) {
+    func didTapDelete(on projectDescription: ProjectDescription) {
         do {
-            try self.viewModel.deleteProject(id: projectDescription.id)
+            try self.viewModel.deleteProject(with: projectDescription.id)
             self.dataSource.applySnapshot(deleting: projectDescription, animated: true)
         } catch {
             print("Fail to delete project: \(error)")

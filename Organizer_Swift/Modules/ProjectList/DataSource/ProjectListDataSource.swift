@@ -8,10 +8,10 @@
 import UIKit
 
 protocol ProjectListDataSourceDelegate: AnyObject {
-    func didTapDelete(on projectDescription: ProjectCellDescription)
+    func didTapDelete(on projectDescription: ProjectDescription)
 }
 
-final class ProjectListDataSource: UITableViewDiffableDataSource<ProjectListSection, ProjectCellDescription> {
+final class ProjectListDataSource: UITableViewDiffableDataSource<ProjectListSection, ProjectDescription> {
     // MARK: - Properties
     
     weak var delegate: ProjectListDataSourceDelegate?
@@ -21,12 +21,12 @@ final class ProjectListDataSource: UITableViewDiffableDataSource<ProjectListSect
     init(tableView: UITableView) {
         tableView.register(ProjectCell.self, forCellReuseIdentifier: ProjectCell.identifier)
 
-        super.init(tableView: tableView) { tableView, indexPath, projectCellDescription in
+        super.init(tableView: tableView) { tableView, indexPath, projectDescription in
             let cell = tableView.dequeueReusableCell(
                 withIdentifier: ProjectCell.identifier,
                 for: indexPath
             ) as! ProjectCell
-            cell.configure(with: projectCellDescription)
+            cell.configure(with: projectDescription)
             return cell
         }
     }
@@ -34,17 +34,17 @@ final class ProjectListDataSource: UITableViewDiffableDataSource<ProjectListSect
     // MARK: - Snapshot
 
     func applySnapshot(section: ProjectListSection,
-                       projectDescriptions: [ProjectCellDescription],
+                       projectDescriptions: [ProjectDescription],
                        animated: Bool) {
-        var snapshot = NSDiffableDataSourceSnapshot<ProjectListSection, ProjectCellDescription>()
+        var snapshot = NSDiffableDataSourceSnapshot<ProjectListSection, ProjectDescription>()
         snapshot.appendSections([section])
         snapshot.appendItems(projectDescriptions, toSection: section)
         self.apply(snapshot, animatingDifferences: animated)
     }
 
-    func applySnapshot(deleting projectCellDescription: ProjectCellDescription, animated: Bool) {
+    func applySnapshot(deleting projectDescription: ProjectDescription, animated: Bool) {
         var snapshot = self.snapshot()
-        snapshot.deleteItems([projectCellDescription])
+        snapshot.deleteItems([projectDescription])
         self.apply(snapshot, animatingDifferences: animated)
     }
 

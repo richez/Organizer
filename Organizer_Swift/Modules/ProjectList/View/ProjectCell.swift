@@ -32,7 +32,7 @@ final class ProjectCell: UITableViewCell {
 
     // MARK: - Configuration
 
-    func configure(with description: ProjectCellDescription) {
+    func configure(with description: ProjectDescription) {
         self.titleLabel.text = description.title
         self.dateLabel.text = description.lastUpdatedDate
     }
