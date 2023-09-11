@@ -10,6 +10,7 @@ import Foundation
 struct ProjectDescription: Hashable {
     var id: UUID
     var title: String
+    var theme: String?
     var lastUpdatedDate: String
 
 }

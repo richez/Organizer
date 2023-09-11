@@ -12,7 +12,7 @@ import SwiftData
 final class Project {
     @Attribute(.unique) let id: UUID
     var title: String
-    var theme: String? // TODO: display theme in cell + add creation date
+    var theme: String?
     var creationDate: Date
     var lastUpdatedDate: Date
 

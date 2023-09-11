@@ -14,6 +14,9 @@ struct ProjectCellViewRepresentation {
     var titleColor: UIColor = .projectTitle
     var titleFont: UIFont = .systemFont(ofSize: 15, weight: .bold)
 
+    var themeColor: UIColor = .projectTheme
+    var themeFont: UIFont = .systemFont(ofSize: 12, weight: .regular)
+
     var dateColor: UIColor = .projectDate
     var dateFont: UIFont = .systemFont(ofSize: 13, weight: .light)
 

@@ -31,6 +31,7 @@ extension ProjectListViewModel {
             return ProjectDescription(
                 id: project.id,
                 title: project.title,
+                theme: project.theme,
                 lastUpdatedDate: project.lastUpdatedDate.formatted(.dateTime.day().month(.abbreviated))
             )
         }

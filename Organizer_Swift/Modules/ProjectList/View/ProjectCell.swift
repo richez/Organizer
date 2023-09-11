@@ -13,6 +13,7 @@ final class ProjectCell: UITableViewCell {
     private let viewRepresentation = ProjectCellViewRepresentation()
 
     private let titleLabel: UILabel = .init()
+    private let themeLabel: UILabel = .init()
     private let dateLabel: UILabel = .init()
     private let separatorView: UIView = .init()
 
@@ -34,6 +35,7 @@ final class ProjectCell: UITableViewCell {
 
     func configure(with description: ProjectDescription) {
         self.titleLabel.text = description.title
+        self.themeLabel.text = description.theme
         self.dateLabel.text = description.lastUpdatedDate
     }
 }
@@ -44,7 +46,8 @@ private extension ProjectCell {
     func setup() {
         self.backgroundColor = self.viewRepresentation.backgroundColor
         self.setupSelectedBackgroundView()
-        self.setTitleView()
+        self.setupTitleLabel()
+        self.setupThemeLabel()
         self.setupDateLabel()
         self.setupSeparator()
     }
@@ -55,7 +58,7 @@ private extension ProjectCell {
         self.selectedBackgroundView = selectedBackgroundView
     }
 
-    func setTitleView() {
+    func setupTitleLabel() {
         self.titleLabel.textColor = self.viewRepresentation.titleColor
         self.titleLabel.font = self.viewRepresentation.titleFont
 
@@ -68,6 +71,19 @@ private extension ProjectCell {
         ])
     }
 
+    func setupThemeLabel() {
+        self.themeLabel.textColor = self.viewRepresentation.themeColor
+        self.themeLabel.font = self.viewRepresentation.themeFont
+
+        self.addSubview(self.themeLabel)
+        self.themeLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            self.themeLabel.leadingAnchor.constraint(equalTo: self.layoutMarginsGuide.leadingAnchor),
+            self.themeLabel.trailingAnchor.constraint(equalTo: self.layoutMarginsGuide.trailingAnchor),
+            self.themeLabel.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor, constant: 8)
+        ])
+    }
+
     func setupDateLabel() {
         self.dateLabel.textColor = self.viewRepresentation.dateColor
         self.dateLabel.font = self.viewRepresentation.dateFont
@@ -77,7 +93,7 @@ private extension ProjectCell {
             self.dateLabel.leadingAnchor.constraint(equalTo: self.layoutMarginsGuide.leadingAnchor),
             self.dateLabel.trailingAnchor.constraint(equalTo: self.layoutMarginsGuide.trailingAnchor),
             self.dateLabel.topAnchor.constraint(
-                greaterThanOrEqualTo: self.titleLabel.bottomAnchor
+                greaterThanOrEqualTo: self.themeLabel.bottomAnchor
             ),
             self.dateLabel.bottomAnchor.constraint(equalTo: self.layoutMarginsGuide.bottomAnchor)
         ])
