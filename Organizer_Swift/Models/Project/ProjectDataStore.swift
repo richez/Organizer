@@ -80,8 +80,8 @@ extension ProjectDataStore: ProjectDataStoreProtocol {
     func delete(projectID: UUID) throws {
         guard let context else { throw ProjectDataStoreError.databaseUnreachable }
 
-        let predicate = #Predicate<Project> { trip in
-            return trip.id == projectID
+        let predicate = #Predicate<Project> { project in
+            return project.id == projectID
         }
         let descriptor = FetchDescriptor<Project>(predicate: predicate)
         guard let project = try context.fetch(descriptor).first else {
