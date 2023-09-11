@@ -50,7 +50,13 @@ extension ProjectCreatorViewModel {
             return theme.isEmpty ? nil : theme
         }()
 
-        let project = Project(title: projectName, theme: projectTheme, lastUpdatedDate: .now)
+        let project = Project(
+            id: UUID(),
+            title: projectName,
+            theme: projectTheme,
+            creationDate: .now,
+            lastUpdatedDate: .now
+        )
         try self.dataStore.create(project: project)
     }
 }

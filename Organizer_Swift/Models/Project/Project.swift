@@ -13,12 +13,14 @@ final class Project {
     @Attribute(.unique) let id: UUID
     var title: String
     var theme: String? // TODO: display theme in cell + add creation date
+    var creationDate: Date
     var lastUpdatedDate: Date
 
-    init(id: UUID = .init(), title: String, theme: String? = nil, lastUpdatedDate: Date) {
+    init(id: UUID, title: String, theme: String?, creationDate: Date, lastUpdatedDate: Date) {
         self.id = id
         self.title = title
         self.theme = theme
+        self.creationDate = creationDate
         self.lastUpdatedDate = lastUpdatedDate
     }
 }
