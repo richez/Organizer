@@ -45,6 +45,7 @@ private extension ProjectCell {
 
     func setup() {
         self.backgroundColor = self.viewRepresentation.backgroundColor
+
         self.setupSelectedBackgroundView()
         self.setupTitleLabel()
         self.setupThemeLabel()
