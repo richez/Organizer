@@ -9,12 +9,15 @@ import Foundation
 
 enum ProjectListViewModelError: RenderableError {
     case fetch(Error)
+    case notFound(Error?)
     case delete(Error)
 
     var title: String {
         switch self {
         case .fetch:
             return "Fail to fetch projects"
+        case .notFound:
+            return "Fail to find project in database"
         case .delete:
             return "Fail to delete project"
         }
@@ -56,6 +59,16 @@ extension ProjectListViewModel {
             }
         } catch {
             throw ProjectListViewModelError.fetch(error)
+        }
+    }
+
+    func project(with projectID: UUID?) throws -> Project {
+        guard let projectID else { throw ProjectListViewModelError.notFound(nil) }
+
+        do {
+            return try self.dataStore.project(with: projectID)
+        } catch {
+            throw ProjectListViewModelError.notFound(error)
         }
     }
 

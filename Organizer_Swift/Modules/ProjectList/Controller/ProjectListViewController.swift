@@ -107,6 +107,13 @@ extension ProjectListViewController: ProjectListDataSourceDelegate {
 
 extension ProjectListViewController: ProjectListViewDelegate {
     func didSelectProject(at indexPath: IndexPath) {
+        do {
+            let projectID = self.dataSource.projectIdentifier(for: indexPath)
+            let project = try self.viewModel.project(with: projectID)
+            self.coordinator.showProjectDetail(for: project)
+        } catch {
+            self.coordinator.show(error: error)
+        }
     }
 
     func didTapProjectCreatorButton() {

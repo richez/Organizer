@@ -10,6 +10,7 @@ import SwiftData
 
 protocol ProjectDataStoreReader {
     func fetch() throws -> [Project]
+    func project(with projectID: UUID) throws -> Project
 }
 
 protocol ProjectDataStoreCreator {
@@ -65,6 +66,20 @@ extension ProjectDataStore: ProjectDataStoreProtocol {
         return try context.fetch(descriptor)
     }
 
+    func project(with projectID: UUID) throws -> Project {
+        guard let context else { throw ProjectDataStoreError.databaseUnreachable }
+
+        let predicate = #Predicate<Project> { project in
+            return project.id == projectID
+        }
+        let descriptor = FetchDescriptor<Project>(predicate: predicate)
+        guard let project = try context.fetch(descriptor).first else {
+            throw ProjectDataStoreError.notFound(projectID)
+        }
+
+        return project
+    }
+
     // MARK: ProjectDataStoreCreator
 
     func create(project: Project) throws {
@@ -80,14 +95,7 @@ extension ProjectDataStore: ProjectDataStoreProtocol {
     func delete(projectID: UUID) throws {
         guard let context else { throw ProjectDataStoreError.databaseUnreachable }
 
-        let predicate = #Predicate<Project> { project in
-            return project.id == projectID
-        }
-        let descriptor = FetchDescriptor<Project>(predicate: predicate)
-        guard let project = try context.fetch(descriptor).first else {
-            throw ProjectDataStoreError.notFound(projectID)
-        }
-
+        let project = try self.project(with: projectID)
         context.delete(project)
         try context.save()
     }

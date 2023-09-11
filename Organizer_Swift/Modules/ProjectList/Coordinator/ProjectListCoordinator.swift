@@ -9,6 +9,7 @@ import UIKit
 
 protocol ProjectListCoordinatorProtocol: AnyObject {
     func showProjectCreator()
+    func showProjectDetail(for project: Project)
     func show(error: Error)
 }
 
@@ -49,6 +50,14 @@ extension ProjectListCoordinator: ProjectListCoordinatorProtocol {
             navigationController: self.navigationController!
         )
         self.start(child: projectCreatorCoordinator)
+    }
+
+    func showProjectDetail(for project: Project) {
+        let projectDetailCoordinator = ProjectDetailCoordinator(
+            navigationController: self.navigationController!,
+            project: project
+        )
+        self.start(child: projectDetailCoordinator)
     }
 
     func show(error: Error) {

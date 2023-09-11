@@ -14,19 +14,21 @@ final class ProjectDetailCoordinator: ChildCoordinator {
     // MARK: - Properties
 
     unowned private let navigationController: UINavigationController
+    private let project: Project
 
     weak var parent: ParentCoordinator?
 
     // MARK: - Initialization
 
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController, project: Project) {
         self.navigationController = navigationController
+        self.project = project
     }
 
     // MARK: - Coordinator
 
     func start() {
-        let projectDetailViewModel = ProjectDetailViewModel()
+        let projectDetailViewModel = ProjectDetailViewModel(project: self.project)
         let projectDetailViewController = ProjectDetailViewController(
             viewModel: projectDetailViewModel,
             coordinator: self

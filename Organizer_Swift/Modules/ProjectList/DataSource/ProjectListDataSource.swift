@@ -48,6 +48,12 @@ final class ProjectListDataSource: UITableViewDiffableDataSource<ProjectListSect
         self.apply(snapshot, animatingDifferences: animated)
     }
 
+    // MARK: - Getter
+
+    func projectIdentifier(for indexPath: IndexPath) -> UUID? {
+        self.itemIdentifier(for: indexPath)?.id
+    }
+
 
     // MARK: - UITableViewDataSource
 
