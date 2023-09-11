@@ -12,8 +12,8 @@ final class ProjectCreatorViewController: UIViewController {
 
     private lazy var contentView = ProjectCreatorView()
 
-    private unowned let coordinator: ProjectCreatorCoordinatorProtocol
     private let viewModel: ProjectCreatorViewModel
+    private unowned let coordinator: ProjectCreatorCoordinatorProtocol
 
     // MARK: - Initialization
 

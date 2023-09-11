@@ -12,5 +12,4 @@ struct ProjectDescription: Hashable {
     var title: String
     var theme: String?
     var lastUpdatedDate: String
-
 }

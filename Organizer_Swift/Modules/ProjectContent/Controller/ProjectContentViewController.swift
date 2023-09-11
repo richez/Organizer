@@ -10,8 +10,10 @@ import UIKit
 final class ProjectContentViewController: UIViewController {
     private lazy var contentView = ProjectContentView()
 
-    private unowned let coordinator: ProjectContentCoordinatorProtocol
     private let viewModel: ProjectContentViewModel
+    private unowned let coordinator: ProjectContentCoordinatorProtocol
+
+    private lazy var dataSource = ProjectContentDataSource(tableView: self.contentView.tableView)
 
     // MARK: - Initialization
 
@@ -35,17 +37,47 @@ final class ProjectContentViewController: UIViewController {
         super.viewDidLoad()
 
         self.setup()
+        self.updateList()
     }
 }
 
 private extension ProjectContentViewController {
+    // MARK: - Setup
+
     func setup() {
+        self.dataSource.delegate = self
         self.contentView.delegate = self
         
         self.title = self.viewModel.navigationBarTitle
         self.navigationController?.navigationBar.applyAppearance()
     }
+
+    // MARK: - Updates
+
+    func updateList() {
+        do {
+            let contentDescriptions = try self.viewModel.fetchContentDescriptions()
+            self.dataSource.applySnapshot(
+                section: self.viewModel.section,
+                contentDescriptions: contentDescriptions,
+                animated: false
+            )
+        } catch {
+            print("Fail to fetch projects: \(error)")
+            // TODO: handle error
+        }
+    }
 }
+
+// MARK: - ProjectContentDataSourceDelegate
+
+extension ProjectContentViewController: ProjectContentDataSourceDelegate {
+    func didTapDelete(on contentDescription: ProjectContentDescription) {
+        // TODO: handle deletion
+    }
+}
+
+// MARK: - ProjectContentViewDelegate
 
 extension ProjectContentViewController: ProjectContentViewDelegate {
     func didSelectContent(at indexPath: IndexPath) {
@@ -54,3 +86,4 @@ extension ProjectContentViewController: ProjectContentViewDelegate {
     func didTapContentCreatorButton() {
     }
 }
+

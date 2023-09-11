@@ -78,14 +78,14 @@ private extension ProjectListViewController {
     func observeDidCreateProjectNotification() {
         NotificationCenter.default.addObserver(
             self,
-            selector: #selector(self.modelContextDidSave(_:)),
+            selector: #selector(self.didCreateProject(_:)),
             name: .didCreateProject,
             object: nil
         )
     }
 
     @objc
-    func modelContextDidSave(_ notification: Notification) {
+    func didCreateProject(_ notification: Notification) {
         self.updateList()
     }
 }

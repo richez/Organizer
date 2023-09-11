@@ -28,6 +28,12 @@ final class ProjectContentCell: UITableViewCell {
 
         self.setup()
     }
+
+    // MARK: - Configuration
+
+    func configure(with description: ProjectContentDescription) {
+        self.titleLabel.text = description.title
+    }
 }
 
 private extension ProjectContentCell {

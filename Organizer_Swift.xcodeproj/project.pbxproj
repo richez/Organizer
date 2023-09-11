@@ -24,6 +24,10 @@
 		F036939A2AA6A512005C373A /* ProjectListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03693992AA6A512005C373A /* ProjectListViewModel.swift */; };
 		F07202F32AAFCAEE0026B29E /* ProjectContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07202F22AAFCAEE0026B29E /* ProjectContentCell.swift */; };
 		F07202F52AAFCB080026B29E /* ProjectContentCellViewRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07202F42AAFCB080026B29E /* ProjectContentCellViewRepresentation.swift */; };
+		F07202F82AAFCCC70026B29E /* ProjectContentDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07202F72AAFCCC70026B29E /* ProjectContentDataSource.swift */; };
+		F07202FA2AAFCD060026B29E /* ProjectContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07202F92AAFCD060026B29E /* ProjectContent.swift */; };
+		F07202FD2AAFD26A0026B29E /* ProjectContentSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07202FC2AAFD26A0026B29E /* ProjectContentSection.swift */; };
+		F07202FF2AAFD2800026B29E /* ProjectContentDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07202FE2AAFD2800026B29E /* ProjectContentDescription.swift */; };
 		F0732B9E2AA61A7B0027EC4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0732B9D2AA61A7B0027EC4F /* AppDelegate.swift */; };
 		F0732BA02AA61A7B0027EC4F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0732B9F2AA61A7B0027EC4F /* SceneDelegate.swift */; };
 		F0732BA22AA61A7B0027EC4F /* ProjectListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0732BA12AA61A7B0027EC4F /* ProjectListViewController.swift */; };
@@ -90,6 +94,10 @@
 		F03693992AA6A512005C373A /* ProjectListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListViewModel.swift; sourceTree = "<group>"; };
 		F07202F22AAFCAEE0026B29E /* ProjectContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectContentCell.swift; sourceTree = "<group>"; };
 		F07202F42AAFCB080026B29E /* ProjectContentCellViewRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectContentCellViewRepresentation.swift; sourceTree = "<group>"; };
+		F07202F72AAFCCC70026B29E /* ProjectContentDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectContentDataSource.swift; sourceTree = "<group>"; };
+		F07202F92AAFCD060026B29E /* ProjectContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectContent.swift; sourceTree = "<group>"; };
+		F07202FC2AAFD26A0026B29E /* ProjectContentSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectContentSection.swift; sourceTree = "<group>"; };
+		F07202FE2AAFD2800026B29E /* ProjectContentDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectContentDescription.swift; sourceTree = "<group>"; };
 		F0732B9A2AA61A7B0027EC4F /* Organizer_Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Organizer_Swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0732B9D2AA61A7B0027EC4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0732B9F2AA61A7B0027EC4F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -196,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				F090AAB32AA7678D00480249 /* Project.swift */,
+				F07202F92AAFCD060026B29E /* ProjectContent.swift */,
 				F0C265142AAB8A32008EAB3C /* ProjectDataStore.swift */,
 			);
 			path = Project;
@@ -267,6 +276,23 @@
 				F03693992AA6A512005C373A /* ProjectListViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F07202F62AAFCCA70026B29E /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				F07202F72AAFCCC70026B29E /* ProjectContentDataSource.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		F07202FB2AAFD24C0026B29E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F07202FC2AAFD26A0026B29E /* ProjectContentSection.swift */,
+				F07202FE2AAFD2800026B29E /* ProjectContentDescription.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		F0732B912AA61A7B0027EC4F = {
@@ -429,6 +455,8 @@
 			children = (
 				F0C265212AAF5FC1008EAB3C /* Controller */,
 				F0C265202AAF5FB2008EAB3C /* Coordinator */,
+				F07202F62AAFCCA70026B29E /* DataSource */,
+				F07202FB2AAFD24C0026B29E /* Model */,
 				F0C2651F2AAF5FAC008EAB3C /* View */,
 				F0C2651E2AAF5FA4008EAB3C /* ViewModel */,
 			);
@@ -624,6 +652,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F07202FA2AAFCD060026B29E /* ProjectContent.swift in Sources */,
 				F0C265152AAB8A32008EAB3C /* ProjectDataStore.swift in Sources */,
 				F090AAB22AA765E200480249 /* ProjectCellViewRepresentation.swift in Sources */,
 				F0C2651A2AAF5903008EAB3C /* ProjectCreatorFieldsDescription.swift in Sources */,
@@ -632,6 +661,8 @@
 				F090AAB82AA7699900480249 /* ProjectDescription.swift in Sources */,
 				F036939A2AA6A512005C373A /* ProjectListViewModel.swift in Sources */,
 				F0732BD82AA63C810027EC4F /* Coordinator.swift in Sources */,
+				F07202FD2AAFD26A0026B29E /* ProjectContentSection.swift in Sources */,
+				F07202FF2AAFD2800026B29E /* ProjectContentDescription.swift in Sources */,
 				F03693972AA6A42C005C373A /* ProjectListViewRepresentation.swift in Sources */,
 				F0D2B0E12AA776E3000D34CA /* UIView+Identifier.swift in Sources */,
 				F0732BA22AA61A7B0027EC4F /* ProjectListViewController.swift in Sources */,
@@ -652,6 +683,7 @@
 				F0D2B0DF2AA770EC000D34CA /* ProjectListDataSource.swift in Sources */,
 				F0307C882AA8E1B100DC3958 /* UIStackView+ViewRepresentation.swift in Sources */,
 				F0307C702AA87EEE00DC3958 /* FloatingActionButtonViewRepresentation.swift in Sources */,
+				F07202F82AAFCCC70026B29E /* ProjectContentDataSource.swift in Sources */,
 				F0307C842AA8BF0E00DC3958 /* ProjectCreatorViewRepresentation.swift in Sources */,
 				F090AAB42AA7678D00480249 /* Project.swift in Sources */,
 				F090AAB02AA7633300480249 /* ProjectCell.swift in Sources */,
