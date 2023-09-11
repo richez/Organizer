@@ -47,7 +47,7 @@ private extension ProjectContentViewController {
     func setup() {
         self.dataSource.delegate = self
         self.contentView.delegate = self
-        
+
         self.title = self.viewModel.navigationBarTitle
         self.navigationController?.navigationBar.applyAppearance()
     }
@@ -55,17 +55,12 @@ private extension ProjectContentViewController {
     // MARK: - Updates
 
     func updateList() {
-        do {
-            let contentDescriptions = try self.viewModel.fetchContentDescriptions()
-            self.dataSource.applySnapshot(
-                section: self.viewModel.section,
-                contentDescriptions: contentDescriptions,
-                animated: false
-            )
-        } catch {
-            print("Fail to fetch projects: \(error)")
-            // TODO: handle error
-        }
+        let contentDescriptions = self.viewModel.fetchContentDescriptions()
+        self.dataSource.applySnapshot(
+            section: self.viewModel.section,
+            contentDescriptions: contentDescriptions,
+            animated: false
+        )
     }
 }
 
@@ -82,7 +77,7 @@ extension ProjectContentViewController: ProjectContentDataSourceDelegate {
 extension ProjectContentViewController: ProjectContentViewDelegate {
     func didSelectContent(at indexPath: IndexPath) {
     }
-    
+
     func didTapContentCreatorButton() {
     }
 }

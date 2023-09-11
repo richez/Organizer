@@ -21,7 +21,7 @@ extension ProjectContentViewModel {
     var navigationBarTitle: String { self.project.title }
     var section: ProjectContentSection { .main }
 
-    func fetchContentDescriptions() throws -> [ProjectContentDescription] {
+    func fetchContentDescriptions() -> [ProjectContentDescription] {
         return ProjectContentDescription.sample
     }
 }
