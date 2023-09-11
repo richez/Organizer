@@ -7,10 +7,20 @@
 
 import UIKit
 
+protocol ProjectDetailViewDelegate: AnyObject {
+    func didSelectContent(at indexPath: IndexPath)
+    func didTapContentCreatorButton()
+}
+
 final class ProjectDetailView: UIView {
     // MARK: - Properties
 
     private let viewRepresentation = ProjectDetailViewRepresentation()
+
+    weak var delegate: ProjectDetailViewDelegate?
+
+    let tableView: UITableView = .init()
+    let contentCreatorButton: FloatingActionButton = .init()
 
     // MARK: - Initialization
 
@@ -30,5 +40,57 @@ private extension ProjectDetailView {
 
     func setup() {
         self.backgroundColor = self.viewRepresentation.backgroundColor
+
+        self.setupTableView()
+        self.setupContentCreatorButton()
+    }
+
+    func setupTableView() {
+        self.tableView.delegate = self
+        self.tableView.backgroundColor = self.viewRepresentation.tableViewBackgroundColor
+        self.tableView.directionalLayoutMargins = self.viewRepresentation.tableViewEdgeInsets
+        self.tableView.separatorStyle = self.viewRepresentation.tableViewseparatorStyle
+
+        self.addSubview(self.tableView)
+        self.tableView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            self.tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            self.tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            self.tableView.topAnchor.constraint(equalTo: self.topAnchor),
+            self.tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+        ])
+    }
+
+    func setupContentCreatorButton() {
+        self.contentCreatorButton.setup(
+            with: self.viewRepresentation.contentCreatorButtonViewRepresentation
+        )
+
+        self.contentCreatorButton.addAction(UIAction(handler: { [weak self] _ in
+            self?.delegate?.didTapContentCreatorButton()
+        }), for: .touchUpInside)
+
+        self.addSubview(self.contentCreatorButton)
+        self.contentCreatorButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            self.contentCreatorButton.bottomAnchor.constraint(
+                equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -10
+            ),
+            self.contentCreatorButton.trailingAnchor.constraint(
+                equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -20
+            )
+        ])
+    }
+}
+
+// MARK: - UITableViewDelegate
+
+extension ProjectDetailView: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return self.viewRepresentation.cellHeight
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.delegate?.didSelectContent(at: indexPath)
     }
 }
