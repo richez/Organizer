@@ -22,6 +22,11 @@ protocol ProjectDataStoreDeleter {
 
 protocol ProjectDataStoreProtocol: ProjectDataStoreReader & ProjectDataStoreCreator & ProjectDataStoreDeleter {}
 
+enum ProjectDataStoreError: Error {
+    case databaseUnreachable
+    case notFound(UUID)
+}
+
 final class ProjectDataStore {
     static let shared: ProjectDataStoreProtocol = ProjectDataStore()
 
@@ -30,11 +35,6 @@ final class ProjectDataStore {
     private let notificationCenter: NotificationCenter
     private let modelContainer: ModelContainer?
     private let context: ModelContext?
-
-    enum Error: Swift.Error {
-        case databaseUnreachable
-        case notFound(UUID)
-    }
 
     // MARK: - Initialization
 
@@ -59,7 +59,7 @@ extension ProjectDataStore: ProjectDataStoreProtocol {
     // MARK: ProjectDataStoreReader
 
     func fetch() throws -> [Project] {
-        guard let context else { throw Error.databaseUnreachable }
+        guard let context else { throw ProjectDataStoreError.databaseUnreachable }
 
         let descriptor = FetchDescriptor<Project>(sortBy: [SortDescriptor(\.lastUpdatedDate, order: .reverse)])
         return try context.fetch(descriptor)
@@ -68,7 +68,7 @@ extension ProjectDataStore: ProjectDataStoreProtocol {
     // MARK: ProjectDataStoreCreator
 
     func create(project: Project) throws {
-        guard let context else { throw Error.databaseUnreachable }
+        guard let context else { throw ProjectDataStoreError.databaseUnreachable }
 
         context.insert(project)
         try context.save()
@@ -78,14 +78,14 @@ extension ProjectDataStore: ProjectDataStoreProtocol {
     // MARK: ProjectDataStoreDeleter
 
     func delete(projectID: UUID) throws {
-        guard let context else { throw Error.databaseUnreachable }
+        guard let context else { throw ProjectDataStoreError.databaseUnreachable }
 
         let predicate = #Predicate<Project> { trip in
             return trip.id == projectID
         }
         let descriptor = FetchDescriptor<Project>(predicate: predicate)
         guard let project = try context.fetch(descriptor).first else {
-            throw Error.notFound(projectID)
+            throw ProjectDataStoreError.notFound(projectID)
         }
 
         context.delete(project)

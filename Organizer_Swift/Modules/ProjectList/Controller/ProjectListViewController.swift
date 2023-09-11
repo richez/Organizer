@@ -67,7 +67,8 @@ private extension ProjectListViewController {
                 animated: false
             )
         } catch {
-            // TODO: handle error
+            print("Fail to fetch projects: \(error)")
+            self.coordinator.show(error: error)
         }
     }
 
@@ -96,8 +97,8 @@ extension ProjectListViewController: ProjectListDataSourceDelegate {
             try self.viewModel.deleteProject(with: projectDescription.id)
             self.dataSource.applySnapshot(deleting: projectDescription, animated: true)
         } catch {
-            // TODO: handle error
             print("Fail to delete project: \(error)")
+            self.coordinator.show(error: error)
         }
     }
 }
@@ -106,7 +107,6 @@ extension ProjectListViewController: ProjectListDataSourceDelegate {
 
 extension ProjectListViewController: ProjectListViewDelegate {
     func didSelectProject(at indexPath: IndexPath) {
-
     }
 
     func didTapProjectCreatorButton() {

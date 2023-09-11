@@ -7,14 +7,12 @@
 
 import Foundation
 
-struct ProjectCreatorField {
-    var text: String
-    var placeholder: String
-}
+enum ProjectCreatorViewModelError: RenderableError {
+    case create(Error)
 
-struct ProjectCreatorFieldsDescription {
-    var name: ProjectCreatorField
-    var theme: ProjectCreatorField
+    var title: String { "Fail to create project" }
+    var message: String { "Please try again later" }
+    var actionTitle: String { "OK" }
 }
 
 struct ProjectCreatorViewModel {
@@ -43,7 +41,7 @@ extension ProjectCreatorViewModel {
         }
     }
 
-    func saveProject(name: String, theme: String) throws {
+    func createProject(name: String, theme: String) throws {
         let projectName = name.trimmingCharacters(in: .whitespacesAndNewlines)
         let projectTheme: String? = {
             let theme = theme.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -57,6 +55,11 @@ extension ProjectCreatorViewModel {
             creationDate: .now,
             lastUpdatedDate: .now
         )
-        try self.dataStore.create(project: project)
+
+        do {
+            try self.dataStore.create(project: project)
+        } catch {
+            throw ProjectCreatorViewModelError.create(error)
+        }
     }
 }

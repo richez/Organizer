@@ -8,10 +8,11 @@
 import UIKit
 
 protocol ProjectCreatorCoordinatorProtocol: AnyObject {
+    func show(error: Error)
     func finish()
 }
 
-final class ProjectCreatorCoordinator: ChildCoordinator, ProjectCreatorCoordinatorProtocol {
+final class ProjectCreatorCoordinator: ChildCoordinator {
     // MARK: - Properties
 
     unowned private let navigationController: UINavigationController
@@ -33,5 +34,13 @@ final class ProjectCreatorCoordinator: ChildCoordinator, ProjectCreatorCoordinat
             coordinator: self
         )
         self.navigationController.present(projectCreatorViewController, animated: true)
+    }
+}
+
+// MARK: - ProjectCreatorCoordinatorProtocol
+
+extension ProjectCreatorCoordinator: ProjectCreatorCoordinatorProtocol {
+    func show(error: Error) {
+        self.navigationController.presentedViewController?.presentError(error)
     }
 }
