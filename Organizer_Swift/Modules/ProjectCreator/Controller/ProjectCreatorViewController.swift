@@ -43,6 +43,7 @@ final class ProjectCreatorViewController: UIViewController {
 private extension ProjectCreatorViewController {
     func setup() {
         self.contentView.delegate = self
+        self.presentationController?.delegate = self
 
         self.contentView.configure(with: self.viewModel.fieldsDescription)
     }
@@ -70,5 +71,13 @@ extension ProjectCreatorViewController: ProjectCreatorViewDelegate {
             print("Fail to create project: \(error)")
             self.coordinator.show(error: error)
         }
+    }
+}
+
+// MARK: - UIAdaptivePresentationControllerDelegate
+
+extension ProjectCreatorViewController: UIAdaptivePresentationControllerDelegate {
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        self.coordinator.finish()
     }
 }
