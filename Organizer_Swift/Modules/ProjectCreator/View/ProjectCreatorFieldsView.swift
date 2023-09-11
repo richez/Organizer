@@ -24,6 +24,9 @@ final class ProjectCreatorFieldsView: UIView {
     private let themeLabel: UILabel = .init()
     private let themeTextField: UITextField = .init()
 
+    var nameTextFieldValue: String { self.nameTextField.text ?? "" }
+    var themeTextFieldValue: String { self.themeTextField.text ?? "" }
+
     weak var delegate: ProjectCreatorFieldsViewDelegate?
 
     var subscriptions = Set<AnyCancellable>()
@@ -52,6 +55,8 @@ final class ProjectCreatorFieldsView: UIView {
 }
 
 private extension ProjectCreatorFieldsView {
+    // MARK: - Setup
+    
     func setup() {
         self.setupStackView()
         self.setupLabel(self.nameLabel)

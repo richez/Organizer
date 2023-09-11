@@ -10,7 +10,7 @@ import UIKit
 protocol ProjectCreatorViewDelegate: AnyObject {
     func didEditFields(name: String, theme: String)
     func didTapOnView()
-    func didTapSaveButton()
+    func didTapSaveButton(name: String, theme: String)
 }
 
 final class ProjectCreatorView: UIView {
@@ -87,7 +87,11 @@ private extension ProjectCreatorView {
         self.saveButton.setup(with: self.viewRepresentation.saveButtonViewRepresentation)
 
         self.saveButton.addAction(UIAction(handler: { [weak self] _ in
-            self?.delegate?.didTapSaveButton()
+            guard let self = self else { return }
+            self.delegate?.didTapSaveButton(
+                name: self.fieldsView.nameTextFieldValue,
+                theme: self.fieldsView.themeTextFieldValue
+            )
         }), for: .touchUpInside)
 
         self.addSubview(self.saveButton)

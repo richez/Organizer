@@ -7,18 +7,26 @@
 
 import Foundation
 
-enum ProjectListViewModelError: Error {
-    case invalid(id: UUID)
+struct ProjectListViewModel {
+    // MARK: - Properties
+
+    private let dataStore: ProjectDataStoreReader & ProjectDataStoreDeleter
+
+    // MARK: - Initialization
+
+    init(dataStore: ProjectDataStoreReader & ProjectDataStoreDeleter = ProjectDataStore.shared) {
+        self.dataStore = dataStore
+    }
 }
 
-final class ProjectListViewModel {
-    let navigationBarTitle: String = "Projects"
-    let section: ProjectListSection = .main
-    private var projects: [Project] = []
+// MARK: - Public
 
-    func fetchProjectDescriptions() -> [ProjectDescription] {
-        let projects = Project.sample
-        self.projects = projects
+extension ProjectListViewModel {
+    var navigationBarTitle: String { "Projects" }
+    var section: ProjectListSection { .main }
+
+    func fetchProjectDescriptions() throws -> [ProjectDescription] {
+        let projects = try self.dataStore.fetch()
         return projects.map { project in
             return ProjectDescription(
                 id: project.id,
@@ -29,10 +37,6 @@ final class ProjectListViewModel {
     }
 
     func deleteProject(with id: UUID) throws {
-        guard let index = self.projects.firstIndex(where: { $0.id == id }) else {
-            throw ProjectListViewModelError.invalid(id: id)
-        }
-
-        self.projects.remove(at: index)
+        try self.dataStore.delete(projectID: id)
     }
 }

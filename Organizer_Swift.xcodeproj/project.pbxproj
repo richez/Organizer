@@ -38,6 +38,8 @@
 		F090AAB42AA7678D00480249 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = F090AAB32AA7678D00480249 /* Project.swift */; };
 		F090AAB62AA7698B00480249 /* ProjectListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F090AAB52AA7698B00480249 /* ProjectListSection.swift */; };
 		F090AAB82AA7699900480249 /* ProjectDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = F090AAB72AA7699900480249 /* ProjectDescription.swift */; };
+		F0C265132AAB8932008EAB3C /* NotificationName+DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C265122AAB8932008EAB3C /* NotificationName+DataStore.swift */; };
+		F0C265152AAB8A32008EAB3C /* ProjectDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C265142AAB8A32008EAB3C /* ProjectDataStore.swift */; };
 		F0D2B0DF2AA770EC000D34CA /* ProjectListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D2B0DE2AA770EC000D34CA /* ProjectListDataSource.swift */; };
 		F0D2B0E12AA776E3000D34CA /* UIView+Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D2B0E02AA776E3000D34CA /* UIView+Identifier.swift */; };
 /* End PBXBuildFile section */
@@ -95,6 +97,8 @@
 		F090AAB32AA7678D00480249 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		F090AAB52AA7698B00480249 /* ProjectListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListSection.swift; sourceTree = "<group>"; };
 		F090AAB72AA7699900480249 /* ProjectDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDescription.swift; sourceTree = "<group>"; };
+		F0C265122AAB8932008EAB3C /* NotificationName+DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+DataStore.swift"; sourceTree = "<group>"; };
+		F0C265142AAB8A32008EAB3C /* ProjectDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDataStore.swift; sourceTree = "<group>"; };
 		F0D2B0DE2AA770EC000D34CA /* ProjectListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListDataSource.swift; sourceTree = "<group>"; };
 		F0D2B0E02AA776E3000D34CA /* UIView+Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Identifier.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -169,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				F090AAB32AA7678D00480249 /* Project.swift */,
+				F0C265142AAB8A32008EAB3C /* ProjectDataStore.swift */,
 			);
 			path = Project;
 			sourceTree = "<group>";
@@ -226,6 +231,7 @@
 				F0D2B0E02AA776E3000D34CA /* UIView+Identifier.swift */,
 				F0307C852AA8DDAB00DC3958 /* NSLayoutAnchor+Priority.swift */,
 				F0307C872AA8E1B100DC3958 /* UIStackView+ViewRepresentation.swift */,
+				F0C265122AAB8932008EAB3C /* NotificationName+DataStore.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -521,6 +527,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0C265152AAB8A32008EAB3C /* ProjectDataStore.swift in Sources */,
 				F090AAB22AA765E200480249 /* ProjectCellViewRepresentation.swift in Sources */,
 				F0307C802AA8A95C00DC3958 /* ProjectCreatorView.swift in Sources */,
 				F090AAB62AA7698B00480249 /* ProjectListSection.swift in Sources */,
@@ -547,6 +554,7 @@
 				F0307C6E2AA87ED100DC3958 /* FloatingActionButton.swift in Sources */,
 				F0307C7E2AA8A91800DC3958 /* ProjectCreatorCoordinator.swift in Sources */,
 				F0307C8C2AA8F09C00DC3958 /* ProjectCreatorFieldsViewRepresentation.swift in Sources */,
+				F0C265132AAB8932008EAB3C /* NotificationName+DataStore.swift in Sources */,
 				F0307C7A2AA8A8D500DC3958 /* ProjectCreatorViewController.swift in Sources */,
 				F0732BA02AA61A7B0027EC4F /* SceneDelegate.swift in Sources */,
 			);

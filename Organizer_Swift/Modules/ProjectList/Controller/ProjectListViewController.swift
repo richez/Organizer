@@ -39,7 +39,7 @@ final class ProjectListViewController: UIViewController {
         super.viewDidLoad()
 
         self.setup()
-        self.configure()
+        self.updateList()
     }
 }
 
@@ -52,18 +52,39 @@ private extension ProjectListViewController {
 
         self.title = self.viewModel.navigationBarTitle
         self.navigationController?.navigationBar.applyAppearance()
+
+        self.observeDidCreateProjectNotification()
     }
 
-    // MARK: - Configuration
+    // MARK: - Updates
 
-    func configure() {
-        let projectDescriptions = self.viewModel.fetchProjectDescriptions()
+    func updateList() {
+        do {
+            let projectDescriptions = try self.viewModel.fetchProjectDescriptions()
+            self.dataSource.applySnapshot(
+                section: self.viewModel.section,
+                projectDescriptions: projectDescriptions,
+                animated: false
+            )
+        } catch {
+            // TODO: handle error
+        }
+    }
 
-        self.dataSource.applySnapshot(
-            section: self.viewModel.section,
-            projectDescriptions: projectDescriptions,
-            animated: false
+    // MARK: - Notification
+
+    func observeDidCreateProjectNotification() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.modelContextDidSave(_:)),
+            name: .didCreateProject,
+            object: nil
         )
+    }
+
+    @objc
+    func modelContextDidSave(_ notification: Notification) {
+        self.updateList()
     }
 }
 
@@ -75,6 +96,7 @@ extension ProjectListViewController: ProjectListDataSourceDelegate {
             try self.viewModel.deleteProject(with: projectDescription.id)
             self.dataSource.applySnapshot(deleting: projectDescription, animated: true)
         } catch {
+            // TODO: handle error
             print("Fail to delete project: \(error)")
         }
     }

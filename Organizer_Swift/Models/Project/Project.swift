@@ -6,25 +6,19 @@
 //
 
 import Foundation
+import SwiftData
 
+@Model
 final class Project {
-    let id: UUID
+    @Attribute(.unique) let id: UUID
     var title: String
+    var theme: String? // TODO: display theme in cell + add creation date
     var lastUpdatedDate: Date
 
-    init(id: UUID = .init(), title: String, lastUpdatedDate: Date) {
+    init(id: UUID = .init(), title: String, theme: String? = nil, lastUpdatedDate: Date) {
         self.id = id
         self.title = title
+        self.theme = theme
         self.lastUpdatedDate = lastUpdatedDate
-    }
-}
-
-extension Project {
-    static var sample: [Project] {
-        [
-            Project(title: "Auto-Construction", lastUpdatedDate: .now),
-            Project(title: "Menuiserie", lastUpdatedDate: Calendar.current.date(byAdding: .day, value: -1, to: .now)!),
-            Project(title: "Recherche Emploi", lastUpdatedDate:  Calendar.current.date(byAdding: .day, value: -2, to: .now)!)
-        ]
     }
 }

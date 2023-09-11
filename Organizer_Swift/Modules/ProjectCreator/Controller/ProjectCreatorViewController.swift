@@ -62,9 +62,15 @@ extension ProjectCreatorViewController: ProjectCreatorViewDelegate {
         self.view.endEditing(true)
     }
 
-    func didTapSaveButton() {
+    func didTapSaveButton(name: String, theme: String) {
         self.view.endEditing(true)
-        self.dismiss(animated: true)
-        self.coordinator.finish()
+        do {
+            try self.viewModel.saveProject(name: name, theme: theme)
+            self.dismiss(animated: true)
+            self.coordinator.finish()
+        } catch {
+            // TODO: Handle error
+            print("Could not save project: \(error)")
+        }
     }
 }
