@@ -17,7 +17,7 @@ final class ProjectListCoordinator: ParentCoordinator, ChildCoordinator {
     // MARK: - Properties
 
     unowned let window: UIWindow
-    weak private var navigationController: UINavigationController?
+    weak private var navigationController: NavigationController?
 
     weak var parent: ParentCoordinator?
     var children: [Coordinator] = []
@@ -36,7 +36,7 @@ final class ProjectListCoordinator: ParentCoordinator, ChildCoordinator {
             viewModel: projectListViewModel,
             coordinator: self
         )
-        let projectListNavigationController = UINavigationController(rootViewController: projectListViewController)
+        let projectListNavigationController = NavigationController(rootViewController: projectListViewController)
         self.window.rootViewController = projectListNavigationController
         self.navigationController = projectListNavigationController
     }

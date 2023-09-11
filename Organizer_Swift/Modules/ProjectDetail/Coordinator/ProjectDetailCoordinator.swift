@@ -13,14 +13,14 @@ protocol ProjectDetailCoordinatorProtocol: AnyObject {
 final class ProjectDetailCoordinator: ChildCoordinator {
     // MARK: - Properties
 
-    unowned private let navigationController: UINavigationController
+    unowned private let navigationController: NavigationController
     private let project: Project
 
     weak var parent: ParentCoordinator?
 
     // MARK: - Initialization
 
-    init(navigationController: UINavigationController, project: Project) {
+    init(navigationController: NavigationController, project: Project) {
         self.navigationController = navigationController
         self.project = project
     }
@@ -33,6 +33,9 @@ final class ProjectDetailCoordinator: ChildCoordinator {
             viewModel: projectDetailViewModel,
             coordinator: self
         )
+        self.navigationController.setPopAction({ [weak self] in
+            self?.finish()
+        }, for: projectDetailViewController)
         self.navigationController.pushViewController(projectDetailViewController, animated: true)
     }
 }
