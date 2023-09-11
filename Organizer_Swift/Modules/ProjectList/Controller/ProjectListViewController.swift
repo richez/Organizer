@@ -111,7 +111,7 @@ extension ProjectListViewController: ProjectListViewDelegate {
         do {
             let projectID = self.dataSource.projectIdentifier(for: indexPath)
             let project = try self.viewModel.project(with: projectID)
-            self.coordinator.showProjectDetail(for: project)
+            self.coordinator.showProjectContent(of: project)
         } catch {
             self.coordinator.show(error: error)
         }

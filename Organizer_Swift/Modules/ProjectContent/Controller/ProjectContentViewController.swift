@@ -1,5 +1,5 @@
 //
-//  ProjectDetailViewController.swift
+//  ProjectContentViewController.swift
 //  Organizer_Swift
 //
 //  Created by Thibaut Richez on 11/09/2023.
@@ -7,15 +7,15 @@
 
 import UIKit
 
-final class ProjectDetailViewController: UIViewController {
-    private lazy var contentView = ProjectDetailView()
+final class ProjectContentViewController: UIViewController {
+    private lazy var contentView = ProjectContentView()
 
-    private unowned let coordinator: ProjectDetailCoordinatorProtocol
-    private let viewModel: ProjectDetailViewModel
+    private unowned let coordinator: ProjectContentCoordinatorProtocol
+    private let viewModel: ProjectContentViewModel
 
     // MARK: - Initialization
 
-    init(viewModel: ProjectDetailViewModel, coordinator: ProjectDetailCoordinatorProtocol) {
+    init(viewModel: ProjectContentViewModel, coordinator: ProjectContentCoordinatorProtocol) {
         self.viewModel = viewModel
         self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
@@ -38,7 +38,7 @@ final class ProjectDetailViewController: UIViewController {
     }
 }
 
-private extension ProjectDetailViewController {
+private extension ProjectContentViewController {
     func setup() {
         self.contentView.delegate = self
         
@@ -47,7 +47,7 @@ private extension ProjectDetailViewController {
     }
 }
 
-extension ProjectDetailViewController: ProjectDetailViewDelegate {
+extension ProjectContentViewController: ProjectContentViewDelegate {
     func didSelectContent(at indexPath: IndexPath) {
     }
     

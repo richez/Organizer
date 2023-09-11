@@ -1,5 +1,5 @@
 //
-//  ProjectDetailViewRepresentation.swift
+//  ProjectContentViewRepresentation.swift
 //  Organizer_Swift
 //
 //  Created by Thibaut Richez on 11/09/2023.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct ProjectDetailViewRepresentation {
+struct ProjectContentViewRepresentation {
     var backgroundColor: UIColor = .background
 
     var tableViewBackgroundColor: UIColor = .clear

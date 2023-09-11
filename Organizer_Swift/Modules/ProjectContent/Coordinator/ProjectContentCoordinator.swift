@@ -1,5 +1,5 @@
 //
-//  ProjectDetailCoordinator.swift
+//  ProjectContentCoordinator.swift
 //  Organizer_Swift
 //
 //  Created by Thibaut Richez on 11/09/2023.
@@ -7,10 +7,10 @@
 
 import UIKit
 
-protocol ProjectDetailCoordinatorProtocol: AnyObject {
+protocol ProjectContentCoordinatorProtocol: AnyObject {
 }
 
-final class ProjectDetailCoordinator: ChildCoordinator {
+final class ProjectContentCoordinator: ChildCoordinator {
     // MARK: - Properties
 
     unowned private let navigationController: NavigationController
@@ -28,21 +28,21 @@ final class ProjectDetailCoordinator: ChildCoordinator {
     // MARK: - Coordinator
 
     func start() {
-        let projectDetailViewModel = ProjectDetailViewModel(project: self.project)
-        let projectDetailViewController = ProjectDetailViewController(
-            viewModel: projectDetailViewModel,
+        let projectContentViewModel = ProjectContentViewModel(project: self.project)
+        let projectContentViewController = ProjectContentViewController(
+            viewModel: projectContentViewModel,
             coordinator: self
         )
         self.navigationController.setPopAction({ [weak self] in
             self?.finish()
-        }, for: projectDetailViewController)
-        self.navigationController.pushViewController(projectDetailViewController, animated: true)
+        }, for: projectContentViewController)
+        self.navigationController.pushViewController(projectContentViewController, animated: true)
     }
 }
 
-// MARK: - ProjectDetailCoordinatorProtocol
+// MARK: - ProjectContentCoordinatorProtocol
 
-extension ProjectDetailCoordinator: ProjectDetailCoordinatorProtocol {
+extension ProjectContentCoordinator: ProjectContentCoordinatorProtocol {
 
 }
 
