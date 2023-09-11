@@ -52,6 +52,7 @@ private extension ProjectListViewController {
 
         self.title = self.viewModel.navigationBarTitle
         self.navigationController?.navigationBar.applyAppearance()
+        self.navigationItem.backButtonDisplayMode = .minimal
 
         self.observeDidCreateProjectNotification()
     }

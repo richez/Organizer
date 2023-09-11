@@ -13,6 +13,8 @@ extension UINavigationBar {
         appearance.configureWithTransparentBackground()
         appearance.titleTextAttributes = [.foregroundColor: UIColor.navbarTitle]
 
+        self.tintColor = .navbarTitle
+
         self.standardAppearance = appearance
         self.compactAppearance = appearance
         self.scrollEdgeAppearance = appearance

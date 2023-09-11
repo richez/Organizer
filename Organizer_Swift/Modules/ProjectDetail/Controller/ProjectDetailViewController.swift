@@ -41,5 +41,6 @@ final class ProjectDetailViewController: UIViewController {
 private extension ProjectDetailViewController {
     func setup() {
         self.title = self.viewModel.navigationBarTitle
+        self.navigationController?.navigationBar.applyAppearance()
     }
 }
