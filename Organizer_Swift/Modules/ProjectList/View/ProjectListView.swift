@@ -19,7 +19,7 @@ final class ProjectListView: UIView {
     weak var delegate: ProjectListViewDelegate?
 
     let tableView: UITableView = .init()
-    private lazy var projectCreatorButton: FloatingActionButton = .init()
+    let projectCreatorButton: FloatingActionButton = .init()
 
     // MARK: - Initialization
 

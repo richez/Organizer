@@ -53,9 +53,7 @@ private extension ProjectCreatorViewController {
 extension ProjectCreatorViewController: ProjectCreatorViewDelegate {
     func didEditFields(name: String, theme: String) {
         let isFieldsValid = self.viewModel.isFieldsValid(name: name, theme: theme)
-        DispatchQueue.main.async {
-            self.contentView.isSaveButtonEnabled = isFieldsValid
-        }
+        self.contentView.isSaveButtonEnabled = isFieldsValid
     }
 
     func didTapOnView() {
