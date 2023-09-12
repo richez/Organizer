@@ -76,12 +76,12 @@ private extension ProjectListViewController {
     // MARK: - Notification
 
     func observeProjectNotifications() {
-        NotificationCenter.default.addObserver(forName: .didCreateProject, object: nil, queue: .current) { _ in
-            self.updateList(animated: true)
+        NotificationCenter.default.addObserver(forName: .didCreateProject, object: nil, queue: .current) { [weak self] _ in
+            self?.updateList(animated: true)
         }
-        NotificationCenter.default.addObserver(forName: .didUpdateProject, object: nil, queue: .current) { _ in
+        NotificationCenter.default.addObserver(forName: .didUpdateProject, object: nil, queue: .current) { [weak self] _ in
             // The view is not visible when we update the project so we don't need to animate the change
-            self.updateList(animated: false)
+            self?.updateList(animated: false)
         }
     }
 }

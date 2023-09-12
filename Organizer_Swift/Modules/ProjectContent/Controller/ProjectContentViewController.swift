@@ -68,8 +68,8 @@ private extension ProjectContentViewController {
     // MARK: - Notification
 
     func observeContentNotification() {
-        NotificationCenter.default.addObserver(forName: .didCreateContent, object: nil, queue: .current) { _ in
-            self.updateList(animated: true)
+        NotificationCenter.default.addObserver(forName: .didCreateContent, object: nil, queue: .current) { [weak self] _ in
+            self?.updateList(animated: true)
         }
     }
 }
