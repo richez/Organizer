@@ -9,6 +9,7 @@ import UIKit
 
 protocol ProjectContentCoordinatorProtocol: AnyObject {
     func showProjectContentCreator()
+    func show(error: Error)
 }
 
 final class ProjectContentCoordinator: ParentCoordinator, ChildCoordinator {
@@ -51,6 +52,10 @@ extension ProjectContentCoordinator: ProjectContentCoordinatorProtocol {
             project: self.project
         )
         self.start(child: projectContentCreatorCoordinator)
+    }
+
+    func show(error: Error) {
+        self.navigationController.presentError(error)
     }
 }
 

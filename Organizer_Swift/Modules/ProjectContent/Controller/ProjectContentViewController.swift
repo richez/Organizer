@@ -86,7 +86,13 @@ private extension ProjectContentViewController {
 
 extension ProjectContentViewController: ProjectContentDataSourceDelegate {
     func didTapDelete(on contentDescription: ProjectContentDescription) {
-        // TODO: handle deletion
+        do {
+            try self.viewModel.deleteContent(with: contentDescription.id)
+            self.dataSource.applySnapshot(deleting: contentDescription, animated: true)
+        } catch {
+            print("Fail to delete project: \(error)")
+            self.coordinator.show(error: error)
+        }
     }
 }
 

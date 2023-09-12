@@ -7,11 +7,28 @@
 
 import Foundation
 
+enum ProjectContentViewModelError: RenderableError {
+    case delete(UUID)
+
+    var title: String {
+        switch self {
+        case .delete:
+            return "Fail to delete project"
+        }
+    }
+
+    var message: String { "Please try again later" }
+
+    var actionTitle: String { "OK" }
+}
+
 struct ProjectContentViewModel {
     private let project: Project
+    private let notificationCenter: NotificationCenter
 
-    init(project: Project) {
+    init(project: Project, notificationCenter: NotificationCenter = .default) {
         self.project = project
+        self.notificationCenter = notificationCenter
     }
 }
 
@@ -32,6 +49,16 @@ extension ProjectContentViewModel {
                     theme: content.theme.isEmpty ? "" : "#\(content.theme)"
                 )
             }
+    }
+
+    func deleteContent(with id: UUID) throws {
+        guard let index = self.project.contents.firstIndex(where: { $0.id == id }) else {
+            throw ProjectContentViewModelError.delete(id)
+        }
+
+        self.project.contents.remove(at: index)
+        self.project.lastUpdatedDate = .now
+        self.notificationCenter.post(name: .didUpdateProject, object: nil)
     }
 }
 

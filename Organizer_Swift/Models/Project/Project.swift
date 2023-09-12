@@ -13,7 +13,7 @@ final class Project {
     @Attribute(.unique) let id: UUID
     var title: String
     var theme: String
-    var contents: [ProjectContent]
+    var contents: [ProjectContent] // TODO: add cascade
     var creationDate: Date
     var lastUpdatedDate: Date
 
