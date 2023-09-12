@@ -37,7 +37,7 @@ final class ProjectContentViewController: UIViewController {
         super.viewDidLoad()
 
         self.setup()
-        self.updateList()
+        self.updateList(animated: false)
     }
 }
 
@@ -51,34 +51,26 @@ private extension ProjectContentViewController {
         self.title = self.viewModel.navigationBarTitle
         self.navigationController?.navigationBar.applyAppearance()
 
-        self.observeDidCreateContentNotification()
+        self.observeContentNotification()
     }
 
     // MARK: - Updates
 
-    func updateList() {
+    func updateList(animated: Bool) {
         let contentDescriptions = self.viewModel.fetchContentDescriptions()
         self.dataSource.applySnapshot(
             section: self.viewModel.section,
             contentDescriptions: contentDescriptions,
-            animated: false
+            animated: animated
         )
     }
 
     // MARK: - Notification
 
-    func observeDidCreateContentNotification() {
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(self.didCreateContent(_:)),
-            name: .didCreateContent,
-            object: nil
-        )
-    }
-
-    @objc
-    func didCreateContent(_ notification: Notification) {
-        self.updateList()
+    func observeContentNotification() {
+        NotificationCenter.default.addObserver(forName: .didCreateContent, object: nil, queue: .current) { _ in
+            self.updateList(animated: true)
+        }
     }
 }
 
@@ -100,6 +92,7 @@ extension ProjectContentViewController: ProjectContentDataSourceDelegate {
 
 extension ProjectContentViewController: ProjectContentViewDelegate {
     func didSelectContent(at indexPath: IndexPath) {
+        // TODO: handle selection
     }
 
     func didTapContentCreatorButton() {

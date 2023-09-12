@@ -39,7 +39,7 @@ final class ProjectListViewController: UIViewController {
         super.viewDidLoad()
 
         self.setup()
-        self.updateList()
+        self.updateList(animated: false)
     }
 }
 
@@ -59,14 +59,13 @@ private extension ProjectListViewController {
 
     // MARK: - Updates
 
-    func updateList() {
-        // TODO: needs to be called when a content is added to a project
+    func updateList(animated: Bool) {
         do {
             let projectDescriptions = try self.viewModel.fetchProjectDescriptions()
             self.dataSource.applySnapshot(
                 section: self.viewModel.section,
                 projectDescriptions: projectDescriptions,
-                animated: false // TODO: animate when needed
+                animated: animated
             )
         } catch {
             print("Fail to fetch projects: \(error)")
@@ -77,23 +76,13 @@ private extension ProjectListViewController {
     // MARK: - Notification
 
     func observeProjectNotifications() {
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(self.didCreateOrUpdateProject(_:)),
-            name: .didCreateProject,
-            object: nil
-        )
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(self.didCreateOrUpdateProject(_:)),
-            name: .didUpdateProject,
-            object: nil
-        )
-    }
-
-    @objc
-    func didCreateOrUpdateProject(_ notification: Notification) {
-        self.updateList()
+        NotificationCenter.default.addObserver(forName: .didCreateProject, object: nil, queue: .current) { _ in
+            self.updateList(animated: true)
+        }
+        NotificationCenter.default.addObserver(forName: .didUpdateProject, object: nil, queue: .current) { _ in
+            // The view is not visible when we update the project so we don't need to animate the change
+            self.updateList(animated: false)
+        }
     }
 }
 
