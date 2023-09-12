@@ -53,6 +53,7 @@
 		F0AC0ADB2AB0957100AE326F /* ProjectContentCreatorFieldsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AC0ADA2AB0957100AE326F /* ProjectContentCreatorFieldsView.swift */; };
 		F0AC0ADD2AB0968800AE326F /* ProjectContentCreatorFieldsViewRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AC0ADC2AB0968800AE326F /* ProjectContentCreatorFieldsViewRepresentation.swift */; };
 		F0AC0ADF2AB096FF00AE326F /* ProjectContentCreatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AC0ADE2AB096FF00AE326F /* ProjectContentCreatorViewModel.swift */; };
+		F0AC0AE12AB0AD2700AE326F /* ProjectContentCreatorMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AC0AE02AB0AD2700AE326F /* ProjectContentCreatorMenu.swift */; };
 		F0C265132AAB8932008EAB3C /* NotificationName+DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C265122AAB8932008EAB3C /* NotificationName+DataStore.swift */; };
 		F0C265152AAB8A32008EAB3C /* ProjectDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C265142AAB8A32008EAB3C /* ProjectDataStore.swift */; };
 		F0C265172AAF5862008EAB3C /* UIViewController+RenderableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C265162AAF5862008EAB3C /* UIViewController+RenderableError.swift */; };
@@ -136,6 +137,7 @@
 		F0AC0ADA2AB0957100AE326F /* ProjectContentCreatorFieldsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectContentCreatorFieldsView.swift; sourceTree = "<group>"; };
 		F0AC0ADC2AB0968800AE326F /* ProjectContentCreatorFieldsViewRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectContentCreatorFieldsViewRepresentation.swift; sourceTree = "<group>"; };
 		F0AC0ADE2AB096FF00AE326F /* ProjectContentCreatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectContentCreatorViewModel.swift; sourceTree = "<group>"; };
+		F0AC0AE02AB0AD2700AE326F /* ProjectContentCreatorMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectContentCreatorMenu.swift; sourceTree = "<group>"; };
 		F0C265122AAB8932008EAB3C /* NotificationName+DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+DataStore.swift"; sourceTree = "<group>"; };
 		F0C265142AAB8A32008EAB3C /* ProjectDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDataStore.swift; sourceTree = "<group>"; };
 		F0C265162AAF5862008EAB3C /* UIViewController+RenderableError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+RenderableError.swift"; sourceTree = "<group>"; };
@@ -494,6 +496,7 @@
 		F0AC0ACB2AB0917D00AE326F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F0AC0AE02AB0AD2700AE326F /* ProjectContentCreatorMenu.swift */,
 				F0AC0AD22AB0937B00AE326F /* ProjectContentCreatorField.swift */,
 				F0AC0AD42AB0946C00AE326F /* ProjectContentCreatorFieldsDescription.swift */,
 			);
@@ -778,6 +781,7 @@
 				F0307C8C2AA8F09C00DC3958 /* ProjectCreatorFieldsViewRepresentation.swift in Sources */,
 				F0C2652F2AAF709A008EAB3C /* NavigationController.swift in Sources */,
 				F0C265252AAF6031008EAB3C /* ProjectContentViewController.swift in Sources */,
+				F0AC0AE12AB0AD2700AE326F /* ProjectContentCreatorMenu.swift in Sources */,
 				F0C265132AAB8932008EAB3C /* NotificationName+DataStore.swift in Sources */,
 				F0307C7A2AA8A8D500DC3958 /* ProjectCreatorViewController.swift in Sources */,
 				F0732BA02AA61A7B0027EC4F /* SceneDelegate.swift in Sources */,

@@ -8,6 +8,7 @@
 import Foundation
 
 struct ProjectContentCreatorFieldsDescription {
+    var type: ProjectContentCreatorMenu
     var name: ProjectContentCreatorField
     var theme: ProjectContentCreatorField
     var link: ProjectContentCreatorField

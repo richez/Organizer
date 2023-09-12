@@ -27,7 +27,7 @@ struct ProjectCreatorViewModel {
 
 extension ProjectCreatorViewModel {
     var fieldsDescription: ProjectCreatorFieldsDescription {
-        ProjectCreatorFieldsDescription(
+        .init(
             name: ProjectCreatorField(text: "Name", placeholder: "My project"),
             theme: ProjectCreatorField(text: "Theme", placeholder: "Sport, Construction, Work")
         )

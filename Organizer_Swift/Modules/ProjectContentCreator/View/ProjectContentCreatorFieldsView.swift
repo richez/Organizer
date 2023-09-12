@@ -19,6 +19,8 @@ final class ProjectContentCreatorFieldsView: UIView {
 
     private let formStackView: UIStackView = .init()
 
+    private let typeLabel: UILabel = .init()
+    private let typeButton: UIButton = .init()
     private let nameLabel: UILabel = .init()
     private let nameTextField: UITextField = .init()
     private let themeLabel: UILabel = .init()
@@ -49,6 +51,13 @@ final class ProjectContentCreatorFieldsView: UIView {
     // MARK: - Configuration
 
     func configure(with fieldsDescription: ProjectContentCreatorFieldsDescription) {
+        self.typeLabel.text = fieldsDescription.type.text
+        self.typeButton.menu =  UIMenu(
+            title: "",
+            options: .singleSelection,
+            children: fieldsDescription.type.items.map { UIAction(title: $0, handler: { _ in }) }
+        )
+
         self.nameLabel.text = fieldsDescription.name.text
         self.nameTextField.placeholder = fieldsDescription.name.placeholder
 
@@ -65,6 +74,8 @@ private extension ProjectContentCreatorFieldsView {
 
     func setup() {
         self.setupStackView()
+        self.setupLabel(self.typeLabel)
+        self.setupTypeButton()
         self.setupLabel(self.nameLabel)
         self.setupTextField(self.nameTextField)
         self.setupLabel(self.themeLabel)
@@ -76,6 +87,8 @@ private extension ProjectContentCreatorFieldsView {
     func setupStackView() {
         self.formStackView.setup(with: self.viewRepresentation.stackViewRepresentation)
 
+        self.formStackView.addArrangedSubview(self.typeLabel)
+        self.formStackView.addArrangedSubview(self.typeButton)
         self.formStackView.addArrangedSubview(self.nameLabel)
         self.formStackView.addArrangedSubview(self.nameTextField)
         self.formStackView.addArrangedSubview(self.themeLabel)
@@ -91,6 +104,26 @@ private extension ProjectContentCreatorFieldsView {
             self.formStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             self.formStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
+    }
+
+    func setupTypeButton() {
+        self.typeButton.showsMenuAsPrimaryAction = true
+        self.typeButton.changesSelectionAsPrimaryAction = true
+        self.typeButton.contentHorizontalAlignment = .leading
+        var config = UIButton.Configuration.filled()
+        config.baseBackgroundColor = self.viewRepresentation.typeButtonBackgroundColor
+        self.typeButton.configuration = config
+        self.typeButton.setTitleColor(self.viewRepresentation.typeButtonTitleColor, for: .normal)
+
+        self.typeButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            self.typeButton.heightAnchor.constraint(equalToConstant: self.viewRepresentation.typeButtonHeight),
+            self.typeButton.leadingAnchor.constraint(equalTo: self.formStackView.layoutMarginsGuide.leadingAnchor),
+            self.typeButton.trailingAnchor.constraint(
+                equalTo: self.formStackView.layoutMarginsGuide.trailingAnchor
+            )
+        ])
+
     }
 
     func setupLabel(_ label: UILabel) {
@@ -115,10 +148,11 @@ private extension ProjectContentCreatorFieldsView {
         NotificationCenter.default
                 .publisher(for: UITextField.textDidChangeNotification, object: textField)
                 .sink { [weak self] text in
-                    self?.delegate?.didEditFields(
-                        name: self?.nameTextField.text ?? "",
-                        theme: self?.themeTextField.text ?? "",
-                        link: self?.linkTextField.text ?? ""
+                    guard let self = self else { return }
+                    self.delegate?.didEditFields(
+                        name: self.nameTextFieldValue,
+                        theme: self.themeTextFieldValue,
+                        link: self.linkTextFieldValue
                     )
                 }
                 .store(in: &self.subscriptions)

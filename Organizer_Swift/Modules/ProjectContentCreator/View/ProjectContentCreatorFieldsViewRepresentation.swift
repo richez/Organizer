@@ -16,6 +16,10 @@ struct ProjectContentCreatorFieldsViewRepresentation {
         layoutMargins: UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
     )
 
+    var typeButtonHeight: CGFloat = 30
+    var typeButtonBackgroundColor: UIColor = .white
+    var typeButtonTitleColor: UIColor = .placeholderText
+
     var labelsHeight: CGFloat = 30
     var labelsTextColor: UIColor = .projectContentCreatorLabel
     var labelsFont: UIFont = .systemFont(ofSize: 15, weight: .bold)

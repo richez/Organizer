@@ -105,9 +105,10 @@ private extension ProjectCreatorFieldsView {
         NotificationCenter.default
                 .publisher(for: UITextField.textDidChangeNotification, object: textField)
                 .sink { [weak self] text in
-                    self?.delegate?.didEditFields(
-                        name: self?.nameTextField.text ?? "",
-                        theme: self?.themeTextField.text ?? ""
+                    guard let self = self else { return }
+                    self.delegate?.didEditFields(
+                        name: self.nameTextFieldValue,
+                        theme: self.themeTextFieldValue
                     )
                 }
                 .store(in: &self.subscriptions)

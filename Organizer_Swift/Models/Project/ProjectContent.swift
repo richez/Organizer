@@ -8,7 +8,7 @@
 import Foundation
 import SwiftData
 
-enum ProjectContentType: Int, Codable {
+enum ProjectContentType: String, CaseIterable, Codable {
     case article
     case note
     case video
