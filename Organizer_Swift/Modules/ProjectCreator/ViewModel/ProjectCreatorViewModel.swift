@@ -34,19 +34,14 @@ extension ProjectCreatorViewModel {
     }
 
     func isFieldsValid(name: String, theme: String) -> Bool {
-        if name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty == false {
-            return true
-        } else {
-            return false
-        }
+        let isValidName = !name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+        let isValidTheme = true
+        return isValidName && isValidTheme
     }
 
     func createProject(name: String, theme: String) throws {
         let projectName = name.trimmingCharacters(in: .whitespacesAndNewlines)
-        let projectTheme: String? = {
-            let theme = theme.trimmingCharacters(in: .whitespacesAndNewlines)
-            return theme.isEmpty ? nil : theme
-        }()
+        let projectTheme = theme.trimmingCharacters(in: .whitespacesAndNewlines)
 
         let project = Project(
             id: UUID(),

@@ -20,7 +20,7 @@ final class ProjectContent {
     @Attribute(.unique) let id: UUID
     var type: ProjectContentType
     var title: String
-    var theme: String?
+    var theme: String
     var link: String
     var creationDate: Date
     var lastUpdatedDate: Date
@@ -28,7 +28,7 @@ final class ProjectContent {
     init(id: UUID,
          type: ProjectContentType,
          title: String,
-         theme: String?,
+         theme: String,
          link: String,
          creationDate: Date,
          lastUpdatedDate: Date) {

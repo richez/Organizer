@@ -12,14 +12,14 @@ import SwiftData
 final class Project {
     @Attribute(.unique) let id: UUID
     var title: String
-    var theme: String?
+    var theme: String
     var contents: [ProjectContent]
     var creationDate: Date
     var lastUpdatedDate: Date
 
     init(id: UUID,
          title: String,
-         theme: String?,
+         theme: String,
          contents: [ProjectContent],
          creationDate: Date,
          lastUpdatedDate: Date) {
