@@ -41,6 +41,34 @@ final class ProjectContentCreatorViewController: UIViewController {
 }
 
 private extension ProjectContentCreatorViewController {
+    // MARK: - Setup
     func setup() {
+        self.contentView.delegate = self
+        self.presentationController?.delegate = self
+
+        self.contentView.configure(with: self.viewModel.fieldsDescription)
+    }
+}
+
+// MARK: - ProjectContentCreatorViewDelegate
+
+extension ProjectContentCreatorViewController: ProjectContentCreatorViewDelegate {
+    func didEditFields(name: String, theme: String, link: String) {
+    }
+    
+    func didTapOnView() {
+        self.view.endEditing(true)
+    }
+    
+    func didTapSaveButton(name: String, theme: String, link: String) {
+        
+    }
+}
+
+// MARK: - UIAdaptivePresentationControllerDelegate
+
+extension ProjectContentCreatorViewController: UIAdaptivePresentationControllerDelegate {
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        self.coordinator.finish()
     }
 }

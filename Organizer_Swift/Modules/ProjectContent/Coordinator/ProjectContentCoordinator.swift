@@ -8,15 +8,17 @@
 import UIKit
 
 protocol ProjectContentCoordinatorProtocol: AnyObject {
+    func showProjectContentCreator()
 }
 
-final class ProjectContentCoordinator: ChildCoordinator {
+final class ProjectContentCoordinator: ParentCoordinator, ChildCoordinator {
     // MARK: - Properties
 
     unowned private let navigationController: NavigationController
     private let project: Project
 
     weak var parent: ParentCoordinator?
+    var children: [Coordinator] = []
 
     // MARK: - Initialization
 
@@ -43,6 +45,11 @@ final class ProjectContentCoordinator: ChildCoordinator {
 // MARK: - ProjectContentCoordinatorProtocol
 
 extension ProjectContentCoordinator: ProjectContentCoordinatorProtocol {
-
+    func showProjectContentCreator() {
+        let projectContentCreatorCoordinator = ProjectContentCreatorCoordinator(
+            navigationController: self.navigationController
+        )
+        self.start(child: projectContentCreatorCoordinator)
+    }
 }
 

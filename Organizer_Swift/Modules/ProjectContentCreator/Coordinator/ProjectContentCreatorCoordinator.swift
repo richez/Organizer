@@ -28,12 +28,12 @@ final class ProjectContentCreatorCoordinator: ChildCoordinator {
     // MARK: - Coordinator
 
     func start() {
-        let projectCreatorViewModel = ProjectContentCreatorViewModel()
-        let projectCreatorViewController = ProjectContentCreatorViewController(
-            viewModel: projectCreatorViewModel,
+        let projectContentCreatorViewModel = ProjectContentCreatorViewModel()
+        let projectContentCreatorViewController = ProjectContentCreatorViewController(
+            viewModel: projectContentCreatorViewModel,
             coordinator: self
         )
-        self.navigationController.present(projectCreatorViewController, animated: true)
+        self.navigationController.present(projectContentCreatorViewController, animated: true)
     }
 }
 

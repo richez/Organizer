@@ -79,6 +79,7 @@ extension ProjectContentViewController: ProjectContentViewDelegate {
     }
 
     func didTapContentCreatorButton() {
+        self.coordinator.showProjectContentCreator()
     }
 }
 
