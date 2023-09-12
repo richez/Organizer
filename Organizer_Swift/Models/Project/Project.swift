@@ -13,7 +13,8 @@ final class Project {
     @Attribute(.unique) let id: UUID
     var title: String
     var theme: String
-    var contents: [ProjectContent] // TODO: add cascade
+    @Relationship(deleteRule: .cascade)
+    var contents: [ProjectContent]
     var creationDate: Date
     var lastUpdatedDate: Date
 
