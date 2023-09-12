@@ -44,6 +44,15 @@
 		F090AAB42AA7678D00480249 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = F090AAB32AA7678D00480249 /* Project.swift */; };
 		F090AAB62AA7698B00480249 /* ProjectListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F090AAB52AA7698B00480249 /* ProjectListSection.swift */; };
 		F090AAB82AA7699900480249 /* ProjectDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = F090AAB72AA7699900480249 /* ProjectDescription.swift */; };
+		F0AC0ACF2AB091CE00AE326F /* ProjectContentCreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AC0ACE2AB091CE00AE326F /* ProjectContentCreatorViewController.swift */; };
+		F0AC0AD12AB0923600AE326F /* ProjectContentCreatorCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AC0AD02AB0923600AE326F /* ProjectContentCreatorCoordinator.swift */; };
+		F0AC0AD32AB0937B00AE326F /* ProjectContentCreatorField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AC0AD22AB0937B00AE326F /* ProjectContentCreatorField.swift */; };
+		F0AC0AD52AB0946C00AE326F /* ProjectContentCreatorFieldsDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AC0AD42AB0946C00AE326F /* ProjectContentCreatorFieldsDescription.swift */; };
+		F0AC0AD72AB0949800AE326F /* ProjectContentCreatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AC0AD62AB0949800AE326F /* ProjectContentCreatorView.swift */; };
+		F0AC0AD92AB0952800AE326F /* ProjectContentCreatorViewRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AC0AD82AB0952800AE326F /* ProjectContentCreatorViewRepresentation.swift */; };
+		F0AC0ADB2AB0957100AE326F /* ProjectContentCreatorFieldsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AC0ADA2AB0957100AE326F /* ProjectContentCreatorFieldsView.swift */; };
+		F0AC0ADD2AB0968800AE326F /* ProjectContentCreatorFieldsViewRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AC0ADC2AB0968800AE326F /* ProjectContentCreatorFieldsViewRepresentation.swift */; };
+		F0AC0ADF2AB096FF00AE326F /* ProjectContentCreatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AC0ADE2AB096FF00AE326F /* ProjectContentCreatorViewModel.swift */; };
 		F0C265132AAB8932008EAB3C /* NotificationName+DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C265122AAB8932008EAB3C /* NotificationName+DataStore.swift */; };
 		F0C265152AAB8A32008EAB3C /* ProjectDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C265142AAB8A32008EAB3C /* ProjectDataStore.swift */; };
 		F0C265172AAF5862008EAB3C /* UIViewController+RenderableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C265162AAF5862008EAB3C /* UIViewController+RenderableError.swift */; };
@@ -118,6 +127,15 @@
 		F090AAB32AA7678D00480249 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		F090AAB52AA7698B00480249 /* ProjectListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListSection.swift; sourceTree = "<group>"; };
 		F090AAB72AA7699900480249 /* ProjectDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDescription.swift; sourceTree = "<group>"; };
+		F0AC0ACE2AB091CE00AE326F /* ProjectContentCreatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectContentCreatorViewController.swift; sourceTree = "<group>"; };
+		F0AC0AD02AB0923600AE326F /* ProjectContentCreatorCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectContentCreatorCoordinator.swift; sourceTree = "<group>"; };
+		F0AC0AD22AB0937B00AE326F /* ProjectContentCreatorField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectContentCreatorField.swift; sourceTree = "<group>"; };
+		F0AC0AD42AB0946C00AE326F /* ProjectContentCreatorFieldsDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectContentCreatorFieldsDescription.swift; sourceTree = "<group>"; };
+		F0AC0AD62AB0949800AE326F /* ProjectContentCreatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectContentCreatorView.swift; sourceTree = "<group>"; };
+		F0AC0AD82AB0952800AE326F /* ProjectContentCreatorViewRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectContentCreatorViewRepresentation.swift; sourceTree = "<group>"; };
+		F0AC0ADA2AB0957100AE326F /* ProjectContentCreatorFieldsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectContentCreatorFieldsView.swift; sourceTree = "<group>"; };
+		F0AC0ADC2AB0968800AE326F /* ProjectContentCreatorFieldsViewRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectContentCreatorFieldsViewRepresentation.swift; sourceTree = "<group>"; };
+		F0AC0ADE2AB096FF00AE326F /* ProjectContentCreatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectContentCreatorViewModel.swift; sourceTree = "<group>"; };
 		F0C265122AAB8932008EAB3C /* NotificationName+DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+DataStore.swift"; sourceTree = "<group>"; };
 		F0C265142AAB8A32008EAB3C /* ProjectDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDataStore.swift; sourceTree = "<group>"; };
 		F0C265162AAF5862008EAB3C /* UIViewController+RenderableError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+RenderableError.swift"; sourceTree = "<group>"; };
@@ -362,6 +380,7 @@
 				F0732BCF2AA638CB0027EC4F /* ProjectList */,
 				F0307C732AA8A88100DC3958 /* ProjectCreator */,
 				F0C2651D2AAF5F8C008EAB3C /* ProjectContent */,
+				F0AC0AC82AB0915A00AE326F /* ProjectContentCreator */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -439,6 +458,62 @@
 				F0732BD92AA63E020027EC4F /* AppLaunchCoordinator.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		F0AC0AC82AB0915A00AE326F /* ProjectContentCreator */ = {
+			isa = PBXGroup;
+			children = (
+				F0AC0ACD2AB091B100AE326F /* Controller */,
+				F0AC0ACC2AB091A900AE326F /* Coordinator */,
+				F0AC0ACB2AB0917D00AE326F /* Model */,
+				F0AC0ACA2AB0917600AE326F /* View */,
+				F0AC0AC92AB0916F00AE326F /* ViewModel */,
+			);
+			path = ProjectContentCreator;
+			sourceTree = "<group>";
+		};
+		F0AC0AC92AB0916F00AE326F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F0AC0ADE2AB096FF00AE326F /* ProjectContentCreatorViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F0AC0ACA2AB0917600AE326F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F0AC0AD62AB0949800AE326F /* ProjectContentCreatorView.swift */,
+				F0AC0AD82AB0952800AE326F /* ProjectContentCreatorViewRepresentation.swift */,
+				F0AC0ADA2AB0957100AE326F /* ProjectContentCreatorFieldsView.swift */,
+				F0AC0ADC2AB0968800AE326F /* ProjectContentCreatorFieldsViewRepresentation.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F0AC0ACB2AB0917D00AE326F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F0AC0AD22AB0937B00AE326F /* ProjectContentCreatorField.swift */,
+				F0AC0AD42AB0946C00AE326F /* ProjectContentCreatorFieldsDescription.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F0AC0ACC2AB091A900AE326F /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				F0AC0AD02AB0923600AE326F /* ProjectContentCreatorCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		F0AC0ACD2AB091B100AE326F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F0AC0ACE2AB091CE00AE326F /* ProjectContentCreatorViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		F0C265182AAF58F5008EAB3C /* Model */ = {
@@ -657,14 +732,17 @@
 				F090AAB22AA765E200480249 /* ProjectCellViewRepresentation.swift in Sources */,
 				F0C2651A2AAF5903008EAB3C /* ProjectCreatorFieldsDescription.swift in Sources */,
 				F0307C802AA8A95C00DC3958 /* ProjectCreatorView.swift in Sources */,
+				F0AC0AD12AB0923600AE326F /* ProjectContentCreatorCoordinator.swift in Sources */,
 				F090AAB62AA7698B00480249 /* ProjectListSection.swift in Sources */,
 				F090AAB82AA7699900480249 /* ProjectDescription.swift in Sources */,
 				F036939A2AA6A512005C373A /* ProjectListViewModel.swift in Sources */,
 				F0732BD82AA63C810027EC4F /* Coordinator.swift in Sources */,
 				F07202FD2AAFD26A0026B29E /* ProjectContentSection.swift in Sources */,
 				F07202FF2AAFD2800026B29E /* ProjectContentDescription.swift in Sources */,
+				F0AC0ADB2AB0957100AE326F /* ProjectContentCreatorFieldsView.swift in Sources */,
 				F03693972AA6A42C005C373A /* ProjectListViewRepresentation.swift in Sources */,
 				F0D2B0E12AA776E3000D34CA /* UIView+Identifier.swift in Sources */,
+				F0AC0ACF2AB091CE00AE326F /* ProjectContentCreatorViewController.swift in Sources */,
 				F0732BA22AA61A7B0027EC4F /* ProjectListViewController.swift in Sources */,
 				F07202F52AAFCB080026B29E /* ProjectContentCellViewRepresentation.swift in Sources */,
 				F0C265272AAF604C008EAB3C /* ProjectContentView.swift in Sources */,
@@ -673,6 +751,7 @@
 				F0C265292AAF6060008EAB3C /* ProjectContentViewModel.swift in Sources */,
 				F0732BDC2AA63E5E0027EC4F /* ProjectListCoordinator.swift in Sources */,
 				F0C2652B2AAF67AE008EAB3C /* ProjectContentViewRepresentation.swift in Sources */,
+				F0AC0ADD2AB0968800AE326F /* ProjectContentCreatorFieldsViewRepresentation.swift in Sources */,
 				F0732B9E2AA61A7B0027EC4F /* AppDelegate.swift in Sources */,
 				F03693912AA6944D005C373A /* ProjectListView.swift in Sources */,
 				F0307C8A2AA8F07E00DC3958 /* ProjectCreatorFieldsView.swift in Sources */,
@@ -683,11 +762,16 @@
 				F0D2B0DF2AA770EC000D34CA /* ProjectListDataSource.swift in Sources */,
 				F0307C882AA8E1B100DC3958 /* UIStackView+ViewRepresentation.swift in Sources */,
 				F0307C702AA87EEE00DC3958 /* FloatingActionButtonViewRepresentation.swift in Sources */,
+				F0AC0AD72AB0949800AE326F /* ProjectContentCreatorView.swift in Sources */,
 				F07202F82AAFCCC70026B29E /* ProjectContentDataSource.swift in Sources */,
+				F0AC0AD32AB0937B00AE326F /* ProjectContentCreatorField.swift in Sources */,
 				F0307C842AA8BF0E00DC3958 /* ProjectCreatorViewRepresentation.swift in Sources */,
+				F0AC0ADF2AB096FF00AE326F /* ProjectContentCreatorViewModel.swift in Sources */,
 				F090AAB42AA7678D00480249 /* Project.swift in Sources */,
 				F090AAB02AA7633300480249 /* ProjectCell.swift in Sources */,
+				F0AC0AD92AB0952800AE326F /* ProjectContentCreatorViewRepresentation.swift in Sources */,
 				F0307C822AA8A97800DC3958 /* ProjectCreatorViewModel.swift in Sources */,
+				F0AC0AD52AB0946C00AE326F /* ProjectContentCreatorFieldsDescription.swift in Sources */,
 				F0307C6E2AA87ED100DC3958 /* FloatingActionButton.swift in Sources */,
 				F0307C7E2AA8A91800DC3958 /* ProjectCreatorCoordinator.swift in Sources */,
 				F0C265172AAF5862008EAB3C /* UIViewController+RenderableError.swift in Sources */,
