@@ -12,7 +12,7 @@ import SwiftData
 final class Project {
     @Attribute(.unique) let id: UUID
     var title: String
-    var theme: String
+    var themes: [String]
     @Relationship(deleteRule: .cascade)
     var contents: [ProjectContent]
     var creationDate: Date
@@ -20,13 +20,13 @@ final class Project {
 
     init(id: UUID,
          title: String,
-         theme: String,
+         themes: [String],
          contents: [ProjectContent],
          creationDate: Date,
          lastUpdatedDate: Date) {
         self.id = id
         self.title = title
-        self.theme = theme
+        self.themes = themes
         self.contents = contents
         self.creationDate = creationDate
         self.lastUpdatedDate = lastUpdatedDate

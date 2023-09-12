@@ -32,7 +32,7 @@ extension ProjectCreatorViewModel {
     var fieldsDescription: ProjectCreatorFieldsDescription {
         .init(
             name: ProjectCreatorField(text: "Name", placeholder: "My project"),
-            theme: ProjectCreatorField(text: "Theme", placeholder: "Sport, Construction, Work")
+            theme: ProjectCreatorField(text: "Themes", placeholder: "Sport, Construction, Work")
         )
     }
 
@@ -43,13 +43,10 @@ extension ProjectCreatorViewModel {
     }
 
     func createProject(name: String, theme: String) throws {
-        let projectName = name.trimmingCharacters(in: .whitespacesAndNewlines)
-        let projectTheme = theme.trimmingCharacters(in: .whitespacesAndNewlines)
-
         let project = Project(
             id: UUID(),
-            title: projectName,
-            theme: projectTheme, 
+            title: name.trimmingCharacters(in: .whitespacesAndNewlines),
+            themes: theme.words,
             contents: [],
             creationDate: .now,
             lastUpdatedDate: .now

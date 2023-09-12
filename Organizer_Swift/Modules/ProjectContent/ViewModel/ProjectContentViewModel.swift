@@ -46,7 +46,7 @@ extension ProjectContentViewModel {
                     id: content.id,
                     typeImageName: content.type.imageName,
                     title: content.title,
-                    theme: content.theme.isEmpty ? "" : "#\(content.theme)"
+                    theme: content.themes.map { "#\($0)" }.joined(separator: " ")
                 )
             }
     }

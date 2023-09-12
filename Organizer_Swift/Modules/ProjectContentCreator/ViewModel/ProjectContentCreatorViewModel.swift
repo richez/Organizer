@@ -22,7 +22,7 @@ extension ProjectContentCreatorViewModel {
         .init(
             type: ProjectContentCreatorMenu(text: "Type", items: ProjectContentType.allCases.map(\.rawValue)),
             name: ProjectContentCreatorField(text: "Name", placeholder: "My project"),
-            theme: ProjectContentCreatorField(text: "Theme", placeholder: "Sport, Construction, Work"),
+            theme: ProjectContentCreatorField(text: "Themes", placeholder: "Sport, Construction, Work"),
             link: ProjectContentCreatorField(text: "Link", placeholder: "https://www.youtube.com")
         )
     }
@@ -35,16 +35,12 @@ extension ProjectContentCreatorViewModel {
     }
 
     func createContent(type: String, name: String, theme: String, link: String) {
-        let contentName = name.trimmingCharacters(in: .whitespacesAndNewlines)
-        let contentTheme = theme.trimmingCharacters(in: .whitespacesAndNewlines)
-        let contentLink = link.trimmingCharacters(in: .whitespacesAndNewlines)
-
         let projectContent = ProjectContent(
             id: UUID(),
             type: ProjectContentType(rawValue: type) ?? .other,
-            title: contentName,
-            theme: contentTheme,
-            link: contentLink,
+            title: name.trimmingCharacters(in: .whitespacesAndNewlines),
+            themes: theme.words,
+            link: link.trimmingCharacters(in: .whitespacesAndNewlines),
             creationDate: .now,
             lastUpdatedDate: .now
         )

@@ -23,7 +23,6 @@ final class ProjectContentCreatorFieldsView: UIView {
     private let typeButton: UIButton = .init()
     private let nameLabel: UILabel = .init()
     private let nameTextField: UITextField = .init()
-    // TODO: disable spaces for theme + lowercase
     private let themeLabel: UILabel = .init()
     private let themeTextField: UITextField = .init()
     private let linkLabel: UILabel = .init()
@@ -144,9 +143,17 @@ private extension ProjectContentCreatorFieldsView {
     func setupTextField(_ textField: UITextField, keyboardType: UIKeyboardType = .default) {
         textField.font = self.viewRepresentation.textFieldsFont
         textField.borderStyle = self.viewRepresentation.textFieldsBorderStyle
+
+        // TODO: handle this field from VM
         textField.autocapitalizationType = .sentences
         textField.clearButtonMode = .always
         textField.keyboardType = keyboardType
+//        textField.autocorrectionType
+//        textField.inlinePredictionType
+//        textField.returnKeyType
+//        textField.spellCheckingType
+//        textField.autocorrectionType
+//        textField.textContentType
 
         NotificationCenter.default
                 .publisher(for: UITextField.textDidChangeNotification, object: textField)
