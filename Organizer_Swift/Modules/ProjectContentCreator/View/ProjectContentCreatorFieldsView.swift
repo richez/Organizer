@@ -23,11 +23,13 @@ final class ProjectContentCreatorFieldsView: UIView {
     private let typeButton: UIButton = .init()
     private let nameLabel: UILabel = .init()
     private let nameTextField: UITextField = .init()
+    // TODO: disable spaces for theme + lowercase
     private let themeLabel: UILabel = .init()
     private let themeTextField: UITextField = .init()
     private let linkLabel: UILabel = .init()
     private let linkTextField: UITextField = .init()
 
+    var typeButtonValue: String { self.typeButton.menu?.selectedElements.first?.title ?? "" }
     var nameTextFieldValue: String { self.nameTextField.text ?? "" }
     var themeTextFieldValue: String { self.themeTextField.text ?? "" }
     var linkTextFieldValue: String { self.linkTextField.text ?? "" }
@@ -81,7 +83,7 @@ private extension ProjectContentCreatorFieldsView {
         self.setupLabel(self.themeLabel)
         self.setupTextField(self.themeTextField)
         self.setupLabel(self.linkLabel)
-        self.setupTextField(self.linkTextField)
+        self.setupTextField(self.linkTextField, keyboardType: .URL)
     }
 
     func setupStackView() {
@@ -139,15 +141,16 @@ private extension ProjectContentCreatorFieldsView {
 
     }
 
-    func setupTextField(_ textField: UITextField) {
+    func setupTextField(_ textField: UITextField, keyboardType: UIKeyboardType = .default) {
         textField.font = self.viewRepresentation.textFieldsFont
         textField.borderStyle = self.viewRepresentation.textFieldsBorderStyle
         textField.autocapitalizationType = .sentences
         textField.clearButtonMode = .always
+        textField.keyboardType = keyboardType
 
         NotificationCenter.default
                 .publisher(for: UITextField.textDidChangeNotification, object: textField)
-                .sink { [weak self] text in
+                .sink { [weak self] _ in
                     guard let self = self else { return }
                     self.delegate?.didEditFields(
                         name: self.nameTextFieldValue,

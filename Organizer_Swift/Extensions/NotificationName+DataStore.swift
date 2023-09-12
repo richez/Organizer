@@ -9,4 +9,6 @@ import Foundation
 
 extension Notification.Name {
     static var didCreateProject: Notification.Name = .init("didCreateProject")
+    static var didCreateContent: Notification.Name = .init("didCreateContent")
+    static var didUpdateProject: Notification.Name = .init("didUpdateProject")
 }

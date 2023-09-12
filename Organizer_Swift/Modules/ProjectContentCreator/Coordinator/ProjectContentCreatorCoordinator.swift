@@ -8,40 +8,33 @@
 import UIKit
 
 protocol ProjectContentCreatorCoordinatorProtocol: AnyObject {
-    func show(error: Error)
     func finish()
 }
 
-final class ProjectContentCreatorCoordinator: ChildCoordinator {
+final class ProjectContentCreatorCoordinator: ChildCoordinator, ProjectContentCreatorCoordinatorProtocol {
     // MARK: - Properties
 
     unowned private let navigationController: UINavigationController
+    private let project: Project
 
     weak var parent: ParentCoordinator?
 
     // MARK: - Initialization
 
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController, project: Project) {
         self.navigationController = navigationController
+        self.project = project
     }
 
     // MARK: - Coordinator
 
     func start() {
-        let projectContentCreatorViewModel = ProjectContentCreatorViewModel()
+        let projectContentCreatorViewModel = ProjectContentCreatorViewModel(project: self.project)
         let projectContentCreatorViewController = ProjectContentCreatorViewController(
             viewModel: projectContentCreatorViewModel,
             coordinator: self
         )
         self.navigationController.present(projectContentCreatorViewController, animated: true)
-    }
-}
-
-// MARK: - ProjectContentCreatorCoordinatorProtocol
-
-extension ProjectContentCreatorCoordinator: ProjectContentCreatorCoordinatorProtocol {
-    func show(error: Error) {
-        self.navigationController.presentedViewController?.presentError(error)
     }
 }
 

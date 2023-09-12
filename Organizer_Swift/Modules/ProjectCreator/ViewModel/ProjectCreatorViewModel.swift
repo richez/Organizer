@@ -17,9 +17,12 @@ enum ProjectCreatorViewModelError: RenderableError {
 
 struct ProjectCreatorViewModel {
     private let dataStore: ProjectDataStoreCreator
+    private let notificationCenter: NotificationCenter
 
-    init(dataStore: ProjectDataStoreCreator = ProjectDataStore.shared) {
+    init(dataStore: ProjectDataStoreCreator = ProjectDataStore.shared,
+         notificationCenter: NotificationCenter = .default) {
         self.dataStore = dataStore
+        self.notificationCenter = notificationCenter
     }
 }
 
@@ -54,6 +57,7 @@ extension ProjectCreatorViewModel {
 
         do {
             try self.dataStore.create(project: project)
+            self.notificationCenter.post(name: .didCreateProject, object: nil)
         } catch {
             throw ProjectCreatorViewModelError.create(error)
         }

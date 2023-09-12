@@ -54,14 +54,19 @@ private extension ProjectContentCreatorViewController {
 
 extension ProjectContentCreatorViewController: ProjectContentCreatorViewDelegate {
     func didEditFields(name: String, theme: String, link: String) {
+        let isFieldsValid = self.viewModel.isFieldsValid(name: name, theme: theme, link: link)
+        self.contentView.isSaveButtonEnabled = isFieldsValid
     }
     
     func didTapOnView() {
         self.view.endEditing(true)
     }
     
-    func didTapSaveButton(name: String, theme: String, link: String) {
-        
+    func didTapSaveButton(type: String, name: String, theme: String, link: String) {
+        self.view.endEditing(true)
+        self.viewModel.createContent(type: type, name: name, theme: theme, link: link)
+        self.dismiss(animated: true)
+        self.coordinator.finish()
     }
 }
 

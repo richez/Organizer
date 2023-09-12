@@ -50,6 +50,8 @@ private extension ProjectContentViewController {
 
         self.title = self.viewModel.navigationBarTitle
         self.navigationController?.navigationBar.applyAppearance()
+
+        self.observeDidCreateContentNotification()
     }
 
     // MARK: - Updates
@@ -61,6 +63,22 @@ private extension ProjectContentViewController {
             contentDescriptions: contentDescriptions,
             animated: false
         )
+    }
+
+    // MARK: - Notification
+
+    func observeDidCreateContentNotification() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.didCreateContent(_:)),
+            name: .didCreateContent,
+            object: nil
+        )
+    }
+
+    @objc
+    func didCreateContent(_ notification: Notification) {
+        self.updateList()
     }
 }
 

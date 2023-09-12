@@ -54,18 +54,19 @@ private extension ProjectListViewController {
         self.navigationController?.navigationBar.applyAppearance()
         self.navigationItem.backButtonDisplayMode = .minimal
 
-        self.observeDidCreateProjectNotification()
+        self.observeProjectNotifications()
     }
 
     // MARK: - Updates
 
     func updateList() {
+        // TODO: needs to be called when a content is added to a project
         do {
             let projectDescriptions = try self.viewModel.fetchProjectDescriptions()
             self.dataSource.applySnapshot(
                 section: self.viewModel.section,
                 projectDescriptions: projectDescriptions,
-                animated: false
+                animated: false // TODO: animate when needed
             )
         } catch {
             print("Fail to fetch projects: \(error)")
@@ -75,17 +76,23 @@ private extension ProjectListViewController {
 
     // MARK: - Notification
 
-    func observeDidCreateProjectNotification() {
+    func observeProjectNotifications() {
         NotificationCenter.default.addObserver(
             self,
-            selector: #selector(self.didCreateProject(_:)),
+            selector: #selector(self.didCreateOrUpdateProject(_:)),
             name: .didCreateProject,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.didCreateOrUpdateProject(_:)),
+            name: .didUpdateProject,
             object: nil
         )
     }
 
     @objc
-    func didCreateProject(_ notification: Notification) {
+    func didCreateOrUpdateProject(_ notification: Notification) {
         self.updateList()
     }
 }

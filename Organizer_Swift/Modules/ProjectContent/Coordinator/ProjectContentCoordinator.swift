@@ -47,7 +47,8 @@ final class ProjectContentCoordinator: ParentCoordinator, ChildCoordinator {
 extension ProjectContentCoordinator: ProjectContentCoordinatorProtocol {
     func showProjectContentCreator() {
         let projectContentCreatorCoordinator = ProjectContentCreatorCoordinator(
-            navigationController: self.navigationController
+            navigationController: self.navigationController,
+            project: self.project
         )
         self.start(child: projectContentCreatorCoordinator)
     }

@@ -33,15 +33,12 @@ final class ProjectDataStore {
 
     // MARK: - Properties
 
-    private let notificationCenter: NotificationCenter
     private let modelContainer: ModelContainer?
     private let context: ModelContext?
 
     // MARK: - Initialization
 
-    init(notificationCenter: NotificationCenter = .default) {
-        self.notificationCenter = notificationCenter
-
+    init() {
         do {
             self.modelContainer = try ModelContainer(for: Project.self)
             self.context = ModelContext(self.modelContainer!)
@@ -87,7 +84,6 @@ extension ProjectDataStore: ProjectDataStoreProtocol {
 
         context.insert(project)
         try context.save()
-        self.notificationCenter.post(name: .didCreateProject, object: nil)
     }
 
     // MARK: ProjectDataStoreDeleter
