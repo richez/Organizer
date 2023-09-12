@@ -10,7 +10,6 @@ import SwiftData
 
 enum ProjectContentType: Int, Codable {
     case article
-    case link
     case note
     case video
     case other

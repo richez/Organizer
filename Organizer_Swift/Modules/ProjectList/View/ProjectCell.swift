@@ -31,6 +31,16 @@ final class ProjectCell: UITableViewCell {
         self.setup()
     }
 
+    // MARK: - Life Cycle
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+
+        self.titleLabel.text = nil
+        self.themeLabel.text = nil
+        self.dateLabel.text = nil
+    }
+
     // MARK: - Configuration
 
     func configure(with description: ProjectDescription) {
@@ -50,7 +60,7 @@ private extension ProjectCell {
         self.setupTitleLabel()
         self.setupThemeLabel()
         self.setupDateLabel()
-        self.setupSeparator()
+        self.setupSeparatorView()
     }
 
     func setupSelectedBackgroundView() {
@@ -100,7 +110,7 @@ private extension ProjectCell {
         ])
     }
 
-    func setupSeparator() {
+    func setupSeparatorView() {
         self.separatorView.backgroundColor = self.viewRepresentation.separatorColor
 
         self.addSubview(self.separatorView)
