@@ -53,7 +53,7 @@ extension ProjectListViewModel {
                 return ProjectDescription(
                     id: project.id,
                     title: project.title,
-                    theme: project.themes.joined(separator: " | "),
+                    theme: project.themes.map { "#\($0)" }.joined(separator: " "),
                     statistics: project.statistics,
                     lastUpdatedDate: project.lastUpdatedDate.formatted(.dateTime.day().month(.abbreviated))
                 )
