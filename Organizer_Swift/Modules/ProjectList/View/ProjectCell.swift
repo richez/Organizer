@@ -120,9 +120,6 @@ private extension ProjectCell {
         NSLayoutConstraint.activate([
             self.dateLabel.leadingAnchor.constraint(equalTo: self.layoutMarginsGuide.leadingAnchor),
             self.dateLabel.trailingAnchor.constraint(equalTo: self.layoutMarginsGuide.trailingAnchor),
-            self.dateLabel.topAnchor.constraint(
-                greaterThanOrEqualTo: self.statisticsLabel.bottomAnchor
-            ),
             self.dateLabel.bottomAnchor.constraint(equalTo: self.layoutMarginsGuide.bottomAnchor)
         ])
     }
