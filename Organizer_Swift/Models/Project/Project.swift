@@ -8,6 +8,11 @@
 import Foundation
 import SwiftData
 
+// TODO: - Add Menu Navbar for sorting / Preview (show stats) / edit
+// TODO: - Show link on content selection - (long press to open in external browser?)
+// TODO: - Share content with app
+// TODO: - Add "Get link metadata" to content creation
+
 @Model
 final class Project {
     @Attribute(.unique) let id: UUID

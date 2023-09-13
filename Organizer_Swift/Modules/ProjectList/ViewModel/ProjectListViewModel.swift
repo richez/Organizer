@@ -54,6 +54,7 @@ extension ProjectListViewModel {
                     id: project.id,
                     title: project.title,
                     theme: project.themes.joined(separator: " | "),
+                    statistics: project.statistics,
                     lastUpdatedDate: project.lastUpdatedDate.formatted(.dateTime.day().month(.abbreviated))
                 )
             }
@@ -78,5 +79,28 @@ extension ProjectListViewModel {
         } catch {
             throw ProjectListViewModelError.delete(error)
         }
+    }
+}
+
+private extension Project {
+    var statistics: String {
+        guard let contentStatistics else { return "" }
+        return "\(contentStatistics) (\(contentTypeStatistics))"
+    }
+
+    var contentStatistics: String? {
+        return self.pluralize("content", count: self.contents.count)
+    }
+
+    var contentTypeStatistics: String {
+        return ProjectContentType.allCases.compactMap { type in
+            let numberOfContent =  self.contents.lazy.filter { $0.type == type }.count
+            return self.pluralize(type.rawValue, count: numberOfContent)
+        }.joined(separator: ", ")
+    }
+
+    func pluralize(_ value: String, count: Int) -> String? {
+        guard count > 0 else { return nil }
+        return count >= 2 ? "\(count) \(value)s" : "\(count) \(value)"
     }
 }

@@ -14,7 +14,7 @@ struct ProjectListViewRepresentation {
     var tableViewEdgeInsets: NSDirectionalEdgeInsets = .init(top: 0, leading: 20, bottom: 0, trailing: 20)
     var tableViewseparatorStyle: UITableViewCell.SeparatorStyle = .none
 
-    var cellHeight: CGFloat = 100
+    var cellHeight: CGFloat = 110
 
     var projectCreatorButtonViewRepresentation: FloatingActionButtonViewRepresentation = .init(
         size: 60,
