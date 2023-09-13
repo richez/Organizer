@@ -78,11 +78,11 @@ private extension ProjectContentCreatorFieldsView {
         self.setupLabel(self.typeLabel)
         self.setupTypeButton()
         self.setupLabel(self.nameLabel)
-        self.setupTextField(self.nameTextField)
+        self.setupTextField(self.nameTextField, rules: self.viewRepresentation.nameTextFieldRules)
         self.setupLabel(self.themeLabel)
-        self.setupTextField(self.themeTextField)
+        self.setupTextField(self.themeTextField, rules: self.viewRepresentation.themeTextFieldRules)
         self.setupLabel(self.linkLabel)
-        self.setupTextField(self.linkTextField, keyboardType: .URL)
+        self.setupTextField(self.linkTextField, rules: self.viewRepresentation.linkTextFieldRules)
     }
 
     func setupStackView() {
@@ -140,20 +140,10 @@ private extension ProjectContentCreatorFieldsView {
 
     }
 
-    func setupTextField(_ textField: UITextField, keyboardType: UIKeyboardType = .default) {
+    func setupTextField(_ textField: UITextField, rules: TextFieldRules) {
         textField.font = self.viewRepresentation.textFieldsFont
         textField.borderStyle = self.viewRepresentation.textFieldsBorderStyle
-
-        // TODO: handle this field from VM
-        textField.autocapitalizationType = .sentences
-        textField.clearButtonMode = .always
-        textField.keyboardType = keyboardType
-//        textField.autocorrectionType
-//        textField.inlinePredictionType
-//        textField.returnKeyType
-//        textField.spellCheckingType
-//        textField.autocorrectionType
-//        textField.textContentType
+        textField.apply(rules: rules)
 
         NotificationCenter.default
                 .publisher(for: UITextField.textDidChangeNotification, object: textField)

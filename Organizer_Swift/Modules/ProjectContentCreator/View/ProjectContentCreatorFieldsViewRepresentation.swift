@@ -27,4 +27,23 @@ struct ProjectContentCreatorFieldsViewRepresentation {
     var textFieldsHeight: CGFloat = 30
     var textFieldsFont: UIFont = .systemFont(ofSize: 15, weight: .medium)
     var textFieldsBorderStyle: UITextField.BorderStyle = .roundedRect
+
+    var nameTextFieldRules: TextFieldRules = .init(
+        autocapitalizationType: .words,
+        clearButtonMode: .always
+    )
+
+    var themeTextFieldRules: TextFieldRules = .init(
+        autocapitalizationType: .none,
+        clearButtonMode: .always
+    )
+
+    var linkTextFieldRules: TextFieldRules = .init(
+        autocapitalizationType: .none,
+        clearButtonMode: .always,
+        keyboardType: .URL,
+        autocorrectionType: .no,
+        inlinePredictionType: .no,
+        spellCheckingType: .no
+    )
 }

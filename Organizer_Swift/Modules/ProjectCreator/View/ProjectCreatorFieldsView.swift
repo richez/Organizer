@@ -60,9 +60,9 @@ private extension ProjectCreatorFieldsView {
     func setup() {
         self.setupStackView()
         self.setupLabel(self.nameLabel)
-        self.setupTextField(self.nameTextField)
+        self.setupTextField(self.nameTextField, rules: self.viewRepresentation.nameTextFieldRules)
         self.setupLabel(self.themeLabel)
-        self.setupTextField(self.themeTextField)
+        self.setupTextField(self.themeTextField, rules: self.viewRepresentation.themeTextFieldRules)
     }
 
     func setupStackView() {
@@ -96,11 +96,10 @@ private extension ProjectCreatorFieldsView {
 
     }
 
-    func setupTextField(_ textField: UITextField) {
+    func setupTextField(_ textField: UITextField, rules: TextFieldRules) {
         textField.font = self.viewRepresentation.textFieldsFont
         textField.borderStyle = self.viewRepresentation.textFieldsBorderStyle
-        textField.autocapitalizationType = .sentences
-        textField.clearButtonMode = .always
+        textField.apply(rules: rules)
 
         NotificationCenter.default
                 .publisher(for: UITextField.textDidChangeNotification, object: textField)
