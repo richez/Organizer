@@ -53,6 +53,6 @@ extension ProjectContentCreatorViewModel {
         self.project.contents.append(projectContent)
         self.project.lastUpdatedDate = .now
         self.notificationCenter.post(name: .didCreateContent, object: nil)
-        self.notificationCenter.post(name: .didUpdateProject, object: nil)
+        self.notificationCenter.post(name: .didUpdateProjectContent, object: nil)
     }
 }

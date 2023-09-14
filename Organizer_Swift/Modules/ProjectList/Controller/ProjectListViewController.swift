@@ -97,11 +97,9 @@ private extension ProjectListViewController {
             self?.updateList(animated: true)
             self?.updateMenu()
         }
-        NotificationCenter.default.addObserver(forName: .didUpdateProject, object: nil, queue: .current) { [weak self] _ in
+        NotificationCenter.default.addObserver(forName: .didUpdateProjectContent, object: nil, queue: .current) { [weak self] _ in
             // The view is not visible when we update the project so we don't need to animate the change
             self?.updateList(animated: false)
-            // TODO: rename notif to be update project content to not have to update menu
-            self?.updateMenu()
         }
     }
 }
