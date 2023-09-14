@@ -38,7 +38,7 @@ extension ProjectCreatorViewModel {
         let project = Project(
             id: UUID(),
             title: name.trimmingCharacters(in: .whitespacesAndNewlines),
-            themes: theme.words,
+            theme: theme,
             contents: [],
             creationDate: .now,
             lastUpdatedDate: .now

@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 protocol ProjectDataStoreReader {
-    func fetch() throws -> [Project]
+    func fetch(predicate: Predicate<Project>?, sortBy: [SortDescriptor<Project>]) throws -> [Project]
     func project(with projectID: UUID) throws -> Project
 }
 
@@ -56,10 +56,10 @@ final class ProjectDataStore {
 extension ProjectDataStore: ProjectDataStoreProtocol {
     // MARK: ProjectDataStoreReader
 
-    func fetch() throws -> [Project] {
+    func fetch(predicate: Predicate<Project>?, sortBy: [SortDescriptor<Project>]) throws -> [Project] {
         guard let context else { throw ProjectDataStoreError.databaseUnreachable }
 
-        let descriptor = FetchDescriptor<Project>(sortBy: [SortDescriptor(\.lastUpdatedDate, order: .reverse)])
+        let descriptor = FetchDescriptor<Project>(predicate: predicate, sortBy: sortBy)
         return try context.fetch(descriptor)
     }
 

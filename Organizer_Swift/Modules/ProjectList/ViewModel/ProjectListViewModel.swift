@@ -43,7 +43,7 @@ extension ProjectListViewModel {
 
     func fetchProjectDescriptions() throws -> [ProjectDescription] {
         do {
-            let projects = try self.dataStore.fetch()
+            let projects = try self.dataStore.fetch(predicate: self.predicate, sortBy: self.sortDescriptor)
             return projects.map { project in
                 return ProjectDescription(
                     id: project.id,
@@ -79,7 +79,7 @@ extension ProjectListViewModel {
     // MARK: Menu
 
     func menuConfiguration(handler: @escaping () -> Void) -> MenuConfiguration {
-        let projects = try? self.dataStore.fetch()
+        let projects = try? self.dataStore.fetch(predicate: nil, sortBy: [])
         return .init(
             title: "project".pluralize(count: projects?.count ?? 0) ?? "",
             submenus: [
@@ -94,6 +94,31 @@ extension ProjectListViewModel {
 // MARK: - Helpers
 
 private extension ProjectListViewModel {
+    // MARK: Fetch
+
+    var predicate: Predicate<Project>? {
+        switch self.settings.selectedTheme {
+        case .all:
+            return nil
+        case .custom(let selectedTheme):
+            return #Predicate<Project> { $0.theme.contains(selectedTheme) }
+        }
+    }
+
+    var sortDescriptor: [SortDescriptor<Project>] {
+        switch self.settings.sorting {
+        case .lastUpdated:
+            let order: SortOrder = self.settings.ascendingOrder ? .reverse : .forward
+            return [SortDescriptor(\.lastUpdatedDate, order: order)]
+        case .creation:
+            let order: SortOrder = self.settings.ascendingOrder ? .reverse : .forward
+            return [SortDescriptor(\.creationDate, order: order)]
+        case .title:
+            let order: SortOrder = self.settings.ascendingOrder ? .forward : .reverse
+            return [SortDescriptor(\.title, order: order)]
+        }
+    }
+
     // MARK: Menu
 
     func sortingMenuConfig(handler: @escaping () -> Void) -> MenuConfiguration {
@@ -120,15 +145,17 @@ private extension ProjectListViewModel {
                     }
                 })
             ],
-            submenus: self.settings.sorting != .title ? [
+            submenus: [
                 .init(displayInline: true,
                       items: [
-                        .init(title: "Newest on top", isOn: self.settings.ascendingOrder, handler: { [weak self] in
-                            self?.settings.ascendingOrder.toggle()
-                            handler()
-                        })
+                        .init(title: self.settings.sorting != .title ? "Newest on Top" : "A to Z",
+                              isOn: self.settings.ascendingOrder,
+                              handler: { [weak self] in
+                                  self?.settings.ascendingOrder.toggle()
+                                  handler()
+                              })
                       ])
-            ] : []
+            ]
         )
     }
 

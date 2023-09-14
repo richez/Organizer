@@ -58,9 +58,6 @@ private extension ProjectListViewController {
             image: UIImage(systemName: self.viewModel.rightBarImageName)
         )
 
-        // Object ProjectListFetchDescriptor -> get Predicate/SortDescriptor for current settings in UserDefaults
-        // It's injected in VM and retrieved values sent to DataStore.fetch(pred:sort) method
-
         self.observeProjectNotifications()
     }
 
@@ -98,10 +95,13 @@ private extension ProjectListViewController {
     func observeProjectNotifications() {
         NotificationCenter.default.addObserver(forName: .didCreateProject, object: nil, queue: .current) { [weak self] _ in
             self?.updateList(animated: true)
+            self?.updateMenu()
         }
         NotificationCenter.default.addObserver(forName: .didUpdateProject, object: nil, queue: .current) { [weak self] _ in
             // The view is not visible when we update the project so we don't need to animate the change
             self?.updateList(animated: false)
+            // TODO: rename notif to be update project content to not have to update menu
+            self?.updateMenu()
         }
     }
 }
