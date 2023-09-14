@@ -11,6 +11,6 @@ struct ProjectDescription: Hashable {
     var id: UUID
     var title: String
     var theme: String?
-    var statistics: String
+    var statistics: String?
     var lastUpdatedDate: String
 }

@@ -29,7 +29,7 @@ struct ProjectContentCreatorFieldsViewRepresentation {
     var textFieldsBorderStyle: UITextField.BorderStyle = .roundedRect
 
     var nameTextFieldRules: TextFieldRules = .init(
-        autocapitalizationType: .words,
+        autocapitalizationType: .sentences,
         clearButtonMode: .always
     )
 

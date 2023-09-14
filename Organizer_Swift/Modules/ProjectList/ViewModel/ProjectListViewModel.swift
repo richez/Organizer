@@ -45,11 +45,13 @@ extension ProjectListViewModel {
         do {
             let projects = try self.dataStore.fetch(predicate: self.predicate, sortBy: self.sortDescriptor)
             return projects.map { project in
+                let theme = self.settings.showTheme ? project.themes.map { "#\($0)" }.joined(separator: " ") : nil
+                let statistics = self.settings.showStatistics ? project.statistics : nil
                 return ProjectDescription(
                     id: project.id,
                     title: project.title,
-                    theme: project.themes.map { "#\($0)" }.joined(separator: " "),
-                    statistics: project.statistics,
+                    theme: theme,
+                    statistics: statistics,
                     lastUpdatedDate: project.lastUpdatedDate.formatted(.dateTime.day().month(.abbreviated))
                 )
             }
@@ -204,9 +206,9 @@ private extension ProjectListViewModel {
 // MARK: - Project
 
 private extension Project {
-    var statistics: String {
-        guard let contentStatistics else { return "" }
-        return "\(contentStatistics) (\(contentTypeStatistics))"
+    var statistics: String? {
+        guard let contentStatistics else { return nil }
+        return "\(contentStatistics) (\(self.contentTypeStatistics))"
     }
 
     var contentStatistics: String? {
