@@ -8,8 +8,9 @@
 import Foundation
 import SwiftData
 
-// TODO: - Add Menu Navbar for sorting / Preview (show stats) / edit
-// TODO: - Show link on content selection - (long press to open in external browser?)
+// TODO: - Add Menu Navbar for sorting / Preview Style (show stats) / Theme
+// TODO: - Add Swipe actions on cell to edit / delete
+// TODO: - Add context menu to table view cell to edit / delete / open external browser for content
 // TODO: - Share content with app
 // TODO: - Add "Get link metadata" to content creation
 

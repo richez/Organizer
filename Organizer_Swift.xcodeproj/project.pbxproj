@@ -22,6 +22,18 @@
 		F03693942AA6A30F005C373A /* UINavigationBar+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03693932AA6A30F005C373A /* UINavigationBar+Appearance.swift */; };
 		F03693972AA6A42C005C373A /* ProjectListViewRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03693962AA6A42C005C373A /* ProjectListViewRepresentation.swift */; };
 		F036939A2AA6A512005C373A /* ProjectListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03693992AA6A512005C373A /* ProjectListViewModel.swift */; };
+		F03D1E062AB3317B009818CC /* ProjectListSorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03D1E052AB3317B009818CC /* ProjectListSorting.swift */; };
+		F03D1E082AB3318C009818CC /* ProjectListSelectedTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03D1E072AB3318C009818CC /* ProjectListSelectedTheme.swift */; };
+		F03D1E0A2AB331A0009818CC /* ProjectListSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03D1E092AB331A0009818CC /* ProjectListSettings.swift */; };
+		F03D1E0C2AB33421009818CC /* UIAction+Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03D1E0B2AB33421009818CC /* UIAction+Configuration.swift */; };
+		F03D1E0E2AB3343E009818CC /* UIMenu+Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03D1E0D2AB3343E009818CC /* UIMenu+Configuration.swift */; };
+		F03D1E102AB33477009818CC /* AnyOptional.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03D1E0F2AB33477009818CC /* AnyOptional.swift */; };
+		F03D1E122AB33510009818CC /* ProjectCreatorViewModelError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03D1E112AB33510009818CC /* ProjectCreatorViewModelError.swift */; };
+		F03D1E142AB33531009818CC /* ProjectContentViewModelError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03D1E132AB33531009818CC /* ProjectContentViewModelError.swift */; };
+		F054F6032AB241CC00C74784 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F054F6022AB241CC00C74784 /* Storage.swift */; };
+		F054F6052AB2430A00C74784 /* StorageKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F054F6042AB2430A00C74784 /* StorageKey.swift */; };
+		F054F6072AB25E2500C74784 /* RawRepresentableStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F054F6062AB25E2500C74784 /* RawRepresentableStorage.swift */; };
+		F054F6092AB277C700C74784 /* ProjectListViewModelError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F054F6082AB277C700C74784 /* ProjectListViewModelError.swift */; };
 		F062E0E72AB12BA100060B11 /* String+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = F062E0E62AB12BA100060B11 /* String+Components.swift */; };
 		F062E0E92AB136AA00060B11 /* UITextField+Rules.swift in Sources */ = {isa = PBXBuildFile; fileRef = F062E0E82AB136AA00060B11 /* UITextField+Rules.swift */; };
 		F07202F32AAFCAEE0026B29E /* ProjectContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07202F22AAFCAEE0026B29E /* ProjectContentCell.swift */; };
@@ -104,6 +116,18 @@
 		F03693932AA6A30F005C373A /* UINavigationBar+Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Appearance.swift"; sourceTree = "<group>"; };
 		F03693962AA6A42C005C373A /* ProjectListViewRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListViewRepresentation.swift; sourceTree = "<group>"; };
 		F03693992AA6A512005C373A /* ProjectListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListViewModel.swift; sourceTree = "<group>"; };
+		F03D1E052AB3317B009818CC /* ProjectListSorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListSorting.swift; sourceTree = "<group>"; };
+		F03D1E072AB3318C009818CC /* ProjectListSelectedTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListSelectedTheme.swift; sourceTree = "<group>"; };
+		F03D1E092AB331A0009818CC /* ProjectListSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListSettings.swift; sourceTree = "<group>"; };
+		F03D1E0B2AB33421009818CC /* UIAction+Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAction+Configuration.swift"; sourceTree = "<group>"; };
+		F03D1E0D2AB3343E009818CC /* UIMenu+Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIMenu+Configuration.swift"; sourceTree = "<group>"; };
+		F03D1E0F2AB33477009818CC /* AnyOptional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyOptional.swift; sourceTree = "<group>"; };
+		F03D1E112AB33510009818CC /* ProjectCreatorViewModelError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCreatorViewModelError.swift; sourceTree = "<group>"; };
+		F03D1E132AB33531009818CC /* ProjectContentViewModelError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectContentViewModelError.swift; sourceTree = "<group>"; };
+		F054F6022AB241CC00C74784 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		F054F6042AB2430A00C74784 /* StorageKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageKey.swift; sourceTree = "<group>"; };
+		F054F6062AB25E2500C74784 /* RawRepresentableStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawRepresentableStorage.swift; sourceTree = "<group>"; };
+		F054F6082AB277C700C74784 /* ProjectListViewModelError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListViewModelError.swift; sourceTree = "<group>"; };
 		F062E0E62AB12BA100060B11 /* String+Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Components.swift"; sourceTree = "<group>"; };
 		F062E0E82AB136AA00060B11 /* UITextField+Rules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Rules.swift"; sourceTree = "<group>"; };
 		F07202F22AAFCAEE0026B29E /* ProjectContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectContentCell.swift; sourceTree = "<group>"; };
@@ -186,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				F0C2652C2AAF706D008EAB3C /* Controller */,
+				F054F6012AB2412400C74784 /* Storage */,
 				F0307C6A2AA87EAE00DC3958 /* Views */,
 			);
 			path = Helpers;
@@ -249,6 +274,7 @@
 		F0307C752AA8A8A800DC3958 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				F03D1E112AB33510009818CC /* ProjectCreatorViewModelError.swift */,
 				F0307C812AA8A97800DC3958 /* ProjectCreatorViewModel.swift */,
 			);
 			path = ViewModel;
@@ -292,6 +318,8 @@
 				F0C265162AAF5862008EAB3C /* UIViewController+RenderableError.swift */,
 				F062E0E62AB12BA100060B11 /* String+Components.swift */,
 				F062E0E82AB136AA00060B11 /* UITextField+Rules.swift */,
+				F03D1E0B2AB33421009818CC /* UIAction+Configuration.swift */,
+				F03D1E0D2AB3343E009818CC /* UIMenu+Configuration.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -299,9 +327,21 @@
 		F03693982AA6A4FE005C373A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				F054F6082AB277C700C74784 /* ProjectListViewModelError.swift */,
 				F03693992AA6A512005C373A /* ProjectListViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F054F6012AB2412400C74784 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				F03D1E0F2AB33477009818CC /* AnyOptional.swift */,
+				F054F6022AB241CC00C74784 /* Storage.swift */,
+				F054F6062AB25E2500C74784 /* RawRepresentableStorage.swift */,
+				F054F6042AB2430A00C74784 /* StorageKey.swift */,
+			);
+			path = Storage;
 			sourceTree = "<group>";
 		};
 		F07202F62AAFCCA70026B29E /* DataSource */ = {
@@ -438,6 +478,9 @@
 			children = (
 				F090AAB52AA7698B00480249 /* ProjectListSection.swift */,
 				F090AAB72AA7699900480249 /* ProjectDescription.swift */,
+				F03D1E052AB3317B009818CC /* ProjectListSorting.swift */,
+				F03D1E072AB3318C009818CC /* ProjectListSelectedTheme.swift */,
+				F03D1E092AB331A0009818CC /* ProjectListSettings.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -550,6 +593,7 @@
 		F0C2651E2AAF5FA4008EAB3C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				F03D1E132AB33531009818CC /* ProjectContentViewModelError.swift */,
 				F0C265282AAF6060008EAB3C /* ProjectContentViewModel.swift */,
 			);
 			path = ViewModel;
@@ -738,7 +782,9 @@
 			files = (
 				F07202FA2AAFCD060026B29E /* ProjectContent.swift in Sources */,
 				F0C265152AAB8A32008EAB3C /* ProjectDataStore.swift in Sources */,
+				F054F6052AB2430A00C74784 /* StorageKey.swift in Sources */,
 				F090AAB22AA765E200480249 /* ProjectCellViewRepresentation.swift in Sources */,
+				F03D1E062AB3317B009818CC /* ProjectListSorting.swift in Sources */,
 				F0C2651A2AAF5903008EAB3C /* ProjectCreatorFieldsDescription.swift in Sources */,
 				F0307C802AA8A95C00DC3958 /* ProjectCreatorView.swift in Sources */,
 				F0AC0AD12AB0923600AE326F /* ProjectContentCreatorCoordinator.swift in Sources */,
@@ -749,6 +795,7 @@
 				F062E0E72AB12BA100060B11 /* String+Components.swift in Sources */,
 				F07202FD2AAFD26A0026B29E /* ProjectContentSection.swift in Sources */,
 				F07202FF2AAFD2800026B29E /* ProjectContentDescription.swift in Sources */,
+				F03D1E102AB33477009818CC /* AnyOptional.swift in Sources */,
 				F0AC0ADB2AB0957100AE326F /* ProjectContentCreatorFieldsView.swift in Sources */,
 				F03693972AA6A42C005C373A /* ProjectListViewRepresentation.swift in Sources */,
 				F0D2B0E12AA776E3000D34CA /* UIView+Identifier.swift in Sources */,
@@ -757,6 +804,7 @@
 				F062E0E92AB136AA00060B11 /* UITextField+Rules.swift in Sources */,
 				F07202F52AAFCB080026B29E /* ProjectContentCellViewRepresentation.swift in Sources */,
 				F0C265272AAF604C008EAB3C /* ProjectContentView.swift in Sources */,
+				F03D1E0E2AB3343E009818CC /* UIMenu+Configuration.swift in Sources */,
 				F0C265232AAF5FD7008EAB3C /* ProjectContentCoordinator.swift in Sources */,
 				F03693942AA6A30F005C373A /* UINavigationBar+Appearance.swift in Sources */,
 				F0C265292AAF6060008EAB3C /* ProjectContentViewModel.swift in Sources */,
@@ -766,12 +814,14 @@
 				F0732B9E2AA61A7B0027EC4F /* AppDelegate.swift in Sources */,
 				F03693912AA6944D005C373A /* ProjectListView.swift in Sources */,
 				F0307C8A2AA8F07E00DC3958 /* ProjectCreatorFieldsView.swift in Sources */,
+				F03D1E122AB33510009818CC /* ProjectCreatorViewModelError.swift in Sources */,
 				F0732BDA2AA63E020027EC4F /* AppLaunchCoordinator.swift in Sources */,
 				F07202F32AAFCAEE0026B29E /* ProjectContentCell.swift in Sources */,
 				F0307C862AA8DDAB00DC3958 /* NSLayoutAnchor+Priority.swift in Sources */,
 				F0C2651C2AAF5911008EAB3C /* ProjectCreatorField.swift in Sources */,
 				F0D2B0DF2AA770EC000D34CA /* ProjectListDataSource.swift in Sources */,
 				F0307C882AA8E1B100DC3958 /* UIStackView+ViewRepresentation.swift in Sources */,
+				F03D1E142AB33531009818CC /* ProjectContentViewModelError.swift in Sources */,
 				F0307C702AA87EEE00DC3958 /* FloatingActionButtonViewRepresentation.swift in Sources */,
 				F0AC0AD72AB0949800AE326F /* ProjectContentCreatorView.swift in Sources */,
 				F07202F82AAFCCC70026B29E /* ProjectContentDataSource.swift in Sources */,
@@ -784,8 +834,14 @@
 				F0307C822AA8A97800DC3958 /* ProjectCreatorViewModel.swift in Sources */,
 				F0AC0AD52AB0946C00AE326F /* ProjectContentCreatorFieldsDescription.swift in Sources */,
 				F0307C6E2AA87ED100DC3958 /* FloatingActionButton.swift in Sources */,
+				F054F6032AB241CC00C74784 /* Storage.swift in Sources */,
+				F03D1E082AB3318C009818CC /* ProjectListSelectedTheme.swift in Sources */,
+				F03D1E0C2AB33421009818CC /* UIAction+Configuration.swift in Sources */,
+				F054F6092AB277C700C74784 /* ProjectListViewModelError.swift in Sources */,
 				F0307C7E2AA8A91800DC3958 /* ProjectCreatorCoordinator.swift in Sources */,
+				F054F6072AB25E2500C74784 /* RawRepresentableStorage.swift in Sources */,
 				F0C265172AAF5862008EAB3C /* UIViewController+RenderableError.swift in Sources */,
+				F03D1E0A2AB331A0009818CC /* ProjectListSettings.swift in Sources */,
 				F0307C8C2AA8F09C00DC3958 /* ProjectCreatorFieldsViewRepresentation.swift in Sources */,
 				F0C2652F2AAF709A008EAB3C /* NavigationController.swift in Sources */,
 				F0C265252AAF6031008EAB3C /* ProjectContentViewController.swift in Sources */,

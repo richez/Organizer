@@ -9,5 +9,5 @@ import Foundation
 
 struct ProjectContentCreatorMenu {
     var text: String
-    var items: [String]
+    var configuration: MenuConfiguration
 }

@@ -7,14 +7,6 @@
 
 import Foundation
 
-enum ProjectCreatorViewModelError: RenderableError {
-    case create(Error)
-
-    var title: String { "Fail to create project" }
-    var message: String { "Please try again later" }
-    var actionTitle: String { "OK" }
-}
-
 struct ProjectCreatorViewModel {
     private let dataStore: ProjectDataStoreCreator
     private let notificationCenter: NotificationCenter

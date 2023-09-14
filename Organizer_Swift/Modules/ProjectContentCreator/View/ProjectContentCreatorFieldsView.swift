@@ -53,11 +53,7 @@ final class ProjectContentCreatorFieldsView: UIView {
 
     func configure(with fieldsDescription: ProjectContentCreatorFieldsDescription) {
         self.typeLabel.text = fieldsDescription.type.text
-        self.typeButton.menu =  UIMenu(
-            title: "",
-            options: .singleSelection,
-            children: fieldsDescription.type.items.map { UIAction(title: $0, handler: { _ in }) }
-        )
+        self.typeButton.menu = UIMenu(configuration: fieldsDescription.type.configuration)
 
         self.nameLabel.text = fieldsDescription.name.text
         self.nameTextField.placeholder = fieldsDescription.name.placeholder

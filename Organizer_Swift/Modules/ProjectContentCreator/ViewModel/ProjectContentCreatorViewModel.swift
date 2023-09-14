@@ -20,7 +20,13 @@ struct ProjectContentCreatorViewModel {
 extension ProjectContentCreatorViewModel {
     var fieldsDescription: ProjectContentCreatorFieldsDescription {
         .init(
-            type: ProjectContentCreatorMenu(text: "Type", items: ProjectContentType.allCases.map(\.rawValue)),
+            type: ProjectContentCreatorMenu(
+                text: "Type",
+                configuration: MenuConfiguration(
+                    singleSelection: true,
+                    items: ProjectContentType.allCases.map { type in MenuItemConfiguration(title: type.rawValue) }
+                )
+            ),
             name: ProjectContentCreatorField(text: "Name", placeholder: "My project"),
             theme: ProjectContentCreatorField(text: "Themes", placeholder: "Sport, Construction, Work"),
             link: ProjectContentCreatorField(text: "Link", placeholder: "https://www.youtube.com")

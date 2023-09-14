@@ -7,21 +7,6 @@
 
 import Foundation
 
-enum ProjectContentViewModelError: RenderableError {
-    case delete(UUID)
-
-    var title: String {
-        switch self {
-        case .delete:
-            return "Fail to delete project"
-        }
-    }
-
-    var message: String { "Please try again later" }
-
-    var actionTitle: String { "OK" }
-}
-
 struct ProjectContentViewModel {
     private let project: Project
     private let notificationCenter: NotificationCenter

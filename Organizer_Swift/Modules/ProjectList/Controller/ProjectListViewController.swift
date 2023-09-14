@@ -39,7 +39,9 @@ final class ProjectListViewController: UIViewController {
         super.viewDidLoad()
 
         self.setup()
+        self.updateNavbarTitle()
         self.updateList(animated: false)
+        self.updateMenu()
     }
 }
 
@@ -50,14 +52,23 @@ private extension ProjectListViewController {
         self.dataSource.delegate = self
         self.contentView.delegate = self
 
-        self.title = self.viewModel.navigationBarTitle
         self.navigationController?.navigationBar.applyAppearance()
         self.navigationItem.backButtonDisplayMode = .minimal
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: self.viewModel.rightBarImageName)
+        )
+
+        // Object ProjectListFetchDescriptor -> get Predicate/SortDescriptor for current settings in UserDefaults
+        // It's injected in VM and retrieved values sent to DataStore.fetch(pred:sort) method
 
         self.observeProjectNotifications()
     }
 
     // MARK: - Updates
+
+    func updateNavbarTitle() {
+        self.title = self.viewModel.navigationBarTitle
+    }
 
     func updateList(animated: Bool) {
         do {
@@ -71,6 +82,15 @@ private extension ProjectListViewController {
             print("Fail to fetch projects: \(error)")
             self.coordinator.show(error: error)
         }
+    }
+
+    func updateMenu() {
+        let menuConfiguration = self.viewModel.menuConfiguration { [weak self] in
+            self?.updateNavbarTitle()
+            self?.updateList(animated: true)
+            self?.updateMenu()
+        }
+        self.navigationItem.rightBarButtonItem?.menu = UIMenu(configuration: menuConfiguration)
     }
 
     // MARK: - Notification
