@@ -38,6 +38,7 @@ final class ProjectContentListViewController: UIViewController {
 
         self.setup()
         self.updateList(animated: false)
+        self.updateMenu()
     }
 }
 
@@ -48,8 +49,11 @@ private extension ProjectContentListViewController {
         self.dataSource.delegate = self
         self.contentView.delegate = self
 
-        self.title = self.viewModel.navigationBarTitle
+        self.title = self.viewModel.navigationBarTitle // TODO: update title based on menu selection
         self.navigationController?.navigationBar.applyAppearance()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: self.viewModel.rightBarImageName)
+        )
 
         self.observeContentNotification()
     }
@@ -57,12 +61,25 @@ private extension ProjectContentListViewController {
     // MARK: - Updates
 
     func updateList(animated: Bool) {
-        let contentDescriptions = self.viewModel.fetchContentDescriptions()
-        self.dataSource.applySnapshot(
-            section: self.viewModel.section,
-            contentDescriptions: contentDescriptions,
-            animated: animated
-        )
+        do {
+            let contentDescriptions = try self.viewModel.fetchContentDescriptions()
+            self.dataSource.applySnapshot(
+                section: self.viewModel.section,
+                contentDescriptions: contentDescriptions,
+                animated: animated
+            )
+        } catch {
+            print("Fail to fetch content: \(error)")
+            self.coordinator.show(error: error)
+        }
+    }
+
+    func updateMenu() {
+        let menuConfiguration = self.viewModel.menuConfiguration { [weak self] in
+            self?.updateList(animated: true)
+            self?.updateMenu()
+        }
+        self.navigationItem.rightBarButtonItem?.menu = UIMenu(configuration: menuConfiguration)
     }
 
     // MARK: - Notification

@@ -11,4 +11,5 @@ enum ProjectContentListSorting: String {
     case lastUpdated
     case creation
     case title
+    case type
 }

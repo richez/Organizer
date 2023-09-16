@@ -9,7 +9,7 @@ import Foundation
 
 struct ProjectContentDescription: Hashable {
     var id: UUID
-    var typeImageName: String
+    var typeImageName: String?
     var title: String
     var theme: String?
 }

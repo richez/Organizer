@@ -39,7 +39,7 @@ extension ProjectListViewModel {
     var rightBarImageName: String { "ellipsis" }
     var section: ProjectListSection { .main }
 
-    // MARK: Data Store
+    // MARK: Data
 
     func fetchProjectDescriptions() throws -> [ProjectDescription] {
         do {

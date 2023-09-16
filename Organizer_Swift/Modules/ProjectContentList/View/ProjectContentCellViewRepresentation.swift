@@ -22,7 +22,8 @@ struct ProjectContentCellViewRepresentation {
 
     var typeImageTintColor: UIColor = .projectContentTypeImageTint
     var typeImageSize: CGFloat = 25
-    func typeImage(with systemName: String) -> UIImage? {
+    func typeImage(with systemName: String?) -> UIImage? {
+        guard let systemName else { return nil }
         return UIImage(
             systemName: systemName,
             withConfiguration: UIImage.SymbolConfiguration(scale: .small)

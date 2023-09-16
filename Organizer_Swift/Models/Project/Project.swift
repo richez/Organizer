@@ -8,7 +8,6 @@
 import Foundation
 import SwiftData
 
-// TODO: - Add Menu Navbar for sorting / Preview Style / Theme
 // TODO: - Add Swipe actions on cell to edit / delete
 // TODO: - Add context menu to table view cell to edit / delete / open external browser for content
 // TODO: - Share content with app
