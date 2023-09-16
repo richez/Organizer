@@ -45,7 +45,7 @@ extension ProjectContentCreatorViewModel {
             id: UUID(),
             type: ProjectContentType(rawValue: type) ?? .other,
             title: name.trimmingCharacters(in: .whitespacesAndNewlines),
-            themes: theme.words,
+            theme: theme,
             link: link.trimmingCharacters(in: .whitespacesAndNewlines),
             creationDate: .now,
             lastUpdatedDate: .now

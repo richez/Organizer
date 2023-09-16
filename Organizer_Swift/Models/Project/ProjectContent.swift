@@ -20,22 +20,24 @@ final class ProjectContent {
     @Attribute(.unique) let id: UUID
     var type: ProjectContentType
     var title: String
-    var themes: [String]
+    var theme: String
     var link: String
     var creationDate: Date
     var lastUpdatedDate: Date
 
+    var themes: [String] { self.theme.words }
+
     init(id: UUID,
          type: ProjectContentType,
          title: String,
-         themes: [String],
+         theme: String,
          link: String,
          creationDate: Date,
          lastUpdatedDate: Date) {
         self.id = id
         self.type = type
         self.title = title
-        self.themes = themes
+        self.theme = theme
         self.link = link
         self.creationDate = creationDate
         self.lastUpdatedDate = lastUpdatedDate
