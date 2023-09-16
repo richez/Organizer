@@ -1,5 +1,5 @@
 //
-//  ProjectContentCoordinator.swift
+//  ProjectContentListCoordinator.swift
 //  Organizer_Swift
 //
 //  Created by Thibaut Richez on 11/09/2023.
@@ -7,12 +7,12 @@
 
 import UIKit
 
-protocol ProjectContentCoordinatorProtocol: AnyObject {
+protocol ProjectContentListCoordinatorProtocol: AnyObject {
     func showProjectContentCreator()
     func show(error: Error)
 }
 
-final class ProjectContentCoordinator: ParentCoordinator, ChildCoordinator {
+final class ProjectContentListCoordinator: ParentCoordinator, ChildCoordinator {
     // MARK: - Properties
 
     unowned private let navigationController: NavigationController
@@ -31,21 +31,21 @@ final class ProjectContentCoordinator: ParentCoordinator, ChildCoordinator {
     // MARK: - Coordinator
 
     func start() {
-        let projectContentViewModel = ProjectContentViewModel(project: self.project)
-        let projectContentViewController = ProjectContentViewController(
-            viewModel: projectContentViewModel,
+        let projectContentListViewModel = ProjectContentListViewModel(project: self.project)
+        let projectContentListViewController = ProjectContentListViewController(
+            viewModel: projectContentListViewModel,
             coordinator: self
         )
         self.navigationController.setPopAction({ [weak self] in
             self?.finish()
-        }, for: projectContentViewController)
-        self.navigationController.pushViewController(projectContentViewController, animated: true)
+        }, for: projectContentListViewController)
+        self.navigationController.pushViewController(projectContentListViewController, animated: true)
     }
 }
 
-// MARK: - ProjectContentCoordinatorProtocol
+// MARK: - ProjectContentListCoordinatorProtocol
 
-extension ProjectContentCoordinator: ProjectContentCoordinatorProtocol {
+extension ProjectContentListCoordinator: ProjectContentListCoordinatorProtocol {
     func showProjectContentCreator() {
         let projectContentCreatorCoordinator = ProjectContentCreatorCoordinator(
             navigationController: self.navigationController,

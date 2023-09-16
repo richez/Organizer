@@ -1,5 +1,5 @@
 //
-//  ProjectContentViewController.swift
+//  ProjectContentListViewController.swift
 //  Organizer_Swift
 //
 //  Created by Thibaut Richez on 11/09/2023.
@@ -7,17 +7,17 @@
 
 import UIKit
 
-final class ProjectContentViewController: UIViewController {
-    private lazy var contentView = ProjectContentView()
+final class ProjectContentListViewController: UIViewController {
+    private lazy var contentView = ProjectContentListView()
 
-    private let viewModel: ProjectContentViewModel
-    private unowned let coordinator: ProjectContentCoordinatorProtocol
+    private let viewModel: ProjectContentListViewModel
+    private unowned let coordinator: ProjectContentListCoordinatorProtocol
 
-    private lazy var dataSource = ProjectContentDataSource(tableView: self.contentView.tableView)
+    private lazy var dataSource = ProjectContentListDataSource(tableView: self.contentView.tableView)
 
     // MARK: - Initialization
 
-    init(viewModel: ProjectContentViewModel, coordinator: ProjectContentCoordinatorProtocol) {
+    init(viewModel: ProjectContentListViewModel, coordinator: ProjectContentListCoordinatorProtocol) {
         self.viewModel = viewModel
         self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
@@ -41,7 +41,7 @@ final class ProjectContentViewController: UIViewController {
     }
 }
 
-private extension ProjectContentViewController {
+private extension ProjectContentListViewController {
     // MARK: - Setup
 
     func setup() {
@@ -74,9 +74,9 @@ private extension ProjectContentViewController {
     }
 }
 
-// MARK: - ProjectContentDataSourceDelegate
+// MARK: - ProjectContentListDataSourceDelegate
 
-extension ProjectContentViewController: ProjectContentDataSourceDelegate {
+extension ProjectContentListViewController: ProjectContentListDataSourceDelegate {
     func didTapDelete(on contentDescription: ProjectContentDescription) {
         do {
             try self.viewModel.deleteContent(with: contentDescription.id)
@@ -88,9 +88,9 @@ extension ProjectContentViewController: ProjectContentDataSourceDelegate {
     }
 }
 
-// MARK: - ProjectContentViewDelegate
+// MARK: - ProjectContentListViewDelegate
 
-extension ProjectContentViewController: ProjectContentViewDelegate {
+extension ProjectContentListViewController: ProjectContentListViewDelegate {
     func didSelectContent(at indexPath: IndexPath) {
         // TODO: handle selection
     }

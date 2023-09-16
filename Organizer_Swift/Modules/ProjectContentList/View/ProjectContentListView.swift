@@ -1,5 +1,5 @@
 //
-//  ProjectContentView.swift
+//  ProjectContentListView.swift
 //  Organizer_Swift
 //
 //  Created by Thibaut Richez on 11/09/2023.
@@ -7,17 +7,17 @@
 
 import UIKit
 
-protocol ProjectContentViewDelegate: AnyObject {
+protocol ProjectContentListViewDelegate: AnyObject {
     func didSelectContent(at indexPath: IndexPath)
     func didTapContentCreatorButton()
 }
 
-final class ProjectContentView: UIView {
+final class ProjectContentListView: UIView {
     // MARK: - Properties
 
-    private let viewRepresentation = ProjectContentViewRepresentation()
+    private let viewRepresentation = ProjectContentListViewRepresentation()
 
-    weak var delegate: ProjectContentViewDelegate?
+    weak var delegate: ProjectContentListViewDelegate?
 
     let tableView: UITableView = .init()
     let contentCreatorButton: FloatingActionButton = .init()
@@ -35,7 +35,7 @@ final class ProjectContentView: UIView {
     }
 }
 
-private extension ProjectContentView {
+private extension ProjectContentListView {
     // MARK: - Setup
 
     func setup() {
@@ -85,7 +85,7 @@ private extension ProjectContentView {
 
 // MARK: - UITableViewDelegate
 
-extension ProjectContentView: UITableViewDelegate {
+extension ProjectContentListView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return self.viewRepresentation.cellHeight
     }

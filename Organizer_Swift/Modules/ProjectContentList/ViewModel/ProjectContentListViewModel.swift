@@ -1,5 +1,5 @@
 //
-//  ProjectContentViewModel.swift
+//  ProjectContentListViewModel.swift
 //  Organizer_Swift
 //
 //  Created by Thibaut Richez on 11/09/2023.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ProjectContentViewModel {
+struct ProjectContentListViewModel {
     private let project: Project
     private let notificationCenter: NotificationCenter
 
@@ -19,7 +19,7 @@ struct ProjectContentViewModel {
 
 // MARK: - Public
 
-extension ProjectContentViewModel {
+extension ProjectContentListViewModel {
     var navigationBarTitle: String { self.project.title }
     var section: ProjectContentSection { .main }
 
@@ -38,7 +38,7 @@ extension ProjectContentViewModel {
 
     func deleteContent(with id: UUID) throws {
         guard let index = self.project.contents.firstIndex(where: { $0.id == id }) else {
-            throw ProjectContentViewModelError.delete(id)
+            throw ProjectContentListViewModelError.delete(id)
         }
 
         self.project.contents.remove(at: index)

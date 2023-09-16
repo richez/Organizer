@@ -1,5 +1,5 @@
 //
-//  ProjectContentDataSource.swift
+//  ProjectContentListDataSource.swift
 //  Organizer_Swift
 //
 //  Created by Thibaut Richez on 12/09/2023.
@@ -7,14 +7,14 @@
 
 import UIKit
 
-protocol ProjectContentDataSourceDelegate: AnyObject {
+protocol ProjectContentListDataSourceDelegate: AnyObject {
     func didTapDelete(on contentDescription: ProjectContentDescription)
 }
 
-final class ProjectContentDataSource: UITableViewDiffableDataSource<ProjectContentSection, ProjectContentDescription> {
+final class ProjectContentListDataSource: UITableViewDiffableDataSource<ProjectContentSection, ProjectContentDescription> {
     // MARK: - Properties
 
-    weak var delegate: ProjectContentDataSourceDelegate?
+    weak var delegate: ProjectContentListDataSourceDelegate?
 
     // MARK: - Initialization
 

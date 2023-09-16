@@ -125,7 +125,7 @@ extension ProjectListViewController: ProjectListViewDelegate {
         do {
             let projectID = self.dataSource.projectIdentifier(for: indexPath)
             let project = try self.viewModel.project(with: projectID)
-            self.coordinator.showProjectContent(of: project)
+            self.coordinator.showContentList(of: project)
             self.contentView.tableView.deselectRow(at: indexPath, animated: false)
         } catch {
             self.coordinator.show(error: error)
