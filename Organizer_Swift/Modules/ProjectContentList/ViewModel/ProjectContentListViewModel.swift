@@ -29,9 +29,9 @@ extension ProjectContentListViewModel {
             .map { content in
                 ProjectContentDescription(
                     id: content.id,
-                    typeImageName: content.type.imageName,
+                    typeImageName: self.imageName(for: content.type),
                     title: content.title,
-                    theme: content.themes.map { "#\($0)" }.joined(separator: " ")
+                    theme: self.theme(for: content)
                 )
             }
     }
@@ -47,9 +47,13 @@ extension ProjectContentListViewModel {
     }
 }
 
-private extension ProjectContentType {
-    var imageName: String {
-        switch self {
+// MARK: - Helpers
+
+private extension ProjectContentListViewModel {
+    // MARK: Project Content
+
+    func imageName(for contentType: ProjectContentType) -> String {
+        switch contentType {
         case .article:
             return "newspaper"
         case .note:
@@ -59,5 +63,9 @@ private extension ProjectContentType {
         case .other:
             return "questionmark.square"
         }
+    }
+
+    func theme(for content: ProjectContent) -> String {
+        return content.themes.map { "#\($0)" }.joined(separator: " ")
     }
 }

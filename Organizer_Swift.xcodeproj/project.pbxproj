@@ -62,6 +62,7 @@
 		F09AE3522AB62EFD00161CFB /* ProjectContentListSelectedTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09AE3512AB62EFD00161CFB /* ProjectContentListSelectedTheme.swift */; };
 		F09AE3542AB62F2D00161CFB /* ProjectContentListSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09AE3532AB62F2D00161CFB /* ProjectContentListSettings.swift */; };
 		F09AE3562AB6300200161CFB /* ProjectListSelectedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09AE3552AB6300200161CFB /* ProjectListSelectedType.swift */; };
+		F09AE3582AB6363A00161CFB /* String+Pluralize.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09AE3572AB6363A00161CFB /* String+Pluralize.swift */; };
 		F0AC0ACF2AB091CE00AE326F /* ProjectContentCreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AC0ACE2AB091CE00AE326F /* ProjectContentCreatorViewController.swift */; };
 		F0AC0AD12AB0923600AE326F /* ProjectContentCreatorCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AC0AD02AB0923600AE326F /* ProjectContentCreatorCoordinator.swift */; };
 		F0AC0AD32AB0937B00AE326F /* ProjectContentCreatorField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AC0AD22AB0937B00AE326F /* ProjectContentCreatorField.swift */; };
@@ -164,6 +165,7 @@
 		F09AE3512AB62EFD00161CFB /* ProjectContentListSelectedTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectContentListSelectedTheme.swift; sourceTree = "<group>"; };
 		F09AE3532AB62F2D00161CFB /* ProjectContentListSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectContentListSettings.swift; sourceTree = "<group>"; };
 		F09AE3552AB6300200161CFB /* ProjectListSelectedType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListSelectedType.swift; sourceTree = "<group>"; };
+		F09AE3572AB6363A00161CFB /* String+Pluralize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Pluralize.swift"; sourceTree = "<group>"; };
 		F0AC0ACE2AB091CE00AE326F /* ProjectContentCreatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectContentCreatorViewController.swift; sourceTree = "<group>"; };
 		F0AC0AD02AB0923600AE326F /* ProjectContentCreatorCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectContentCreatorCoordinator.swift; sourceTree = "<group>"; };
 		F0AC0AD22AB0937B00AE326F /* ProjectContentCreatorField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectContentCreatorField.swift; sourceTree = "<group>"; };
@@ -328,6 +330,7 @@
 				F062E0E82AB136AA00060B11 /* UITextField+Rules.swift */,
 				F03D1E0B2AB33421009818CC /* UIAction+Configuration.swift */,
 				F03D1E0D2AB3343E009818CC /* UIMenu+Configuration.swift */,
+				F09AE3572AB6363A00161CFB /* String+Pluralize.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -855,6 +858,7 @@
 				F054F6092AB277C700C74784 /* ProjectListViewModelError.swift in Sources */,
 				F0307C7E2AA8A91800DC3958 /* ProjectCreatorCoordinator.swift in Sources */,
 				F054F6072AB25E2500C74784 /* RawRepresentableStorage.swift in Sources */,
+				F09AE3582AB6363A00161CFB /* String+Pluralize.swift in Sources */,
 				F0C265172AAF5862008EAB3C /* UIViewController+RenderableError.swift in Sources */,
 				F03D1E0A2AB331A0009818CC /* ProjectListSettings.swift in Sources */,
 				F09AE3502AB62EE500161CFB /* ProjectContentListSorting.swift in Sources */,

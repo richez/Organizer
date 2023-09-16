@@ -45,13 +45,11 @@ extension ProjectListViewModel {
         do {
             let projects = try self.dataStore.fetch(predicate: self.predicate, sortBy: self.sortDescriptor)
             return projects.map { project in
-                let theme = self.settings.showTheme ? project.themes.map { "#\($0)" }.joined(separator: " ") : nil
-                let statistics = self.settings.showStatistics ? project.statistics : nil
                 return ProjectDescription(
                     id: project.id,
                     title: project.title,
-                    theme: theme,
-                    statistics: statistics,
+                    theme: self.theme(for: project),
+                    statistics: self.statistics(for: project),
                     lastUpdatedDate: project.lastUpdatedDate.formatted(.dateTime.day().month(.abbreviated))
                 )
             }
@@ -119,6 +117,27 @@ private extension ProjectListViewModel {
             let order: SortOrder = self.settings.ascendingOrder ? .forward : .reverse
             return [SortDescriptor(\.title, order: order)]
         }
+    }
+
+    // MARK: Project
+
+    func theme(for project: Project) -> String? {
+        guard self.settings.showTheme else { return nil }
+        return project.themes.map { "#\($0)" }.joined(separator: " ")
+    }
+
+    func statistics(for project: Project) -> String? {
+        guard self.settings.showStatistics,
+                let contentStatistics = "content".pluralize(count: project.contents.count) else {
+            return nil
+        }
+
+        let contentTypeStatistics = ProjectContentType.allCases.compactMap { type in
+            let numberOfContent =  project.contents.lazy.filter { $0.type == type }.count
+            return type.rawValue.pluralize(count: numberOfContent)
+        }.joined(separator: ", ")
+
+        return "\(contentStatistics) (\(contentTypeStatistics))"
     }
 
     // MARK: Menu
@@ -200,32 +219,5 @@ private extension ProjectListViewModel {
                     }
             }
         )
-    }
-}
-
-// MARK: - Project
-
-private extension Project {
-    var statistics: String? {
-        guard let contentStatistics else { return nil }
-        return "\(contentStatistics) (\(self.contentTypeStatistics))"
-    }
-
-    var contentStatistics: String? {
-        "content".pluralize(count: self.contents.count)
-    }
-
-    var contentTypeStatistics: String {
-        return ProjectContentType.allCases.compactMap { type in
-            let numberOfContent =  self.contents.lazy.filter { $0.type == type }.count
-            return type.rawValue.pluralize(count: numberOfContent)
-        }.joined(separator: ", ")
-    }
-}
-
-private extension String {
-    func pluralize(count: Int) -> String? {
-        guard count > 0 else { return nil }
-        return count >= 2 ? "\(count) \(self)s" : "\(count) \(self)"
     }
 }
