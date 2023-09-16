@@ -79,7 +79,7 @@ extension ProjectListViewModel {
     // MARK: Menu
 
     func menuConfiguration(handler: @escaping () -> Void) -> MenuConfiguration {
-        let projects = try? self.dataStore.fetch(predicate: nil, sortBy: [])
+        let projects = try? self.dataStore.fetch(predicate: self.predicate, sortBy: [])
         return .init(
             title: "project".pluralize(count: projects?.count ?? 0) ?? "",
             submenus: [
