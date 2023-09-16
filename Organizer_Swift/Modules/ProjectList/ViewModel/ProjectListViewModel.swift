@@ -198,7 +198,7 @@ private extension ProjectListViewModel {
     }
 
     func themeMenuConfig(projects: [Project]?, handler: @escaping () -> Void) -> MenuConfiguration {
-        let existingThemes = projects?.lazy.flatMap(\.themes) ?? []
+        let existingThemes = projects?.flatMap(\.themes).removingDuplicates() ?? []
         return .init(
             title: "Themes",
             imageName: "number",

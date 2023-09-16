@@ -64,6 +64,7 @@
 		F09AE3562AB6300200161CFB /* ProjectListSelectedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09AE3552AB6300200161CFB /* ProjectListSelectedType.swift */; };
 		F09AE3582AB6363A00161CFB /* String+Pluralize.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09AE3572AB6363A00161CFB /* String+Pluralize.swift */; };
 		F09AE35A2AB64E8D00161CFB /* Sequence+Predicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09AE3592AB64E8D00161CFB /* Sequence+Predicate.swift */; };
+		F09AE35C2AB64F6000161CFB /* Array+Duplicates.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09AE35B2AB64F6000161CFB /* Array+Duplicates.swift */; };
 		F0AC0ACF2AB091CE00AE326F /* ProjectContentCreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AC0ACE2AB091CE00AE326F /* ProjectContentCreatorViewController.swift */; };
 		F0AC0AD12AB0923600AE326F /* ProjectContentCreatorCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AC0AD02AB0923600AE326F /* ProjectContentCreatorCoordinator.swift */; };
 		F0AC0AD32AB0937B00AE326F /* ProjectContentCreatorField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AC0AD22AB0937B00AE326F /* ProjectContentCreatorField.swift */; };
@@ -168,6 +169,7 @@
 		F09AE3552AB6300200161CFB /* ProjectListSelectedType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListSelectedType.swift; sourceTree = "<group>"; };
 		F09AE3572AB6363A00161CFB /* String+Pluralize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Pluralize.swift"; sourceTree = "<group>"; };
 		F09AE3592AB64E8D00161CFB /* Sequence+Predicate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Predicate.swift"; sourceTree = "<group>"; };
+		F09AE35B2AB64F6000161CFB /* Array+Duplicates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Duplicates.swift"; sourceTree = "<group>"; };
 		F0AC0ACE2AB091CE00AE326F /* ProjectContentCreatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectContentCreatorViewController.swift; sourceTree = "<group>"; };
 		F0AC0AD02AB0923600AE326F /* ProjectContentCreatorCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectContentCreatorCoordinator.swift; sourceTree = "<group>"; };
 		F0AC0AD22AB0937B00AE326F /* ProjectContentCreatorField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectContentCreatorField.swift; sourceTree = "<group>"; };
@@ -334,6 +336,7 @@
 				F03D1E0D2AB3343E009818CC /* UIMenu+Configuration.swift */,
 				F09AE3572AB6363A00161CFB /* String+Pluralize.swift */,
 				F09AE3592AB64E8D00161CFB /* Sequence+Predicate.swift */,
+				F09AE35B2AB64F6000161CFB /* Array+Duplicates.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -843,6 +846,7 @@
 				F0307C882AA8E1B100DC3958 /* UIStackView+ViewRepresentation.swift in Sources */,
 				F03D1E142AB33531009818CC /* ProjectContentListViewModelError.swift in Sources */,
 				F09AE35A2AB64E8D00161CFB /* Sequence+Predicate.swift in Sources */,
+				F09AE35C2AB64F6000161CFB /* Array+Duplicates.swift in Sources */,
 				F0307C702AA87EEE00DC3958 /* FloatingActionButtonViewRepresentation.swift in Sources */,
 				F09AE3542AB62F2D00161CFB /* ProjectContentListSettings.swift in Sources */,
 				F0AC0AD72AB0949800AE326F /* ProjectContentCreatorView.swift in Sources */,
