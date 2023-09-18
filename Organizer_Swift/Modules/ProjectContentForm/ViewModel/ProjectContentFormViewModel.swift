@@ -1,5 +1,5 @@
 //
-//  ProjectContentCreatorViewModel.swift
+//  ProjectContentFormViewModel.swift
 //  Organizer_Swift
 //
 //  Created by Thibaut Richez on 12/09/2023.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ProjectContentCreatorViewModel {
+struct ProjectContentFormViewModel {
     // MARK: - Properties
 
     private let mode: ProjectContentFormMode
@@ -27,22 +27,22 @@ struct ProjectContentCreatorViewModel {
 
 // MARK: - Public
 
-extension ProjectContentCreatorViewModel {
-    var fieldsDescription: ProjectContentCreatorFieldsDescription {
+extension ProjectContentFormViewModel {
+    var fieldsDescription: ProjectContentFormFieldsDescription {
         .init(
-            type: ProjectContentCreatorMenu(
+            type: ProjectContentFormMenu(
                 text: "Type",
                 singleSelection: true,
                 items: ProjectContentType.allCases.map(\.rawValue),
                 selectedItem: self.typeMenuSelectedValue
             ),
-            name: ProjectContentCreatorField(
+            name: ProjectContentFormField(
                 text: "Name", placeholder: "My project", value: self.nameFieldValue
             ),
-            theme: ProjectContentCreatorField(
+            theme: ProjectContentFormField(
                 text: "Themes", placeholder: "Sport, Construction, Work", value: self.themeFieldValue
             ),
-            link: ProjectContentCreatorField(
+            link: ProjectContentFormField(
                 text: "Link", placeholder: "https://www.youtube.com", value: self.linkFieldValue
             )
         )
@@ -78,7 +78,7 @@ extension ProjectContentCreatorViewModel {
 
 // MARK: - Helpers
 
-private extension ProjectContentCreatorViewModel {
+private extension ProjectContentFormViewModel {
     // MARK: Fields
 
     var typeMenuSelectedValue: String {

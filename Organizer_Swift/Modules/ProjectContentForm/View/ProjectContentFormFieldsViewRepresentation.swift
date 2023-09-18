@@ -1,5 +1,5 @@
 //
-//  ProjectContentCreatorFieldsViewRepresentation.swift
+//  ProjectContentFormFieldsViewRepresentation.swift
 //  Organizer_Swift
 //
 //  Created by Thibaut Richez on 12/09/2023.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct ProjectContentCreatorFieldsViewRepresentation {
+struct ProjectContentFormFieldsViewRepresentation {
     var stackViewRepresentation: StackViewRepresentation = .init(
         axis: .vertical,
         distribution: .fill,
@@ -21,7 +21,7 @@ struct ProjectContentCreatorFieldsViewRepresentation {
     var typeButtonTitleColor: UIColor = .placeholderText
 
     var labelsHeight: CGFloat = 30
-    var labelsTextColor: UIColor = .projectContentCreatorLabel
+    var labelsTextColor: UIColor = .projectContentFormLabel
     var labelsFont: UIFont = .systemFont(ofSize: 15, weight: .bold)
 
     var textFieldsHeight: CGFloat = 30

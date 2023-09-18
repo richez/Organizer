@@ -12,10 +12,10 @@ struct ProjectFormViewRepresentation {
 
     var saveButtonViewRepresentation: FloatingActionButtonViewRepresentation = .init(
         size: 60,
-        backgroundColor: .projectCreatorButtonBackground,
-        highlightedBackgroundColor: .projectCreatorButtonBackground.withAlphaComponent(0.3),
-        selectedBackgroundColor: .projectCreatorButtonBackground.withAlphaComponent(0.3),
-        disabledBackgroundColor: .projectCreatorButtonBackground.withAlphaComponent(0.1),
+        backgroundColor: .projectFormSaveButtonBackground,
+        highlightedBackgroundColor: .projectFormSaveButtonBackground.withAlphaComponent(0.3),
+        selectedBackgroundColor: .projectFormSaveButtonBackground.withAlphaComponent(0.3),
+        disabledBackgroundColor: .projectFormSaveButtonBackground.withAlphaComponent(0.1),
         tintColor: .black,
         image: UIImage(
             systemName: "checkmark",

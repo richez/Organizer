@@ -1,5 +1,5 @@
 //
-//  ProjectContentCreatorFieldsView.swift
+//  ProjectContentFormFieldsView.swift
 //  Organizer_Swift
 //
 //  Created by Thibaut Richez on 12/09/2023.
@@ -8,14 +8,14 @@
 import Combine
 import UIKit
 
-protocol ProjectContentCreatorFieldsViewDelegate: AnyObject {
+protocol ProjectContentFormFieldsViewDelegate: AnyObject {
     func didEditFields(type: String, name: String, theme: String, link: String)
 }
 
-final class ProjectContentCreatorFieldsView: UIView {
+final class ProjectContentFormFieldsView: UIView {
     // MARK: - Properties
 
-    private let viewRepresentation: ProjectContentCreatorFieldsViewRepresentation = .init()
+    private let viewRepresentation: ProjectContentFormFieldsViewRepresentation = .init()
 
     private let formStackView: UIStackView = .init()
 
@@ -33,7 +33,7 @@ final class ProjectContentCreatorFieldsView: UIView {
     var themeTextFieldValue: String { self.themeTextField.text ?? "" }
     var linkTextFieldValue: String { self.linkTextField.text ?? "" }
 
-    weak var delegate: ProjectContentCreatorFieldsViewDelegate?
+    weak var delegate: ProjectContentFormFieldsViewDelegate?
 
     var subscriptions: Set<AnyCancellable> = .init()
 
@@ -51,7 +51,7 @@ final class ProjectContentCreatorFieldsView: UIView {
 
     // MARK: - Configuration
 
-    func configure(with fieldsDescription: ProjectContentCreatorFieldsDescription) {
+    func configure(with fieldsDescription: ProjectContentFormFieldsDescription) {
         self.typeLabel.text = fieldsDescription.type.text
         self.typeButton.menu = UIMenu(configuration: self.menuConfiguration(for: fieldsDescription.type))
 
@@ -69,7 +69,7 @@ final class ProjectContentCreatorFieldsView: UIView {
     }
 }
 
-private extension ProjectContentCreatorFieldsView {
+private extension ProjectContentFormFieldsView {
     // MARK: - Setup
 
     func setup() {
@@ -169,7 +169,7 @@ private extension ProjectContentCreatorFieldsView {
 
     // MARK: - Menu
 
-    func menuConfiguration(for menu: ProjectContentCreatorMenu) -> MenuConfiguration {
+    func menuConfiguration(for menu: ProjectContentFormMenu) -> MenuConfiguration {
         .init(
             singleSelection: menu.singleSelection,
             items: menu.items.map { item in

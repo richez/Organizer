@@ -1,5 +1,5 @@
 //
-//  ProjectContentCreatorViewController.swift
+//  ProjectContentFormViewController.swift
 //  Organizer_Swift
 //
 //  Created by Thibaut Richez on 12/09/2023.
@@ -7,17 +7,17 @@
 
 import UIKit
 
-final class ProjectContentCreatorViewController: UIViewController {
+final class ProjectContentFormViewController: UIViewController {
     // MARK: - Properties
 
-    private lazy var contentView: ProjectContentCreatorView = .init()
+    private lazy var contentView: ProjectContentFormView = .init()
 
-    private let viewModel: ProjectContentCreatorViewModel
-    private unowned let coordinator: ProjectContentCreatorCoordinatorProtocol
+    private let viewModel: ProjectContentFormViewModel
+    private unowned let coordinator: ProjectContentFormCoordinatorProtocol
 
     // MARK: - Initialization
 
-    init(viewModel: ProjectContentCreatorViewModel, coordinator: ProjectContentCreatorCoordinatorProtocol) {
+    init(viewModel: ProjectContentFormViewModel, coordinator: ProjectContentFormCoordinatorProtocol) {
         self.viewModel = viewModel
         self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
@@ -40,7 +40,7 @@ final class ProjectContentCreatorViewController: UIViewController {
     }
 }
 
-private extension ProjectContentCreatorViewController {
+private extension ProjectContentFormViewController {
     // MARK: - Setup
     func setup() {
         self.contentView.delegate = self
@@ -50,9 +50,9 @@ private extension ProjectContentCreatorViewController {
     }
 }
 
-// MARK: - ProjectContentCreatorViewDelegate
+// MARK: - ProjectContentFormViewDelegate
 
-extension ProjectContentCreatorViewController: ProjectContentCreatorViewDelegate {    
+extension ProjectContentFormViewController: ProjectContentFormViewDelegate {    
     func didEditFields(type: String, name: String, theme: String, link: String) {
         let isFieldsValid = self.viewModel.isFieldsValid(type: type, name: name, theme: theme, link: link)
         self.contentView.isSaveButtonEnabled = isFieldsValid
@@ -72,7 +72,7 @@ extension ProjectContentCreatorViewController: ProjectContentCreatorViewDelegate
 
 // MARK: - UIAdaptivePresentationControllerDelegate
 
-extension ProjectContentCreatorViewController: UIAdaptivePresentationControllerDelegate {
+extension ProjectContentFormViewController: UIAdaptivePresentationControllerDelegate {
     func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
         self.coordinator.finish()
     }

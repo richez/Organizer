@@ -1,5 +1,5 @@
 //
-//  ProjectContentCreatorCoordinator.swift
+//  ProjectContentFormCoordinator.swift
 //  Organizer_Swift
 //
 //  Created by Thibaut Richez on 12/09/2023.
@@ -7,11 +7,11 @@
 
 import UIKit
 
-protocol ProjectContentCreatorCoordinatorProtocol: AnyObject {
+protocol ProjectContentFormCoordinatorProtocol: AnyObject {
     func finish()
 }
 
-final class ProjectContentCreatorCoordinator: ChildCoordinator, ProjectContentCreatorCoordinatorProtocol {
+final class ProjectContentFormCoordinator: ChildCoordinator, ProjectContentFormCoordinatorProtocol {
     // MARK: - Properties
 
     private let mode: ProjectContentFormMode
@@ -33,12 +33,12 @@ final class ProjectContentCreatorCoordinator: ChildCoordinator, ProjectContentCr
     // MARK: - Coordinator
 
     func start() {
-        let projectContentCreatorViewModel = ProjectContentCreatorViewModel(mode: self.mode, project: self.project)
-        let projectContentCreatorViewController = ProjectContentCreatorViewController(
-            viewModel: projectContentCreatorViewModel,
+        let projectContentFormViewModel = ProjectContentFormViewModel(mode: self.mode, project: self.project)
+        let projectContentFormViewController = ProjectContentFormViewController(
+            viewModel: projectContentFormViewModel,
             coordinator: self
         )
-        self.navigationController.present(projectContentCreatorViewController, animated: true)
+        self.navigationController.present(projectContentFormViewController, animated: true)
     }
 }
 

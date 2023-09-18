@@ -1,28 +1,26 @@
 //
-//  ProjectContentCreatorView.swift
+//  ProjectContentFormView.swift
 //  Organizer_Swift
 //
 //  Created by Thibaut Richez on 12/09/2023.
 //
 
-import Foundation
-
 import UIKit
 
-protocol ProjectContentCreatorViewDelegate: AnyObject {
+protocol ProjectContentFormViewDelegate: AnyObject {
     func didEditFields(type: String, name: String, theme: String, link: String)
     func didTapOnView()
     func didTapSaveButton(type: String, name: String, theme: String, link: String)
 }
 
-final class ProjectContentCreatorView: UIView {
+final class ProjectContentFormView: UIView {
     // MARK: - Properties
 
-    private let viewRepresentation: ProjectContentCreatorViewRepresentation = .init()
+    private let viewRepresentation: ProjectContentFormViewRepresentation = .init()
 
-    weak var delegate: ProjectContentCreatorViewDelegate?
+    weak var delegate: ProjectContentFormViewDelegate?
 
-    private let fieldsView: ProjectContentCreatorFieldsView = .init()
+    private let fieldsView: ProjectContentFormFieldsView = .init()
     private let saveButton: FloatingActionButton = .init()
 
     var isSaveButtonEnabled: Bool = false {
@@ -45,21 +43,21 @@ final class ProjectContentCreatorView: UIView {
 
     // MARK: - Configuration
 
-    func configure(with fieldsDescription: ProjectContentCreatorFieldsDescription) {
+    func configure(with fieldsDescription: ProjectContentFormFieldsDescription) {
         self.fieldsView.configure(with: fieldsDescription)
     }
 }
 
-// MARK: - ProjectContentCreatorFieldsViewDelegate
+// MARK: - ProjectContentFormFieldsViewDelegate
 
-extension ProjectContentCreatorView: ProjectContentCreatorFieldsViewDelegate {
+extension ProjectContentFormView: ProjectContentFormFieldsViewDelegate {
     func didEditFields(type: String, name: String, theme: String, link: String) {
         self.delegate?.didEditFields(type: type, name: name, theme: theme, link: link)
     }
 }
 
 
-private extension ProjectContentCreatorView {
+private extension ProjectContentFormView {
     // MARK: - Setup
 
     func setup() {
