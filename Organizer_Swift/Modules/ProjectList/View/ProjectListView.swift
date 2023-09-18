@@ -9,8 +9,8 @@ import UIKit
 
 protocol ProjectListViewDelegate: AnyObject {
     func didSelectProject(at indexPath: IndexPath)
-    func didTapDelete(at indexPath: IndexPath)
-    func didTapEdit(at indexPath: IndexPath)
+    func didTapDelete(at indexPath: IndexPath) -> Bool
+    func didTapEdit(at indexPath: IndexPath) -> Bool
     func didTapProjectCreatorButton()
 }
 
@@ -100,15 +100,15 @@ extension ProjectListView: UITableViewDelegate {
         let deleteAction = UIContextualAction(
             configuration: self.viewRepresentation.swipeDeleteViewRepresentation,
             handler: { [weak self] _, _, completionHandler in
-                self?.delegate?.didTapDelete(at: indexPath)
-                completionHandler(true)
+                let didDelete = self?.delegate?.didTapDelete(at: indexPath) ?? false
+                completionHandler(didDelete)
             }
         )
         let editActions = UIContextualAction(
             configuration: self.viewRepresentation.swipeEditViewRepresentation,
             handler: { [weak self] _, _, completionHandler in
-                self?.delegate?.didTapEdit(at: indexPath)
-                completionHandler(true)
+                let didEdit = self?.delegate?.didTapEdit(at: indexPath) ?? false
+                completionHandler(didEdit)
             }
         )
         return UISwipeActionsConfiguration(actions: [deleteAction, editActions])

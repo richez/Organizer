@@ -119,20 +119,23 @@ extension ProjectListViewController: ProjectListViewDelegate {
         }
     }
 
-    func didTapDelete(at indexPath: IndexPath) {
+    func didTapDelete(at indexPath: IndexPath) -> Bool {
         do {
             let projectDescription = try self.dataSource.projectDescription(for: indexPath)
             try self.viewModel.deleteProject(with: projectDescription.id)
             self.dataSource.applySnapshot(deleting: projectDescription, animated: true)
             self.updateMenu()
+            return true
         } catch {
             print("Fail to delete project: \(error)")
             self.coordinator.show(error: error)
+            return false
         }
     }
 
-    func didTapEdit(at indexPath: IndexPath) {
+    func didTapEdit(at indexPath: IndexPath) -> Bool {
         // TODO: handle edit
+        return false
     }
 
     func didTapProjectCreatorButton() {

@@ -104,20 +104,23 @@ extension ProjectContentListViewController: ProjectContentListViewDelegate {
         // TODO: handle selection
     }
 
-    func didTapDelete(at indexPath: IndexPath) {
+    func didTapDelete(at indexPath: IndexPath) -> Bool {
         do {
             let contentDescription = try self.dataSource.contentDescription(for: indexPath)
             try self.viewModel.deleteContent(with: contentDescription.id)
             self.dataSource.applySnapshot(deleting: contentDescription, animated: true)
             self.updateMenu()
+            return true
         } catch {
             print("Fail to delete project: \(error)")
             self.coordinator.show(error: error)
+            return false
         }
     }
 
-    func didTapEdit(at indexPath: IndexPath) {
+    func didTapEdit(at indexPath: IndexPath) -> Bool {
         // TODO: handle edit
+        return false
     }
 
     func didTapContentCreatorButton() {
