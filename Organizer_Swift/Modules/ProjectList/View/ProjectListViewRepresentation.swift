@@ -28,4 +28,16 @@ struct ProjectListViewRepresentation {
             withConfiguration: UIImage.SymbolConfiguration(scale: .large)
         )
     )
+
+    var swipeDeleteViewRepresentation: ContextualActionViewRepresentation = .init(
+        style: .destructive,
+        imageName: "trash",
+        backgroundColor: .swipeDeleteActionBackground
+    )
+
+    var swipeEditViewRepresentation: ContextualActionViewRepresentation = .init(
+        style: .normal,
+        imageName: "square.and.pencil",
+        backgroundColor: .swipeEditActionBackground
+    )
 }

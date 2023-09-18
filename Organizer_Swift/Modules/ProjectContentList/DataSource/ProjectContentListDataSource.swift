@@ -7,15 +7,11 @@
 
 import UIKit
 
-protocol ProjectContentListDataSourceDelegate: AnyObject {
-    func didTapDelete(on contentDescription: ProjectContentDescription)
+enum ProjectContentListDataSourceError: Error {
+    case notFound(IndexPath)
 }
 
 final class ProjectContentListDataSource: UITableViewDiffableDataSource<ProjectContentSection, ProjectContentDescription> {
-    // MARK: - Properties
-
-    weak var delegate: ProjectContentListDataSourceDelegate?
-
     // MARK: - Initialization
 
     init(tableView: UITableView) {
@@ -48,25 +44,14 @@ final class ProjectContentListDataSource: UITableViewDiffableDataSource<ProjectC
         self.apply(snapshot, animatingDifferences: animated)
     }
 
+    // MARK: - Getter
 
-    // MARK: - UITableViewDataSource
-
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-
-    override func tableView(
-        _ tableView: UITableView,
-        commit editingStyle: UITableViewCell.EditingStyle,
-        forRowAt indexPath: IndexPath
-    ) {
-        switch editingStyle {
-        case .delete:
-            guard let contentDescription = self.itemIdentifier(for: indexPath) else { return }
-            self.delegate?.didTapDelete(on: contentDescription)
-        default:
-            break
+    func contentDescription(for indexPath: IndexPath) throws -> ProjectContentDescription {
+        guard let contentDescription = self.itemIdentifier(for: indexPath) else {
+            throw ProjectContentListDataSourceError.notFound(indexPath)
         }
+
+        return contentDescription
     }
 }
 

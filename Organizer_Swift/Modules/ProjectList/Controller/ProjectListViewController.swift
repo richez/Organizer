@@ -50,7 +50,6 @@ private extension ProjectListViewController {
     // MARK: - Setup
 
     func setup() {
-        self.dataSource.delegate = self
         self.contentView.delegate = self
 
         self.navigationController?.navigationBar.applyAppearance()
@@ -106,11 +105,23 @@ private extension ProjectListViewController {
     }
 }
 
-// MARK: - ProjectListDataSourceDelegate
+// MARK: - ProjectListViewDelegate
 
-extension ProjectListViewController: ProjectListDataSourceDelegate {
-    func didTapDelete(on projectDescription: ProjectDescription) {
+extension ProjectListViewController: ProjectListViewDelegate {
+    func didSelectProject(at indexPath: IndexPath) {
         do {
+            let projectID = try self.dataSource.projectDescription(for: indexPath).id
+            let project = try self.viewModel.project(with: projectID)
+            self.coordinator.showContentList(of: project)
+            self.contentView.tableView.deselectRow(at: indexPath, animated: false)
+        } catch {
+            self.coordinator.show(error: error)
+        }
+    }
+
+    func didTapDelete(at indexPath: IndexPath) {
+        do {
+            let projectDescription = try self.dataSource.projectDescription(for: indexPath)
             try self.viewModel.deleteProject(with: projectDescription.id)
             self.dataSource.applySnapshot(deleting: projectDescription, animated: true)
             self.updateMenu()
@@ -119,20 +130,9 @@ extension ProjectListViewController: ProjectListDataSourceDelegate {
             self.coordinator.show(error: error)
         }
     }
-}
 
-// MARK: - ProjectListViewDelegate
-
-extension ProjectListViewController: ProjectListViewDelegate {
-    func didSelectProject(at indexPath: IndexPath) {
-        do {
-            let projectID = self.dataSource.projectIdentifier(for: indexPath)
-            let project = try self.viewModel.project(with: projectID)
-            self.coordinator.showContentList(of: project)
-            self.contentView.tableView.deselectRow(at: indexPath, animated: false)
-        } catch {
-            self.coordinator.show(error: error)
-        }
+    func didTapEdit(at indexPath: IndexPath) {
+        // TODO: handle edit
     }
 
     func didTapProjectCreatorButton() {

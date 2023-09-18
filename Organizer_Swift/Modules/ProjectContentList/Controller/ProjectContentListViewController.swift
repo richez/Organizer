@@ -48,7 +48,6 @@ private extension ProjectContentListViewController {
     // MARK: - Setup
 
     func setup() {
-        self.dataSource.delegate = self
         self.contentView.delegate = self
 
         self.navigationItem.titleView = self.navbarTitleView
@@ -98,11 +97,16 @@ private extension ProjectContentListViewController {
     }
 }
 
-// MARK: - ProjectContentListDataSourceDelegate
+// MARK: - ProjectContentListViewDelegate
 
-extension ProjectContentListViewController: ProjectContentListDataSourceDelegate {
-    func didTapDelete(on contentDescription: ProjectContentDescription) {
+extension ProjectContentListViewController: ProjectContentListViewDelegate {
+    func didSelectContent(at indexPath: IndexPath) {
+        // TODO: handle selection
+    }
+
+    func didTapDelete(at indexPath: IndexPath) {
         do {
+            let contentDescription = try self.dataSource.contentDescription(for: indexPath)
             try self.viewModel.deleteContent(with: contentDescription.id)
             self.dataSource.applySnapshot(deleting: contentDescription, animated: true)
             self.updateMenu()
@@ -111,13 +115,9 @@ extension ProjectContentListViewController: ProjectContentListDataSourceDelegate
             self.coordinator.show(error: error)
         }
     }
-}
 
-// MARK: - ProjectContentListViewDelegate
-
-extension ProjectContentListViewController: ProjectContentListViewDelegate {
-    func didSelectContent(at indexPath: IndexPath) {
-        // TODO: handle selection
+    func didTapEdit(at indexPath: IndexPath) {
+        // TODO: handle edit
     }
 
     func didTapContentCreatorButton() {

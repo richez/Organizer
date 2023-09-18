@@ -9,6 +9,8 @@ import UIKit
 
 protocol ProjectContentListViewDelegate: AnyObject {
     func didSelectContent(at indexPath: IndexPath)
+    func didTapDelete(at indexPath: IndexPath)
+    func didTapEdit(at indexPath: IndexPath)
     func didTapContentCreatorButton()
 }
 
@@ -92,5 +94,24 @@ extension ProjectContentListView: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.delegate?.didSelectContent(at: indexPath)
+    }
+
+    func tableView(_ tableView: UITableView,
+                   trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(
+            configuration: self.viewRepresentation.swipeDeleteViewRepresentation,
+            handler: { [weak self] _, _, completionHandler in
+                self?.delegate?.didTapDelete(at: indexPath)
+                completionHandler(true)
+            }
+        )
+        let editActions = UIContextualAction(
+            configuration: self.viewRepresentation.swipeEditViewRepresentation,
+            handler: { [weak self] _, _, completionHandler in
+                self?.delegate?.didTapEdit(at: indexPath)
+                completionHandler(true)
+            }
+        )
+        return UISwipeActionsConfiguration(actions: [deleteAction, editActions])
     }
 }
