@@ -10,7 +10,7 @@ import UIKit
 final class ProjectCreatorViewController: UIViewController {
     // MARK: - Properties
 
-    private lazy var contentView = ProjectCreatorView()
+    private lazy var contentView: ProjectCreatorView = .init()
 
     private let viewModel: ProjectCreatorViewModel
     private unowned let coordinator: ProjectCreatorCoordinatorProtocol

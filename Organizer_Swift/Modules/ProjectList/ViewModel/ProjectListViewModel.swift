@@ -32,7 +32,7 @@ extension ProjectListViewModel {
         case .all:
             return "Projects"
         case .custom(let selectedTheme):
-            return "Projects (#\(selectedTheme))"
+            return "Projects\n#\(selectedTheme)"
         }
     }
 
@@ -79,13 +79,17 @@ extension ProjectListViewModel {
     // MARK: Menu
 
     func menuConfiguration(handler: @escaping () -> Void) -> MenuConfiguration {
-        let projects = try? self.dataStore.fetch(predicate: self.predicate, sortBy: [])
+        let numberOfProjects = (try? self.dataStore.fetchCount(predicate: self.predicate, sortBy: [])) ?? 0
+        let allExistingThemes = try? self.dataStore
+            .fetch(predicate: nil, sortBy: [])
+            .flatMap(\.themes)
+            .removingDuplicates()
         return .init(
-            title: "project".pluralize(count: projects?.count ?? 0) ?? "",
+            title: "project".pluralize(count: numberOfProjects) ?? "",
             submenus: [
                 self.sortingMenuConfig(handler: handler),
                 self.previewStyleMenuConfig(handler: handler),
-                self.themeMenuConfig(projects: projects, handler: handler)
+                self.themeMenuConfig(themes: allExistingThemes ?? [], handler: handler)
             ]
         )
     }
@@ -197,8 +201,7 @@ private extension ProjectListViewModel {
         )
     }
 
-    func themeMenuConfig(projects: [Project]?, handler: @escaping () -> Void) -> MenuConfiguration {
-        let existingThemes = projects?.flatMap(\.themes).removingDuplicates() ?? []
+    func themeMenuConfig(themes: [String], handler: @escaping () -> Void) -> MenuConfiguration {
         return .init(
             title: "Themes",
             imageName: "number",
@@ -210,7 +213,7 @@ private extension ProjectListViewModel {
                         handler()
                     }
                 })
-            ] + existingThemes.map { theme in
+            ] + themes.map { theme in
                     .init(title: theme, isOn: self.settings.selectedTheme == .custom(theme)) { [weak self] in
                         if let self, self.settings.selectedTheme != .custom(theme) {
                             self.settings.selectedTheme = .custom(theme)

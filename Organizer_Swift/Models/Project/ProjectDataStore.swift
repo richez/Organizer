@@ -10,6 +10,7 @@ import SwiftData
 
 protocol ProjectDataStoreReader {
     func fetch(predicate: Predicate<Project>?, sortBy: [SortDescriptor<Project>]) throws -> [Project]
+    func fetchCount(predicate: Predicate<Project>?, sortBy: [SortDescriptor<Project>]) throws -> Int
     func project(with projectID: UUID) throws -> Project
 }
 
@@ -61,6 +62,13 @@ extension ProjectDataStore: ProjectDataStoreProtocol {
 
         let descriptor = FetchDescriptor<Project>(predicate: predicate, sortBy: sortBy)
         return try context.fetch(descriptor)
+    }
+
+    func fetchCount(predicate: Predicate<Project>?, sortBy: [SortDescriptor<Project>]) throws -> Int {
+        guard let context else { throw ProjectDataStoreError.databaseUnreachable }
+
+        let descriptor = FetchDescriptor<Project>(predicate: predicate, sortBy: sortBy)
+        return try context.fetchCount(descriptor)
     }
 
     func project(with projectID: UUID) throws -> Project {

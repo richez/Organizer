@@ -8,7 +8,8 @@
 import UIKit
 
 final class ProjectContentListViewController: UIViewController {
-    private lazy var contentView = ProjectContentListView()
+    private lazy var contentView: ProjectContentListView = .init()
+    private lazy var navbarTitleView: NavbarTitleView = .init()
 
     private let viewModel: ProjectContentListViewModel
     private unowned let coordinator: ProjectContentListCoordinatorProtocol
@@ -37,6 +38,7 @@ final class ProjectContentListViewController: UIViewController {
         super.viewDidLoad()
 
         self.setup()
+        self.updateNavbarTitle()
         self.updateList(animated: false)
         self.updateMenu()
     }
@@ -49,8 +51,7 @@ private extension ProjectContentListViewController {
         self.dataSource.delegate = self
         self.contentView.delegate = self
 
-        self.title = self.viewModel.navigationBarTitle // TODO: update title based on menu selection
-        self.navigationController?.navigationBar.applyAppearance()
+        self.navigationItem.titleView = self.navbarTitleView
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: UIImage(systemName: self.viewModel.rightBarImageName)
         )
@@ -59,6 +60,10 @@ private extension ProjectContentListViewController {
     }
 
     // MARK: - Updates
+
+    func updateNavbarTitle() {
+        self.navbarTitleView.configure(with: self.viewModel.navigationBarTitle)
+    }
 
     func updateList(animated: Bool) {
         do {
@@ -76,6 +81,7 @@ private extension ProjectContentListViewController {
 
     func updateMenu() {
         let menuConfiguration = self.viewModel.menuConfiguration { [weak self] in
+            self?.updateNavbarTitle()
             self?.updateList(animated: true)
             self?.updateMenu()
         }
@@ -87,6 +93,7 @@ private extension ProjectContentListViewController {
     func observeContentNotification() {
         NotificationCenter.default.addObserver(forName: .didCreateContent, object: nil, queue: .current) { [weak self] _ in
             self?.updateList(animated: true)
+            self?.updateMenu()
         }
     }
 }
@@ -98,6 +105,7 @@ extension ProjectContentListViewController: ProjectContentListDataSourceDelegate
         do {
             try self.viewModel.deleteContent(with: contentDescription.id)
             self.dataSource.applySnapshot(deleting: contentDescription, animated: true)
+            self.updateMenu()
         } catch {
             print("Fail to delete project: \(error)")
             self.coordinator.show(error: error)

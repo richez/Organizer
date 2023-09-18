@@ -10,7 +10,8 @@ import UIKit
 final class ProjectListViewController: UIViewController {
     // MARK: - Properties
 
-    private lazy var contentView = ProjectListView()
+    private lazy var contentView: ProjectListView = .init()
+    private lazy var navbarTitleView: NavbarTitleView = .init()
 
     private let viewModel: ProjectListViewModel
     private unowned let coordinator: ProjectListCoordinatorProtocol
@@ -53,6 +54,7 @@ private extension ProjectListViewController {
         self.contentView.delegate = self
 
         self.navigationController?.navigationBar.applyAppearance()
+        self.navigationItem.titleView = self.navbarTitleView
         self.navigationItem.backButtonDisplayMode = .minimal
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: UIImage(systemName: self.viewModel.rightBarImageName)
@@ -64,7 +66,7 @@ private extension ProjectListViewController {
     // MARK: - Updates
 
     func updateNavbarTitle() {
-        self.title = self.viewModel.navigationBarTitle
+        self.navbarTitleView.configure(with: self.viewModel.navigationBarTitle)
     }
 
     func updateList(animated: Bool) {
@@ -111,6 +113,7 @@ extension ProjectListViewController: ProjectListDataSourceDelegate {
         do {
             try self.viewModel.deleteProject(with: projectDescription.id)
             self.dataSource.applySnapshot(deleting: projectDescription, animated: true)
+            self.updateMenu()
         } catch {
             print("Fail to delete project: \(error)")
             self.coordinator.show(error: error)

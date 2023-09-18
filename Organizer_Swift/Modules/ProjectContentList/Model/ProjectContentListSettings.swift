@@ -20,7 +20,7 @@ struct ProjectContentListSettings {
     @Storage(key: .projectContentListShowType, default: true)
     var showType: Bool
 
-    @RawRepresentableStorage(key: .projectListSelectedTheme, default: .all)
+    @RawRepresentableStorage(key: .projectContentListSelectedTheme, default: .all)
     var selectedTheme: ProjectListSelectedTheme
 
     @RawRepresentableStorage(key: .projectContentListSelectedType, default: .all)

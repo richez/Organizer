@@ -26,7 +26,18 @@ final class ProjectContentListViewModel {
 extension ProjectContentListViewModel {
     // MARK: - Properties
 
-    var navigationBarTitle: String { self.project.title }
+    var navigationBarTitle: String {
+        switch (self.settings.selectedTheme, self.settings.selectedType) {
+        case (.all, .all):
+            return self.project.title
+        case (.all, .custom(let selectedType)):
+            return self.project.title + "\n\(selectedType.rawValue)s"
+        case (.custom(let selectedTheme), .all):
+            return self.project.title + "\n#\(selectedTheme)"
+        case (.custom(let selectedTheme), .custom(let selectedType)):
+            return self.project.title + "\n#\(selectedTheme) - \(selectedType.rawValue)s"
+        }
+    }
     var rightBarImageName: String { "ellipsis" }
     var section: ProjectContentSection { .main }
 
@@ -63,13 +74,14 @@ extension ProjectContentListViewModel {
     // MARK: Menu
 
     func menuConfiguration(handler: @escaping () -> Void) -> MenuConfiguration {
-        let content = try? self.project.contents.filter(self.predicate)
+        let numberOfContents = (try? self.project.contents.filter(self.predicate).count) ?? 0
+        let allExistingThemes = self.project.contents.flatMap(\.themes).removingDuplicates()
         return .init(
-            title: "content".pluralize(count: content?.count ?? 0) ?? "",
+            title: "content".pluralize(count: numberOfContents) ?? "",
             submenus: [
                 self.sortingMenuConfig(handler: handler),
                 self.previewStyleMenuConfig(handler: handler),
-                self.themeMenuConfig(content: content, handler: handler),
+                self.themeMenuConfig(themes: allExistingThemes, handler: handler),
                 self.typeMenuConfig(handler: handler)
             ]
         )
@@ -199,8 +211,7 @@ private extension ProjectContentListViewModel {
         )
     }
 
-    func themeMenuConfig(content: [ProjectContent]?, handler: @escaping () -> Void) -> MenuConfiguration {
-        let existingThemes = content?.flatMap(\.themes).removingDuplicates() ?? []
+    func themeMenuConfig(themes: [String], handler: @escaping () -> Void) -> MenuConfiguration {
         return .init(
             title: "Themes",
             imageName: "number",
@@ -212,7 +223,7 @@ private extension ProjectContentListViewModel {
                         handler()
                     }
                 })
-            ] + existingThemes.map { theme in
+            ] + themes.map { theme in
                     .init(title: theme, isOn: self.settings.selectedTheme == .custom(theme)) { [weak self] in
                         if let self, self.settings.selectedTheme != .custom(theme) {
                             self.settings.selectedTheme = .custom(theme)

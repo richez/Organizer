@@ -53,6 +53,8 @@
 		F0732BD82AA63C810027EC4F /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0732BD72AA63C810027EC4F /* Coordinator.swift */; };
 		F0732BDA2AA63E020027EC4F /* AppLaunchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0732BD92AA63E020027EC4F /* AppLaunchCoordinator.swift */; };
 		F0732BDC2AA63E5E0027EC4F /* ProjectListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0732BDB2AA63E5E0027EC4F /* ProjectListCoordinator.swift */; };
+		F08AE7A02AB860D000B35468 /* NavbarTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08AE79F2AB860D000B35468 /* NavbarTitleView.swift */; };
+		F08AE7A22AB862A500B35468 /* NavbarTitleViewRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08AE7A12AB862A500B35468 /* NavbarTitleViewRepresentation.swift */; };
 		F090AAB02AA7633300480249 /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F090AAAF2AA7633300480249 /* ProjectCell.swift */; };
 		F090AAB22AA765E200480249 /* ProjectCellViewRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F090AAB12AA765E200480249 /* ProjectCellViewRepresentation.swift */; };
 		F090AAB42AA7678D00480249 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = F090AAB32AA7678D00480249 /* Project.swift */; };
@@ -158,6 +160,8 @@
 		F0732BD72AA63C810027EC4F /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		F0732BD92AA63E020027EC4F /* AppLaunchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLaunchCoordinator.swift; sourceTree = "<group>"; };
 		F0732BDB2AA63E5E0027EC4F /* ProjectListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListCoordinator.swift; sourceTree = "<group>"; };
+		F08AE79F2AB860D000B35468 /* NavbarTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavbarTitleView.swift; sourceTree = "<group>"; };
+		F08AE7A12AB862A500B35468 /* NavbarTitleViewRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavbarTitleViewRepresentation.swift; sourceTree = "<group>"; };
 		F090AAAF2AA7633300480249 /* ProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCell.swift; sourceTree = "<group>"; };
 		F090AAB12AA765E200480249 /* ProjectCellViewRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCellViewRepresentation.swift; sourceTree = "<group>"; };
 		F090AAB32AA7678D00480249 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
@@ -234,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				F0307C6B2AA87EB400DC3958 /* Buttons */,
+				F08AE79E2AB860C500B35468 /* Navbar */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -532,6 +537,15 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		F08AE79E2AB860C500B35468 /* Navbar */ = {
+			isa = PBXGroup;
+			children = (
+				F08AE79F2AB860D000B35468 /* NavbarTitleView.swift */,
+				F08AE7A12AB862A500B35468 /* NavbarTitleViewRepresentation.swift */,
+			);
+			path = Navbar;
+			sourceTree = "<group>";
+		};
 		F0AC0AC82AB0915A00AE326F /* ProjectContentCreator */ = {
 			isa = PBXGroup;
 			children = (
@@ -823,6 +837,7 @@
 				F0AC0ACF2AB091CE00AE326F /* ProjectContentCreatorViewController.swift in Sources */,
 				F0732BA22AA61A7B0027EC4F /* ProjectListViewController.swift in Sources */,
 				F09AE3522AB62EFD00161CFB /* ProjectContentListSelectedTheme.swift in Sources */,
+				F08AE7A22AB862A500B35468 /* NavbarTitleViewRepresentation.swift in Sources */,
 				F062E0E92AB136AA00060B11 /* UITextField+Rules.swift in Sources */,
 				F07202F52AAFCB080026B29E /* ProjectContentCellViewRepresentation.swift in Sources */,
 				F09AE3562AB6300200161CFB /* ProjectListSelectedType.swift in Sources */,
@@ -844,6 +859,7 @@
 				F0C2651C2AAF5911008EAB3C /* ProjectCreatorField.swift in Sources */,
 				F0D2B0DF2AA770EC000D34CA /* ProjectListDataSource.swift in Sources */,
 				F0307C882AA8E1B100DC3958 /* UIStackView+ViewRepresentation.swift in Sources */,
+				F08AE7A02AB860D000B35468 /* NavbarTitleView.swift in Sources */,
 				F03D1E142AB33531009818CC /* ProjectContentListViewModelError.swift in Sources */,
 				F09AE35A2AB64E8D00161CFB /* Sequence+Predicate.swift in Sources */,
 				F09AE35C2AB64F6000161CFB /* Array+Duplicates.swift in Sources */,
