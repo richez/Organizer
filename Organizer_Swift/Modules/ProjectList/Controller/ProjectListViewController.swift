@@ -98,6 +98,10 @@ private extension ProjectListViewController {
             self?.updateList(animated: true)
             self?.updateMenu()
         }
+        NotificationCenter.default.addObserver(forName: .didUpdateProject, object: nil, queue: .current) { [weak self] _ in
+            self?.updateList(animated: true)
+            self?.updateMenu()
+        }
         NotificationCenter.default.addObserver(forName: .didUpdateProjectContent, object: nil, queue: .current) { [weak self] _ in
             // The view is not visible when we update the project so we don't need to animate the change
             self?.updateList(animated: false)
@@ -115,6 +119,7 @@ extension ProjectListViewController: ProjectListViewDelegate {
             self.coordinator.showContentList(of: project)
             self.contentView.tableView.deselectRow(at: indexPath, animated: false)
         } catch {
+            print("Fail to show project: \(error)")
             self.coordinator.show(error: error)
         }
     }
@@ -134,11 +139,19 @@ extension ProjectListViewController: ProjectListViewDelegate {
     }
 
     func didTapEdit(at indexPath: IndexPath) -> Bool {
-        // TODO: handle edit
-        return false
+        do {
+            let projectID = try self.dataSource.projectDescription(for: indexPath).id
+            let project = try self.viewModel.project(with: projectID)
+            self.coordinator.showProjectForm(mode: .update(project))
+            return true
+        } catch {
+            print("Fail to edit project: \(error)")
+            self.coordinator.show(error: error)
+            return false
+        }
     }
 
     func didTapProjectCreatorButton() {
-        self.coordinator.showProjectCreator()
+        self.coordinator.showProjectForm(mode: .create)
     }
 }

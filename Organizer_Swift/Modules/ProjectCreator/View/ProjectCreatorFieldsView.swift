@@ -48,9 +48,11 @@ final class ProjectCreatorFieldsView: UIView {
     func configure(with fieldsDescription: ProjectCreatorFieldsDescription) {
         self.nameLabel.text = fieldsDescription.name.text
         self.nameTextField.placeholder = fieldsDescription.name.placeholder
+        self.nameTextField.text = fieldsDescription.name.value
 
         self.themeLabel.text = fieldsDescription.theme.text
         self.themeTextField.placeholder = fieldsDescription.theme.placeholder
+        self.themeTextField.text = fieldsDescription.theme.value
     }
 }
 

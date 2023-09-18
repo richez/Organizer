@@ -15,20 +15,22 @@ protocol ProjectCreatorCoordinatorProtocol: AnyObject {
 final class ProjectCreatorCoordinator: ChildCoordinator {
     // MARK: - Properties
 
+    private let mode: ProjectFormMode
     unowned private let navigationController: UINavigationController
 
     weak var parent: ParentCoordinator?
 
     // MARK: - Initialization
 
-    init(navigationController: UINavigationController) {
+    init(mode: ProjectFormMode, navigationController: UINavigationController) {
+        self.mode = mode
         self.navigationController = navigationController
     }
 
     // MARK: - Coordinator
 
     func start() {
-        let projectCreatorViewModel = ProjectCreatorViewModel()
+        let projectCreatorViewModel = ProjectCreatorViewModel(mode: self.mode)
         let projectCreatorViewController = ProjectCreatorViewController(
             viewModel: projectCreatorViewModel,
             coordinator: self
