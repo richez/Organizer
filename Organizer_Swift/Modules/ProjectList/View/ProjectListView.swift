@@ -15,7 +15,7 @@ protocol ProjectListViewDelegate: AnyObject {
 final class ProjectListView: UIView {
     // MARK: - Properties
 
-    private let viewRepresentation = ProjectListViewRepresentation()
+    private let viewRepresentation: ProjectListViewRepresentation = .init()
     weak var delegate: ProjectListViewDelegate?
 
     let tableView: UITableView = .init()

@@ -14,7 +14,7 @@ final class ProjectContentListViewController: UIViewController {
     private let viewModel: ProjectContentListViewModel
     private unowned let coordinator: ProjectContentListCoordinatorProtocol
 
-    private lazy var dataSource = ProjectContentListDataSource(tableView: self.contentView.tableView)
+    private lazy var dataSource: ProjectContentListDataSource = .init(tableView: self.contentView.tableView)
 
     // MARK: - Initialization
 

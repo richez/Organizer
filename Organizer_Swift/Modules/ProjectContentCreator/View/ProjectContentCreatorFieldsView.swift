@@ -15,7 +15,7 @@ protocol ProjectContentCreatorFieldsViewDelegate: AnyObject {
 final class ProjectContentCreatorFieldsView: UIView {
     // MARK: - Properties
 
-    private let viewRepresentation = ProjectContentCreatorFieldsViewRepresentation()
+    private let viewRepresentation: ProjectContentCreatorFieldsViewRepresentation = .init()
 
     private let formStackView: UIStackView = .init()
 
@@ -35,7 +35,7 @@ final class ProjectContentCreatorFieldsView: UIView {
 
     weak var delegate: ProjectContentCreatorFieldsViewDelegate?
 
-    var subscriptions = Set<AnyCancellable>()
+    var subscriptions: Set<AnyCancellable> = .init()
 
     // MARK: - Initialization
 

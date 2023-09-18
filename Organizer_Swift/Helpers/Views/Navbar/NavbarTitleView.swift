@@ -9,7 +9,7 @@ import UIKit
 
 final class NavbarTitleView: UIView {
     // MARK: - Properties
-    // TODO: apply declaration style to all
+
     private let viewRepresentation: NavbarTitleViewRepresentation = .init()
 
     private let titleLabel: UILabel = .init()

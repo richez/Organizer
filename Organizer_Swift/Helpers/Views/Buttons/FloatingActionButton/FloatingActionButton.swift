@@ -11,7 +11,7 @@ import Combine
 final class FloatingActionButton: UIButton {
     // MARK: - Properties
 
-    var subscriptions = Set<AnyCancellable>()
+    var subscriptions: Set<AnyCancellable> = .init()
 
     func setup(with viewRepresentation: FloatingActionButtonViewRepresentation) {
         self.layer.masksToBounds = true

@@ -16,7 +16,7 @@ protocol ProjectCreatorViewDelegate: AnyObject {
 final class ProjectCreatorView: UIView {
     // MARK: - Properties
 
-    private let viewRepresentation = ProjectCreatorViewRepresentation()
+    private let viewRepresentation: ProjectCreatorViewRepresentation = .init()
     weak var delegate: ProjectCreatorViewDelegate?
 
     private let fieldsView: ProjectCreatorFieldsView = .init()

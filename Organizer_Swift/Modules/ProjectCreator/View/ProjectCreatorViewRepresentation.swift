@@ -10,7 +10,7 @@ import UIKit
 struct ProjectCreatorViewRepresentation {
     var backgroundColor: UIColor = .background
 
-    var saveButtonViewRepresentation = FloatingActionButtonViewRepresentation(
+    var saveButtonViewRepresentation: FloatingActionButtonViewRepresentation = .init(
         size: 60,
         backgroundColor: .projectCreatorButtonBackground,
         highlightedBackgroundColor: .projectCreatorButtonBackground.withAlphaComponent(0.3),

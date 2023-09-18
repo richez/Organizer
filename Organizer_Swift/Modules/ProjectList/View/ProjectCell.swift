@@ -10,7 +10,7 @@ import UIKit
 final class ProjectCell: UITableViewCell {
     // MARK: - Properties
 
-    private let viewRepresentation = ProjectCellViewRepresentation()
+    private let viewRepresentation: ProjectCellViewRepresentation = .init()
 
     private let titleLabel: UILabel = .init()
     private let themeLabel: UILabel = .init()
