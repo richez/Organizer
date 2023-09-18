@@ -10,4 +10,5 @@ import Foundation
 struct ProjectContentCreatorField {
     var text: String
     var placeholder: String
+    var value: String?
 }

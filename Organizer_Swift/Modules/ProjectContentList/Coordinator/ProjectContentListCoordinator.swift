@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ProjectContentListCoordinatorProtocol: AnyObject {
-    func showProjectContentCreator()
+    func showProjectContentForm(mode: ProjectContentFormMode)
     func show(error: Error)
 }
 
@@ -46,10 +46,11 @@ final class ProjectContentListCoordinator: ParentCoordinator, ChildCoordinator {
 // MARK: - ProjectContentListCoordinatorProtocol
 
 extension ProjectContentListCoordinator: ProjectContentListCoordinatorProtocol {
-    func showProjectContentCreator() {
+    func showProjectContentForm(mode: ProjectContentFormMode) {
         let projectContentCreatorCoordinator = ProjectContentCreatorCoordinator(
-            navigationController: self.navigationController,
-            project: self.project
+            mode: mode,
+            project: self.project,
+            navigationController: self.navigationController
         )
         self.start(child: projectContentCreatorCoordinator)
     }

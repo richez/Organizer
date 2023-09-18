@@ -9,5 +9,7 @@ import Foundation
 
 struct ProjectContentCreatorMenu {
     var text: String
-    var configuration: MenuConfiguration
+    var singleSelection: Bool
+    var items: [String]
+    var selectedItem: String
 }

@@ -11,5 +11,6 @@ extension Notification.Name {
     static var didCreateProject: Notification.Name = .init("didCreateProject")
     static var didUpdateProject: Notification.Name = .init("didCreateProject")
     static var didCreateContent: Notification.Name = .init("didCreateContent")
+    static var didUpdateContent: Notification.Name = .init("didUpdateContent")
     static var didUpdateProjectContent: Notification.Name = .init("didUpdateProjectContent")
 }

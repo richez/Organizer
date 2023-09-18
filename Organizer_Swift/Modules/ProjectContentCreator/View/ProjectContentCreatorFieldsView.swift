@@ -9,7 +9,7 @@ import Combine
 import UIKit
 
 protocol ProjectContentCreatorFieldsViewDelegate: AnyObject {
-    func didEditFields(name: String, theme: String, link: String)
+    func didEditFields(type: String, name: String, theme: String, link: String)
 }
 
 final class ProjectContentCreatorFieldsView: UIView {
@@ -53,16 +53,19 @@ final class ProjectContentCreatorFieldsView: UIView {
 
     func configure(with fieldsDescription: ProjectContentCreatorFieldsDescription) {
         self.typeLabel.text = fieldsDescription.type.text
-        self.typeButton.menu = UIMenu(configuration: fieldsDescription.type.configuration)
+        self.typeButton.menu = UIMenu(configuration: self.menuConfiguration(for: fieldsDescription.type))
 
         self.nameLabel.text = fieldsDescription.name.text
         self.nameTextField.placeholder = fieldsDescription.name.placeholder
+        self.nameTextField.text = fieldsDescription.name.value
 
         self.themeLabel.text = fieldsDescription.theme.text
         self.themeTextField.placeholder = fieldsDescription.theme.placeholder
+        self.themeTextField.text = fieldsDescription.theme.value
 
         self.linkLabel.text = fieldsDescription.link.text
         self.linkTextField.placeholder = fieldsDescription.link.placeholder
+        self.linkTextField.text = fieldsDescription.link.value
     }
 }
 
@@ -146,6 +149,7 @@ private extension ProjectContentCreatorFieldsView {
                 .sink { [weak self] _ in
                     guard let self = self else { return }
                     self.delegate?.didEditFields(
+                        type: self.typeButtonValue,
                         name: self.nameTextFieldValue,
                         theme: self.themeTextFieldValue,
                         link: self.linkTextFieldValue
@@ -161,6 +165,25 @@ private extension ProjectContentCreatorFieldsView {
                 equalTo: self.formStackView.layoutMarginsGuide.trailingAnchor
             )
         ])
+    }
+
+    // MARK: - Menu
+
+    func menuConfiguration(for menu: ProjectContentCreatorMenu) -> MenuConfiguration {
+        .init(
+            singleSelection: menu.singleSelection,
+            items: menu.items.map { item in
+                MenuItemConfiguration(title: item, isOn: item == menu.selectedItem) { [weak self] in
+                    guard let self = self else { return }
+                    self.delegate?.didEditFields(
+                        type: self.typeButtonValue,
+                        name: self.nameTextFieldValue,
+                        theme: self.themeTextFieldValue,
+                        link: self.linkTextFieldValue
+                    )
+                }
+            }
+        )
     }
 }
 

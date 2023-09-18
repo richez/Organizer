@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 protocol ProjectContentCreatorViewDelegate: AnyObject {
-    func didEditFields(name: String, theme: String, link: String)
+    func didEditFields(type: String, name: String, theme: String, link: String)
     func didTapOnView()
     func didTapSaveButton(type: String, name: String, theme: String, link: String)
 }
@@ -53,8 +53,8 @@ final class ProjectContentCreatorView: UIView {
 // MARK: - ProjectContentCreatorFieldsViewDelegate
 
 extension ProjectContentCreatorView: ProjectContentCreatorFieldsViewDelegate {
-    func didEditFields(name: String, theme: String, link: String) {
-        self.delegate?.didEditFields(name: name, theme: theme, link: link)
+    func didEditFields(type: String, name: String, theme: String, link: String) {
+        self.delegate?.didEditFields(type: type, name: name, theme: theme, link: link)
     }
 }
 

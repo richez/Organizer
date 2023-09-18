@@ -61,6 +61,14 @@ extension ProjectContentListViewModel {
         }
     }
 
+    func content(with id: UUID) throws -> ProjectContent {
+        guard let content = self.project.contents.first(where: { $0.id == id }) else {
+            throw ProjectContentListViewModelError.delete(id)
+        }
+
+        return content
+    }
+
     func deleteContent(with id: UUID) throws {
         guard let index = self.project.contents.firstIndex(where: { $0.id == id }) else {
             throw ProjectContentListViewModelError.delete(id)

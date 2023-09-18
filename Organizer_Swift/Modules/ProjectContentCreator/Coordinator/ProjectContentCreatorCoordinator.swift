@@ -14,14 +14,18 @@ protocol ProjectContentCreatorCoordinatorProtocol: AnyObject {
 final class ProjectContentCreatorCoordinator: ChildCoordinator, ProjectContentCreatorCoordinatorProtocol {
     // MARK: - Properties
 
-    unowned private let navigationController: UINavigationController
+    private let mode: ProjectContentFormMode
     private let project: Project
+    unowned private let navigationController: UINavigationController
 
     weak var parent: ParentCoordinator?
 
     // MARK: - Initialization
 
-    init(navigationController: UINavigationController, project: Project) {
+    init(mode: ProjectContentFormMode,
+         project: Project,
+         navigationController: UINavigationController) {
+        self.mode = mode
         self.navigationController = navigationController
         self.project = project
     }
@@ -29,7 +33,7 @@ final class ProjectContentCreatorCoordinator: ChildCoordinator, ProjectContentCr
     // MARK: - Coordinator
 
     func start() {
-        let projectContentCreatorViewModel = ProjectContentCreatorViewModel(project: self.project)
+        let projectContentCreatorViewModel = ProjectContentCreatorViewModel(mode: self.mode, project: self.project)
         let projectContentCreatorViewController = ProjectContentCreatorViewController(
             viewModel: projectContentCreatorViewModel,
             coordinator: self

@@ -94,6 +94,10 @@ private extension ProjectContentListViewController {
             self?.updateList(animated: true)
             self?.updateMenu()
         }
+        NotificationCenter.default.addObserver(forName: .didUpdateContent, object: nil, queue: .current) { [weak self] _ in
+            self?.updateList(animated: true)
+            self?.updateMenu()
+        }
     }
 }
 
@@ -119,12 +123,20 @@ extension ProjectContentListViewController: ProjectContentListViewDelegate {
     }
 
     func didTapEdit(at indexPath: IndexPath) -> Bool {
-        // TODO: handle edit
-        return false
+        do {
+            let contentID = try self.dataSource.contentDescription(for: indexPath).id
+            let content = try self.viewModel.content(with: contentID)
+            self.coordinator.showProjectContentForm(mode: .update(content))
+            return true
+        } catch {
+            print("Fail to edit content: \(error)")
+            self.coordinator.show(error: error)
+            return false
+        }
     }
 
     func didTapContentCreatorButton() {
-        self.coordinator.showProjectContentCreator()
+        self.coordinator.showProjectContentForm(mode: .create)
     }
 }
 
