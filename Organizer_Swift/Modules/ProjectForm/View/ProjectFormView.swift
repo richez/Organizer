@@ -1,5 +1,5 @@
 //
-//  ProjectCreatorView.swift
+//  ProjectFormView.swift
 //  Organizer_Swift
 //
 //  Created by Thibaut Richez on 06/09/2023.
@@ -7,19 +7,19 @@
 
 import UIKit
 
-protocol ProjectCreatorViewDelegate: AnyObject {
+protocol ProjectFormViewDelegate: AnyObject {
     func didEditFields(name: String, theme: String)
     func didTapOnView()
     func didTapSaveButton(name: String, theme: String)
 }
 
-final class ProjectCreatorView: UIView {
+final class ProjectFormView: UIView {
     // MARK: - Properties
 
-    private let viewRepresentation: ProjectCreatorViewRepresentation = .init()
-    weak var delegate: ProjectCreatorViewDelegate?
+    private let viewRepresentation: ProjectFormViewRepresentation = .init()
+    weak var delegate: ProjectFormViewDelegate?
 
-    private let fieldsView: ProjectCreatorFieldsView = .init()
+    private let fieldsView: ProjectFormFieldsView = .init()
     private let saveButton: FloatingActionButton = .init()
 
     var isSaveButtonEnabled: Bool = false {
@@ -42,21 +42,21 @@ final class ProjectCreatorView: UIView {
 
     // MARK: - Configuration
 
-    func configure(with fieldsDescription: ProjectCreatorFieldsDescription) {
+    func configure(with fieldsDescription: ProjectFormFieldsDescription) {
         self.fieldsView.configure(with: fieldsDescription)
     }
 }
 
-// MARK: - ProjectCreatorFieldsViewDelegate
+// MARK: - ProjectFormFieldsViewDelegate
 
-extension ProjectCreatorView: ProjectCreatorFieldsViewDelegate {
+extension ProjectFormView: ProjectFormFieldsViewDelegate {
     func didEditFields(name: String, theme: String) {
         self.delegate?.didEditFields(name: name, theme: theme)
     }
 }
 
 
-private extension ProjectCreatorView {
+private extension ProjectFormView {
     // MARK: - Setup
 
     func setup() {

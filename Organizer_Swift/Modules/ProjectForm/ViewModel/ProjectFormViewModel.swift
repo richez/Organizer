@@ -1,5 +1,5 @@
 //
-//  ProjectCreatorViewModel.swift
+//  ProjectFormViewModel.swift
 //  Organizer_Swift
 //
 //  Created by Thibaut Richez on 06/09/2023.
@@ -7,8 +7,7 @@
 
 import Foundation
 
-// TODO: rename ProjectForm
-struct ProjectCreatorViewModel {
+struct ProjectFormViewModel {
     private let mode: ProjectFormMode
     private let dataStore: ProjectDataStoreCreator
     private let notificationCenter: NotificationCenter
@@ -24,13 +23,13 @@ struct ProjectCreatorViewModel {
 
 // MARK: - Public
 
-extension ProjectCreatorViewModel {
-    var fieldsDescription: ProjectCreatorFieldsDescription {
+extension ProjectFormViewModel {
+    var fieldsDescription: ProjectFormFieldsDescription {
         .init(
-            name: ProjectCreatorField(
+            name: ProjectFormField(
                 text: "Name", placeholder: "My project", value: self.nameFieldValue
             ),
-            theme: ProjectCreatorField(
+            theme: ProjectFormField(
                 text: "Themes", placeholder: "Sport, Construction, Work", value: self.themeFieldValue
             )
         )
@@ -61,7 +60,7 @@ extension ProjectCreatorViewModel {
 
 // MARK: - Helpers
 
-private extension ProjectCreatorViewModel {
+private extension ProjectFormViewModel {
     // MARK: Fields
 
     var nameFieldValue: String? {
@@ -98,7 +97,7 @@ private extension ProjectCreatorViewModel {
             try self.dataStore.create(project: project)
             self.notificationCenter.post(name: .didCreateProject, object: nil)
         } catch {
-            throw ProjectCreatorViewModelError.create(error)
+            throw ProjectFormViewModelError.create(error)
         }
     }
 

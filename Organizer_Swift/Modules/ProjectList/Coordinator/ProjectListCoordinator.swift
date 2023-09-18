@@ -46,11 +46,11 @@ final class ProjectListCoordinator: ParentCoordinator, ChildCoordinator {
 
 extension ProjectListCoordinator: ProjectListCoordinatorProtocol {
     func showProjectForm(mode: ProjectFormMode) {
-        let projectCreatorCoordinator = ProjectCreatorCoordinator(
+        let projectFormCoordinator = ProjectFormCoordinator(
             mode: mode,
             navigationController: self.navigationController!
         )
-        self.start(child: projectCreatorCoordinator)
+        self.start(child: projectFormCoordinator)
     }
 
     func showContentList(of project: Project) {

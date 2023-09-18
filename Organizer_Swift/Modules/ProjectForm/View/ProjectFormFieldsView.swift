@@ -1,5 +1,5 @@
 //
-//  ProjectCreatorFieldsView.swift
+//  ProjectFormFieldsView.swift
 //  Organizer_Swift
 //
 //  Created by Thibaut Richez on 06/09/2023.
@@ -8,14 +8,14 @@
 import Combine
 import UIKit
 
-protocol ProjectCreatorFieldsViewDelegate: AnyObject {
+protocol ProjectFormFieldsViewDelegate: AnyObject {
     func didEditFields(name: String, theme: String)
 }
 
-final class ProjectCreatorFieldsView: UIView {
+final class ProjectFormFieldsView: UIView {
     // MARK: - Properties
 
-    private let viewRepresentation: ProjectCreatorFieldsViewRepresentation = .init()
+    private let viewRepresentation: ProjectFormFieldsViewRepresentation = .init()
 
     private let formStackView: UIStackView = .init()
 
@@ -27,7 +27,7 @@ final class ProjectCreatorFieldsView: UIView {
     var nameTextFieldValue: String { self.nameTextField.text ?? "" }
     var themeTextFieldValue: String { self.themeTextField.text ?? "" }
 
-    weak var delegate: ProjectCreatorFieldsViewDelegate?
+    weak var delegate: ProjectFormFieldsViewDelegate?
 
     var subscriptions: Set<AnyCancellable> = .init()
 
@@ -45,7 +45,7 @@ final class ProjectCreatorFieldsView: UIView {
 
     // MARK: - Configuration
 
-    func configure(with fieldsDescription: ProjectCreatorFieldsDescription) {
+    func configure(with fieldsDescription: ProjectFormFieldsDescription) {
         self.nameLabel.text = fieldsDescription.name.text
         self.nameTextField.placeholder = fieldsDescription.name.placeholder
         self.nameTextField.text = fieldsDescription.name.value
@@ -56,7 +56,7 @@ final class ProjectCreatorFieldsView: UIView {
     }
 }
 
-private extension ProjectCreatorFieldsView {
+private extension ProjectFormFieldsView {
     // MARK: - Setup
     
     func setup() {

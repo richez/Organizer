@@ -1,5 +1,5 @@
 //
-//  ProjectCreatorViewRepresentation.swift
+//  ProjectFormViewRepresentation.swift
 //  Organizer_Swift
 //
 //  Created by Thibaut Richez on 06/09/2023.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct ProjectCreatorViewRepresentation {
+struct ProjectFormViewRepresentation {
     var backgroundColor: UIColor = .background
 
     var saveButtonViewRepresentation: FloatingActionButtonViewRepresentation = .init(

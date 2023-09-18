@@ -1,5 +1,5 @@
 //
-//  ProjectCreatorViewController.swift
+//  ProjectFormViewController.swift
 //  Organizer_Swift
 //
 //  Created by Thibaut Richez on 06/09/2023.
@@ -7,17 +7,17 @@
 
 import UIKit
 
-final class ProjectCreatorViewController: UIViewController {
+final class ProjectFormViewController: UIViewController {
     // MARK: - Properties
 
-    private lazy var contentView: ProjectCreatorView = .init()
+    private lazy var contentView: ProjectFormView = .init()
 
-    private let viewModel: ProjectCreatorViewModel
-    private unowned let coordinator: ProjectCreatorCoordinatorProtocol
+    private let viewModel: ProjectFormViewModel
+    private unowned let coordinator: ProjectFormCoordinatorProtocol
 
     // MARK: - Initialization
 
-    init(viewModel: ProjectCreatorViewModel, coordinator: ProjectCreatorCoordinatorProtocol) {
+    init(viewModel: ProjectFormViewModel, coordinator: ProjectFormCoordinatorProtocol) {
         self.viewModel = viewModel
         self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
@@ -40,7 +40,7 @@ final class ProjectCreatorViewController: UIViewController {
     }
 }
 
-private extension ProjectCreatorViewController {
+private extension ProjectFormViewController {
     func setup() {
         self.contentView.delegate = self
         self.presentationController?.delegate = self
@@ -49,9 +49,9 @@ private extension ProjectCreatorViewController {
     }
 }
 
-// MARK: - ProjectCreatorViewDelegate
+// MARK: - ProjectFormViewDelegate
 
-extension ProjectCreatorViewController: ProjectCreatorViewDelegate {
+extension ProjectFormViewController: ProjectFormViewDelegate {
     func didEditFields(name: String, theme: String) {
         let isFieldsValid = self.viewModel.isFieldsValid(name: name, theme: theme)
         self.contentView.isSaveButtonEnabled = isFieldsValid
@@ -76,7 +76,7 @@ extension ProjectCreatorViewController: ProjectCreatorViewDelegate {
 
 // MARK: - UIAdaptivePresentationControllerDelegate
 
-extension ProjectCreatorViewController: UIAdaptivePresentationControllerDelegate {
+extension ProjectFormViewController: UIAdaptivePresentationControllerDelegate {
     func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
         self.coordinator.finish()
     }

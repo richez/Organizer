@@ -1,5 +1,5 @@
 //
-//  ProjectCreatorFieldsViewRepresentation.swift
+//  ProjectFormFieldsViewRepresentation.swift
 //  Organizer_Swift
 //
 //  Created by Thibaut Richez on 06/09/2023.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct ProjectCreatorFieldsViewRepresentation {
+struct ProjectFormFieldsViewRepresentation {
     var stackViewRepresentation: StackViewRepresentation = .init(
         axis: .vertical,
         distribution: .fill,

@@ -50,7 +50,7 @@ final class ProjectContentCreatorView: UIView {
     }
 }
 
-// MARK: - ProjectCreatorFieldsViewDelegate
+// MARK: - ProjectContentCreatorFieldsViewDelegate
 
 extension ProjectContentCreatorView: ProjectContentCreatorFieldsViewDelegate {
     func didEditFields(name: String, theme: String, link: String) {

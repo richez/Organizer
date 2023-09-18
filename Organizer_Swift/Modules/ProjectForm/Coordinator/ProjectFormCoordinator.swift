@@ -1,5 +1,5 @@
 //
-//  ProjectCreatorCoordinator.swift
+//  ProjectFormCoordinator.swift
 //  Organizer_Swift
 //
 //  Created by Thibaut Richez on 06/09/2023.
@@ -7,12 +7,12 @@
 
 import UIKit
 
-protocol ProjectCreatorCoordinatorProtocol: AnyObject {
+protocol ProjectFormCoordinatorProtocol: AnyObject {
     func show(error: Error)
     func finish()
 }
 
-final class ProjectCreatorCoordinator: ChildCoordinator {
+final class ProjectFormCoordinator: ChildCoordinator {
     // MARK: - Properties
 
     private let mode: ProjectFormMode
@@ -30,18 +30,18 @@ final class ProjectCreatorCoordinator: ChildCoordinator {
     // MARK: - Coordinator
 
     func start() {
-        let projectCreatorViewModel = ProjectCreatorViewModel(mode: self.mode)
-        let projectCreatorViewController = ProjectCreatorViewController(
-            viewModel: projectCreatorViewModel,
+        let projectFormViewModel = ProjectFormViewModel(mode: self.mode)
+        let projectFormViewController = ProjectFormViewController(
+            viewModel: projectFormViewModel,
             coordinator: self
         )
-        self.navigationController.present(projectCreatorViewController, animated: true)
+        self.navigationController.present(projectFormViewController, animated: true)
     }
 }
 
-// MARK: - ProjectCreatorCoordinatorProtocol
+// MARK: - ProjectFormCoordinatorProtocol
 
-extension ProjectCreatorCoordinator: ProjectCreatorCoordinatorProtocol {
+extension ProjectFormCoordinator: ProjectFormCoordinatorProtocol {
     func show(error: Error) {
         self.navigationController.presentedViewController?.presentError(error)
     }
