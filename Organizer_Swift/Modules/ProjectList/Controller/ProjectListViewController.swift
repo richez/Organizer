@@ -138,7 +138,7 @@ extension ProjectListViewController: ProjectListViewDelegate {
         }
     }
 
-    func didTapProjectCreatorButton() {
+    func didTapCreateButton() {
         self.coordinator.showProjectForm(mode: .create)
     }
 }

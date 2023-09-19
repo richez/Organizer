@@ -11,7 +11,7 @@ protocol ProjectListViewDelegate: AnyObject {
     func didSelectProject(at indexPath: IndexPath)
     func didTapSwipeAction(_ action: ProjectListSwipeAction, at indexPath: IndexPath) -> Bool
     func didTapContextMenuAction(_ action: ProjectListContextMenuAction, at indexPath: IndexPath)
-    func didTapProjectCreatorButton()
+    func didTapCreateButton()
 }
 
 final class ProjectListView: UIView {
@@ -27,7 +27,7 @@ final class ProjectListView: UIView {
     // MARK: View
 
     let tableView: UITableView = .init()
-    let projectCreatorButton: FloatingActionButton = .init()
+    let createButton: FloatingActionButton = .init()
 
     // MARK: - Initialization
 
@@ -44,10 +44,8 @@ final class ProjectListView: UIView {
     // MARK: - Configuration
 
     func configure(with configuration: ProjectListViewConfiguration) {
-        self.projectCreatorButton.configure(
-            with: self.viewRepresentation.projectCreatorButtonViewRepresentation(
-                imageName: configuration.projectCreatorImageName
-            )
+        self.createButton.configure(
+            with: self.viewRepresentation.createButtonViewRepresentation(imageName: configuration.createButtonImageName)
         )
         self.swipeActionConfigurations = configuration.swipeActions
         self.contextMenuTitle = configuration.contextMenuTitle
@@ -62,7 +60,7 @@ private extension ProjectListView {
         self.backgroundColor = self.viewRepresentation.backgroundColor
 
         self.setupTableView()
-        self.setupProjectCreatorButton()
+        self.setupCreateButton()
     }
 
     func setupTableView() {
@@ -81,18 +79,18 @@ private extension ProjectListView {
         ])
     }
 
-    func setupProjectCreatorButton() {
-        self.projectCreatorButton.addAction(UIAction(handler: { [weak self] _ in
-            self?.delegate?.didTapProjectCreatorButton()
+    func setupCreateButton() {
+        self.createButton.addAction(UIAction(handler: { [weak self] _ in
+            self?.delegate?.didTapCreateButton()
         }), for: .touchUpInside)
 
-        self.addSubview(self.projectCreatorButton)
-        self.projectCreatorButton.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(self.createButton)
+        self.createButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            self.projectCreatorButton.bottomAnchor.constraint(
+            self.createButton.bottomAnchor.constraint(
                 equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -10
             ),
-            self.projectCreatorButton.trailingAnchor.constraint(
+            self.createButton.trailingAnchor.constraint(
                 equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -20
             )
         ])

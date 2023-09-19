@@ -43,7 +43,7 @@ extension ProjectContentListViewModel {
 
     var viewConfiguration: ProjectContentListViewConfiguration {
         .init(
-            contentCreatorImageName: "plus",
+            createButtonImageName: "plus",
             swipeActions: [
                 ProjectContentListSwipeActionConfiguration(imageName: "trash", action: .delete),
                 ProjectContentListSwipeActionConfiguration(imageName: "square.and.pencil", action: .edit)

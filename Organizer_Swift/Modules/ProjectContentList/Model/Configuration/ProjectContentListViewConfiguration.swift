@@ -8,7 +8,7 @@
 import Foundation
 
 struct ProjectContentListViewConfiguration {
-    var contentCreatorImageName: String
+    var createButtonImageName: String
     var swipeActions: [ProjectContentListSwipeActionConfiguration]
     var contextMenuTitle: String
     var contextMenuActions: [ProjectContentListContextMenuActionConfiguration]

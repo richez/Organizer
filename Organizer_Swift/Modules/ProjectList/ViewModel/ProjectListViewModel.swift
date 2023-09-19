@@ -41,13 +41,13 @@ extension ProjectListViewModel {
 
     var viewConfiguration: ProjectListViewConfiguration {
         .init(
-            projectCreatorImageName: "square.and.pencil",
+            createButtonImageName: "square.and.pencil",
             swipeActions: [
                 ProjectListSwipeActionConfiguration(imageName: "trash", action: .delete),
                 ProjectListSwipeActionConfiguration(imageName: "square.and.pencil", action: .edit)
             ],
             contextMenuTitle: "",
-            contextMenuActions: [ // TODO: add archive
+            contextMenuActions: [
                 ProjectListContextMenuActionConfiguration(title: "Archive", imageName: "archivebox", action: .archive),
                 ProjectListContextMenuActionConfiguration(title: "Edit", imageName: "square.and.pencil", action: .edit),
                 ProjectListContextMenuActionConfiguration(title: "Delete", imageName: "trash", action: .delete)

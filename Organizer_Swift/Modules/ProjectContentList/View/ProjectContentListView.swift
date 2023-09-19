@@ -11,7 +11,7 @@ protocol ProjectContentListViewDelegate: AnyObject {
     func didSelectContent(at indexPath: IndexPath)
     func didTapSwipeAction(_ action: ProjectContentListSwipeAction, at indexPath: IndexPath) -> Bool
     func didTapContextMenuAction(_ action: ProjectContentListContextMenuAction, at indexPath: IndexPath)
-    func didTapContentCreatorButton()
+    func didTapCreateButton()
 }
 
 final class ProjectContentListView: UIView {
@@ -46,9 +46,7 @@ final class ProjectContentListView: UIView {
 
     func configure(with configuration: ProjectContentListViewConfiguration) {
         self.contentCreatorButton.configure(
-            with: self.viewRepresentation.contentCreatorButtonViewRepresentation(
-                imageName: configuration.contentCreatorImageName
-            )
+            with: self.viewRepresentation.createButtonViewRepresentation(imageName: configuration.createButtonImageName)
         )
         self.swipeActionConfigurations = configuration.swipeActions
         self.contextMenuTitle = configuration.contextMenuTitle
@@ -63,7 +61,7 @@ private extension ProjectContentListView {
         self.backgroundColor = self.viewRepresentation.backgroundColor
 
         self.setupTableView()
-        self.setupContentCreatorButton()
+        self.setupCreateButton()
     }
 
     func setupTableView() {
@@ -82,9 +80,9 @@ private extension ProjectContentListView {
         ])
     }
 
-    func setupContentCreatorButton() {
+    func setupCreateButton() {
         self.contentCreatorButton.addAction(UIAction(handler: { [weak self] _ in
-            self?.delegate?.didTapContentCreatorButton()
+            self?.delegate?.didTapCreateButton()
         }), for: .touchUpInside)
 
         self.addSubview(self.contentCreatorButton)

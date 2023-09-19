@@ -8,6 +8,6 @@
 import Foundation
 
 struct ProjectContentFormViewConfiguration {
-    var saveImageName: String
+    var saveButtonImageName: String
     var fields: ProjectContentFormFieldsConfiguration
 }

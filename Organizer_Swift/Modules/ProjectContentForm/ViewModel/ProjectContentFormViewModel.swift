@@ -30,7 +30,7 @@ struct ProjectContentFormViewModel {
 extension ProjectContentFormViewModel {
     var viewConfiguration: ProjectContentFormViewConfiguration {
         .init(
-            saveImageName: "checkmark",
+            saveButtonImageName: "checkmark",
             fields: ProjectContentFormFieldsConfiguration(
                 type: ProjectContentFormMenu(
                     text: "Type",

@@ -8,8 +8,7 @@
 import Foundation
 
 struct ProjectListViewConfiguration {
-    // TODO: rename createButtonImageName
-    var projectCreatorImageName: String
+    var createButtonImageName: String
     var swipeActions: [ProjectListSwipeActionConfiguration]
     var contextMenuTitle: String
     var contextMenuActions: [ProjectListContextMenuActionConfiguration]

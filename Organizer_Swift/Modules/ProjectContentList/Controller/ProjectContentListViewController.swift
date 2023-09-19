@@ -132,7 +132,7 @@ extension ProjectContentListViewController: ProjectContentListViewDelegate {
         }
     }
 
-    func didTapContentCreatorButton() {
+    func didTapCreateButton() {
         self.coordinator.showProjectContentForm(mode: .create)
     }
 }

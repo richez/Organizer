@@ -45,7 +45,7 @@ final class ProjectContentFormView: UIView {
 
     func configure(with configuration: ProjectContentFormViewConfiguration) {
         self.saveButton.configure(
-            with: self.viewRepresentation.saveButtonViewRepresentation(imageName: configuration.saveImageName)
+            with: self.viewRepresentation.saveButtonViewRepresentation(imageName: configuration.saveButtonImageName)
         )
         self.fieldsView.configure(with: configuration.fields)
     }

@@ -26,7 +26,7 @@ struct ProjectFormViewModel {
 extension ProjectFormViewModel {
     var viewConfiguration: ProjectFormViewConfiguration {
         .init(
-            saveImageName: "checkmark",
+            saveButtonImageName: "checkmark",
             fields: ProjectFormFieldsConfiguration(
                 name: ProjectFormField(
                     text: "Name", placeholder: "My project", value: self.nameFieldValue

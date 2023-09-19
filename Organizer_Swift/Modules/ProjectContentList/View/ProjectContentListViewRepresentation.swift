@@ -16,7 +16,7 @@ struct ProjectContentListViewRepresentation {
 
     var cellHeight: CGFloat = 100
 
-    func contentCreatorButtonViewRepresentation(imageName: String) -> FloatingActionButtonViewRepresentation {
+    func createButtonViewRepresentation(imageName: String) -> FloatingActionButtonViewRepresentation {
         .init(
             size: 60,
             backgroundColor: .contentCreatorButtonBackground,
