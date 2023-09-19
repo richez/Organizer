@@ -107,10 +107,10 @@ extension ContentListViewModel {
     // MARK: Menu
 
     func menuConfiguration(handler: @escaping () -> Void) -> MenuConfiguration {
-        let numberOfContents = (try? self.project.contents.filter(self.fetchDescriptor.predicate).count) ?? 0
+        let numberOfContents = try? self.project.contents.filter(self.fetchDescriptor.predicate).count
         let allExistingThemes = self.project.contents.flatMap(\.themes).removingDuplicates()
         return self.menuConfigurator.configuration(
-            numberOfContents: numberOfContents,
+            numberOfContents: numberOfContents ?? 0,
             themes: allExistingThemes,
             handler: handler
         )

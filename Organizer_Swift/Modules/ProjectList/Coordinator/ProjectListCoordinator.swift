@@ -31,7 +31,13 @@ final class ProjectListCoordinator: ParentCoordinator, ChildCoordinator {
     // MARK: - Coordinator
 
     func start() {
-        let projectListViewModel = ProjectListViewModel()
+        let settings = ProjectListSettings()
+        let projectListViewModel = ProjectListViewModel(
+            dataStore: ProjectDataStore.shared,
+            settings: settings,
+            fetchDescriptor: ProjectListFetchDescriptor(settings: settings),
+            menuConfigurator: ProjectListMenuConfigurator(settings: settings)
+        )
         let projectListViewController = ProjectListViewController(
             viewModel: projectListViewModel,
             coordinator: self

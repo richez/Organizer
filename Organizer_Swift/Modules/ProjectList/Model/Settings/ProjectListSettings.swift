@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ProjectListSettings {
+final class ProjectListSettings {
     @Storage(key: .projectListAscendingOrder, default: true)
     var ascendingOrder: Bool
 
