@@ -16,12 +16,12 @@ enum StorageKey: String {
     case projectListShowStatistics
     case projectListSelectedTheme
 
-    // MARK: - Project Content List
+    // MARK: - Content List
 
-    case projectContentListAscendingOrder
-    case projectContentListSorting
-    case projectContentListShowTheme
-    case projectContentListShowType
-    case projectContentListSelectedTheme
-    case projectContentListSelectedType
+    case contentListAscendingOrder
+    case contentListSorting
+    case contentListShowTheme
+    case contentListShowType
+    case contentListSelectedTheme
+    case contentListSelectedType
 }

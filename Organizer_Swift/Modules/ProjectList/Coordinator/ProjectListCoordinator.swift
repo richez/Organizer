@@ -54,11 +54,11 @@ extension ProjectListCoordinator: ProjectListCoordinatorProtocol {
     }
 
     func showContentList(of project: Project) {
-        let projectContentListCoordinator = ProjectContentListCoordinator(
-            navigationController: self.navigationController!,
-            project: project
+        let contentListCoordinator = ContentListCoordinator(
+            project: project,
+            navigationController: self.navigationController!
         )
-        self.start(child: projectContentListCoordinator)
+        self.start(child: contentListCoordinator)
     }
 
     func show(error: Error) {
