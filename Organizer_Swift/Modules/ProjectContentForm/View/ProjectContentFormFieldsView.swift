@@ -51,21 +51,21 @@ final class ProjectContentFormFieldsView: UIView {
 
     // MARK: - Configuration
 
-    func configure(with fieldsDescription: ProjectContentFormFieldsDescription) {
-        self.typeLabel.text = fieldsDescription.type.text
-        self.typeButton.menu = UIMenu(configuration: self.menuConfiguration(for: fieldsDescription.type))
+    func configure(with configuration: ProjectContentFormFieldsConfiguration) {
+        self.typeLabel.text = configuration.type.text
+        self.typeButton.menu = UIMenu(configuration: self.menuConfiguration(for: configuration.type))
 
-        self.nameLabel.text = fieldsDescription.name.text
-        self.nameTextField.placeholder = fieldsDescription.name.placeholder
-        self.nameTextField.text = fieldsDescription.name.value
+        self.nameLabel.text = configuration.name.text
+        self.nameTextField.placeholder = configuration.name.placeholder
+        self.nameTextField.text = configuration.name.value
 
-        self.themeLabel.text = fieldsDescription.theme.text
-        self.themeTextField.placeholder = fieldsDescription.theme.placeholder
-        self.themeTextField.text = fieldsDescription.theme.value
+        self.themeLabel.text = configuration.theme.text
+        self.themeTextField.placeholder = configuration.theme.placeholder
+        self.themeTextField.text = configuration.theme.value
 
-        self.linkLabel.text = fieldsDescription.link.text
-        self.linkTextField.placeholder = fieldsDescription.link.placeholder
-        self.linkTextField.text = fieldsDescription.link.value
+        self.linkLabel.text = configuration.link.text
+        self.linkTextField.placeholder = configuration.link.placeholder
+        self.linkTextField.text = configuration.link.value
     }
 }
 

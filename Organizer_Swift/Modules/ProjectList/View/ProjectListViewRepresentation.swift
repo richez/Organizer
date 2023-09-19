@@ -16,28 +16,50 @@ struct ProjectListViewRepresentation {
 
     var cellHeight: CGFloat = 110
 
-    var projectCreatorButtonViewRepresentation: FloatingActionButtonViewRepresentation = .init(
-        size: 60,
-        backgroundColor: .projectCreatorButtonBackground,
-        highlightedBackgroundColor: .projectCreatorButtonBackground.withAlphaComponent(0.3),
-        selectedBackgroundColor: .projectCreatorButtonBackground.withAlphaComponent(0.3),
-        disabledBackgroundColor: .projectCreatorButtonBackground.withAlphaComponent(0.1),
-        tintColor: .black,
-        image: UIImage(
-            systemName: "square.and.pencil",
-            withConfiguration: UIImage.SymbolConfiguration(scale: .large)
+    func projectCreatorButtonViewRepresentation(imageName: String) -> FloatingActionButtonViewRepresentation {
+        .init(
+            size: 60,
+            backgroundColor: .projectCreatorButtonBackground,
+            highlightedBackgroundColor: .projectCreatorButtonBackground.withAlphaComponent(0.3),
+            selectedBackgroundColor: .projectCreatorButtonBackground.withAlphaComponent(0.3),
+            disabledBackgroundColor: .projectCreatorButtonBackground.withAlphaComponent(0.1),
+            tintColor: .black,
+            image: UIImage(
+                systemName: imageName,
+                withConfiguration: UIImage.SymbolConfiguration(scale: .large)
+            )
         )
-    )
+    }
 
-    var swipeDeleteViewRepresentation: ContextualActionViewRepresentation = .init(
-        style: .destructive,
-        imageName: "trash",
-        backgroundColor: .swipeDeleteActionBackground
-    )
+    func swipeActionStyle(for action: ProjectListSwipeAction) -> UIContextualAction.Style {
+        switch action {
+        case .delete:
+            return .destructive
+        case .edit:
+            return .normal
+        }
+    }
 
-    var swipeEditViewRepresentation: ContextualActionViewRepresentation = .init(
-        style: .normal,
-        imageName: "square.and.pencil",
-        backgroundColor: .swipeEditActionBackground
-    )
+    func swipeActionBackgroundColor(for action: ProjectListSwipeAction) -> UIColor {
+        switch action {
+        case .delete:
+            return .swipeDeleteActionBackground
+        case .edit:
+            return .swipeEditActionBackground
+        }
+    }
+
+    func contextMenuActionImage(imageName: String?) -> UIImage? {
+        guard let imageName else { return nil }
+        return UIImage(systemName: imageName)
+    }
+
+    func contextMenuActionAttributes(for action: ProjectListContextMenuAction) -> UIMenuElement.Attributes {
+        switch action {
+        case .archive, .edit:
+            return []
+        case .delete:
+            return .destructive
+        }
+    }
 }

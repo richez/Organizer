@@ -55,6 +55,8 @@ private extension ProjectContentListViewController {
             image: UIImage(systemName: self.viewModel.rightBarImageName)
         )
 
+        self.contentView.configure(with: self.viewModel.viewConfiguration)
+
         self.observeContentNotification()
     }
 
@@ -108,7 +110,38 @@ extension ProjectContentListViewController: ProjectContentListViewDelegate {
         // TODO: handle selection
     }
 
-    func didTapDelete(at indexPath: IndexPath) -> Bool {
+    func didTapSwipeAction(_ action: ProjectContentListSwipeAction, at indexPath: IndexPath) -> Bool {
+        switch action {
+        case .delete:
+            return self.deleteContent(at: indexPath)
+        case .edit:
+            return self.editContent(at: indexPath)
+        }
+    }
+
+    func didTapContextMenuAction(_ action: ProjectContentListContextMenuAction, at indexPath: IndexPath) {
+        switch action {
+        case .openBrowser:
+            break // TODO: handle open
+        case .copyLink:
+            break // TODO: handle copy
+        case .edit:
+            self.editContent(at: indexPath)
+        case .delete:
+            self.deleteContent(at: indexPath)
+        }
+    }
+
+    func didTapContentCreatorButton() {
+        self.coordinator.showProjectContentForm(mode: .create)
+    }
+}
+
+// MARK: - Actions
+
+private extension ProjectContentListViewController {
+    @discardableResult
+    func deleteContent(at indexPath: IndexPath) -> Bool {
         do {
             let contentDescription = try self.dataSource.contentDescription(for: indexPath)
             try self.viewModel.deleteContent(with: contentDescription.id)
@@ -122,7 +155,8 @@ extension ProjectContentListViewController: ProjectContentListViewDelegate {
         }
     }
 
-    func didTapEdit(at indexPath: IndexPath) -> Bool {
+    @discardableResult
+    func editContent(at indexPath: IndexPath) -> Bool {
         do {
             let contentID = try self.dataSource.contentDescription(for: indexPath).id
             let content = try self.viewModel.content(with: contentID)
@@ -134,9 +168,4 @@ extension ProjectContentListViewController: ProjectContentListViewDelegate {
             return false
         }
     }
-
-    func didTapContentCreatorButton() {
-        self.coordinator.showProjectContentForm(mode: .create)
-    }
 }
-

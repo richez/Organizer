@@ -8,7 +8,7 @@
 import UIKit
 
 struct ProjectCellViewRepresentation {
-    var backgroundColor: UIColor = .clear
+    var backgroundColor: UIColor = .background
     var selectedBackgroundColor: UIColor = .projectCellSelectedBackground
 
     var titleColor: UIColor = .projectTitle

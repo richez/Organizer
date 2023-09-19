@@ -9,8 +9,8 @@ import UIKit
 
 protocol ProjectListViewDelegate: AnyObject {
     func didSelectProject(at indexPath: IndexPath)
-    func didTapDelete(at indexPath: IndexPath) -> Bool
-    func didTapEdit(at indexPath: IndexPath) -> Bool
+    func didTapSwipeAction(_ action: ProjectListSwipeAction, at indexPath: IndexPath) -> Bool
+    func didTapContextMenuAction(_ action: ProjectListContextMenuAction, at indexPath: IndexPath)
     func didTapProjectCreatorButton()
 }
 
@@ -19,6 +19,12 @@ final class ProjectListView: UIView {
 
     private let viewRepresentation: ProjectListViewRepresentation = .init()
     weak var delegate: ProjectListViewDelegate?
+
+    var swipeActionConfigurations: [ProjectListSwipeActionConfiguration] = []
+    var contextMenuTitle: String = ""
+    var contextMenuActionConfigurations: [ProjectListContextMenuActionConfiguration] = []
+
+    // MARK: View
 
     let tableView: UITableView = .init()
     let projectCreatorButton: FloatingActionButton = .init()
@@ -33,6 +39,19 @@ final class ProjectListView: UIView {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    // MARK: - Configuration
+
+    func configure(with configuration: ProjectListViewConfiguration) {
+        self.projectCreatorButton.configure(
+            with: self.viewRepresentation.projectCreatorButtonViewRepresentation(
+                imageName: configuration.projectCreatorImageName
+            )
+        )
+        self.swipeActionConfigurations = configuration.swipeActions
+        self.contextMenuTitle = configuration.contextMenuTitle
+        self.contextMenuActionConfigurations = configuration.contextMenuActions
     }
 }
 
@@ -63,10 +82,6 @@ private extension ProjectListView {
     }
 
     func setupProjectCreatorButton() {
-        self.projectCreatorButton.setup(
-            with: self.viewRepresentation.projectCreatorButtonViewRepresentation
-        )
-
         self.projectCreatorButton.addAction(UIAction(handler: { [weak self] _ in
             self?.delegate?.didTapProjectCreatorButton()
         }), for: .touchUpInside)
@@ -97,20 +112,36 @@ extension ProjectListView: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView,
                    trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deleteAction = UIContextualAction(
-            configuration: self.viewRepresentation.swipeDeleteViewRepresentation,
-            handler: { [weak self] _, _, completionHandler in
-                let didDelete = self?.delegate?.didTapDelete(at: indexPath) ?? false
-                completionHandler(didDelete)
+        let actions = self.swipeActionConfigurations.map { configuration in
+            UIContextualAction(
+                style: self.viewRepresentation.swipeActionStyle(for: configuration.action),
+                title: configuration.title,
+                backgroundColor: self.viewRepresentation.swipeActionBackgroundColor(for: configuration.action),
+                imageName: configuration.imageName,
+                handler: { [weak self] _, _, completionHandler in
+                    let didPerformAction = self?.delegate?.didTapSwipeAction(configuration.action, at: indexPath) ?? false
+                    completionHandler(didPerformAction)
+                }
+            )
+        }
+        return UISwipeActionsConfiguration(actions: actions)
+    }
+
+    func tableView(_ tableView: UITableView, 
+                   contextMenuConfigurationForRowAt indexPath: IndexPath,
+                   point: CGPoint) -> UIContextMenuConfiguration? {
+        return UIContextMenuConfiguration(actionProvider:  { _ in
+            let actions = self.contextMenuActionConfigurations.map { configuration in
+                UIAction(
+                    title: configuration.title,
+                    image: self.viewRepresentation.contextMenuActionImage(imageName: configuration.imageName),
+                    attributes: self.viewRepresentation.contextMenuActionAttributes(for: configuration.action),
+                    handler: { [weak self] _ in
+                        self?.delegate?.didTapContextMenuAction(configuration.action, at: indexPath)
+                    }
+                )
             }
-        )
-        let editActions = UIContextualAction(
-            configuration: self.viewRepresentation.swipeEditViewRepresentation,
-            handler: { [weak self] _, _, completionHandler in
-                let didEdit = self?.delegate?.didTapEdit(at: indexPath) ?? false
-                completionHandler(didEdit)
-            }
-        )
-        return UISwipeActionsConfiguration(actions: [deleteAction, editActions])
+            return UIMenu(title: self.contextMenuTitle, children: actions)
+        })
     }
 }

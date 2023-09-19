@@ -13,7 +13,9 @@ final class FloatingActionButton: UIButton {
 
     var subscriptions: Set<AnyCancellable> = .init()
 
-    func setup(with viewRepresentation: FloatingActionButtonViewRepresentation) {
+    // MARK: - Configuration
+
+    func configure(with viewRepresentation: FloatingActionButtonViewRepresentation) {
         self.layer.masksToBounds = true
         self.layer.cornerRadius = viewRepresentation.size / 2
         self.backgroundColor = viewRepresentation.backgroundColor

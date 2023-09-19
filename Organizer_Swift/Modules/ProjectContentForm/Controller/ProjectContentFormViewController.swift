@@ -46,7 +46,7 @@ private extension ProjectContentFormViewController {
         self.contentView.delegate = self
         self.presentationController?.delegate = self
 
-        self.contentView.configure(with: self.viewModel.fieldsDescription)
+        self.contentView.configure(with: self.viewModel.viewConfiguration)
     }
 }
 

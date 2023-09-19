@@ -39,6 +39,22 @@ extension ProjectListViewModel {
     var rightBarImageName: String { "ellipsis" }
     var section: ProjectListSection { .main }
 
+    var viewConfiguration: ProjectListViewConfiguration {
+        .init(
+            projectCreatorImageName: "square.and.pencil",
+            swipeActions: [
+                ProjectListSwipeActionConfiguration(imageName: "trash", action: .delete),
+                ProjectListSwipeActionConfiguration(imageName: "square.and.pencil", action: .edit)
+            ],
+            contextMenuTitle: "",
+            contextMenuActions: [ // TODO: add archive
+                ProjectListContextMenuActionConfiguration(title: "Archive", imageName: "archivebox", action: .archive),
+                ProjectListContextMenuActionConfiguration(title: "Edit", imageName: "square.and.pencil", action: .edit),
+                ProjectListContextMenuActionConfiguration(title: "Delete", imageName: "trash", action: .delete)
+            ]
+        )
+    }
+
     // MARK: Data
 
     func fetchProjectDescriptions() throws -> [ProjectDescription] {

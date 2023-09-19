@@ -41,6 +41,23 @@ extension ProjectContentListViewModel {
     var rightBarImageName: String { "ellipsis" }
     var section: ProjectContentSection { .main }
 
+    var viewConfiguration: ProjectContentListViewConfiguration {
+        .init(
+            contentCreatorImageName: "plus",
+            swipeActions: [
+                ProjectContentListSwipeActionConfiguration(imageName: "trash", action: .delete),
+                ProjectContentListSwipeActionConfiguration(imageName: "square.and.pencil", action: .edit)
+            ],
+            contextMenuTitle: "",
+            contextMenuActions: [
+                ProjectContentListContextMenuActionConfiguration(title: "Open in Browser", imageName: "safari", action: .openBrowser),
+                ProjectContentListContextMenuActionConfiguration(title: "Copy Link", imageName: "doc.on.doc", action: .copyLink),
+                ProjectContentListContextMenuActionConfiguration(title: "Edit", imageName: "square.and.pencil", action: .edit),
+                ProjectContentListContextMenuActionConfiguration(title: "Delete", imageName: "trash", action: .delete)
+            ]
+        )
+    }
+
     // MARK: Data
 
     func fetchContentDescriptions() throws -> [ProjectContentDescription] {

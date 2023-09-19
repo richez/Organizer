@@ -43,8 +43,11 @@ final class ProjectContentFormView: UIView {
 
     // MARK: - Configuration
 
-    func configure(with fieldsDescription: ProjectContentFormFieldsDescription) {
-        self.fieldsView.configure(with: fieldsDescription)
+    func configure(with configuration: ProjectContentFormViewConfiguration) {
+        self.saveButton.configure(
+            with: self.viewRepresentation.saveButtonViewRepresentation(imageName: configuration.saveImageName)
+        )
+        self.fieldsView.configure(with: configuration.fields)
     }
 }
 
@@ -85,7 +88,6 @@ private extension ProjectContentFormView {
 
     func setupSaveButton() {
         self.saveButton.isEnabled = self.isSaveButtonEnabled
-        self.saveButton.setup(with: self.viewRepresentation.saveButtonViewRepresentation)
 
         self.saveButton.addAction(UIAction(handler: { [weak self] _ in
             guard let self = self else { return }

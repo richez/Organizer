@@ -28,22 +28,25 @@ struct ProjectContentFormViewModel {
 // MARK: - Public
 
 extension ProjectContentFormViewModel {
-    var fieldsDescription: ProjectContentFormFieldsDescription {
+    var viewConfiguration: ProjectContentFormViewConfiguration {
         .init(
-            type: ProjectContentFormMenu(
-                text: "Type",
-                singleSelection: true,
-                items: ProjectContentType.allCases.map(\.rawValue),
-                selectedItem: self.typeMenuSelectedValue
-            ),
-            name: ProjectContentFormField(
-                text: "Name", placeholder: "My project", value: self.nameFieldValue
-            ),
-            theme: ProjectContentFormField(
-                text: "Themes", placeholder: "Sport, Construction, Work", value: self.themeFieldValue
-            ),
-            link: ProjectContentFormField(
-                text: "Link", placeholder: "https://www.youtube.com", value: self.linkFieldValue
+            saveImageName: "checkmark",
+            fields: ProjectContentFormFieldsConfiguration(
+                type: ProjectContentFormMenu(
+                    text: "Type",
+                    singleSelection: true,
+                    items: ProjectContentType.allCases.map(\.rawValue),
+                    selectedItem: self.typeMenuSelectedValue
+                ),
+                name: ProjectContentFormField(
+                    text: "Name", placeholder: "My project", value: self.nameFieldValue
+                ),
+                theme: ProjectContentFormField(
+                    text: "Themes", placeholder: "Sport, Construction, Work", value: self.themeFieldValue
+                ),
+                link: ProjectContentFormField(
+                    text: "Link", placeholder: "https://www.youtube.com", value: self.linkFieldValue
+                )
             )
         )
     }

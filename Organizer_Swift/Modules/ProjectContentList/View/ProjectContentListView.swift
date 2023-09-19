@@ -9,8 +9,8 @@ import UIKit
 
 protocol ProjectContentListViewDelegate: AnyObject {
     func didSelectContent(at indexPath: IndexPath)
-    func didTapDelete(at indexPath: IndexPath) -> Bool
-    func didTapEdit(at indexPath: IndexPath) -> Bool
+    func didTapSwipeAction(_ action: ProjectContentListSwipeAction, at indexPath: IndexPath) -> Bool
+    func didTapContextMenuAction(_ action: ProjectContentListContextMenuAction, at indexPath: IndexPath)
     func didTapContentCreatorButton()
 }
 
@@ -20,6 +20,12 @@ final class ProjectContentListView: UIView {
     private let viewRepresentation: ProjectContentListViewRepresentation = .init()
 
     weak var delegate: ProjectContentListViewDelegate?
+
+    var swipeActionConfigurations: [ProjectContentListSwipeActionConfiguration] = []
+    var contextMenuTitle: String = ""
+    var contextMenuActionConfigurations: [ProjectContentListContextMenuActionConfiguration] = []
+
+    // MARK: View
 
     let tableView: UITableView = .init()
     let contentCreatorButton: FloatingActionButton = .init()
@@ -34,6 +40,19 @@ final class ProjectContentListView: UIView {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    // MARK: - Configuration
+
+    func configure(with configuration: ProjectContentListViewConfiguration) {
+        self.contentCreatorButton.configure(
+            with: self.viewRepresentation.contentCreatorButtonViewRepresentation(
+                imageName: configuration.contentCreatorImageName
+            )
+        )
+        self.swipeActionConfigurations = configuration.swipeActions
+        self.contextMenuTitle = configuration.contextMenuTitle
+        self.contextMenuActionConfigurations = configuration.contextMenuActions
     }
 }
 
@@ -64,10 +83,6 @@ private extension ProjectContentListView {
     }
 
     func setupContentCreatorButton() {
-        self.contentCreatorButton.setup(
-            with: self.viewRepresentation.contentCreatorButtonViewRepresentation
-        )
-
         self.contentCreatorButton.addAction(UIAction(handler: { [weak self] _ in
             self?.delegate?.didTapContentCreatorButton()
         }), for: .touchUpInside)
@@ -98,20 +113,36 @@ extension ProjectContentListView: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView,
                    trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deleteAction = UIContextualAction(
-            configuration: self.viewRepresentation.swipeDeleteViewRepresentation,
-            handler: { [weak self] _, _, completionHandler in
-                let didDelete = self?.delegate?.didTapDelete(at: indexPath) ?? false
-                completionHandler(didDelete)
+        let actions = self.swipeActionConfigurations.map { configuration in
+            UIContextualAction(
+                style: self.viewRepresentation.swipeActionStyle(for: configuration.action),
+                title: configuration.title,
+                backgroundColor: self.viewRepresentation.swipeActionBackgroundColor(for: configuration.action),
+                imageName: configuration.imageName,
+                handler: { [weak self] _, _, completionHandler in
+                    let didPerformAction = self?.delegate?.didTapSwipeAction(configuration.action, at: indexPath) ?? false
+                    completionHandler(didPerformAction)
+                }
+            )
+        }
+        return UISwipeActionsConfiguration(actions: actions)
+    }
+
+    func tableView(_ tableView: UITableView,
+                   contextMenuConfigurationForRowAt indexPath: IndexPath,
+                   point: CGPoint) -> UIContextMenuConfiguration? {
+        return UIContextMenuConfiguration(actionProvider:  { _ in
+            let actions = self.contextMenuActionConfigurations.map { configuration in
+                UIAction(
+                    title: configuration.title,
+                    image: self.viewRepresentation.contextMenuActionImage(imageName: configuration.imageName),
+                    attributes: self.viewRepresentation.contextMenuActionAttributes(for: configuration.action),
+                    handler: { [weak self] _ in
+                        self?.delegate?.didTapContextMenuAction(configuration.action, at: indexPath)
+                    }
+                )
             }
-        )
-        let editActions = UIContextualAction(
-            configuration: self.viewRepresentation.swipeEditViewRepresentation,
-            handler: { [weak self] _, _, completionHandler in
-                let didEdit = self?.delegate?.didTapEdit(at: indexPath) ?? false
-                completionHandler(didEdit)
-            }
-        )
-        return UISwipeActionsConfiguration(actions: [deleteAction, editActions])
+            return UIMenu(title: self.contextMenuTitle, children: actions)
+        })
     }
 }

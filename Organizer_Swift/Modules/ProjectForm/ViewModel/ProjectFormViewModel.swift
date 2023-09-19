@@ -24,13 +24,16 @@ struct ProjectFormViewModel {
 // MARK: - Public
 
 extension ProjectFormViewModel {
-    var fieldsDescription: ProjectFormFieldsDescription {
+    var viewConfiguration: ProjectFormViewConfiguration {
         .init(
-            name: ProjectFormField(
-                text: "Name", placeholder: "My project", value: self.nameFieldValue
-            ),
-            theme: ProjectFormField(
-                text: "Themes", placeholder: "Sport, Construction, Work", value: self.themeFieldValue
+            saveImageName: "checkmark",
+            fields: ProjectFormFieldsConfiguration(
+                name: ProjectFormField(
+                    text: "Name", placeholder: "My project", value: self.nameFieldValue
+                ),
+                theme: ProjectFormField(
+                    text: "Themes", placeholder: "Sport, Construction, Work", value: self.themeFieldValue
+                )
             )
         )
     }

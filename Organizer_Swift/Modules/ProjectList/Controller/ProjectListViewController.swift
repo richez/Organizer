@@ -59,6 +59,8 @@ private extension ProjectListViewController {
             image: UIImage(systemName: self.viewModel.rightBarImageName)
         )
 
+        self.contentView.configure(with: self.viewModel.viewConfiguration)
+
         self.observeProjectNotifications()
     }
 
@@ -113,6 +115,38 @@ private extension ProjectListViewController {
 
 extension ProjectListViewController: ProjectListViewDelegate {
     func didSelectProject(at indexPath: IndexPath) {
+        self.showProject(at: indexPath)
+    }
+
+    func didTapSwipeAction(_ action: ProjectListSwipeAction, at indexPath: IndexPath) -> Bool {
+        switch action {
+        case .delete:
+            return self.deleteProject(at: indexPath)
+        case .edit:
+            return self.editProject(at: indexPath)
+        }
+    }
+
+    func didTapContextMenuAction(_ action: ProjectListContextMenuAction, at indexPath: IndexPath) {
+        switch action {
+        case .archive:
+            break // TODO: handle archive
+        case .edit:
+            self.editProject(at: indexPath)
+        case .delete:
+            self.deleteProject(at: indexPath)
+        }
+    }
+
+    func didTapProjectCreatorButton() {
+        self.coordinator.showProjectForm(mode: .create)
+    }
+}
+
+// MARK: - Actions
+
+private extension ProjectListViewController {
+    func showProject(at indexPath: IndexPath) {
         do {
             let projectID = try self.dataSource.projectDescription(for: indexPath).id
             let project = try self.viewModel.project(with: projectID)
@@ -124,7 +158,8 @@ extension ProjectListViewController: ProjectListViewDelegate {
         }
     }
 
-    func didTapDelete(at indexPath: IndexPath) -> Bool {
+    @discardableResult
+    func deleteProject(at indexPath: IndexPath) -> Bool {
         do {
             let projectDescription = try self.dataSource.projectDescription(for: indexPath)
             try self.viewModel.deleteProject(with: projectDescription.id)
@@ -138,7 +173,8 @@ extension ProjectListViewController: ProjectListViewDelegate {
         }
     }
 
-    func didTapEdit(at indexPath: IndexPath) -> Bool {
+    @discardableResult
+    func editProject(at indexPath: IndexPath) -> Bool {
         do {
             let projectID = try self.dataSource.projectDescription(for: indexPath).id
             let project = try self.viewModel.project(with: projectID)
@@ -149,9 +185,5 @@ extension ProjectListViewController: ProjectListViewDelegate {
             self.coordinator.show(error: error)
             return false
         }
-    }
-
-    func didTapProjectCreatorButton() {
-        self.coordinator.showProjectForm(mode: .create)
     }
 }

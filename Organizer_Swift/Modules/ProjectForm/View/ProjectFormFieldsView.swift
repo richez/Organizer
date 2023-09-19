@@ -45,14 +45,14 @@ final class ProjectFormFieldsView: UIView {
 
     // MARK: - Configuration
 
-    func configure(with fieldsDescription: ProjectFormFieldsDescription) {
-        self.nameLabel.text = fieldsDescription.name.text
-        self.nameTextField.placeholder = fieldsDescription.name.placeholder
-        self.nameTextField.text = fieldsDescription.name.value
+    func configure(with configuration: ProjectFormFieldsConfiguration) {
+        self.nameLabel.text = configuration.name.text
+        self.nameTextField.placeholder = configuration.name.placeholder
+        self.nameTextField.text = configuration.name.value
 
-        self.themeLabel.text = fieldsDescription.theme.text
-        self.themeTextField.placeholder = fieldsDescription.theme.placeholder
-        self.themeTextField.text = fieldsDescription.theme.value
+        self.themeLabel.text = configuration.theme.text
+        self.themeTextField.placeholder = configuration.theme.placeholder
+        self.themeTextField.text = configuration.theme.value
     }
 }
 
