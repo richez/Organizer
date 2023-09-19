@@ -31,7 +31,13 @@ final class ContentListCoordinator: ParentCoordinator, ChildCoordinator {
     // MARK: - Coordinator
 
     func start() {
-        let contentListViewModel = ContentListViewModel(project: self.project)
+        let settings = ContentListSettings()
+        let contentListViewModel = ContentListViewModel(
+            project: self.project,
+            settings: settings,
+            fetchDescriptor: ContentListFetchDescriptor(settings: settings),
+            menuConfigurator: ContentListMenuConfigurator(settings: settings)
+        )
         let contentListViewController = ContentListViewController(viewModel: contentListViewModel, coordinator: self)
         self.navigationController.setPopAction({ [weak self] in
             self?.finish()

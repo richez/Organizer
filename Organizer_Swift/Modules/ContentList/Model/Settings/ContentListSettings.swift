@@ -7,7 +7,9 @@
 
 import Foundation
 
-struct ContentListSettings {
+// TODO: add storage specific container to each project to save specific settings
+// TODO: delete the container when project is deleted
+final class ContentListSettings {
     @Storage(key: .contentListAscendingOrder, default: true)
     var ascendingOrder: Bool
 
