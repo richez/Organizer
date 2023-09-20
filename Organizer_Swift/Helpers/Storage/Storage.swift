@@ -11,7 +11,7 @@ import Foundation
 struct Storage<Value> {
     let key: StorageKey
     let defaultValue: () -> Value
-    let container: UserDefaults
+    var container: UserDefaults
 
     var projectedValue: Storage<Value> { self }
 

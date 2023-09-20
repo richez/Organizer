@@ -8,7 +8,6 @@
 import Foundation
 import SwiftData
 
-// TODO: - Add context menu to table view cell to edit / delete / open external browser for content
 // TODO: - Share content with app
 // TODO: - Add "Get link metadata" to content creation
 

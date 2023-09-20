@@ -7,8 +7,6 @@
 
 import Foundation
 
-// TODO: add storage specific container to each project to save specific settings
-// TODO: delete the container when project is deleted
 final class ContentListSettings {
     @Storage(key: .contentListAscendingOrder, default: true)
     var ascendingOrder: Bool
@@ -27,4 +25,14 @@ final class ContentListSettings {
 
     @RawRepresentableStorage(key: .contentListSelectedType, default: .all)
     var selectedType: ContentListSelectedType
+
+    init(suiteName: String) {
+        let container: UserDefaults = .init(suiteName: suiteName) ?? .standard
+        self._ascendingOrder.container = container
+        self._sorting.container = container
+        self._showTheme.container = container
+        self._showType.container = container
+        self._selectedTheme.container = container
+        self._selectedType.container = container
+    }
 }

@@ -94,6 +94,7 @@ extension ProjectListViewModel {
     func deleteProject(with id: UUID) throws {
         do {
             try self.dataStore.delete(projectID: id)
+            self.settings.delete(suiteName: id.uuidString)
         } catch {
             throw ProjectListViewModelError.delete(error)
         }

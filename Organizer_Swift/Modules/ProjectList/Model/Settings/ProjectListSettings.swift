@@ -22,4 +22,8 @@ final class ProjectListSettings {
 
     @RawRepresentableStorage(key: .projectListSelectedTheme, default: .all)
     var selectedTheme: ProjectListSelectedTheme
+
+    func delete(suiteName: String) {
+        UserDefaults.standard.removePersistentDomain(forName: suiteName)
+    }
 }

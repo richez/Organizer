@@ -31,7 +31,7 @@ final class ContentListCoordinator: ParentCoordinator, ChildCoordinator {
     // MARK: - Coordinator
 
     func start() {
-        let settings = ContentListSettings()
+        let settings = ContentListSettings(suiteName: project.id.uuidString)
         let contentListViewModel = ContentListViewModel(
             project: self.project,
             settings: settings,
