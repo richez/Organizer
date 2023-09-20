@@ -197,6 +197,7 @@
 		F09AE3572AB6363A00161CFB /* String+Pluralize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Pluralize.swift"; sourceTree = "<group>"; };
 		F09AE3592AB64E8D00161CFB /* Sequence+Predicate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Predicate.swift"; sourceTree = "<group>"; };
 		F09AE35B2AB64F6000161CFB /* Array+Duplicates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Duplicates.swift"; sourceTree = "<group>"; };
+		F09E0ADB2ABBA3BE0056E887 /* Organizer_Swift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Organizer_Swift.entitlements; sourceTree = "<group>"; };
 		F0AC0ACE2AB091CE00AE326F /* ContentFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentFormViewController.swift; sourceTree = "<group>"; };
 		F0AC0AD02AB0923600AE326F /* ContentFormCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentFormCoordinator.swift; sourceTree = "<group>"; };
 		F0AC0AD22AB0937B00AE326F /* ContentFormField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentFormField.swift; sourceTree = "<group>"; };
@@ -464,8 +465,7 @@
 				F0307C692AA87EA500DC3958 /* Helpers */,
 				F0307C712AA8A81900DC3958 /* Models */,
 				F0732BCE2AA638C10027EC4F /* Modules */,
-				F0732BA62AA61A7C0027EC4F /* Assets.xcassets */,
-				F0732BAB2AA61A7C0027EC4F /* Info.plist */,
+				F09E0ADC2ABBA4080056E887 /* Resources */,
 			);
 			path = Organizer_Swift;
 			sourceTree = "<group>";
@@ -592,6 +592,16 @@
 				F08AE7A12AB862A500B35468 /* NavbarTitleViewRepresentation.swift */,
 			);
 			path = Navbar;
+			sourceTree = "<group>";
+		};
+		F09E0ADC2ABBA4080056E887 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F0732BA62AA61A7C0027EC4F /* Assets.xcassets */,
+				F0732BAB2AA61A7C0027EC4F /* Info.plist */,
+				F09E0ADB2ABBA3BE0056E887 /* Organizer_Swift.entitlements */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		F0AC0AC82AB0915A00AE326F /* ContentForm */ = {
@@ -1216,11 +1226,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Organizer_Swift/Resources/Organizer_Swift.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = EE36UWQ2XG;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Organizer_Swift/Info.plist;
+				INFOPLIST_FILE = Organizer_Swift/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Organizer;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1250,11 +1261,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Organizer_Swift/Resources/Organizer_Swift.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = EE36UWQ2XG;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Organizer_Swift/Info.plist;
+				INFOPLIST_FILE = Organizer_Swift/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Organizer;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
