@@ -124,7 +124,7 @@ extension ContentListViewController: ContentListViewDelegate {
         case .openBrowser:
             break // TODO: handle open
         case .copyLink:
-            break // TODO: handle copy
+            self.copyContentLink(at: indexPath)
         case .edit:
             self.editContent(at: indexPath)
         case .delete:
@@ -166,6 +166,16 @@ private extension ContentListViewController {
             print("Fail to edit content: \(error)")
             self.coordinator.show(error: error)
             return false
+        }
+    }
+
+    func copyContentLink(at indexPath: IndexPath) {
+        do {
+            let contentID = try self.dataSource.contentDescription(for: indexPath).id
+            try self.viewModel.copyContentLink(with: contentID)
+        } catch {
+            print("Fail to copy content link: \(error)")
+            self.coordinator.show(error: error)
         }
     }
 }

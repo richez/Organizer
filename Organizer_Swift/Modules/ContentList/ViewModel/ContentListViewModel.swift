@@ -12,17 +12,20 @@ final class ContentListViewModel {
     private var settings: ContentListSettings
     private let fetchDescriptor: ContentListFetchDescriptorProtocol
     private let menuConfigurator: ContentListMenuConfiguratorProtocol
+    private let pasteboardManager: PasteboardManagerProtocol
     private let notificationCenter: NotificationCenter
 
     init(project: Project,
          settings: ContentListSettings,
          fetchDescriptor: ContentListFetchDescriptorProtocol,
          menuConfigurator: ContentListMenuConfiguratorProtocol,
+         pasteboardManager: PasteboardManagerProtocol,
          notificationCenter: NotificationCenter = .default) {
         self.project = project
         self.settings = settings
         self.fetchDescriptor = fetchDescriptor
         self.menuConfigurator = menuConfigurator
+        self.pasteboardManager = pasteboardManager
         self.notificationCenter = notificationCenter
     }
 }
@@ -102,6 +105,11 @@ extension ContentListViewModel {
         self.project.contents.remove(at: index)
         self.project.lastUpdatedDate = .now
         self.notificationCenter.post(name: .didUpdateProjectContent, object: nil)
+    }
+
+    func copyContentLink(with id: UUID) throws {
+        let content = try self.content(with: id)
+        self.pasteboardManager.copy(url: URL(string: content.link))
     }
 
     // MARK: Menu

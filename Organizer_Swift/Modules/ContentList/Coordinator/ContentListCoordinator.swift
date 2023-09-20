@@ -36,7 +36,8 @@ final class ContentListCoordinator: ParentCoordinator, ChildCoordinator {
             project: self.project,
             settings: settings,
             fetchDescriptor: ContentListFetchDescriptor(settings: settings),
-            menuConfigurator: ContentListMenuConfigurator(settings: settings)
+            menuConfigurator: ContentListMenuConfigurator(settings: settings),
+            pasteboardManager: PasteboardManager()
         )
         let contentListViewController = ContentListViewController(viewModel: contentListViewModel, coordinator: self)
         self.navigationController.setPopAction({ [weak self] in
