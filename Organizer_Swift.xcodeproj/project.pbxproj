@@ -75,7 +75,6 @@
 		F09AE35A2AB64E8D00161CFB /* Sequence+Predicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09AE3592AB64E8D00161CFB /* Sequence+Predicate.swift */; };
 		F09AE35C2AB64F6000161CFB /* Array+Duplicates.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09AE35B2AB64F6000161CFB /* Array+Duplicates.swift */; };
 		F09E0AE42ABBA5950056E887 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09E0AE32ABBA5950056E887 /* ShareViewController.swift */; };
-		F09E0AE72ABBA5950056E887 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F09E0AE52ABBA5950056E887 /* MainInterface.storyboard */; };
 		F09E0AEB2ABBA5950056E887 /* ShareExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F09E0AE12ABBA5940056E887 /* ShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F0AC0ACF2AB091CE00AE326F /* ContentFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AC0ACE2AB091CE00AE326F /* ContentFormViewController.swift */; };
 		F0AC0AD12AB0923600AE326F /* ContentFormCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AC0AD02AB0923600AE326F /* ContentFormCoordinator.swift */; };
@@ -224,7 +223,6 @@
 		F09E0ADB2ABBA3BE0056E887 /* Organizer_Swift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Organizer_Swift.entitlements; sourceTree = "<group>"; };
 		F09E0AE12ABBA5940056E887 /* ShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F09E0AE32ABBA5950056E887 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
-		F09E0AE62ABBA5950056E887 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		F09E0AE82ABBA5950056E887 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F09E0AF12ABBA7480056E887 /* ShareExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShareExtension.entitlements; sourceTree = "<group>"; };
 		F0AC0ACE2AB091CE00AE326F /* ContentFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentFormViewController.swift; sourceTree = "<group>"; };
@@ -646,7 +644,6 @@
 			isa = PBXGroup;
 			children = (
 				F09E0AE32ABBA5950056E887 /* ShareViewController.swift */,
-				F09E0AE52ABBA5950056E887 /* MainInterface.storyboard */,
 				F09E0AF02ABBA70E0056E887 /* Resources */,
 			);
 			path = ShareExtension;
@@ -1038,7 +1035,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F09E0AE72ABBA5950056E887 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1198,14 +1194,6 @@
 				F0732BA92AA61A7C0027EC4F /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		F09E0AE52ABBA5950056E887 /* MainInterface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F09E0AE62ABBA5950056E887 /* Base */,
-			);
-			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
