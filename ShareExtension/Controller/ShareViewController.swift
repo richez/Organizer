@@ -8,7 +8,17 @@
 import UIKit
 
 final class ShareViewController: UIViewController {
+    // MARK: - Properties
+
+    private lazy var contentView: ShareView = .init()
+
+    private let viewModel: ShareViewModel = .init()
+
     // MARK: - Life Cycle
+
+    override func loadView() {
+        self.view = self.contentView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +32,6 @@ private extension ShareViewController {
     // MARK: - Setup
 
     func setup() {
-        self.view.backgroundColor = .red
+        self.contentView.configure(with: self.viewModel.viewConfiguration)
     }
 }
