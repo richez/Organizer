@@ -74,7 +74,7 @@
 		F09AE3582AB6363A00161CFB /* String+Pluralize.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09AE3572AB6363A00161CFB /* String+Pluralize.swift */; };
 		F09AE35A2AB64E8D00161CFB /* Sequence+Predicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09AE3592AB64E8D00161CFB /* Sequence+Predicate.swift */; };
 		F09AE35C2AB64F6000161CFB /* Array+Duplicates.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09AE35B2AB64F6000161CFB /* Array+Duplicates.swift */; };
-		F09E0AE42ABBA5950056E887 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09E0AE32ABBA5950056E887 /* ShareViewController.swift */; };
+		F09E0AE42ABBA5950056E887 /* ShareFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09E0AE32ABBA5950056E887 /* ShareFormViewController.swift */; };
 		F09E0AEB2ABBA5950056E887 /* ShareExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F09E0AE12ABBA5940056E887 /* ShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F0AC0ACF2AB091CE00AE326F /* ContentFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AC0ACE2AB091CE00AE326F /* ContentFormViewController.swift */; };
 		F0AC0AD12AB0923600AE326F /* ContentFormCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AC0AD02AB0923600AE326F /* ContentFormCoordinator.swift */; };
@@ -100,6 +100,9 @@
 		F0C2652F2AAF709A008EAB3C /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C2652E2AAF709A008EAB3C /* NavigationController.swift */; };
 		F0D2B0DF2AA770EC000D34CA /* ProjectListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D2B0DE2AA770EC000D34CA /* ProjectListDataSource.swift */; };
 		F0D2B0E12AA776E3000D34CA /* UIView+Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D2B0E02AA776E3000D34CA /* UIView+Identifier.swift */; };
+		F0D5A2302AC0EB620090F55D /* ShareFormMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D5A22F2AC0EB620090F55D /* ShareFormMenu.swift */; };
+		F0D5A2322AC0EB760090F55D /* ShareFormMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D5A2312AC0EB760090F55D /* ShareFormMenuItem.swift */; };
+		F0D5A2342AC0EB890090F55D /* ProjectSelectedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D5A2332AC0EB890090F55D /* ProjectSelectedItem.swift */; };
 		F0F5A1E42AB9F14600EBF42C /* ProjectListContextMenuActionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F5A1E32AB9F14600EBF42C /* ProjectListContextMenuActionConfiguration.swift */; };
 		F0F5A1E62AB9F16100EBF42C /* ProjectListSwipeActionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F5A1E52AB9F16100EBF42C /* ProjectListSwipeActionConfiguration.swift */; };
 		F0F5A1E82AB9F17100EBF42C /* ProjectListViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F5A1E72AB9F17100EBF42C /* ProjectListViewConfiguration.swift */; };
@@ -108,8 +111,8 @@
 		F0F5A1F12AB9FB1800EBF42C /* ContentListContextMenuActionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F5A1F02AB9FB1800EBF42C /* ContentListContextMenuActionConfiguration.swift */; };
 		F0F5A1F42AB9FF1A00EBF42C /* ProjectFormViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F5A1F32AB9FF1A00EBF42C /* ProjectFormViewConfiguration.swift */; };
 		F0F5A1F72ABA00AA00EBF42C /* ContentFormViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F5A1F62ABA00AA00EBF42C /* ContentFormViewConfiguration.swift */; };
-		F0FEB2992ABC70F900821ED8 /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FEB2982ABC70F900821ED8 /* ShareView.swift */; };
-		F0FEB29B2ABC726A00821ED8 /* ShareViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FEB29A2ABC726A00821ED8 /* ShareViewModel.swift */; };
+		F0FEB2992ABC70F900821ED8 /* ShareFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FEB2982ABC70F900821ED8 /* ShareFormView.swift */; };
+		F0FEB29B2ABC726A00821ED8 /* ShareFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FEB29A2ABC726A00821ED8 /* ShareFormViewModel.swift */; };
 		F0FEB29C2ABC72AF00821ED8 /* FloatingActionButtonViewRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0307C6F2AA87EEE00DC3958 /* FloatingActionButtonViewRepresentation.swift */; };
 		F0FEB29D2ABC72B600821ED8 /* FloatingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0307C6D2AA87ED100DC3958 /* FloatingActionButton.swift */; };
 		F0FEB29E2ABC72E900821ED8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0732BA62AA61A7C0027EC4F /* Assets.xcassets */; };
@@ -129,6 +132,8 @@
 		F0FEB2AC2ABC749F00821ED8 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = F090AAB32AA7678D00480249 /* Project.swift */; };
 		F0FEB2AD2ABC74A300821ED8 /* ProjectContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07202F92AAFCD060026B29E /* ProjectContent.swift */; };
 		F0FEB2AE2ABC750900821ED8 /* String+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = F062E0E62AB12BA100060B11 /* String+Components.swift */; };
+		F0FEB2B02ABC79BD00821ED8 /* ShareFormViewRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FEB2AF2ABC79BD00821ED8 /* ShareFormViewRepresentation.swift */; };
+		F0FEB2B32ABC7EFD00821ED8 /* ShareFormViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FEB2B22ABC7EFD00821ED8 /* ShareFormViewConfiguration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -243,7 +248,7 @@
 		F09AE35B2AB64F6000161CFB /* Array+Duplicates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Duplicates.swift"; sourceTree = "<group>"; };
 		F09E0ADB2ABBA3BE0056E887 /* Organizer_Swift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Organizer_Swift.entitlements; sourceTree = "<group>"; };
 		F09E0AE12ABBA5940056E887 /* ShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		F09E0AE32ABBA5950056E887 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		F09E0AE32ABBA5950056E887 /* ShareFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareFormViewController.swift; sourceTree = "<group>"; };
 		F09E0AE82ABBA5950056E887 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F09E0AF12ABBA7480056E887 /* ShareExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShareExtension.entitlements; sourceTree = "<group>"; };
 		F0AC0ACE2AB091CE00AE326F /* ContentFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentFormViewController.swift; sourceTree = "<group>"; };
@@ -270,6 +275,9 @@
 		F0C2652E2AAF709A008EAB3C /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		F0D2B0DE2AA770EC000D34CA /* ProjectListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListDataSource.swift; sourceTree = "<group>"; };
 		F0D2B0E02AA776E3000D34CA /* UIView+Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Identifier.swift"; sourceTree = "<group>"; };
+		F0D5A22F2AC0EB620090F55D /* ShareFormMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareFormMenu.swift; sourceTree = "<group>"; };
+		F0D5A2312AC0EB760090F55D /* ShareFormMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareFormMenuItem.swift; sourceTree = "<group>"; };
+		F0D5A2332AC0EB890090F55D /* ProjectSelectedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSelectedItem.swift; sourceTree = "<group>"; };
 		F0F5A1E32AB9F14600EBF42C /* ProjectListContextMenuActionConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListContextMenuActionConfiguration.swift; sourceTree = "<group>"; };
 		F0F5A1E52AB9F16100EBF42C /* ProjectListSwipeActionConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListSwipeActionConfiguration.swift; sourceTree = "<group>"; };
 		F0F5A1E72AB9F17100EBF42C /* ProjectListViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListViewConfiguration.swift; sourceTree = "<group>"; };
@@ -278,8 +286,10 @@
 		F0F5A1F02AB9FB1800EBF42C /* ContentListContextMenuActionConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentListContextMenuActionConfiguration.swift; sourceTree = "<group>"; };
 		F0F5A1F32AB9FF1A00EBF42C /* ProjectFormViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFormViewConfiguration.swift; sourceTree = "<group>"; };
 		F0F5A1F62ABA00AA00EBF42C /* ContentFormViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentFormViewConfiguration.swift; sourceTree = "<group>"; };
-		F0FEB2982ABC70F900821ED8 /* ShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
-		F0FEB29A2ABC726A00821ED8 /* ShareViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewModel.swift; sourceTree = "<group>"; };
+		F0FEB2982ABC70F900821ED8 /* ShareFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareFormView.swift; sourceTree = "<group>"; };
+		F0FEB29A2ABC726A00821ED8 /* ShareFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareFormViewModel.swift; sourceTree = "<group>"; };
+		F0FEB2AF2ABC79BD00821ED8 /* ShareFormViewRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareFormViewRepresentation.swift; sourceTree = "<group>"; };
+		F0FEB2B22ABC7EFD00821ED8 /* ShareFormViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareFormViewConfiguration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -667,6 +677,7 @@
 			isa = PBXGroup;
 			children = (
 				F0FEB2952ABC70D700821ED8 /* Controller */,
+				F0FEB2B12ABC7EED00821ED8 /* Model */,
 				F0FEB2962ABC70DF00821ED8 /* View */,
 				F0FEB2972ABC70E600821ED8 /* ViewModel */,
 				F09E0AF02ABBA70E0056E887 /* Resources */,
@@ -830,6 +841,16 @@
 			path = DataSource;
 			sourceTree = "<group>";
 		};
+		F0D5A2352AC0EBA40090F55D /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				F0FEB2B22ABC7EFD00821ED8 /* ShareFormViewConfiguration.swift */,
+				F0D5A22F2AC0EB620090F55D /* ShareFormMenu.swift */,
+				F0D5A2312AC0EB760090F55D /* ShareFormMenuItem.swift */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
 		F0F5A1DF2AB9F0FE00EBF42C /* List */ = {
 			isa = PBXGroup;
 			children = (
@@ -913,7 +934,7 @@
 		F0FEB2952ABC70D700821ED8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				F09E0AE32ABBA5950056E887 /* ShareViewController.swift */,
+				F09E0AE32ABBA5950056E887 /* ShareFormViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -921,7 +942,8 @@
 		F0FEB2962ABC70DF00821ED8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F0FEB2982ABC70F900821ED8 /* ShareView.swift */,
+				F0FEB2982ABC70F900821ED8 /* ShareFormView.swift */,
+				F0FEB2AF2ABC79BD00821ED8 /* ShareFormViewRepresentation.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -929,9 +951,18 @@
 		F0FEB2972ABC70E600821ED8 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				F0FEB29A2ABC726A00821ED8 /* ShareViewModel.swift */,
+				F0FEB29A2ABC726A00821ED8 /* ShareFormViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F0FEB2B12ABC7EED00821ED8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F0D5A2332AC0EB890090F55D /* ProjectSelectedItem.swift */,
+				F0D5A2352AC0EBA40090F55D /* Configuration */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1215,25 +1246,30 @@
 			files = (
 				F0FEB2A22ABC730700821ED8 /* ContentFormFieldsConfiguration.swift in Sources */,
 				F0FEB2AD2ABC74A300821ED8 /* ProjectContent.swift in Sources */,
-				F0FEB29B2ABC726A00821ED8 /* ShareViewModel.swift in Sources */,
+				F0FEB29B2ABC726A00821ED8 /* ShareFormViewModel.swift in Sources */,
 				F0FEB2AE2ABC750900821ED8 /* String+Components.swift in Sources */,
-				F0FEB2992ABC70F900821ED8 /* ShareView.swift in Sources */,
+				F0FEB2992ABC70F900821ED8 /* ShareFormView.swift in Sources */,
 				F0FEB2A52ABC732A00821ED8 /* UITextField+Rules.swift in Sources */,
 				F0FEB2A02ABC72FF00821ED8 /* ContentFormMenu.swift in Sources */,
 				F0FEB29D2ABC72B600821ED8 /* FloatingActionButton.swift in Sources */,
 				F0FEB2AC2ABC749F00821ED8 /* Project.swift in Sources */,
 				F0FEB2A12ABC730400821ED8 /* ContentFormField.swift in Sources */,
 				F0FEB2A92ABC739600821ED8 /* ContentFormFieldsView.swift in Sources */,
-				F09E0AE42ABBA5950056E887 /* ShareViewController.swift in Sources */,
+				F09E0AE42ABBA5950056E887 /* ShareFormViewController.swift in Sources */,
 				F0FEB2AA2ABC739900821ED8 /* ContentFormView.swift in Sources */,
 				F0FEB2A62ABC733300821ED8 /* ContentFormFieldsViewRepresentation.swift in Sources */,
 				F0FEB2A32ABC730C00821ED8 /* ContentFormViewConfiguration.swift in Sources */,
 				F0FEB2A72ABC738B00821ED8 /* UIAction+Configuration.swift in Sources */,
 				F0FEB2A42ABC732000821ED8 /* UIStackView+ViewRepresentation.swift in Sources */,
 				F0FEB29C2ABC72AF00821ED8 /* FloatingActionButtonViewRepresentation.swift in Sources */,
+				F0D5A2302AC0EB620090F55D /* ShareFormMenu.swift in Sources */,
 				F0FEB29F2ABC72EE00821ED8 /* ContentFormViewRepresentation.swift in Sources */,
 				F0FEB2A82ABC738E00821ED8 /* UIMenu+Configuration.swift in Sources */,
+				F0FEB2B32ABC7EFD00821ED8 /* ShareFormViewConfiguration.swift in Sources */,
+				F0D5A2322AC0EB760090F55D /* ShareFormMenuItem.swift in Sources */,
+				F0D5A2342AC0EB890090F55D /* ProjectSelectedItem.swift in Sources */,
 				F0FEB2AB2ABC73AE00821ED8 /* NSLayoutAnchor+Priority.swift in Sources */,
+				F0FEB2B02ABC79BD00821ED8 /* ShareFormViewRepresentation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

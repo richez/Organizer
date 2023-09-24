@@ -73,7 +73,7 @@ private extension ContentFormFieldsView {
     // MARK: - Setup
 
     func setup() {
-        self.setupStackView()
+        self.setupFormStackView()
         self.setupLabel(self.typeLabel)
         self.setupTypeButton()
         self.setupLabel(self.nameLabel)
@@ -84,7 +84,7 @@ private extension ContentFormFieldsView {
         self.setupTextField(self.linkTextField, rules: self.viewRepresentation.linkTextFieldRules)
     }
 
-    func setupStackView() {
+    func setupFormStackView() {
         self.formStackView.setup(with: self.viewRepresentation.stackViewRepresentation)
 
         self.formStackView.addArrangedSubview(self.typeLabel)
@@ -123,20 +123,18 @@ private extension ContentFormFieldsView {
                 equalTo: self.formStackView.layoutMarginsGuide.trailingAnchor
             )
         ])
-
     }
 
     func setupLabel(_ label: UILabel) {
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = self.viewRepresentation.labelsTextColor
         label.font = self.viewRepresentation.labelsFont
 
+        label.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             label.heightAnchor.constraint(equalToConstant: self.viewRepresentation.labelsHeight),
             label.leadingAnchor.constraint(equalTo: self.formStackView.layoutMarginsGuide.leadingAnchor),
             label.trailingAnchor.constraint(equalTo: self.formStackView.layoutMarginsGuide.trailingAnchor)
         ])
-
     }
 
     func setupTextField(_ textField: UITextField, rules: TextFieldRules) {
