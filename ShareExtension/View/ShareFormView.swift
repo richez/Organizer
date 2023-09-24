@@ -8,7 +8,6 @@
 import UIKit
 
 protocol ShareFormViewDelegate: AnyObject {
-    func didUpdateProjectMenu(to selectedProject: ProjectSelectedItem)
     func didEditFields(selectedProject: ProjectSelectedItem?, type: String, name: String, theme: String, link: String)
     func didTapOnView()
     func didTapSaveButton(selectedProject: ProjectSelectedItem?, type: String, name: String, theme: String, link: String)
@@ -32,6 +31,12 @@ final class ShareFormView: UIView {
     var isProjectTextFieldHidden: Bool = false {
         didSet {
             self.projectTextField.isHidden = self.isProjectTextFieldHidden
+        }
+    }
+
+    var isSaveButtonEnabled: Bool = false {
+        didSet {
+            self.contentFormView.isSaveButtonEnabled = self.isSaveButtonEnabled
         }
     }
 
@@ -124,6 +129,18 @@ private extension ShareFormView {
         self.projectTextField.borderStyle = self.viewRepresentation.projectTextFieldBorderStyle
         self.projectTextField.apply(rules: self.viewRepresentation.projectTextFieldRules)
 
+        self.projectTextField.addAction(UIAction(handler: { [weak self] _ in
+            guard let self = self else { return }
+            self.selectedProject = .new(self.projectTextField.text ?? "")
+            self.delegate?.didEditFields(
+                selectedProject: self.selectedProject,
+                type: self.contentFormView.fieldsView.typeButtonValue,
+                name: self.contentFormView.fieldsView.nameTextFieldValue,
+                theme: self.contentFormView.fieldsView.themeTextFieldValue,
+                link: self.contentFormView.fieldsView.linkTextFieldValue
+            )
+        }), for: .editingChanged)
+
         self.projectTextField.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             self.projectTextField.heightAnchor.constraint(equalToConstant: self.viewRepresentation.projectTextFieldHeight),
@@ -150,15 +167,21 @@ private extension ShareFormView {
             singleSelection: menu.singleSelection,
             items: menu.items.map { item in
                 return MenuItemConfiguration(title: item.title, isOn: item.isOn) { [weak self] in
-                    let selectedProject: ProjectSelectedItem
+                    guard let self = self else { return }
                     switch item {
                     case .new:
-                        selectedProject = .new(self?.projectTextField.text ?? "")
+                        self.selectedProject = .new(self.projectTextField.text ?? "")
                     case .custom(_, let id):
-                        selectedProject = .custom(id)
+                        self.selectedProject = .custom(id)
                     }
-                    self?.selectedProject = selectedProject
-                    self?.delegate?.didUpdateProjectMenu(to: selectedProject)
+
+                    self.delegate?.didEditFields(
+                        selectedProject: self.selectedProject,
+                        type: self.contentFormView.fieldsView.typeButtonValue,
+                        name: self.contentFormView.fieldsView.nameTextFieldValue,
+                        theme: self.contentFormView.fieldsView.themeTextFieldValue,
+                        link: self.contentFormView.fieldsView.linkTextFieldValue
+                    )
                 }
             }
         )

@@ -20,7 +20,7 @@ final class ContentFormView: UIView {
 
     weak var delegate: ContentFormViewDelegate?
 
-    private let fieldsView: ContentFormFieldsView = .init()
+    let fieldsView: ContentFormFieldsView = .init()
     private let saveButton: FloatingActionButton = .init()
 
     var isSaveButtonEnabled: Bool = false {
@@ -50,15 +50,6 @@ final class ContentFormView: UIView {
         self.fieldsView.configure(with: configuration.fields)
     }
 }
-
-// MARK: - ContentFormFieldsViewDelegate
-
-extension ContentFormView: ContentFormFieldsViewDelegate {
-    func didEditFields(type: String, name: String, theme: String, link: String) {
-        self.delegate?.didEditFields(type: type, name: name, theme: theme, link: link)
-    }
-}
-
 
 private extension ContentFormView {
     // MARK: - Setup
@@ -119,5 +110,13 @@ private extension ContentFormView {
     @objc
     func didTapOnView(sender: UIView) {
         self.delegate?.didTapOnView()
+    }
+}
+
+// MARK: - ContentFormFieldsViewDelegate
+
+extension ContentFormView: ContentFormFieldsViewDelegate {
+    func didEditFields(type: String, name: String, theme: String, link: String) {
+        self.delegate?.didEditFields(type: type, name: name, theme: theme, link: link)
     }
 }

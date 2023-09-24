@@ -40,12 +40,11 @@ private extension ShareFormViewController {
 // MARK: - ShareFormViewDelegate
 
 extension ShareFormViewController: ShareFormViewDelegate {
-    func didUpdateProjectMenu(to selectedProject: ProjectSelectedItem) {
-        self.contentView.isProjectTextFieldHidden = self.viewModel.shouldHideProjectTextField(for: selectedProject)
-    }
-    
     func didEditFields(selectedProject: ProjectSelectedItem?, type: String, name: String, theme: String, link: String) {
-
+        self.contentView.isProjectTextFieldHidden = self.viewModel.shouldHideProjectTextField(for: selectedProject)
+        self.contentView.isSaveButtonEnabled = self.viewModel.isFieldsValid(
+            selectedProject: selectedProject, type: type, name: name, theme: theme, link: link
+        )
     }
     
     func didTapOnView() {

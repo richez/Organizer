@@ -5,7 +5,6 @@
 //  Created by Thibaut Richez on 12/09/2023.
 //
 
-import Combine
 import UIKit
 
 protocol ContentFormFieldsViewDelegate: AnyObject {
@@ -34,8 +33,6 @@ final class ContentFormFieldsView: UIView {
     var linkTextFieldValue: String { self.linkTextField.text ?? "" }
 
     weak var delegate: ContentFormFieldsViewDelegate?
-
-    var subscriptions: Set<AnyCancellable> = .init()
 
     // MARK: - Initialization
 
@@ -142,18 +139,15 @@ private extension ContentFormFieldsView {
         textField.borderStyle = self.viewRepresentation.textFieldsBorderStyle
         textField.apply(rules: rules)
 
-        NotificationCenter.default
-                .publisher(for: UITextField.textDidChangeNotification, object: textField)
-                .sink { [weak self] _ in
-                    guard let self = self else { return }
-                    self.delegate?.didEditFields(
-                        type: self.typeButtonValue,
-                        name: self.nameTextFieldValue,
-                        theme: self.themeTextFieldValue,
-                        link: self.linkTextFieldValue
-                    )
-                }
-                .store(in: &self.subscriptions)
+        textField.addAction(UIAction(handler: { [weak self] _ in
+            guard let self = self else { return }
+            self.delegate?.didEditFields(
+                type: self.typeButtonValue,
+                name: self.nameTextFieldValue,
+                theme: self.themeTextFieldValue,
+                link: self.linkTextFieldValue
+            )
+        }), for: .editingChanged)
 
         textField.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

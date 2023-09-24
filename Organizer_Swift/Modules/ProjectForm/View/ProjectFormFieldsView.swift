@@ -5,7 +5,6 @@
 //  Created by Thibaut Richez on 06/09/2023.
 //
 
-import Combine
 import UIKit
 
 protocol ProjectFormFieldsViewDelegate: AnyObject {
@@ -28,8 +27,6 @@ final class ProjectFormFieldsView: UIView {
     var themeTextFieldValue: String { self.themeTextField.text ?? "" }
 
     weak var delegate: ProjectFormFieldsViewDelegate?
-
-    var subscriptions: Set<AnyCancellable> = .init()
 
     // MARK: - Initialization
 
@@ -103,16 +100,13 @@ private extension ProjectFormFieldsView {
         textField.borderStyle = self.viewRepresentation.textFieldsBorderStyle
         textField.apply(rules: rules)
 
-        NotificationCenter.default
-                .publisher(for: UITextField.textDidChangeNotification, object: textField)
-                .sink { [weak self] _ in
-                    guard let self = self else { return }
-                    self.delegate?.didEditFields(
-                        name: self.nameTextFieldValue,
-                        theme: self.themeTextFieldValue
-                    )
-                }
-                .store(in: &self.subscriptions)
+        textField.addAction(UIAction(handler: { [weak self] _ in
+            guard let self = self else { return }
+            self.delegate?.didEditFields(
+                name: self.nameTextFieldValue,
+                theme: self.themeTextFieldValue
+            )
+        }), for: .editingChanged)
 
         textField.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
