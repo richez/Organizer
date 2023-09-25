@@ -6,41 +6,40 @@
 //
 
 import Foundation
+import UniformTypeIdentifiers
 
 struct ShareFormViewModel {
+    private let dataStore: ProjectDataStoreReader & ProjectDataStoreCreator
+
+    init(dataStore: ProjectDataStoreReader & ProjectDataStoreCreator = ProjectDataStore.shared) {
+        self.dataStore = dataStore
+    }
 }
 
 // MARK: - Public
 
 extension ShareFormViewModel {
-    var viewConfiguration: ShareFormViewConfiguration {
-        .init(
-            project: ShareFormMenu(
-                text: "Project",
-                placeholder: "My project",
-                singleSelection: true,
-                items: [.new(title: "New"), .custom(title: "Auto-Construction", id: UUID()), .custom(title: "Recherche emploi", id: UUID())]
-            ),
-            content: ContentFormViewConfiguration(
-                saveButtonImageName: "checkmark",
-                fields: ContentFormFieldsConfiguration(
-                    type: ContentFormMenu(
-                        text: "Type",
-                        singleSelection: true,
-                        items: ProjectContentType.allCases.map(\.rawValue),
-                        selectedItem: ProjectContentType.article.rawValue
-                    ),
-                    name: ContentFormField(
-                        text: "Name", placeholder: "My content", value: ""
-                    ),
-                    theme: ContentFormField(
-                        text: "Themes", placeholder: "Isolation, tennis, recherche", value: ""
-                    ),
-                    link: ContentFormField(
-                        text: "Link", placeholder: "https://www.youtube.com", value: ""
-                    )
-                )
-            )
+    var erroredViewConfiguration: ShareFormViewConfiguration {
+        self.viewConfiguration(
+            projectMenuItems: [],
+            contentName: nil,
+            contentLink: nil,
+            errorMessage: "Could not retrieve data, please retry later"
+        )
+    }
+
+    @MainActor
+    func viewConfiguration(with extensionItem: NSExtensionItem?) async throws -> ShareFormViewConfiguration {
+        let projectMenuItems = try self.dataStore
+            .fetch(predicate: nil, sortBy: [SortDescriptor(\.lastUpdatedDate, order: .reverse)])
+            .map { ShareFormMenuItem.custom(title: $0.title, id: $0.id) }
+        let contentName = extensionItem?.attributedTitle?.string ?? extensionItem?.attributedContentText?.string ?? ""
+        let contentLink = try await self.url(in: extensionItem?.attachments)
+        return self.viewConfiguration(
+            projectMenuItems: projectMenuItems,
+            contentName: contentName,
+            contentLink: contentLink,
+            errorMessage: nil
         )
     }
 
@@ -70,6 +69,63 @@ extension ShareFormViewModel {
 // MARK: - Helpers
 
 private extension ShareFormViewModel {
+    // MARK: View Configuration
+
+    @MainActor
+    func url(in attachments: [NSItemProvider]?) async throws -> String {
+        return try await withCheckedThrowingContinuation { continuation in
+            guard
+                let urlAttachment = attachments?.first(where: { $0.hasItemConformingToTypeIdentifier(UTType.url.identifier) })
+            else {
+                return continuation.resume(throwing: ShareFormViewModelError.urlMissing)
+            }
+
+            urlAttachment.loadItem(forTypeIdentifier: UTType.url.identifier) { result, error in
+                if let url = result as? URL {
+                    continuation.resume(returning: url.absoluteString)
+                } else {
+                    continuation.resume(throwing: ShareFormViewModelError.urlLoading(error))
+                }
+            }
+        }
+    }
+
+    func viewConfiguration(
+        projectMenuItems: [ShareFormMenuItem],
+        contentName: String?,
+        contentLink: String?,
+        errorMessage: String?) -> ShareFormViewConfiguration {
+        .init(
+            project: ShareFormMenu(
+                text: "Project",
+                placeholder: "My project",
+                singleSelection: true,
+                items: [.new(title: "New")] + projectMenuItems
+            ),
+            content: ContentFormViewConfiguration(
+                saveButtonImageName: "checkmark",
+                fields: ContentFormFieldsConfiguration(
+                    type: ContentFormMenu(
+                        text: "Type",
+                        singleSelection: true,
+                        items: ProjectContentType.allCases.map(\.rawValue),
+                        selectedItem: ProjectContentType.article.rawValue
+                    ),
+                    name: ContentFormField(
+                        text: "Name", placeholder: "My content", value: contentName
+                    ),
+                    theme: ContentFormField(
+                        text: "Themes", placeholder: "Isolation, tennis, recherche", value: ""
+                    ),
+                    link: ContentFormField(
+                        text: "Link", placeholder: "https://www.youtube.com", value: contentLink
+                    )
+                )
+            ),
+            errorMessage: errorMessage
+        )
+    }
+
     // MARK: Field Validation
 
     func isSelectedProjectValid(_ selectedProject: ProjectSelectedItem?) -> Bool {

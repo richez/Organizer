@@ -32,8 +32,20 @@ private extension ShareFormViewController {
 
     func setup() {
         self.contentView.delegate = self
+        self.contentView.startActivityIndicator()
 
-        self.contentView.configure(with: self.viewModel.viewConfiguration)
+        Task {
+            do {
+                let extensionItem = self.extensionContext?.inputItems.first as? NSExtensionItem
+                let viewConfiguration = try await self.viewModel.viewConfiguration(with: extensionItem)
+                self.contentView.stopActivityIndicator()
+                self.contentView.configure(with: viewConfiguration)
+            } catch {
+                print("Fail de load view configuration due to error: \(error)")
+                self.contentView.stopActivityIndicator()
+                self.contentView.configure(with: self.viewModel.erroredViewConfiguration)
+            }
+        }
     }
 }
 
@@ -52,6 +64,6 @@ extension ShareFormViewController: ShareFormViewDelegate {
     }
     
     func didTapSaveButton(selectedProject: ProjectSelectedItem?, type: String, name: String, theme: String, link: String) {
-
+        // TODO: handle save
     }
 }

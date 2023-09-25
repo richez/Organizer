@@ -21,10 +21,12 @@ final class ShareFormView: UIView {
     weak var delegate: ShareFormViewDelegate?
 
     private let projectStackView: UIStackView = .init()
+    private let errorLabel: UILabel = .init()
     private let projectLabel: UILabel = .init()
     private let projectButton: UIButton = .init()
     private let projectTextField: UITextField = .init()
     private let contentFormView: ContentFormView = .init()
+    private let activityIndicatorView: UIActivityIndicatorView = .init()
 
     private var selectedProject: ProjectSelectedItem?
 
@@ -55,11 +57,26 @@ final class ShareFormView: UIView {
     // MARK: - Configuration
 
     func configure(with configuration: ShareFormViewConfiguration) {
+        self.errorLabel.isHidden = configuration.errorMessage == nil
+        self.errorLabel.text = configuration.errorMessage
+
         self.projectLabel.text = configuration.project.text
         self.projectTextField.placeholder = configuration.project.placeholder
         self.projectButton.menu = UIMenu(configuration: self.menuConfiguration(for: configuration.project))
 
         self.contentFormView.configure(with: configuration.content)
+    }
+
+    // MARK: - Activity Indicator
+
+    func startActivityIndicator() {
+        self.isUserInteractionEnabled = false
+        self.activityIndicatorView.startAnimating()
+    }
+
+    func stopActivityIndicator() {
+        self.isUserInteractionEnabled = true
+        self.activityIndicatorView.stopAnimating()
     }
 }
 
@@ -73,15 +90,18 @@ private extension ShareFormView {
         self.contentFormView.delegate = self
 
         self.setupProjectStackView()
+        self.setupErrorLabel()
         self.setupProjectLabel()
         self.setupProjectButton()
         self.setupProjectTextField()
         self.setupContentFormView()
+        self.setupActivityIndicator()
     }
 
     func setupProjectStackView() {
         self.projectStackView.setup(with: self.viewRepresentation.stackViewRepresentation)
 
+        self.projectStackView.addArrangedSubview(self.errorLabel)
         self.projectStackView.addArrangedSubview(self.projectLabel)
         self.projectStackView.addArrangedSubview(self.projectButton)
         self.projectStackView.addArrangedSubview(self.projectTextField)
@@ -92,6 +112,20 @@ private extension ShareFormView {
             self.projectStackView.topAnchor.constraint(equalTo: self.topAnchor),
             self.projectStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             self.projectStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+        ])
+    }
+
+    func setupErrorLabel() {
+        self.errorLabel.isHidden = true
+        self.errorLabel.textColor = self.viewRepresentation.errorLabelTextColor
+        self.errorLabel.font = self.viewRepresentation.errorLabelFont
+        self.errorLabel.textAlignment = self.viewRepresentation.errorTextAlignment
+
+        self.errorLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            self.errorLabel.heightAnchor.constraint(equalToConstant: self.viewRepresentation.errorLabelHeight),
+            self.errorLabel.leadingAnchor.constraint(equalTo: self.projectStackView.layoutMarginsGuide.leadingAnchor),
+            self.errorLabel.trailingAnchor.constraint(equalTo: self.projectStackView.layoutMarginsGuide.trailingAnchor)
         ])
     }
 
@@ -157,6 +191,19 @@ private extension ShareFormView {
             self.contentFormView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             self.contentFormView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             self.contentFormView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+        ])
+    }
+
+    func setupActivityIndicator() {
+        self.activityIndicatorView.hidesWhenStopped = true
+        self.activityIndicatorView.color = self.viewRepresentation.activityIndicatorColor
+        self.activityIndicatorView.style = self.viewRepresentation.activityIndicatorStyle
+
+        self.addSubview(self.activityIndicatorView)
+        self.activityIndicatorView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            self.activityIndicatorView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            self.activityIndicatorView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -80)
         ])
     }
 

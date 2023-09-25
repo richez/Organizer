@@ -10,4 +10,5 @@ import Foundation
 struct ShareFormViewConfiguration {
     var project: ShareFormMenu
     var content: ContentFormViewConfiguration
+    var errorMessage: String?
 }

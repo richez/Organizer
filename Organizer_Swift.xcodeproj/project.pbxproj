@@ -23,6 +23,8 @@
 		F03693942AA6A30F005C373A /* UINavigationBar+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03693932AA6A30F005C373A /* UINavigationBar+Appearance.swift */; };
 		F03693972AA6A42C005C373A /* ProjectListViewRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03693962AA6A42C005C373A /* ProjectListViewRepresentation.swift */; };
 		F036939A2AA6A512005C373A /* ProjectListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03693992AA6A512005C373A /* ProjectListViewModel.swift */; };
+		F0392CEF2AC1BB5900C643B4 /* ProjectDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C265142AAB8A32008EAB3C /* ProjectDataStore.swift */; };
+		F0392CF12AC1F82400C643B4 /* ShareFormViewModelError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0392CF02AC1F82400C643B4 /* ShareFormViewModelError.swift */; };
 		F03D1E062AB3317B009818CC /* ProjectListSorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03D1E052AB3317B009818CC /* ProjectListSorting.swift */; };
 		F03D1E082AB3318C009818CC /* ProjectListSelectedTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03D1E072AB3318C009818CC /* ProjectListSelectedTheme.swift */; };
 		F03D1E0A2AB331A0009818CC /* ProjectListSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03D1E092AB331A0009818CC /* ProjectListSettings.swift */; };
@@ -191,6 +193,7 @@
 		F03693932AA6A30F005C373A /* UINavigationBar+Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Appearance.swift"; sourceTree = "<group>"; };
 		F03693962AA6A42C005C373A /* ProjectListViewRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListViewRepresentation.swift; sourceTree = "<group>"; };
 		F03693992AA6A512005C373A /* ProjectListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListViewModel.swift; sourceTree = "<group>"; };
+		F0392CF02AC1F82400C643B4 /* ShareFormViewModelError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareFormViewModelError.swift; sourceTree = "<group>"; };
 		F03D1E052AB3317B009818CC /* ProjectListSorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListSorting.swift; sourceTree = "<group>"; };
 		F03D1E072AB3318C009818CC /* ProjectListSelectedTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListSelectedTheme.swift; sourceTree = "<group>"; };
 		F03D1E092AB331A0009818CC /* ProjectListSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListSettings.swift; sourceTree = "<group>"; };
@@ -951,6 +954,7 @@
 		F0FEB2972ABC70E600821ED8 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				F0392CF02AC1F82400C643B4 /* ShareFormViewModelError.swift */,
 				F0FEB29A2ABC726A00821ED8 /* ShareFormViewModel.swift */,
 			);
 			path = ViewModel;
@@ -1245,6 +1249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0FEB2A22ABC730700821ED8 /* ContentFormFieldsConfiguration.swift in Sources */,
+				F0392CF12AC1F82400C643B4 /* ShareFormViewModelError.swift in Sources */,
 				F0FEB2AD2ABC74A300821ED8 /* ProjectContent.swift in Sources */,
 				F0FEB29B2ABC726A00821ED8 /* ShareFormViewModel.swift in Sources */,
 				F0FEB2AE2ABC750900821ED8 /* String+Components.swift in Sources */,
@@ -1270,6 +1275,7 @@
 				F0D5A2342AC0EB890090F55D /* ProjectSelectedItem.swift in Sources */,
 				F0FEB2AB2ABC73AE00821ED8 /* NSLayoutAnchor+Priority.swift in Sources */,
 				F0FEB2B02ABC79BD00821ED8 /* ShareFormViewRepresentation.swift in Sources */,
+				F0392CEF2AC1BB5900C643B4 /* ProjectDataStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
