@@ -10,4 +10,5 @@ import Foundation
 enum ShareFormViewModelError: Error {
     case urlMissing
     case urlLoading(Error?)
+    case selectedProjectMissing
 }

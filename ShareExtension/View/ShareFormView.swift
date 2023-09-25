@@ -57,8 +57,8 @@ final class ShareFormView: UIView {
     // MARK: - Configuration
 
     func configure(with configuration: ShareFormViewConfiguration) {
-        self.errorLabel.isHidden = configuration.errorMessage == nil
-        self.errorLabel.text = configuration.errorMessage
+        self.stopActivityIndicator()
+        self.showError(with: configuration.errorMessage)
 
         self.projectLabel.text = configuration.project.text
         self.projectTextField.placeholder = configuration.project.placeholder
@@ -67,16 +67,11 @@ final class ShareFormView: UIView {
         self.contentFormView.configure(with: configuration.content)
     }
 
-    // MARK: - Activity Indicator
+    // MARK: - Error
 
-    func startActivityIndicator() {
-        self.isUserInteractionEnabled = false
-        self.activityIndicatorView.startAnimating()
-    }
-
-    func stopActivityIndicator() {
-        self.isUserInteractionEnabled = true
-        self.activityIndicatorView.stopAnimating()
+    func showError(with message: String?) {
+        self.errorLabel.isHidden = message == nil
+        self.errorLabel.text = message
     }
 }
 
@@ -96,6 +91,7 @@ private extension ShareFormView {
         self.setupProjectTextField()
         self.setupContentFormView()
         self.setupActivityIndicator()
+        self.startActivityIndicator()
     }
 
     func setupProjectStackView() {
@@ -205,6 +201,18 @@ private extension ShareFormView {
             self.activityIndicatorView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             self.activityIndicatorView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -80)
         ])
+    }
+
+    // MARK: - Activity Indicator
+
+    func startActivityIndicator() {
+        self.isUserInteractionEnabled = false
+        self.activityIndicatorView.startAnimating()
+    }
+
+    func stopActivityIndicator() {
+        self.isUserInteractionEnabled = true
+        self.activityIndicatorView.stopAnimating()
     }
 
     // MARK: - Menu

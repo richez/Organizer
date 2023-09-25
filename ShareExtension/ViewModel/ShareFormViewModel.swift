@@ -64,6 +64,26 @@ extension ShareFormViewModel {
             return true
         }
     }
+
+    var commitErrorMessage: String {
+        "Could not save content, please retry later"
+    }
+
+    func commit(selectedProjectItem: ProjectSelectedItem?, type: String, name: String, theme: String, link: String) throws {
+        let project = try self.project(for: selectedProjectItem)
+        let projectContent = ProjectContent(
+            id: UUID(),
+            type: ProjectContentType(rawValue: type) ?? .other,
+            title: name.trimmingCharacters(in: .whitespacesAndNewlines),
+            theme: theme.trimmingCharacters(in: .whitespacesAndNewlines),
+            link: link.trimmingCharacters(in: .whitespacesAndNewlines),
+            creationDate: .now,
+            lastUpdatedDate: .now
+        )
+        project.contents.append(projectContent)
+        project.lastUpdatedDate = .now
+        // TODO: notify app
+    }
 }
 
 // MARK: - Helpers
@@ -136,6 +156,28 @@ private extension ShareFormViewModel {
             return true
         case .none:
             return false
+        }
+    }
+
+    // MARK: Project
+
+    func project(for selectedProjectItem: ProjectSelectedItem?) throws -> Project {
+        switch selectedProjectItem {
+        case .new(let title):
+            let project = Project(
+                id: UUID(),
+                title: title.trimmingCharacters(in: .whitespacesAndNewlines),
+                theme: "",
+                contents: [],
+                creationDate: .now,
+                lastUpdatedDate: .now
+            )
+            try self.dataStore.create(project: project)
+            return project
+        case .custom(let id):
+            return try self.dataStore.project(with: id)
+        case nil:
+            throw ShareFormViewModelError.selectedProjectMissing
         }
     }
 }

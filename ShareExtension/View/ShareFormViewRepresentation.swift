@@ -33,7 +33,7 @@ struct ShareFormViewRepresentation {
     var projectTextFieldFont: UIFont = .systemFont(ofSize: 15, weight: .medium)
     var projectTextFieldBorderStyle: UITextField.BorderStyle = .roundedRect
     var projectTextFieldRules: TextFieldRules = .init(
-        autocapitalizationType: .sentences,
+        autocapitalizationType: .words,
         clearButtonMode: .always
     )
 
