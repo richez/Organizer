@@ -24,4 +24,8 @@ enum StorageKey: String {
     case contentListShowType
     case contentListSelectedTheme
     case contentListSelectedType
+
+    // MARK: - AppGroup
+
+    case shareExtensionDidAddContent
 }

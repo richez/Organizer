@@ -6,13 +6,17 @@
 //
 
 import Foundation
+import SwiftData
 import UniformTypeIdentifiers
 
-struct ShareFormViewModel {
+final class ShareFormViewModel {
     private let dataStore: DataStoreReader & DataStoreCreator
+    private var settings: AppGroupSettings
 
-    init(dataStore: DataStoreReader & DataStoreCreator = ProjectDataStore.shared) {
+    init(dataStore: DataStoreReader & DataStoreCreator = ProjectDataStore.shared,
+         settings: AppGroupSettings = .init()) {
         self.dataStore = dataStore
+        self.settings = settings
     }
 }
 
@@ -71,19 +75,18 @@ extension ShareFormViewModel {
     }
 
     func commit(selectedProjectItem: ProjectSelectedItem?, type: String, name: String, theme: String, link: String) throws {
-        let project = try self.project(for: selectedProjectItem)
-        let projectContent = ProjectContent(
-            id: UUID(),
-            type: ProjectContentType(rawValue: type) ?? .other,
-            title: name.trimmingCharacters(in: .whitespacesAndNewlines),
-            theme: theme.trimmingCharacters(in: .whitespacesAndNewlines),
-            link: link.trimmingCharacters(in: .whitespacesAndNewlines),
-            creationDate: .now,
-            lastUpdatedDate: .now
-        )
-        project.contents.append(projectContent)
-        project.lastUpdatedDate = .now
-        // TODO: notify app
+        switch selectedProjectItem {
+        case .new(let title):
+            let content = self.content(type: type, name: name, theme: theme, link: link)
+            try self.createProject(title: title, content: content)
+            self.settings.shareExtensionDidAddContent = true
+        case .custom(let projectID):
+            let content = self.content(type: type, name: name, theme: theme, link: link)
+            try self.addContent(content, to: projectID)
+            self.settings.shareExtensionDidAddContent = true
+        case nil:
+            throw ShareFormViewModelError.selectedProjectMissing
+        }
     }
 }
 
@@ -162,23 +165,34 @@ private extension ShareFormViewModel {
 
     // MARK: Project
 
-    func project(for selectedProjectItem: ProjectSelectedItem?) throws -> Project {
-        switch selectedProjectItem {
-        case .new(let title):
-            let project = Project(
-                id: UUID(),
-                title: title.trimmingCharacters(in: .whitespacesAndNewlines),
-                theme: "",
-                contents: [],
-                creationDate: .now,
-                lastUpdatedDate: .now
-            )
-            try self.dataStore.create(model: project) // TODO: create directly with contents
-            return project
-        case .custom(let id):
-            return try self.dataStore.model(with: id)
-        case nil:
-            throw ShareFormViewModelError.selectedProjectMissing
-        }
+    func content(type: String, name: String, theme: String, link: String) -> ProjectContent {
+        .init(
+            id: UUID(),
+            type: ProjectContentType(rawValue: type) ?? .other,
+            title: name.trimmingCharacters(in: .whitespacesAndNewlines),
+            theme: theme.trimmingCharacters(in: .whitespacesAndNewlines),
+            link: link.trimmingCharacters(in: .whitespacesAndNewlines),
+            creationDate: .now,
+            lastUpdatedDate: .now
+        )
+    }
+
+    func createProject(title: String, content: ProjectContent) throws {
+        let project = Project(
+            id: UUID(),
+            title: title,
+            theme: "",
+            contents: [content],
+            creationDate: .now,
+            lastUpdatedDate: .now
+        )
+
+        try self.dataStore.create(model: project)
+    }
+
+    func addContent(_ content: ProjectContent, to projectID: PersistentIdentifier) throws {
+        let project: Project = try self.dataStore.model(with: projectID)
+        project.contents.append(content)
+        project.lastUpdatedDate = .now
     }
 }

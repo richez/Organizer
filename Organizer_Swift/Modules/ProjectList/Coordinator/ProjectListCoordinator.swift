@@ -10,6 +10,7 @@ import UIKit
 protocol ProjectListCoordinatorProtocol: AnyObject {
     func showProjectForm(mode: ProjectFormMode)
     func showContentList(of project: Project)
+    func popToRoot(animated: Bool)
     func show(error: Error)
 }
 
@@ -65,6 +66,10 @@ extension ProjectListCoordinator: ProjectListCoordinatorProtocol {
             navigationController: self.navigationController!
         )
         self.start(child: contentListCoordinator)
+    }
+
+    func popToRoot(animated: Bool) {
+        self.navigationController!.popToRootViewController(animated: animated)
     }
 
     func show(error: Error) {

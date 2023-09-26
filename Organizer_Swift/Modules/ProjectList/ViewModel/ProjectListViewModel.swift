@@ -112,6 +112,16 @@ extension ProjectListViewModel {
             handler: handler
         )
     }
+
+    // MARK: Share Extension
+
+    var shareExtensionDidAddContent: Bool {
+        self.settings.group.shareExtensionDidAddContent
+    }
+
+    func resetShareExtensionSetting() {
+        self.settings.group.shareExtensionDidAddContent = false
+    }
 }
 
 // MARK: - Helpers

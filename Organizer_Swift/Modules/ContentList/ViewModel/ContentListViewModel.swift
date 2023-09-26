@@ -107,6 +107,7 @@ extension ContentListViewModel {
         self.notificationCenter.post(name: .didUpdateProjectContent, object: nil)
     }
 
+    // TODO: delete pasteboard manager and handle in VC
     func copyContentLink(with id: UUID) throws {
         let content = try self.content(with: id)
         self.pasteboardManager.copy(url: URL(string: content.link))

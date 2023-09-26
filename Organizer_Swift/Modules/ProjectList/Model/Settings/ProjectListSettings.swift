@@ -23,6 +23,8 @@ final class ProjectListSettings {
     @RawRepresentableStorage(key: .projectListSelectedTheme, default: .all)
     var selectedTheme: ProjectListSelectedTheme
 
+    var group: AppGroupSettings = .init()
+
     func delete(suiteName: String) {
         UserDefaults.standard.removePersistentDomain(forName: suiteName)
     }

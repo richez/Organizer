@@ -52,7 +52,7 @@ private extension ContentListMenuConfigurator {
                 .init(title: "Modification Date", isOn: self.settings.sorting == .lastUpdated, handler: { [weak self] in
                     if let self, self.settings.sorting != .lastUpdated {
                         self.settings.sorting = .lastUpdated
-                        handler()
+                        handler() // TODO: handler return bool to know if should update value
                     }
                 }),
                 .init(title: "Creation Date", isOn: self.settings.sorting == .creation, handler: { [weak self] in

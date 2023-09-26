@@ -57,7 +57,7 @@ private extension ContentListViewController {
 
         self.contentView.configure(with: self.viewModel.viewConfiguration)
 
-        self.observeContentNotification()
+        self.observeNotifications()
     }
 
     // MARK: - Updates
@@ -91,12 +91,14 @@ private extension ContentListViewController {
 
     // MARK: - Notification
 
-    func observeContentNotification() {
-        NotificationCenter.default.addObserver(forName: .didCreateContent, object: nil, queue: .current) { [weak self] _ in
+    func observeNotifications() {
+        let notificationCenter = NotificationCenter.default
+
+        notificationCenter.addObserver(forName: .didCreateContent, object: nil, queue: .current) { [weak self] _ in
             self?.updateList(animated: true)
             self?.updateMenu()
         }
-        NotificationCenter.default.addObserver(forName: .didUpdateContent, object: nil, queue: .current) { [weak self] _ in
+        notificationCenter.addObserver(forName: .didUpdateContent, object: nil, queue: .current) { [weak self] _ in
             self?.updateList(animated: true)
             self?.updateMenu()
         }

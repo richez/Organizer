@@ -61,7 +61,7 @@ private extension ProjectListViewController {
 
         self.contentView.configure(with: self.viewModel.viewConfiguration)
 
-        self.observeProjectNotifications()
+        self.observeNotifications()
     }
 
     // MARK: - Updates
@@ -95,18 +95,29 @@ private extension ProjectListViewController {
 
     // MARK: - Notification
 
-    func observeProjectNotifications() {
-        NotificationCenter.default.addObserver(forName: .didCreateProject, object: nil, queue: .current) { [weak self] _ in
+    func observeNotifications() {
+        let notificationCenter = NotificationCenter.default
+
+        notificationCenter.addObserver(forName: .didCreateProject, object: nil, queue: .current) { [weak self] _ in
             self?.updateList(animated: true)
             self?.updateMenu()
         }
-        NotificationCenter.default.addObserver(forName: .didUpdateProject, object: nil, queue: .current) { [weak self] _ in
+        notificationCenter.addObserver(forName: .didUpdateProject, object: nil, queue: .current) { [weak self] _ in
             self?.updateList(animated: true)
             self?.updateMenu()
         }
-        NotificationCenter.default.addObserver(forName: .didUpdateProjectContent, object: nil, queue: .current) { [weak self] _ in
+        notificationCenter.addObserver(forName: .didUpdateProjectContent, object: nil, queue: .current) { [weak self] _ in
             // The view is not visible when we update the project so we don't need to animate the change
             self?.updateList(animated: false)
+        }
+
+        let willEnterForeground = UIApplication.willEnterForegroundNotification
+        notificationCenter.addObserver(forName: willEnterForeground, object: nil, queue: .current) { [weak self] _ in
+            if self?.viewModel.shareExtensionDidAddContent == true {
+                self?.coordinator.popToRoot(animated: false)
+                self?.updateList(animated: false)
+                self?.viewModel.resetShareExtensionSetting()
+            }
         }
     }
 }
