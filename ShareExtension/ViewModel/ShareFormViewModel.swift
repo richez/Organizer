@@ -9,9 +9,9 @@ import Foundation
 import UniformTypeIdentifiers
 
 struct ShareFormViewModel {
-    private let dataStore: ProjectDataStoreReader & ProjectDataStoreCreator
+    private let dataStore: DataStoreReader & DataStoreCreator
 
-    init(dataStore: ProjectDataStoreReader & ProjectDataStoreCreator = ProjectDataStore.shared) {
+    init(dataStore: DataStoreReader & DataStoreCreator = ProjectDataStore.shared) {
         self.dataStore = dataStore
     }
 }
@@ -30,9 +30,10 @@ extension ShareFormViewModel {
 
     @MainActor
     func viewConfiguration(with extensionItem: NSExtensionItem?) async throws -> ShareFormViewConfiguration {
-        let projectMenuItems = try self.dataStore
-            .fetch(predicate: nil, sortBy: [SortDescriptor(\.lastUpdatedDate, order: .reverse)])
-            .map { ShareFormMenuItem.custom(title: $0.title, id: $0.id) }
+        let projects: [Project] = try self.dataStore.fetch(
+            predicate: nil, sortBy: [SortDescriptor(\.lastUpdatedDate, order: .reverse)]
+        )
+        let projectMenuItems = projects.map { ShareFormMenuItem.custom(title: $0.title, id: $0.persistentModelID) }
         let contentName = extensionItem?.attributedTitle?.string ?? extensionItem?.attributedContentText?.string ?? ""
         let contentLink = try await self.url(in: extensionItem?.attachments)
         return self.viewConfiguration(
@@ -172,10 +173,10 @@ private extension ShareFormViewModel {
                 creationDate: .now,
                 lastUpdatedDate: .now
             )
-            try self.dataStore.create(project: project)
+            try self.dataStore.create(model: project) // TODO: create directly with contents
             return project
         case .custom(let id):
-            return try self.dataStore.project(with: id)
+            return try self.dataStore.model(with: id)
         case nil:
             throw ShareFormViewModelError.selectedProjectMissing
         }

@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import SwiftData
 
 enum ProjectSelectedItem {
     case new(String)
-    case custom(UUID)
+    case custom(PersistentIdentifier)
 }

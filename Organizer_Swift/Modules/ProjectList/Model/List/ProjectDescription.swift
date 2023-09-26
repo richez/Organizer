@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import SwiftData
 
 struct ProjectDescription: Hashable {
-    var id: UUID
+    var id: PersistentIdentifier
     var title: String
     var theme: String?
     var statistics: String?

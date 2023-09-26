@@ -9,11 +9,11 @@ import Foundation
 
 struct ProjectFormViewModel {
     private let mode: ProjectFormMode
-    private let dataStore: ProjectDataStoreCreator
+    private let dataStore: DataStoreCreator
     private let notificationCenter: NotificationCenter
 
     init(mode: ProjectFormMode,
-         dataStore: ProjectDataStoreCreator = ProjectDataStore.shared,
+         dataStore: DataStoreCreator = ProjectDataStore.shared,
          notificationCenter: NotificationCenter = .default) {
         self.mode = mode
         self.dataStore = dataStore
@@ -97,7 +97,7 @@ private extension ProjectFormViewModel {
         )
 
         do {
-            try self.dataStore.create(project: project)
+            try self.dataStore.create(model: project)
             self.notificationCenter.post(name: .didCreateProject, object: nil)
         } catch {
             throw ProjectFormViewModelError.create(error)

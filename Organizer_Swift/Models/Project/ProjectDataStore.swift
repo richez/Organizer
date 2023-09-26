@@ -8,29 +8,29 @@
 import Foundation
 import SwiftData
 
-protocol ProjectDataStoreReader {
-    func fetch(predicate: Predicate<Project>?, sortBy: [SortDescriptor<Project>]) throws -> [Project]
-    func fetchCount(predicate: Predicate<Project>?, sortBy: [SortDescriptor<Project>]) throws -> Int
-    func project(with projectID: UUID) throws -> Project
+protocol DataStoreReader {
+    func fetch<T: PersistentModel>(predicate: Predicate<T>?, sortBy: [SortDescriptor<T>]) throws -> [T]
+    func fetchCount<T: PersistentModel>(predicate: Predicate<T>?, sortBy: [SortDescriptor<T>]) throws -> Int
+    func model<T: PersistentModel>(with identifier: PersistentIdentifier) throws -> T
 }
 
-protocol ProjectDataStoreCreator {
-    func create(project: Project) throws
+protocol DataStoreCreator {
+    func create(model: any PersistentModel) throws
 }
 
-protocol ProjectDataStoreDeleter {
-    func delete(projectID: UUID) throws
+protocol DataStoreDeleter {
+    func delete(model: any PersistentModel) throws
 }
 
-protocol ProjectDataStoreProtocol: ProjectDataStoreReader & ProjectDataStoreCreator & ProjectDataStoreDeleter {}
+protocol DataStoreProtocol: DataStoreReader & DataStoreCreator & DataStoreDeleter {}
 
-enum ProjectDataStoreError: Error {
+enum DataStoreError: Error {
     case databaseUnreachable
-    case notFound(UUID)
+    case notFound(PersistentIdentifier)
 }
 
 final class ProjectDataStore {
-    static let shared: ProjectDataStoreProtocol = ProjectDataStore()
+    static let shared: DataStoreProtocol = ProjectDataStore()
 
     // MARK: - Properties
 
@@ -41,7 +41,7 @@ final class ProjectDataStore {
 
     init() {
         do {
-            self.modelContainer = try ModelContainer(for: Project.self)
+            self.modelContainer = try ModelContainer(for: Project.self, ProjectContent.self)
             self.context = ModelContext(self.modelContainer!)
             self.context!.autosaveEnabled = true
         } catch {
@@ -52,56 +52,47 @@ final class ProjectDataStore {
     }
 }
 
-// MARK: - ProjectDataStoreProtocol
+// MARK: - DataStoreProtocol
 
-extension ProjectDataStore: ProjectDataStoreProtocol {
-    // MARK: ProjectDataStoreReader
+extension ProjectDataStore: DataStoreProtocol {
+    // MARK: DataStoreReader
 
-    func fetch(predicate: Predicate<Project>?, sortBy: [SortDescriptor<Project>]) throws -> [Project] {
-        guard let context else { throw ProjectDataStoreError.databaseUnreachable }
+    func fetch<T: PersistentModel>(predicate: Predicate<T>?, sortBy: [SortDescriptor<T>]) throws -> [T] {
+        guard let context else { throw DataStoreError.databaseUnreachable }
 
-        let descriptor = FetchDescriptor<Project>(predicate: predicate, sortBy: sortBy)
+        let descriptor = FetchDescriptor<T>(predicate: predicate, sortBy: sortBy)
         return try context.fetch(descriptor)
     }
 
-    func fetchCount(predicate: Predicate<Project>?, sortBy: [SortDescriptor<Project>]) throws -> Int {
-        guard let context else { throw ProjectDataStoreError.databaseUnreachable }
+    func fetchCount<T: PersistentModel>(predicate: Predicate<T>?, sortBy: [SortDescriptor<T>]) throws -> Int {
+        guard let context else { throw DataStoreError.databaseUnreachable }
 
-        let descriptor = FetchDescriptor<Project>(predicate: predicate, sortBy: sortBy)
+        let descriptor = FetchDescriptor<T>(predicate: predicate, sortBy: sortBy)
         return try context.fetchCount(descriptor)
     }
 
-    func project(with projectID: UUID) throws -> Project {
-        guard let context else { throw ProjectDataStoreError.databaseUnreachable }
+    func model<T: PersistentModel>(with identifier: PersistentIdentifier) throws -> T {
+        guard let context else { throw DataStoreError.databaseUnreachable }
+        guard let model = context.model(for: identifier) as? T else { throw DataStoreError.notFound(identifier) }
 
-        let predicate = #Predicate<Project> { project in
-            return project.id == projectID
-        }
-        var descriptor = FetchDescriptor<Project>(predicate: predicate)
-        descriptor.fetchLimit = 1
-        guard let project = try context.fetch(descriptor).first else {
-            throw ProjectDataStoreError.notFound(projectID)
-        }
-
-        return project
+        return model
     }
 
-    // MARK: ProjectDataStoreCreator
+    // MARK: DataStoreCreator
 
-    func create(project: Project) throws {
-        guard let context else { throw ProjectDataStoreError.databaseUnreachable }
+    func create(model: any PersistentModel) throws {
+        guard let context else { throw DataStoreError.databaseUnreachable }
 
-        context.insert(project)
+        context.insert(model)
         try context.save()
     }
 
-    // MARK: ProjectDataStoreDeleter
+    // MARK: DataStoreDeleter
 
-    func delete(projectID: UUID) throws {
-        guard let context else { throw ProjectDataStoreError.databaseUnreachable }
+    func delete(model: any PersistentModel) throws {
+        guard let context else { throw DataStoreError.databaseUnreachable }
 
-        let project = try self.project(with: projectID)
-        context.delete(project)
+        context.delete(model)
         try context.save()
     }
 }

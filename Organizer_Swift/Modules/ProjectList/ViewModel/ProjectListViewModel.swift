@@ -6,18 +6,19 @@
 //
 
 import Foundation
+import SwiftData
 
 final class ProjectListViewModel {
     // MARK: - Properties
 
-    private let dataStore: ProjectDataStoreReader & ProjectDataStoreDeleter
+    private let dataStore: DataStoreReader & DataStoreDeleter
     private var settings: ProjectListSettings
     private let fetchDescriptor: ProjectListFetchDescriptorProtocol
     private let menuConfigurator: ProjectListMenuConfiguratorProtocol
 
     // MARK: - Initialization
 
-    init(dataStore: ProjectDataStoreReader & ProjectDataStoreDeleter,
+    init(dataStore: DataStoreReader & DataStoreDeleter,
          settings: ProjectListSettings,
          fetchDescriptor: ProjectListFetchDescriptorProtocol,
          menuConfigurator: ProjectListMenuConfiguratorProtocol) {
@@ -69,7 +70,7 @@ extension ProjectListViewModel {
                 .fetch(predicate: self.fetchDescriptor.predicate, sortBy: self.fetchDescriptor.sortDescriptor)
                 .map { project in
                     ProjectDescription(
-                        id: project.id,
+                        id: project.persistentModelID,
                         title: project.title,
                         theme: self.theme(for: project),
                         statistics: self.statistics(for: project),
@@ -81,20 +82,19 @@ extension ProjectListViewModel {
         }
     }
 
-    func project(with projectID: UUID?) throws -> Project {
-        guard let projectID else { throw ProjectListViewModelError.notFound(nil) }
-
+    func project(with identifier: PersistentIdentifier) throws -> Project {
         do {
-            return try self.dataStore.project(with: projectID)
+            return try self.dataStore.model(with: identifier)
         } catch {
             throw ProjectListViewModelError.notFound(error)
         }
     }
 
-    func deleteProject(with id: UUID) throws {
+    func deleteProject(with identifier: PersistentIdentifier) throws {
         do {
-            try self.dataStore.delete(projectID: id)
-            self.settings.delete(suiteName: id.uuidString)
+            let project: Project = try self.dataStore.model(with: identifier)
+            try self.dataStore.delete(model: project)
+            self.settings.delete(suiteName: project.id.uuidString)
         } catch {
             throw ProjectListViewModelError.delete(error)
         }
@@ -104,10 +104,8 @@ extension ProjectListViewModel {
 
     func menuConfiguration(handler: @escaping () -> Void) -> MenuConfiguration {
         let numberOfProjects = try? self.dataStore.fetchCount(predicate: self.fetchDescriptor.predicate, sortBy: [])
-        let allExistingThemes = try? self.dataStore
-            .fetch(predicate: nil, sortBy: [])
-            .flatMap(\.themes)
-            .removingDuplicates()
+        let allProjects: [Project]? = try? self.dataStore.fetch(predicate: nil, sortBy: [])
+        let allExistingThemes = allProjects?.flatMap(\.themes).removingDuplicates()
         return self.menuConfigurator.configuration(
             numberOfProjects: numberOfProjects ?? 0,
             themes: allExistingThemes ?? [],

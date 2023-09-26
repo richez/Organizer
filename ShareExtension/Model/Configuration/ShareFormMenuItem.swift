@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import SwiftData
 
 enum ShareFormMenuItem {
     case new(title: String)
-    case custom(title: String, id: UUID)
+    case custom(title: String, id: PersistentIdentifier)
 
     var title: String {
         switch self {
