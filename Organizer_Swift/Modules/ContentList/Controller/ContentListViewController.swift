@@ -174,7 +174,8 @@ private extension ContentListViewController {
     func copyContentLink(at indexPath: IndexPath) {
         do {
             let contentID = try self.dataSource.contentDescription(for: indexPath).id
-            try self.viewModel.copyContentLink(with: contentID)
+            let contentURL = try self.viewModel.contentURL(with: contentID)
+            UIPasteboard.general.url = contentURL
         } catch {
             print("Fail to copy content link: \(error)")
             self.coordinator.show(error: error)

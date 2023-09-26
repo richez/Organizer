@@ -12,20 +12,17 @@ final class ContentListViewModel {
     private var settings: ContentListSettings
     private let fetchDescriptor: ContentListFetchDescriptorProtocol
     private let menuConfigurator: ContentListMenuConfiguratorProtocol
-    private let pasteboardManager: PasteboardManagerProtocol
     private let notificationCenter: NotificationCenter
 
     init(project: Project,
          settings: ContentListSettings,
          fetchDescriptor: ContentListFetchDescriptorProtocol,
          menuConfigurator: ContentListMenuConfiguratorProtocol,
-         pasteboardManager: PasteboardManagerProtocol,
          notificationCenter: NotificationCenter = .default) {
         self.project = project
         self.settings = settings
         self.fetchDescriptor = fetchDescriptor
         self.menuConfigurator = menuConfigurator
-        self.pasteboardManager = pasteboardManager
         self.notificationCenter = notificationCenter
     }
 }
@@ -91,10 +88,18 @@ extension ContentListViewModel {
 
     func content(with id: UUID) throws -> ProjectContent {
         guard let content = self.project.contents.first(where: { $0.id == id }) else {
-            throw ContentListViewModelError.delete(id)
+            throw ContentListViewModelError.notFound(id)
         }
 
         return content
+    }
+
+    func contentURL(with id: UUID) throws -> URL {
+        let contentLink = try self.content(with: id).link
+        guard let url = URL(string: contentLink) else {
+            throw ContentListViewModelError.badLink(contentLink)
+        }
+        return url
     }
 
     func deleteContent(with id: UUID) throws {
@@ -105,12 +110,6 @@ extension ContentListViewModel {
         self.project.contents.remove(at: index)
         self.project.lastUpdatedDate = .now
         self.notificationCenter.post(name: .didUpdateProjectContent, object: nil)
-    }
-
-    // TODO: delete pasteboard manager and handle in VC
-    func copyContentLink(with id: UUID) throws {
-        let content = try self.content(with: id)
-        self.pasteboardManager.copy(url: URL(string: content.link))
     }
 
     // MARK: Menu

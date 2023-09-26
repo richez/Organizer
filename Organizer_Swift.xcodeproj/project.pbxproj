@@ -93,7 +93,6 @@
 		F0AC0ADD2AB0968800AE326F /* ContentFormFieldsViewRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AC0ADC2AB0968800AE326F /* ContentFormFieldsViewRepresentation.swift */; };
 		F0AC0ADF2AB096FF00AE326F /* ContentFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AC0ADE2AB096FF00AE326F /* ContentFormViewModel.swift */; };
 		F0AC0AE12AB0AD2700AE326F /* ContentFormMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AC0AE02AB0AD2700AE326F /* ContentFormMenu.swift */; };
-		F0BF35EE2ABB302A002F5E97 /* PasteboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BF35ED2ABB302A002F5E97 /* PasteboardManager.swift */; };
 		F0C265132AAB8932008EAB3C /* NotificationName+DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C265122AAB8932008EAB3C /* NotificationName+DataStore.swift */; };
 		F0C265152AAB8A32008EAB3C /* ProjectDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C265142AAB8A32008EAB3C /* ProjectDataStore.swift */; };
 		F0C265172AAF5862008EAB3C /* UIViewController+RenderableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C265162AAF5862008EAB3C /* UIViewController+RenderableError.swift */; };
@@ -270,7 +269,6 @@
 		F0AC0ADC2AB0968800AE326F /* ContentFormFieldsViewRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentFormFieldsViewRepresentation.swift; sourceTree = "<group>"; };
 		F0AC0ADE2AB096FF00AE326F /* ContentFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentFormViewModel.swift; sourceTree = "<group>"; };
 		F0AC0AE02AB0AD2700AE326F /* ContentFormMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentFormMenu.swift; sourceTree = "<group>"; };
-		F0BF35ED2ABB302A002F5E97 /* PasteboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardManager.swift; sourceTree = "<group>"; };
 		F0C265122AAB8932008EAB3C /* NotificationName+DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+DataStore.swift"; sourceTree = "<group>"; };
 		F0C265142AAB8A32008EAB3C /* ProjectDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDataStore.swift; sourceTree = "<group>"; };
 		F0C265162AAF5862008EAB3C /* UIViewController+RenderableError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+RenderableError.swift"; sourceTree = "<group>"; };
@@ -345,7 +343,6 @@
 			isa = PBXGroup;
 			children = (
 				F0C2652C2AAF706D008EAB3C /* Controller */,
-				F0BF35EC2ABB3018002F5E97 /* Pasteboard */,
 				F007E92B2AC33BB90037CDEE /* Settings */,
 				F054F6012AB2412400C74784 /* Storage */,
 				F0307C6A2AA87EAE00DC3958 /* Views */,
@@ -766,14 +763,6 @@
 				F0AC0ACE2AB091CE00AE326F /* ContentFormViewController.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		F0BF35EC2ABB3018002F5E97 /* Pasteboard */ = {
-			isa = PBXGroup;
-			children = (
-				F0BF35ED2ABB302A002F5E97 /* PasteboardManager.swift */,
-			);
-			path = Pasteboard;
 			sourceTree = "<group>";
 		};
 		F0C265182AAF58F5008EAB3C /* Model */ = {
@@ -1206,7 +1195,6 @@
 				F09AE35C2AB64F6000161CFB /* Array+Duplicates.swift in Sources */,
 				F0307C702AA87EEE00DC3958 /* FloatingActionButtonViewRepresentation.swift in Sources */,
 				F09AE3542AB62F2D00161CFB /* ContentListSettings.swift in Sources */,
-				F0BF35EE2ABB302A002F5E97 /* PasteboardManager.swift in Sources */,
 				F0AC0AD72AB0949800AE326F /* ContentFormView.swift in Sources */,
 				F07202F82AAFCCC70026B29E /* ContentListDataSource.swift in Sources */,
 				F0AC0AD32AB0937B00AE326F /* ContentFormField.swift in Sources */,
