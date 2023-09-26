@@ -22,8 +22,6 @@ final class Project {
     var creationDate: Date
     var lastUpdatedDate: Date
 
-    var themes: [String] { self.theme.words }
-
     init(id: UUID,
          title: String,
          theme: String,
@@ -37,4 +35,9 @@ final class Project {
         self.creationDate = creationDate
         self.lastUpdatedDate = lastUpdatedDate
     }
+}
+
+extension Project {
+    @Transient
+    var themes: [String] { self.theme.words }
 }

@@ -77,7 +77,8 @@ extension ProjectDataStore: ProjectDataStoreProtocol {
         let predicate = #Predicate<Project> { project in
             return project.id == projectID
         }
-        let descriptor = FetchDescriptor<Project>(predicate: predicate)
+        var descriptor = FetchDescriptor<Project>(predicate: predicate)
+        descriptor.fetchLimit = 1
         guard let project = try context.fetch(descriptor).first else {
             throw ProjectDataStoreError.notFound(projectID)
         }
