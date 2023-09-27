@@ -8,8 +8,6 @@
 import Foundation
 import SwiftData
 
-// TODO: - Add "Get link metadata" to content creation
-
 @Model
 final class Project {
     @Attribute(.unique) let id: UUID

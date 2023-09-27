@@ -90,6 +90,7 @@ private extension ContentCell {
     func setupTitleLabel() {
         self.titleLabel.textColor = self.viewRepresentation.titleColor
         self.titleLabel.font = self.viewRepresentation.titleFont
+        self.titleLabel.numberOfLines = self.viewRepresentation.titleNumberOfLines
 
         self.addSubview(self.titleLabel)
         self.titleLabel.translatesAutoresizingMaskIntoConstraints = false

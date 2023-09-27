@@ -13,6 +13,7 @@ struct ContentCellViewRepresentation {
 
     var titleColor: UIColor = .contentCellTitle
     var titleFont: UIFont = .systemFont(ofSize: 15, weight: .bold)
+    var titleNumberOfLines: Int = 2
 
     var themeColor: UIColor = .contentCellTheme
     var themeFont: UIFont = .systemFont(ofSize: 12, weight: .regular)
