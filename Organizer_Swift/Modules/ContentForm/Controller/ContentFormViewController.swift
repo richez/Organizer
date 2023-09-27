@@ -15,6 +15,8 @@ final class ContentFormViewController: UIViewController {
     private let viewModel: ContentFormViewModel
     private unowned let coordinator: ContentFormCoordinatorProtocol
 
+    private var linkTitleTask: Task<Void, Never>?
+
     // MARK: - Initialization
 
     init(viewModel: ContentFormViewModel, coordinator: ContentFormCoordinatorProtocol) {
@@ -65,14 +67,15 @@ extension ContentFormViewController: ContentFormViewDelegate {
 
     func didTapNameGetterButton(link: String) {
         self.view.endEditing(true)
-        // TODO: show loader - cancel task
-        Task {
+        // TODO: show loader
+        self.linkTitleTask = Task { [weak self] in
             do {
-                let title = try await self.viewModel.linkTitle(for: link)
-                self.contentView.fieldsView.set(name: title)
+                let title = try await self?.viewModel.linkTitle(for: link)
+                try Task.checkCancellation()
+                self?.contentView.fieldsView.set(name: title ?? "")
             } catch {
                 print("Fail to retrieve link title due to error: \(error)")
-                self.coordinator.show(error: error)
+                self?.coordinator.show(error: error)
             }
         }
     }
@@ -89,6 +92,7 @@ extension ContentFormViewController: ContentFormViewDelegate {
 
 extension ContentFormViewController: UIAdaptivePresentationControllerDelegate {
     func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        self.linkTitleTask?.cancel()
         self.coordinator.finish()
     }
 }

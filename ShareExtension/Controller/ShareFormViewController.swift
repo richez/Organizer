@@ -13,6 +13,8 @@ final class ShareFormViewController: UIViewController {
     private lazy var contentView: ShareFormView = .init()
     private let viewModel: ShareFormViewModel = .init()
 
+    private var viewConfigurationTask: Task<Void, Never>?
+
     // MARK: - Life Cycle
 
     override func loadView() {
@@ -24,6 +26,12 @@ final class ShareFormViewController: UIViewController {
 
         self.setup()
     }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+
+        self.viewConfigurationTask?.cancel()
+    }
 }
 
 
@@ -33,14 +41,15 @@ private extension ShareFormViewController {
     func setup() {
         self.contentView.delegate = self
 
-        Task {
+        self.viewConfigurationTask = Task { [weak self] in
             do {
-                let extensionItem = self.extensionContext?.inputItems.first as? NSExtensionItem
-                let viewConfiguration = try await self.viewModel.viewConfiguration(with: extensionItem)
-                self.contentView.configure(with: viewConfiguration)
+                let extensionItem = self?.extensionContext?.inputItems.first as? NSExtensionItem
+                let viewConfiguration = try await self?.viewModel.viewConfiguration(with: extensionItem)
+                try Task.checkCancellation()
+                self?.contentView.configure(with: viewConfiguration)
             } catch {
                 print("Fail de load view configuration due to error: \(error)")
-                self.contentView.configure(with: self.viewModel.erroredViewConfiguration)
+                self?.contentView.configure(with: self?.viewModel.erroredViewConfiguration)
             }
         }
     }

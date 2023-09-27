@@ -56,7 +56,9 @@ final class ShareFormView: UIView {
 
     // MARK: - Configuration
 
-    func configure(with configuration: ShareFormViewConfiguration) {
+    func configure(with configuration: ShareFormViewConfiguration?) {
+        guard let configuration else { return }
+
         self.stopActivityIndicator()
         self.showError(with: configuration.errorMessage)
 
