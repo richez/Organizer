@@ -49,10 +49,10 @@ private extension ShareFormViewController {
 // MARK: - ShareFormViewDelegate
 
 extension ShareFormViewController: ShareFormViewDelegate {
-    func didEditFields(selectedProject: ProjectSelectedItem?, type: String, name: String, theme: String, link: String) {
+    func didEditFields(selectedProject: ProjectSelectedItem?, type: String, link: String, name: String, theme: String) {
         self.contentView.isProjectTextFieldHidden = self.viewModel.shouldHideProjectTextField(for: selectedProject)
         self.contentView.isSaveButtonEnabled = self.viewModel.isFieldsValid(
-            selectedProject: selectedProject, type: type, name: name, theme: theme, link: link
+            selectedProject: selectedProject, type: type, link: link, name: name, theme: theme
         )
     }
     
@@ -60,9 +60,9 @@ extension ShareFormViewController: ShareFormViewDelegate {
         self.view.endEditing(true)
     }
     
-    func didTapSaveButton(selectedProject: ProjectSelectedItem?, type: String, name: String, theme: String, link: String) {
+    func didTapSaveButton(selectedProject: ProjectSelectedItem?, type: String, link: String, name: String, theme: String) {
         do {
-            try self.viewModel.commit(selectedProjectItem: selectedProject, type: type, name: name, theme: theme, link: link)
+            try self.viewModel.commit(selectedProjectItem: selectedProject, type: type, link: link, name: name, theme: theme)
             self.extensionContext?.completeRequest(returningItems: nil)
         } catch {
             print("Fail to create content due to error: \(error)")

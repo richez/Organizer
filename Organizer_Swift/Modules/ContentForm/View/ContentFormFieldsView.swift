@@ -8,7 +8,8 @@
 import UIKit
 
 protocol ContentFormFieldsViewDelegate: AnyObject {
-    func didEditFields(type: String, name: String, theme: String, link: String)
+    func didEditFields(type: String, link: String, name: String, theme: String)
+    func didTapNameGetterButton(link: String)
 }
 
 final class ContentFormFieldsView: UIView {
@@ -20,17 +21,24 @@ final class ContentFormFieldsView: UIView {
 
     private let typeLabel: UILabel = .init()
     private let typeButton: UIButton = .init()
-    private let nameLabel: UILabel = .init()
-    private let nameTextField: UITextField = .init()
-    private let themeLabel: UILabel = .init()
-    private let themeTextField: UITextField = .init()
     private let linkLabel: UILabel = .init()
     private let linkTextField: UITextField = .init()
+    private let nameLabel: UILabel = .init()
+    private let nameTextField: UITextField = .init()
+    private let nameGetterButton: UIButton = .init()
+    private let themeLabel: UILabel = .init()
+    private let themeTextField: UITextField = .init()
 
     var typeButtonValue: String { self.typeButton.menu?.selectedElements.first?.title ?? "" }
+    var linkTextFieldValue: String { self.linkTextField.text ?? "" }
     var nameTextFieldValue: String { self.nameTextField.text ?? "" }
     var themeTextFieldValue: String { self.themeTextField.text ?? "" }
-    var linkTextFieldValue: String { self.linkTextField.text ?? "" }
+
+    var isNameGetterButtonEnabled: Bool = false {
+        didSet {
+            self.nameGetterButton.isEnabled = self.isNameGetterButtonEnabled
+        }
+    }
 
     weak var delegate: ContentFormFieldsViewDelegate?
 
@@ -52,20 +60,23 @@ final class ContentFormFieldsView: UIView {
         self.typeLabel.text = configuration.type.text
         self.typeButton.menu = UIMenu(configuration: self.menuConfiguration(for: configuration.type))
 
+        self.linkLabel.text = configuration.link.text
+        self.linkTextField.placeholder = configuration.link.placeholder
+        self.linkTextField.text = configuration.link.value
+        self.linkTextField.tag = configuration.link.tag
+
         self.nameLabel.text = configuration.name.text
         self.nameTextField.placeholder = configuration.name.placeholder
         self.nameTextField.text = configuration.name.value
         self.nameTextField.tag = configuration.name.tag
 
+        self.nameGetterButton.setTitle(configuration.nameGetter.text, for: .normal)
+        self.nameGetterButton.isHidden = configuration.nameGetter.isHidden
+
         self.themeLabel.text = configuration.theme.text
         self.themeTextField.placeholder = configuration.theme.placeholder
         self.themeTextField.text = configuration.theme.value
         self.themeTextField.tag = configuration.theme.tag
-
-        self.linkLabel.text = configuration.link.text
-        self.linkTextField.placeholder = configuration.link.placeholder
-        self.linkTextField.text = configuration.link.value
-        self.linkTextField.tag = configuration.link.tag
     }
 }
 
@@ -76,12 +87,13 @@ private extension ContentFormFieldsView {
         self.setupFormStackView()
         self.setupLabel(self.typeLabel)
         self.setupTypeButton()
-        self.setupLabel(self.nameLabel)
-        self.setupTextField(self.nameTextField, rules: self.viewRepresentation.nameTextFieldRules)
-        self.setupLabel(self.themeLabel)
-        self.setupTextField(self.themeTextField, rules: self.viewRepresentation.themeTextFieldRules)
         self.setupLabel(self.linkLabel)
         self.setupTextField(self.linkTextField, rules: self.viewRepresentation.linkTextFieldRules)
+        self.setupLabel(self.nameLabel)
+        self.setupTextField(self.nameTextField, rules: self.viewRepresentation.nameTextFieldRules)
+        self.setupNameGetterButton()
+        self.setupLabel(self.themeLabel)
+        self.setupTextField(self.themeTextField, rules: self.viewRepresentation.themeTextFieldRules)
     }
 
     func setupFormStackView() {
@@ -89,12 +101,13 @@ private extension ContentFormFieldsView {
 
         self.formStackView.addArrangedSubview(self.typeLabel)
         self.formStackView.addArrangedSubview(self.typeButton)
-        self.formStackView.addArrangedSubview(self.nameLabel)
-        self.formStackView.addArrangedSubview(self.nameTextField)
-        self.formStackView.addArrangedSubview(self.themeLabel)
-        self.formStackView.addArrangedSubview(self.themeTextField)
         self.formStackView.addArrangedSubview(self.linkLabel)
         self.formStackView.addArrangedSubview(self.linkTextField)
+        self.formStackView.addArrangedSubview(self.nameLabel)
+        self.formStackView.addArrangedSubview(self.nameTextField)
+        self.formStackView.addArrangedSubview(self.nameGetterButton)
+        self.formStackView.addArrangedSubview(self.themeLabel)
+        self.formStackView.addArrangedSubview(self.themeTextField)
 
         self.addSubview(self.formStackView)
         self.formStackView.translatesAutoresizingMaskIntoConstraints = false
@@ -146,9 +159,9 @@ private extension ContentFormFieldsView {
             guard let self = self else { return }
             self.delegate?.didEditFields(
                 type: self.typeButtonValue,
+                link: self.linkTextFieldValue,
                 name: self.nameTextFieldValue,
-                theme: self.themeTextFieldValue,
-                link: self.linkTextFieldValue
+                theme: self.themeTextFieldValue
             )
         }), for: .editingChanged)
 
@@ -168,6 +181,31 @@ private extension ContentFormFieldsView {
         ])
     }
 
+    func setupNameGetterButton() {
+        self.nameGetterButton.isEnabled = self.isNameGetterButtonEnabled
+        self.nameGetterButton.layer.borderWidth = 0
+        self.nameGetterButton.contentHorizontalAlignment = .leading
+        self.nameGetterButton.titleLabel?.font = self.viewRepresentation.nameGetterFont
+        self.nameGetterButton.setTitleColor(.link, for: .normal)
+        self.nameGetterButton.setTitleColor(.link.withAlphaComponent(0.5), for: .disabled)
+        self.nameGetterButton.setTitleColor(.link.withAlphaComponent(0.5), for: .highlighted)
+
+        self.nameGetterButton.addAction(UIAction(handler: { [weak self] _ in
+            guard let self = self else { return }
+            self.delegate?.didTapNameGetterButton(link: self.linkTextFieldValue)
+        }), for: .touchUpInside)
+
+        self.nameGetterButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            self.nameGetterButton.heightAnchor.constraint(equalToConstant: self.viewRepresentation.nameGetterButtonHeight),
+            self.nameGetterButton.leadingAnchor.constraint(equalTo: self.formStackView.layoutMarginsGuide.leadingAnchor),
+            self.nameGetterButton.trailingAnchor.constraint(
+                equalTo: self.formStackView.layoutMarginsGuide.trailingAnchor
+            )
+        ])
+
+    }
+
     // MARK: - Menu
 
     func menuConfiguration(for menu: ContentFormMenu) -> MenuConfiguration {
@@ -178,9 +216,9 @@ private extension ContentFormFieldsView {
                     guard let self = self else { return }
                     self.delegate?.didEditFields(
                         type: self.typeButtonValue,
+                        link: self.linkTextFieldValue,
                         name: self.nameTextFieldValue,
-                        theme: self.themeTextFieldValue,
-                        link: self.linkTextFieldValue
+                        theme: self.themeTextFieldValue
                     )
                 }
             }

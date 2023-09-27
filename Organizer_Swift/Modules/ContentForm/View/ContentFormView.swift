@@ -8,9 +8,10 @@
 import UIKit
 
 protocol ContentFormViewDelegate: AnyObject {
-    func didEditFields(type: String, name: String, theme: String, link: String)
+    func didEditFields(type: String, link: String, name: String, theme: String)
     func didTapOnView()
-    func didTapSaveButton(type: String, name: String, theme: String, link: String)
+    func didTapNameGetterButton(link: String)
+    func didTapSaveButton(type: String, link: String, name: String, theme: String)
 }
 
 final class ContentFormView: UIView {
@@ -84,9 +85,9 @@ private extension ContentFormView {
             guard let self = self else { return }
             self.delegate?.didTapSaveButton(
                 type: self.fieldsView.typeButtonValue,
+                link: self.fieldsView.linkTextFieldValue,
                 name: self.fieldsView.nameTextFieldValue,
-                theme: self.fieldsView.themeTextFieldValue,
-                link: self.fieldsView.linkTextFieldValue
+                theme: self.fieldsView.themeTextFieldValue
             )
         }), for: .touchUpInside)
 
@@ -116,7 +117,11 @@ private extension ContentFormView {
 // MARK: - ContentFormFieldsViewDelegate
 
 extension ContentFormView: ContentFormFieldsViewDelegate {
-    func didEditFields(type: String, name: String, theme: String, link: String) {
-        self.delegate?.didEditFields(type: type, name: name, theme: theme, link: link)
+    func didEditFields(type: String, link: String, name: String, theme: String) {
+        self.delegate?.didEditFields(type: type, link: link, name: name, theme: theme)
+    }
+
+    func didTapNameGetterButton(link: String) {
+        self.delegate?.didTapNameGetterButton(link: link)
     }
 }

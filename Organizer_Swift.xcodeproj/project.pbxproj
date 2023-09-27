@@ -14,6 +14,11 @@
 		F007E9312AC33BDA0037CDEE /* StorageKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F054F6042AB2430A00C74784 /* StorageKey.swift */; };
 		F007E9342AC453000037CDEE /* UITextField+Next.swift in Sources */ = {isa = PBXBuildFile; fileRef = F007E9332AC453000037CDEE /* UITextField+Next.swift */; };
 		F007E9352AC453000037CDEE /* UITextField+Next.swift in Sources */ = {isa = PBXBuildFile; fileRef = F007E9332AC453000037CDEE /* UITextField+Next.swift */; };
+		F007E9382AC458E20037CDEE /* URLMetadataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F007E9372AC458E20037CDEE /* URLMetadataProvider.swift */; };
+		F007E93A2AC45B470037CDEE /* URLMetadataProviderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F007E9392AC45B470037CDEE /* URLMetadataProviderError.swift */; };
+		F007E93C2AC45B540037CDEE /* URLMetadataConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F007E93B2AC45B540037CDEE /* URLMetadataConfiguration.swift */; };
+		F007E93E2AC46A3C0037CDEE /* ContentFormButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F007E93D2AC46A3C0037CDEE /* ContentFormButton.swift */; };
+		F007E93F2AC46A440037CDEE /* ContentFormButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F007E93D2AC46A3C0037CDEE /* ContentFormButton.swift */; };
 		F0173DD12AB900E8009CDC9C /* ContentFormMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0173DD02AB900E8009CDC9C /* ContentFormMode.swift */; };
 		F0307C6E2AA87ED100DC3958 /* FloatingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0307C6D2AA87ED100DC3958 /* FloatingActionButton.swift */; };
 		F0307C702AA87EEE00DC3958 /* FloatingActionButtonViewRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0307C6F2AA87EEE00DC3958 /* FloatingActionButtonViewRepresentation.swift */; };
@@ -185,6 +190,10 @@
 /* Begin PBXFileReference section */
 		F007E92C2AC33BCC0037CDEE /* AppGroupSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroupSettings.swift; sourceTree = "<group>"; };
 		F007E9332AC453000037CDEE /* UITextField+Next.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Next.swift"; sourceTree = "<group>"; };
+		F007E9372AC458E20037CDEE /* URLMetadataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLMetadataProvider.swift; sourceTree = "<group>"; };
+		F007E9392AC45B470037CDEE /* URLMetadataProviderError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLMetadataProviderError.swift; sourceTree = "<group>"; };
+		F007E93B2AC45B540037CDEE /* URLMetadataConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLMetadataConfiguration.swift; sourceTree = "<group>"; };
+		F007E93D2AC46A3C0037CDEE /* ContentFormButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentFormButton.swift; sourceTree = "<group>"; };
 		F0173DD02AB900E8009CDC9C /* ContentFormMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentFormMode.swift; sourceTree = "<group>"; };
 		F0307C6D2AA87ED100DC3958 /* FloatingActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingActionButton.swift; sourceTree = "<group>"; };
 		F0307C6F2AA87EEE00DC3958 /* FloatingActionButtonViewRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingActionButtonViewRepresentation.swift; sourceTree = "<group>"; };
@@ -350,12 +359,23 @@
 			path = TextField;
 			sourceTree = "<group>";
 		};
+		F007E9362AC458C80037CDEE /* URL */ = {
+			isa = PBXGroup;
+			children = (
+				F007E9372AC458E20037CDEE /* URLMetadataProvider.swift */,
+				F007E93B2AC45B540037CDEE /* URLMetadataConfiguration.swift */,
+				F007E9392AC45B470037CDEE /* URLMetadataProviderError.swift */,
+			);
+			path = URL;
+			sourceTree = "<group>";
+		};
 		F0307C692AA87EA500DC3958 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				F0C2652C2AAF706D008EAB3C /* Controller */,
 				F007E92B2AC33BB90037CDEE /* Settings */,
 				F054F6012AB2412400C74784 /* Storage */,
+				F007E9362AC458C80037CDEE /* URL */,
 				F0307C6A2AA87EAE00DC3958 /* Views */,
 			);
 			path = Helpers;
@@ -946,6 +966,7 @@
 				F0AC0AD42AB0946C00AE326F /* ContentFormFieldsConfiguration.swift */,
 				F0AC0AE02AB0AD2700AE326F /* ContentFormMenu.swift */,
 				F0AC0AD22AB0937B00AE326F /* ContentFormField.swift */,
+				F007E93D2AC46A3C0037CDEE /* ContentFormButton.swift */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -1155,9 +1176,11 @@
 				F03D1E062AB3317B009818CC /* ProjectListSorting.swift in Sources */,
 				F0C2651A2AAF5903008EAB3C /* ProjectFormFieldsConfiguration.swift in Sources */,
 				F0307C802AA8A95C00DC3958 /* ProjectFormView.swift in Sources */,
+				F007E93A2AC45B470037CDEE /* URLMetadataProviderError.swift in Sources */,
 				F0AC0AD12AB0923600AE326F /* ContentFormCoordinator.swift in Sources */,
 				F05CA3842ABA51E70059F25F /* ProjectListFetchDescriptor.swift in Sources */,
 				F090AAB62AA7698B00480249 /* ProjectListSection.swift in Sources */,
+				F007E93C2AC45B540037CDEE /* URLMetadataConfiguration.swift in Sources */,
 				F090AAB82AA7699900480249 /* ProjectDescription.swift in Sources */,
 				F036939A2AA6A512005C373A /* ProjectListViewModel.swift in Sources */,
 				F0732BD82AA63C810027EC4F /* Coordinator.swift in Sources */,
@@ -1195,6 +1218,7 @@
 				F0307C8A2AA8F07E00DC3958 /* ProjectFormFieldsView.swift in Sources */,
 				F03D1E122AB33510009818CC /* ProjectFormViewModelError.swift in Sources */,
 				F0732BDA2AA63E020027EC4F /* AppLaunchCoordinator.swift in Sources */,
+				F007E93E2AC46A3C0037CDEE /* ContentFormButton.swift in Sources */,
 				F07202F32AAFCAEE0026B29E /* ContentCell.swift in Sources */,
 				F0307C862AA8DDAB00DC3958 /* NSLayoutAnchor+Priority.swift in Sources */,
 				F0C2651C2AAF5911008EAB3C /* ProjectFormField.swift in Sources */,
@@ -1229,6 +1253,7 @@
 				F054F6072AB25E2500C74784 /* RawRepresentableStorage.swift in Sources */,
 				F09AE3582AB6363A00161CFB /* String+Pluralize.swift in Sources */,
 				F0C265172AAF5862008EAB3C /* UIViewController+RenderableError.swift in Sources */,
+				F007E9382AC458E20037CDEE /* URLMetadataProvider.swift in Sources */,
 				F03D1E0A2AB331A0009818CC /* ProjectListSettings.swift in Sources */,
 				F05CA3822ABA51C20059F25F /* ProjectListMenuConfigurator.swift in Sources */,
 				F05CA37D2ABA49540059F25F /* ContentListFetchDescriptor.swift in Sources */,
@@ -1272,6 +1297,7 @@
 				F007E92E2AC33BCC0037CDEE /* AppGroupSettings.swift in Sources */,
 				F0FEB2AD2ABC74A300821ED8 /* ProjectContent.swift in Sources */,
 				F0FEB29B2ABC726A00821ED8 /* ShareFormViewModel.swift in Sources */,
+				F007E93F2AC46A440037CDEE /* ContentFormButton.swift in Sources */,
 				F0FEB2AE2ABC750900821ED8 /* String+Components.swift in Sources */,
 				F0FEB2992ABC70F900821ED8 /* ShareFormView.swift in Sources */,
 				F0FEB2A52ABC732A00821ED8 /* UITextField+Rules.swift in Sources */,

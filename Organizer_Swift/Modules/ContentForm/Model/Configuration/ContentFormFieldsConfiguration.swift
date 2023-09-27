@@ -9,7 +9,8 @@ import Foundation
 
 struct ContentFormFieldsConfiguration {
     var type: ContentFormMenu
-    var name: ContentFormField
-    var theme: ContentFormField
     var link: ContentFormField
+    var name: ContentFormField
+    var nameGetter: ContentFormButton
+    var theme: ContentFormField
 }

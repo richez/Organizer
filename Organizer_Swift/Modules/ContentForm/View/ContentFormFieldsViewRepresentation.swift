@@ -28,6 +28,19 @@ struct ContentFormFieldsViewRepresentation {
     var textFieldsFont: UIFont = .systemFont(ofSize: 15, weight: .medium)
     var textFieldsBorderStyle: UITextField.BorderStyle = .roundedRect
 
+    var nameGetterButtonHeight: CGFloat = 20
+    var nameGetterFont: UIFont = .systemFont(ofSize: 15, weight: .bold)
+
+    var linkTextFieldRules: TextFieldRules = .init(
+        autocapitalizationType: .none,
+        clearButtonMode: .always,
+        keyboardType: .URL,
+        autocorrectionType: .no,
+        inlinePredictionType: .no,
+        spellCheckingType: .no,
+        returnKeyType: .next
+    )
+
     var nameTextFieldRules: TextFieldRules = .init(
         autocapitalizationType: .sentences,
         clearButtonMode: .always,
@@ -36,16 +49,6 @@ struct ContentFormFieldsViewRepresentation {
 
     var themeTextFieldRules: TextFieldRules = .init(
         autocapitalizationType: .none,
-        clearButtonMode: .always,
-        returnKeyType: .next
-    )
-
-    var linkTextFieldRules: TextFieldRules = .init(
-        autocapitalizationType: .none,
-        clearButtonMode: .always,
-        keyboardType: .URL,
-        autocorrectionType: .no,
-        inlinePredictionType: .no,
-        spellCheckingType: .no
+        clearButtonMode: .always
     )
 }

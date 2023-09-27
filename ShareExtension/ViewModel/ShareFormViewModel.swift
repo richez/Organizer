@@ -26,8 +26,8 @@ extension ShareFormViewModel {
     var erroredViewConfiguration: ShareFormViewConfiguration {
         self.viewConfiguration(
             projectMenuItems: [],
-            contentName: nil,
             contentLink: nil,
+            contentName: nil,
             errorMessage: "Could not retrieve data, please retry later"
         )
     }
@@ -38,27 +38,27 @@ extension ShareFormViewModel {
             predicate: nil, sortBy: [SortDescriptor(\.lastUpdatedDate, order: .reverse)]
         )
         let projectMenuItems = projects.map { ShareFormMenuItem.custom(title: $0.title, id: $0.persistentModelID) }
-        let contentName = extensionItem?.attributedTitle?.string ?? extensionItem?.attributedContentText?.string ?? ""
         let contentLink = try await self.url(in: extensionItem?.attachments)
+        let contentName = extensionItem?.attributedTitle?.string ?? extensionItem?.attributedContentText?.string ?? ""
         return self.viewConfiguration(
             projectMenuItems: projectMenuItems,
-            contentName: contentName,
             contentLink: contentLink,
+            contentName: contentName,
             errorMessage: nil
         )
     }
 
     func isFieldsValid(selectedProject: ProjectSelectedItem?,
                        type: String,
+                       link: String,
                        name: String,
-                       theme: String,
-                       link: String) -> Bool {
+                       theme: String) -> Bool {
         let isValidSelectedProject = self.isSelectedProjectValid(selectedProject)
         let isValidType = ProjectContentType(rawValue: type) != nil
+        let isValidLink = !link.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
         let isValidName = !name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
         let isValidTheme = true
-        let isValidLink = !link.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
-        return isValidSelectedProject && isValidType && isValidName && isValidTheme && isValidLink
+        return isValidSelectedProject && isValidType && isValidLink && isValidName && isValidTheme
     }
 
     func shouldHideProjectTextField(for selectedProject: ProjectSelectedItem?) -> Bool {
@@ -74,14 +74,14 @@ extension ShareFormViewModel {
         "Could not save content, please retry later"
     }
 
-    func commit(selectedProjectItem: ProjectSelectedItem?, type: String, name: String, theme: String, link: String) throws {
+    func commit(selectedProjectItem: ProjectSelectedItem?, type: String, link: String, name: String, theme: String) throws {
         switch selectedProjectItem {
         case .new(let title):
-            let content = self.content(type: type, name: name, theme: theme, link: link)
+            let content = self.content(type: type, link: link, name: name, theme: theme)
             try self.createProject(title: title, content: content)
             self.settings.shareExtensionDidAddContent = true
         case .custom(let projectID):
-            let content = self.content(type: type, name: name, theme: theme, link: link)
+            let content = self.content(type: type, link: link, name: name, theme: theme)
             try self.addContent(content, to: projectID)
             self.settings.shareExtensionDidAddContent = true
         case nil:
@@ -116,8 +116,8 @@ private extension ShareFormViewModel {
 
     func viewConfiguration(
         projectMenuItems: [ShareFormMenuItem],
-        contentName: String?,
         contentLink: String?,
+        contentName: String?,
         errorMessage: String?) -> ShareFormViewConfiguration {
         .init(
             project: ShareFormMenu(
@@ -135,14 +135,15 @@ private extension ShareFormViewModel {
                         items: ProjectContentType.allCases.map(\.rawValue),
                         selectedItem: ProjectContentType.article.rawValue
                     ),
-                    name: ContentFormField(
-                        text: "Name", placeholder: "My content", value: contentName, tag: 1
-                    ),
-                    theme: ContentFormField(
-                        text: "Themes", placeholder: "Isolation, tennis, recherche", value: "", tag: 2
-                    ),
                     link: ContentFormField(
-                        text: "Link", placeholder: "https://www.youtube.com", value: contentLink, tag: 3
+                        text: "Link", placeholder: "https://www.youtube.com", value: contentLink, tag: 1
+                    ),
+                    name: ContentFormField(
+                        text: "Name", placeholder: "My content", value: contentName, tag: 2
+                    ),
+                    nameGetter: ContentFormButton(isHidden: true),
+                    theme: ContentFormField(
+                        text: "Themes", placeholder: "Isolation, tennis, recherche", value: "", tag: 3
                     )
                 )
             ),
@@ -165,7 +166,7 @@ private extension ShareFormViewModel {
 
     // MARK: Project
 
-    func content(type: String, name: String, theme: String, link: String) -> ProjectContent {
+    func content(type: String, link: String, name: String, theme: String) -> ProjectContent {
         .init(
             id: UUID(),
             type: ProjectContentType(rawValue: type) ?? .other,

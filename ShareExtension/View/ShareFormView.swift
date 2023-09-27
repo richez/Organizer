@@ -8,9 +8,9 @@
 import UIKit
 
 protocol ShareFormViewDelegate: AnyObject {
-    func didEditFields(selectedProject: ProjectSelectedItem?, type: String, name: String, theme: String, link: String)
+    func didEditFields(selectedProject: ProjectSelectedItem?, type: String, link: String, name: String, theme: String)
     func didTapOnView()
-    func didTapSaveButton(selectedProject: ProjectSelectedItem?, type: String, name: String, theme: String, link: String)
+    func didTapSaveButton(selectedProject: ProjectSelectedItem?, type: String, link: String, name: String, theme: String)
 }
 
 final class ShareFormView: UIView {
@@ -165,9 +165,9 @@ private extension ShareFormView {
             self.delegate?.didEditFields(
                 selectedProject: self.selectedProject,
                 type: self.contentFormView.fieldsView.typeButtonValue,
+                link: self.contentFormView.fieldsView.linkTextFieldValue,
                 name: self.contentFormView.fieldsView.nameTextFieldValue,
-                theme: self.contentFormView.fieldsView.themeTextFieldValue,
-                link: self.contentFormView.fieldsView.linkTextFieldValue
+                theme: self.contentFormView.fieldsView.themeTextFieldValue
             )
         }), for: .editingChanged)
 
@@ -233,9 +233,9 @@ private extension ShareFormView {
                     self.delegate?.didEditFields(
                         selectedProject: self.selectedProject,
                         type: self.contentFormView.fieldsView.typeButtonValue,
+                        link: self.contentFormView.fieldsView.linkTextFieldValue,
                         name: self.contentFormView.fieldsView.nameTextFieldValue,
-                        theme: self.contentFormView.fieldsView.themeTextFieldValue,
-                        link: self.contentFormView.fieldsView.linkTextFieldValue
+                        theme: self.contentFormView.fieldsView.themeTextFieldValue
                     )
                 }
             }
@@ -246,15 +246,17 @@ private extension ShareFormView {
 // MARK: - ContentFormViewDelegate
 
 extension ShareFormView: ContentFormViewDelegate {
-    func didEditFields(type: String, name: String, theme: String, link: String) {
-        self.delegate?.didEditFields(selectedProject: self.selectedProject, type: type, name: name, theme: theme, link: link)
+    func didEditFields(type: String, link: String, name: String, theme: String) {
+        self.delegate?.didEditFields(selectedProject: self.selectedProject, type: type, link: link, name: name, theme: theme)
     }
     
     func didTapOnView() {
         self.delegate?.didTapOnView()
     }
-    
-    func didTapSaveButton(type: String, name: String, theme: String, link: String) {
-        self.delegate?.didTapSaveButton(selectedProject: self.selectedProject, type: type, name: name, theme: theme, link: link)
+
+    func didTapNameGetterButton(link: String) {}
+
+    func didTapSaveButton(type: String, link: String, name: String, theme: String) {
+        self.delegate?.didTapSaveButton(selectedProject: self.selectedProject, type: type, link: link, name: name, theme: theme)
     }
 }

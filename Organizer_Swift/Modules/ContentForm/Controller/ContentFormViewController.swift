@@ -53,18 +53,23 @@ private extension ContentFormViewController {
 // MARK: - ContentFormViewDelegate
 
 extension ContentFormViewController: ContentFormViewDelegate {    
-    func didEditFields(type: String, name: String, theme: String, link: String) {
-        let isFieldsValid = self.viewModel.isFieldsValid(type: type, name: name, theme: theme, link: link)
+    func didEditFields(type: String, link: String, name: String, theme: String) {
+        let isFieldsValid = self.viewModel.isFieldsValid(type: type, link: link, name: name, theme: theme)
         self.contentView.isSaveButtonEnabled = isFieldsValid
+        self.contentView.fieldsView.isNameGetterButtonEnabled = self.viewModel.isNameGetterEnabled(link: link)
     }
     
     func didTapOnView() {
         self.view.endEditing(true)
     }
-    
-    func didTapSaveButton(type: String, name: String, theme: String, link: String) {
+
+    func didTapNameGetterButton(link: String) {
+        // TODO: handle name getter action
+    }
+
+    func didTapSaveButton(type: String, link: String, name: String, theme: String) {
         self.view.endEditing(true)
-        self.viewModel.commit(type: type, name: name, theme: theme, link: link)
+        self.viewModel.commit(type: type, link: link, name: name, theme: theme)
         self.dismiss(animated: true)
         self.coordinator.finish()
     }
