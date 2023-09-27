@@ -78,6 +78,12 @@ final class ContentFormFieldsView: UIView {
         self.themeTextField.text = configuration.theme.value
         self.themeTextField.tag = configuration.theme.tag
     }
+
+    // MARK: - Setter
+
+    func set(name: String) {
+        self.nameTextField.text = name
+    }
 }
 
 private extension ContentFormFieldsView {

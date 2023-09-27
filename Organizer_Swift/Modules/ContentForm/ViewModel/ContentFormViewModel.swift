@@ -12,15 +12,18 @@ struct ContentFormViewModel {
 
     private let mode: ContentFormMode
     private let project: Project
+    private let urlMetadataProvider: URLMetadataProviderProtocol
     private let notificationCenter: NotificationCenter
 
     // MARK: - Initialization
 
     init(mode: ContentFormMode,
          project: Project,
+         urlMetadataProvider: URLMetadataProviderProtocol,
          notificationCenter: NotificationCenter = .default) {
         self.mode = mode
         self.project = project
+        self.urlMetadataProvider = urlMetadataProvider
         self.notificationCenter = notificationCenter
     }
 }
@@ -71,6 +74,14 @@ extension ContentFormViewModel {
 
     func isNameGetterEnabled(link: String) -> Bool {
         !link.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+    }
+
+    func linkTitle(for link: String) async throws -> String {
+        do {
+            return try await self.urlMetadataProvider.title(for: link)
+        } catch {
+            throw ContentFormViewModelError.urlMetadataProvider(link, error)
+        }
     }
 
     func commit(type: String, link: String, name: String, theme: String) {

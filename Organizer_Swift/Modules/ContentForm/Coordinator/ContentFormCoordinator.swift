@@ -8,10 +8,11 @@
 import UIKit
 
 protocol ContentFormCoordinatorProtocol: AnyObject {
+    func show(error: Error)
     func finish()
 }
 
-final class ContentFormCoordinator: ChildCoordinator, ContentFormCoordinatorProtocol {
+final class ContentFormCoordinator: ChildCoordinator {
     // MARK: - Properties
 
     private let mode: ContentFormMode
@@ -33,9 +34,22 @@ final class ContentFormCoordinator: ChildCoordinator, ContentFormCoordinatorProt
     // MARK: - Coordinator
 
     func start() {
-        let contentFormViewModel = ContentFormViewModel(mode: self.mode, project: self.project)
+        let urlMetadataProvider = URLMetadataProvider(
+            configuration: URLMetadataConfiguration(shouldFetchSubresources: false, timeout: 20)
+        )
+        let contentFormViewModel = ContentFormViewModel(
+            mode: self.mode, project: self.project, urlMetadataProvider: urlMetadataProvider
+        )
         let contentFormViewController = ContentFormViewController(viewModel: contentFormViewModel, coordinator: self)
         self.navigationController.present(contentFormViewController, animated: true)
+    }
+}
+
+// MARK: - ContentFormCoordinatorProtocol
+
+extension ContentFormCoordinator: ContentFormCoordinatorProtocol {
+    func show(error: Error) {
+        self.navigationController.presentedViewController?.presentError(error)
     }
 }
 

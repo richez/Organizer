@@ -64,7 +64,17 @@ extension ContentFormViewController: ContentFormViewDelegate {
     }
 
     func didTapNameGetterButton(link: String) {
-        // TODO: handle name getter action
+        self.view.endEditing(true)
+        // TODO: show loader - cancel task
+        Task {
+            do {
+                let title = try await self.viewModel.linkTitle(for: link)
+                self.contentView.fieldsView.set(name: title)
+            } catch {
+                print("Fail to retrieve link title due to error: \(error)")
+                self.coordinator.show(error: error)
+            }
+        }
     }
 
     func didTapSaveButton(type: String, link: String, name: String, theme: String) {
