@@ -10,7 +10,10 @@ import UIKit
 extension UINavigationBar {
     func applyAppearance() {
         let appearance = UINavigationBarAppearance()
-        appearance.configureWithTransparentBackground()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .background
+        appearance.shadowColor = .clear
+
         self.tintColor = .navbarTitle
 
         self.standardAppearance = appearance
