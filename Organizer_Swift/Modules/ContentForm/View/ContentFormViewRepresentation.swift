@@ -10,6 +10,9 @@ import UIKit
 struct ContentFormViewRepresentation {
     var backgroundColor: UIColor = .background
 
+    var activityIndicatorStyle: UIActivityIndicatorView.Style = .large
+    var activityIndicatorColor: UIColor = .contentFormLoader
+
     func saveButtonViewRepresentation(imageName: String) -> FloatingActionButtonViewRepresentation {
         .init(
             size: 60,

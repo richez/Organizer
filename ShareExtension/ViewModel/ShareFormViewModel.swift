@@ -70,8 +70,8 @@ extension ShareFormViewModel {
         }
     }
 
-    var commitErrorMessage: String {
-        "Could not save content, please retry later"
+    var commitError: ShareFormError {
+        .init(text: "Could not save content, please retry later")
     }
 
     func commit(selectedProjectItem: ProjectSelectedItem?, type: String, link: String, name: String, theme: String) throws {
@@ -141,13 +141,13 @@ private extension ShareFormViewModel {
                     name: ContentFormField(
                         text: "Name", placeholder: "My content", value: contentName, tag: 2
                     ),
-                    nameGetter: ContentFormButton(isHidden: true),
+                    nameGetter: ContentFormButton(text: nil),
                     theme: ContentFormField(
                         text: "Themes", placeholder: "Isolation, tennis, recherche", value: "", tag: 3
                     )
                 )
             ),
-            errorMessage: errorMessage
+            error: ShareFormError(text: errorMessage)
         )
     }
 

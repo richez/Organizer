@@ -26,7 +26,6 @@ final class ShareFormView: UIView {
     private let projectButton: UIButton = .init()
     private let projectTextField: UITextField = .init()
     private let contentFormView: ContentFormView = .init()
-    private let activityIndicatorView: UIActivityIndicatorView = .init()
 
     private var selectedProject: ProjectSelectedItem?
 
@@ -59,9 +58,7 @@ final class ShareFormView: UIView {
     func configure(with configuration: ShareFormViewConfiguration?) {
         guard let configuration else { return }
 
-        self.stopActivityIndicator()
-        self.showError(with: configuration.errorMessage)
-
+        self.set(error: configuration.error)
         self.projectLabel.text = configuration.project.text
         self.projectTextField.placeholder = configuration.project.placeholder
         self.projectButton.menu = UIMenu(configuration: self.menuConfiguration(for: configuration.project))
@@ -69,11 +66,23 @@ final class ShareFormView: UIView {
         self.contentFormView.configure(with: configuration.content)
     }
 
-    // MARK: - Error
+    // MARK: - Setter
 
-    func showError(with message: String?) {
-        self.errorLabel.isHidden = message == nil
-        self.errorLabel.text = message
+    func set(error: ShareFormError) {
+        self.errorLabel.isHidden = error.isHidden
+        self.errorLabel.text = error.text
+    }
+
+    // MARK: - Loader
+
+    func startLoader() {
+        self.isUserInteractionEnabled = false
+        self.contentFormView.startLoader()
+    }
+
+    func stopLoader() {
+        self.isUserInteractionEnabled = true
+        self.contentFormView.stopLoader()
     }
 }
 
@@ -92,8 +101,6 @@ private extension ShareFormView {
         self.setupProjectButton()
         self.setupProjectTextField()
         self.setupContentFormView()
-        self.setupActivityIndicator()
-        self.startActivityIndicator()
     }
 
     func setupProjectStackView() {
@@ -190,31 +197,6 @@ private extension ShareFormView {
             self.contentFormView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             self.contentFormView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
-    }
-
-    func setupActivityIndicator() {
-        self.activityIndicatorView.hidesWhenStopped = true
-        self.activityIndicatorView.color = self.viewRepresentation.activityIndicatorColor
-        self.activityIndicatorView.style = self.viewRepresentation.activityIndicatorStyle
-
-        self.addSubview(self.activityIndicatorView)
-        self.activityIndicatorView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            self.activityIndicatorView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            self.activityIndicatorView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -80)
-        ])
-    }
-
-    // MARK: - Activity Indicator
-
-    func startActivityIndicator() {
-        self.isUserInteractionEnabled = false
-        self.activityIndicatorView.startAnimating()
-    }
-
-    func stopActivityIndicator() {
-        self.isUserInteractionEnabled = true
-        self.activityIndicatorView.stopAnimating()
     }
 
     // MARK: - Menu

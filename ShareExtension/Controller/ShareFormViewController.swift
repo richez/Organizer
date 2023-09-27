@@ -40,6 +40,7 @@ private extension ShareFormViewController {
 
     func setup() {
         self.contentView.delegate = self
+        self.contentView.startLoader()
 
         self.viewConfigurationTask = Task { [weak self] in
             do {
@@ -47,9 +48,11 @@ private extension ShareFormViewController {
                 let viewConfiguration = try await self?.viewModel.viewConfiguration(with: extensionItem)
                 try Task.checkCancellation()
                 self?.contentView.configure(with: viewConfiguration)
+                self?.contentView.stopLoader()
             } catch {
                 print("Fail de load view configuration due to error: \(error)")
                 self?.contentView.configure(with: self?.viewModel.erroredViewConfiguration)
+                self?.contentView.stopLoader()
             }
         }
     }
@@ -75,7 +78,7 @@ extension ShareFormViewController: ShareFormViewDelegate {
             self.extensionContext?.completeRequest(returningItems: nil)
         } catch {
             print("Fail to create content due to error: \(error)")
-            self.contentView.showError(with: self.viewModel.commitErrorMessage)
+            self.contentView.set(error: self.viewModel.commitError)
         }
     }
 }

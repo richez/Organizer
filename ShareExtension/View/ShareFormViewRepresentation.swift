@@ -36,7 +36,4 @@ struct ShareFormViewRepresentation {
         autocapitalizationType: .words,
         clearButtonMode: .always
     )
-
-    var activityIndicatorStyle: UIActivityIndicatorView.Style = .large
-    var activityIndicatorColor: UIColor = .contentFormSaveButtonBackground
 }

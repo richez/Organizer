@@ -23,6 +23,7 @@ final class ContentFormView: UIView {
 
     let fieldsView: ContentFormFieldsView = .init()
     private let saveButton: FloatingActionButton = .init()
+    private let activityIndicatorView: UIActivityIndicatorView = .init()
 
     var isSaveButtonEnabled: Bool = false {
         didSet {
@@ -50,6 +51,18 @@ final class ContentFormView: UIView {
         )
         self.fieldsView.configure(with: configuration.fields)
     }
+
+    // MARK: - Loader
+
+    func startLoader() {
+        self.isUserInteractionEnabled = false
+        self.activityIndicatorView.startAnimating()
+    }
+
+    func stopLoader() {
+        self.isUserInteractionEnabled = true
+        self.activityIndicatorView.stopAnimating()
+    }
 }
 
 private extension ContentFormView {
@@ -63,6 +76,7 @@ private extension ContentFormView {
         )
 
         self.setupFieldsView()
+        self.setupActivityIndicator()
         self.setupSaveButton()
     }
 
@@ -75,6 +89,19 @@ private extension ContentFormView {
             self.fieldsView.topAnchor.constraint(equalTo: self.topAnchor),
             self.fieldsView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             self.fieldsView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+        ])
+    }
+
+    func setupActivityIndicator() {
+        self.activityIndicatorView.hidesWhenStopped = true
+        self.activityIndicatorView.color = self.viewRepresentation.activityIndicatorColor
+        self.activityIndicatorView.style = self.viewRepresentation.activityIndicatorStyle
+
+        self.addSubview(self.activityIndicatorView)
+        self.activityIndicatorView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            self.activityIndicatorView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            self.activityIndicatorView.topAnchor.constraint(equalTo: self.fieldsView.bottomAnchor, constant: 40)
         ])
     }
 

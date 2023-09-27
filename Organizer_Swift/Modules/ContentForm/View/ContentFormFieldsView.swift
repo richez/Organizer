@@ -83,6 +83,12 @@ final class ContentFormFieldsView: UIView {
 
     func set(name: String) {
         self.nameTextField.text = name
+        self.delegate?.didEditFields(
+            type: self.typeButtonValue,
+            link: self.linkTextFieldValue,
+            name: self.nameTextFieldValue,
+            theme: self.themeTextFieldValue
+        )
     }
 }
 

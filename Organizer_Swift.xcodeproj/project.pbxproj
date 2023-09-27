@@ -20,6 +20,7 @@
 		F007E93E2AC46A3C0037CDEE /* ContentFormButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F007E93D2AC46A3C0037CDEE /* ContentFormButton.swift */; };
 		F007E93F2AC46A440037CDEE /* ContentFormButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F007E93D2AC46A3C0037CDEE /* ContentFormButton.swift */; };
 		F007E9412AC46F9C0037CDEE /* ContentFormViewModelError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F007E9402AC46F9C0037CDEE /* ContentFormViewModelError.swift */; };
+		F007E9432AC4D95F0037CDEE /* ShareFormError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F007E9422AC4D95F0037CDEE /* ShareFormError.swift */; };
 		F0173DD12AB900E8009CDC9C /* ContentFormMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0173DD02AB900E8009CDC9C /* ContentFormMode.swift */; };
 		F0307C6E2AA87ED100DC3958 /* FloatingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0307C6D2AA87ED100DC3958 /* FloatingActionButton.swift */; };
 		F0307C702AA87EEE00DC3958 /* FloatingActionButtonViewRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0307C6F2AA87EEE00DC3958 /* FloatingActionButtonViewRepresentation.swift */; };
@@ -196,6 +197,7 @@
 		F007E93B2AC45B540037CDEE /* URLMetadataConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLMetadataConfiguration.swift; sourceTree = "<group>"; };
 		F007E93D2AC46A3C0037CDEE /* ContentFormButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentFormButton.swift; sourceTree = "<group>"; };
 		F007E9402AC46F9C0037CDEE /* ContentFormViewModelError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentFormViewModelError.swift; sourceTree = "<group>"; };
+		F007E9422AC4D95F0037CDEE /* ShareFormError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareFormError.swift; sourceTree = "<group>"; };
 		F0173DD02AB900E8009CDC9C /* ContentFormMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentFormMode.swift; sourceTree = "<group>"; };
 		F0307C6D2AA87ED100DC3958 /* FloatingActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingActionButton.swift; sourceTree = "<group>"; };
 		F0307C6F2AA87EEE00DC3958 /* FloatingActionButtonViewRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingActionButtonViewRepresentation.swift; sourceTree = "<group>"; };
@@ -889,6 +891,7 @@
 				F0FEB2B22ABC7EFD00821ED8 /* ShareFormViewConfiguration.swift */,
 				F0D5A22F2AC0EB620090F55D /* ShareFormMenu.swift */,
 				F0D5A2312AC0EB760090F55D /* ShareFormMenuItem.swift */,
+				F007E9422AC4D95F0037CDEE /* ShareFormError.swift */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -1297,6 +1300,7 @@
 				F0FEB2A22ABC730700821ED8 /* ContentFormFieldsConfiguration.swift in Sources */,
 				F007E9352AC453000037CDEE /* UITextField+Next.swift in Sources */,
 				F0392CF12AC1F82400C643B4 /* ShareFormViewModelError.swift in Sources */,
+				F007E9432AC4D95F0037CDEE /* ShareFormError.swift in Sources */,
 				F007E92F2AC33BD30037CDEE /* AnyOptional.swift in Sources */,
 				F007E92E2AC33BCC0037CDEE /* AppGroupSettings.swift in Sources */,
 				F0FEB2AD2ABC74A300821ED8 /* ProjectContent.swift in Sources */,
