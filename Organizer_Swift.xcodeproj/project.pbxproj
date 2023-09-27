@@ -12,6 +12,8 @@
 		F007E92F2AC33BD30037CDEE /* AnyOptional.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03D1E0F2AB33477009818CC /* AnyOptional.swift */; };
 		F007E9302AC33BD60037CDEE /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F054F6022AB241CC00C74784 /* Storage.swift */; };
 		F007E9312AC33BDA0037CDEE /* StorageKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F054F6042AB2430A00C74784 /* StorageKey.swift */; };
+		F007E9342AC453000037CDEE /* UITextField+Next.swift in Sources */ = {isa = PBXBuildFile; fileRef = F007E9332AC453000037CDEE /* UITextField+Next.swift */; };
+		F007E9352AC453000037CDEE /* UITextField+Next.swift in Sources */ = {isa = PBXBuildFile; fileRef = F007E9332AC453000037CDEE /* UITextField+Next.swift */; };
 		F0173DD12AB900E8009CDC9C /* ContentFormMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0173DD02AB900E8009CDC9C /* ContentFormMode.swift */; };
 		F0307C6E2AA87ED100DC3958 /* FloatingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0307C6D2AA87ED100DC3958 /* FloatingActionButton.swift */; };
 		F0307C702AA87EEE00DC3958 /* FloatingActionButtonViewRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0307C6F2AA87EEE00DC3958 /* FloatingActionButtonViewRepresentation.swift */; };
@@ -182,6 +184,7 @@
 
 /* Begin PBXFileReference section */
 		F007E92C2AC33BCC0037CDEE /* AppGroupSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroupSettings.swift; sourceTree = "<group>"; };
+		F007E9332AC453000037CDEE /* UITextField+Next.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Next.swift"; sourceTree = "<group>"; };
 		F0173DD02AB900E8009CDC9C /* ContentFormMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentFormMode.swift; sourceTree = "<group>"; };
 		F0307C6D2AA87ED100DC3958 /* FloatingActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingActionButton.swift; sourceTree = "<group>"; };
 		F0307C6F2AA87EEE00DC3958 /* FloatingActionButtonViewRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingActionButtonViewRepresentation.swift; sourceTree = "<group>"; };
@@ -339,6 +342,14 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		F007E9322AC452F10037CDEE /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				F007E9332AC453000037CDEE /* UITextField+Next.swift */,
+			);
+			path = TextField;
+			sourceTree = "<group>";
+		};
 		F0307C692AA87EA500DC3958 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -355,6 +366,7 @@
 			children = (
 				F0307C6B2AA87EB400DC3958 /* Buttons */,
 				F08AE79E2AB860C500B35468 /* Navbar */,
+				F007E9322AC452F10037CDEE /* TextField */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1176,6 +1188,7 @@
 				F0F5A1E42AB9F14600EBF42C /* ProjectListContextMenuActionConfiguration.swift in Sources */,
 				F0732BDC2AA63E5E0027EC4F /* ProjectListCoordinator.swift in Sources */,
 				F0C2652B2AAF67AE008EAB3C /* ContentListViewRepresentation.swift in Sources */,
+				F007E9342AC453000037CDEE /* UITextField+Next.swift in Sources */,
 				F0AC0ADD2AB0968800AE326F /* ContentFormFieldsViewRepresentation.swift in Sources */,
 				F0732B9E2AA61A7B0027EC4F /* AppDelegate.swift in Sources */,
 				F03693912AA6944D005C373A /* ProjectListView.swift in Sources */,
@@ -1253,6 +1266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0FEB2A22ABC730700821ED8 /* ContentFormFieldsConfiguration.swift in Sources */,
+				F007E9352AC453000037CDEE /* UITextField+Next.swift in Sources */,
 				F0392CF12AC1F82400C643B4 /* ShareFormViewModelError.swift in Sources */,
 				F007E92F2AC33BD30037CDEE /* AnyOptional.swift in Sources */,
 				F007E92E2AC33BCC0037CDEE /* AppGroupSettings.swift in Sources */,

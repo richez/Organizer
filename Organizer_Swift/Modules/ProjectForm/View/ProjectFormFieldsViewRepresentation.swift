@@ -26,7 +26,8 @@ struct ProjectFormFieldsViewRepresentation {
 
     var nameTextFieldRules: TextFieldRules = .init(
         autocapitalizationType: .words,
-        clearButtonMode: .always
+        clearButtonMode: .always,
+        returnKeyType: .next
     )
 
     var themeTextFieldRules: TextFieldRules = .init(

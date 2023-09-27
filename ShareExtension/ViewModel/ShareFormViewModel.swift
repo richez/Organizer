@@ -136,13 +136,13 @@ private extension ShareFormViewModel {
                         selectedItem: ProjectContentType.article.rawValue
                     ),
                     name: ContentFormField(
-                        text: "Name", placeholder: "My content", value: contentName
+                        text: "Name", placeholder: "My content", value: contentName, tag: 1
                     ),
                     theme: ContentFormField(
-                        text: "Themes", placeholder: "Isolation, tennis, recherche", value: ""
+                        text: "Themes", placeholder: "Isolation, tennis, recherche", value: "", tag: 2
                     ),
                     link: ContentFormField(
-                        text: "Link", placeholder: "https://www.youtube.com", value: contentLink
+                        text: "Link", placeholder: "https://www.youtube.com", value: contentLink, tag: 3
                     )
                 )
             ),

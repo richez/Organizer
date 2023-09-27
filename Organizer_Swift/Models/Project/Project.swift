@@ -8,8 +8,6 @@
 import Foundation
 import SwiftData
 
-// TODO: - Add Next/Done on textfield
-// TODO: - Share content with app
 // TODO: - Add "Get link metadata" to content creation
 
 @Model

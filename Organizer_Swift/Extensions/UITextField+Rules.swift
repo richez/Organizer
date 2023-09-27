@@ -14,6 +14,7 @@ struct TextFieldRules {
     var autocorrectionType: UITextAutocorrectionType = .default
     var inlinePredictionType: UITextInlinePredictionType = .default
     var spellCheckingType: UITextSpellCheckingType = .default
+    var returnKeyType: UIReturnKeyType = .default
 }
 
 extension UITextField {
@@ -24,5 +25,6 @@ extension UITextField {
         self.autocorrectionType = rules.autocorrectionType
         self.inlinePredictionType = rules.inlinePredictionType
         self.spellCheckingType = rules.spellCheckingType
+        self.returnKeyType = rules.returnKeyType
     }
 }

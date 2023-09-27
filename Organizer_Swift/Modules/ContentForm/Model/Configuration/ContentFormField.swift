@@ -11,4 +11,5 @@ struct ContentFormField {
     var text: String
     var placeholder: String
     var value: String?
+    var tag: Int
 }

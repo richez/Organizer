@@ -30,12 +30,14 @@ struct ContentFormFieldsViewRepresentation {
 
     var nameTextFieldRules: TextFieldRules = .init(
         autocapitalizationType: .sentences,
-        clearButtonMode: .always
+        clearButtonMode: .always,
+        returnKeyType: .next
     )
 
     var themeTextFieldRules: TextFieldRules = .init(
         autocapitalizationType: .none,
-        clearButtonMode: .always
+        clearButtonMode: .always,
+        returnKeyType: .next
     )
 
     var linkTextFieldRules: TextFieldRules = .init(

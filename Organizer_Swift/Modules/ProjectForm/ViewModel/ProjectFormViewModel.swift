@@ -29,10 +29,10 @@ extension ProjectFormViewModel {
             saveButtonImageName: "checkmark",
             fields: ProjectFormFieldsConfiguration(
                 name: ProjectFormField(
-                    text: "Name", placeholder: "My project", value: self.nameFieldValue
+                    text: "Name", placeholder: "My project", value: self.nameFieldValue, tag: 1
                 ),
                 theme: ProjectFormField(
-                    text: "Themes", placeholder: "Sport, Construction, Work", value: self.themeFieldValue
+                    text: "Themes", placeholder: "Sport, Construction, Work", value: self.themeFieldValue, tag: 2
                 )
             )
         )

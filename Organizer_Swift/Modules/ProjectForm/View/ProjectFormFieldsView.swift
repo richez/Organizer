@@ -46,10 +46,12 @@ final class ProjectFormFieldsView: UIView {
         self.nameLabel.text = configuration.name.text
         self.nameTextField.placeholder = configuration.name.placeholder
         self.nameTextField.text = configuration.name.value
+        self.nameTextField.tag = configuration.name.tag
 
         self.themeLabel.text = configuration.theme.text
         self.themeTextField.placeholder = configuration.theme.placeholder
         self.themeTextField.text = configuration.theme.value
+        self.themeTextField.tag = configuration.theme.tag
     }
 }
 
@@ -107,6 +109,13 @@ private extension ProjectFormFieldsView {
                 theme: self.themeTextFieldValue
             )
         }), for: .editingChanged)
+
+        textField.addAction(UIAction(handler: { [weak textField] action in
+            if textField?.returnKeyType == .next {
+                textField?.next()
+            }
+        }), for: .editingDidEndOnExit)
+
 
         textField.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

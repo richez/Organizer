@@ -39,13 +39,13 @@ extension ContentFormViewModel {
                     selectedItem: self.typeMenuSelectedValue
                 ),
                 name: ContentFormField(
-                    text: "Name", placeholder: "My content", value: self.nameFieldValue
+                    text: "Name", placeholder: "My content", value: self.nameFieldValue, tag: 1
                 ),
                 theme: ContentFormField(
-                    text: "Themes", placeholder: "Isolation, tennis, recherche", value: self.themeFieldValue
+                    text: "Themes", placeholder: "Isolation, tennis, recherche", value: self.themeFieldValue, tag: 2
                 ),
                 link: ContentFormField(
-                    text: "Link", placeholder: "https://www.youtube.com", value: self.linkFieldValue
+                    text: "Link", placeholder: "https://www.youtube.com", value: self.linkFieldValue, tag: 3
                 )
             )
         )

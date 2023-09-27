@@ -55,14 +55,17 @@ final class ContentFormFieldsView: UIView {
         self.nameLabel.text = configuration.name.text
         self.nameTextField.placeholder = configuration.name.placeholder
         self.nameTextField.text = configuration.name.value
+        self.nameTextField.tag = configuration.name.tag
 
         self.themeLabel.text = configuration.theme.text
         self.themeTextField.placeholder = configuration.theme.placeholder
         self.themeTextField.text = configuration.theme.value
+        self.themeTextField.tag = configuration.theme.tag
 
         self.linkLabel.text = configuration.link.text
         self.linkTextField.placeholder = configuration.link.placeholder
         self.linkTextField.text = configuration.link.value
+        self.linkTextField.tag = configuration.link.tag
     }
 }
 
@@ -149,6 +152,12 @@ private extension ContentFormFieldsView {
             )
         }), for: .editingChanged)
 
+        textField.addAction(UIAction(handler: { [weak textField] action in
+            if textField?.returnKeyType == .next {
+                textField?.next()
+            }
+        }), for: .editingDidEndOnExit)
+
         textField.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             textField.heightAnchor.constraint(equalToConstant: self.viewRepresentation.textFieldsHeight),
@@ -178,4 +187,3 @@ private extension ContentFormFieldsView {
         )
     }
 }
-
