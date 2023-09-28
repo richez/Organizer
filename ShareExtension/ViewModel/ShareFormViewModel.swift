@@ -141,7 +141,7 @@ private extension ShareFormViewModel {
                     name: ContentFormField(
                         text: "Name", placeholder: "My content", value: contentName, tag: 2
                     ),
-                    nameGetter: ContentFormButton(text: nil),
+                    nameGetter: ContentFormButton(text: nil, isEnabled: false),
                     theme: ContentFormField(
                         text: "Themes", placeholder: "Isolation, tennis, recherche", value: "", tag: 3
                     )

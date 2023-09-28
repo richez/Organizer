@@ -47,7 +47,7 @@ extension ContentFormViewModel {
                 name: ContentFormField(
                     text: "Name", placeholder: "My content", value: self.nameFieldValue, tag: 2
                 ),
-                nameGetter: ContentFormButton(text: "Get Link Name"),
+                nameGetter: ContentFormButton(text: "Get Link Name", isEnabled: !self.linkFieldValue.isNil),
                 theme: ContentFormField(
                     text: "Themes", placeholder: "Isolation, tennis, recherche", value: self.themeFieldValue, tag: 3
                 )

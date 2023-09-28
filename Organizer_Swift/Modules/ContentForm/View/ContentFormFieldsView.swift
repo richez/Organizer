@@ -71,6 +71,7 @@ final class ContentFormFieldsView: UIView {
         self.nameTextField.tag = configuration.name.tag
 
         self.nameGetterButton.setTitle(configuration.nameGetter.text, for: .normal)
+        self.isNameGetterButtonEnabled = configuration.nameGetter.isEnabled
         self.nameGetterButton.isHidden = configuration.nameGetter.isHidden
 
         self.themeLabel.text = configuration.theme.text

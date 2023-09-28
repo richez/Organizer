@@ -9,6 +9,7 @@ import Foundation
 
 struct ContentFormButton {
     var text: String?
+    var isEnabled: Bool
 
     var isHidden: Bool { self.text == nil }
 }
