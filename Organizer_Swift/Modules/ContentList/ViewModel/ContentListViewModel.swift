@@ -96,7 +96,7 @@ extension ContentListViewModel {
 
     func contentURL(with id: UUID) throws -> URL {
         let contentLink = try self.content(with: id).link
-        guard let url = URL(string: contentLink) else {
+        guard contentLink.isValidURL(), let url = URL(string: contentLink) else {
             throw ContentListViewModelError.badLink(contentLink)
         }
         return url

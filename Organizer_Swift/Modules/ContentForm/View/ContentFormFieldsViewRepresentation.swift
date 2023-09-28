@@ -8,12 +8,20 @@
 import UIKit
 
 struct ContentFormFieldsViewRepresentation {
-    var stackViewRepresentation: StackViewRepresentation = .init(
+    var formStackViewRepresentation: StackViewRepresentation = .init(
         axis: .vertical,
         distribution: .fill,
-        alignment: .center,
+        alignment: .leading, // TODO: apply this change with constraint removal for all forms
         spacing: 8,
         layoutMargins: UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
+    )
+
+    var linkStackViewRepresentation: StackViewRepresentation = .init(
+        axis: .horizontal,
+        distribution: .fillProportionally,
+        alignment: .leading,
+        spacing: 5,
+        layoutMargins: .zero
     )
 
     var typeButtonHeight: CGFloat = 30
@@ -23,6 +31,8 @@ struct ContentFormFieldsViewRepresentation {
     var labelsHeight: CGFloat = 30
     var labelsTextColor: UIColor = .contentFormLabel
     var labelsFont: UIFont = .systemFont(ofSize: 15, weight: .bold)
+
+    var linkErrorLabelTextColor: UIColor = .red
 
     var textFieldsHeight: CGFloat = 30
     var textFieldsFont: UIFont = .systemFont(ofSize: 15, weight: .medium)

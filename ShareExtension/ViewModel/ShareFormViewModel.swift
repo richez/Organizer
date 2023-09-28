@@ -55,10 +55,14 @@ extension ShareFormViewModel {
                        theme: String) -> Bool {
         let isValidSelectedProject = self.isSelectedProjectValid(selectedProject)
         let isValidType = ProjectContentType(rawValue: type) != nil
-        let isValidLink = !link.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+        let isValidLink = link.isValidURL()
         let isValidName = !name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
         let isValidTheme = true
         return isValidSelectedProject && isValidType && isValidLink && isValidName && isValidTheme
+    }
+
+    func isValidLink(_ link: String) -> Bool {
+        return link.isValidURL()
     }
 
     func shouldHideProjectTextField(for selectedProject: ProjectSelectedItem?) -> Bool {
@@ -137,6 +141,10 @@ private extension ShareFormViewModel {
                     ),
                     link: ContentFormField(
                         text: "Link", placeholder: "https://www.youtube.com", value: contentLink, tag: 1
+                    ),
+                    linkError: ContentFormError(
+                        text: "should start with http(s):// and be valid",
+                        isHidden: contentLink.isNil || contentLink?.isValidURL() == true
                     ),
                     name: ContentFormField(
                         text: "Name", placeholder: "My content", value: contentName, tag: 2

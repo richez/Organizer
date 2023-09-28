@@ -8,8 +8,9 @@
 import UIKit
 
 protocol ContentFormViewDelegate: AnyObject {
-    func didEditFields(type: String, link: String, name: String, theme: String)
     func didTapOnView()
+    func didEditFields(type: String, link: String, name: String, theme: String)
+    func didEndEditingLink(_ link: String)
     func didTapNameGetterButton(link: String)
     func didTapSaveButton(type: String, link: String, name: String, theme: String)
 }
@@ -146,6 +147,10 @@ private extension ContentFormView {
 extension ContentFormView: ContentFormFieldsViewDelegate {
     func didEditFields(type: String, link: String, name: String, theme: String) {
         self.delegate?.didEditFields(type: type, link: link, name: name, theme: theme)
+    }
+
+    func didEndEditingLink(_ link: String) {
+        self.delegate?.didEndEditingLink(link)
     }
 
     func didTapNameGetterButton(link: String) {

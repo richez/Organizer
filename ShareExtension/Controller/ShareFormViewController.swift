@@ -61,17 +61,25 @@ private extension ShareFormViewController {
 // MARK: - ShareFormViewDelegate
 
 extension ShareFormViewController: ShareFormViewDelegate {
-    func didEditFields(selectedProject: ProjectSelectedItem?, type: String, link: String, name: String, theme: String) {
-        self.contentView.isProjectTextFieldHidden = self.viewModel.shouldHideProjectTextField(for: selectedProject)
-        self.contentView.isSaveButtonEnabled = self.viewModel.isFieldsValid(
-            selectedProject: selectedProject, type: type, link: link, name: name, theme: theme
-        )
-    }
-    
     func didTapOnView() {
         self.view.endEditing(true)
     }
-    
+
+    func didEditFields(selectedProject: ProjectSelectedItem?, type: String, link: String, name: String, theme: String) {
+        let isFieldsValid = self.viewModel.isFieldsValid(
+            selectedProject: selectedProject, type: type, link: link, name: name, theme: theme
+        )
+        self.contentView.isSaveButtonEnabled = isFieldsValid
+    }
+
+    func didChangeProjectSelection(to selectedProject: ProjectSelectedItem?) {
+        self.contentView.isProjectTextFieldHidden = self.viewModel.shouldHideProjectTextField(for: selectedProject)
+    }
+
+    func didEndEditingLink(_ link: String) {
+        self.contentView.isLinkErrorLabelHidden = link.isValidURL()
+    }
+
     func didTapSaveButton(selectedProject: ProjectSelectedItem?, type: String, link: String, name: String, theme: String) {
         do {
             try self.viewModel.commit(selectedProjectItem: selectedProject, type: type, link: link, name: name, theme: theme)
@@ -79,6 +87,7 @@ extension ShareFormViewController: ShareFormViewDelegate {
         } catch {
             print("Fail to create content: \(error)")
             self.contentView.set(error: self.viewModel.commitError)
+            // TODO: show an alert showing error with 2 actions: "Cancel Request" and "Ok that lets him retry"
         }
     }
 }

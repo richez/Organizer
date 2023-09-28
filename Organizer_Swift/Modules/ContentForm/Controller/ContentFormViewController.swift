@@ -7,8 +7,6 @@
 
 import UIKit
 
-// TODO: fix 'Get link name' enable mode when updating (currently disabled by default)
-
 final class ContentFormViewController: UIViewController {
     // MARK: - Properties
 
@@ -56,16 +54,20 @@ private extension ContentFormViewController {
 
 // MARK: - ContentFormViewDelegate
 
-extension ContentFormViewController: ContentFormViewDelegate {    
-    func didEditFields(type: String, link: String, name: String, theme: String) {
-        // TODO: handle link validation with https/http prefix
-        let isFieldsValid = self.viewModel.isFieldsValid(type: type, link: link, name: name, theme: theme)
-        self.contentView.isSaveButtonEnabled = isFieldsValid
-        self.contentView.fieldsView.isNameGetterButtonEnabled = self.viewModel.isNameGetterEnabled(link: link)
-    }
-    
+extension ContentFormViewController: ContentFormViewDelegate {  
     func didTapOnView() {
         self.view.endEditing(true)
+    }
+
+    func didEditFields(type: String, link: String, name: String, theme: String) {
+        let isFieldsValid = self.viewModel.isFieldsValid(type: type, link: link, name: name, theme: theme)
+        self.contentView.isSaveButtonEnabled = isFieldsValid
+    }
+
+    func didEndEditingLink(_ link: String) {
+        let isValidLink = self.viewModel.isValidLink(link)
+        self.contentView.fieldsView.isNameGetterButtonEnabled = isValidLink
+        self.contentView.fieldsView.isLinkErrorLabelHidden = isValidLink
     }
 
     func didTapNameGetterButton(link: String) {

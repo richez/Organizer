@@ -21,7 +21,7 @@ struct URLMetadataProvider {
 extension URLMetadataProvider: URLMetadataProviderProtocol {
     func title(for urlRepresentation: String) async throws -> String {
         return try await withCheckedThrowingContinuation { continuation in
-            guard let url = URL(string: urlRepresentation) else {
+            guard urlRepresentation.isValidURL(), let url = URL(string: urlRepresentation) else {
                 return continuation.resume(throwing: URLMetadataProviderError.badURL(urlRepresentation))
             }
 

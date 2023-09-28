@@ -9,6 +9,7 @@ import UIKit
 
 protocol ContentFormFieldsViewDelegate: AnyObject {
     func didEditFields(type: String, link: String, name: String, theme: String)
+    func didEndEditingLink(_ link: String)
     func didTapNameGetterButton(link: String)
 }
 
@@ -21,11 +22,16 @@ final class ContentFormFieldsView: UIView {
 
     private let typeLabel: UILabel = .init()
     private let typeButton: UIButton = .init()
+
+    private let linkStackView: UIStackView = .init()
     private let linkLabel: UILabel = .init()
+    private let linkErrorLabel: UILabel = .init()
     private let linkTextField: UITextField = .init()
+
     private let nameLabel: UILabel = .init()
     private let nameTextField: UITextField = .init()
     private let nameGetterButton: UIButton = .init()
+
     private let themeLabel: UILabel = .init()
     private let themeTextField: UITextField = .init()
 
@@ -37,6 +43,12 @@ final class ContentFormFieldsView: UIView {
     var isNameGetterButtonEnabled: Bool = false {
         didSet {
             self.nameGetterButton.isEnabled = self.isNameGetterButtonEnabled
+        }
+    }
+
+    var isLinkErrorLabelHidden: Bool = true {
+        didSet {
+            self.linkErrorLabel.isHidden = self.isLinkErrorLabelHidden
         }
     }
 
@@ -64,6 +76,9 @@ final class ContentFormFieldsView: UIView {
         self.linkTextField.placeholder = configuration.link.placeholder
         self.linkTextField.text = configuration.link.value
         self.linkTextField.tag = configuration.link.tag
+
+        self.linkErrorLabel.text = configuration.linkError.text
+        self.isLinkErrorLabelHidden = configuration.linkError.isHidden
 
         self.nameLabel.text = configuration.name.text
         self.nameTextField.placeholder = configuration.name.placeholder
@@ -100,21 +115,27 @@ private extension ContentFormFieldsView {
         self.setupFormStackView()
         self.setupLabel(self.typeLabel)
         self.setupTypeButton()
+
         self.setupLabel(self.linkLabel)
+        self.setupLabel(self.linkErrorLabel)
+        self.setupLinkStackView()
         self.setupTextField(self.linkTextField, rules: self.viewRepresentation.linkTextFieldRules)
+        self.setupLinkTextFieldEndEditingAction()
+
         self.setupLabel(self.nameLabel)
         self.setupTextField(self.nameTextField, rules: self.viewRepresentation.nameTextFieldRules)
         self.setupNameGetterButton()
+
         self.setupLabel(self.themeLabel)
         self.setupTextField(self.themeTextField, rules: self.viewRepresentation.themeTextFieldRules)
     }
 
     func setupFormStackView() {
-        self.formStackView.setup(with: self.viewRepresentation.stackViewRepresentation)
+        self.formStackView.setup(with: self.viewRepresentation.formStackViewRepresentation)
 
         self.formStackView.addArrangedSubview(self.typeLabel)
         self.formStackView.addArrangedSubview(self.typeButton)
-        self.formStackView.addArrangedSubview(self.linkLabel)
+        self.formStackView.addArrangedSubview(self.linkStackView)
         self.formStackView.addArrangedSubview(self.linkTextField)
         self.formStackView.addArrangedSubview(self.nameLabel)
         self.formStackView.addArrangedSubview(self.nameTextField)
@@ -144,10 +165,7 @@ private extension ContentFormFieldsView {
         self.typeButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             self.typeButton.heightAnchor.constraint(equalToConstant: self.viewRepresentation.typeButtonHeight),
-            self.typeButton.leadingAnchor.constraint(equalTo: self.formStackView.layoutMarginsGuide.leadingAnchor),
-            self.typeButton.trailingAnchor.constraint(
-                equalTo: self.formStackView.layoutMarginsGuide.trailingAnchor
-            )
+            self.typeButton.widthAnchor.constraint(equalTo: self.formStackView.layoutMarginsGuide.widthAnchor)
         ])
     }
 
@@ -157,10 +175,20 @@ private extension ContentFormFieldsView {
 
         label.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            label.heightAnchor.constraint(equalToConstant: self.viewRepresentation.labelsHeight),
-            label.leadingAnchor.constraint(equalTo: self.formStackView.layoutMarginsGuide.leadingAnchor),
-            label.trailingAnchor.constraint(equalTo: self.formStackView.layoutMarginsGuide.trailingAnchor)
+            label.heightAnchor.constraint(equalToConstant: self.viewRepresentation.labelsHeight)
         ])
+    }
+
+    func setupLinkStackView() {
+        self.linkStackView.setup(with: self.viewRepresentation.linkStackViewRepresentation)
+        self.linkErrorLabel.textColor = self.viewRepresentation.linkErrorLabelTextColor
+        self.linkErrorLabel.isHidden = self.isLinkErrorLabelHidden
+
+        self.linkStackView.addArrangedSubview(self.linkLabel)
+        self.linkStackView.addArrangedSubview(self.linkErrorLabel)
+
+        self.linkStackView.translatesAutoresizingMaskIntoConstraints = false
+        self.linkLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
     }
 
     func setupTextField(_ textField: UITextField, rules: TextFieldRules) {
@@ -187,11 +215,15 @@ private extension ContentFormFieldsView {
         textField.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             textField.heightAnchor.constraint(equalToConstant: self.viewRepresentation.textFieldsHeight),
-            textField.leadingAnchor.constraint(equalTo: self.formStackView.layoutMarginsGuide.leadingAnchor),
-            textField.trailingAnchor.constraint(
-                equalTo: self.formStackView.layoutMarginsGuide.trailingAnchor
-            )
+            textField.widthAnchor.constraint(equalTo: self.formStackView.layoutMarginsGuide.widthAnchor)
         ])
+    }
+
+    func setupLinkTextFieldEndEditingAction() {
+        self.linkTextField.addAction(UIAction(handler: { [weak self] _ in
+            guard let self = self else { return }
+            self.delegate?.didEndEditingLink(self.linkTextFieldValue)
+        }), for: .editingDidEnd)
     }
 
     func setupNameGetterButton() {
@@ -210,13 +242,8 @@ private extension ContentFormFieldsView {
 
         self.nameGetterButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            self.nameGetterButton.heightAnchor.constraint(equalToConstant: self.viewRepresentation.nameGetterButtonHeight),
-            self.nameGetterButton.leadingAnchor.constraint(equalTo: self.formStackView.layoutMarginsGuide.leadingAnchor),
-            self.nameGetterButton.trailingAnchor.constraint(
-                equalTo: self.formStackView.layoutMarginsGuide.trailingAnchor
-            )
+            self.nameGetterButton.heightAnchor.constraint(equalToConstant: self.viewRepresentation.nameGetterButtonHeight)
         ])
-
     }
 
     // MARK: - Menu

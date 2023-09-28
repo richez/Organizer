@@ -8,8 +8,10 @@
 import UIKit
 
 protocol ShareFormViewDelegate: AnyObject {
-    func didEditFields(selectedProject: ProjectSelectedItem?, type: String, link: String, name: String, theme: String)
     func didTapOnView()
+    func didEditFields(selectedProject: ProjectSelectedItem?, type: String, link: String, name: String, theme: String)
+    func didChangeProjectSelection(to selectedProject: ProjectSelectedItem?)
+    func didEndEditingLink(_ link: String)
     func didTapSaveButton(selectedProject: ProjectSelectedItem?, type: String, link: String, name: String, theme: String)
 }
 
@@ -38,6 +40,12 @@ final class ShareFormView: UIView {
     var isSaveButtonEnabled: Bool = false {
         didSet {
             self.contentFormView.isSaveButtonEnabled = self.isSaveButtonEnabled
+        }
+    }
+
+    var isLinkErrorLabelHidden: Bool = true {
+        didSet {
+            self.contentFormView.fieldsView.isLinkErrorLabelHidden = self.isLinkErrorLabelHidden
         }
     }
 
@@ -214,6 +222,8 @@ private extension ShareFormView {
                         self.selectedProject = .custom(id)
                     }
 
+                    self.delegate?.didChangeProjectSelection(to: self.selectedProject)
+
                     self.delegate?.didEditFields(
                         selectedProject: self.selectedProject,
                         type: self.contentFormView.fieldsView.typeButtonValue,
@@ -230,12 +240,16 @@ private extension ShareFormView {
 // MARK: - ContentFormViewDelegate
 
 extension ShareFormView: ContentFormViewDelegate {
+    func didTapOnView() {
+        self.delegate?.didTapOnView()
+    }
+
     func didEditFields(type: String, link: String, name: String, theme: String) {
         self.delegate?.didEditFields(selectedProject: self.selectedProject, type: type, link: link, name: name, theme: theme)
     }
-    
-    func didTapOnView() {
-        self.delegate?.didTapOnView()
+
+    func didEndEditingLink(_ link: String) {
+        self.delegate?.didEndEditingLink(link)
     }
 
     func didTapNameGetterButton(link: String) {}

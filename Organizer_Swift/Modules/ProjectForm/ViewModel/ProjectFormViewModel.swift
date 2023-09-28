@@ -39,14 +39,17 @@ extension ProjectFormViewModel {
     }
 
     func isFieldsValid(name: String, theme: String) -> Bool {
+        let name = name.trimmingCharacters(in: .whitespacesAndNewlines)
+        let theme = theme.trimmingCharacters(in: .whitespacesAndNewlines)
+
         switch self.mode {
         case .create:
-            let isValidName = !name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+            let isValidName = !name.isEmpty
             let isValidTheme = true
             return isValidName && isValidTheme
         case .update(let project):
-            let isValidName = name.trimmingCharacters(in: .whitespacesAndNewlines) != project.title
-            let isValidTheme = theme.trimmingCharacters(in: .whitespacesAndNewlines) != project.theme
+            let isValidName = !name.isEmpty && name != project.title
+            let isValidTheme = theme != project.theme
             return isValidName || isValidTheme
         }
     }

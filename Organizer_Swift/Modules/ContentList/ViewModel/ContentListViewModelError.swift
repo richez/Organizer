@@ -20,13 +20,20 @@ enum ContentListViewModelError: RenderableError {
         case .notFound:
             return "Fail to find content in database"
         case .badLink(let link):
-            return "The content link is malformatted: '\(link)'"
+            return "The content link is not valid: '\(link)'"
         case .delete:
             return "Fail to delete project content"
         }
     }
 
-    var message: String { "Please try again later" }
+    var message: String {
+        switch self {
+        case .badLink:
+            return "Edit link and try again"
+        default:
+            return "Please try again later"
+        }
+    }
 
     var actionTitle: String { "OK" }
 }

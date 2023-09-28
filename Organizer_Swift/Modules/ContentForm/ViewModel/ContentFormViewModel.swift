@@ -44,10 +44,14 @@ extension ContentFormViewModel {
                 link: ContentFormField(
                     text: "Link", placeholder: "https://www.youtube.com", value: self.linkFieldValue, tag: 1
                 ),
+                linkError: ContentFormError(
+                    text: "should start with http(s):// and be valid",
+                    isHidden: self.linkFieldValue.isNil || self.linkFieldValue?.isValidURL() == true
+                ),
                 name: ContentFormField(
                     text: "Name", placeholder: "My content", value: self.nameFieldValue, tag: 2
                 ),
-                nameGetter: ContentFormButton(text: "Get Link Name", isEnabled: !self.linkFieldValue.isNil),
+                nameGetter: ContentFormButton(text: "Get Link Name", isEnabled: self.linkFieldValue?.isValidURL() == true),
                 theme: ContentFormField(
                     text: "Themes", placeholder: "Isolation, tennis, recherche", value: self.themeFieldValue, tag: 3
                 )
@@ -56,24 +60,28 @@ extension ContentFormViewModel {
     }
 
     func isFieldsValid(type: String, link: String, name: String, theme: String) -> Bool {
+        let type = ProjectContentType(rawValue: type)
+        let name = name.trimmingCharacters(in: .whitespacesAndNewlines)
+        let theme = theme.trimmingCharacters(in: .whitespacesAndNewlines)
+
         switch self.mode {
         case .create:
-            let isValidType = ProjectContentType(rawValue: type) != nil
-            let isValidLink = !link.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
-            let isValidName = !name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+            let isValidType = type != nil
+            let isValidLink = link.isValidURL()
+            let isValidName = !name.isEmpty
             let isValidTheme = true
             return isValidType && isValidLink && isValidName && isValidTheme
         case .update(let content):
-            let isValidType = ProjectContentType(rawValue: type) != content.type
-            let isValidLink = link.trimmingCharacters(in: .whitespacesAndNewlines) != content.link
-            let isValidName = name.trimmingCharacters(in: .whitespacesAndNewlines) != content.title
-            let isValidTheme = theme.trimmingCharacters(in: .whitespacesAndNewlines) != content.theme
+            let isValidType = type != content.type
+            let isValidLink = link != content.link && link.isValidURL()
+            let isValidName = name != content.title && !name.isEmpty
+            let isValidTheme = theme != content.theme
             return isValidType || isValidLink || isValidName || isValidTheme
         }
     }
 
-    func isNameGetterEnabled(link: String) -> Bool {
-        !link.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+    func isValidLink(_ link: String) -> Bool {
+        return link.isValidURL()
     }
 
     func linkTitle(for link: String) async throws -> String {
@@ -165,4 +173,3 @@ private extension ContentFormViewModel {
         self.notificationCenter.post(name: .didUpdateProjectContent, object: nil)
     }
 }
-
