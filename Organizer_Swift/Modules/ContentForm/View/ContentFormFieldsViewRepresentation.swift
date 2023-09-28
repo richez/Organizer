@@ -29,6 +29,9 @@ struct ContentFormFieldsViewRepresentation {
     var textFieldsBorderStyle: UITextField.BorderStyle = .roundedRect
 
     var nameGetterButtonHeight: CGFloat = 20
+    var nameGetterTitleColor: UIColor = .link
+    var nameGetterDisabledTitleColor: UIColor = .link.withAlphaComponent(0.5)
+    var nameGetterHighlightedTitleColor: UIColor = .link.withAlphaComponent(0.5)
     var nameGetterFont: UIFont = .systemFont(ofSize: 15, weight: .bold)
 
     var linkTextFieldRules: TextFieldRules = .init(
