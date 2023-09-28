@@ -7,8 +7,14 @@
 
 import UIKit
 
+enum ContentDisplayMode {
+    case inApp
+    case external
+}
+
 protocol ContentListCoordinatorProtocol: AnyObject {
     func showContentForm(mode: ContentFormMode)
+    func showContent(url: URL, mode: ContentDisplayMode)
     func show(error: Error)
 }
 
@@ -58,8 +64,28 @@ extension ContentListCoordinator: ContentListCoordinatorProtocol {
         self.start(child: contentFormCoordinator)
     }
 
+    func showContent(url: URL, mode: ContentDisplayMode) {
+        let urlCoordinator = URLCoordinator(
+            mode: URLCoordinatorMode(displayMode: mode, url: url),
+            navigationController: self.navigationController
+        )
+        self.start(child: urlCoordinator)
+    }
+
     func show(error: Error) {
         self.navigationController.presentError(error)
     }
 }
 
+// MARK: - URLCoordinator
+
+private extension URLCoordinatorMode {
+    init(displayMode: ContentDisplayMode, url: URL) {
+        switch displayMode {
+        case .inApp:
+            self = .inApp(url)
+        case .external:
+            self = .external(url)
+        }
+    }
+}

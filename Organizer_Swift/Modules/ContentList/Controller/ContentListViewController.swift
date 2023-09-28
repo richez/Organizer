@@ -109,7 +109,7 @@ private extension ContentListViewController {
 
 extension ContentListViewController: ContentListViewDelegate {
     func didSelectContent(at indexPath: IndexPath) {
-        // TODO: handle selection
+        self.showContent(at: indexPath, mode: .inApp)
     }
 
     func didTapSwipeAction(_ action: ContentListSwipeAction, at indexPath: IndexPath) -> Bool {
@@ -124,7 +124,7 @@ extension ContentListViewController: ContentListViewDelegate {
     func didTapContextMenuAction(_ action: ContentListContextMenuAction, at indexPath: IndexPath) {
         switch action {
         case .openBrowser:
-            break // TODO: handle open
+            self.showContent(at: indexPath, mode: .external)
         case .copyLink:
             self.copyContentLink(at: indexPath)
         case .edit:
@@ -142,6 +142,19 @@ extension ContentListViewController: ContentListViewDelegate {
 // MARK: - Actions
 
 private extension ContentListViewController {
+    func showContent(at indexPath: IndexPath, mode: ContentDisplayMode) {
+        do {
+            let contentID = try self.dataSource.contentDescription(for: indexPath).id
+            let contentURL = try self.viewModel.contentURL(with: contentID)
+            self.coordinator.showContent(url: contentURL, mode: mode)
+            self.contentView.tableView.deselectRow(at: indexPath, animated: false)
+        } catch {
+            print("Fail to show content: \(error)")
+            self.coordinator.show(error: error)
+            self.contentView.tableView.deselectRow(at: indexPath, animated: false)
+        }
+    }
+    
     @discardableResult
     func deleteContent(at indexPath: IndexPath) -> Bool {
         do {

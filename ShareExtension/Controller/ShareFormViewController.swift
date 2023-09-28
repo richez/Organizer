@@ -50,7 +50,7 @@ private extension ShareFormViewController {
                 self?.contentView.configure(with: viewConfiguration)
                 self?.contentView.stopLoader()
             } catch {
-                print("Fail de load view configuration due to error: \(error)")
+                print("Fail de load view configuration: \(error)")
                 self?.contentView.configure(with: self?.viewModel.erroredViewConfiguration)
                 self?.contentView.stopLoader()
             }
@@ -77,7 +77,7 @@ extension ShareFormViewController: ShareFormViewDelegate {
             try self.viewModel.commit(selectedProjectItem: selectedProject, type: type, link: link, name: name, theme: theme)
             self.extensionContext?.completeRequest(returningItems: nil)
         } catch {
-            print("Fail to create content due to error: \(error)")
+            print("Fail to create content: \(error)")
             self.contentView.set(error: self.viewModel.commitError)
         }
     }

@@ -198,7 +198,7 @@ private extension ContentFormFieldsView {
         self.nameGetterButton.layer.borderWidth = 0
         self.nameGetterButton.contentHorizontalAlignment = .leading
         self.nameGetterButton.titleLabel?.font = self.viewRepresentation.nameGetterFont
-        self.nameGetterButton.setTitleColor(.link, for: .normal)
+        self.nameGetterButton.setTitleColor(.link, for: .normal) // TODO: move to VR
         self.nameGetterButton.setTitleColor(.link.withAlphaComponent(0.5), for: .disabled)
         self.nameGetterButton.setTitleColor(.link.withAlphaComponent(0.5), for: .highlighted)
 

@@ -141,7 +141,7 @@ extension ProjectListViewController: ProjectListViewDelegate {
     func didTapContextMenuAction(_ action: ProjectListContextMenuAction, at indexPath: IndexPath) {
         switch action {
         case .archive:
-            break // TODO: handle archive
+            break // TODO: remove archive
         case .edit:
             self.editProject(at: indexPath)
         case .delete:
@@ -166,6 +166,7 @@ private extension ProjectListViewController {
         } catch {
             print("Fail to show project: \(error)")
             self.coordinator.show(error: error)
+            self.contentView.tableView.deselectRow(at: indexPath, animated: false)
         }
     }
 

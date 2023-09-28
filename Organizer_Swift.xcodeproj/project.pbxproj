@@ -126,6 +126,7 @@
 		F0F5A1F12AB9FB1800EBF42C /* ContentListContextMenuActionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F5A1F02AB9FB1800EBF42C /* ContentListContextMenuActionConfiguration.swift */; };
 		F0F5A1F42AB9FF1A00EBF42C /* ProjectFormViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F5A1F32AB9FF1A00EBF42C /* ProjectFormViewConfiguration.swift */; };
 		F0F5A1F72ABA00AA00EBF42C /* ContentFormViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F5A1F62ABA00AA00EBF42C /* ContentFormViewConfiguration.swift */; };
+		F0FA8AFC2AC5A9AA0000A091 /* URLCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FA8AFB2AC5A9AA0000A091 /* URLCoordinator.swift */; };
 		F0FEB2992ABC70F900821ED8 /* ShareFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FEB2982ABC70F900821ED8 /* ShareFormView.swift */; };
 		F0FEB29B2ABC726A00821ED8 /* ShareFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FEB29A2ABC726A00821ED8 /* ShareFormViewModel.swift */; };
 		F0FEB29C2ABC72AF00821ED8 /* FloatingActionButtonViewRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0307C6F2AA87EEE00DC3958 /* FloatingActionButtonViewRepresentation.swift */; };
@@ -309,6 +310,7 @@
 		F0F5A1F02AB9FB1800EBF42C /* ContentListContextMenuActionConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentListContextMenuActionConfiguration.swift; sourceTree = "<group>"; };
 		F0F5A1F32AB9FF1A00EBF42C /* ProjectFormViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFormViewConfiguration.swift; sourceTree = "<group>"; };
 		F0F5A1F62ABA00AA00EBF42C /* ContentFormViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentFormViewConfiguration.swift; sourceTree = "<group>"; };
+		F0FA8AFB2AC5A9AA0000A091 /* URLCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLCoordinator.swift; sourceTree = "<group>"; };
 		F0FEB2982ABC70F900821ED8 /* ShareFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareFormView.swift; sourceTree = "<group>"; };
 		F0FEB29A2ABC726A00821ED8 /* ShareFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareFormViewModel.swift; sourceTree = "<group>"; };
 		F0FEB2AF2ABC79BD00821ED8 /* ShareFormViewRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareFormViewRepresentation.swift; sourceTree = "<group>"; };
@@ -377,6 +379,7 @@
 			isa = PBXGroup;
 			children = (
 				F0C2652C2AAF706D008EAB3C /* Controller */,
+				F0FA8AFA2AC5A8B40000A091 /* Coordinator */,
 				F007E92B2AC33BB90037CDEE /* Settings */,
 				F054F6012AB2412400C74784 /* Storage */,
 				F007E9362AC458C80037CDEE /* URL */,
@@ -977,6 +980,14 @@
 			path = Configuration;
 			sourceTree = "<group>";
 		};
+		F0FA8AFA2AC5A8B40000A091 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				F0FA8AFB2AC5A9AA0000A091 /* URLCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		F0FEB2952ABC70D700821ED8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -1231,6 +1242,7 @@
 				F0D2B0DF2AA770EC000D34CA /* ProjectListDataSource.swift in Sources */,
 				F0307C882AA8E1B100DC3958 /* UIStackView+ViewRepresentation.swift in Sources */,
 				F08AE7A02AB860D000B35468 /* NavbarTitleView.swift in Sources */,
+				F0FA8AFC2AC5A9AA0000A091 /* URLCoordinator.swift in Sources */,
 				F0F5A1ED2AB9F85300EBF42C /* ContentListViewConfiguration.swift in Sources */,
 				F007E9412AC46F9C0037CDEE /* ContentFormViewModelError.swift in Sources */,
 				F03D1E142AB33531009818CC /* ContentListViewModelError.swift in Sources */,
