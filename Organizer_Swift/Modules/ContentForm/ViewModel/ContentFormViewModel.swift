@@ -59,10 +59,11 @@ extension ContentFormViewModel {
         )
     }
 
-    func isFieldsValid(type: String, link: String, name: String, theme: String) -> Bool {
-        let type = ProjectContentType(rawValue: type)
-        let name = name.trimmingCharacters(in: .whitespacesAndNewlines)
-        let theme = theme.trimmingCharacters(in: .whitespacesAndNewlines)
+    func isFieldsValid(for values: ContentFormFieldValues) -> Bool {
+        let type = ProjectContentType(rawValue: values.type)
+        let link = values.link
+        let name = values.name.trimmingCharacters(in: .whitespacesAndNewlines)
+        let theme = values.theme.trimmingCharacters(in: .whitespacesAndNewlines)
 
         switch self.mode {
         case .create:
@@ -92,12 +93,12 @@ extension ContentFormViewModel {
         }
     }
 
-    func commit(type: String, link: String, name: String, theme: String) {
+    func commit(values: ContentFormFieldValues) {
         switch self.mode {
         case .create:
-            self.createContent(type: type, link: link, name: name, theme: theme)
+            self.createContent(with: values)
         case .update(let content):
-            self.updateContent(content, type: type, link: link, name: name, theme: theme)
+            self.updateContent(content, values: values)
         }
     }
 }
@@ -145,13 +146,13 @@ private extension ContentFormViewModel {
 
     // MARK: Content
 
-    func createContent(type: String, link: String, name: String, theme: String) {
+    func createContent(with values: ContentFormFieldValues) {
         let projectContent = ProjectContent(
             id: UUID(),
-            type: ProjectContentType(rawValue: type) ?? .other,
-            title: name.trimmingCharacters(in: .whitespacesAndNewlines),
-            theme: theme.trimmingCharacters(in: .whitespacesAndNewlines),
-            link: link.trimmingCharacters(in: .whitespacesAndNewlines),
+            type: ProjectContentType(rawValue: values.type) ?? .other,
+            title: values.name.trimmingCharacters(in: .whitespacesAndNewlines),
+            theme: values.theme.trimmingCharacters(in: .whitespacesAndNewlines),
+            link: values.link.trimmingCharacters(in: .whitespacesAndNewlines),
             creationDate: .now,
             lastUpdatedDate: .now
         )
@@ -161,11 +162,11 @@ private extension ContentFormViewModel {
         self.notificationCenter.post(name: .didUpdateProjectContent, object: nil)
     }
 
-    func updateContent(_ content: ProjectContent, type: String, link: String, name: String, theme: String) {
-        content.type = ProjectContentType(rawValue: type) ?? .other
-        content.title = name.trimmingCharacters(in: .whitespacesAndNewlines)
-        content.theme = theme.trimmingCharacters(in: .whitespacesAndNewlines)
-        content.link = link.trimmingCharacters(in: .whitespacesAndNewlines)
+    func updateContent(_ content: ProjectContent, values: ContentFormFieldValues) {
+        content.type = ProjectContentType(rawValue: values.type) ?? .other
+        content.title = values.name.trimmingCharacters(in: .whitespacesAndNewlines)
+        content.theme = values.theme.trimmingCharacters(in: .whitespacesAndNewlines)
+        content.link = values.link.trimmingCharacters(in: .whitespacesAndNewlines)
         content.lastUpdatedDate = .now
 
         self.project.lastUpdatedDate = .now

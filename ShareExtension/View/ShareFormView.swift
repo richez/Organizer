@@ -9,10 +9,10 @@ import UIKit
 
 protocol ShareFormViewDelegate: AnyObject {
     func didTapOnView()
-    func didEditFields(selectedProject: ProjectSelectedItem?, type: String, link: String, name: String, theme: String)
+    func didEditFields(with values: ShareFormFieldValues)
     func didChangeProjectSelection(to selectedProject: ProjectSelectedItem?)
     func didEndEditingLink(_ link: String)
-    func didTapSaveButton(selectedProject: ProjectSelectedItem?, type: String, link: String, name: String, theme: String)
+    func didTapSaveButton(with values: ShareFormFieldValues)
 }
 
 final class ShareFormView: UIView {
@@ -23,8 +23,6 @@ final class ShareFormView: UIView {
     weak var delegate: ShareFormViewDelegate?
 
     private let projectStackView: UIStackView = .init()
-
-    private let errorLabel: UILabel = .init()
 
     private let projectLabel: UILabel = .init()
     private let projectButton: UIButton = .init()
@@ -69,19 +67,11 @@ final class ShareFormView: UIView {
     func configure(with configuration: ShareFormViewConfiguration?) {
         guard let configuration else { return }
 
-        self.set(error: configuration.error)
         self.projectLabel.text = configuration.project.text
         self.projectTextField.placeholder = configuration.project.placeholder
         self.projectButton.menu = UIMenu(configuration: self.menuConfiguration(for: configuration.project))
 
         self.contentFormView.configure(with: configuration.content)
-    }
-
-    // MARK: - Setter
-
-    func set(error: ShareFormError) {
-        self.errorLabel.isHidden = error.isHidden
-        self.errorLabel.text = error.text
     }
 
     // MARK: - Loader
@@ -107,8 +97,6 @@ private extension ShareFormView {
 
         self.setupProjectStackView()
 
-        self.setupErrorLabel()
-
         self.setupProjectLabel()
         self.setupProjectButton()
         self.setupProjectTextField()
@@ -119,7 +107,6 @@ private extension ShareFormView {
     func setupProjectStackView() {
         self.projectStackView.setup(with: self.viewRepresentation.stackViewRepresentation)
 
-        self.projectStackView.addArrangedSubview(self.errorLabel)
         self.projectStackView.addArrangedSubview(self.projectLabel)
         self.projectStackView.addArrangedSubview(self.projectButton)
         self.projectStackView.addArrangedSubview(self.projectTextField)
@@ -130,18 +117,6 @@ private extension ShareFormView {
             self.projectStackView.topAnchor.constraint(equalTo: self.topAnchor),
             self.projectStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             self.projectStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-        ])
-    }
-
-    func setupErrorLabel() {
-        self.errorLabel.isHidden = true
-        self.errorLabel.textColor = self.viewRepresentation.errorLabelTextColor
-        self.errorLabel.font = self.viewRepresentation.errorLabelFont
-        self.errorLabel.textAlignment = self.viewRepresentation.errorTextAlignment
-
-        self.errorLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            self.errorLabel.heightAnchor.constraint(equalToConstant: self.viewRepresentation.contentsHeight)
         ])
     }
 
@@ -179,13 +154,9 @@ private extension ShareFormView {
         self.projectTextField.addAction(UIAction(handler: { [weak self] _ in
             guard let self = self else { return }
             self.selectedProject = .new(self.projectTextField.text ?? "")
-            self.delegate?.didEditFields(
-                selectedProject: self.selectedProject,
-                type: self.contentFormView.fieldsView.typeButtonValue,
-                link: self.contentFormView.fieldsView.linkTextFieldValue,
-                name: self.contentFormView.fieldsView.nameTextFieldValue,
-                theme: self.contentFormView.fieldsView.themeTextFieldValue
-            )
+            self.delegate?.didEditFields(with: ShareFormFieldValues(
+                selectedProject: self.selectedProject, content: self.contentFormView.fieldsView.fieldValues
+            ))
         }), for: .editingChanged)
 
         self.projectTextField.translatesAutoresizingMaskIntoConstraints = false
@@ -223,13 +194,9 @@ private extension ShareFormView {
 
                     self.delegate?.didChangeProjectSelection(to: self.selectedProject)
 
-                    self.delegate?.didEditFields(
-                        selectedProject: self.selectedProject,
-                        type: self.contentFormView.fieldsView.typeButtonValue,
-                        link: self.contentFormView.fieldsView.linkTextFieldValue,
-                        name: self.contentFormView.fieldsView.nameTextFieldValue,
-                        theme: self.contentFormView.fieldsView.themeTextFieldValue
-                    )
+                    self.delegate?.didEditFields(with: ShareFormFieldValues(
+                        selectedProject: self.selectedProject, content: self.contentFormView.fieldsView.fieldValues
+                    ))
                 }
             }
         )
@@ -243,8 +210,10 @@ extension ShareFormView: ContentFormViewDelegate {
         self.delegate?.didTapOnView()
     }
 
-    func didEditFields(type: String, link: String, name: String, theme: String) {
-        self.delegate?.didEditFields(selectedProject: self.selectedProject, type: type, link: link, name: name, theme: theme)
+    func didEditFields(with values: ContentFormFieldValues) {
+        self.delegate?.didEditFields(with: ShareFormFieldValues(
+            selectedProject: self.selectedProject, content: values
+        ))
     }
 
     func didEndEditingLink(_ link: String) {
@@ -253,7 +222,9 @@ extension ShareFormView: ContentFormViewDelegate {
 
     func didTapNameGetterButton(link: String) {}
 
-    func didTapSaveButton(type: String, link: String, name: String, theme: String) {
-        self.delegate?.didTapSaveButton(selectedProject: self.selectedProject, type: type, link: link, name: name, theme: theme)
+    func didTapSaveButton(with values: ContentFormFieldValues) {
+        self.delegate?.didTapSaveButton(with: ShareFormFieldValues(
+            selectedProject: self.selectedProject, content: values
+        ))
     }
 }

@@ -40,6 +40,13 @@ private extension ShareFormViewController {
 
     func setup() {
         self.contentView.delegate = self
+
+        self.loadViewConfiguration()
+    }
+
+    // MARK: - View Configuration
+
+    func loadViewConfiguration() {
         self.contentView.startLoader()
 
         self.viewConfigurationTask = Task { [weak self] in
@@ -51,9 +58,22 @@ private extension ShareFormViewController {
                 self?.contentView.stopLoader()
             } catch {
                 print("Fail de load view configuration: \(error)")
-                self?.contentView.configure(with: self?.viewModel.erroredViewConfiguration)
+                self?.contentView.configure(with: self?.viewModel.emptyViewConfiguration)
                 self?.contentView.stopLoader()
+                self?.presentLoadViewConfigurationError(error, alert: self?.viewModel.viewConfigurationErrorAlert)
             }
+        }
+    }
+
+    // MARK: - Commit
+
+    func commit(values: ShareFormFieldValues) {
+        do {
+            try self.viewModel.commit(values: values)
+            self.extensionContext?.completeRequest(returningItems: nil)
+        } catch {
+            print("Fail to create content: \(error)")
+            self.presentCommitError(error, alert: self.viewModel.commitErrorAlert, values: values)
         }
     }
 }
@@ -65,10 +85,8 @@ extension ShareFormViewController: ShareFormViewDelegate {
         self.view.endEditing(true)
     }
 
-    func didEditFields(selectedProject: ProjectSelectedItem?, type: String, link: String, name: String, theme: String) {
-        let isFieldsValid = self.viewModel.isFieldsValid(
-            selectedProject: selectedProject, type: type, link: link, name: name, theme: theme
-        )
+    func didEditFields(with values: ShareFormFieldValues) {
+        let isFieldsValid = self.viewModel.isFieldsValid(for: values)
         self.contentView.isSaveButtonEnabled = isFieldsValid
     }
 
@@ -80,14 +98,41 @@ extension ShareFormViewController: ShareFormViewDelegate {
         self.contentView.isLinkErrorLabelHidden = link.isValidURL()
     }
 
-    func didTapSaveButton(selectedProject: ProjectSelectedItem?, type: String, link: String, name: String, theme: String) {
-        do {
-            try self.viewModel.commit(selectedProjectItem: selectedProject, type: type, link: link, name: name, theme: theme)
-            self.extensionContext?.completeRequest(returningItems: nil)
-        } catch {
-            print("Fail to create content: \(error)")
-            self.contentView.set(error: self.viewModel.commitError)
-            // TODO: show an alert showing error with 2 actions: "Cancel Request" and "Ok that lets him retry"
-        }
+    func didTapSaveButton(with values: ShareFormFieldValues) {
+        self.commit(values: values)
+    }
+}
+
+// MARK: - Errors
+
+private extension ShareFormViewController {
+    func presentLoadViewConfigurationError(_ error: Error, alert: ShareFormErrorAlert?) {
+        guard let alert else { return }
+
+        self.presentError(title: alert.title, actions: [
+            UIAlertAction(title: alert.cancelTitle, style: .destructive, handler: { [weak self] _ in
+                self?.extensionContext?.cancelRequest(withError: error)
+            }),
+            UIAlertAction(title: alert.retryTitle, style: .default, handler: { [weak self] _ in
+                self?.loadViewConfiguration()
+            })
+        ])
+    }
+
+    func presentCommitError(_ error: Error, alert: ShareFormErrorAlert, values: ShareFormFieldValues) {
+        self.presentError(title: alert.title, actions: [
+            UIAlertAction(title: alert.cancelTitle, style: .destructive, handler: { [weak self] _ in
+                self?.extensionContext?.cancelRequest(withError: error)
+            }),
+            UIAlertAction(title: alert.retryTitle, style: .default, handler: { [weak self] _ in
+                self?.commit(values: values)
+            })
+        ])
+    }
+
+    func presentError(title: String, actions: [UIAlertAction]) {
+        let alertController = UIAlertController(title: title, message: nil, preferredStyle: .alert)
+        actions.forEach(alertController.addAction(_:))
+        self.present(alertController, animated: true)
     }
 }

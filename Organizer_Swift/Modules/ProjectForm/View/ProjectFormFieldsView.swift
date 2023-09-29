@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ProjectFormFieldsViewDelegate: AnyObject {
-    func didEditFields(name: String, theme: String)
+    func didEditFields(with values: ProjectFormFieldValues)
 }
 
 final class ProjectFormFieldsView: UIView {
@@ -24,8 +24,12 @@ final class ProjectFormFieldsView: UIView {
     private let themeLabel: UILabel = .init()
     private let themeTextField: UITextField = .init()
 
-    var nameTextFieldValue: String { self.nameTextField.text ?? "" }
-    var themeTextFieldValue: String { self.themeTextField.text ?? "" }
+    var fieldValues: ProjectFormFieldValues {
+        .init(
+            name: self.nameTextField.text ?? "",
+            theme: self.themeTextField.text ?? ""
+        )
+    }
 
     weak var delegate: ProjectFormFieldsViewDelegate?
 
@@ -104,10 +108,7 @@ private extension ProjectFormFieldsView {
 
         textField.addAction(UIAction(handler: { [weak self] _ in
             guard let self = self else { return }
-            self.delegate?.didEditFields(
-                name: self.nameTextFieldValue,
-                theme: self.themeTextFieldValue
-            )
+            self.delegate?.didEditFields(with: self.fieldValues)
         }), for: .editingChanged)
 
         textField.addAction(UIAction(handler: { [weak textField] action in

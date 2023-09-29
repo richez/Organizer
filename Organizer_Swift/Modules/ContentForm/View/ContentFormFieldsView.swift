@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ContentFormFieldsViewDelegate: AnyObject {
-    func didEditFields(type: String, link: String, name: String, theme: String)
+    func didEditFields(with values: ContentFormFieldValues)
     func didEndEditingLink(_ link: String)
     func didTapNameGetterButton(link: String)
 }
@@ -35,10 +35,14 @@ final class ContentFormFieldsView: UIView {
     private let themeLabel: UILabel = .init()
     private let themeTextField: UITextField = .init()
 
-    var typeButtonValue: String { self.typeButton.menu?.selectedElements.first?.title ?? "" }
-    var linkTextFieldValue: String { self.linkTextField.text ?? "" }
-    var nameTextFieldValue: String { self.nameTextField.text ?? "" }
-    var themeTextFieldValue: String { self.themeTextField.text ?? "" }
+    var fieldValues: ContentFormFieldValues {
+        .init(
+            type: self.typeButton.menu?.selectedElements.first?.title ?? "",
+            link: self.linkTextField.text ?? "",
+            name: self.nameTextField.text ?? "",
+            theme: self.themeTextField.text ?? ""
+        )
+    }
 
     var isNameGetterButtonEnabled: Bool = false {
         didSet {
@@ -99,12 +103,7 @@ final class ContentFormFieldsView: UIView {
 
     func set(name: String) {
         self.nameTextField.text = name
-        self.delegate?.didEditFields(
-            type: self.typeButtonValue,
-            link: self.linkTextFieldValue,
-            name: self.nameTextFieldValue,
-            theme: self.themeTextFieldValue
-        )
+        self.delegate?.didEditFields(with: self.fieldValues)
     }
 }
 
@@ -198,12 +197,7 @@ private extension ContentFormFieldsView {
 
         textField.addAction(UIAction(handler: { [weak self] _ in
             guard let self = self else { return }
-            self.delegate?.didEditFields(
-                type: self.typeButtonValue,
-                link: self.linkTextFieldValue,
-                name: self.nameTextFieldValue,
-                theme: self.themeTextFieldValue
-            )
+            self.delegate?.didEditFields(with: self.fieldValues)
         }), for: .editingChanged)
 
         textField.addAction(UIAction(handler: { [weak textField] action in
@@ -222,7 +216,7 @@ private extension ContentFormFieldsView {
     func setupLinkTextFieldEndEditingAction() {
         self.linkTextField.addAction(UIAction(handler: { [weak self] _ in
             guard let self = self else { return }
-            self.delegate?.didEndEditingLink(self.linkTextFieldValue)
+            self.delegate?.didEndEditingLink(self.fieldValues.link)
         }), for: .editingDidEnd)
     }
 
@@ -236,7 +230,7 @@ private extension ContentFormFieldsView {
 
         self.nameGetterButton.addAction(UIAction(handler: { [weak self] _ in
             guard let self = self else { return }
-            self.delegate?.didTapNameGetterButton(link: self.linkTextFieldValue)
+            self.delegate?.didTapNameGetterButton(link: self.fieldValues.link)
         }), for: .touchUpInside)
 
         self.nameGetterButton.translatesAutoresizingMaskIntoConstraints = false
@@ -253,12 +247,7 @@ private extension ContentFormFieldsView {
             items: menu.items.map { item in
                 MenuItemConfiguration(title: item, isOn: item == menu.selectedItem) { [weak self] in
                     guard let self = self else { return }
-                    self.delegate?.didEditFields(
-                        type: self.typeButtonValue,
-                        link: self.linkTextFieldValue,
-                        name: self.nameTextFieldValue,
-                        theme: self.themeTextFieldValue
-                    )
+                    self.delegate?.didEditFields(with: self.fieldValues)
                 }
             }
         )

@@ -52,8 +52,8 @@ private extension ProjectFormViewController {
 // MARK: - ProjectFormViewDelegate
 
 extension ProjectFormViewController: ProjectFormViewDelegate {
-    func didEditFields(name: String, theme: String) {
-        let isFieldsValid = self.viewModel.isFieldsValid(name: name, theme: theme)
+    func didEditFields(with values: ProjectFormFieldValues) {
+        let isFieldsValid = self.viewModel.isFieldsValid(for: values)
         self.contentView.isSaveButtonEnabled = isFieldsValid
     }
 
@@ -61,10 +61,10 @@ extension ProjectFormViewController: ProjectFormViewDelegate {
         self.view.endEditing(true)
     }
 
-    func didTapSaveButton(name: String, theme: String) {
+    func didTapSaveButton(with values: ProjectFormFieldValues) {
         self.view.endEditing(true)
         do {
-            try self.viewModel.commit(name: name, theme: theme)
+            try self.viewModel.commit(values: values)
             self.dismiss(animated: true)
             self.coordinator.finish()
         } catch {

@@ -59,8 +59,8 @@ extension ContentFormViewController: ContentFormViewDelegate {
         self.view.endEditing(true)
     }
 
-    func didEditFields(type: String, link: String, name: String, theme: String) {
-        let isFieldsValid = self.viewModel.isFieldsValid(type: type, link: link, name: name, theme: theme)
+    func didEditFields(with values: ContentFormFieldValues) {
+        let isFieldsValid = self.viewModel.isFieldsValid(for: values)
         self.contentView.isSaveButtonEnabled = isFieldsValid
     }
 
@@ -88,9 +88,9 @@ extension ContentFormViewController: ContentFormViewDelegate {
         }
     }
 
-    func didTapSaveButton(type: String, link: String, name: String, theme: String) {
+    func didTapSaveButton(with values: ContentFormFieldValues) {
         self.view.endEditing(true)
-        self.viewModel.commit(type: type, link: link, name: name, theme: theme)
+        self.viewModel.commit(values: values)
         self.dismiss(animated: true)
         self.coordinator.finish()
     }

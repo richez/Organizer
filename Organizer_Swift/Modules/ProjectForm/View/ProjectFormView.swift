@@ -8,9 +8,9 @@
 import UIKit
 
 protocol ProjectFormViewDelegate: AnyObject {
-    func didEditFields(name: String, theme: String)
+    func didEditFields(with values: ProjectFormFieldValues)
     func didTapOnView()
-    func didTapSaveButton(name: String, theme: String)
+    func didTapSaveButton(with values: ProjectFormFieldValues)
 }
 
 final class ProjectFormView: UIView {
@@ -53,8 +53,8 @@ final class ProjectFormView: UIView {
 // MARK: - ProjectFormFieldsViewDelegate
 
 extension ProjectFormView: ProjectFormFieldsViewDelegate {
-    func didEditFields(name: String, theme: String) {
-        self.delegate?.didEditFields(name: name, theme: theme)
+    func didEditFields(with values: ProjectFormFieldValues) {
+        self.delegate?.didEditFields(with: values)
     }
 }
 
@@ -90,10 +90,7 @@ private extension ProjectFormView {
 
         self.saveButton.addAction(UIAction(handler: { [weak self] _ in
             guard let self = self else { return }
-            self.delegate?.didTapSaveButton(
-                name: self.fieldsView.nameTextFieldValue,
-                theme: self.fieldsView.themeTextFieldValue
-            )
+            self.delegate?.didTapSaveButton(with: self.fieldsView.fieldValues)
         }), for: .touchUpInside)
 
         self.addSubview(self.saveButton)

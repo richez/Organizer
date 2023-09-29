@@ -23,13 +23,16 @@ final class ShareFormViewModel {
 // MARK: - Public
 
 extension ShareFormViewModel {
-    var erroredViewConfiguration: ShareFormViewConfiguration {
+    var emptyViewConfiguration: ShareFormViewConfiguration {
         self.viewConfiguration(
             projectMenuItems: [],
             contentLink: nil,
-            contentName: nil,
-            errorMessage: "Could not retrieve data, please retry later"
+            contentName: nil
         )
+    }
+
+    var viewConfigurationErrorAlert: ShareFormErrorAlert {
+        .init(title: "Fail to load data", cancelTitle: "Cancel", retryTitle: "Retry")
     }
 
     @MainActor
@@ -43,20 +46,15 @@ extension ShareFormViewModel {
         return self.viewConfiguration(
             projectMenuItems: projectMenuItems,
             contentLink: contentLink,
-            contentName: contentName,
-            errorMessage: nil
+            contentName: contentName
         )
     }
 
-    func isFieldsValid(selectedProject: ProjectSelectedItem?,
-                       type: String,
-                       link: String,
-                       name: String,
-                       theme: String) -> Bool {
-        let isValidSelectedProject = self.isSelectedProjectValid(selectedProject)
-        let isValidType = ProjectContentType(rawValue: type) != nil
-        let isValidLink = link.isValidURL()
-        let isValidName = !name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+    func isFieldsValid(for values: ShareFormFieldValues) -> Bool {
+        let isValidSelectedProject = self.isSelectedProjectValid(values.selectedProject)
+        let isValidType = ProjectContentType(rawValue: values.content.type) != nil
+        let isValidLink = values.content.link.isValidURL()
+        let isValidName = !values.content.name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
         let isValidTheme = true
         return isValidSelectedProject && isValidType && isValidLink && isValidName && isValidTheme
     }
@@ -74,18 +72,18 @@ extension ShareFormViewModel {
         }
     }
 
-    var commitError: ShareFormError {
-        .init(text: "Could not save content, please retry later")
+    var commitErrorAlert: ShareFormErrorAlert {
+        .init(title: "Fail to create content", cancelTitle: "Cancel", retryTitle: "Retry")
     }
 
-    func commit(selectedProjectItem: ProjectSelectedItem?, type: String, link: String, name: String, theme: String) throws {
-        switch selectedProjectItem {
+    func commit(values: ShareFormFieldValues) throws {
+        switch values.selectedProject {
         case .new(let title):
-            let content = self.content(type: type, link: link, name: name, theme: theme)
+            let content = self.content(with: values.content)
             try self.createProject(title: title, content: content)
             self.settings.shareExtensionDidAddContent = true
         case .custom(let projectID):
-            let content = self.content(type: type, link: link, name: name, theme: theme)
+            let content = self.content(with: values.content)
             try self.addContent(content, to: projectID)
             self.settings.shareExtensionDidAddContent = true
         case nil:
@@ -121,8 +119,7 @@ private extension ShareFormViewModel {
     func viewConfiguration(
         projectMenuItems: [ShareFormMenuItem],
         contentLink: String?,
-        contentName: String?,
-        errorMessage: String?) -> ShareFormViewConfiguration {
+        contentName: String?) -> ShareFormViewConfiguration {
         .init(
             project: ShareFormMenu(
                 text: "Project",
@@ -154,8 +151,7 @@ private extension ShareFormViewModel {
                         text: "Themes", placeholder: "Isolation, tennis, recherche", value: "", tag: 3
                     )
                 )
-            ),
-            error: ShareFormError(text: errorMessage)
+            )
         )
     }
 
@@ -174,13 +170,13 @@ private extension ShareFormViewModel {
 
     // MARK: Project
 
-    func content(type: String, link: String, name: String, theme: String) -> ProjectContent {
+    func content(with values: ContentFormFieldValues) -> ProjectContent {
         .init(
             id: UUID(),
-            type: ProjectContentType(rawValue: type) ?? .other,
-            title: name.trimmingCharacters(in: .whitespacesAndNewlines),
-            theme: theme.trimmingCharacters(in: .whitespacesAndNewlines),
-            link: link.trimmingCharacters(in: .whitespacesAndNewlines),
+            type: ProjectContentType(rawValue: values.type) ?? .other,
+            title: values.name.trimmingCharacters(in: .whitespacesAndNewlines),
+            theme: values.theme.trimmingCharacters(in: .whitespacesAndNewlines),
+            link: values.link.trimmingCharacters(in: .whitespacesAndNewlines),
             creationDate: .now,
             lastUpdatedDate: .now
         )

@@ -38,9 +38,9 @@ extension ProjectFormViewModel {
         )
     }
 
-    func isFieldsValid(name: String, theme: String) -> Bool {
-        let name = name.trimmingCharacters(in: .whitespacesAndNewlines)
-        let theme = theme.trimmingCharacters(in: .whitespacesAndNewlines)
+    func isFieldsValid(for values: ProjectFormFieldValues) -> Bool {
+        let name = values.name.trimmingCharacters(in: .whitespacesAndNewlines)
+        let theme = values.theme.trimmingCharacters(in: .whitespacesAndNewlines)
 
         switch self.mode {
         case .create:
@@ -54,12 +54,12 @@ extension ProjectFormViewModel {
         }
     }
 
-    func commit(name: String, theme: String) throws {
+    func commit(values: ProjectFormFieldValues) throws {
         switch self.mode {
         case .create:
-            try self.createProject(name: name, theme: theme)
+            try self.createProject(with: values)
         case .update(let project):
-            self.updateProject(project, name: name, theme: theme)
+            self.updateProject(project, values: values)
         }
     }
 }
@@ -89,11 +89,11 @@ private extension ProjectFormViewModel {
 
     // MARK: Project
 
-    func createProject(name: String, theme: String) throws {
+    func createProject(with values: ProjectFormFieldValues) throws {
         let project = Project(
             id: UUID(),
-            title: name.trimmingCharacters(in: .whitespacesAndNewlines),
-            theme: theme.trimmingCharacters(in: .whitespacesAndNewlines),
+            title: values.name.trimmingCharacters(in: .whitespacesAndNewlines),
+            theme: values.theme.trimmingCharacters(in: .whitespacesAndNewlines),
             contents: [],
             creationDate: .now,
             lastUpdatedDate: .now
@@ -107,9 +107,9 @@ private extension ProjectFormViewModel {
         }
     }
 
-    func updateProject(_ project: Project, name: String, theme: String) {
-        project.title = name.trimmingCharacters(in: .whitespacesAndNewlines)
-        project.theme = theme.trimmingCharacters(in: .whitespacesAndNewlines)
+    func updateProject(_ project: Project, values: ProjectFormFieldValues) {
+        project.title = values.name.trimmingCharacters(in: .whitespacesAndNewlines)
+        project.theme = values.theme.trimmingCharacters(in: .whitespacesAndNewlines)
         project.lastUpdatedDate = .now
         self.notificationCenter.post(name: .didUpdateProject, object: nil)
     }

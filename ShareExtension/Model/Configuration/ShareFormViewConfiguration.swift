@@ -10,5 +10,4 @@ import Foundation
 struct ShareFormViewConfiguration {
     var project: ShareFormMenu
     var content: ContentFormViewConfiguration
-    var error: ShareFormError
 }
