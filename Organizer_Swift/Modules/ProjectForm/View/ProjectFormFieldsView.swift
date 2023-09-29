@@ -20,6 +20,7 @@ final class ProjectFormFieldsView: UIView {
 
     private let nameLabel: UILabel = .init()
     private let nameTextField: UITextField = .init()
+
     private let themeLabel: UILabel = .init()
     private let themeTextField: UITextField = .init()
 
@@ -60,8 +61,10 @@ private extension ProjectFormFieldsView {
     
     func setup() {
         self.setupStackView()
+
         self.setupLabel(self.nameLabel)
         self.setupTextField(self.nameTextField, rules: self.viewRepresentation.nameTextFieldRules)
+
         self.setupLabel(self.themeLabel)
         self.setupTextField(self.themeTextField, rules: self.viewRepresentation.themeTextFieldRules)
     }
@@ -85,16 +88,13 @@ private extension ProjectFormFieldsView {
     }
 
     func setupLabel(_ label: UILabel) {
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = self.viewRepresentation.labelsTextColor
         label.font = self.viewRepresentation.labelsFont
 
+        label.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            label.heightAnchor.constraint(equalToConstant: self.viewRepresentation.labelsHeight),
-            label.leadingAnchor.constraint(equalTo: self.formStackView.layoutMarginsGuide.leadingAnchor),
-            label.trailingAnchor.constraint(equalTo: self.formStackView.layoutMarginsGuide.trailingAnchor)
+            label.heightAnchor.constraint(equalToConstant: self.viewRepresentation.contentsHeight)
         ])
-
     }
 
     func setupTextField(_ textField: UITextField, rules: TextFieldRules) {
@@ -119,11 +119,8 @@ private extension ProjectFormFieldsView {
 
         textField.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            textField.heightAnchor.constraint(equalToConstant: self.viewRepresentation.textFieldsHeight),
-            textField.leadingAnchor.constraint(equalTo: self.formStackView.layoutMarginsGuide.leadingAnchor),
-            textField.trailingAnchor.constraint(
-                equalTo: self.formStackView.layoutMarginsGuide.trailingAnchor
-            )
+            textField.heightAnchor.constraint(equalToConstant: self.viewRepresentation.contentsHeight),
+            textField.widthAnchor.constraint(equalTo: self.formStackView.layoutMarginsGuide.widthAnchor)
         ])
     }
 }

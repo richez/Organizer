@@ -23,10 +23,13 @@ final class ShareFormView: UIView {
     weak var delegate: ShareFormViewDelegate?
 
     private let projectStackView: UIStackView = .init()
+
     private let errorLabel: UILabel = .init()
+
     private let projectLabel: UILabel = .init()
     private let projectButton: UIButton = .init()
     private let projectTextField: UITextField = .init()
+
     private let contentFormView: ContentFormView = .init()
 
     private var selectedProject: ProjectSelectedItem?
@@ -100,14 +103,16 @@ private extension ShareFormView {
 
     func setup() {
         self.backgroundColor = .background
-
         self.contentFormView.delegate = self
 
         self.setupProjectStackView()
+
         self.setupErrorLabel()
+
         self.setupProjectLabel()
         self.setupProjectButton()
         self.setupProjectTextField()
+
         self.setupContentFormView()
     }
 
@@ -136,9 +141,7 @@ private extension ShareFormView {
 
         self.errorLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            self.errorLabel.heightAnchor.constraint(equalToConstant: self.viewRepresentation.errorLabelHeight),
-            self.errorLabel.leadingAnchor.constraint(equalTo: self.projectStackView.layoutMarginsGuide.leadingAnchor),
-            self.errorLabel.trailingAnchor.constraint(equalTo: self.projectStackView.layoutMarginsGuide.trailingAnchor)
+            self.errorLabel.heightAnchor.constraint(equalToConstant: self.viewRepresentation.contentsHeight)
         ])
     }
 
@@ -148,9 +151,7 @@ private extension ShareFormView {
 
         self.projectLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            self.projectLabel.heightAnchor.constraint(equalToConstant: self.viewRepresentation.projectLabelHeight),
-            self.projectLabel.leadingAnchor.constraint(equalTo: self.projectStackView.layoutMarginsGuide.leadingAnchor),
-            self.projectLabel.trailingAnchor.constraint(equalTo: self.projectStackView.layoutMarginsGuide.trailingAnchor)
+            self.projectLabel.heightAnchor.constraint(equalToConstant: self.viewRepresentation.contentsHeight)
         ])
     }
 
@@ -165,9 +166,8 @@ private extension ShareFormView {
 
         self.projectButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            self.projectButton.heightAnchor.constraint(equalToConstant: self.viewRepresentation.projectButtonHeight),
-            self.projectButton.leadingAnchor.constraint(equalTo: self.projectStackView.layoutMarginsGuide.leadingAnchor),
-            self.projectButton.trailingAnchor.constraint(equalTo: self.projectStackView.layoutMarginsGuide.trailingAnchor)
+            self.projectButton.heightAnchor.constraint(equalToConstant: self.viewRepresentation.contentsHeight),
+            self.projectButton.widthAnchor.constraint(equalTo: self.projectStackView.layoutMarginsGuide.widthAnchor)
         ])
     }
 
@@ -190,9 +190,8 @@ private extension ShareFormView {
 
         self.projectTextField.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            self.projectTextField.heightAnchor.constraint(equalToConstant: self.viewRepresentation.projectTextFieldHeight),
-            self.projectTextField.leadingAnchor.constraint(equalTo: self.projectStackView.layoutMarginsGuide.leadingAnchor),
-            self.projectTextField.trailingAnchor.constraint(equalTo: self.projectStackView.layoutMarginsGuide.trailingAnchor)
+            self.projectTextField.heightAnchor.constraint(equalToConstant: self.viewRepresentation.contentsHeight),
+            self.projectTextField.widthAnchor.constraint(equalTo: self.projectStackView.layoutMarginsGuide.widthAnchor)
         ])
     }
 

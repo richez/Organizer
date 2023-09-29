@@ -11,9 +11,9 @@ struct ContentFormFieldsViewRepresentation {
     var formStackViewRepresentation: StackViewRepresentation = .init(
         axis: .vertical,
         distribution: .fill,
-        alignment: .leading, // TODO: apply this change with constraint removal for all forms
+        alignment: .leading,
         spacing: 8,
-        layoutMargins: UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
+        layoutMargins: UIEdgeInsets(top: 12, left: 12, bottom: 0, right: 12)
     )
 
     var linkStackViewRepresentation: StackViewRepresentation = .init(
@@ -24,21 +24,19 @@ struct ContentFormFieldsViewRepresentation {
         layoutMargins: .zero
     )
 
-    var typeButtonHeight: CGFloat = 30
+    var contentsHeight: CGFloat = 30
+
     var typeButtonBackgroundColor: UIColor = .white
     var typeButtonTitleColor: UIColor = .placeholderText
 
-    var labelsHeight: CGFloat = 30
     var labelsTextColor: UIColor = .contentFormLabel
+    var errorLabelsTextColor: UIColor = .red
     var labelsFont: UIFont = .systemFont(ofSize: 15, weight: .bold)
+    var errorLabelsFont: UIFont = .systemFont(ofSize: 15, weight: .medium)
 
-    var linkErrorLabelTextColor: UIColor = .red
-
-    var textFieldsHeight: CGFloat = 30
     var textFieldsFont: UIFont = .systemFont(ofSize: 15, weight: .medium)
     var textFieldsBorderStyle: UITextField.BorderStyle = .roundedRect
 
-    var nameGetterButtonHeight: CGFloat = 20
     var nameGetterTitleColor: UIColor = .link
     var nameGetterDisabledTitleColor: UIColor = .link.withAlphaComponent(0.5)
     var nameGetterHighlightedTitleColor: UIColor = .link.withAlphaComponent(0.5)
@@ -57,11 +55,15 @@ struct ContentFormFieldsViewRepresentation {
     var nameTextFieldRules: TextFieldRules = .init(
         autocapitalizationType: .sentences,
         clearButtonMode: .always,
+        autocorrectionType: .no,
+        spellCheckingType: .no,
         returnKeyType: .next
     )
 
     var themeTextFieldRules: TextFieldRules = .init(
         autocapitalizationType: .none,
-        clearButtonMode: .always
+        clearButtonMode: .always,
+        autocorrectionType: .no,
+        spellCheckingType: .no
     )
 }
