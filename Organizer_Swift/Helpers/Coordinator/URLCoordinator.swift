@@ -42,7 +42,8 @@ final class URLCoordinator: ChildCoordinator {
         switch self.mode {
         case .inApp(let url):
             let safariViewController = SFSafariViewController(url: url)
-            // TODO: set colors
+            safariViewController.dismissButtonStyle = .close
+            safariViewController.preferredBarTintColor = .background
             self.navigationController.present(safariViewController, animated: true)
         case .external(let url):
             UIApplication.shared.open(url)
