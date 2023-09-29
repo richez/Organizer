@@ -11,6 +11,7 @@ enum ProjectListViewModelError: RenderableError {
     case fetch(Error)
     case notFound(Error?)
     case delete(Error)
+    case duplicate(Error)
 
     var title: String {
         switch self {
@@ -20,6 +21,8 @@ enum ProjectListViewModelError: RenderableError {
             return "Fail to find project in database"
         case .delete:
             return "Fail to delete project"
+        case .duplicate:
+            return "Fail to duplicate project"
         }
     }
 

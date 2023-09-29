@@ -8,7 +8,7 @@
 import Foundation
 
 enum ProjectListContextMenuAction {
-    case archive
+    case duplicate
     case edit
     case delete
 }

@@ -56,7 +56,7 @@ struct ProjectListViewRepresentation {
 
     func contextMenuActionAttributes(for action: ProjectListContextMenuAction) -> UIMenuElement.Attributes {
         switch action {
-        case .archive, .edit:
+        case .duplicate, .edit:
             return []
         case .delete:
             return .destructive

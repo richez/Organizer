@@ -140,8 +140,8 @@ extension ProjectListViewController: ProjectListViewDelegate {
 
     func didTapContextMenuAction(_ action: ProjectListContextMenuAction, at indexPath: IndexPath) {
         switch action {
-        case .archive:
-            break // TODO: remove archive
+        case .duplicate:
+            self.duplicateProject(at: indexPath)
         case .edit:
             self.editProject(at: indexPath)
         case .delete:
@@ -196,6 +196,17 @@ private extension ProjectListViewController {
             print("Fail to edit project: \(error)")
             self.coordinator.show(error: error)
             return false
+        }
+    }
+
+    func duplicateProject(at indexPath: IndexPath) {
+        do {
+            let projectID = try self.dataSource.projectDescription(for: indexPath).id
+            try self.viewModel.duplicateProject(with: projectID)
+            self.updateList(animated: true)
+        } catch {
+            print("Fail to duplicate project: \(error)")
+            self.coordinator.show(error: error)
         }
     }
 }

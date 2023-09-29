@@ -11,14 +11,14 @@ import SwiftData
 final class ProjectListViewModel {
     // MARK: - Properties
 
-    private let dataStore: DataStoreReader & DataStoreDeleter
+    private let dataStore: DataStoreProtocol
     private var settings: ProjectListSettings
     private let fetchDescriptor: ProjectListFetchDescriptorProtocol
     private let menuConfigurator: ProjectListMenuConfiguratorProtocol
 
     // MARK: - Initialization
 
-    init(dataStore: DataStoreReader & DataStoreDeleter,
+    init(dataStore: DataStoreProtocol,
          settings: ProjectListSettings,
          fetchDescriptor: ProjectListFetchDescriptorProtocol,
          menuConfigurator: ProjectListMenuConfiguratorProtocol) {
@@ -55,7 +55,7 @@ extension ProjectListViewModel {
             ],
             contextMenuTitle: "",
             contextMenuActions: [
-                ProjectListContextMenuActionConfiguration(title: "Archive", imageName: "archivebox", action: .archive),
+                ProjectListContextMenuActionConfiguration(title: "Duplicate", imageName: "doc.on.doc", action: .duplicate),
                 ProjectListContextMenuActionConfiguration(title: "Edit", imageName: "square.and.pencil", action: .edit),
                 ProjectListContextMenuActionConfiguration(title: "Delete", imageName: "trash", action: .delete)
             ]
@@ -97,6 +97,16 @@ extension ProjectListViewModel {
             self.settings.delete(suiteName: project.id.uuidString)
         } catch {
             throw ProjectListViewModelError.delete(error)
+        }
+    }
+
+    func duplicateProject(with identifier: PersistentIdentifier) throws {
+        do {
+            let project: Project = try self.dataStore.model(with: identifier)
+            let duplicatedProject = self.duplicate(project: project)
+            try self.dataStore.create(model: duplicatedProject)
+        } catch {
+            throw ProjectListViewModelError.duplicate(error)
         }
     }
 
@@ -146,5 +156,28 @@ private extension ProjectListViewModel {
         }.joined(separator: ", ")
 
         return "\(contentStatistics) (\(contentTypeStatistics))"
+    }
+
+    func duplicate(project: Project) -> Project {
+        .init(
+            id: UUID(),
+            title: project.title + " copy",
+            theme: project.theme,
+            contents: project.contents.map(self.duplicate(content:)),
+            creationDate: .now,
+            lastUpdatedDate: .now
+        )
+    }
+
+    func duplicate(content: ProjectContent) -> ProjectContent {
+        .init(
+            id: UUID(),
+            type: content.type,
+            title: content.title,
+            theme: content.theme,
+            link: content.link,
+            creationDate: content.creationDate,
+            lastUpdatedDate: content.lastUpdatedDate
+        )
     }
 }
