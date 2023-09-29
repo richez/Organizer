@@ -12,6 +12,8 @@ extension UINavigationBar {
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = .background
+
+        // remove bottom separator
         appearance.shadowColor = .clear
 
         self.tintColor = .navbarTitle

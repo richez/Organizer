@@ -8,21 +8,32 @@
 import UIKit
 
 final class AppLaunchCoordinator: ParentCoordinator {
-    unowned let window: UIWindow
+    // MARK: - Properties
+
+    unowned private let window: UIWindow
+
     var children: [Coordinator] = []
+
+    // MARK: - Initialization
 
     init(window: UIWindow) {
         self.window = window
     }
 
+    // MARK: - Coordinator
+
     func start() {
-        self.startProjectsCoordinator()
+        self.startProjectListCoordinator()
         self.window.makeKeyAndVisible()
     }
 }
 
+// MARK: - Helpers
+
 private extension AppLaunchCoordinator {
-    func startProjectsCoordinator() {
+    // MARK: Project List
+
+    func startProjectListCoordinator() {
         let projectListCoordinator = ProjectListCoordinator(window: self.window)
         self.start(child: projectListCoordinator)
     }

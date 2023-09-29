@@ -51,6 +51,8 @@
 		F05077E52AC710810066B0C3 /* ContentFormFieldValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05077E32AC710810066B0C3 /* ContentFormFieldValues.swift */; };
 		F05077E72AC712AD0066B0C3 /* ShareFormFieldValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05077E62AC712AD0066B0C3 /* ShareFormFieldValues.swift */; };
 		F05077E92AC7181D0066B0C3 /* ShareFormErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05077E82AC7181D0066B0C3 /* ShareFormErrorAlert.swift */; };
+		F05077EC2AC730630066B0C3 /* String+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FA8B002AC635CE0000A091 /* String+URL.swift */; };
+		F05077ED2AC730830066B0C3 /* String+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = F062E0E62AB12BA100060B11 /* String+Components.swift */; };
 		F054F6032AB241CC00C74784 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F054F6022AB241CC00C74784 /* Storage.swift */; };
 		F054F6052AB2430A00C74784 /* StorageKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F054F6042AB2430A00C74784 /* StorageKey.swift */; };
 		F054F6072AB25E2500C74784 /* RawRepresentableStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F054F6062AB25E2500C74784 /* RawRepresentableStorage.swift */; };
@@ -134,7 +136,6 @@
 		F0FA8AFE2AC634560000A091 /* ContentFormFieldError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FA8AFD2AC634560000A091 /* ContentFormFieldError.swift */; };
 		F0FA8AFF2AC6345E0000A091 /* ContentFormFieldError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FA8AFD2AC634560000A091 /* ContentFormFieldError.swift */; };
 		F0FA8B012AC635CE0000A091 /* String+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FA8B002AC635CE0000A091 /* String+URL.swift */; };
-		F0FA8B022AC635CE0000A091 /* String+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FA8B002AC635CE0000A091 /* String+URL.swift */; };
 		F0FEB2992ABC70F900821ED8 /* ShareFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FEB2982ABC70F900821ED8 /* ShareFormView.swift */; };
 		F0FEB29B2ABC726A00821ED8 /* ShareFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FEB29A2ABC726A00821ED8 /* ShareFormViewModel.swift */; };
 		F0FEB29C2ABC72AF00821ED8 /* FloatingActionButtonViewRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0307C6F2AA87EEE00DC3958 /* FloatingActionButtonViewRepresentation.swift */; };
@@ -155,7 +156,6 @@
 		F0FEB2AB2ABC73AE00821ED8 /* NSLayoutAnchor+Priority.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0307C852AA8DDAB00DC3958 /* NSLayoutAnchor+Priority.swift */; };
 		F0FEB2AC2ABC749F00821ED8 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = F090AAB32AA7678D00480249 /* Project.swift */; };
 		F0FEB2AD2ABC74A300821ED8 /* ProjectContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07202F92AAFCD060026B29E /* ProjectContent.swift */; };
-		F0FEB2AE2ABC750900821ED8 /* String+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = F062E0E62AB12BA100060B11 /* String+Components.swift */; };
 		F0FEB2B02ABC79BD00821ED8 /* ShareFormViewRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FEB2AF2ABC79BD00821ED8 /* ShareFormViewRepresentation.swift */; };
 		F0FEB2B32ABC7EFD00821ED8 /* ShareFormViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FEB2B22ABC7EFD00821ED8 /* ShareFormViewConfiguration.swift */; };
 /* End PBXBuildFile section */
@@ -497,21 +497,8 @@
 		F03693922AA6A2F3005C373A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				F03693932AA6A30F005C373A /* UINavigationBar+Appearance.swift */,
-				F0D2B0E02AA776E3000D34CA /* UIView+Identifier.swift */,
-				F0307C852AA8DDAB00DC3958 /* NSLayoutAnchor+Priority.swift */,
-				F0307C872AA8E1B100DC3958 /* UIStackView+ViewRepresentation.swift */,
-				F0C265122AAB8932008EAB3C /* NotificationName+DataStore.swift */,
-				F0C265162AAF5862008EAB3C /* UIViewController+RenderableError.swift */,
-				F062E0E62AB12BA100060B11 /* String+Components.swift */,
-				F062E0E82AB136AA00060B11 /* UITextField+Rules.swift */,
-				F03D1E0B2AB33421009818CC /* UIAction+Configuration.swift */,
-				F03D1E0D2AB3343E009818CC /* UIMenu+Configuration.swift */,
-				F09AE3572AB6363A00161CFB /* String+Pluralize.swift */,
-				F09AE3592AB64E8D00161CFB /* Sequence+Predicate.swift */,
-				F09AE35B2AB64F6000161CFB /* Array+Duplicates.swift */,
-				F08AE7A32AB87E7700B35468 /* UIContextualAction+Initialization.swift */,
-				F0FA8B002AC635CE0000A091 /* String+URL.swift */,
+				F05077EB2AC72E940066B0C3 /* Foundation */,
+				F05077EA2AC72E870066B0C3 /* UIKit */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -523,6 +510,35 @@
 				F03693992AA6A512005C373A /* ProjectListViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F05077EA2AC72E870066B0C3 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				F03693932AA6A30F005C373A /* UINavigationBar+Appearance.swift */,
+				F0D2B0E02AA776E3000D34CA /* UIView+Identifier.swift */,
+				F0307C852AA8DDAB00DC3958 /* NSLayoutAnchor+Priority.swift */,
+				F0307C872AA8E1B100DC3958 /* UIStackView+ViewRepresentation.swift */,
+				F0C265162AAF5862008EAB3C /* UIViewController+RenderableError.swift */,
+				F062E0E82AB136AA00060B11 /* UITextField+Rules.swift */,
+				F03D1E0B2AB33421009818CC /* UIAction+Configuration.swift */,
+				F03D1E0D2AB3343E009818CC /* UIMenu+Configuration.swift */,
+				F08AE7A32AB87E7700B35468 /* UIContextualAction+Initialization.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		F05077EB2AC72E940066B0C3 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				F0C265122AAB8932008EAB3C /* NotificationName+DataStore.swift */,
+				F062E0E62AB12BA100060B11 /* String+Components.swift */,
+				F09AE3572AB6363A00161CFB /* String+Pluralize.swift */,
+				F0FA8B002AC635CE0000A091 /* String+URL.swift */,
+				F09AE3592AB64E8D00161CFB /* Sequence+Predicate.swift */,
+				F09AE35B2AB64F6000161CFB /* Array+Duplicates.swift */,
+			);
+			path = Foundation;
 			sourceTree = "<group>";
 		};
 		F054F6012AB2412400C74784 /* Storage */ = {
@@ -628,8 +644,8 @@
 			isa = PBXGroup;
 			children = (
 				F0732BD62AA63C680027EC4F /* Coordinator */,
-				F0732BD42AA63C320027EC4F /* Delegates */,
-				F0732BD52AA63C3E0027EC4F /* Storyboards */,
+				F0732BD42AA63C320027EC4F /* Delegate */,
+				F0732BD52AA63C3E0027EC4F /* Storyboard */,
 			);
 			path = AppLaunch;
 			sourceTree = "<group>";
@@ -696,21 +712,21 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		F0732BD42AA63C320027EC4F /* Delegates */ = {
+		F0732BD42AA63C320027EC4F /* Delegate */ = {
 			isa = PBXGroup;
 			children = (
 				F0732B9D2AA61A7B0027EC4F /* AppDelegate.swift */,
 				F0732B9F2AA61A7B0027EC4F /* SceneDelegate.swift */,
 			);
-			path = Delegates;
+			path = Delegate;
 			sourceTree = "<group>";
 		};
-		F0732BD52AA63C3E0027EC4F /* Storyboards */ = {
+		F0732BD52AA63C3E0027EC4F /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
 				F0732BA82AA61A7C0027EC4F /* LaunchScreen.storyboard */,
 			);
-			path = Storyboards;
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 		F0732BD62AA63C680027EC4F /* Coordinator */ = {
@@ -1339,9 +1355,9 @@
 				F0FEB2AD2ABC74A300821ED8 /* ProjectContent.swift in Sources */,
 				F0FEB29B2ABC726A00821ED8 /* ShareFormViewModel.swift in Sources */,
 				F007E93F2AC46A440037CDEE /* ContentFormButton.swift in Sources */,
-				F0FEB2AE2ABC750900821ED8 /* String+Components.swift in Sources */,
 				F0FEB2992ABC70F900821ED8 /* ShareFormView.swift in Sources */,
 				F0FEB2A52ABC732A00821ED8 /* UITextField+Rules.swift in Sources */,
+				F05077EC2AC730630066B0C3 /* String+URL.swift in Sources */,
 				F007E9312AC33BDA0037CDEE /* StorageKey.swift in Sources */,
 				F0FEB2A02ABC72FF00821ED8 /* ContentFormMenu.swift in Sources */,
 				F0FEB29D2ABC72B600821ED8 /* FloatingActionButton.swift in Sources */,
@@ -1355,10 +1371,10 @@
 				F0FEB2A32ABC730C00821ED8 /* ContentFormViewConfiguration.swift in Sources */,
 				F0FEB2A72ABC738B00821ED8 /* UIAction+Configuration.swift in Sources */,
 				F0FA8AFF2AC6345E0000A091 /* ContentFormFieldError.swift in Sources */,
+				F05077ED2AC730830066B0C3 /* String+Components.swift in Sources */,
 				F007E9302AC33BD60037CDEE /* Storage.swift in Sources */,
 				F0FEB2A42ABC732000821ED8 /* UIStackView+ViewRepresentation.swift in Sources */,
 				F0FEB29C2ABC72AF00821ED8 /* FloatingActionButtonViewRepresentation.swift in Sources */,
-				F0FA8B022AC635CE0000A091 /* String+URL.swift in Sources */,
 				F0D5A2302AC0EB620090F55D /* ShareFormMenu.swift in Sources */,
 				F0FEB29F2ABC72EE00821ED8 /* ContentFormViewRepresentation.swift in Sources */,
 				F0FEB2A82ABC738E00821ED8 /* UIMenu+Configuration.swift in Sources */,

@@ -8,7 +8,7 @@
 import Foundation
 
 extension Sequence {
-    /// - Returns: Unfiltered array if predicate is `nil`, the filtered array otherwise
+    /// Returns an unfiltered array if the predicate is `nil`. The filtered array otherwise
     func filter(_ predicate: Predicate<Self.Element>?) throws -> [Self.Element] {
         guard let predicate else { return Array(self) }
         return try self.filter(predicate)

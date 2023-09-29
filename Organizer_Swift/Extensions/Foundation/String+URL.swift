@@ -9,6 +9,8 @@ import Foundation
 import RegexBuilder
 
 extension String {
+    /// Returns `true` if the whole associated string starts with 'http(s)://'
+    /// followed by one or more allowed characters.
     func isValidURL() -> Bool {
         let regex = Regex {
             "http"

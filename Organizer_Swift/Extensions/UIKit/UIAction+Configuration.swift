@@ -7,6 +7,10 @@
 
 import UIKit
 
+/// Defines the properties required to initialize an `UIAction`
+///
+/// It allows to define the structure of a `UIMenu` item in a file
+/// that is not made to use `UIKit` (i.e. `ViewModel`)
 struct MenuItemConfiguration {
     var title: String = ""
     var isOn: Bool = false
