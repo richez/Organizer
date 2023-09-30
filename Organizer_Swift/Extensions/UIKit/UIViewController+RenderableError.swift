@@ -7,10 +7,9 @@
 
 import UIKit
 
-/// A type representing an error that can be
-/// displayed on a `UIAlertController` easily by using the
-/// `UIViewController.presentError(_:animated:completion)`
-/// method
+/// A type representing an error that can be displayed on a `UIAlertController`
+/// easily by using the `UIViewController.presentError(_:animated:completion)`
+/// method.
 protocol RenderableError: Error {
     var title: String { get }
     var message: String { get }

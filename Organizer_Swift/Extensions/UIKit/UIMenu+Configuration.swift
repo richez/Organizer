@@ -9,8 +9,8 @@ import UIKit
 
 /// Defines the properties required to initialize an `UIMenu`
 ///
-/// It allows to define the structure of a `UIMenu` in a file
-/// that is not made to use `UIKit` (i.e. `ViewModel`)
+/// Allows the definition of a `UIMenu` structure in a file that is not meant
+/// to use `UIKit` (i.e. `ViewModel`)
 struct MenuConfiguration {
     var title: String = ""
     var imageName: String?

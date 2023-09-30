@@ -11,9 +11,8 @@ extension NSLayoutAnchor {
     /// Returns a `NSLayoutConstraint` as defined by `constraint(equalTo:constant:)`
     /// plus an `UILayoutPriority`.
     ///
-    /// Allows the caller to specify the added parameter directly instead
-    /// of declarating the `NSLayoutConstraint` and setting up its priority
-    /// later.
+    /// Improves the readability of constraint creation by avoiding to declare
+    /// `NSLayoutConstraint` and setting up its `UILayoutPriority` later.
     @objc
     func constraint(
         equalTo anchor: NSLayoutAnchor<AnchorType>,

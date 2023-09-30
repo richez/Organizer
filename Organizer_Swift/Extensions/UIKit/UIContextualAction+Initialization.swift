@@ -11,9 +11,8 @@ extension UIContextualAction {
     /// Initialize a `UIContextualAction` as defined by `init(style:title:handler:)`
     /// plus an `backgroundColor` and `imageName`
     ///
-    /// Allows the caller to specify the added parameters directly instead
-    /// of initializing the `UIContextualAction` and setting up its priority
-    /// later.
+    /// Improves the readability of a contextual action creation by avoiding to declare
+    /// `UIContextualAction` and setting up its `backgroundColor` and `imageName` later.
     convenience init(style: UIContextualAction.Style,
                      title: String?,
                      backgroundColor: UIColor?,
