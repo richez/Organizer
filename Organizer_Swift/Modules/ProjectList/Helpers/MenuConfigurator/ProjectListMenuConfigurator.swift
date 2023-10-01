@@ -7,10 +7,6 @@
 
 import Foundation
 
-protocol ProjectListMenuConfiguratorProtocol {
-    func configuration(numberOfProjects: Int, themes: [String], handler: @escaping () -> Void) -> MenuConfiguration
-}
-
 final class ProjectListMenuConfigurator {
     // MARK: - Properties
 
@@ -38,13 +34,13 @@ extension ProjectListMenuConfigurator: ProjectListMenuConfiguratorProtocol {
     }
 }
 
-// MARK: - Sub Menu
+// MARK: - Helpers
 
 private extension ProjectListMenuConfigurator {
     // MARK: Sorting
 
     func sortingMenuConfig(handler: @escaping () -> Void) -> MenuConfiguration {
-        .init(
+        return .init(
             title: "List Sorting",
             imageName: "arrow.up.arrow.down",
             items: [

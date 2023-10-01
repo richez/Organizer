@@ -20,11 +20,11 @@ final class ProjectListView: UIView {
     private let viewRepresentation: ProjectListViewRepresentation = .init()
     weak var delegate: ProjectListViewDelegate?
 
-    var swipeActionConfigurations: [ProjectListSwipeActionConfiguration] = []
-    var contextMenuTitle: String = ""
-    var contextMenuActionConfigurations: [ProjectListContextMenuActionConfiguration] = []
+    private var swipeActionConfigurations: [ProjectListSwipeActionConfiguration] = []
+    private var contextMenuTitle: String = ""
+    private var contextMenuActionConfigurations: [ProjectListContextMenuActionConfiguration] = []
 
-    // MARK: View
+    // MARK: Views
 
     let tableView: UITableView = .init()
     let createButton: FloatingActionButton = .init()

@@ -12,6 +12,8 @@ final class ProjectCell: UITableViewCell {
 
     private let viewRepresentation: ProjectCellViewRepresentation = .init()
 
+    // MARK: Views
+
     private let titleLabel: UILabel = .init()
     private let themeLabel: UILabel = .init()
     private let statisticsLabel: UILabel = .init()

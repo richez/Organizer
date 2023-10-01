@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Define the properties used to configure the ``ProjectListView``
 struct ProjectListViewConfiguration {
     var createButtonImageName: String
     var swipeActions: [ProjectListSwipeActionConfiguration]

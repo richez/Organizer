@@ -7,6 +7,8 @@
 
 import Foundation
 
+/// Defines the settings (`UserDefaults`) that are used to define
+/// how and what data the project list shoud display.
 final class ProjectListSettings {
     @Storage(key: .projectListAscendingOrder, default: true)
     var ascendingOrder: Bool
@@ -25,6 +27,7 @@ final class ProjectListSettings {
 
     var group: AppGroupSettings = .init()
 
+    /// Deletes the settings associated to the current project.
     func delete(suiteName: String) {
         UserDefaults.standard.removePersistentDomain(forName: suiteName)
     }

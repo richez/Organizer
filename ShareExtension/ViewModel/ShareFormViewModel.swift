@@ -11,7 +11,7 @@ import UniformTypeIdentifiers
 
 final class ShareFormViewModel {
     private let dataStore: DataStoreReader & DataStoreCreator
-    private var settings: AppGroupSettings
+    private let settings: AppGroupSettings
 
     init(dataStore: DataStoreReader & DataStoreCreator = ProjectDataStore.shared,
          settings: AppGroupSettings = .init()) {

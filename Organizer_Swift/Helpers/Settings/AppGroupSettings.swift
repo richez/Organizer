@@ -9,7 +9,7 @@ import Foundation
 
 /// Defines the settings (`UserDefaults`) that are shared between the app
 /// and the share extension.
-struct AppGroupSettings {
+final class AppGroupSettings {
     @Storage(key: .shareExtensionDidAddContent, default: false)
     var shareExtensionDidAddContent: Bool
 

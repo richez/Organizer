@@ -12,7 +12,7 @@ final class ProjectListViewModel {
     // MARK: - Properties
 
     private let dataStore: DataStoreProtocol
-    private var settings: ProjectListSettings
+    private let settings: ProjectListSettings
     private let fetchDescriptor: ProjectListFetchDescriptorProtocol
     private let menuConfigurator: ProjectListMenuConfiguratorProtocol
 
@@ -64,6 +64,9 @@ extension ProjectListViewModel {
 
     // MARK: Data
 
+    /// Returns an array of ``ProjectDescription`` from the persistent stores that meet the criteria of the
+    /// ``ProjectListFetchDescriptor/predicate`` and ``ProjectListFetchDescriptor/sortDescriptor`` formatted
+    /// to be ready to display in a ``ProjectCell`` or throw a ``ProjectListViewModelError/fetch(_:)`` error.
     func fetchProjectDescriptions() throws -> [ProjectDescription] {
         do {
             return try self.dataStore
@@ -82,6 +85,8 @@ extension ProjectListViewModel {
         }
     }
 
+    /// Returns the ``Project`` associated with the specified identifier from the persistent store or
+    /// throw a ``ProjectListViewModelError/notFound(_:)`` error.
     func project(with identifier: PersistentIdentifier) throws -> Project {
         do {
             return try self.dataStore.model(with: identifier)
@@ -90,6 +95,8 @@ extension ProjectListViewModel {
         }
     }
 
+    /// Delete the ``Project`` associated with the specified identifier in the persistent stores and
+    /// its associated settings or throw a ``ProjectListViewModelError/delete(_:)`` error.
     func deleteProject(with identifier: PersistentIdentifier) throws {
         do {
             let project: Project = try self.dataStore.model(with: identifier)
@@ -100,6 +107,8 @@ extension ProjectListViewModel {
         }
     }
 
+    /// Duplicates the ``Project`` associated with the specified identifier and add it in the persistent
+    /// stores or throw a ``ProjectListViewModelError/duplicate(_:)`` error.
     func duplicateProject(with identifier: PersistentIdentifier) throws {
         do {
             let project: Project = try self.dataStore.model(with: identifier)
@@ -112,6 +121,10 @@ extension ProjectListViewModel {
 
     // MARK: Menu
 
+    /// Returns a ``MenuConfiguration`` by using the ``ProjectListMenuConfigurator`` with the number of
+    /// projects represented by the ``ProjectListFetchDescriptor/predicate`` and the themes of all projects
+    /// in the persistent stores.
+    /// - Parameter handler: The action to be executed when a menu item is selected by the user.
     func menuConfiguration(handler: @escaping () -> Void) -> MenuConfiguration {
         let numberOfProjects = try? self.dataStore.fetchCount(predicate: self.fetchDescriptor.predicate)
         let allProjects: [Project]? = try? self.dataStore.fetch(predicate: nil, sortBy: [])
@@ -144,6 +157,8 @@ private extension ProjectListViewModel {
         return project.themes.map { "#\($0)" }.joined(separator: " ")
     }
 
+    /// Returns a `String` that represents the descriptions of the specified ``Project`` content
+    /// (ex: "4 contents (2 articles, 1 video, 4 notes)"
     func statistics(for project: Project) -> String? {
         guard self.settings.showStatistics,
                 let contentStatistics = "content".pluralize(count: project.contents.count) else {

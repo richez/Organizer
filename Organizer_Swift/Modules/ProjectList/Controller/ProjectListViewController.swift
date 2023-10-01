@@ -10,13 +10,14 @@ import UIKit
 final class ProjectListViewController: UIViewController {
     // MARK: - Properties
 
-    private lazy var contentView: ProjectListView = .init()
-    private lazy var navbarTitleView: NavbarTitleView = .init()
-
     private let viewModel: ProjectListViewModel
     private unowned let coordinator: ProjectListCoordinatorProtocol
-
     private lazy var dataSource: ProjectListDataSource = .init(tableView: self.contentView.tableView)
+
+    // MARK: Views
+
+    private lazy var contentView: ProjectListView = .init()
+    private lazy var navbarTitleView: NavbarTitleView = .init()
 
     // MARK: - Initialization
 
@@ -98,21 +99,21 @@ private extension ProjectListViewController {
     func observeNotifications() {
         let notificationCenter = NotificationCenter.default
 
-        notificationCenter.addObserver(forName: .didCreateProject, object: nil, queue: .current) { [weak self] _ in
+        notificationCenter.addObserver(forName: .didCreateProject, object: nil, queue: .main) { [weak self] _ in
             self?.updateList(animated: true)
             self?.updateMenu()
         }
-        notificationCenter.addObserver(forName: .didUpdateProject, object: nil, queue: .current) { [weak self] _ in
+        notificationCenter.addObserver(forName: .didUpdateProject, object: nil, queue: .main) { [weak self] _ in
             self?.updateList(animated: true)
             self?.updateMenu()
         }
-        notificationCenter.addObserver(forName: .didUpdateProjectContent, object: nil, queue: .current) { [weak self] _ in
-            // The view is not visible when we update the project so we don't need to animate the change
+        notificationCenter.addObserver(forName: .didUpdateProjectContent, object: nil, queue: .main) { [weak self] _ in
+            // The view is not visible when we update a project content so we don't need to animate the change
             self?.updateList(animated: false)
         }
 
         let willEnterForeground = UIApplication.willEnterForegroundNotification
-        notificationCenter.addObserver(forName: willEnterForeground, object: nil, queue: .current) { [weak self] _ in
+        notificationCenter.addObserver(forName: willEnterForeground, object: nil, queue: .main) { [weak self] _ in
             if self?.viewModel.shareExtensionDidAddContent == true {
                 self?.coordinator.popToRoot(animated: false)
                 self?.updateList(animated: false)

@@ -94,11 +94,11 @@ private extension ContentListViewController {
     func observeNotifications() {
         let notificationCenter = NotificationCenter.default
 
-        notificationCenter.addObserver(forName: .didCreateContent, object: nil, queue: .current) { [weak self] _ in
+        notificationCenter.addObserver(forName: .didCreateContent, object: nil, queue: .main) { [weak self] _ in
             self?.updateList(animated: true)
             self?.updateMenu()
         }
-        notificationCenter.addObserver(forName: .didUpdateContent, object: nil, queue: .current) { [weak self] _ in
+        notificationCenter.addObserver(forName: .didUpdateContent, object: nil, queue: .main) { [weak self] _ in
             self?.updateList(animated: true)
             self?.updateMenu()
         }

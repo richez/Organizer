@@ -7,13 +7,6 @@
 
 import UIKit
 
-protocol ProjectListCoordinatorProtocol: AnyObject {
-    func showProjectForm(mode: ProjectFormMode)
-    func showContentList(of project: Project)
-    func popToRoot(animated: Bool)
-    func show(error: Error)
-}
-
 final class ProjectListCoordinator: ParentCoordinator, ChildCoordinator {
     // MARK: - Properties
 

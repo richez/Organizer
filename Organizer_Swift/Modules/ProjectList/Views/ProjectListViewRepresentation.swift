@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Define the properties used to setup the ``ProjectListView``
 struct ProjectListViewRepresentation {
     var backgroundColor: UIColor = .background
 

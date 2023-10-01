@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Define the properties used to setup a ``ProjectCell``
 struct ProjectCellViewRepresentation {
     var backgroundColor: UIColor = .background
     var selectedBackgroundColor: UIColor = .projectCellSelectedBackground

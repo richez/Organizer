@@ -7,11 +7,6 @@
 
 import Foundation
 
-protocol ProjectListFetchDescriptorProtocol {
-    var predicate: Predicate<Project>? { get }
-    var sortDescriptor: [SortDescriptor<Project>] { get }
-}
-
 struct ProjectListFetchDescriptor {
     // MARK: - Properties
 

@@ -8,6 +8,7 @@
 import Foundation
 import SwiftData
 
+/// Define the properties used to configure a ``ProjectCell``
 struct ProjectDescription: Hashable {
     var id: PersistentIdentifier
     var title: String

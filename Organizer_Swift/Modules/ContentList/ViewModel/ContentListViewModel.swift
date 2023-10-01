@@ -9,7 +9,7 @@ import Foundation
 
 final class ContentListViewModel {
     private let project: Project
-    private var settings: ContentListSettings
+    private let settings: ContentListSettings
     private let fetchDescriptor: ContentListFetchDescriptorProtocol
     private let menuConfigurator: ContentListMenuConfiguratorProtocol
     private let notificationCenter: NotificationCenter
