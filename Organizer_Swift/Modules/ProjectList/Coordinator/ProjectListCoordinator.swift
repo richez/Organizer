@@ -29,11 +29,13 @@ final class ProjectListCoordinator: ParentCoordinator, ChildCoordinator {
         let settings = ProjectListSettings()
         let fetchDescriptor = ProjectListFetchDescriptor(settings: settings)
         let menuConfigurator = ProjectListMenuConfigurator(settings: settings)
+
         let projectListViewModel = ProjectListViewModel(
             dataStore: dataStore, settings: settings, fetchDescriptor: fetchDescriptor, menuConfigurator: menuConfigurator
         )
         let projectListViewController = ProjectListViewController(viewModel: projectListViewModel, coordinator: self)
         let projectListNavigationController = NavigationController(rootViewController: projectListViewController)
+
         self.window.rootViewController = projectListNavigationController
         self.navigationController = projectListNavigationController
     }
@@ -43,18 +45,12 @@ final class ProjectListCoordinator: ParentCoordinator, ChildCoordinator {
 
 extension ProjectListCoordinator: ProjectListCoordinatorProtocol {
     func showProjectForm(mode: ProjectFormMode) {
-        let projectFormCoordinator = ProjectFormCoordinator(
-            mode: mode,
-            navigationController: self.navigationController!
-        )
+        let projectFormCoordinator = ProjectFormCoordinator(mode: mode, navigationController: self.navigationController!)
         self.start(child: projectFormCoordinator)
     }
 
     func showContentList(of project: Project) {
-        let contentListCoordinator = ContentListCoordinator(
-            project: project,
-            navigationController: self.navigationController!
-        )
+        let contentListCoordinator = ContentListCoordinator(project: project, navigationController: self.navigationController!)
         self.start(child: contentListCoordinator)
     }
 

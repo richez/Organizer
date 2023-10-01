@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Define the properties used to setup the ``ContentCell``
 struct ContentCellViewRepresentation {
     var backgroundColor: UIColor = .background
     var selectedBackgroundColor: UIColor = .contentCellSelectedBackground

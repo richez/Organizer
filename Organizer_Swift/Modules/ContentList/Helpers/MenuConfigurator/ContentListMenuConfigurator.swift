@@ -7,11 +7,7 @@
 
 import Foundation
 
-protocol ContentListMenuConfiguratorProtocol {
-    func configuration(numberOfContents: Int, themes: [String], handler: @escaping () -> Void) -> MenuConfiguration
-}
-
-final class ContentListMenuConfigurator {
+struct ContentListMenuConfigurator {
     // MARK: - Properties
 
     private let settings: ContentListSettings
@@ -39,7 +35,7 @@ extension ContentListMenuConfigurator: ContentListMenuConfiguratorProtocol {
     }
 }
 
-// MARK: - Sub Menus
+// MARK: - Helpers
 
 private extension ContentListMenuConfigurator {
     // MARK: Sorting
@@ -49,26 +45,26 @@ private extension ContentListMenuConfigurator {
             title: "List Sorting",
             imageName: "arrow.up.arrow.down",
             items: [
-                .init(title: "Modification Date", isOn: self.settings.sorting == .lastUpdated, handler: { [weak self] in
-                    if let self, self.settings.sorting != .lastUpdated {
+                .init(title: "Modification Date", isOn: self.settings.sorting == .lastUpdated, handler: {
+                    if self.settings.sorting != .lastUpdated {
                         self.settings.sorting = .lastUpdated
                         handler()
                     }
                 }),
-                .init(title: "Creation Date", isOn: self.settings.sorting == .creation, handler: { [weak self] in
-                    if let self, self.settings.sorting != .creation {
+                .init(title: "Creation Date", isOn: self.settings.sorting == .creation, handler: {
+                    if self.settings.sorting != .creation {
                         self.settings.sorting = .creation
                         handler()
                     }
                 }),
-                .init(title: "Title", isOn: self.settings.sorting == .title, handler: { [weak self] in
-                    if let self, self.settings.sorting != .title {
+                .init(title: "Title", isOn: self.settings.sorting == .title, handler: {
+                    if self.settings.sorting != .title {
                         self.settings.sorting = .title
                         handler()
                     }
                 }),
-                .init(title: "Type", isOn: self.settings.sorting == .type, handler: { [weak self] in
-                    if let self, self.settings.sorting != .type {
+                .init(title: "Type", isOn: self.settings.sorting == .type, handler: {
+                    if self.settings.sorting != .type {
                         self.settings.sorting = .type
                         handler()
                     }
@@ -80,8 +76,8 @@ private extension ContentListMenuConfigurator {
                       items: [
                         .init(title: (self.settings.sorting != .title && self.settings.sorting != .type) ? "Newest on Top" : "A to Z",
                               isOn: self.settings.ascendingOrder,
-                              handler: { [weak self] in
-                                  self?.settings.ascendingOrder.toggle()
+                              handler: {
+                                  self.settings.ascendingOrder.toggle()
                                   handler()
                               })
                       ])
@@ -96,12 +92,12 @@ private extension ContentListMenuConfigurator {
             title: "Preview Style",
             imageName: "text.alignleft",
             items: [
-                .init(title: "Themes", isOn: self.settings.showTheme, handler: { [weak self] in
-                    self?.settings.showTheme.toggle()
+                .init(title: "Themes", isOn: self.settings.showTheme, handler: {
+                    self.settings.showTheme.toggle()
                     handler()
                 }),
-                .init(title: "Type", isOn: self.settings.showType, handler: { [weak self] in
-                    self?.settings.showType.toggle()
+                .init(title: "Type", isOn: self.settings.showType, handler: {
+                    self.settings.showType.toggle()
                     handler()
                 })
             ]
@@ -116,15 +112,15 @@ private extension ContentListMenuConfigurator {
             imageName: "number",
             singleSelection: true,
             items: [
-                .init(title: "All", isOn: self.settings.selectedTheme == .all, handler: { [weak self] in
-                    if let self, self.settings.selectedTheme != .all {
+                .init(title: "All", isOn: self.settings.selectedTheme == .all, handler: {
+                    if self.settings.selectedTheme != .all {
                         self.settings.selectedTheme = .all
                         handler()
                     }
                 })
             ] + themes.map { theme in
-                    .init(title: theme, isOn: self.settings.selectedTheme == .custom(theme)) { [weak self] in
-                        if let self, self.settings.selectedTheme != .custom(theme) {
+                    .init(title: theme, isOn: self.settings.selectedTheme == .custom(theme)) {
+                        if self.settings.selectedTheme != .custom(theme) {
                             self.settings.selectedTheme = .custom(theme)
                             handler()
                         }
@@ -141,15 +137,15 @@ private extension ContentListMenuConfigurator {
             imageName: "tray.full",
             singleSelection: true,
             items: [
-                .init(title: "All", isOn: self.settings.selectedType == .all, handler: { [weak self] in
-                    if let self, self.settings.selectedType != .all {
+                .init(title: "All", isOn: self.settings.selectedType == .all, handler: {
+                    if self.settings.selectedType != .all {
                         self.settings.selectedType = .all
                         handler()
                     }
                 })
             ] + ProjectContentType.allCases.map { type in
-                    .init(title: type.rawValue, isOn: self.settings.selectedType == .custom(type)) { [weak self] in
-                        if let self, self.settings.selectedType != .custom(type) {
+                    .init(title: type.rawValue, isOn: self.settings.selectedType == .custom(type)) {
+                        if self.settings.selectedType != .custom(type) {
                             self.settings.selectedType = .custom(type)
                             handler()
                         }

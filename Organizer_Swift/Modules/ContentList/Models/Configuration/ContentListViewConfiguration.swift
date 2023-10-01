@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Define the properties used to configure the ``ContentListView``
 struct ContentListViewConfiguration {
     var createButtonImageName: String
     var swipeActions: [ContentListSwipeActionConfiguration]

@@ -7,10 +7,8 @@
 
 import UIKit
 
-enum ContentListDataSourceError: Error {
-    case notFound(IndexPath)
-}
-
+/// A specialized `UITableViewDiffableDataSource` that handles ``ContentListSection``and ``ContentDescription``
+/// to display a list of ``ContentCell``.
 final class ContentListDataSource: UITableViewDiffableDataSource<ContentListSection, ContentDescription> {
     // MARK: - Initialization
 
@@ -29,15 +27,16 @@ final class ContentListDataSource: UITableViewDiffableDataSource<ContentListSect
 
     // MARK: - Snapshot
 
-    func applySnapshot(section: ContentListSection,
-                       contentDescriptions: [ContentDescription],
-                       animated: Bool) {
+    /// Updates the UI to reflect the state of the specified data optionally animating the UI changes.
+    func applySnapshot(section: ContentListSection, contentDescriptions: [ContentDescription], animated: Bool) {
         var snapshot = NSDiffableDataSourceSnapshot<ContentListSection, ContentDescription>()
         snapshot.appendSections([section])
         snapshot.appendItems(contentDescriptions, toSection: section)
         self.apply(snapshot, animatingDifferences: animated)
     }
 
+    /// Updates the UI to reflect the deletion of the specified ``ContentDescription`` optionally animating
+    /// the UI changes.
     func applySnapshot(deleting contentDescription: ContentDescription, animated: Bool) {
         var snapshot = self.snapshot()
         snapshot.deleteItems([contentDescription])
@@ -46,6 +45,8 @@ final class ContentListDataSource: UITableViewDiffableDataSource<ContentListSect
 
     // MARK: - Getter
 
+    /// Returns the ``ContentDescription`` at the specified index path in the table view or throw a
+    /// ``ContentListDataSourceError/notFound(_:)`` error.
     func contentDescription(for indexPath: IndexPath) throws -> ContentDescription {
         guard let contentDescription = self.itemIdentifier(for: indexPath) else {
             throw ContentListDataSourceError.notFound(indexPath)

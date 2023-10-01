@@ -12,6 +12,8 @@ final class ContentCell: UITableViewCell {
 
     private let viewRepresentation: ContentCellViewRepresentation = .init()
 
+    // MARK: Views
+
     private let typeImageView: UIImageView = .init()
     private let titleLabel: UILabel = .init()
     private let themeLabel: UILabel = .init()
@@ -77,12 +79,8 @@ private extension ContentCell {
         NSLayoutConstraint.activate([
             self.typeImageView.leadingAnchor.constraint(equalTo: self.layoutMarginsGuide.leadingAnchor),
             self.typeImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            self.typeImageView.widthAnchor.constraint(
-                equalToConstant: self.viewRepresentation.typeImageSize
-            ),
-            self.typeImageView.heightAnchor.constraint(
-                equalToConstant: self.viewRepresentation.typeImageSize
-            )
+            self.typeImageView.widthAnchor.constraint(equalToConstant: self.viewRepresentation.typeImageSize),
+            self.typeImageView.heightAnchor.constraint(equalToConstant: self.viewRepresentation.typeImageSize)
         ])
     }
 
@@ -95,10 +93,7 @@ private extension ContentCell {
         self.addSubview(self.titleLabel)
         self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            self.titleLabel.leadingAnchor.constraint(
-                equalTo: self.typeImageView.trailingAnchor,
-                constant: 8
-            ),
+            self.titleLabel.leadingAnchor.constraint(equalTo: self.typeImageView.trailingAnchor, constant: 8),
             self.titleLabel.trailingAnchor.constraint(equalTo: self.layoutMarginsGuide.trailingAnchor),
             self.titleLabel.centerYAnchor.constraint(equalTo: self.typeImageView.centerYAnchor)
         ])
@@ -126,9 +121,7 @@ private extension ContentCell {
             self.separatorView.leadingAnchor.constraint(equalTo: self.layoutMarginsGuide.leadingAnchor),
             self.separatorView.trailingAnchor.constraint(equalTo: self.layoutMarginsGuide.trailingAnchor),
             self.separatorView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            self.separatorView.heightAnchor.constraint(
-                equalToConstant: self.viewRepresentation.separatorHeight
-            )
+            self.separatorView.heightAnchor.constraint(equalToConstant: self.viewRepresentation.separatorHeight)
         ])
     }
 }

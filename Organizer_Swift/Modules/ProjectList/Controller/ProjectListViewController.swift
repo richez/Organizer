@@ -75,9 +75,7 @@ private extension ProjectListViewController {
         do {
             let projectDescriptions = try self.viewModel.fetchProjectDescriptions()
             self.dataSource.applySnapshot(
-                section: self.viewModel.section,
-                projectDescriptions: projectDescriptions,
-                animated: animated
+                section: self.viewModel.section, projectDescriptions: projectDescriptions, animated: animated
             )
         } catch {
             print("Fail to fetch projects: \(error)")

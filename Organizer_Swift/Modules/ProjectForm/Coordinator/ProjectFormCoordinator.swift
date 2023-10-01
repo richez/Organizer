@@ -27,10 +27,12 @@ final class ProjectFormCoordinator: ChildCoordinator {
     func start() {
         let dataStore = ProjectDataStore.shared
         let notificationCenter = NotificationCenter.default
+
         let projectFormViewModel = ProjectFormViewModel(
             mode: self.mode, dataStore: dataStore, notificationCenter: notificationCenter
         )
         let projectFormViewController = ProjectFormViewController(viewModel: projectFormViewModel, coordinator: self)
+
         self.navigationController.present(projectFormViewController, animated: true)
     }
 }

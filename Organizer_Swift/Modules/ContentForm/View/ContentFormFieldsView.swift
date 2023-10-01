@@ -196,7 +196,7 @@ private extension ContentFormFieldsView {
         textField.apply(rules: rules)
 
         textField.addAction(UIAction(handler: { [weak self] _ in
-            guard let self = self else { return }
+            guard let self else { return }
             self.delegate?.didEditFields(with: self.fieldValues)
         }), for: .editingChanged)
 
@@ -215,7 +215,7 @@ private extension ContentFormFieldsView {
 
     func setupLinkTextFieldEndEditingAction() {
         self.linkTextField.addAction(UIAction(handler: { [weak self] _ in
-            guard let self = self else { return }
+            guard let self else { return }
             self.delegate?.didEndEditingLink(self.fieldValues.link)
         }), for: .editingDidEnd)
     }
@@ -229,7 +229,7 @@ private extension ContentFormFieldsView {
         self.nameGetterButton.setTitleColor(self.viewRepresentation.nameGetterHighlightedTitleColor, for: .highlighted)
 
         self.nameGetterButton.addAction(UIAction(handler: { [weak self] _ in
-            guard let self = self else { return }
+            guard let self else { return }
             self.delegate?.didTapNameGetterButton(link: self.fieldValues.link)
         }), for: .touchUpInside)
 
@@ -246,7 +246,7 @@ private extension ContentFormFieldsView {
             singleSelection: menu.singleSelection,
             items: menu.items.map { item in
                 MenuItemConfiguration(title: item, isOn: item == menu.selectedItem) { [weak self] in
-                    guard let self = self else { return }
+                    guard let self else { return }
                     self.delegate?.didEditFields(with: self.fieldValues)
                 }
             }

@@ -8,17 +8,21 @@
 import Foundation
 
 final class ContentListViewModel {
+    // MARK: - Properties
+
     private let project: Project
     private let settings: ContentListSettings
     private let fetchDescriptor: ContentListFetchDescriptorProtocol
     private let menuConfigurator: ContentListMenuConfiguratorProtocol
     private let notificationCenter: NotificationCenter
 
+    // MARK: - Initialization
+
     init(project: Project,
          settings: ContentListSettings,
          fetchDescriptor: ContentListFetchDescriptorProtocol,
          menuConfigurator: ContentListMenuConfiguratorProtocol,
-         notificationCenter: NotificationCenter = .default) {
+         notificationCenter: NotificationCenter) {
         self.project = project
         self.settings = settings
         self.fetchDescriptor = fetchDescriptor
@@ -30,7 +34,7 @@ final class ContentListViewModel {
 // MARK: - Public
 
 extension ContentListViewModel {
-    // MARK: - Properties
+    // MARK: Properties
 
     var navigationBarTitle: String {
         switch (self.settings.selectedTheme, self.settings.selectedType) {
@@ -68,6 +72,9 @@ extension ContentListViewModel {
 
     // MARK: Data
 
+    /// Returns an array of ``ContentDescription`` from the given ``Project`` that meet the criteria of the
+    /// ``ContentListFetchDescriptor/predicate`` and ``ContentListFetchDescriptor/sortDescriptor`` formatted
+    /// to be ready to be displayed in a ``ProjectCell``.
     func fetchContentDescriptions() throws -> [ContentDescription] {
         do {
             return try self.project.contents
@@ -86,6 +93,8 @@ extension ContentListViewModel {
         }
     }
 
+    /// Returns the ``ProjectContent`` associated with the specified identifier from the given ``Project``
+    /// or throw a ``ContentListViewModelError/notFound(_:)`` error.
     func content(with id: UUID) throws -> ProjectContent {
         guard let content = self.project.contents.first(where: { $0.id == id }) else {
             throw ContentListViewModelError.notFound(id)
@@ -94,6 +103,8 @@ extension ContentListViewModel {
         return content
     }
 
+    /// Returns the `URL` associated with the specified identifier from the given ``Project`` if it
+    /// is valid or throw a ``ContentListViewModelError/badLink(_:)`` error.
     func contentURL(with id: UUID) throws -> URL {
         let contentLink = try self.content(with: id).link
         guard contentLink.isValidURL(), let url = URL(string: contentLink) else {
@@ -102,6 +113,9 @@ extension ContentListViewModel {
         return url
     }
 
+    /// Deletes the ``ProjectContent`` associated with the specified identifier from the given ``Project``
+    /// and post a `didUpdateProjectContent` notification or throw a ``ContentListViewModelError/delete(_:)``
+    /// error.
     func deleteContent(with id: UUID) throws {
         guard let index = self.project.contents.firstIndex(where: { $0.id == id }) else {
             throw ContentListViewModelError.delete(id)
@@ -114,6 +128,10 @@ extension ContentListViewModel {
 
     // MARK: Menu
 
+    /// Returns a ``MenuConfiguration`` by using the ``ContentListMenuConfigurator`` with the number of
+    /// contents represented by the ``ContentListFetchDescriptor/predicate`` and the themes of all contents
+    /// in the given ``Project``.
+    /// - Parameter handler: The action to be executed when a menu item is selected by the user.
     func menuConfiguration(handler: @escaping () -> Void) -> MenuConfiguration {
         let numberOfContents = try? self.project.contents.filter(self.fetchDescriptor.predicate).count
         let allExistingThemes = self.project.contents.flatMap(\.themes).removingDuplicates()
@@ -130,6 +148,9 @@ extension ContentListViewModel {
 private extension ContentListViewModel {
     // MARK: Content
 
+    /// Returns a `String` representing the system name associated with the specified
+    /// ``ProjectContentType`` if ``ContentListSettings/showType`` is `true`, `nil`
+    /// otherwise.
     func imageName(for contentType: ProjectContentType) -> String? {
         guard self.settings.showType else { return nil }
 
@@ -145,6 +166,9 @@ private extension ContentListViewModel {
         }
     }
 
+    /// Returns a `String` that represent the themes of the specified ``ProjectContent``
+    /// (ex: #Insulation #Materials) if ``ContentListSettings/showTheme`` is `true`, `nil`
+    /// otherwise.
     func theme(for content: ProjectContent) -> String? {
         guard self.settings.showTheme else { return nil }
         return content.themes.map { "#\($0)" }.joined(separator: " ")

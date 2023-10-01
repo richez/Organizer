@@ -8,13 +8,16 @@
 import UIKit
 
 final class ContentListViewController: UIViewController {
-    private lazy var contentView: ContentListView = .init()
-    private lazy var navbarTitleView: NavbarTitleView = .init()
+    // MARK: - Properties
 
     private let viewModel: ContentListViewModel
     private unowned let coordinator: ContentListCoordinatorProtocol
-
     private lazy var dataSource: ContentListDataSource = .init(tableView: self.contentView.tableView)
+
+    // MARK: Views
+
+    private lazy var contentView: ContentListView = .init()
+    private lazy var navbarTitleView: NavbarTitleView = .init()
 
     // MARK: - Initialization
 
@@ -70,9 +73,7 @@ private extension ContentListViewController {
         do {
             let contentDescriptions = try self.viewModel.fetchContentDescriptions()
             self.dataSource.applySnapshot(
-                section: self.viewModel.section,
-                contentDescriptions: contentDescriptions,
-                animated: animated
+                section: self.viewModel.section, contentDescriptions: contentDescriptions, animated: animated
             )
         } catch {
             print("Fail to fetch content: \(error)")

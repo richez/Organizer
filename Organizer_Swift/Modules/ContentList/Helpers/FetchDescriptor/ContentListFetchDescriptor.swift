@@ -7,11 +7,6 @@
 
 import Foundation
 
-protocol ContentListFetchDescriptorProtocol {
-    var predicate: Predicate<ProjectContent>? { get }
-    var sortDescriptor: [SortDescriptor<ProjectContent>] { get }
-}
-
 struct ContentListFetchDescriptor {
     // MARK: - Properties
 
@@ -37,7 +32,7 @@ extension ContentListFetchDescriptor: ContentListFetchDescriptorProtocol {
             return #Predicate<ProjectContent> { $0.theme.contains(selectedTheme) }
         case (.custom(let selectedTheme), .custom(let selectedType)):
             return #Predicate<ProjectContent> {
-                $0.theme.contains(selectedTheme) && $0.type == selectedType
+                $0.type == selectedType && $0.theme.contains(selectedTheme)
             }
         }
     }

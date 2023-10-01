@@ -7,17 +7,6 @@
 
 import UIKit
 
-enum ContentDisplayMode {
-    case inApp
-    case external
-}
-
-protocol ContentListCoordinatorProtocol: AnyObject {
-    func showContentForm(mode: ContentFormMode)
-    func showContent(url: URL, mode: ContentDisplayMode)
-    func show(error: Error)
-}
-
 final class ContentListCoordinator: ParentCoordinator, ChildCoordinator {
     // MARK: - Properties
 
@@ -37,14 +26,20 @@ final class ContentListCoordinator: ParentCoordinator, ChildCoordinator {
     // MARK: - Coordinator
 
     func start() {
-        let settings = ContentListSettings(suiteName: project.id.uuidString)
+        let settings = ContentListSettings(suiteName: self.project.id.uuidString)
+        let fetchDescriptor = ContentListFetchDescriptor(settings: settings)
+        let menuConfigurator = ContentListMenuConfigurator(settings: settings)
+        let notificationCenter = NotificationCenter.default
+
         let contentListViewModel = ContentListViewModel(
             project: self.project,
             settings: settings,
-            fetchDescriptor: ContentListFetchDescriptor(settings: settings),
-            menuConfigurator: ContentListMenuConfigurator(settings: settings)
+            fetchDescriptor: fetchDescriptor,
+            menuConfigurator: menuConfigurator,
+            notificationCenter: notificationCenter
         )
         let contentListViewController = ContentListViewController(viewModel: contentListViewModel, coordinator: self)
+
         self.navigationController.setPopAction({ [weak self] in
             self?.finish()
         }, for: contentListViewController)
@@ -57,35 +52,18 @@ final class ContentListCoordinator: ParentCoordinator, ChildCoordinator {
 extension ContentListCoordinator: ContentListCoordinatorProtocol {
     func showContentForm(mode: ContentFormMode) {
         let contentFormCoordinator = ContentFormCoordinator(
-            mode: mode,
-            project: self.project,
-            navigationController: self.navigationController
+            mode: mode, project: self.project, navigationController: self.navigationController
         )
         self.start(child: contentFormCoordinator)
     }
 
     func showContent(url: URL, mode: ContentDisplayMode) {
-        let urlCoordinator = URLCoordinator(
-            mode: URLCoordinatorMode(displayMode: mode, url: url),
-            navigationController: self.navigationController
-        )
+        let urlCoordinatorMode = URLCoordinatorMode(displayMode: mode, url: url)
+        let urlCoordinator = URLCoordinator(mode: urlCoordinatorMode, navigationController: self.navigationController)
         self.start(child: urlCoordinator)
     }
 
     func show(error: Error) {
         self.navigationController.presentError(error)
-    }
-}
-
-// MARK: - URLCoordinator
-
-private extension URLCoordinatorMode {
-    init(displayMode: ContentDisplayMode, url: URL) {
-        switch displayMode {
-        case .inApp:
-            self = .inApp(url)
-        case .external:
-            self = .external(url)
-        }
     }
 }

@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Define the properties used to configure a ``ContentCell``
 struct ContentDescription: Hashable {
     var id: UUID
     var typeImageName: String?

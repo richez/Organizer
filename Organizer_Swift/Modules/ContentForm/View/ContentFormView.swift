@@ -110,7 +110,7 @@ private extension ContentFormView {
         self.saveButton.isEnabled = self.isSaveButtonEnabled
 
         self.saveButton.addAction(UIAction(handler: { [weak self] _ in
-            guard let self = self else { return }
+            guard let self else { return }
             self.delegate?.didTapSaveButton(with: self.fieldsView.fieldValues)
         }), for: .touchUpInside)
 

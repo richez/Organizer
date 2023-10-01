@@ -66,7 +66,7 @@ extension ProjectListViewModel {
 
     /// Returns an array of ``ProjectDescription`` from the persistent stores that meet the criteria of the
     /// ``ProjectListFetchDescriptor/predicate`` and ``ProjectListFetchDescriptor/sortDescriptor`` formatted
-    /// to be ready to display in a ``ProjectCell`` or throw a ``ProjectListViewModelError/fetch(_:)`` error.
+    /// to be ready to be displayed in a ``ProjectCell`` or throw a ``ProjectListViewModelError/fetch(_:)`` error.
     func fetchProjectDescriptions() throws -> [ProjectDescription] {
         do {
             return try self.dataStore
@@ -95,7 +95,7 @@ extension ProjectListViewModel {
         }
     }
 
-    /// Delete the ``Project`` associated with the specified identifier in the persistent stores and
+    /// Deletes the ``Project`` associated with the specified identifier in the persistent stores and
     /// its associated settings or throw a ``ProjectListViewModelError/delete(_:)`` error.
     func deleteProject(with identifier: PersistentIdentifier) throws {
         do {
@@ -152,13 +152,17 @@ extension ProjectListViewModel {
 private extension ProjectListViewModel {
     // MARK: Project
 
+    /// Returns a `String` that represent the themes of the specified ``Project``
+    /// (ex: #DIY #Construction) if ``ProjectListSettings/showTheme`` is `true`,
+    /// `nil` otherwise.
     func theme(for project: Project) -> String? {
         guard self.settings.showTheme else { return nil }
         return project.themes.map { "#\($0)" }.joined(separator: " ")
     }
 
     /// Returns a `String` that represents the descriptions of the specified ``Project`` content
-    /// (ex: "4 contents (2 articles, 1 video, 4 notes)"
+    /// (ex: "4 contents (2 articles, 1 video, 4 notes)" if ``ProjectListSettings/showStatistics``
+    /// is `true`, `nil` otherwise.
     func statistics(for project: Project) -> String? {
         guard self.settings.showStatistics,
                 let contentStatistics = "content".pluralize(count: project.contents.count) else {
@@ -173,6 +177,9 @@ private extension ProjectListViewModel {
         return "\(contentStatistics) (\(contentTypeStatistics))"
     }
 
+    /// Duplicates the specified ``Project`` by assigning a new `UUID` and adding
+    /// a 'copy' suffix to the title. The created and last updated date are set to
+    /// the current date.
     func duplicate(project: Project) -> Project {
         .init(
             id: UUID(),
@@ -184,6 +191,9 @@ private extension ProjectListViewModel {
         )
     }
 
+    /// Duplicates the specified ``ProjectContent`` by assigning a new `UUID`.
+    /// The created and last updated date are kept in order to have the same
+    /// ordering when displaying the new copied project contents.
     func duplicate(content: ProjectContent) -> ProjectContent {
         .init(
             id: UUID(),

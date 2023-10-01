@@ -152,7 +152,7 @@ private extension ShareFormView {
         self.projectTextField.apply(rules: self.viewRepresentation.projectTextFieldRules)
 
         self.projectTextField.addAction(UIAction(handler: { [weak self] _ in
-            guard let self = self else { return }
+            guard let self else { return }
             self.selectedProject = .new(self.projectTextField.text ?? "")
             self.delegate?.didEditFields(with: ShareFormFieldValues(
                 selectedProject: self.selectedProject, content: self.contentFormView.fieldsView.fieldValues
@@ -184,7 +184,7 @@ private extension ShareFormView {
             singleSelection: menu.singleSelection,
             items: menu.items.map { item in
                 return MenuItemConfiguration(title: item.title, isOn: item.isOn) { [weak self] in
-                    guard let self = self else { return }
+                    guard let self else { return }
                     switch item {
                     case .new:
                         self.selectedProject = .new(self.projectTextField.text ?? "")

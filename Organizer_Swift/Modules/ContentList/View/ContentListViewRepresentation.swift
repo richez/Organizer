@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Define the properties used to setup the ``ContentListView``
 struct ContentListViewRepresentation {
     var backgroundColor: UIColor = .background
 

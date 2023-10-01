@@ -18,17 +18,16 @@ final class ContentListView: UIView {
     // MARK: - Properties
 
     private let viewRepresentation: ContentListViewRepresentation = .init()
-
     weak var delegate: ContentListViewDelegate?
 
     private var swipeActionConfigurations: [ContentListSwipeActionConfiguration] = []
     private var contextMenuTitle: String = ""
     private var contextMenuActionConfigurations: [ContentListContextMenuActionConfiguration] = []
 
-    // MARK: View
+    // MARK: Views
 
     let tableView: UITableView = .init()
-    private let createButton: FloatingActionButton = .init() // TODO: rename 'createButton'
+    private let createButton: FloatingActionButton = .init()
 
     // MARK: - Initialization
 
@@ -88,9 +87,7 @@ private extension ContentListView {
         self.addSubview(self.createButton)
         self.createButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            self.createButton.bottomAnchor.constraint(
-                equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -10
-            ),
+            self.createButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -10),
             self.createButton.trailingAnchor.constraint(
                 equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -20
             )

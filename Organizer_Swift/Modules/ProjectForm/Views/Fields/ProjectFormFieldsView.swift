@@ -108,7 +108,7 @@ private extension ProjectFormFieldsView {
         textField.apply(rules: rules)
 
         textField.addAction(UIAction(handler: { [weak self] _ in
-            guard let self = self else { return }
+            guard let self else { return }
             self.delegate?.didEditFields(with: self.fieldValues)
         }), for: .editingChanged)
 

@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class ProjectListMenuConfigurator {
+struct ProjectListMenuConfigurator {
     // MARK: - Properties
 
     private let settings: ProjectListSettings
@@ -44,20 +44,20 @@ private extension ProjectListMenuConfigurator {
             title: "List Sorting",
             imageName: "arrow.up.arrow.down",
             items: [
-                .init(title: "Modification Date", isOn: self.settings.sorting == .lastUpdated, handler: { [weak self] in
-                    if let self, self.settings.sorting != .lastUpdated {
+                .init(title: "Modification Date", isOn: self.settings.sorting == .lastUpdated, handler: {
+                    if self.settings.sorting != .lastUpdated {
                         self.settings.sorting = .lastUpdated
                         handler()
                     }
                 }),
-                .init(title: "Creation Date", isOn: self.settings.sorting == .creation, handler: { [weak self] in
-                    if let self, self.settings.sorting != .creation {
+                .init(title: "Creation Date", isOn: self.settings.sorting == .creation, handler: {
+                    if self.settings.sorting != .creation {
                         self.settings.sorting = .creation
                         handler()
                     }
                 }),
-                .init(title: "Title", isOn: self.settings.sorting == .title, handler: { [weak self] in
-                    if let self, self.settings.sorting != .title {
+                .init(title: "Title", isOn: self.settings.sorting == .title, handler: {
+                    if self.settings.sorting != .title {
                         self.settings.sorting = .title
                         handler()
                     }
@@ -68,8 +68,8 @@ private extension ProjectListMenuConfigurator {
                       items: [
                         .init(title: self.settings.sorting != .title ? "Newest on Top" : "A to Z",
                               isOn: self.settings.ascendingOrder,
-                              handler: { [weak self] in
-                                  self?.settings.ascendingOrder.toggle()
+                              handler: {
+                                  self.settings.ascendingOrder.toggle()
                                   handler()
                               })
                       ])
@@ -84,12 +84,12 @@ private extension ProjectListMenuConfigurator {
             title: "Preview Style",
             imageName: "text.alignleft",
             items: [
-                .init(title: "Themes", isOn: self.settings.showTheme, handler: { [weak self] in
-                    self?.settings.showTheme.toggle()
+                .init(title: "Themes", isOn: self.settings.showTheme, handler: {
+                    self.settings.showTheme.toggle()
                     handler()
                 }),
-                .init(title: "Statistics", isOn: self.settings.showStatistics, handler: { [weak self] in
-                    self?.settings.showStatistics.toggle()
+                .init(title: "Statistics", isOn: self.settings.showStatistics, handler: {
+                    self.settings.showStatistics.toggle()
                     handler()
                 })
             ]
@@ -104,15 +104,15 @@ private extension ProjectListMenuConfigurator {
             imageName: "number",
             singleSelection: true,
             items: [
-                .init(title: "All", isOn: self.settings.selectedTheme == .all, handler: { [weak self] in
-                    if let self, self.settings.selectedTheme != .all {
+                .init(title: "All", isOn: self.settings.selectedTheme == .all, handler: {
+                    if self.settings.selectedTheme != .all {
                         self.settings.selectedTheme = .all
                         handler()
                     }
                 })
             ] + themes.map { theme in
-                    .init(title: theme, isOn: self.settings.selectedTheme == .custom(theme)) { [weak self] in
-                        if let self, self.settings.selectedTheme != .custom(theme) {
+                    .init(title: theme, isOn: self.settings.selectedTheme == .custom(theme)) {
+                        if self.settings.selectedTheme != .custom(theme) {
                             self.settings.selectedTheme = .custom(theme)
                             handler()
                         }
