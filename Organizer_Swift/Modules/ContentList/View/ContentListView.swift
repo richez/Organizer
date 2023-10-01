@@ -21,14 +21,14 @@ final class ContentListView: UIView {
 
     weak var delegate: ContentListViewDelegate?
 
-    var swipeActionConfigurations: [ContentListSwipeActionConfiguration] = []
-    var contextMenuTitle: String = ""
-    var contextMenuActionConfigurations: [ContentListContextMenuActionConfiguration] = []
+    private var swipeActionConfigurations: [ContentListSwipeActionConfiguration] = []
+    private var contextMenuTitle: String = ""
+    private var contextMenuActionConfigurations: [ContentListContextMenuActionConfiguration] = []
 
     // MARK: View
 
     let tableView: UITableView = .init()
-    let contentCreatorButton: FloatingActionButton = .init() // TODO: rename 'createButton'
+    private let createButton: FloatingActionButton = .init() // TODO: rename 'createButton'
 
     // MARK: - Initialization
 
@@ -45,7 +45,7 @@ final class ContentListView: UIView {
     // MARK: - Configuration
 
     func configure(with configuration: ContentListViewConfiguration) {
-        self.contentCreatorButton.configure(
+        self.createButton.configure(
             with: self.viewRepresentation.createButtonViewRepresentation(imageName: configuration.createButtonImageName)
         )
         self.swipeActionConfigurations = configuration.swipeActions
@@ -81,17 +81,17 @@ private extension ContentListView {
     }
 
     func setupCreateButton() {
-        self.contentCreatorButton.addAction(UIAction(handler: { [weak self] _ in
+        self.createButton.addAction(UIAction(handler: { [weak self] _ in
             self?.delegate?.didTapCreateButton()
         }), for: .touchUpInside)
 
-        self.addSubview(self.contentCreatorButton)
-        self.contentCreatorButton.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(self.createButton)
+        self.createButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            self.contentCreatorButton.bottomAnchor.constraint(
+            self.createButton.bottomAnchor.constraint(
                 equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -10
             ),
-            self.contentCreatorButton.trailingAnchor.constraint(
+            self.createButton.trailingAnchor.constraint(
                 equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -20
             )
         ])
