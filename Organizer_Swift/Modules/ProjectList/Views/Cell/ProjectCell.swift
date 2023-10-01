@@ -135,9 +135,7 @@ private extension ProjectCell {
             self.separatorView.leadingAnchor.constraint(equalTo: self.layoutMarginsGuide.leadingAnchor),
             self.separatorView.trailingAnchor.constraint(equalTo: self.layoutMarginsGuide.trailingAnchor),
             self.separatorView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            self.separatorView.heightAnchor.constraint(
-                equalToConstant: self.viewRepresentation.separatorHeight
-            )
+            self.separatorView.heightAnchor.constraint(equalToConstant: self.viewRepresentation.separatorHeight)
         ])
     }
 }

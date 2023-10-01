@@ -7,11 +7,6 @@
 
 import UIKit
 
-protocol ProjectFormCoordinatorProtocol: AnyObject {
-    func show(error: Error)
-    func finish()
-}
-
 final class ProjectFormCoordinator: ChildCoordinator {
     // MARK: - Properties
 
@@ -30,11 +25,12 @@ final class ProjectFormCoordinator: ChildCoordinator {
     // MARK: - Coordinator
 
     func start() {
-        let projectFormViewModel = ProjectFormViewModel(mode: self.mode)
-        let projectFormViewController = ProjectFormViewController(
-            viewModel: projectFormViewModel,
-            coordinator: self
+        let dataStore = ProjectDataStore.shared
+        let notificationCenter = NotificationCenter.default
+        let projectFormViewModel = ProjectFormViewModel(
+            mode: self.mode, dataStore: dataStore, notificationCenter: notificationCenter
         )
+        let projectFormViewController = ProjectFormViewController(viewModel: projectFormViewModel, coordinator: self)
         self.navigationController.present(projectFormViewController, animated: true)
     }
 }

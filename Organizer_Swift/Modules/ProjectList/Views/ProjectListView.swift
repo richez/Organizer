@@ -87,12 +87,8 @@ private extension ProjectListView {
         self.addSubview(self.createButton)
         self.createButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            self.createButton.bottomAnchor.constraint(
-                equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -10
-            ),
-            self.createButton.trailingAnchor.constraint(
-                equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -20
-            )
+            self.createButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -10),
+            self.createButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -20)
         ])
     }
 }

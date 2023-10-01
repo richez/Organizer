@@ -8,13 +8,15 @@
 import Foundation
 
 struct ProjectFormViewModel {
+    // MARK: - Properties
+    
     private let mode: ProjectFormMode
     private let dataStore: DataStoreCreator
     private let notificationCenter: NotificationCenter
 
-    init(mode: ProjectFormMode,
-         dataStore: DataStoreCreator = ProjectDataStore.shared,
-         notificationCenter: NotificationCenter = .default) {
+    // MARK: - Initialization
+
+    init(mode: ProjectFormMode, dataStore: DataStoreCreator, notificationCenter: NotificationCenter) {
         self.mode = mode
         self.dataStore = dataStore
         self.notificationCenter = notificationCenter
@@ -38,6 +40,9 @@ extension ProjectFormViewModel {
         )
     }
 
+    /// Returns `true` if specified field values are valid (i.e. a non empty name for the
+    /// ``ProjectFormMode/create`` mode and a name or theme modification for
+    /// ``ProjectFormMode/update(_:)`` mode), false otherwise.
     func isFieldsValid(for values: ProjectFormFieldValues) -> Bool {
         let name = values.name.trimmingCharacters(in: .whitespacesAndNewlines)
         let theme = values.theme.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -54,6 +59,9 @@ extension ProjectFormViewModel {
         }
     }
 
+    /// Creates or updates a ``Project`` with the specified values in the persistent stores
+    /// according to the associated ``ProjectFormMode`` or throw a ``ProjectFormViewModelError/create(_:)``
+    /// error if a ``Project`` could not be created.
     func commit(values: ProjectFormFieldValues) throws {
         switch self.mode {
         case .create:
@@ -89,6 +97,8 @@ private extension ProjectFormViewModel {
 
     // MARK: Project
 
+    /// Creates a ``Project`` with the specified values in the persistent stores and post a
+    /// `didCreateProject` notification or throw a ``ProjectFormViewModelError/create(_:)`` error.
     func createProject(with values: ProjectFormFieldValues) throws {
         let project = Project(
             id: UUID(),
@@ -107,6 +117,8 @@ private extension ProjectFormViewModel {
         }
     }
 
+    /// Updates the specified ``Project`` with new values in the persistent stores and post a
+    /// `didUpdateProject` notification.
     func updateProject(_ project: Project, values: ProjectFormFieldValues) {
         project.title = values.name.trimmingCharacters(in: .whitespacesAndNewlines)
         project.theme = values.theme.trimmingCharacters(in: .whitespacesAndNewlines)

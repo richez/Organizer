@@ -8,8 +8,8 @@
 import UIKit
 
 protocol ProjectFormViewDelegate: AnyObject {
-    func didEditFields(with values: ProjectFormFieldValues)
     func didTapOnView()
+    func didEditFields(with values: ProjectFormFieldValues)
     func didTapSaveButton(with values: ProjectFormFieldValues)
 }
 
@@ -19,14 +19,16 @@ final class ProjectFormView: UIView {
     private let viewRepresentation: ProjectFormViewRepresentation = .init()
     weak var delegate: ProjectFormViewDelegate?
 
-    private let fieldsView: ProjectFormFieldsView = .init()
-    private let saveButton: FloatingActionButton = .init()
-
     var isSaveButtonEnabled: Bool = false {
         didSet {
             self.saveButton.isEnabled = self.isSaveButtonEnabled
         }
     }
+
+    // MARK: Views
+
+    private let fieldsView: ProjectFormFieldsView = .init()
+    private let saveButton: FloatingActionButton = .init()
 
     // MARK: - Initialization
 
@@ -49,15 +51,6 @@ final class ProjectFormView: UIView {
         self.fieldsView.configure(with: configuration.fields)
     }
 }
-
-// MARK: - ProjectFormFieldsViewDelegate
-
-extension ProjectFormView: ProjectFormFieldsViewDelegate {
-    func didEditFields(with values: ProjectFormFieldValues) {
-        self.delegate?.didEditFields(with: values)
-    }
-}
-
 
 private extension ProjectFormView {
     // MARK: - Setup
@@ -96,22 +89,26 @@ private extension ProjectFormView {
         self.addSubview(self.saveButton)
         self.saveButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            self.saveButton.topAnchor.constraint(
-                greaterThanOrEqualTo: self.fieldsView.bottomAnchor, constant: 8
-            ),
+            self.saveButton.topAnchor.constraint(greaterThanOrEqualTo: self.fieldsView.bottomAnchor, constant: 8),
             self.saveButton.bottomAnchor.constraint(
                 equalTo: self.keyboardLayoutGuide.topAnchor, constant: -8, priority: .defaultLow
             ),
-            self.saveButton.trailingAnchor.constraint(
-                equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -20
-            )
+            self.saveButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -20)
         ])
     }
 
-    // MARK: - Tap Gesture Action
+    // MARK: - Action
 
     @objc
     func didTapOnView(sender: UIView) {
         self.delegate?.didTapOnView()
+    }
+}
+
+// MARK: - ProjectFormFieldsViewDelegate
+
+extension ProjectFormView: ProjectFormFieldsViewDelegate {
+    func didEditFields(with values: ProjectFormFieldValues) {
+        self.delegate?.didEditFields(with: values)
     }
 }

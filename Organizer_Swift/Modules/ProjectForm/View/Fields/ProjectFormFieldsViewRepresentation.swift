@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Define the properties used to setup the ``ProjectFormFieldsView``
 struct ProjectFormFieldsViewRepresentation {
     var stackViewRepresentation: StackViewRepresentation = .init(
         axis: .vertical,

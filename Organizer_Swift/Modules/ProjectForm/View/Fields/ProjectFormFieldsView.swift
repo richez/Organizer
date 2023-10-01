@@ -15,14 +15,7 @@ final class ProjectFormFieldsView: UIView {
     // MARK: - Properties
 
     private let viewRepresentation: ProjectFormFieldsViewRepresentation = .init()
-
-    private let formStackView: UIStackView = .init()
-
-    private let nameLabel: UILabel = .init()
-    private let nameTextField: UITextField = .init()
-
-    private let themeLabel: UILabel = .init()
-    private let themeTextField: UITextField = .init()
+    weak var delegate: ProjectFormFieldsViewDelegate?
 
     var fieldValues: ProjectFormFieldValues {
         .init(
@@ -31,7 +24,15 @@ final class ProjectFormFieldsView: UIView {
         )
     }
 
-    weak var delegate: ProjectFormFieldsViewDelegate?
+    // MARK: Views
+
+    private let formStackView: UIStackView = .init()
+
+    private let nameLabel: UILabel = .init()
+    private let nameTextField: UITextField = .init()
+
+    private let themeLabel: UILabel = .init()
+    private let themeTextField: UITextField = .init()
 
     // MARK: - Initialization
 
@@ -116,7 +117,6 @@ private extension ProjectFormFieldsView {
                 textField?.next()
             }
         }), for: .editingDidEndOnExit)
-
 
         textField.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

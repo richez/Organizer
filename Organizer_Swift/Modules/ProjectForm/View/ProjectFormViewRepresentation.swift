@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Define the properties used to setup the ``ProjectFormView``
 struct ProjectFormViewRepresentation {
     var backgroundColor: UIColor = .background
 

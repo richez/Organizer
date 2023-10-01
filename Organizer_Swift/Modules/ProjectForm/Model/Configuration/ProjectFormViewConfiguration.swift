@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Define the properties used to configure the ``ProjectFormView``
 struct ProjectFormViewConfiguration {
     var saveButtonImageName: String
     var fields: ProjectFormFieldsConfiguration

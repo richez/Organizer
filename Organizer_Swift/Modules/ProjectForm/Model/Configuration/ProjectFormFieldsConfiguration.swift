@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Define the properties used to configure the ``ProjectFormFieldsView``
 struct ProjectFormFieldsConfiguration {
     var name: ProjectFormField
     var theme: ProjectFormField

@@ -147,6 +147,7 @@
 		F0FA8AFF2AC6345E0000A091 /* ContentFormFieldError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FA8AFD2AC634560000A091 /* ContentFormFieldError.swift */; };
 		F0FA8B012AC635CE0000A091 /* String+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FA8B002AC635CE0000A091 /* String+URL.swift */; };
 		F0FDB00F2AC987C600725184 /* ProjectListMenuConfiguratorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FDB00E2AC987C600725184 /* ProjectListMenuConfiguratorProtocol.swift */; };
+		F0FDB0122ACA137F00725184 /* ProjectFormCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FDB0112ACA137F00725184 /* ProjectFormCoordinatorProtocol.swift */; };
 		F0FEB2992ABC70F900821ED8 /* ShareFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FEB2982ABC70F900821ED8 /* ShareFormView.swift */; };
 		F0FEB29B2ABC726A00821ED8 /* ShareFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FEB29A2ABC726A00821ED8 /* ShareFormViewModel.swift */; };
 		F0FEB29C2ABC72AF00821ED8 /* FloatingActionButtonViewRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0307C6F2AA87EEE00DC3958 /* FloatingActionButtonViewRepresentation.swift */; };
@@ -343,6 +344,7 @@
 		F0FA8AFD2AC634560000A091 /* ContentFormFieldError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentFormFieldError.swift; sourceTree = "<group>"; };
 		F0FA8B002AC635CE0000A091 /* String+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+URL.swift"; sourceTree = "<group>"; };
 		F0FDB00E2AC987C600725184 /* ProjectListMenuConfiguratorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListMenuConfiguratorProtocol.swift; sourceTree = "<group>"; };
+		F0FDB0112ACA137F00725184 /* ProjectFormCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFormCoordinatorProtocol.swift; sourceTree = "<group>"; };
 		F0FEB2982ABC70F900821ED8 /* ShareFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareFormView.swift; sourceTree = "<group>"; };
 		F0FEB29A2ABC726A00821ED8 /* ShareFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareFormViewModel.swift; sourceTree = "<group>"; };
 		F0FEB2AF2ABC79BD00821ED8 /* ShareFormViewRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareFormViewRepresentation.swift; sourceTree = "<group>"; };
@@ -483,8 +485,7 @@
 			children = (
 				F0307C7F2AA8A95C00DC3958 /* ProjectFormView.swift */,
 				F0307C832AA8BF0E00DC3958 /* ProjectFormViewRepresentation.swift */,
-				F0307C892AA8F07E00DC3958 /* ProjectFormFieldsView.swift */,
-				F0307C8B2AA8F09C00DC3958 /* ProjectFormFieldsViewRepresentation.swift */,
+				F0FDB0132ACA189C00725184 /* Fields */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -492,6 +493,7 @@
 		F0307C772AA8A8BA00DC3958 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				F0FDB0112ACA137F00725184 /* ProjectFormCoordinatorProtocol.swift */,
 				F0307C7D2AA8A91800DC3958 /* ProjectFormCoordinator.swift */,
 			);
 			path = Coordinator;
@@ -1079,6 +1081,15 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		F0FDB0132ACA189C00725184 /* Fields */ = {
+			isa = PBXGroup;
+			children = (
+				F0307C892AA8F07E00DC3958 /* ProjectFormFieldsView.swift */,
+				F0307C8B2AA8F09C00DC3958 /* ProjectFormFieldsViewRepresentation.swift */,
+			);
+			path = Fields;
+			sourceTree = "<group>";
+		};
 		F0FEB2952ABC70D700821ED8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -1287,6 +1298,7 @@
 				F0C2651A2AAF5903008EAB3C /* ProjectFormFieldsConfiguration.swift in Sources */,
 				F0307C802AA8A95C00DC3958 /* ProjectFormView.swift in Sources */,
 				F007E93A2AC45B470037CDEE /* URLMetadataProviderError.swift in Sources */,
+				F0FDB0122ACA137F00725184 /* ProjectFormCoordinatorProtocol.swift in Sources */,
 				F0AC0AD12AB0923600AE326F /* ContentFormCoordinator.swift in Sources */,
 				F05CA3842ABA51E70059F25F /* ProjectListFetchDescriptor.swift in Sources */,
 				F090AAB62AA7698B00480249 /* ProjectListSection.swift in Sources */,

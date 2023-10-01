@@ -10,10 +10,12 @@ import UIKit
 final class ProjectFormViewController: UIViewController {
     // MARK: - Properties
 
-    private lazy var contentView: ProjectFormView = .init()
-
     private let viewModel: ProjectFormViewModel
     private unowned let coordinator: ProjectFormCoordinatorProtocol
+
+    // MARK: View
+
+    private lazy var contentView: ProjectFormView = .init()
 
     // MARK: - Initialization
 
@@ -41,6 +43,8 @@ final class ProjectFormViewController: UIViewController {
 }
 
 private extension ProjectFormViewController {
+    // MARK: - Setup
+
     func setup() {
         self.contentView.delegate = self
         self.presentationController?.delegate = self
@@ -52,13 +56,13 @@ private extension ProjectFormViewController {
 // MARK: - ProjectFormViewDelegate
 
 extension ProjectFormViewController: ProjectFormViewDelegate {
+    func didTapOnView() {
+        self.view.endEditing(true)
+    }
+
     func didEditFields(with values: ProjectFormFieldValues) {
         let isFieldsValid = self.viewModel.isFieldsValid(for: values)
         self.contentView.isSaveButtonEnabled = isFieldsValid
-    }
-
-    func didTapOnView() {
-        self.view.endEditing(true)
     }
 
     func didTapSaveButton(with values: ProjectFormFieldValues) {

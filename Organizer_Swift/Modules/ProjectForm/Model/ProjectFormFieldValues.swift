@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Define the values of the fields in ``ProjectFormFieldsView``
 struct ProjectFormFieldValues {
     var name: String
     var theme: String
