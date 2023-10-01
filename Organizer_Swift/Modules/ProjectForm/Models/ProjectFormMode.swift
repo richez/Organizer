@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// The mode that defined how the form should be configured.
+/// The mode that defined how the project form should be configured.
 enum ProjectFormMode {
     /// Display empty fields
     case create

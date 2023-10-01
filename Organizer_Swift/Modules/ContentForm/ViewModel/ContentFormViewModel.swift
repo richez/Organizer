@@ -20,7 +20,7 @@ struct ContentFormViewModel {
     init(mode: ContentFormMode,
          project: Project,
          urlMetadataProvider: URLMetadataProviderProtocol,
-         notificationCenter: NotificationCenter = .default) {
+         notificationCenter: NotificationCenter) {
         self.mode = mode
         self.project = project
         self.urlMetadataProvider = urlMetadataProvider
@@ -59,6 +59,9 @@ extension ContentFormViewModel {
         )
     }
 
+    /// Returns `true` if specified field values are valid (i.e. a valid type/link and
+    /// non empty name for the ``ContentFormMode/create`` mode and at least one modification
+    /// for ``ContentFormMode/update(_:)`` mode), false otherwise.
     func isFieldsValid(for values: ContentFormFieldValues) -> Bool {
         let type = ProjectContentType(rawValue: values.type)
         let link = values.link
@@ -85,14 +88,19 @@ extension ContentFormViewModel {
         return link.isValidURL()
     }
 
-    func linkTitle(for link: String) async throws -> String {
+    /// Fetches the title metadata for the given URL representation using the given
+    /// ``URLMetadataProvider`` or throw a ``ContentFormViewModelError/urlMetadataProvider(_:_:)``
+    /// error.
+    func title(of link: String) async throws -> String {
         do {
-            return try await self.urlMetadataProvider.title(for: link)
+            return try await self.urlMetadataProvider.title(of: link)
         } catch {
             throw ContentFormViewModelError.urlMetadataProvider(link, error)
         }
     }
 
+    /// Creates or updates a ``ProjectContent`` with the specified values in the given ``Project``
+    /// according to the associated ``ContentFormMode``.
     func commit(values: ContentFormFieldValues) {
         switch self.mode {
         case .create:
@@ -146,6 +154,8 @@ private extension ContentFormViewModel {
 
     // MARK: Content
 
+    /// Creates a ``ProjectContent`` with the specified values in the given ``Project`` and post a
+    /// `didCreateContent` and `didUpdateProjectContent` notification.
     func createContent(with values: ContentFormFieldValues) {
         let projectContent = ProjectContent(
             id: UUID(),
@@ -162,6 +172,8 @@ private extension ContentFormViewModel {
         self.notificationCenter.post(name: .didUpdateProjectContent, object: nil)
     }
 
+    /// Updates the specified ``ProjectContent`` with new values in given ``Project`` and post a
+    /// `didUpdateContent` and `didUpdateProjectContent` notification.
     func updateContent(_ content: ProjectContent, values: ContentFormFieldValues) {
         content.type = ProjectContentType(rawValue: values.type) ?? .other
         content.title = values.name.trimmingCharacters(in: .whitespacesAndNewlines)

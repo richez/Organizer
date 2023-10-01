@@ -8,12 +8,6 @@
 import Foundation
 import LinkPresentation
 
-/// A type representing an object that can retrieve a link metadata.
-protocol URLMetadataProviderProtocol {
-    /// Fetches the title metadata for the given URL representation.
-    func title(for urlRepresentation: String) async throws -> String
-}
-
 /// A type that conform to ``URLMetadataProviderProtocol`` and use the `LinkPresentation`
 /// module to fetch link metadata (`LPMetadataProvider.startFetchingMetadata(for:)`)
 struct URLMetadataProvider {
@@ -31,7 +25,7 @@ struct URLMetadataProvider {
 // MARK: - URLMetadataProviderProtocol
 
 extension URLMetadataProvider: URLMetadataProviderProtocol {
-    func title(for urlRepresentation: String) async throws -> String {
+    func title(of urlRepresentation: String) async throws -> String {
         return try await withCheckedThrowingContinuation { continuation in
             guard urlRepresentation.isValidURL(), let url = URL(string: urlRepresentation) else {
                 return continuation.resume(throwing: URLMetadataProviderError.badURL(urlRepresentation))

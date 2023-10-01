@@ -7,11 +7,6 @@
 
 import UIKit
 
-protocol ContentFormCoordinatorProtocol: AnyObject {
-    func show(error: Error)
-    func finish()
-}
-
 final class ContentFormCoordinator: ChildCoordinator {
     // MARK: - Properties
 
@@ -23,24 +18,27 @@ final class ContentFormCoordinator: ChildCoordinator {
 
     // MARK: - Initialization
 
-    init(mode: ContentFormMode,
-         project: Project,
-         navigationController: UINavigationController) {
+    init(mode: ContentFormMode, project: Project, navigationController: UINavigationController) {
         self.mode = mode
-        self.navigationController = navigationController
         self.project = project
+        self.navigationController = navigationController
     }
 
     // MARK: - Coordinator
 
     func start() {
-        let urlMetadataProvider = URLMetadataProvider(
-            configuration: URLMetadataConfiguration(shouldFetchSubresources: false, timeout: 20)
-        )
+        let uRLMetadataConfiguration = URLMetadataConfiguration(shouldFetchSubresources: false, timeout: 20)
+        let urlMetadataProvider = URLMetadataProvider(configuration: uRLMetadataConfiguration)
+        let notificationCenter = NotificationCenter.default
+
         let contentFormViewModel = ContentFormViewModel(
-            mode: self.mode, project: self.project, urlMetadataProvider: urlMetadataProvider
+            mode: self.mode, 
+            project: self.project,
+            urlMetadataProvider: urlMetadataProvider,
+            notificationCenter: notificationCenter
         )
         let contentFormViewController = ContentFormViewController(viewModel: contentFormViewModel, coordinator: self)
+
         self.navigationController.present(contentFormViewController, animated: true)
     }
 }

@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Define the values of the fields in ``ContentFormFieldsView``
 struct ContentFormFieldValues {
     var type: String
     var link: String

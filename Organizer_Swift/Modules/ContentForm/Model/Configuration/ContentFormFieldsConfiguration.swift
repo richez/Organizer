@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Define the properties used to configure the ``ContentFormFieldsView``
 struct ContentFormFieldsConfiguration {
     var type: ContentFormMenu
     var link: ContentFormField

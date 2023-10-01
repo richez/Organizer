@@ -10,12 +10,13 @@ import UIKit
 final class ContentFormViewController: UIViewController {
     // MARK: - Properties
 
-    private lazy var contentView: ContentFormView = .init()
-
     private let viewModel: ContentFormViewModel
     private unowned let coordinator: ContentFormCoordinatorProtocol
-
     private var linkTitleTask: Task<Void, Never>?
+
+    // MARK: View
+
+    private lazy var contentView: ContentFormView = .init()
 
     // MARK: - Initialization
 
@@ -44,6 +45,7 @@ final class ContentFormViewController: UIViewController {
 
 private extension ContentFormViewController {
     // MARK: - Setup
+
     func setup() {
         self.contentView.delegate = self
         self.presentationController?.delegate = self
@@ -76,7 +78,7 @@ extension ContentFormViewController: ContentFormViewDelegate {
 
         self.linkTitleTask = Task { [weak self] in
             do {
-                let title = try await self?.viewModel.linkTitle(for: link)
+                let title = try await self?.viewModel.title(of: link)
                 try Task.checkCancellation()
                 self?.contentView.fieldsView.set(name: title ?? "")
                 self?.contentView.stopLoader()

@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Define the properties used to setup the ``ContentFormFieldsView``
 struct ContentFormFieldsViewRepresentation {
     var formStackViewRepresentation: StackViewRepresentation = .init(
         axis: .vertical,

@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Define the properties used to configure the ``ContentFormView``
 struct ContentFormViewConfiguration {
     var saveButtonImageName: String
     var fields: ContentFormFieldsConfiguration

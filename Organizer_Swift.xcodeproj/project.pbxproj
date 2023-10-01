@@ -139,6 +139,8 @@
 		F0D5A2322AC0EB760090F55D /* ShareFormMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D5A2312AC0EB760090F55D /* ShareFormMenuItem.swift */; };
 		F0D5A2342AC0EB890090F55D /* ProjectSelectedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D5A2332AC0EB890090F55D /* ProjectSelectedItem.swift */; };
 		F0E406082ACA259F009F108D /* ContentListMenuConfiguratorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E406072ACA259F009F108D /* ContentListMenuConfiguratorProtocol.swift */; };
+		F0E4060B2ACA31A1009F108D /* ContentFormCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E4060A2ACA31A1009F108D /* ContentFormCoordinatorProtocol.swift */; };
+		F0E4060E2ACA36A9009F108D /* URLMetadataProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E4060D2ACA36A9009F108D /* URLMetadataProviderProtocol.swift */; };
 		F0F5A1E42AB9F14600EBF42C /* ProjectListContextMenuActionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F5A1E32AB9F14600EBF42C /* ProjectListContextMenuActionConfiguration.swift */; };
 		F0F5A1E62AB9F16100EBF42C /* ProjectListSwipeActionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F5A1E52AB9F16100EBF42C /* ProjectListSwipeActionConfiguration.swift */; };
 		F0F5A1E82AB9F17100EBF42C /* ProjectListViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F5A1E72AB9F17100EBF42C /* ProjectListViewConfiguration.swift */; };
@@ -342,6 +344,8 @@
 		F0D5A2312AC0EB760090F55D /* ShareFormMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareFormMenuItem.swift; sourceTree = "<group>"; };
 		F0D5A2332AC0EB890090F55D /* ProjectSelectedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSelectedItem.swift; sourceTree = "<group>"; };
 		F0E406072ACA259F009F108D /* ContentListMenuConfiguratorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentListMenuConfiguratorProtocol.swift; sourceTree = "<group>"; };
+		F0E4060A2ACA31A1009F108D /* ContentFormCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentFormCoordinatorProtocol.swift; sourceTree = "<group>"; };
+		F0E4060D2ACA36A9009F108D /* URLMetadataProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLMetadataProviderProtocol.swift; sourceTree = "<group>"; };
 		F0F5A1E32AB9F14600EBF42C /* ProjectListContextMenuActionConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListContextMenuActionConfiguration.swift; sourceTree = "<group>"; };
 		F0F5A1E52AB9F16100EBF42C /* ProjectListSwipeActionConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListSwipeActionConfiguration.swift; sourceTree = "<group>"; };
 		F0F5A1E72AB9F17100EBF42C /* ProjectListViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListViewConfiguration.swift; sourceTree = "<group>"; };
@@ -412,6 +416,7 @@
 		F007E9362AC458C80037CDEE /* URL */ = {
 			isa = PBXGroup;
 			children = (
+				F0E4060D2ACA36A9009F108D /* URLMetadataProviderProtocol.swift */,
 				F007E9372AC458E20037CDEE /* URLMetadataProvider.swift */,
 				F007E93B2AC45B540037CDEE /* URLMetadataConfiguration.swift */,
 				F007E9392AC45B470037CDEE /* URLMetadataProviderError.swift */,
@@ -866,8 +871,7 @@
 			children = (
 				F0AC0AD62AB0949800AE326F /* ContentFormView.swift */,
 				F0AC0AD82AB0952800AE326F /* ContentFormViewRepresentation.swift */,
-				F0AC0ADA2AB0957100AE326F /* ContentFormFieldsView.swift */,
-				F0AC0ADC2AB0968800AE326F /* ContentFormFieldsViewRepresentation.swift */,
+				F0E4060C2ACA336D009F108D /* Fields */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -885,6 +889,7 @@
 		F0AC0ACC2AB091A900AE326F /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				F0E4060A2ACA31A1009F108D /* ContentFormCoordinatorProtocol.swift */,
 				F0AC0AD02AB0923600AE326F /* ContentFormCoordinator.swift */,
 			);
 			path = Coordinator;
@@ -916,7 +921,7 @@
 				F07202F62AAFCCA70026B29E /* DataSource */,
 				F05CA37B2ABA49490059F25F /* Helpers */,
 				F07202FB2AAFD24C0026B29E /* Models */,
-				F0C2651F2AAF5FAC008EAB3C /* View */,
+				F0C2651F2AAF5FAC008EAB3C /* Views */,
 				F0C2651E2AAF5FA4008EAB3C /* ViewModel */,
 			);
 			path = ContentList;
@@ -931,14 +936,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		F0C2651F2AAF5FAC008EAB3C /* View */ = {
+		F0C2651F2AAF5FAC008EAB3C /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				F0C265262AAF604C008EAB3C /* ContentListView.swift */,
 				F0C2652A2AAF67AE008EAB3C /* ContentListViewRepresentation.swift */,
 				F0E406092ACA285C009F108D /* Cell */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		F0C265202AAF5FB2008EAB3C /* Coordinator */ = {
@@ -1019,6 +1024,15 @@
 				F07202F42AAFCB080026B29E /* ContentCellViewRepresentation.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		F0E4060C2ACA336D009F108D /* Fields */ = {
+			isa = PBXGroup;
+			children = (
+				F0AC0ADA2AB0957100AE326F /* ContentFormFieldsView.swift */,
+				F0AC0ADC2AB0968800AE326F /* ContentFormFieldsViewRepresentation.swift */,
+			);
+			path = Fields;
 			sourceTree = "<group>";
 		};
 		F0F5A1DF2AB9F0FE00EBF42C /* List */ = {
@@ -1354,6 +1368,7 @@
 				F0AC0ADB2AB0957100AE326F /* ContentFormFieldsView.swift in Sources */,
 				F03693972AA6A42C005C373A /* ProjectListViewRepresentation.swift in Sources */,
 				F0D2B0E12AA776E3000D34CA /* UIView+Identifier.swift in Sources */,
+				F0E4060E2ACA36A9009F108D /* URLMetadataProviderProtocol.swift in Sources */,
 				F0AC0ACF2AB091CE00AE326F /* ContentFormViewController.swift in Sources */,
 				F0732BA22AA61A7B0027EC4F /* ProjectListViewController.swift in Sources */,
 				F0F5A1F42AB9FF1A00EBF42C /* ProjectFormViewConfiguration.swift in Sources */,
@@ -1403,6 +1418,7 @@
 				F0F5A1EF2AB9F88600EBF42C /* ContentListSwipeActionConfiguration.swift in Sources */,
 				F09AE35A2AB64E8D00161CFB /* Sequence+Predicate.swift in Sources */,
 				F09AE35C2AB64F6000161CFB /* Array+Duplicates.swift in Sources */,
+				F0E4060B2ACA31A1009F108D /* ContentFormCoordinatorProtocol.swift in Sources */,
 				F0307C702AA87EEE00DC3958 /* FloatingActionButtonViewRepresentation.swift in Sources */,
 				F09AE3542AB62F2D00161CFB /* ContentListSettings.swift in Sources */,
 				F0AC0AD72AB0949800AE326F /* ContentFormView.swift in Sources */,

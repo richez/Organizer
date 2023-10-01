@@ -17,6 +17,30 @@ final class ContentFormFieldsView: UIView {
     // MARK: - Properties
 
     private let viewRepresentation: ContentFormFieldsViewRepresentation = .init()
+    weak var delegate: ContentFormFieldsViewDelegate?
+
+    var isNameGetterButtonEnabled: Bool = false {
+        didSet {
+            self.nameGetterButton.isEnabled = self.isNameGetterButtonEnabled
+        }
+    }
+
+    var isLinkErrorLabelHidden: Bool = true {
+        didSet {
+            self.linkErrorLabel.isHidden = self.isLinkErrorLabelHidden
+        }
+    }
+
+    var fieldValues: ContentFormFieldValues {
+        .init(
+            type: self.typeButton.menu?.selectedElements.first?.title ?? "",
+            link: self.linkTextField.text ?? "",
+            name: self.nameTextField.text ?? "",
+            theme: self.themeTextField.text ?? ""
+        )
+    }
+
+    // MARK: Views
 
     private let formStackView: UIStackView = .init()
 
@@ -34,29 +58,6 @@ final class ContentFormFieldsView: UIView {
 
     private let themeLabel: UILabel = .init()
     private let themeTextField: UITextField = .init()
-
-    var fieldValues: ContentFormFieldValues {
-        .init(
-            type: self.typeButton.menu?.selectedElements.first?.title ?? "",
-            link: self.linkTextField.text ?? "",
-            name: self.nameTextField.text ?? "",
-            theme: self.themeTextField.text ?? ""
-        )
-    }
-
-    var isNameGetterButtonEnabled: Bool = false {
-        didSet {
-            self.nameGetterButton.isEnabled = self.isNameGetterButtonEnabled
-        }
-    }
-
-    var isLinkErrorLabelHidden: Bool = true {
-        didSet {
-            self.linkErrorLabel.isHidden = self.isLinkErrorLabelHidden
-        }
-    }
-
-    weak var delegate: ContentFormFieldsViewDelegate?
 
     // MARK: - Initialization
 
@@ -187,6 +188,7 @@ private extension ContentFormFieldsView {
         self.linkStackView.addArrangedSubview(self.linkErrorLabel)
 
         self.linkStackView.translatesAutoresizingMaskIntoConstraints = false
+        // Force the link label to keep its width even if the linkErrorLabel text is too big.
         self.linkLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
     }
 

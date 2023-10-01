@@ -41,7 +41,7 @@ extension ProjectFormViewModel {
     }
 
     /// Returns `true` if specified field values are valid (i.e. a non empty name for the
-    /// ``ProjectFormMode/create`` mode and a name or theme modification for
+    /// ``ProjectFormMode/create`` mode and at least one modification for
     /// ``ProjectFormMode/update(_:)`` mode), false otherwise.
     func isFieldsValid(for values: ProjectFormFieldValues) -> Bool {
         let name = values.name.trimmingCharacters(in: .whitespacesAndNewlines)

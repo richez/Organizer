@@ -19,18 +19,19 @@ final class ContentFormView: UIView {
     // MARK: - Properties
 
     private let viewRepresentation: ContentFormViewRepresentation = .init()
-
     weak var delegate: ContentFormViewDelegate?
-
-    let fieldsView: ContentFormFieldsView = .init()
-    private let saveButton: FloatingActionButton = .init()
-    private let activityIndicatorView: UIActivityIndicatorView = .init()
 
     var isSaveButtonEnabled: Bool = false {
         didSet {
             self.saveButton.isEnabled = self.isSaveButtonEnabled
         }
     }
+
+    // MARK: Views
+
+    let fieldsView: ContentFormFieldsView = .init()
+    private let saveButton: FloatingActionButton = .init()
+    private let activityIndicatorView: UIActivityIndicatorView = .init()
 
     // MARK: - Initialization
 
@@ -117,19 +118,15 @@ private extension ContentFormView {
         self.addSubview(self.saveButton)
         self.saveButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            self.saveButton.topAnchor.constraint(
-                greaterThanOrEqualTo: self.fieldsView.bottomAnchor, constant: 8
-            ),
+            self.saveButton.topAnchor.constraint(greaterThanOrEqualTo: self.fieldsView.bottomAnchor, constant: 8),
             self.saveButton.bottomAnchor.constraint(
                 equalTo: self.keyboardLayoutGuide.topAnchor, constant: -8, priority: .defaultLow
             ),
-            self.saveButton.trailingAnchor.constraint(
-                equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -20
-            )
+            self.saveButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -20)
         ])
     }
 
-    // MARK: - Tap Gesture Action
+    // MARK: - Action
 
     @objc
     func didTapOnView(sender: UIView) {
