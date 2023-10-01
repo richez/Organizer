@@ -7,6 +7,9 @@
 
 import UIKit
 
+/// A custom `UIView` that is meant to be displayed in the navigation bar that
+/// allows to have multiline label as a title and whose representation is defined by
+/// ``NavbarTitleViewRepresentation``
 final class NavbarTitleView: UIView {
     // MARK: - Properties
 

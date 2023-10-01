@@ -8,15 +8,12 @@
 import UIKit
 import SafariServices
 
-enum URLCoordinatorMode {
-    /// Open the provided `URL` in a `SafariViewController`
-    case inApp(URL)
-
-    /// Open the provided `URL` in the browser or associated app using `UIApplication.open`.
-    case external(URL)
-}
-
+/// A coordinator that handles `URL` opening by presenting an `SFSafariViewController`
+/// inside the app or redirecting to the default browser (`UIApplication.shared.open`)
+/// depending on the passed ``URLCoordinatorMode``.
 final class URLCoordinator: ChildCoordinator {
+    // MARK: - Properties
+
     private let mode: URLCoordinatorMode
     unowned private let navigationController: NavigationController
 

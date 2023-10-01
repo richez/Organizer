@@ -8,6 +8,9 @@
 import UIKit
 import Combine
 
+/// A custom round `UIButton` that is meant to be displayed at the bottom of the screen
+/// like in ``ProjectListView/createButton`` and whose representation is defined by
+/// ``FloatingActionButtonViewRepresentation``.
 final class FloatingActionButton: UIButton {
     // MARK: - Properties
 

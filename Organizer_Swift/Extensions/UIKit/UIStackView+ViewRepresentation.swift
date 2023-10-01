@@ -12,6 +12,7 @@ import UIKit
 /// Improves the readability of the app `ViewRepresentation` by allowing to
 /// declare one property per `UIStackView` (i.e. `formStackViewRepresentation`)
 /// instead of a list of properties (i.e. `formStackViewAxis`, `formStackViewSpacing`, ...).
+/// (``ProjectFormFieldsViewRepresentation/stackViewRepresentation``)
 struct StackViewRepresentation {
     var axis: NSLayoutConstraint.Axis
     var distribution: UIStackView.Distribution

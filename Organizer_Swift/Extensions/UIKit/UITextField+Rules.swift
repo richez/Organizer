@@ -12,6 +12,7 @@ import UIKit
 /// Improve the readability of the app `ViewRepresentation` by allowing to declare
 /// one property per `UITextField` (i.e. `nameTextFieldRules`) instead of a list of
 /// properties (i.e. `nameTextFieldKeyboardType`, `nameTextFieldReturnKeyType`, etc).
+/// (``ProjectFormFieldsViewRepresentation/nameTextFieldRules``)
 struct TextFieldRules {
     var autocapitalizationType: UITextAutocapitalizationType = .sentences
     var clearButtonMode: UITextField.ViewMode = .never

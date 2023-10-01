@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// The view representation that will be applied to a ``FloatingActionButton``
 struct FloatingActionButtonViewRepresentation {
     var size: CGFloat
     var backgroundColor: UIColor

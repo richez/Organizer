@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// The view representation that will be applied to a ``NavbarTitleView``
 struct NavbarTitleViewRepresentation {
     var numberOfLines: Int = 2
     var textAlignment: NSTextAlignment = .center

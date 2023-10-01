@@ -7,12 +7,13 @@
 
 import UIKit
 
-/// Custom navigation controller used to add actions when a controller is popped
+/// Custom navigation controller used to add actions when one of its controller is popped.
 ///
 /// This class listen to `UINavigationControllerDelegate.didShow` method to detect when a view
-/// controller is popped and execute the associated pop action setted when calling `setPopAction`
+/// controller is popped and execute the associated pop action setted when calling ``setPopAction(_:for:)``
+/// method.
 ///
-/// It's particularly usefull when using the `Coordinator` pattern in order to free the controller
+/// It's particularly usefull when using the ``Coordinator`` pattern in order to free the controller
 /// associated coordinator from memory.
 ///```
 /// func start() {

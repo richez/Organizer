@@ -19,7 +19,7 @@ protocol Coordinator: AnyObject {
 
 /// A type that conforms to the `Coordinator` protocol that handles
 /// child objetcs to temporarily give them control over the app by using
-/// its `start(child:)` and `finish(child:)` methods.
+/// its ``start(child:)`` and ``finish(child:)`` methods.
 protocol ParentCoordinator: Coordinator {
     var children: [Coordinator] { get set }
 }
@@ -31,7 +31,7 @@ protocol ChildCoordinator: Coordinator {
 }
 
 extension ParentCoordinator {
-    func start(child: some ChildCoordinator) { // TODO: any?
+    func start(child: some ChildCoordinator) {
         self.children.append(child)
         child.parent = self
         child.start()

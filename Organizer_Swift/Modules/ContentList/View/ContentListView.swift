@@ -28,7 +28,7 @@ final class ContentListView: UIView {
     // MARK: View
 
     let tableView: UITableView = .init()
-    let contentCreatorButton: FloatingActionButton = .init()
+    let contentCreatorButton: FloatingActionButton = .init() // TODO: rename 'createButton'
 
     // MARK: - Initialization
 

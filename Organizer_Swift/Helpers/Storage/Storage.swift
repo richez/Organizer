@@ -7,6 +7,25 @@
 
 import Foundation
 
+/// A `propertyWrapper` that allows to define values that are backed by `UserDefaults`.
+///
+/// - Note: `self` cannot be referenced when initializing a `propertyWrapper`. Thus, the
+/// `container` property must be set after when not using `UserDefaults.standard`.
+/// ```
+///     struct Object {
+///         /// @Storage(..., container: self.defaults) -> Cannot find 'self' in scope
+///         @Storage(key: .testing, defaultValue: false)
+///         var isTesting: Bool
+///
+///         private let defaults: UserDefaults
+///
+///         init(defaults: UserDefaults) {
+///             self.defaults = defaults
+///             self._isTesting.container = defaults
+///         }
+/// ```
+/// Follow-up: Allowing the reference of `self` is under discussion in the Swift evolution
+/// proposals: https://github.com/apple/swift-evolution/blob/master/proposals/0258-property-wrappers.md#referencing-the-enclosing-self-in-a-wrapper-type
 @propertyWrapper
 struct Storage<Value> {
     let key: StorageKey

@@ -8,12 +8,24 @@
 import Foundation
 import LinkPresentation
 
+/// A type representing an object that can retrieve a link metadata.
 protocol URLMetadataProviderProtocol {
+    /// Fetches the title metadata for the given URL representation.
     func title(for urlRepresentation: String) async throws -> String
 }
 
+/// A type that conform to ``URLMetadataProviderProtocol`` and use the `LinkPresentation`
+/// module to fetch link metadata (`LPMetadataProvider.startFetchingMetadata(for:)`)
 struct URLMetadataProvider {
-    var configuration: URLMetadataConfiguration
+    // MARK: - Properties
+
+    private let configuration: URLMetadataConfiguration
+
+    // MARK: - Initialization
+
+    init(configuration: URLMetadataConfiguration) {
+        self.configuration = configuration
+    }
 }
 
 // MARK: - URLMetadataProviderProtocol

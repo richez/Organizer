@@ -8,23 +8,27 @@
 import UIKit
 
 extension Notification.Name {
-    /// A notification that's posted when a new `Project` is created (cf. `ProjectFormViewModel`)
-    /// in order to update the project list (cf. `ProjectListViewController`).
+    /// A notification that's posted when a new ``Project`` is created (``ProjectFormViewModel/createProject(with:)``)
+    /// in order to update the project list (``ProjectListViewController/observeNotifications()``).
     static var didCreateProject: Notification.Name = .init("didCreateProject")
 
-    /// A notification that's posted when an existing `Project` is updated (cf. `ProjectFormViewModel`)
-    /// in order to update the project list (cf. `ProjectListViewController`).
+    /// A notification that's posted when an existing ``Project`` is updated
+    /// ( ``ProjectFormViewModel/updateProject(_:values:)``) in order to update the project list
+    ///  (``ProjectListViewController/observeNotifications()``).
     static var didUpdateProject: Notification.Name = .init("didCreateProject")
 
-    /// A notification that's posted when a new `Content` is created (cf. `ContentFormViewModel`)
-    /// in order to update the content list (cf. `ContentListViewController`).
+    /// A notification that's posted when a new ``ProjectContent`` is created
+    /// (``ContentFormViewModel/createContent(with:)``) in order to update the content list
+    /// (``ContentListViewController/observeNotifications()``).
     static var didCreateContent: Notification.Name = .init("didCreateContent")
 
-    /// A notification that's posted when an existing `Content` is updated (cf. `ContentFormViewModel`)
-    /// in order to update the content list (cf. `ContentListViewController`).
+    /// A notification that's posted when an existing ``ProjectContent`` is updated
+    /// (``ContentFormViewModel/updateContent(_:values:)``) in order to update the content list
+    /// (``ContentListViewController/observeNotifications()``).
     static var didUpdateContent: Notification.Name = .init("didUpdateContent")
 
-    /// A notification that's posted when a `Content` is created or updated (cf. `ContentFormViewModel`)
-    /// in order to update the project list (cf. `ContentListViewController`).
+    /// A notification that's posted when a ``ProjectContent`` is created or updated 
+    /// (``ContentFormViewModel/createContent(with:)``, ``ContentFormViewModel/updateContent(_:values:)``)
+    /// in order to update the project list (``ProjectListViewController/observeNotifications()``).
     static var didUpdateProjectContent: Notification.Name = .init("didUpdateProjectContent")
 }

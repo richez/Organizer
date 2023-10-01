@@ -7,12 +7,14 @@
 
 import Foundation
 
+/// Defines the settings (`UserDefaults`) that are shared between the app
+/// and the share extension.
 struct AppGroupSettings {
     @Storage(key: .shareExtensionDidAddContent, default: false)
     var shareExtensionDidAddContent: Bool
 
-    init(suiteName: String = "group.thibautrichez.organizer.container") {
-        let container: UserDefaults = .init(suiteName: suiteName) ?? .standard
+    init(appGroup: UserDefaults? = .appGroup) {
+        let container: UserDefaults = appGroup ?? .standard
         self._shareExtensionDidAddContent.container = container
     }
 }
