@@ -2,32 +2,11 @@
 //  ProjectDataStore.swift
 //  Organizer_Swift
 //
-//  Created by Thibaut Richez on 08/09/2023.
+//  Created by Thibaut Richez on 01/10/2023.
 //
 
 import Foundation
 import SwiftData
-
-protocol DataStoreReader {
-    func fetch<T: PersistentModel>(predicate: Predicate<T>?, sortBy: [SortDescriptor<T>]) throws -> [T]
-    func fetchCount<T: PersistentModel>(predicate: Predicate<T>?, sortBy: [SortDescriptor<T>]) throws -> Int
-    func model<T: PersistentModel>(with identifier: PersistentIdentifier) throws -> T
-}
-
-protocol DataStoreCreator {
-    func create(model: any PersistentModel) throws
-}
-
-protocol DataStoreDeleter {
-    func delete(model: any PersistentModel) throws
-}
-
-protocol DataStoreProtocol: DataStoreReader & DataStoreCreator & DataStoreDeleter {}
-
-enum DataStoreError: Error {
-    case databaseUnreachable
-    case notFound(PersistentIdentifier)
-}
 
 final class ProjectDataStore {
     static let shared: DataStoreProtocol = ProjectDataStore()
@@ -64,10 +43,10 @@ extension ProjectDataStore: DataStoreProtocol {
         return try context.fetch(descriptor)
     }
 
-    func fetchCount<T: PersistentModel>(predicate: Predicate<T>?, sortBy: [SortDescriptor<T>]) throws -> Int {
+    func fetchCount<T: PersistentModel>(predicate: Predicate<T>?) throws -> Int {
         guard let context else { throw DataStoreError.databaseUnreachable }
 
-        let descriptor = FetchDescriptor<T>(predicate: predicate, sortBy: sortBy)
+        let descriptor = FetchDescriptor<T>(predicate: predicate, sortBy: [])
         return try context.fetchCount(descriptor)
     }
 

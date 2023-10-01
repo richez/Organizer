@@ -113,7 +113,7 @@ extension ProjectListViewModel {
     // MARK: Menu
 
     func menuConfiguration(handler: @escaping () -> Void) -> MenuConfiguration {
-        let numberOfProjects = try? self.dataStore.fetchCount(predicate: self.fetchDescriptor.predicate, sortBy: [])
+        let numberOfProjects = try? self.dataStore.fetchCount(predicate: self.fetchDescriptor.predicate)
         let allProjects: [Project]? = try? self.dataStore.fetch(predicate: nil, sortBy: [])
         let allExistingThemes = allProjects?.flatMap(\.themes).removingDuplicates()
         return self.menuConfigurator.configuration(
