@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class ContentListViewModel {
+struct ContentListViewModel {
     // MARK: - Properties
 
     private let project: Project

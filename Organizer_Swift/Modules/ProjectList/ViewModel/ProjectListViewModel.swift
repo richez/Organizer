@@ -8,7 +8,7 @@
 import Foundation
 import SwiftData
 
-final class ProjectListViewModel {
+struct ProjectListViewModel {
     // MARK: - Properties
 
     private let dataStore: DataStoreProtocol
