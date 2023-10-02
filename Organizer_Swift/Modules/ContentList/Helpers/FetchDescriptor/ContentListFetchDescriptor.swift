@@ -8,15 +8,7 @@
 import Foundation
 
 struct ContentListFetchDescriptor {
-    // MARK: - Properties
-
-    private let settings: ContentListSettings
-
-    // MARK: - Initialization
-
-    init(settings: ContentListSettings) {
-        self.settings = settings
-    }
+    let settings: ContentListSettings
 }
 
 // MARK: - ContentListFetchDescriptorProtocol

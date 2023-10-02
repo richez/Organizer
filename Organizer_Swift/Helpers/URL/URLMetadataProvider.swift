@@ -11,15 +11,7 @@ import LinkPresentation
 /// A type that conform to ``URLMetadataProviderProtocol`` and use the `LinkPresentation`
 /// module to fetch link metadata (`LPMetadataProvider.startFetchingMetadata(for:)`)
 struct URLMetadataProvider {
-    // MARK: - Properties
-
-    private let configuration: URLMetadataConfiguration
-
-    // MARK: - Initialization
-
-    init(configuration: URLMetadataConfiguration) {
-        self.configuration = configuration
-    }
+    let configuration: URLMetadataConfiguration
 }
 
 // MARK: - URLMetadataProviderProtocol

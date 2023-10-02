@@ -12,7 +12,7 @@ final class AppLaunchCoordinator: ParentCoordinator {
 
     unowned private let window: UIWindow
 
-    var children: [Coordinator] = []
+    var children: [any Coordinator] = []
 
     // MARK: - Initialization
 

@@ -8,15 +8,7 @@
 import Foundation
 
 struct ContentListMenuConfigurator {
-    // MARK: - Properties
-
-    private let settings: ContentListSettings
-
-    // MARK: - Initialization
-
-    init(settings: ContentListSettings) {
-        self.settings = settings
-    }
+    let settings: ContentListSettings
 }
 
 // MARK: - ContentListMenuConfiguratorProtocol

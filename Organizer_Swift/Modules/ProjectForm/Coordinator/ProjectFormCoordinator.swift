@@ -13,7 +13,7 @@ final class ProjectFormCoordinator: ChildCoordinator {
     private let mode: ProjectFormMode
     unowned private let navigationController: UINavigationController
 
-    weak var parent: ParentCoordinator?
+    weak var parent: (any ParentCoordinator)?
 
     // MARK: - Initialization
 

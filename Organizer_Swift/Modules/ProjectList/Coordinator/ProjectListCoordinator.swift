@@ -13,8 +13,8 @@ final class ProjectListCoordinator: ParentCoordinator, ChildCoordinator {
     unowned let window: UIWindow
     weak private var navigationController: NavigationController?
 
-    weak var parent: ParentCoordinator?
-    var children: [Coordinator] = []
+    weak var parent: (any ParentCoordinator)?
+    var children: [any Coordinator] = []
 
     // MARK: - Initialization
 

@@ -7,7 +7,7 @@
 
 import Foundation
 
-// TODO: add some/any/consume keywords accros app
+// TODO: remove coordinator protocols
 
 /// A type representing an object that handles the navigation
 /// between view controllers.
@@ -21,13 +21,13 @@ protocol Coordinator: AnyObject {
 /// child objetcs to temporarily give them control over the app by using
 /// its ``start(child:)`` and ``finish(child:)`` methods.
 protocol ParentCoordinator: Coordinator {
-    var children: [Coordinator] { get set }
+    var children: [any Coordinator] { get set }
 }
 
 /// A type that conforms to the `Coordinator` protocol and that can
 /// be started or finished by a `ParentCoordinator` object.
 protocol ChildCoordinator: Coordinator {
-    var parent: ParentCoordinator? { get set }
+    var parent: (any ParentCoordinator)? { get set }
 }
 
 extension ParentCoordinator {

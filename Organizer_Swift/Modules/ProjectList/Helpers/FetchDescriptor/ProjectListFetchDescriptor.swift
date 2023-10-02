@@ -8,15 +8,7 @@
 import Foundation
 
 struct ProjectListFetchDescriptor {
-    // MARK: - Properties
-
-    private let settings: ProjectListSettings
-
-    // MARK: - Initialization
-
-    init(settings: ProjectListSettings) {
-        self.settings = settings
-    }
+    let settings: ProjectListSettings
 }
 
 // MARK: - ProjectListFetchDescriptorProtocol

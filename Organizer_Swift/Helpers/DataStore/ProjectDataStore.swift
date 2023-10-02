@@ -59,7 +59,7 @@ extension ProjectDataStore: DataStoreProtocol {
 
     // MARK: DataStoreCreator
 
-    func create(model: any PersistentModel) throws {
+    func create(model: some PersistentModel) throws {
         guard let context else { throw DataStoreError.databaseUnreachable }
 
         context.insert(model)
@@ -68,7 +68,7 @@ extension ProjectDataStore: DataStoreProtocol {
 
     // MARK: DataStoreDeleter
 
-    func delete(model: any PersistentModel) throws {
+    func delete(model: some PersistentModel) throws {
         guard let context else { throw DataStoreError.databaseUnreachable }
 
         context.delete(model)

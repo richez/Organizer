@@ -17,7 +17,7 @@ final class URLCoordinator: ChildCoordinator {
     private let mode: URLCoordinatorMode
     unowned private let navigationController: NavigationController
 
-    var parent: ParentCoordinator?
+    var parent: (any ParentCoordinator)?
 
     // MARK: - Initialization
 

@@ -13,8 +13,8 @@ final class ContentListCoordinator: ParentCoordinator, ChildCoordinator {
     private let project: Project
     unowned private let navigationController: NavigationController
 
-    weak var parent: ParentCoordinator?
-    var children: [Coordinator] = []
+    weak var parent: (any ParentCoordinator)?
+    var children: [any Coordinator] = []
 
     // MARK: - Initialization
 

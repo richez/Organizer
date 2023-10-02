@@ -14,7 +14,7 @@ final class ContentFormCoordinator: ChildCoordinator {
     private let project: Project
     unowned private let navigationController: UINavigationController
 
-    weak var parent: ParentCoordinator?
+    weak var parent: (any ParentCoordinator)?
 
     // MARK: - Initialization
 

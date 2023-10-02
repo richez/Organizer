@@ -23,12 +23,12 @@ protocol DataStoreReader {
 
 protocol DataStoreCreator {
     /// Inserts an object in the context’s persistent store.
-    func create(model: any PersistentModel) throws
+    func create(model: some PersistentModel) throws
 }
 
 protocol DataStoreDeleter {
     /// Deletes an object in the context’s persistent store.
-    func delete(model: any PersistentModel) throws
+    func delete(model: some PersistentModel) throws
 }
 
 protocol DataStoreProtocol: DataStoreReader & DataStoreCreator & DataStoreDeleter {}
