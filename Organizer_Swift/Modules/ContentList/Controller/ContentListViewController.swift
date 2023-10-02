@@ -11,7 +11,7 @@ final class ContentListViewController: UIViewController {
     // MARK: - Properties
 
     private let viewModel: ContentListViewModel
-    private unowned let coordinator: ContentListCoordinatorProtocol
+    private unowned let coordinator: ContentListCoordinator
     private lazy var dataSource: ContentListDataSource = .init(tableView: self.contentView.tableView)
 
     // MARK: Views
@@ -21,7 +21,7 @@ final class ContentListViewController: UIViewController {
 
     // MARK: - Initialization
 
-    init(viewModel: ContentListViewModel, coordinator: ContentListCoordinatorProtocol) {
+    init(viewModel: ContentListViewModel, coordinator: ContentListCoordinator) {
         self.viewModel = viewModel
         self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)

@@ -10,7 +10,7 @@ import UIKit
 final class ProjectListCoordinator: ParentCoordinator, ChildCoordinator {
     // MARK: - Properties
 
-    unowned let window: UIWindow
+    unowned private let window: UIWindow
     weak private var navigationController: NavigationController?
 
     weak var parent: (any ParentCoordinator)?
@@ -41,16 +41,20 @@ final class ProjectListCoordinator: ParentCoordinator, ChildCoordinator {
     }
 }
 
-// MARK: - ProjectListCoordinatorProtocol
+// MARK: - Public
 
-extension ProjectListCoordinator: ProjectListCoordinatorProtocol {
+extension ProjectListCoordinator {
     func showProjectForm(mode: ProjectFormMode) {
-        let projectFormCoordinator = ProjectFormCoordinator(mode: mode, navigationController: self.navigationController!)
+        let projectFormCoordinator = ProjectFormCoordinator(
+            mode: mode, navigationController: self.navigationController!
+        )
         self.start(child: projectFormCoordinator)
     }
 
     func showContentList(of project: Project) {
-        let contentListCoordinator = ContentListCoordinator(project: project, navigationController: self.navigationController!)
+        let contentListCoordinator = ContentListCoordinator(
+            project: project, navigationController: self.navigationController!
+        )
         self.start(child: contentListCoordinator)
     }
 

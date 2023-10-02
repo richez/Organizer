@@ -11,7 +11,7 @@ final class ProjectFormViewController: UIViewController {
     // MARK: - Properties
 
     private let viewModel: ProjectFormViewModel
-    private unowned let coordinator: ProjectFormCoordinatorProtocol
+    private unowned let coordinator: ProjectFormCoordinator
 
     // MARK: View
 
@@ -19,7 +19,7 @@ final class ProjectFormViewController: UIViewController {
 
     // MARK: - Initialization
 
-    init(viewModel: ProjectFormViewModel, coordinator: ProjectFormCoordinatorProtocol) {
+    init(viewModel: ProjectFormViewModel, coordinator: ProjectFormCoordinator) {
         self.viewModel = viewModel
         self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)

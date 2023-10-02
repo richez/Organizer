@@ -37,9 +37,9 @@ final class ProjectFormCoordinator: ChildCoordinator {
     }
 }
 
-// MARK: - ProjectFormCoordinatorProtocol
+// MARK: - Public
 
-extension ProjectFormCoordinator: ProjectFormCoordinatorProtocol {
+extension ProjectFormCoordinator {
     func show(error: Error) {
         self.navigationController.presentedViewController?.presentError(error)
     }

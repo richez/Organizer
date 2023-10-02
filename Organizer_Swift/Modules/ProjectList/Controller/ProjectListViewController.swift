@@ -11,7 +11,7 @@ final class ProjectListViewController: UIViewController {
     // MARK: - Properties
 
     private let viewModel: ProjectListViewModel
-    private unowned let coordinator: ProjectListCoordinatorProtocol
+    private unowned let coordinator: ProjectListCoordinator
     private lazy var dataSource: ProjectListDataSource = .init(tableView: self.contentView.tableView)
 
     // MARK: Views
@@ -21,7 +21,7 @@ final class ProjectListViewController: UIViewController {
 
     // MARK: - Initialization
 
-    init(viewModel: ProjectListViewModel, coordinator: ProjectListCoordinatorProtocol) {
+    init(viewModel: ProjectListViewModel, coordinator: ProjectListCoordinator) {
         self.viewModel = viewModel
         self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)

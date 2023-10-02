@@ -11,7 +11,7 @@ final class ContentFormViewController: UIViewController {
     // MARK: - Properties
 
     private let viewModel: ContentFormViewModel
-    private unowned let coordinator: ContentFormCoordinatorProtocol
+    private unowned let coordinator: ContentFormCoordinator
     private var linkTitleTask: Task<Void, Never>?
 
     // MARK: View
@@ -20,7 +20,7 @@ final class ContentFormViewController: UIViewController {
 
     // MARK: - Initialization
 
-    init(viewModel: ContentFormViewModel, coordinator: ContentFormCoordinatorProtocol) {
+    init(viewModel: ContentFormViewModel, coordinator: ContentFormCoordinator) {
         self.viewModel = viewModel
         self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)

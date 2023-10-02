@@ -47,9 +47,9 @@ final class ContentListCoordinator: ParentCoordinator, ChildCoordinator {
     }
 }
 
-// MARK: - ContentListCoordinatorProtocol
+// MARK: - Public
 
-extension ContentListCoordinator: ContentListCoordinatorProtocol {
+extension ContentListCoordinator {
     func showContentForm(mode: ContentFormMode) {
         let contentFormCoordinator = ContentFormCoordinator(
             mode: mode, project: self.project, navigationController: self.navigationController
@@ -59,7 +59,9 @@ extension ContentListCoordinator: ContentListCoordinatorProtocol {
 
     func showContent(url: URL, mode: ContentDisplayMode) {
         let urlCoordinatorMode = URLCoordinatorMode(displayMode: mode, url: url)
-        let urlCoordinator = URLCoordinator(mode: urlCoordinatorMode, navigationController: self.navigationController)
+        let urlCoordinator = URLCoordinator(
+            mode: urlCoordinatorMode, navigationController: self.navigationController
+        )
         self.start(child: urlCoordinator)
     }
 

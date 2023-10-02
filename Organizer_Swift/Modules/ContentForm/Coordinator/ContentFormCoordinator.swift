@@ -43,9 +43,9 @@ final class ContentFormCoordinator: ChildCoordinator {
     }
 }
 
-// MARK: - ContentFormCoordinatorProtocol
+// MARK: - Public
 
-extension ContentFormCoordinator: ContentFormCoordinatorProtocol {
+extension ContentFormCoordinator {
     func show(error: Error) {
         self.navigationController.presentedViewController?.presentError(error)
     }
