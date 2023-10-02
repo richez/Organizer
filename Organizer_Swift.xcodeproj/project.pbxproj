@@ -85,8 +85,6 @@
 		F0732BA72AA61A7C0027EC4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0732BA62AA61A7C0027EC4F /* Assets.xcassets */; };
 		F0732BAA2AA61A7C0027EC4F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0732BA82AA61A7C0027EC4F /* LaunchScreen.storyboard */; };
 		F0732BB52AA61A7C0027EC4F /* Organizer_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0732BB42AA61A7C0027EC4F /* Organizer_SwiftTests.swift */; };
-		F0732BBF2AA61A7D0027EC4F /* Organizer_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0732BBE2AA61A7D0027EC4F /* Organizer_SwiftUITests.swift */; };
-		F0732BC12AA61A7D0027EC4F /* Organizer_SwiftUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0732BC02AA61A7D0027EC4F /* Organizer_SwiftUITestsLaunchTests.swift */; };
 		F0732BD82AA63C810027EC4F /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0732BD72AA63C810027EC4F /* Coordinator.swift */; };
 		F0732BDA2AA63E020027EC4F /* AppLaunchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0732BD92AA63E020027EC4F /* AppLaunchCoordinator.swift */; };
 		F0732BDC2AA63E5E0027EC4F /* ProjectListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0732BDB2AA63E5E0027EC4F /* ProjectListCoordinator.swift */; };
@@ -177,13 +175,6 @@
 
 /* Begin PBXContainerItemProxy section */
 		F0732BB12AA61A7C0027EC4F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F0732B922AA61A7B0027EC4F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F0732B992AA61A7B0027EC4F;
-			remoteInfo = Organizer_Swift;
-		};
-		F0732BBB2AA61A7D0027EC4F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F0732B922AA61A7B0027EC4F /* Project object */;
 			proxyType = 1;
@@ -282,9 +273,6 @@
 		F0732BAB2AA61A7C0027EC4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F0732BB02AA61A7C0027EC4F /* Organizer_SwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Organizer_SwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0732BB42AA61A7C0027EC4F /* Organizer_SwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organizer_SwiftTests.swift; sourceTree = "<group>"; };
-		F0732BBA2AA61A7D0027EC4F /* Organizer_SwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Organizer_SwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F0732BBE2AA61A7D0027EC4F /* Organizer_SwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organizer_SwiftUITests.swift; sourceTree = "<group>"; };
-		F0732BC02AA61A7D0027EC4F /* Organizer_SwiftUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organizer_SwiftUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F0732BD72AA63C810027EC4F /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		F0732BD92AA63E020027EC4F /* AppLaunchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLaunchCoordinator.swift; sourceTree = "<group>"; };
 		F0732BDB2AA63E5E0027EC4F /* ProjectListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListCoordinator.swift; sourceTree = "<group>"; };
@@ -366,13 +354,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F0732BAD2AA61A7C0027EC4F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F0732BB72AA61A7D0027EC4F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -651,7 +632,6 @@
 			children = (
 				F0732B9C2AA61A7B0027EC4F /* Organizer_Swift */,
 				F0732BB32AA61A7C0027EC4F /* Organizer_SwiftTests */,
-				F0732BBD2AA61A7D0027EC4F /* Organizer_SwiftUITests */,
 				F09E0AE22ABBA5950056E887 /* ShareExtension */,
 				F0732B9B2AA61A7B0027EC4F /* Products */,
 			);
@@ -662,7 +642,6 @@
 			children = (
 				F0732B9A2AA61A7B0027EC4F /* Organizer_Swift.app */,
 				F0732BB02AA61A7C0027EC4F /* Organizer_SwiftTests.xctest */,
-				F0732BBA2AA61A7D0027EC4F /* Organizer_SwiftUITests.xctest */,
 				F09E0AE12ABBA5940056E887 /* ShareExtension.appex */,
 			);
 			name = Products;
@@ -687,15 +666,6 @@
 				F0732BB42AA61A7C0027EC4F /* Organizer_SwiftTests.swift */,
 			);
 			path = Organizer_SwiftTests;
-			sourceTree = "<group>";
-		};
-		F0732BBD2AA61A7D0027EC4F /* Organizer_SwiftUITests */ = {
-			isa = PBXGroup;
-			children = (
-				F0732BBE2AA61A7D0027EC4F /* Organizer_SwiftUITests.swift */,
-				F0732BC02AA61A7D0027EC4F /* Organizer_SwiftUITestsLaunchTests.swift */,
-			);
-			path = Organizer_SwiftUITests;
 			sourceTree = "<group>";
 		};
 		F0732BCD2AA626780027EC4F /* AppLaunch */ = {
@@ -1208,24 +1178,6 @@
 			productReference = F0732BB02AA61A7C0027EC4F /* Organizer_SwiftTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		F0732BB92AA61A7D0027EC4F /* Organizer_SwiftUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F0732BCA2AA61A7D0027EC4F /* Build configuration list for PBXNativeTarget "Organizer_SwiftUITests" */;
-			buildPhases = (
-				F0732BB62AA61A7D0027EC4F /* Sources */,
-				F0732BB72AA61A7D0027EC4F /* Frameworks */,
-				F0732BB82AA61A7D0027EC4F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F0732BBC2AA61A7D0027EC4F /* PBXTargetDependency */,
-			);
-			name = Organizer_SwiftUITests;
-			productName = Organizer_SwiftUITests;
-			productReference = F0732BBA2AA61A7D0027EC4F /* Organizer_SwiftUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 		F09E0AE02ABBA5940056E887 /* ShareExtension */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F09E0AEC2ABBA5950056E887 /* Build configuration list for PBXNativeTarget "ShareExtension" */;
@@ -1260,10 +1212,6 @@
 						CreatedOnToolsVersion = 15.0;
 						TestTargetID = F0732B992AA61A7B0027EC4F;
 					};
-					F0732BB92AA61A7D0027EC4F = {
-						CreatedOnToolsVersion = 15.0;
-						TestTargetID = F0732B992AA61A7B0027EC4F;
-					};
 					F09E0AE02ABBA5940056E887 = {
 						CreatedOnToolsVersion = 15.0;
 					};
@@ -1284,7 +1232,6 @@
 			targets = (
 				F0732B992AA61A7B0027EC4F /* Organizer_Swift */,
 				F0732BAF2AA61A7C0027EC4F /* Organizer_SwiftTests */,
-				F0732BB92AA61A7D0027EC4F /* Organizer_SwiftUITests */,
 				F09E0AE02ABBA5940056E887 /* ShareExtension */,
 			);
 		};
@@ -1301,13 +1248,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F0732BAE2AA61A7C0027EC4F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F0732BB82AA61A7D0027EC4F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1457,15 +1397,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F0732BB62AA61A7D0027EC4F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F0732BC12AA61A7D0027EC4F /* Organizer_SwiftUITestsLaunchTests.swift in Sources */,
-				F0732BBF2AA61A7D0027EC4F /* Organizer_SwiftUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		F09E0ADD2ABBA5940056E887 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1522,11 +1453,6 @@
 			isa = PBXTargetDependency;
 			target = F0732B992AA61A7B0027EC4F /* Organizer_Swift */;
 			targetProxy = F0732BB12AA61A7C0027EC4F /* PBXContainerItemProxy */;
-		};
-		F0732BBC2AA61A7D0027EC4F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F0732B992AA61A7B0027EC4F /* Organizer_Swift */;
-			targetProxy = F0732BBB2AA61A7D0027EC4F /* PBXContainerItemProxy */;
 		};
 		F09E0AEA2ABBA5950056E887 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1778,42 +1704,6 @@
 			};
 			name = Release;
 		};
-		F0732BCB2AA61A7D0027EC4F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = EE36UWQ2XG;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.thibautrichez.Organizer-SwiftUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Organizer_Swift;
-			};
-			name = Debug;
-		};
-		F0732BCC2AA61A7D0027EC4F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = EE36UWQ2XG;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.thibautrichez.Organizer-SwiftUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Organizer_Swift;
-			};
-			name = Release;
-		};
 		F09E0AED2ABBA5950056E887 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1892,15 +1782,6 @@
 			buildConfigurations = (
 				F0732BC82AA61A7D0027EC4F /* Debug */,
 				F0732BC92AA61A7D0027EC4F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F0732BCA2AA61A7D0027EC4F /* Build configuration list for PBXNativeTarget "Organizer_SwiftUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F0732BCB2AA61A7D0027EC4F /* Debug */,
-				F0732BCC2AA61A7D0027EC4F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
