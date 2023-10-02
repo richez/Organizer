@@ -9,9 +9,13 @@ import Foundation
 import SwiftData
 import UniformTypeIdentifiers
 
-final class ShareFormViewModel {
+struct ShareFormViewModel {
+    // MARK: - Properties
+
     private let dataStore: DataStoreReader & DataStoreCreator
     private let settings: AppGroupSettings
+
+    // MARK: - Initialization
 
     init(dataStore: DataStoreReader & DataStoreCreator = ProjectDataStore.shared,
          settings: AppGroupSettings = .init()) {
@@ -35,6 +39,8 @@ extension ShareFormViewModel {
         .init(title: "Fail to load data", cancelTitle: "Cancel", retryTitle: "Retry")
     }
 
+    /// Returns a ``ShareFormViewConfiguration`` used to configure the ``ShareFormView`` by fetching the
+    /// ``Project`` from the persistent stores and the url and title from the specified `NSExtensionItem`.
     @MainActor
     func viewConfiguration(with extensionItem: NSExtensionItem?) async throws -> ShareFormViewConfiguration {
         let projects: [Project] = try self.dataStore.fetch(
@@ -50,6 +56,8 @@ extension ShareFormViewModel {
         )
     }
 
+    /// Returns `true` if specified field values are valid (i.e. a valid project/type/link and
+    /// non empty name, false otherwise.
     func isFieldsValid(for values: ShareFormFieldValues) -> Bool {
         let isValidSelectedProject = self.isSelectedProjectValid(values.selectedProject)
         let isValidType = ProjectContentType(rawValue: values.content.type) != nil
@@ -76,6 +84,10 @@ extension ShareFormViewModel {
         .init(title: "Fail to create content", cancelTitle: "Cancel", retryTitle: "Retry")
     }
 
+    /// Creates or updates a ``Project`` with the specified values according to the
+    /// specified ``ProjectSelectedItem`` and sets its associated
+    /// ``AppGroupSettings/shareExtensionDidAddContent`` value to `true` or throw a
+    /// ``ShareFormViewModelError/selectedProjectMissing``
     func commit(values: ShareFormFieldValues) throws {
         switch values.selectedProject {
         case .new(let title):
@@ -97,6 +109,9 @@ extension ShareFormViewModel {
 private extension ShareFormViewModel {
     // MARK: View Configuration
 
+    /// Returns the url representation contained in the specified attachments if it has a `UTType.url`
+    /// identifier or throw a ``ShareFormViewModelError/urlMissing`` /
+    ///  ``ShareFormViewModelError/urlLoading(_:)`` error.
     @MainActor
     func url(in attachments: [NSItemProvider]?) async throws -> String {
         return try await withCheckedThrowingContinuation { continuation in
@@ -170,6 +185,7 @@ private extension ShareFormViewModel {
 
     // MARK: Project
 
+    /// Returns a ``ProjectContent`` configured with the specified values.
     func content(with values: ContentFormFieldValues) -> ProjectContent {
         .init(
             id: UUID(),
@@ -182,6 +198,8 @@ private extension ShareFormViewModel {
         )
     }
 
+    /// Creates a ``Project`` with the specified title and content in the persistent stores or
+    /// throw an error associated to the ``ProjectDataStore/create(model:)`` call.
     func createProject(title: String, content: ProjectContent) throws {
         let project = Project(
             id: UUID(),
@@ -195,6 +213,8 @@ private extension ShareFormViewModel {
         try self.dataStore.create(model: project)
     }
 
+    /// Adds the specified content to the ``Project`` associated with the specified `PersistentIdentifier`
+    /// or throw an error associated to the ``ProjectDataStore/model(with:)`` call.
     func addContent(_ content: ProjectContent, to projectID: PersistentIdentifier) throws {
         let project: Project = try self.dataStore.model(with: projectID)
         project.contents.append(content)

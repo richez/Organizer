@@ -10,10 +10,13 @@ import UIKit
 final class ShareFormViewController: UIViewController {
     // MARK: - Properties
 
-    private lazy var contentView: ShareFormView = .init()
     private let viewModel: ShareFormViewModel = .init()
-
     private var viewConfigurationTask: Task<Void, Never>?
+
+    // MARK: View
+
+    private lazy var contentView: ShareFormView = .init()
+
 
     // MARK: - Life Cycle
 

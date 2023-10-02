@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Define the properties used to setup the ``ShareFormView``
 struct ShareFormViewRepresentation {
     var stackViewRepresentation: StackViewRepresentation = .init(
         axis: .vertical,

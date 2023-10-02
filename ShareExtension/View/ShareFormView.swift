@@ -19,17 +19,7 @@ final class ShareFormView: UIView {
     // MARK: - Properties
 
     private let viewRepresentation: ShareFormViewRepresentation = .init()
-
     weak var delegate: ShareFormViewDelegate?
-
-    private let projectStackView: UIStackView = .init()
-
-    private let projectLabel: UILabel = .init()
-    private let projectButton: UIButton = .init()
-    private let projectTextField: UITextField = .init()
-
-    private let contentFormView: ContentFormView = .init()
-
     private var selectedProject: ProjectSelectedItem?
 
     var isProjectTextFieldHidden: Bool = false {
@@ -49,6 +39,16 @@ final class ShareFormView: UIView {
             self.contentFormView.fieldsView.isLinkErrorLabelHidden = self.isLinkErrorLabelHidden
         }
     }
+
+    // MARK: Views
+
+    private let projectStackView: UIStackView = .init()
+
+    private let projectLabel: UILabel = .init()
+    private let projectButton: UIButton = .init()
+    private let projectTextField: UITextField = .init()
+
+    private let contentFormView: ContentFormView = .init()
 
     // MARK: - Initialization
 
