@@ -17,18 +17,19 @@ struct ProjectListViewRepresentation {
 
     var cellHeight: CGFloat = 110
 
-    func createButtonViewRepresentation(imageName: String) -> FloatingActionButtonViewRepresentation {
-        .init(
-            size: 60,
-            backgroundColor: .projectCreatorButtonBackground,
-            highlightedBackgroundColor: .projectCreatorButtonBackground.withAlphaComponent(0.3),
-            selectedBackgroundColor: .projectCreatorButtonBackground.withAlphaComponent(0.3),
-            disabledBackgroundColor: .projectCreatorButtonBackground.withAlphaComponent(0.1),
-            tintColor: .black,
-            image: UIImage(
-                systemName: imageName,
-                withConfiguration: UIImage.SymbolConfiguration(scale: .large)
-            )
+    var createButtonViewRepresentation = FloatingActionButtonViewRepresentation(
+        size: 60,
+        backgroundColor: .projectCreatorButtonBackground,
+        highlightedBackgroundColor: .projectCreatorButtonBackground.withAlphaComponent(0.3),
+        selectedBackgroundColor: .projectCreatorButtonBackground.withAlphaComponent(0.3),
+        disabledBackgroundColor: .projectCreatorButtonBackground.withAlphaComponent(0.1),
+        tintColor: .black
+    )
+
+    func createButtonImage(named name: String) -> UIImage? {
+        UIImage(
+            systemName: name,
+            withConfiguration: UIImage.SymbolConfiguration(scale: .large)
         )
     }
 

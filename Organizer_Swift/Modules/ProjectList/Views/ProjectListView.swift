@@ -44,8 +44,9 @@ final class ProjectListView: UIView {
     // MARK: - Configuration
 
     func configure(with configuration: ProjectListViewConfiguration) {
-        self.createButton.configure(
-            with: self.viewRepresentation.createButtonViewRepresentation(imageName: configuration.createButtonImageName)
+        self.createButton.setImage(
+            self.viewRepresentation.createButtonImage(named: configuration.createButtonImageName),
+            for: .normal
         )
         self.swipeActionConfigurations = configuration.swipeActions
         self.contextMenuTitle = configuration.contextMenuTitle
@@ -80,6 +81,8 @@ private extension ProjectListView {
     }
 
     func setupCreateButton() {
+        self.createButton.setup(with: self.viewRepresentation.createButtonViewRepresentation)
+
         self.createButton.addAction(UIAction(handler: { [weak self] _ in
             self?.delegate?.didTapCreateButton()
         }), for: .touchUpInside)

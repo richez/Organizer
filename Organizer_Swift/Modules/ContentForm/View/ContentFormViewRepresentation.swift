@@ -14,18 +14,19 @@ struct ContentFormViewRepresentation {
     var activityIndicatorStyle: UIActivityIndicatorView.Style = .large
     var activityIndicatorColor: UIColor = .contentFormLoader
 
-    func saveButtonViewRepresentation(imageName: String) -> FloatingActionButtonViewRepresentation {
-        .init(
-            size: 60,
-            backgroundColor: .contentFormSaveButtonBackground,
-            highlightedBackgroundColor: .contentFormSaveButtonBackground.withAlphaComponent(0.3),
-            selectedBackgroundColor: .contentFormSaveButtonBackground.withAlphaComponent(0.3),
-            disabledBackgroundColor: .contentFormSaveButtonBackground.withAlphaComponent(0.1),
-            tintColor: .black,
-            image: UIImage(
-                systemName: imageName,
-                withConfiguration: UIImage.SymbolConfiguration(scale: .large)
-            )
+    var saveButtonViewRepresentation = FloatingActionButtonViewRepresentation(
+        size: 60,
+        backgroundColor: .contentFormSaveButtonBackground,
+        highlightedBackgroundColor: .contentFormSaveButtonBackground.withAlphaComponent(0.3),
+        selectedBackgroundColor: .contentFormSaveButtonBackground.withAlphaComponent(0.3),
+        disabledBackgroundColor: .contentFormSaveButtonBackground.withAlphaComponent(0.1),
+        tintColor: .black
+    )
+
+    func saveButtonImage(named name: String) -> UIImage? {
+        UIImage(
+            systemName: name,
+            withConfiguration: UIImage.SymbolConfiguration(scale: .large)
         )
     }
 }

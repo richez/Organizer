@@ -9,21 +9,20 @@ import UIKit
 import Combine
 
 /// A custom round `UIButton` that is meant to be displayed at the bottom of the screen
-/// like in ``ProjectListView/createButton`` and whose representation is defined by
+/// like ``ProjectListView/createButton`` and whose representation is defined by
 /// ``FloatingActionButtonViewRepresentation``.
 final class FloatingActionButton: UIButton {
     // MARK: - Properties
 
     var subscriptions: Set<AnyCancellable> = .init()
 
-    // MARK: - Configuration
+    // MARK: - Setup
 
-    func configure(with viewRepresentation: FloatingActionButtonViewRepresentation) {
+    func setup(with viewRepresentation: FloatingActionButtonViewRepresentation) {
         self.layer.masksToBounds = true
         self.layer.cornerRadius = viewRepresentation.size / 2
         self.backgroundColor = viewRepresentation.backgroundColor
         self.tintColor = viewRepresentation.tintColor
-        self.setImage(viewRepresentation.image, for: .normal)
 
         self
             .publisher(for: \.isHighlighted)

@@ -15,8 +15,8 @@ final class Project {
     var theme: String
     @Relationship(deleteRule: .cascade)
     var contents: [ProjectContent]
-    var creationDate: Date
-    var lastUpdatedDate: Date
+    var creationDate: Date // TODO: rename createdDate
+    var lastUpdatedDate: Date // TODO: rename updatedDate
 
     init(id: UUID,
          title: String,

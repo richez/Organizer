@@ -17,18 +17,19 @@ struct ContentListViewRepresentation {
 
     var cellHeight: CGFloat = 100
 
-    func createButtonViewRepresentation(imageName: String) -> FloatingActionButtonViewRepresentation {
-        .init(
-            size: 60,
-            backgroundColor: .contentCreatorButtonBackground,
-            highlightedBackgroundColor: .contentCreatorButtonBackground.withAlphaComponent(0.3),
-            selectedBackgroundColor: .contentCreatorButtonBackground.withAlphaComponent(0.3),
-            disabledBackgroundColor: .contentCreatorButtonBackground.withAlphaComponent(0.1),
-            tintColor: .black,
-            image: UIImage(
-                systemName: imageName,
-                withConfiguration: UIImage.SymbolConfiguration(scale: .large)
-            )
+    var createButtonViewRepresentation = FloatingActionButtonViewRepresentation(
+        size: 60,
+        backgroundColor: .contentCreatorButtonBackground,
+        highlightedBackgroundColor: .contentCreatorButtonBackground.withAlphaComponent(0.3),
+        selectedBackgroundColor: .contentCreatorButtonBackground.withAlphaComponent(0.3),
+        disabledBackgroundColor: .contentCreatorButtonBackground.withAlphaComponent(0.1),
+        tintColor: .black
+    )
+
+    func createButtonImage(named name: String) -> UIImage? {
+        UIImage(
+            systemName: name,
+            withConfiguration: UIImage.SymbolConfiguration(scale: .large)
         )
     }
 

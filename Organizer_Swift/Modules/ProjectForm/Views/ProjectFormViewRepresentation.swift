@@ -11,18 +11,19 @@ import UIKit
 struct ProjectFormViewRepresentation {
     var backgroundColor: UIColor = .background
 
-    func saveButtonViewRepresentation(imageName: String) -> FloatingActionButtonViewRepresentation {
-        .init(
-            size: 60,
-            backgroundColor: .projectFormSaveButtonBackground,
-            highlightedBackgroundColor: .projectFormSaveButtonBackground.withAlphaComponent(0.3),
-            selectedBackgroundColor: .projectFormSaveButtonBackground.withAlphaComponent(0.3),
-            disabledBackgroundColor: .projectFormSaveButtonBackground.withAlphaComponent(0.1),
-            tintColor: .black,
-            image: UIImage(
-                systemName: imageName,
-                withConfiguration: UIImage.SymbolConfiguration(scale: .large)
-            )
+    var saveButtonViewRepresentation = FloatingActionButtonViewRepresentation(
+        size: 60,
+        backgroundColor: .projectFormSaveButtonBackground,
+        highlightedBackgroundColor: .projectFormSaveButtonBackground.withAlphaComponent(0.3),
+        selectedBackgroundColor: .projectFormSaveButtonBackground.withAlphaComponent(0.3),
+        disabledBackgroundColor: .projectFormSaveButtonBackground.withAlphaComponent(0.1),
+        tintColor: .black
+    )
+
+    func saveButtonImage(named name: String) -> UIImage? {
+        UIImage(
+            systemName: name,
+            withConfiguration: UIImage.SymbolConfiguration(scale: .large)
         )
     }
 }
