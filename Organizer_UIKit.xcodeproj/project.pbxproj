@@ -84,7 +84,7 @@
 		F0732BA22AA61A7B0027EC4F /* ProjectListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0732BA12AA61A7B0027EC4F /* ProjectListViewController.swift */; };
 		F0732BA72AA61A7C0027EC4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0732BA62AA61A7C0027EC4F /* Assets.xcassets */; };
 		F0732BAA2AA61A7C0027EC4F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0732BA82AA61A7C0027EC4F /* LaunchScreen.storyboard */; };
-		F0732BB52AA61A7C0027EC4F /* Organizer_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0732BB42AA61A7C0027EC4F /* Organizer_SwiftTests.swift */; };
+		F0732BB52AA61A7C0027EC4F /* Organizer_UIKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0732BB42AA61A7C0027EC4F /* Organizer_UIKitTests.swift */; };
 		F0732BD82AA63C810027EC4F /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0732BD72AA63C810027EC4F /* Coordinator.swift */; };
 		F0732BDA2AA63E020027EC4F /* AppLaunchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0732BD92AA63E020027EC4F /* AppLaunchCoordinator.swift */; };
 		F0732BDC2AA63E5E0027EC4F /* ProjectListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0732BDB2AA63E5E0027EC4F /* ProjectListCoordinator.swift */; };
@@ -264,15 +264,15 @@
 		F07202F92AAFCD060026B29E /* ProjectContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectContent.swift; sourceTree = "<group>"; };
 		F07202FC2AAFD26A0026B29E /* ContentListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentListSection.swift; sourceTree = "<group>"; };
 		F07202FE2AAFD2800026B29E /* ContentDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDescription.swift; sourceTree = "<group>"; };
-		F0732B9A2AA61A7B0027EC4F /* Organizer_Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Organizer_Swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0732B9A2AA61A7B0027EC4F /* Organizer_UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Organizer_UIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0732B9D2AA61A7B0027EC4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0732B9F2AA61A7B0027EC4F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F0732BA12AA61A7B0027EC4F /* ProjectListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListViewController.swift; sourceTree = "<group>"; };
 		F0732BA62AA61A7C0027EC4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F0732BA92AA61A7C0027EC4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F0732BAB2AA61A7C0027EC4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F0732BB02AA61A7C0027EC4F /* Organizer_SwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Organizer_SwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F0732BB42AA61A7C0027EC4F /* Organizer_SwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organizer_SwiftTests.swift; sourceTree = "<group>"; };
+		F0732BB02AA61A7C0027EC4F /* Organizer_UIKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Organizer_UIKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0732BB42AA61A7C0027EC4F /* Organizer_UIKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organizer_UIKitTests.swift; sourceTree = "<group>"; };
 		F0732BD72AA63C810027EC4F /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		F0732BD92AA63E020027EC4F /* AppLaunchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLaunchCoordinator.swift; sourceTree = "<group>"; };
 		F0732BDB2AA63E5E0027EC4F /* ProjectListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListCoordinator.swift; sourceTree = "<group>"; };
@@ -292,7 +292,7 @@
 		F09AE3572AB6363A00161CFB /* String+Pluralize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Pluralize.swift"; sourceTree = "<group>"; };
 		F09AE3592AB64E8D00161CFB /* Sequence+Predicate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Predicate.swift"; sourceTree = "<group>"; };
 		F09AE35B2AB64F6000161CFB /* Array+Duplicates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Duplicates.swift"; sourceTree = "<group>"; };
-		F09E0ADB2ABBA3BE0056E887 /* Organizer_Swift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Organizer_Swift.entitlements; sourceTree = "<group>"; };
+		F09E0ADB2ABBA3BE0056E887 /* Organizer_UIKit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Organizer_UIKit.entitlements; sourceTree = "<group>"; };
 		F09E0AE12ABBA5940056E887 /* ShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F09E0AE32ABBA5950056E887 /* ShareFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareFormViewController.swift; sourceTree = "<group>"; };
 		F09E0AE82ABBA5950056E887 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -630,8 +630,8 @@
 		F0732B912AA61A7B0027EC4F = {
 			isa = PBXGroup;
 			children = (
-				F0732B9C2AA61A7B0027EC4F /* Organizer_Swift */,
-				F0732BB32AA61A7C0027EC4F /* Organizer_SwiftTests */,
+				F0732B9C2AA61A7B0027EC4F /* Organizer_UIKit */,
+				F0732BB32AA61A7C0027EC4F /* Organizer_UIKitTests */,
 				F09E0AE22ABBA5950056E887 /* ShareExtension */,
 				F0732B9B2AA61A7B0027EC4F /* Products */,
 			);
@@ -640,14 +640,14 @@
 		F0732B9B2AA61A7B0027EC4F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F0732B9A2AA61A7B0027EC4F /* Organizer_Swift.app */,
-				F0732BB02AA61A7C0027EC4F /* Organizer_SwiftTests.xctest */,
+				F0732B9A2AA61A7B0027EC4F /* Organizer_UIKit.app */,
+				F0732BB02AA61A7C0027EC4F /* Organizer_UIKitTests.xctest */,
 				F09E0AE12ABBA5940056E887 /* ShareExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F0732B9C2AA61A7B0027EC4F /* Organizer_Swift */ = {
+		F0732B9C2AA61A7B0027EC4F /* Organizer_UIKit */ = {
 			isa = PBXGroup;
 			children = (
 				F0732BCD2AA626780027EC4F /* AppLaunch */,
@@ -657,15 +657,15 @@
 				F0732BCE2AA638C10027EC4F /* Modules */,
 				F09E0ADC2ABBA4080056E887 /* Resources */,
 			);
-			path = Organizer_Swift;
+			path = Organizer_UIKit;
 			sourceTree = "<group>";
 		};
-		F0732BB32AA61A7C0027EC4F /* Organizer_SwiftTests */ = {
+		F0732BB32AA61A7C0027EC4F /* Organizer_UIKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				F0732BB42AA61A7C0027EC4F /* Organizer_SwiftTests.swift */,
+				F0732BB42AA61A7C0027EC4F /* Organizer_UIKitTests.swift */,
 			);
-			path = Organizer_SwiftTests;
+			path = Organizer_UIKitTests;
 			sourceTree = "<group>";
 		};
 		F0732BCD2AA626780027EC4F /* AppLaunch */ = {
@@ -779,7 +779,7 @@
 			children = (
 				F0732BA62AA61A7C0027EC4F /* Assets.xcassets */,
 				F0732BAB2AA61A7C0027EC4F /* Info.plist */,
-				F09E0ADB2ABBA3BE0056E887 /* Organizer_Swift.entitlements */,
+				F09E0ADB2ABBA3BE0056E887 /* Organizer_UIKit.entitlements */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1141,9 +1141,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F0732B992AA61A7B0027EC4F /* Organizer_Swift */ = {
+		F0732B992AA61A7B0027EC4F /* Organizer_UIKit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F0732BC42AA61A7D0027EC4F /* Build configuration list for PBXNativeTarget "Organizer_Swift" */;
+			buildConfigurationList = F0732BC42AA61A7D0027EC4F /* Build configuration list for PBXNativeTarget "Organizer_UIKit" */;
 			buildPhases = (
 				F0732B962AA61A7B0027EC4F /* Sources */,
 				F0732B972AA61A7B0027EC4F /* Frameworks */,
@@ -1155,14 +1155,14 @@
 			dependencies = (
 				F09E0AEA2ABBA5950056E887 /* PBXTargetDependency */,
 			);
-			name = Organizer_Swift;
+			name = Organizer_UIKit;
 			productName = Organizer_Swift;
-			productReference = F0732B9A2AA61A7B0027EC4F /* Organizer_Swift.app */;
+			productReference = F0732B9A2AA61A7B0027EC4F /* Organizer_UIKit.app */;
 			productType = "com.apple.product-type.application";
 		};
-		F0732BAF2AA61A7C0027EC4F /* Organizer_SwiftTests */ = {
+		F0732BAF2AA61A7C0027EC4F /* Organizer_UIKitTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F0732BC72AA61A7D0027EC4F /* Build configuration list for PBXNativeTarget "Organizer_SwiftTests" */;
+			buildConfigurationList = F0732BC72AA61A7D0027EC4F /* Build configuration list for PBXNativeTarget "Organizer_UIKitTests" */;
 			buildPhases = (
 				F0732BAC2AA61A7C0027EC4F /* Sources */,
 				F0732BAD2AA61A7C0027EC4F /* Frameworks */,
@@ -1173,9 +1173,9 @@
 			dependencies = (
 				F0732BB22AA61A7C0027EC4F /* PBXTargetDependency */,
 			);
-			name = Organizer_SwiftTests;
+			name = Organizer_UIKitTests;
 			productName = Organizer_SwiftTests;
-			productReference = F0732BB02AA61A7C0027EC4F /* Organizer_SwiftTests.xctest */;
+			productReference = F0732BB02AA61A7C0027EC4F /* Organizer_UIKitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		F09E0AE02ABBA5940056E887 /* ShareExtension */ = {
@@ -1217,7 +1217,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F0732B952AA61A7B0027EC4F /* Build configuration list for PBXProject "Organizer_Swift" */;
+			buildConfigurationList = F0732B952AA61A7B0027EC4F /* Build configuration list for PBXProject "Organizer_UIKit" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -1230,8 +1230,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F0732B992AA61A7B0027EC4F /* Organizer_Swift */,
-				F0732BAF2AA61A7C0027EC4F /* Organizer_SwiftTests */,
+				F0732B992AA61A7B0027EC4F /* Organizer_UIKit */,
+				F0732BAF2AA61A7C0027EC4F /* Organizer_UIKitTests */,
 				F09E0AE02ABBA5940056E887 /* ShareExtension */,
 			);
 		};
@@ -1393,7 +1393,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F0732BB52AA61A7C0027EC4F /* Organizer_SwiftTests.swift in Sources */,
+				F0732BB52AA61A7C0027EC4F /* Organizer_UIKitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1451,7 +1451,7 @@
 /* Begin PBXTargetDependency section */
 		F0732BB22AA61A7C0027EC4F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F0732B992AA61A7B0027EC4F /* Organizer_Swift */;
+			target = F0732B992AA61A7B0027EC4F /* Organizer_UIKit */;
 			targetProxy = F0732BB12AA61A7C0027EC4F /* PBXContainerItemProxy */;
 		};
 		F09E0AEA2ABBA5950056E887 /* PBXTargetDependency */ = {
@@ -1598,12 +1598,12 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Organizer_Swift/Resources/Organizer_Swift.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Organizer_UIKit/Resources/Organizer_UIKit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = EE36UWQ2XG;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Organizer_Swift/Resources/Info.plist;
+				INFOPLIST_FILE = Organizer_UIKit/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Organizer;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1634,12 +1634,12 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Organizer_Swift/Resources/Organizer_Swift.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Organizer_UIKit/Resources/Organizer_UIKit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = EE36UWQ2XG;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Organizer_Swift/Resources/Info.plist;
+				INFOPLIST_FILE = Organizer_UIKit/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Organizer;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1675,12 +1675,12 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.thibautrichez.Organizer-SwiftTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.thibautrichez.Organizer-UIKitTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Organizer_Swift.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Organizer_Swift";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Organizer_UIKit.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Organizer_UIKit";
 			};
 			name = Debug;
 		};
@@ -1695,12 +1695,12 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.thibautrichez.Organizer-SwiftTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.thibautrichez.Organizer-UIKitTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Organizer_Swift.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Organizer_Swift";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Organizer_UIKit.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Organizer_UIKit";
 			};
 			name = Release;
 		};
@@ -1759,7 +1759,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F0732B952AA61A7B0027EC4F /* Build configuration list for PBXProject "Organizer_Swift" */ = {
+		F0732B952AA61A7B0027EC4F /* Build configuration list for PBXProject "Organizer_UIKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F0732BC22AA61A7D0027EC4F /* Debug */,
@@ -1768,7 +1768,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F0732BC42AA61A7D0027EC4F /* Build configuration list for PBXNativeTarget "Organizer_Swift" */ = {
+		F0732BC42AA61A7D0027EC4F /* Build configuration list for PBXNativeTarget "Organizer_UIKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F0732BC52AA61A7D0027EC4F /* Debug */,
@@ -1777,7 +1777,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F0732BC72AA61A7D0027EC4F /* Build configuration list for PBXNativeTarget "Organizer_SwiftTests" */ = {
+		F0732BC72AA61A7D0027EC4F /* Build configuration list for PBXNativeTarget "Organizer_UIKitTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F0732BC82AA61A7D0027EC4F /* Debug */,
