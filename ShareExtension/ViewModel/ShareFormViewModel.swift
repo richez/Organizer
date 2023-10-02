@@ -38,7 +38,7 @@ extension ShareFormViewModel {
     @MainActor
     func viewConfiguration(with extensionItem: NSExtensionItem?) async throws -> ShareFormViewConfiguration {
         let projects: [Project] = try self.dataStore.fetch(
-            predicate: nil, sortBy: [SortDescriptor(\.lastUpdatedDate, order: .reverse)]
+            predicate: nil, sortBy: [SortDescriptor(\.updatedDate, order: .reverse)]
         )
         let projectMenuItems = projects.map { ShareFormMenuItem.custom(title: $0.title, id: $0.persistentModelID) }
         let contentLink = try await self.url(in: extensionItem?.attachments)
@@ -177,8 +177,8 @@ private extension ShareFormViewModel {
             title: values.name.trimmingCharacters(in: .whitespacesAndNewlines),
             theme: values.theme.trimmingCharacters(in: .whitespacesAndNewlines),
             link: values.link.trimmingCharacters(in: .whitespacesAndNewlines),
-            creationDate: .now,
-            lastUpdatedDate: .now
+            createdDate: .now,
+            updatedDate: .now
         )
     }
 
@@ -188,8 +188,8 @@ private extension ShareFormViewModel {
             title: title,
             theme: "",
             contents: [content],
-            creationDate: .now,
-            lastUpdatedDate: .now
+            createdDate: .now,
+            updatedDate: .now
         )
 
         try self.dataStore.create(model: project)
@@ -198,6 +198,6 @@ private extension ShareFormViewModel {
     func addContent(_ content: ProjectContent, to projectID: PersistentIdentifier) throws {
         let project: Project = try self.dataStore.model(with: projectID)
         project.contents.append(content)
-        project.lastUpdatedDate = .now
+        project.updatedDate = .now
     }
 }

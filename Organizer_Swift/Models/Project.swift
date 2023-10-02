@@ -15,21 +15,21 @@ final class Project {
     var theme: String
     @Relationship(deleteRule: .cascade)
     var contents: [ProjectContent]
-    var creationDate: Date // TODO: rename createdDate
-    var lastUpdatedDate: Date // TODO: rename updatedDate
+    var createdDate: Date
+    var updatedDate: Date
 
     init(id: UUID,
          title: String,
          theme: String,
          contents: [ProjectContent],
-         creationDate: Date,
-         lastUpdatedDate: Date) {
+         createdDate: Date,
+         updatedDate: Date) {
         self.id = id
         self.title = title
         self.theme = theme
         self.contents = contents
-        self.creationDate = creationDate
-        self.lastUpdatedDate = lastUpdatedDate
+        self.createdDate = createdDate
+        self.updatedDate = updatedDate
     }
 }
 

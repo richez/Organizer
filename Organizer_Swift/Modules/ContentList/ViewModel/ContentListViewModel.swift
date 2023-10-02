@@ -122,7 +122,7 @@ extension ContentListViewModel {
         }
 
         self.project.contents.remove(at: index)
-        self.project.lastUpdatedDate = .now
+        self.project.updatedDate = .now
         self.notificationCenter.post(name: .didUpdateProjectContent, object: nil)
     }
 

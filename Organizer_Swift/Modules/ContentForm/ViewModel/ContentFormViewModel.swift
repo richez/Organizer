@@ -163,11 +163,11 @@ private extension ContentFormViewModel {
             title: values.name.trimmingCharacters(in: .whitespacesAndNewlines),
             theme: values.theme.trimmingCharacters(in: .whitespacesAndNewlines),
             link: values.link.trimmingCharacters(in: .whitespacesAndNewlines),
-            creationDate: .now,
-            lastUpdatedDate: .now
+            createdDate: .now,
+            updatedDate: .now
         )
         self.project.contents.append(projectContent)
-        self.project.lastUpdatedDate = .now
+        self.project.updatedDate = .now
         self.notificationCenter.post(name: .didCreateContent, object: nil)
         self.notificationCenter.post(name: .didUpdateProjectContent, object: nil)
     }
@@ -179,9 +179,9 @@ private extension ContentFormViewModel {
         content.title = values.name.trimmingCharacters(in: .whitespacesAndNewlines)
         content.theme = values.theme.trimmingCharacters(in: .whitespacesAndNewlines)
         content.link = values.link.trimmingCharacters(in: .whitespacesAndNewlines)
-        content.lastUpdatedDate = .now
+        content.updatedDate = .now
 
-        self.project.lastUpdatedDate = .now
+        self.project.updatedDate = .now
         self.notificationCenter.post(name: .didUpdateContent, object: nil)
         self.notificationCenter.post(name: .didUpdateProjectContent, object: nil)
     }

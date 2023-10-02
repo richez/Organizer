@@ -22,23 +22,23 @@ final class ProjectContent {
     var title: String
     var theme: String
     var link: String
-    var creationDate: Date
-    var lastUpdatedDate: Date
+    var createdDate: Date
+    var updatedDate: Date
 
     init(id: UUID,
          type: ProjectContentType,
          title: String,
          theme: String,
          link: String,
-         creationDate: Date,
-         lastUpdatedDate: Date) {
+         createdDate: Date,
+         updatedDate: Date) {
         self.id = id
         self.type = type
         self.title = title
         self.theme = theme
         self.link = link
-        self.creationDate = creationDate
-        self.lastUpdatedDate = lastUpdatedDate
+        self.createdDate = createdDate
+        self.updatedDate = updatedDate
     }
 }
 

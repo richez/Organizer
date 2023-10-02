@@ -77,7 +77,7 @@ extension ProjectListViewModel {
                         title: project.title,
                         theme: self.theme(for: project),
                         statistics: self.statistics(for: project),
-                        lastUpdatedDate: project.lastUpdatedDate.formatted(.dateTime.day().month(.abbreviated))
+                        lastUpdatedDate: project.updatedDate.formatted(.dateTime.day().month(.abbreviated))
                     )
                 }
         } catch {
@@ -186,8 +186,8 @@ private extension ProjectListViewModel {
             title: project.title + " copy",
             theme: project.theme,
             contents: project.contents.map(self.duplicate(content:)),
-            creationDate: .now,
-            lastUpdatedDate: .now
+            createdDate: .now,
+            updatedDate: .now
         )
     }
 
@@ -201,8 +201,8 @@ private extension ProjectListViewModel {
             title: content.title,
             theme: content.theme,
             link: content.link,
-            creationDate: content.creationDate,
-            lastUpdatedDate: content.lastUpdatedDate
+            createdDate: content.createdDate,
+            updatedDate: content.updatedDate
         )
     }
 }

@@ -35,10 +35,10 @@ extension ProjectListFetchDescriptor: ProjectListFetchDescriptorProtocol {
         switch self.settings.sorting {
         case .lastUpdated:
             let order: SortOrder = self.settings.ascendingOrder ? .reverse : .forward
-            return [SortDescriptor(\.lastUpdatedDate, order: order)]
+            return [SortDescriptor(\.updatedDate, order: order)]
         case .creation:
             let order: SortOrder = self.settings.ascendingOrder ? .reverse : .forward
-            return [SortDescriptor(\.creationDate, order: order)]
+            return [SortDescriptor(\.createdDate, order: order)]
         case .title:
             let order: SortOrder = self.settings.ascendingOrder ? .forward : .reverse
             return [SortDescriptor(\.title, order: order)]

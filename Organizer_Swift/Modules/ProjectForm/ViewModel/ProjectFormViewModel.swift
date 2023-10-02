@@ -105,8 +105,8 @@ private extension ProjectFormViewModel {
             title: values.name.trimmingCharacters(in: .whitespacesAndNewlines),
             theme: values.theme.trimmingCharacters(in: .whitespacesAndNewlines),
             contents: [],
-            creationDate: .now,
-            lastUpdatedDate: .now
+            createdDate: .now,
+            updatedDate: .now
         )
 
         do {
@@ -122,7 +122,7 @@ private extension ProjectFormViewModel {
     func updateProject(_ project: Project, values: ProjectFormFieldValues) {
         project.title = values.name.trimmingCharacters(in: .whitespacesAndNewlines)
         project.theme = values.theme.trimmingCharacters(in: .whitespacesAndNewlines)
-        project.lastUpdatedDate = .now
+        project.updatedDate = .now
         self.notificationCenter.post(name: .didUpdateProject, object: nil)
     }
 }
