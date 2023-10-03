@@ -43,9 +43,26 @@ It is mainly used to practice the usage of   [SwiftData](https://developer.apple
 
 ## Features
 
+## Roadmap
+- [ ] Show link preview on the content context menu
+- [ ] Add SwiftUI app
+- [ ] Sync SwiftData database to iCloud
+
 ## License
 Distributed under the MIT License. See <a href="LICENSE.md">LICENSE.md</a> for more information.
 
 ## Contact
+<a href="mailto:thibautrichez@hotmail.fr">
+  <img src="https://img.shields.io/badge/Mail-8A2BE2.svg?style=flat" alt="thibautrichez@hotmail.fr">
+</a>
+<a href="https://www.linkedin.com/in/thibaut-richez-719706144/">
+  <img src="https://img.shields.io/badge/Linkedin-8A2BE2.svg?style=flat" alt="thibautrichez@hotmail.fr">
+</a>
+<a href="https://www.malt.fr/profile/thibautrichez">
+  <img src="https://img.shields.io/badge/Malt-8A2BE2.svg?style=flat" alt="thibautrichez@hotmail.fr">
+</a>
+<a href="https://github.com/richez">
+  <img src="https://img.shields.io/badge/Github-8A2BE2.svg?style=flat" alt="thibautrichez@hotmail.fr">
+</a>
 
 ## Acknowledgments
