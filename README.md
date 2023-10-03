@@ -39,7 +39,7 @@ It acts as an organised reading list to find all the articles, videos, notes and
 
 This app is developed twice with [UIKit](UIKit) and [SwiftUI](SwiftUI)
 
-It is mainly used to practice the usage of   [SwiftData](https://developer.apple.com/documentation/swiftdata),  [SwiftUI](https://developer.apple.com/documentation/swiftui/),  [async/await](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/concurrency/), [propertyWrappers](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/properties/#Property-Wrappers), [any / some](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/opaquetypes/), [share extension](https://developer.apple.com/library/archive/documentation/General/Conceptual/ExtensibilityPG/Share.html).
+It is mainly used to practice the usage of   [SwiftData](https://developer.apple.com/documentation/swiftdata),  [SwiftUI](https://developer.apple.com/documentation/swiftui/),  [Concurrency](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/concurrency/), [Property wrappers](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/properties/#Property-Wrappers), [Opaque types](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/opaquetypes/), [share extension](https://developer.apple.com/library/archive/documentation/General/Conceptual/ExtensibilityPG/Share.html).
 
 ## Features
 * Projects and content persisted with `SwiftData`
@@ -72,4 +72,9 @@ Distributed under the MIT License. See <a href="LICENSE.md">LICENSE.md</a> for m
   <img src="https://img.shields.io/badge/Github-8A2BE2.svg?style=flat" alt="thibautrichez@hotmail.fr">
 </a>
 
-## Acknowledgments
+## Resources
+* SwiftData: [Apple Documentation](https://developer.apple.com/documentation/swiftdata),  [Hacking with Swift](https://www.hackingwithswift.com/quick-start/swiftdata)
+* SwiftUI:  [Apple Documentation](https://developer.apple.com/documentation/swiftui/),  [Apple Tutorials](https://developer.apple.com/tutorials/swiftui), [Hacking with Swift](https://www.hackingwithswift.com/quick-start/swiftui)
+* Opaque types: [Swift Documentation](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/opaquetypes/), [Donny Wals](https://www.donnywals.com/whats-the-difference-between-any-and-some-in-swift-5-7/),  [Swift by Sundell](https://www.swiftbysundell.com/articles/referencing-generic-protocols-with-some-and-any-keywords/), [Hacking with Swift](https://www.hackingwithswift.com/swift/5.6/existential-any), [SwiftLee](https://www.avanderlee.com/swift/some-opaque-types/)
+* Concurrency: [Swift Documentation](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/concurrency/), [Apple Tutorials](https://developer.apple.com/tutorials/app-dev-training/adopting-swift-concurrency),  [Hacking with Swift](https://www.hackingwithswift.com/quick-start/concurrency),  [Swift by Sundell](https://www.swiftbysundell.com/discover/concurrency/), [Donny Wals](https://www.donnywals.com/the-basics-of-structured-concurrency-in-swift-explained/), [SwiftLee](https://www.avanderlee.com/concurrency/tasks/)
+* LPMetadataProvider: [Apple Documentation](https://developer.apple.com/documentation/linkpresentation/lpmetadataprovider)
