@@ -7,6 +7,8 @@
 
 import Foundation
 
+/// A type that conform to ``ContentListMenuConfiguratorProtocol`` and use the ``ContentListSettings``
+/// values to compute the menu configuration.
 struct ContentListMenuConfigurator {
     let settings: ContentListSettings
 }

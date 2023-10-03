@@ -7,6 +7,8 @@
 
 import Foundation
 
+/// A type that conform to ``ProjectListFetchDescriptorProtocol`` and use the ``ProjectListSettings``
+/// values to compute the predicate and sort descriptors.
 struct ProjectListFetchDescriptor {
     let settings: ProjectListSettings
 }
@@ -23,7 +25,7 @@ extension ProjectListFetchDescriptor: ProjectListFetchDescriptorProtocol {
         }
     }
 
-    var sortDescriptor: [SortDescriptor<Project>] {
+    var sortDescriptors: [SortDescriptor<Project>] {
         switch self.settings.sorting {
         case .lastUpdated:
             let order: SortOrder = self.settings.ascendingOrder ? .reverse : .forward

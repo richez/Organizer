@@ -7,6 +7,8 @@
 
 import Foundation
 
+/// A type that conform to ``ContentListFetchDescriptorProtocol`` and use the ``ContentListSettings``
+/// values to compute the predicate and sort descriptors.
 struct ContentListFetchDescriptor {
     let settings: ContentListSettings
 }
@@ -29,7 +31,7 @@ extension ContentListFetchDescriptor: ContentListFetchDescriptorProtocol {
         }
     }
 
-    var sortDescriptor: [SortDescriptor<ProjectContent>] {
+    var sortDescriptors: [SortDescriptor<ProjectContent>] {
         switch self.settings.sorting {
         case .lastUpdated:
             let order: SortOrder = self.settings.ascendingOrder ? .reverse : .forward

@@ -73,13 +73,13 @@ extension ContentListViewModel {
     // MARK: Data
 
     /// Returns an array of ``ContentDescription`` from the given ``Project`` that meet the criteria of the
-    /// ``ContentListFetchDescriptor/predicate`` and ``ContentListFetchDescriptor/sortDescriptor`` formatted
+    /// ``ContentListFetchDescriptor/predicate`` and ``ContentListFetchDescriptor/sortDescriptors`` formatted
     /// to be ready to be displayed in a ``ProjectCell``.
     func fetchContentDescriptions() throws -> [ContentDescription] {
         do {
             return try self.project.contents
                 .filter(self.fetchDescriptor.predicate)
-                .sorted(using: self.fetchDescriptor.sortDescriptor)
+                .sorted(using: self.fetchDescriptor.sortDescriptors)
                 .map { content in
                     ContentDescription(
                         id: content.id,

@@ -7,6 +7,8 @@
 
 import Foundation
 
+/// A type that conform to ``ProjectListMenuConfiguratorProtocol`` and use the ``ProjectListSettings``
+/// values to compute the menu configuration.
 struct ProjectListMenuConfigurator {
     let settings: ProjectListSettings
 }

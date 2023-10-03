@@ -8,8 +8,7 @@
 import Foundation
 
 protocol ContentListMenuConfiguratorProtocol {
-    /// Returns a ``MenuConfiguration`` with the specified number of content, themes and values of
-    /// ``ContentListSettings``.
+    /// Returns a ``MenuConfiguration`` with the specified number of content and themes.
     /// - Parameter handler: The action to be executed when a menu item is selected by the user.
     func configuration(numberOfContents: Int, themes: [String], handler: @escaping () -> Void) -> MenuConfiguration
 }

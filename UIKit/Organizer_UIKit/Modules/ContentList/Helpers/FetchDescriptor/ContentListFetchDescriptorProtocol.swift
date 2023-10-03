@@ -8,11 +8,9 @@
 import Foundation
 
 protocol ContentListFetchDescriptorProtocol {
-    /// The predicate to selectively fetch content from the persistent stores according to
-    /// the values of ``ContentListSettings``
+    /// The predicate to selectively fetch contents from the persistent stores.
     var predicate: Predicate<ProjectContent>? { get }
 
-    /// The sort descriptors used to define how the project list should be sorted according to
-    /// the values of ``ContentListSettings``
-    var sortDescriptor: [SortDescriptor<ProjectContent>] { get }
+    /// The sort descriptors that define how the contents should be sorted.
+    var sortDescriptors: [SortDescriptor<ProjectContent>] { get }
 }

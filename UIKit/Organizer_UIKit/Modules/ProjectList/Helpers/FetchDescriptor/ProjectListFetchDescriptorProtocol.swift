@@ -8,11 +8,9 @@
 import Foundation
 
 protocol ProjectListFetchDescriptorProtocol {
-    /// The predicate to selectively fetch projects from the persistent stores according to
-    /// the values of ``ProjectListSettings``
+    /// The predicate to selectively fetch projects from the persistent stores.
     var predicate: Predicate<Project>? { get }
 
-    /// The sort descriptors used to define how the project list should be sorted according to
-    /// the values of ``ProjectListSettings``
-    var sortDescriptor: [SortDescriptor<Project>] { get }
+    /// The sort descriptors that define how the projects should be sorted.
+    var sortDescriptors: [SortDescriptor<Project>] { get }
 }

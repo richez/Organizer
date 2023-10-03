@@ -65,12 +65,12 @@ extension ProjectListViewModel {
     // MARK: Data
 
     /// Returns an array of ``ProjectDescription`` from the persistent stores that meet the criteria of the
-    /// ``ProjectListFetchDescriptor/predicate`` and ``ProjectListFetchDescriptor/sortDescriptor`` formatted
+    /// ``ProjectListFetchDescriptor/predicate`` and ``ProjectListFetchDescriptor/sortDescriptors`` formatted
     /// to be ready to be displayed in a ``ProjectCell`` or throw a ``ProjectListViewModelError/fetch(_:)`` error.
     func fetchProjectDescriptions() throws -> [ProjectDescription] {
         do {
             return try self.dataStore
-                .fetch(predicate: self.fetchDescriptor.predicate, sortBy: self.fetchDescriptor.sortDescriptor)
+                .fetch(predicate: self.fetchDescriptor.predicate, sortBy: self.fetchDescriptor.sortDescriptors)
                 .map { project in
                     ProjectDescription(
                         id: project.persistentModelID,
