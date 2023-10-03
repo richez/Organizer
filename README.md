@@ -8,15 +8,16 @@
     <a href="LICENSE.md">
       <img src="https://img.shields.io/badge/license-MIT-red.svg?style=flat" alt="License: MIT">
     </a>
+    <br>
+    <a href="https://github.com/apple/swift">
+      <img src="https://img.shields.io/badge/Swift-5.9-orange.svg" alt="Swift 5.9 supported">
+    </a>
+    <img src="https://img.shields.io/badge/iOS-17-blue.svg?style=flat" alt="iOS 17 supported">
+    <img src="https://img.shields.io/badge/Xcode-15-blue.svg?style=flat" alt="Xcode 15 supported">
   </p>
 </h1>
-
 <p align="center">
   Keep your projects organized
-  <br><br>
-    <a href="UIKit">UIKit</a>
-    ·
-    <a href="SwiftUI">SwiftUI</a>
 </p>
 
 <!-- TABLE OF CONTENTS -->
@@ -32,6 +33,13 @@
 </details>
 
 ## Introduction
+Organizer allows you to keep track of the knowledge you acquired when gathering data about a project and that you may want to see again before starting it.
+
+It acts as an organised reading list to find all the articles, videos, notes and other type of content about a given project.
+
+This app is developed twice with [UIKit](UIKit) and [SwiftUI](SwiftUI)
+
+It is mainly used to practice the usage of   [SwiftData](https://developer.apple.com/documentation/swiftdata),  [SwiftUI](https://developer.apple.com/documentation/swiftui/),  [async/await](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/concurrency/), [propertyWrappers](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/properties/#Property-Wrappers), [any / some](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/opaquetypes/), [share extension](https://developer.apple.com/library/archive/documentation/General/Conceptual/ExtensibilityPG/Share.html).
 
 ## Features
 
