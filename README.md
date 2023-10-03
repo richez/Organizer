@@ -19,11 +19,9 @@
 <p align="center">
   Keep your projects organized
 </p>
-<br>
-<br>
 
 <p align="center">
-  <img src="https://github.com/richez/Organizer/assets/12537418/fdcad7e4-1496-4b94-8c60-3ef38e9d7827" width="705" alt="Beam">
+  <img src="https://github.com/richez/Organizer/assets/12537418/fdcad7e4-1496-4b94-8c60-3ef38e9d7827" width="705" alt="App Screens">
 </p>
 
 <br>
@@ -36,7 +34,7 @@
     <li><a href="#features">Features</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
+    <li><a href="#resources">Resources</a></li>
   </ol>
 </details>
 
