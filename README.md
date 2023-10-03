@@ -42,6 +42,13 @@ This app is developed twice with [UIKit](UIKit) and [SwiftUI](SwiftUI)
 It is mainly used to practice the usage of   [SwiftData](https://developer.apple.com/documentation/swiftdata),  [SwiftUI](https://developer.apple.com/documentation/swiftui/),  [async/await](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/concurrency/), [propertyWrappers](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/properties/#Property-Wrappers), [any / some](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/opaquetypes/), [share extension](https://developer.apple.com/library/archive/documentation/General/Conceptual/ExtensibilityPG/Share.html).
 
 ## Features
+* Projects and content persisted with `SwiftData`
+* Filter by modification/creation date, title, themes and/or content types
+* Choose the preview style by displaying or hiding themes, statistics and/or content types
+* Duplicate, edit or delete projects
+* Open (in app or in browser), copy, edit or delete contents
+* Retrieve the title associated with an url when creating a content
+* Share content consulted in other applications to a new or existing project
 
 ## Roadmap
 - [ ] Show link preview on the content context menu
