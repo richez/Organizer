@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="https://github.com/richez/Organizer/assets/12537418/9e645555-ebe3-4fbd-8e5e-e43713e29b41" width="136" alt="icon"><br>
+  <img src="https://github.com/richez/Organizer/assets/12537418/6f12012f-b1dc-44a2-85d0-ba00ddfe4e57" width="136" alt="icon"><br>
   Organized<br>
   <p align="center">
     <a href="https://www.linkedin.com/in/thibaut-richez-719706144/">
@@ -21,8 +21,9 @@
 </p>
 
 <p align="center">
-  <img src="https://github.com/richez/Organizer/assets/12537418/fdcad7e4-1496-4b94-8c60-3ef38e9d7827" width="705" alt="App Screens">
+  <img src="https://github.com/richez/Organizer/assets/12537418/f5634b35-abff-41fd-920e-4bf01c698cf2" width="705" alt="App Sreens">
 </p>
+
 
 <br>
 
