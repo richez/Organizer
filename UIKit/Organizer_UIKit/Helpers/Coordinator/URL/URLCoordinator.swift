@@ -5,8 +5,8 @@
 //  Created by Thibaut Richez on 28/09/2023.
 //
 
-import UIKit
 import SafariServices
+import UIKit
 
 /// A coordinator that handles `URL` opening by presenting an `SFSafariViewController`
 /// inside the app or redirecting to the default browser (`UIApplication.shared.open`)
@@ -38,9 +38,7 @@ final class URLCoordinator: ChildCoordinator {
 
         switch self.mode {
         case .inApp(let url):
-            let safariViewController = SFSafariViewController(url: url)
-            safariViewController.dismissButtonStyle = .close
-            safariViewController.preferredBarTintColor = .background
+            let safariViewController = ViewControllerFactory.safari(with: url)
             self.navigationController.present(safariViewController, animated: true)
         case .external(let url):
             UIApplication.shared.open(url)

@@ -27,18 +27,7 @@ final class ContentFormCoordinator: ChildCoordinator {
     // MARK: - Coordinator
 
     func start() {
-        let uRLMetadataConfiguration = URLMetadataConfiguration(shouldFetchSubresources: false, timeout: 20)
-        let urlMetadataProvider = URLMetadataProvider(configuration: uRLMetadataConfiguration)
-        let notificationCenter = NotificationCenter.default
-
-        let contentFormViewModel = ContentFormViewModel(
-            mode: self.mode, 
-            project: self.project,
-            urlMetadataProvider: urlMetadataProvider,
-            notificationCenter: notificationCenter
-        )
-        let contentFormViewController = ContentFormViewController(viewModel: contentFormViewModel, coordinator: self)
-
+        let contentFormViewController = ViewControllerFactory.contentForm(with: self.mode, project: self.project, coordinator: self)
         self.navigationController.present(contentFormViewController, animated: true)
     }
 }
