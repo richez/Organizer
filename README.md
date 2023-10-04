@@ -58,7 +58,6 @@ It is mainly used to practice the usage of   [SwiftData](https://developer.apple
 * Share content consulted in other applications to a new or existing project
 
 ## Roadmap
-- [ ] Show link preview on the content context menu
 - [ ] Add SwiftUI app
 - [ ] Sync SwiftData database to iCloud
 
