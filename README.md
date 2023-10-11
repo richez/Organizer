@@ -1,6 +1,6 @@
 <h1 align="center">
   <img src="https://github.com/richez/Organizer/assets/12537418/6f12012f-b1dc-44a2-85d0-ba00ddfe4e57" width="136" alt="icon"><br>
-  Organized<br>
+  Organizer<br>
   <p align="center">
     <a href="https://www.linkedin.com/in/thibaut-richez-719706144/">
       <img src="https://img.shields.io/badge/contact-thibautrichez-blue.svg?style=flat" alt="Contact">
