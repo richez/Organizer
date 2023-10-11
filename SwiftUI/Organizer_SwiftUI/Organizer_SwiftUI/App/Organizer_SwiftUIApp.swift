@@ -5,6 +5,7 @@
 //  Created by Thibaut Richez on 11/10/2023.
 //
 
+import SwiftData
 import SwiftUI
 
 @main
@@ -13,5 +14,6 @@ struct Organizer_SwiftUIApp: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(for: [Project.self, ProjectContent.self], isAutosaveEnabled: true)
     }
 }
