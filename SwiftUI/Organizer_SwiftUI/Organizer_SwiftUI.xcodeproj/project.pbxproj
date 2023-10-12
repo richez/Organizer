@@ -27,6 +27,7 @@
 		F0E347502AD81C8A00B12AD9 /* StorageKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E3474F2AD81C8A00B12AD9 /* StorageKey.swift */; };
 		F0E347522AD81C9C00B12AD9 /* ProjectListSorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347512AD81C9C00B12AD9 /* ProjectListSorting.swift */; };
 		F0E347542AD81CA900B12AD9 /* ProjectListTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347532AD81CA900B12AD9 /* ProjectListTheme.swift */; };
+		F0E347592AD8259D00B12AD9 /* FloatingActionButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347582AD8259D00B12AD9 /* FloatingActionButtonModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		F0E3474F2AD81C8A00B12AD9 /* StorageKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageKey.swift; sourceTree = "<group>"; };
 		F0E347512AD81C9C00B12AD9 /* ProjectListSorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListSorting.swift; sourceTree = "<group>"; };
 		F0E347532AD81CA900B12AD9 /* ProjectListTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListTheme.swift; sourceTree = "<group>"; };
+		F0E347582AD8259D00B12AD9 /* FloatingActionButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingActionButtonModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 		F092AC442AD6FDDA00EAD1F6 /* Organizer_SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				F0E347552AD8257700B12AD9 /* Helpers */,
 				F092AC532AD6FE0F00EAD1F6 /* App */,
 				F0E347462AD800CD00B12AD9 /* Extensions */,
 				F092AC572AD7041800EAD1F6 /* Models */,
@@ -127,7 +130,6 @@
 			children = (
 				F092AC582AD7043100EAD1F6 /* Project.swift */,
 				F092AC5A2AD7046C00EAD1F6 /* ProjectContent.swift */,
-				F0E3474F2AD81C8A00B12AD9 /* StorageKey.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -203,6 +205,31 @@
 				F0E347532AD81CA900B12AD9 /* ProjectListTheme.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		F0E347552AD8257700B12AD9 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F0E347562AD8257E00B12AD9 /* Storage */,
+				F0E347572AD8258900B12AD9 /* ViewModifiers */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		F0E347562AD8257E00B12AD9 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				F0E3474F2AD81C8A00B12AD9 /* StorageKey.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		F0E347572AD8258900B12AD9 /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				F0E347582AD8259D00B12AD9 /* FloatingActionButtonModifier.swift */,
+			);
+			path = ViewModifiers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,6 +319,7 @@
 				F092AC632AD7098E00EAD1F6 /* ProjectListView.swift in Sources */,
 				F0E347412AD7F41300B12AD9 /* ProjectViewModel.swift in Sources */,
 				F0E347452AD7F48800B12AD9 /* ProjectRowViewModel.swift in Sources */,
+				F0E347592AD8259D00B12AD9 /* FloatingActionButtonModifier.swift in Sources */,
 				F0E347482AD800E300B12AD9 /* Array+Duplicates.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

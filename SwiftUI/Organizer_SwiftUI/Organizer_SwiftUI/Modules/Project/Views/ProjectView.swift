@@ -20,11 +20,24 @@ struct ProjectView: View {
     private var selectedTheme: ProjectListTheme = .all
 
     var body: some View {
-        ProjectListView(predicate: self.predicate, sort: self.sortDescriptor)
-            .background(.listBackground)
-            .scrollContentBackground(.hidden)
-            .toolbarBackground(.listBackground)
-            .toolbarBackground(.visible)
+        ZStack(alignment: .bottom) {
+            ProjectListView(predicate: self.predicate, sort: self.sortDescriptor)
+
+            HStack {
+                Spacer()
+                Button {
+
+                } label: {
+                    Image(systemName: "square.and.pencil")
+                        .modifier(FloatingActionButtonModifier())
+                }
+            }
+            .padding()
+        }
+        .background(Color.listBackground)
+        .scrollContentBackground(.hidden)
+        .toolbarBackground(.listBackground)
+        .toolbarBackground(.visible)
     }
 }
 
