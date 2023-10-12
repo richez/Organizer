@@ -15,6 +15,8 @@ extension ProjectRow {
 
         func statistics(of project: Project) -> String {
             let contentCount = project.contents.count
+            guard contentCount > 0 else { return "" }
+
             let contentTypeCounts = ProjectContentType.allCases.compactMap { type in
                 let contentTypeCount = project.contents.filter { $0.type == type }.count
                 return contentTypeCount > 0 ? "\(contentTypeCount) \(type.rawValue)s" : nil

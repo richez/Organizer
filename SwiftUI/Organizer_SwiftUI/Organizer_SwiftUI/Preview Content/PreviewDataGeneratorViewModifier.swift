@@ -42,7 +42,8 @@ extension Project {
                         type: .article, title: "How to choose your insulation materials ?", theme: "insulation"
                     ),
                     ProjectContent(type: .video, title: "The type of screws you should know", theme: "tools")
-                ]
+                ],
+                updatedDate: .now
             ),
             Project(
                 title: "Hiking",
@@ -50,7 +51,8 @@ extension Project {
                 contents: [
                     ProjectContent(type: .note, title: "The best hiking spots", theme: "spots"),
                     ProjectContent(type: .article, title: "The best backpack gear list", theme: "gear")
-                ]
+                ],
+                updatedDate: Calendar.current.date(byAdding: .day, value: -1, to: .now)!
             ),
             Project(
                 title: "Bicycle",
@@ -58,7 +60,14 @@ extension Project {
                 contents: [
                     ProjectContent(type: .other, title: "The best cycling spots", theme: "spots"),
                     ProjectContent(type: .video, title: "The best backpack gear list", theme: "gear")
-                ]
+                ],
+                updatedDate: Calendar.current.date(byAdding: .day, value: -2, to: .now)!
+            ),
+            Project(
+                title: "Jobs",
+                theme: "",
+                contents: [],
+                updatedDate: Calendar.current.date(byAdding: .day, value: -3, to: .now)!
             )
         ]
     }
