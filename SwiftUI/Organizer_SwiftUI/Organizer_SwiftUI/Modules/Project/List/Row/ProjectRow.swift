@@ -19,24 +19,27 @@ struct ProjectRow: View {
     private var showStatistics: Bool = true
 
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 8) {
             Text(self.project.title)
-                .font(.headline)
+                .font(.system(size: 15, weight: .bold))
+                .foregroundStyle(.cellTitle)
 
-            if self.showTheme {
-                Text(self.themes)
-                    .font(.subheadline)
-            }
+            VStack(alignment: .leading, spacing: 5) {
+                if self.showTheme {
+                    Text(self.themes)
+                }
 
-            if self.showStatistics {
-                Text(self.statistics)
-                    .font(.footnote)
+                if self.showStatistics {
+                    Text(self.statistics)
+                }
             }
+            .font(.system(size: 12))
+            .foregroundStyle(.cellSubtitle)
 
             Text(self.updatedDate)
-                .font(.footnote)
+                .font(.system(size: 12, weight: .light))
+                .foregroundStyle(.cellDate)
         }
-        .foregroundStyle(.white)
     }
 }
 

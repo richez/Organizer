@@ -28,16 +28,17 @@ struct ProjectListView: View {
         .toolbar {
             ToolbarItem(placement: .principal) {
                 Text("Projects")
-                    .foregroundStyle(.white)
             }
+
             ToolbarItem {
                 ProjectListMenu(
                     projectCount: self.projects.count,
                     themes: self.viewModel.themes(in: self.modelContext)
                 )
-                .tint(.white)
             }
         }
+        .foregroundStyle(.navbarContent)
+        .tint(.navbarContent)
     }
 }
 
