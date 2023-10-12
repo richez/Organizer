@@ -31,7 +31,7 @@ extension View {
     }
 }
 
-private extension Project {
+extension Project {
     static var sample: [Project] {
         [
             Project(

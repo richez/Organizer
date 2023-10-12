@@ -9,11 +9,13 @@ import SwiftData
 import SwiftUI
 
 @main
-struct Organizer_SwiftUIApp: App {
+struct Organizer: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(for: [Project.self, ProjectContent.self], isAutosaveEnabled: true)
+        .modelContainer(
+            for: [Project.self, ProjectContent.self], isAutosaveEnabled: true
+        )
     }
 }
