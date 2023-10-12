@@ -17,6 +17,7 @@ extension ProjectListView {
             let themes = allProjects.lazy
                 .flatMap(\.themes)
                 .map(ProjectListTheme.custom)
+                .removingDuplicates()
             return [.all] + themes
         }
     }

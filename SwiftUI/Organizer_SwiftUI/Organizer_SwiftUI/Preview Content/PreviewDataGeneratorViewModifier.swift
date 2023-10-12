@@ -51,6 +51,14 @@ extension Project {
                     ProjectContent(type: .note, title: "The best hiking spots", theme: "spots"),
                     ProjectContent(type: .article, title: "The best backpack gear list", theme: "gear")
                 ]
+            ),
+            Project(
+                title: "Bicycle",
+                theme: "Sport, Outdoor",
+                contents: [
+                    ProjectContent(type: .other, title: "The best cycling spots", theme: "spots"),
+                    ProjectContent(type: .video, title: "The best backpack gear list", theme: "gear")
+                ]
             )
         ]
     }
