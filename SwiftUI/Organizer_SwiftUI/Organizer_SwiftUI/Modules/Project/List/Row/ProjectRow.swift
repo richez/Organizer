@@ -15,14 +15,22 @@ struct ProjectRow: View {
     @AppStorage(StorageKey.projectListShowTheme.rawValue)
     private var showTheme: Bool = true
 
+    @AppStorage(StorageKey.projectListShowStatistics.rawValue)
+    private var showStatistics: Bool = true
+
     var body: some View {
         VStack(alignment: .leading) {
             Text(self.project.title)
                 .font(.headline)
 
             if self.showTheme {
-                Text(self.project.theme)
+                Text(self.themes)
                     .font(.subheadline)
+            }
+
+            if self.showStatistics {
+                Text(self.statistics)
+                    .font(.footnote)
             }
 
             Text(self.updatedDate)
@@ -33,6 +41,14 @@ struct ProjectRow: View {
 }
 
 private extension ProjectRow {
+    var themes: String {
+        self.viewModel.themes(of: self.project)
+    }
+
+    var statistics: String {
+        self.viewModel.statistics(of: self.project)
+    }
+
     var updatedDate: String {
         self.viewModel.updatedDate(of: self.project)
     }
