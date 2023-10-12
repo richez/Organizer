@@ -23,16 +23,9 @@ struct ProjectView: View {
         ZStack(alignment: .bottom) {
             ProjectListView(predicate: self.predicate, sort: self.sortDescriptor)
 
-            HStack {
-                Spacer()
-                Button {
-
-                } label: {
-                    Image(systemName: "square.and.pencil")
-                        .modifier(FloatingActionButtonModifier())
-                }
+            FloatingButtonSheet(systemName: "square.and.pencil") {
+                ProjectForm()
             }
-            .padding()
         }
         .background(Color.listBackground)
         .scrollContentBackground(.hidden)

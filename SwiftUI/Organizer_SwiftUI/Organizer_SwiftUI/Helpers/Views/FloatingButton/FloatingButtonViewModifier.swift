@@ -1,5 +1,5 @@
 //
-//  FloatingActionButtonModifier.swift
+//  FloatingButtonViewModifier.swift
 //  Organizer_SwiftUI
 //
 //  Created by Thibaut Richez on 12/10/2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FloatingActionButtonModifier: ViewModifier {
+struct FloatingButtonViewModifier: ViewModifier {
     var color: Color = .black
     var backgroundColor: Color = .floatingButton
     var fontSize: CGFloat = 25

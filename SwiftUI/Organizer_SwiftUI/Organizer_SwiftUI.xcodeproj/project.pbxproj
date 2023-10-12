@@ -27,7 +27,10 @@
 		F0E347502AD81C8A00B12AD9 /* StorageKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E3474F2AD81C8A00B12AD9 /* StorageKey.swift */; };
 		F0E347522AD81C9C00B12AD9 /* ProjectListSorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347512AD81C9C00B12AD9 /* ProjectListSorting.swift */; };
 		F0E347542AD81CA900B12AD9 /* ProjectListTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347532AD81CA900B12AD9 /* ProjectListTheme.swift */; };
-		F0E347592AD8259D00B12AD9 /* FloatingActionButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347582AD8259D00B12AD9 /* FloatingActionButtonModifier.swift */; };
+		F0E347592AD8259D00B12AD9 /* FloatingButtonSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347582AD8259D00B12AD9 /* FloatingButtonSheet.swift */; };
+		F0E3475C2AD8295200B12AD9 /* ProjectForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E3475B2AD8295200B12AD9 /* ProjectForm.swift */; };
+		F0E3475F2AD83A7700B12AD9 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E3475E2AD83A7700B12AD9 /* FloatingButton.swift */; };
+		F0E347612AD83A9E00B12AD9 /* FloatingButtonViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347602AD83A9E00B12AD9 /* FloatingButtonViewModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,7 +56,10 @@
 		F0E3474F2AD81C8A00B12AD9 /* StorageKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageKey.swift; sourceTree = "<group>"; };
 		F0E347512AD81C9C00B12AD9 /* ProjectListSorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListSorting.swift; sourceTree = "<group>"; };
 		F0E347532AD81CA900B12AD9 /* ProjectListTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListTheme.swift; sourceTree = "<group>"; };
-		F0E347582AD8259D00B12AD9 /* FloatingActionButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingActionButtonModifier.swift; sourceTree = "<group>"; };
+		F0E347582AD8259D00B12AD9 /* FloatingButtonSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButtonSheet.swift; sourceTree = "<group>"; };
+		F0E3475B2AD8295200B12AD9 /* ProjectForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectForm.swift; sourceTree = "<group>"; };
+		F0E3475E2AD83A7700B12AD9 /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
+		F0E347602AD83A9E00B12AD9 /* FloatingButtonViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButtonViewModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				F092AC612AD7093700EAD1F6 /* Project */,
+				F0E3475A2AD8293C00B12AD9 /* ProjectForm */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -211,7 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				F0E347562AD8257E00B12AD9 /* Storage */,
-				F0E347572AD8258900B12AD9 /* ViewModifiers */,
+				F0E347572AD8258900B12AD9 /* Views */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -224,12 +231,30 @@
 			path = Storage;
 			sourceTree = "<group>";
 		};
-		F0E347572AD8258900B12AD9 /* ViewModifiers */ = {
+		F0E347572AD8258900B12AD9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F0E347582AD8259D00B12AD9 /* FloatingActionButtonModifier.swift */,
+				F0E3475D2AD83A6A00B12AD9 /* FloatingButton */,
 			);
-			path = ViewModifiers;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F0E3475A2AD8293C00B12AD9 /* ProjectForm */ = {
+			isa = PBXGroup;
+			children = (
+				F0E3475B2AD8295200B12AD9 /* ProjectForm.swift */,
+			);
+			path = ProjectForm;
+			sourceTree = "<group>";
+		};
+		F0E3475D2AD83A6A00B12AD9 /* FloatingButton */ = {
+			isa = PBXGroup;
+			children = (
+				F0E3475E2AD83A7700B12AD9 /* FloatingButton.swift */,
+				F0E347582AD8259D00B12AD9 /* FloatingButtonSheet.swift */,
+				F0E347602AD83A9E00B12AD9 /* FloatingButtonViewModifier.swift */,
+			);
+			path = FloatingButton;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,11 +329,13 @@
 			files = (
 				F092AC5F2AD7083C00EAD1F6 /* PreviewModelContainerViewModifier.swift in Sources */,
 				F092AC482AD6FDDA00EAD1F6 /* ContentView.swift in Sources */,
+				F0E3475F2AD83A7700B12AD9 /* FloatingButton.swift in Sources */,
 				F0E3473C2AD786DC00B12AD9 /* ProjectView.swift in Sources */,
 				F0E3474A2AD8010C00B12AD9 /* String+Components.swift in Sources */,
 				F07DE09B2AD7449300B3B91E /* ProjectRow.swift in Sources */,
 				F0E347542AD81CA900B12AD9 /* ProjectListTheme.swift in Sources */,
 				F0E347432AD7F43B00B12AD9 /* ProjectListViewModel.swift in Sources */,
+				F0E3475C2AD8295200B12AD9 /* ProjectForm.swift in Sources */,
 				F0E3473A2AD7681100B12AD9 /* ProjectListMenu.swift in Sources */,
 				F092AC5B2AD7046C00EAD1F6 /* ProjectContent.swift in Sources */,
 				F092AC462AD6FDDA00EAD1F6 /* Organizer_SwiftUIApp.swift in Sources */,
@@ -318,8 +345,9 @@
 				F092AC592AD7043100EAD1F6 /* Project.swift in Sources */,
 				F092AC632AD7098E00EAD1F6 /* ProjectListView.swift in Sources */,
 				F0E347412AD7F41300B12AD9 /* ProjectViewModel.swift in Sources */,
+				F0E347612AD83A9E00B12AD9 /* FloatingButtonViewModifier.swift in Sources */,
 				F0E347452AD7F48800B12AD9 /* ProjectRowViewModel.swift in Sources */,
-				F0E347592AD8259D00B12AD9 /* FloatingActionButtonModifier.swift in Sources */,
+				F0E347592AD8259D00B12AD9 /* FloatingButtonSheet.swift in Sources */,
 				F0E347482AD800E300B12AD9 /* Array+Duplicates.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
