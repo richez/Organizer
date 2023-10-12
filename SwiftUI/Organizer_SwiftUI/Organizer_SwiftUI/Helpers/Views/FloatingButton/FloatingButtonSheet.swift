@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FloatingButtonSheet<Content: View>: View {
-    @State var isSelected: Bool = false
+    @State var isShowingSheet: Bool = false
 
     let systemName: String
     let content: () -> Content
@@ -20,9 +20,9 @@ struct FloatingButtonSheet<Content: View>: View {
 
     var body: some View {
         FloatingButton(systemName: self.systemName) {
-            self.isSelected.toggle()
+            self.isShowingSheet.toggle()
         }
-        .sheet(isPresented: self.$isSelected) {
+        .sheet(isPresented: self.$isShowingSheet) {
             self.content()
         }
     }

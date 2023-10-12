@@ -31,6 +31,10 @@
 		F0E3475C2AD8295200B12AD9 /* ProjectForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E3475B2AD8295200B12AD9 /* ProjectForm.swift */; };
 		F0E3475F2AD83A7700B12AD9 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E3475E2AD83A7700B12AD9 /* FloatingButton.swift */; };
 		F0E347612AD83A9E00B12AD9 /* FloatingButtonViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347602AD83A9E00B12AD9 /* FloatingButtonViewModifier.swift */; };
+		F0E984852AD8A7FF0082F6A1 /* FormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E984842AD8A7FF0082F6A1 /* FormTextField.swift */; };
+		F0E984872AD8A8600082F6A1 /* ProjectFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E984862AD8A8600082F6A1 /* ProjectFormViewModel.swift */; };
+		F0E9848A2AD8A89D0082F6A1 /* ProjectFormValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E984892AD8A89D0082F6A1 /* ProjectFormValues.swift */; };
+		F0E9848C2AD8ACB40082F6A1 /* FormTextFieldConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E9848B2AD8ACB40082F6A1 /* FormTextFieldConfiguration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +64,10 @@
 		F0E3475B2AD8295200B12AD9 /* ProjectForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectForm.swift; sourceTree = "<group>"; };
 		F0E3475E2AD83A7700B12AD9 /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
 		F0E347602AD83A9E00B12AD9 /* FloatingButtonViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButtonViewModifier.swift; sourceTree = "<group>"; };
+		F0E984842AD8A7FF0082F6A1 /* FormTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextField.swift; sourceTree = "<group>"; };
+		F0E984862AD8A8600082F6A1 /* ProjectFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFormViewModel.swift; sourceTree = "<group>"; };
+		F0E984892AD8A89D0082F6A1 /* ProjectFormValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFormValues.swift; sourceTree = "<group>"; };
+		F0E9848B2AD8ACB40082F6A1 /* FormTextFieldConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextFieldConfiguration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,9 +100,9 @@
 		F092AC442AD6FDDA00EAD1F6 /* Organizer_SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				F0E347552AD8257700B12AD9 /* Helpers */,
 				F092AC532AD6FE0F00EAD1F6 /* App */,
 				F0E347462AD800CD00B12AD9 /* Extensions */,
+				F0E347552AD8257700B12AD9 /* Helpers */,
 				F092AC572AD7041800EAD1F6 /* Models */,
 				F092AC602AD7092600EAD1F6 /* Modules */,
 				F092AC542AD6FE1E00EAD1F6 /* Resources */,
@@ -235,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				F0E3475D2AD83A6A00B12AD9 /* FloatingButton */,
+				F0E984832AD8A7ED0082F6A1 /* Form */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -242,7 +251,8 @@
 		F0E3475A2AD8293C00B12AD9 /* ProjectForm */ = {
 			isa = PBXGroup;
 			children = (
-				F0E3475B2AD8295200B12AD9 /* ProjectForm.swift */,
+				F0E984882AD8A8920082F6A1 /* Models */,
+				F0E9848D2AD8B0E30082F6A1 /* Views */,
 			);
 			path = ProjectForm;
 			sourceTree = "<group>";
@@ -255,6 +265,32 @@
 				F0E347602AD83A9E00B12AD9 /* FloatingButtonViewModifier.swift */,
 			);
 			path = FloatingButton;
+			sourceTree = "<group>";
+		};
+		F0E984832AD8A7ED0082F6A1 /* Form */ = {
+			isa = PBXGroup;
+			children = (
+				F0E984842AD8A7FF0082F6A1 /* FormTextField.swift */,
+				F0E9848B2AD8ACB40082F6A1 /* FormTextFieldConfiguration.swift */,
+			);
+			path = Form;
+			sourceTree = "<group>";
+		};
+		F0E984882AD8A8920082F6A1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F0E984892AD8A89D0082F6A1 /* ProjectFormValues.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F0E9848D2AD8B0E30082F6A1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F0E3475B2AD8295200B12AD9 /* ProjectForm.swift */,
+				F0E984862AD8A8600082F6A1 /* ProjectFormViewModel.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -331,6 +367,7 @@
 				F092AC482AD6FDDA00EAD1F6 /* ContentView.swift in Sources */,
 				F0E3475F2AD83A7700B12AD9 /* FloatingButton.swift in Sources */,
 				F0E3473C2AD786DC00B12AD9 /* ProjectView.swift in Sources */,
+				F0E984872AD8A8600082F6A1 /* ProjectFormViewModel.swift in Sources */,
 				F0E3474A2AD8010C00B12AD9 /* String+Components.swift in Sources */,
 				F07DE09B2AD7449300B3B91E /* ProjectRow.swift in Sources */,
 				F0E347542AD81CA900B12AD9 /* ProjectListTheme.swift in Sources */,
@@ -343,11 +380,14 @@
 				F092AC5D2AD7065E00EAD1F6 /* PreviewDataGeneratorViewModifier.swift in Sources */,
 				F0E347522AD81C9C00B12AD9 /* ProjectListSorting.swift in Sources */,
 				F092AC592AD7043100EAD1F6 /* Project.swift in Sources */,
+				F0E9848A2AD8A89D0082F6A1 /* ProjectFormValues.swift in Sources */,
 				F092AC632AD7098E00EAD1F6 /* ProjectListView.swift in Sources */,
 				F0E347412AD7F41300B12AD9 /* ProjectViewModel.swift in Sources */,
+				F0E984852AD8A7FF0082F6A1 /* FormTextField.swift in Sources */,
 				F0E347612AD83A9E00B12AD9 /* FloatingButtonViewModifier.swift in Sources */,
 				F0E347452AD7F48800B12AD9 /* ProjectRowViewModel.swift in Sources */,
 				F0E347592AD8259D00B12AD9 /* FloatingButtonSheet.swift in Sources */,
+				F0E9848C2AD8ACB40082F6A1 /* FormTextFieldConfiguration.swift in Sources */,
 				F0E347482AD800E300B12AD9 /* Array+Duplicates.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

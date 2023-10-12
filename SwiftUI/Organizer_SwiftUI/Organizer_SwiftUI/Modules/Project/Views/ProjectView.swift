@@ -27,6 +27,7 @@ struct ProjectView: View {
                 ProjectForm()
             }
         }
+        .navigationBarTitleDisplayMode(.inline)
         .background(Color.listBackground)
         .scrollContentBackground(.hidden)
         .toolbarBackground(.listBackground)
