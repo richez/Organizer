@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ProjectRow: View {
     var project: Project
-
     private let viewModel = ViewModel()
 
     @AppStorage(StorageKey.projectListShowTheme.rawValue)
@@ -20,7 +19,7 @@ struct ProjectRow: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text(self.project.title)
+            Text(self.title)
                 .font(.system(size: 15, weight: .bold))
                 .foregroundStyle(.cellTitle)
 
@@ -44,6 +43,10 @@ struct ProjectRow: View {
 }
 
 private extension ProjectRow {
+    var title: String {
+        self.viewModel.title(of: self.project)
+    }
+
     var themes: String {
         self.viewModel.themes(of: self.project)
     }

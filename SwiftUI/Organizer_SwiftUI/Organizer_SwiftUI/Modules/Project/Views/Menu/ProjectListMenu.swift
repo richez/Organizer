@@ -11,8 +11,6 @@ struct ProjectListMenu: View {
     let projectCount: Int
     let themes: [ProjectListTheme]
 
-    private let viewModel = ViewModel()
-
     @AppStorage(StorageKey.projectListSorting.rawValue)
     private var sorting: ProjectListSorting = .updatedDate
 
@@ -61,19 +59,13 @@ struct ProjectListMenu: View {
 }
 
 extension ProjectListMenu {
-    struct ViewModel {
-        func ascendingOrderTitle(for sorting: ProjectListSorting) -> String {
-            switch sorting {
-            case .title:
-                return "A to Z"
-            case .updatedDate, .createdDate:
-                return "Newest on Top"
-            }
-        }
-    }
-
     var ascendingOrderTitle: String {
-        self.viewModel.ascendingOrderTitle(for: self.sorting)
+        switch self.sorting {
+        case .title:
+            return "A to Z"
+        case .updatedDate, .createdDate:
+            return "Newest on Top"
+        }
     }
 }
 
@@ -83,46 +75,5 @@ extension ProjectListMenu {
             .ignoresSafeArea()
         ProjectListMenu(projectCount: 4, themes: [.all, .custom("DIY")])
             .tint(.white)
-    }
-}
-
-enum StorageKey: String {
-    case projectListSorting
-    case projectListAscendingOrder
-    case projectListShowTheme
-    case projectListShowStatistics
-    case projectListSelectedTheme
-}
-
-enum ProjectListSorting: String, Identifiable, CaseIterable {
-    case updatedDate = "Modification Date"
-    case createdDate = "Creation Date"
-    case title = "Title"
-
-    var id: ProjectListSorting { self }
-}
-
-enum ProjectListTheme: RawRepresentable, Hashable, Identifiable {
-    case all
-    case custom(String)
-
-    var id: String { self.rawValue }
-
-    var rawValue: String {
-        switch self {
-        case .all:
-            return "All"
-        case .custom(let value):
-            return value
-        }
-    }
-
-    init?(rawValue: String) {
-        switch rawValue {
-        case "All":
-            self = .all
-        default:
-            self = .custom(rawValue)
-        }
     }
 }

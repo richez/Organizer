@@ -27,7 +27,7 @@ struct ProjectListView: View {
         }
         .toolbar {
             ToolbarItem(placement: .principal) {
-                Text("Projects")
+                Text(self.viewModel.navbarTitle)
             }
 
             ToolbarItem {

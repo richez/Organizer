@@ -10,6 +10,8 @@ import SwiftData
 
 extension ProjectListView {
     struct ViewModel {
+        var navbarTitle: String { "Projects" }
+
         func themes(in context: ModelContext) -> [ProjectListTheme] {
             var descriptor = FetchDescriptor<Project>()
             descriptor.propertiesToFetch = [\.theme]

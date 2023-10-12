@@ -9,6 +9,10 @@ import Foundation
 
 extension ProjectRow {
     struct ViewModel {
+        func title(of project: Project) -> String {
+            project.title
+        }
+
         func themes(of project: Project) -> String {
             project.themes.map { "#\($0)" }.joined(separator: " ")
         }
