@@ -27,14 +27,10 @@ struct ContentListView: View {
 }
 
 #Preview {
-    // unused but fixes preview crash
-    let container = try? ModelContainer(for: Project.self)
-    _ = container
-
-    return NavigationStack {
-        ContentListView(predicate: nil, sort: SortDescriptor(\.updatedDate))
-            .background(Color.listBackground)
-            .scrollContentBackground(.hidden)
+    ModelContainerPreview {
+        NavigationStack {
+            ContentListView(predicate: nil, sort: SortDescriptor(\.updatedDate))
+                .listStyle()
+        }
     }
-    .previewModelContainer()
 }

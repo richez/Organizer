@@ -15,12 +15,10 @@ private extension Calendar {
 }
 
 enum PreviewDataGenerator {
-    static var project: Project {
-        Project(title: "Self-Build", theme: "DIY", updatedDate: .now)
-    }
+    static var project: Project = Project(title: "Self-Build", theme: "DIY", updatedDate: .now)
 
     static func generateData(in context: ModelContext) {
-        let selfBuild = Project(title: "Self-Build", theme: "DIY", updatedDate: .now)
+        let selfBuild = project
         let hiking = Project(title: "Hiking", theme: "Sport, Outdoor", updatedDate: Calendar.date(byAdding: -1))
         let bicycle = Project(title: "Bicycle", theme: "Sport, Outdoor", updatedDate: Calendar.date(byAdding: -2))
         let jobs = Project(title: "Jobs", updatedDate: Calendar.date(byAdding: -3))

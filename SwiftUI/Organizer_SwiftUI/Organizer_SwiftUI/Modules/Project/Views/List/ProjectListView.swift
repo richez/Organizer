@@ -54,10 +54,10 @@ struct ProjectListView: View {
 }
 
 #Preview {
-    NavigationStack {
-        ProjectListView(predicate: nil, sort: SortDescriptor(\.updatedDate, order: .reverse))
-            .background(Color.listBackground)
-            .scrollContentBackground(.hidden)
+    ModelContainerPreview {
+        NavigationStack {
+            ProjectListView(predicate: nil, sort: SortDescriptor(\.updatedDate, order: .reverse))
+                .listStyle()
+        }
     }
-    .previewModelContainer()
 }

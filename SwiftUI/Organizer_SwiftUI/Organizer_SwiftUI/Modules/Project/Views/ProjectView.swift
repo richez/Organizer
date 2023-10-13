@@ -59,8 +59,9 @@ private extension ProjectView {
 }
 
 #Preview {
-    NavigationStack {
-        ProjectView()
+    ModelContainerPreview {
+        NavigationStack {
+            ProjectView()
+        }
     }
-    .previewModelContainer()
 }

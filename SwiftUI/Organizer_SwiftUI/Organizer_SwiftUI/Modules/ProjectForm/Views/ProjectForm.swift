@@ -85,19 +85,15 @@ private extension ProjectForm {
 }
 
 #Preview("Add project") {
-    let container = try? ModelContainer(for: Project.self)
-    _ = container
-
-    return ProjectForm()
-        .scrollContentBackground(.hidden)
-        .previewModelContainer()
+    ModelContainerPreview {
+        ProjectForm()
+            .scrollContentBackground(.hidden)
+    }
 }
 
 #Preview("Edit project") {
-    let container = try? ModelContainer(for: Project.self)
-    _ = container
-
-    return ProjectForm(project: PreviewDataGenerator.project)
-        .scrollContentBackground(.hidden)
-        .previewModelContainer()
+    ModelContainerPreview {
+        ProjectForm(project: PreviewDataGenerator.project)
+            .scrollContentBackground(.hidden)
+    }
 }

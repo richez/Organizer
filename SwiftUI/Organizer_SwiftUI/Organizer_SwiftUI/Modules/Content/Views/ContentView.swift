@@ -57,12 +57,9 @@ extension ContentView {
 }
 
 #Preview {
-    // unused but fixes preview crash
-    let container = try? ModelContainer(for: Project.self)
-    _ = container
-
-    return NavigationStack {
-        ContentView(project: PreviewDataGenerator.project)
-            .previewModelContainer()
+    ModelContainerPreview {
+        NavigationStack {
+            ContentView(project: PreviewDataGenerator.project)
+        }
     }
 }

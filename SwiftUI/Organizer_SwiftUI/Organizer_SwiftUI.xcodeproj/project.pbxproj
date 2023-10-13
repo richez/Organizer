@@ -13,6 +13,7 @@
 		F061DC562AD9741100507993 /* ListStyleViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC552AD9741100507993 /* ListStyleViewModifier.swift */; };
 		F061DC592AD9801A00507993 /* SwipeActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC582AD9801A00507993 /* SwipeActionButton.swift */; };
 		F061DC5B2AD9815C00507993 /* SwipeActionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC5A2AD9815C00507993 /* SwipeActionType.swift */; };
+		F061DC5D2AD99C3500507993 /* ModelContainer+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC5C2AD99C3500507993 /* ModelContainer+Preview.swift */; };
 		F07DE09B2AD7449300B3B91E /* ProjectRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07DE09A2AD7449300B3B91E /* ProjectRow.swift */; };
 		F092AC462AD6FDDA00EAD1F6 /* Organizer_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092AC452AD6FDDA00EAD1F6 /* Organizer_SwiftUIApp.swift */; };
 		F092AC482AD6FDDA00EAD1F6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092AC472AD6FDDA00EAD1F6 /* MainView.swift */; };
@@ -20,8 +21,7 @@
 		F092AC4D2AD6FDDB00EAD1F6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F092AC4C2AD6FDDB00EAD1F6 /* Preview Assets.xcassets */; };
 		F092AC592AD7043100EAD1F6 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092AC582AD7043100EAD1F6 /* Project.swift */; };
 		F092AC5B2AD7046C00EAD1F6 /* ProjectContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092AC5A2AD7046C00EAD1F6 /* ProjectContent.swift */; };
-		F092AC5D2AD7065E00EAD1F6 /* PreviewDataGeneratorViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092AC5C2AD7065E00EAD1F6 /* PreviewDataGeneratorViewModifier.swift */; };
-		F092AC5F2AD7083C00EAD1F6 /* PreviewModelContainerViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092AC5E2AD7083C00EAD1F6 /* PreviewModelContainerViewModifier.swift */; };
+		F092AC5F2AD7083C00EAD1F6 /* ModelContainerPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092AC5E2AD7083C00EAD1F6 /* ModelContainerPreview.swift */; };
 		F092AC632AD7098E00EAD1F6 /* ProjectListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092AC622AD7098E00EAD1F6 /* ProjectListView.swift */; };
 		F0E3473A2AD7681100B12AD9 /* ProjectListMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347392AD7681100B12AD9 /* ProjectListMenu.swift */; };
 		F0E3473C2AD786DC00B12AD9 /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E3473B2AD786DC00B12AD9 /* ProjectView.swift */; };
@@ -50,6 +50,7 @@
 		F061DC552AD9741100507993 /* ListStyleViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListStyleViewModifier.swift; sourceTree = "<group>"; };
 		F061DC582AD9801A00507993 /* SwipeActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeActionButton.swift; sourceTree = "<group>"; };
 		F061DC5A2AD9815C00507993 /* SwipeActionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeActionType.swift; sourceTree = "<group>"; };
+		F061DC5C2AD99C3500507993 /* ModelContainer+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModelContainer+Preview.swift"; sourceTree = "<group>"; };
 		F07DE09A2AD7449300B3B91E /* ProjectRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectRow.swift; sourceTree = "<group>"; };
 		F092AC422AD6FDDA00EAD1F6 /* Organizer_SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Organizer_SwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F092AC452AD6FDDA00EAD1F6 /* Organizer_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organizer_SwiftUIApp.swift; sourceTree = "<group>"; };
@@ -59,8 +60,7 @@
 		F092AC562AD701F700EAD1F6 /* Organizer-SwiftUI-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Organizer-SwiftUI-Info.plist"; sourceTree = SOURCE_ROOT; };
 		F092AC582AD7043100EAD1F6 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		F092AC5A2AD7046C00EAD1F6 /* ProjectContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectContent.swift; sourceTree = "<group>"; };
-		F092AC5C2AD7065E00EAD1F6 /* PreviewDataGeneratorViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewDataGeneratorViewModifier.swift; sourceTree = "<group>"; };
-		F092AC5E2AD7083C00EAD1F6 /* PreviewModelContainerViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewModelContainerViewModifier.swift; sourceTree = "<group>"; };
+		F092AC5E2AD7083C00EAD1F6 /* ModelContainerPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelContainerPreview.swift; sourceTree = "<group>"; };
 		F092AC622AD7098E00EAD1F6 /* ProjectListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListView.swift; sourceTree = "<group>"; };
 		F0E347392AD7681100B12AD9 /* ProjectListMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListMenu.swift; sourceTree = "<group>"; };
 		F0E3473B2AD786DC00B12AD9 /* ProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectView.swift; sourceTree = "<group>"; };
@@ -129,9 +129,9 @@
 		F061DC542AD973E800507993 /* Preview */ = {
 			isa = PBXGroup;
 			children = (
+				F092AC5E2AD7083C00EAD1F6 /* ModelContainerPreview.swift */,
+				F061DC5C2AD99C3500507993 /* ModelContainer+Preview.swift */,
 				F061DC512AD9721100507993 /* PreviewDataGenerator.swift */,
-				F092AC5C2AD7065E00EAD1F6 /* PreviewDataGeneratorViewModifier.swift */,
-				F092AC5E2AD7083C00EAD1F6 /* PreviewModelContainerViewModifier.swift */,
 			);
 			path = Preview;
 			sourceTree = "<group>";
@@ -429,7 +429,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F092AC5F2AD7083C00EAD1F6 /* PreviewModelContainerViewModifier.swift in Sources */,
+				F092AC5F2AD7083C00EAD1F6 /* ModelContainerPreview.swift in Sources */,
 				F092AC482AD6FDDA00EAD1F6 /* MainView.swift in Sources */,
 				F061DC592AD9801A00507993 /* SwipeActionButton.swift in Sources */,
 				F0E3475F2AD83A7700B12AD9 /* FloatingButton.swift in Sources */,
@@ -445,7 +445,6 @@
 				F092AC462AD6FDDA00EAD1F6 /* Organizer_SwiftUIApp.swift in Sources */,
 				F0E347502AD81C8A00B12AD9 /* StorageKey.swift in Sources */,
 				F061DC4C2AD944F600507993 /* ContentView.swift in Sources */,
-				F092AC5D2AD7065E00EAD1F6 /* PreviewDataGeneratorViewModifier.swift in Sources */,
 				F0E347522AD81C9C00B12AD9 /* ProjectListSorting.swift in Sources */,
 				F092AC592AD7043100EAD1F6 /* Project.swift in Sources */,
 				F0E9848A2AD8A89D0082F6A1 /* ProjectFormValues.swift in Sources */,
@@ -454,6 +453,7 @@
 				F0E347412AD7F41300B12AD9 /* ProjectViewModel.swift in Sources */,
 				F0E984852AD8A7FF0082F6A1 /* FormTextField.swift in Sources */,
 				F061DC5B2AD9815C00507993 /* SwipeActionType.swift in Sources */,
+				F061DC5D2AD99C3500507993 /* ModelContainer+Preview.swift in Sources */,
 				F0E347612AD83A9E00B12AD9 /* FloatingButtonViewModifier.swift in Sources */,
 				F0E347452AD7F48800B12AD9 /* ProjectRowViewModel.swift in Sources */,
 				F061DC562AD9741100507993 /* ListStyleViewModifier.swift in Sources */,
