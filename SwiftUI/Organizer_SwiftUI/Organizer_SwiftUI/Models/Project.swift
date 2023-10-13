@@ -32,4 +32,8 @@ final class Project {
 
 extension Project {
     var themes: [String] { self.theme.words }
+
+    var suiteName: String {
+        "\(self.title.words.joined())-\(self.createdDate.timeIntervalSince1970)"
+    }
 }

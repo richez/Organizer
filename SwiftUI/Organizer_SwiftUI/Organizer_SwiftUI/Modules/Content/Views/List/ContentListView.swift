@@ -9,18 +9,38 @@ import SwiftData
 import SwiftUI
 
 struct ContentListView: View {
+    var project: Project
+
+    private let viewModel = ViewModel()
+
+    @Environment(\.modelContext) private var modelContext
     @Query private var contents: [ProjectContent]
 
-    init(predicate: Predicate<ProjectContent>?, sort: SortDescriptor<ProjectContent>) {
-        self._contents = Query(filter: predicate, sort: [sort])
+    init(project: Project,
+         predicate: Predicate<ProjectContent>?,
+         sort: SortDescriptor<ProjectContent>) {
+        self.project = project
+        self._contents = Query(filter: predicate, sort: [sort], animation: .default)
     }
 
     var body: some View {
         List {
             ForEach(self.contents) { content in
-                Text(content.title)
-                    .listRowBackground(Color.listBackground)
-                    .foregroundStyle(.white)
+                ContentRow(
+                    content: content, suiteName: self.project.suiteName
+                )
+                .listRowBackground(Color.listBackground)
+            }
+        }
+        .toolbar {
+            ToolbarItem {
+                ContentListMenu(
+                    contentCount: self.contents.count,
+                    themes: self.viewModel.themes(
+                        in: self.project, context: self.modelContext
+                    ),
+                    suiteName: self.project.suiteName
+                )
             }
         }
     }
@@ -29,8 +49,12 @@ struct ContentListView: View {
 #Preview {
     ModelContainerPreview {
         NavigationStack {
-            ContentListView(predicate: nil, sort: SortDescriptor(\.updatedDate))
-                .listStyle()
+            ContentListView(
+                project: PreviewDataGenerator.project,
+                predicate: nil,
+                sort: SortDescriptor(\.updatedDate)
+            )
+            .listStyle()
         }
     }
 }

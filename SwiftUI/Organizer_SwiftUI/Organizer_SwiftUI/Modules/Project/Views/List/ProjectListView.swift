@@ -7,7 +7,7 @@
 
 import SwiftData
 import SwiftUI
-
+// TODO: separator color - test with long text
 struct ProjectListView: View {
     private let viewModel = ViewModel()
 

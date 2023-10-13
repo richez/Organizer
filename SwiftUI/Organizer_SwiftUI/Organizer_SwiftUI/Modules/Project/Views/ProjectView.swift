@@ -10,13 +10,13 @@ import SwiftUI
 struct ProjectView: View {
     private let viewModel = ViewModel()
     
-    @AppStorage(StorageKey.projectListSorting.rawValue)
+    @AppStorage(.projectListSorting)
     private var sorting: ProjectListSorting = .updatedDate
 
-    @AppStorage(StorageKey.projectListAscendingOrder.rawValue)
+    @AppStorage(.projectListAscendingOrder)
     private var isAscendingOrder: Bool = true
 
-    @AppStorage(StorageKey.projectListSelectedTheme.rawValue)
+    @AppStorage(.projectListSelectedTheme)
     private var selectedTheme: ProjectListTheme = .all
 
     var body: some View {

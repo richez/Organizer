@@ -8,16 +8,19 @@
 import Foundation
 import SwiftData
 
-enum ProjectContentType: String, CaseIterable, Codable {
+enum ProjectContentType: String, Identifiable, CaseIterable, Codable {
     case article
     case note
     case video
     case other
+
+    var id: ProjectContentType { self }
 }
 
 @Model
 final class ProjectContent {
-    var type: ProjectContentType
+    // store the raw value to enable sorting and filtering
+    var typeRawValue: String
     var title: String
     var theme: String
     var link: String
@@ -32,11 +35,16 @@ final class ProjectContent {
          link: String = "",
          createdDate: Date = .now,
          updatedDate: Date = .now) {
-        self.type = type
+        self.typeRawValue = type.rawValue
         self.title = title
         self.theme = theme
         self.link = link
         self.createdDate = createdDate
         self.updatedDate = updatedDate
     }
+}
+
+extension ProjectContent {
+    var themes: [String] { self.theme.words }
+    var type: ProjectContentType { .init(rawValue: self.typeRawValue) ?? .other }
 }

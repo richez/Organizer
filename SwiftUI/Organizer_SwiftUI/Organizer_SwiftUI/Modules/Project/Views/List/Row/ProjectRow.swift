@@ -5,17 +5,16 @@
 //  Created by Thibaut Richez on 11/10/2023.
 //
 
-import SwiftData
 import SwiftUI
-
+// TODO: add previews for theme/stats to false
 struct ProjectRow: View {
     var project: Project
     private let viewModel = ViewModel()
 
-    @AppStorage(StorageKey.projectListShowTheme.rawValue)
+    @AppStorage(.projectListShowTheme)
     private var showTheme: Bool = true
 
-    @AppStorage(StorageKey.projectListShowStatistics.rawValue)
+    @AppStorage(.projectListShowStatistics)
     private var showStatistics: Bool = true
 
     var body: some View {

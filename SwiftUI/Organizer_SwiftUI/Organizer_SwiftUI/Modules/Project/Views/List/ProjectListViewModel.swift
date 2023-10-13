@@ -10,19 +10,18 @@ import SwiftData
 
 extension ProjectListView {
     struct ViewModel {
+        var defaults: UserDefaults = .standard
+
         func delete(_ project: Project, from context: ModelContext) {
+            self.defaults.removePersistentDomain(forName: project.suiteName)
             context.delete(project)
         }
 
-        func themes(in context: ModelContext) -> [ProjectListTheme] {
+        func themes(in context: ModelContext) -> [String] {
             var descriptor = FetchDescriptor<Project>()
             descriptor.propertiesToFetch = [\.theme]
             let allProjects = (try? context.fetch(descriptor)) ?? []
-            let themes = allProjects.lazy
-                .flatMap(\.themes)
-                .map(ProjectListTheme.custom)
-                .removingDuplicates()
-            return [.all] + themes
+            return allProjects.flatMap(\.themes).removingDuplicates()
         }
     }
 }

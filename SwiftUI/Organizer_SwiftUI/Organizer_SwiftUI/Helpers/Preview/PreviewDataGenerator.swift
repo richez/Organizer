@@ -15,7 +15,8 @@ private extension Calendar {
 }
 
 enum PreviewDataGenerator {
-    static var project: Project = Project(title: "Self-Build", theme: "DIY", updatedDate: .now)
+    static var project: Project = .init(title: "Self-Build", theme: "DIY", updatedDate: .now)
+    static var content: ProjectContent = .init(type: .article, title: "How to choose your insulation materials ?", theme: "insulation")
 
     static func generateData(in context: ModelContext) {
         let selfBuild = project

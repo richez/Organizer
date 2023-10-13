@@ -9,21 +9,21 @@ import SwiftUI
 
 struct ProjectListMenu: View {
     let projectCount: Int
-    let themes: [ProjectListTheme]
+    let themes: [String]
 
-    @AppStorage(StorageKey.projectListSorting.rawValue)
+    @AppStorage(.projectListSorting)
     private var sorting: ProjectListSorting = .updatedDate
 
-    @AppStorage(StorageKey.projectListAscendingOrder.rawValue)
+    @AppStorage(.projectListAscendingOrder)
     private var isAscendingOrder: Bool = true
 
-    @AppStorage(StorageKey.projectListShowTheme.rawValue)
+    @AppStorage(.projectListShowTheme)
     private var showTheme: Bool = true
 
-    @AppStorage(StorageKey.projectListShowStatistics.rawValue)
+    @AppStorage(.projectListShowStatistics)
     private var showStatistics: Bool = true
 
-    @AppStorage(StorageKey.projectListSelectedTheme.rawValue)
+    @AppStorage(.projectListSelectedTheme)
     private var selectedTheme: ProjectListTheme = .all
 
     var body: some View {
@@ -48,9 +48,11 @@ struct ProjectListMenu: View {
 
             Menu("Themes", systemImage: "number") {
                 Picker("Themes", selection: self.$selectedTheme) {
-                    ForEach(self.themes) { theme in
-                        Text(theme.rawValue)
-                            .tag(theme)
+                    Text(ProjectListTheme.all.rawValue)
+                        .tag(ProjectListTheme.all)
+                    ForEach(self.themes, id: \.self) { theme in
+                        Text(theme)
+                            .tag(ProjectListTheme.custom(theme))
                     }
                 }
             }
@@ -71,9 +73,8 @@ extension ProjectListMenu {
 
 #Preview {
     ZStack {
-        Color.listBackground
-            .ignoresSafeArea()
-        ProjectListMenu(projectCount: 4, themes: [.all, .custom("DIY")])
+        Color.listBackground.ignoresSafeArea()
+        ProjectListMenu(projectCount: 4, themes: ["DIY"])
             .tint(.white)
     }
 }

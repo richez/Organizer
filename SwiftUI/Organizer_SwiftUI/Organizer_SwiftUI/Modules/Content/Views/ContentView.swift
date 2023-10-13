@@ -5,7 +5,6 @@
 //  Created by Thibaut Richez on 13/10/2023.
 //
 
-import SwiftData
 import SwiftUI
 
 struct ContentView: View {
@@ -13,9 +12,43 @@ struct ContentView: View {
 
     private let viewModel = ViewModel()
 
+    @AppStorage(.contentListSorting)
+    private var sorting: ContentListSorting = .updatedDate
+
+    @AppStorage(.contentListAscendingOrder)
+    private var isAscendingOrder: Bool = true
+
+    @AppStorage(.contentListSelectedTheme)
+    private var selectedTheme: ContentListTheme = .all
+
+    @AppStorage(.contentListSelectedType)
+    private var selectedType: ContentListType = .all
+
+    init(project: Project) {
+        self.project = project
+
+        let defaults = UserDefaults(suiteName: project.suiteName)
+        self._sorting = AppStorage(
+            wrappedValue: .updatedDate, .contentListSorting, store: defaults
+        )
+        self._isAscendingOrder = AppStorage(
+            wrappedValue: true, .contentListAscendingOrder, store: defaults
+        )
+        self._selectedTheme = AppStorage(
+            wrappedValue: .all, .contentListSelectedTheme, store: defaults
+        )
+        self._selectedType = AppStorage(
+            wrappedValue: .all, .contentListSelectedType, store: defaults
+        )
+    }
+
     var body: some View {
         ZStack(alignment: .bottom) {
-            ContentListView(predicate: self.predicate, sort: self.sortDescriptor)
+            ContentListView(
+                project: self.project,
+                predicate: self.predicate,
+                sort: self.sortDescriptor
+            )
 
             FloatingButtonSheet(systemName: "plus") {
                 
@@ -33,26 +66,17 @@ struct ContentView: View {
 
 private extension ContentView {
     var sortDescriptor: SortDescriptor<ProjectContent> {
-        self.viewModel.sortDescriptor()
+        self.viewModel.sortDescriptor(
+            sorting: self.sorting, isAscendingOrder: self.isAscendingOrder
+        )
     }
 
     var predicate: Predicate<ProjectContent>? {
-        self.viewModel.predicate(for: self.project)
-    }
-}
-
-extension ContentView {
-    struct ViewModel {
-        func sortDescriptor() -> SortDescriptor<ProjectContent> {
-            SortDescriptor(\.updatedDate)
-        }
-
-        func predicate(for project: Project) -> Predicate<ProjectContent>? {
-            let projectID = project.persistentModelID
-            return #Predicate {
-                $0.project?.persistentModelID == projectID
-            }
-        }
+        self.viewModel.predicate(
+            for: self.project,
+            selectedTheme: self.selectedTheme,
+            selectedType: self.selectedType
+        )
     }
 }
 
