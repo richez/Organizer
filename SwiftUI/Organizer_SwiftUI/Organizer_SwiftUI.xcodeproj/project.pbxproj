@@ -11,6 +11,8 @@
 		F061DC4F2AD9459200507993 /* ContentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC4E2AD9459200507993 /* ContentListView.swift */; };
 		F061DC522AD9721100507993 /* PreviewDataGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC512AD9721100507993 /* PreviewDataGenerator.swift */; };
 		F061DC562AD9741100507993 /* ListStyleViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC552AD9741100507993 /* ListStyleViewModifier.swift */; };
+		F061DC592AD9801A00507993 /* SwipeActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC582AD9801A00507993 /* SwipeActionButton.swift */; };
+		F061DC5B2AD9815C00507993 /* SwipeActionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC5A2AD9815C00507993 /* SwipeActionType.swift */; };
 		F07DE09B2AD7449300B3B91E /* ProjectRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07DE09A2AD7449300B3B91E /* ProjectRow.swift */; };
 		F092AC462AD6FDDA00EAD1F6 /* Organizer_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092AC452AD6FDDA00EAD1F6 /* Organizer_SwiftUIApp.swift */; };
 		F092AC482AD6FDDA00EAD1F6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092AC472AD6FDDA00EAD1F6 /* MainView.swift */; };
@@ -46,6 +48,8 @@
 		F061DC4E2AD9459200507993 /* ContentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentListView.swift; sourceTree = "<group>"; };
 		F061DC512AD9721100507993 /* PreviewDataGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewDataGenerator.swift; sourceTree = "<group>"; };
 		F061DC552AD9741100507993 /* ListStyleViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListStyleViewModifier.swift; sourceTree = "<group>"; };
+		F061DC582AD9801A00507993 /* SwipeActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeActionButton.swift; sourceTree = "<group>"; };
+		F061DC5A2AD9815C00507993 /* SwipeActionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeActionType.swift; sourceTree = "<group>"; };
 		F07DE09A2AD7449300B3B91E /* ProjectRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectRow.swift; sourceTree = "<group>"; };
 		F092AC422AD6FDDA00EAD1F6 /* Organizer_SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Organizer_SwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F092AC452AD6FDDA00EAD1F6 /* Organizer_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organizer_SwiftUIApp.swift; sourceTree = "<group>"; };
@@ -130,6 +134,15 @@
 				F092AC5E2AD7083C00EAD1F6 /* PreviewModelContainerViewModifier.swift */,
 			);
 			path = Preview;
+			sourceTree = "<group>";
+		};
+		F061DC572AD97FE900507993 /* SwipeActionButton */ = {
+			isa = PBXGroup;
+			children = (
+				F061DC582AD9801A00507993 /* SwipeActionButton.swift */,
+				F061DC5A2AD9815C00507993 /* SwipeActionType.swift */,
+			);
+			path = SwipeActionButton;
 			sourceTree = "<group>";
 		};
 		F092AC392AD6FDDA00EAD1F6 = {
@@ -296,6 +309,7 @@
 			children = (
 				F0E3475D2AD83A6A00B12AD9 /* FloatingButton */,
 				F0E984832AD8A7ED0082F6A1 /* Form */,
+				F061DC572AD97FE900507993 /* SwipeActionButton */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -417,6 +431,7 @@
 			files = (
 				F092AC5F2AD7083C00EAD1F6 /* PreviewModelContainerViewModifier.swift in Sources */,
 				F092AC482AD6FDDA00EAD1F6 /* MainView.swift in Sources */,
+				F061DC592AD9801A00507993 /* SwipeActionButton.swift in Sources */,
 				F0E3475F2AD83A7700B12AD9 /* FloatingButton.swift in Sources */,
 				F0E3473C2AD786DC00B12AD9 /* ProjectView.swift in Sources */,
 				F0E984872AD8A8600082F6A1 /* ProjectFormViewModel.swift in Sources */,
@@ -438,6 +453,7 @@
 				F061DC522AD9721100507993 /* PreviewDataGenerator.swift in Sources */,
 				F0E347412AD7F41300B12AD9 /* ProjectViewModel.swift in Sources */,
 				F0E984852AD8A7FF0082F6A1 /* FormTextField.swift in Sources */,
+				F061DC5B2AD9815C00507993 /* SwipeActionType.swift in Sources */,
 				F0E347612AD83A9E00B12AD9 /* FloatingButtonViewModifier.swift in Sources */,
 				F0E347452AD7F48800B12AD9 /* ProjectRowViewModel.swift in Sources */,
 				F061DC562AD9741100507993 /* ListStyleViewModifier.swift in Sources */,

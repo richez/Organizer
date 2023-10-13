@@ -10,6 +10,10 @@ import SwiftData
 
 extension ProjectListView {
     struct ViewModel {
+        func delete(_ project: Project, from context: ModelContext) {
+            context.delete(project)
+        }
+
         func themes(in context: ModelContext) -> [ProjectListTheme] {
             var descriptor = FetchDescriptor<Project>()
             descriptor.propertiesToFetch = [\.theme]

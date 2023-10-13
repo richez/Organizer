@@ -15,7 +15,7 @@ struct ProjectListView: View {
     @Query private var projects: [Project]
 
     init(predicate: Predicate<Project>?, sort: SortDescriptor<Project>) {
-        self._projects = Query(filter: predicate, sort: [sort])
+        self._projects = Query(filter: predicate, sort: [sort], animation: .default)
     }
 
     var body: some View {
@@ -27,6 +27,14 @@ struct ProjectListView: View {
                     ProjectRow(project: project)
                 }
                 .listRowBackground(Color.listBackground)
+                .swipeActions {
+                    SwipeActionButton(.delete) {
+                        self.viewModel.delete(project, from: self.modelContext)
+                    }
+                    SwipeActionButton(.edit) {
+
+                    }
+                }
             }
         }
         .toolbar {
@@ -42,7 +50,7 @@ struct ProjectListView: View {
 
 #Preview {
     NavigationStack {
-        ProjectListView(predicate: nil, sort: SortDescriptor(\.updatedDate))
+        ProjectListView(predicate: nil, sort: SortDescriptor(\.updatedDate, order: .reverse))
             .background(Color.listBackground)
             .scrollContentBackground(.hidden)
     }
