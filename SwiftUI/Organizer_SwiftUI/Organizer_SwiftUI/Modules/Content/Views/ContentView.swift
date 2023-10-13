@@ -20,12 +20,8 @@ struct ContentView: View {
             FloatingButtonSheet(systemName: "plus") {
                 
             }
-        } // TODO: add style to custom modifier
-        .navigationBarTitleDisplayMode(.inline)
-        .background(Color.listBackground)
-        .scrollContentBackground(.hidden)
-        .toolbarBackground(.listBackground)
-        .toolbarBackground(.visible)
+        }
+        .listStyle()
     }
 }
 

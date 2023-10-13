@@ -10,6 +10,7 @@
 		F061DC4C2AD944F600507993 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC4B2AD944F600507993 /* ContentView.swift */; };
 		F061DC4F2AD9459200507993 /* ContentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC4E2AD9459200507993 /* ContentListView.swift */; };
 		F061DC522AD9721100507993 /* PreviewDataGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC512AD9721100507993 /* PreviewDataGenerator.swift */; };
+		F061DC562AD9741100507993 /* ListStyleViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC552AD9741100507993 /* ListStyleViewModifier.swift */; };
 		F07DE09B2AD7449300B3B91E /* ProjectRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07DE09A2AD7449300B3B91E /* ProjectRow.swift */; };
 		F092AC462AD6FDDA00EAD1F6 /* Organizer_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092AC452AD6FDDA00EAD1F6 /* Organizer_SwiftUIApp.swift */; };
 		F092AC482AD6FDDA00EAD1F6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092AC472AD6FDDA00EAD1F6 /* MainView.swift */; };
@@ -44,6 +45,7 @@
 		F061DC4B2AD944F600507993 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F061DC4E2AD9459200507993 /* ContentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentListView.swift; sourceTree = "<group>"; };
 		F061DC512AD9721100507993 /* PreviewDataGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewDataGenerator.swift; sourceTree = "<group>"; };
+		F061DC552AD9741100507993 /* ListStyleViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListStyleViewModifier.swift; sourceTree = "<group>"; };
 		F07DE09A2AD7449300B3B91E /* ProjectRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectRow.swift; sourceTree = "<group>"; };
 		F092AC422AD6FDDA00EAD1F6 /* Organizer_SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Organizer_SwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F092AC452AD6FDDA00EAD1F6 /* Organizer_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organizer_SwiftUIApp.swift; sourceTree = "<group>"; };
@@ -112,13 +114,22 @@
 			path = List;
 			sourceTree = "<group>";
 		};
-		F061DC502AD971F900507993 /* ViewModifiers */ = {
+		F061DC532AD973AD00507993 /* ViewModifiers */ = {
 			isa = PBXGroup;
 			children = (
+				F061DC552AD9741100507993 /* ListStyleViewModifier.swift */,
+			);
+			path = ViewModifiers;
+			sourceTree = "<group>";
+		};
+		F061DC542AD973E800507993 /* Preview */ = {
+			isa = PBXGroup;
+			children = (
+				F061DC512AD9721100507993 /* PreviewDataGenerator.swift */,
 				F092AC5C2AD7065E00EAD1F6 /* PreviewDataGeneratorViewModifier.swift */,
 				F092AC5E2AD7083C00EAD1F6 /* PreviewModelContainerViewModifier.swift */,
 			);
-			path = ViewModifiers;
+			path = Preview;
 			sourceTree = "<group>";
 		};
 		F092AC392AD6FDDA00EAD1F6 = {
@@ -156,8 +167,6 @@
 			isa = PBXGroup;
 			children = (
 				F092AC4C2AD6FDDB00EAD1F6 /* Preview Assets.xcassets */,
-				F061DC512AD9721100507993 /* PreviewDataGenerator.swift */,
-				F061DC502AD971F900507993 /* ViewModifiers */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -266,8 +275,10 @@
 		F0E347552AD8257700B12AD9 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				F061DC542AD973E800507993 /* Preview */,
 				F0E347562AD8257E00B12AD9 /* Storage */,
 				F0E347572AD8258900B12AD9 /* Views */,
+				F061DC532AD973AD00507993 /* ViewModifiers */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -429,6 +440,7 @@
 				F0E984852AD8A7FF0082F6A1 /* FormTextField.swift in Sources */,
 				F0E347612AD83A9E00B12AD9 /* FloatingButtonViewModifier.swift in Sources */,
 				F0E347452AD7F48800B12AD9 /* ProjectRowViewModel.swift in Sources */,
+				F061DC562AD9741100507993 /* ListStyleViewModifier.swift in Sources */,
 				F0E347592AD8259D00B12AD9 /* FloatingButtonSheet.swift in Sources */,
 				F0E9848C2AD8ACB40082F6A1 /* FormTextFieldConfiguration.swift in Sources */,
 				F061DC4F2AD9459200507993 /* ContentListView.swift in Sources */,
