@@ -21,13 +21,18 @@ struct ProjectListView: View {
     var body: some View {
         List {
             ForEach(self.projects) { project in
-                ProjectRow(project: project)
-                    .listRowBackground(Color.listBackground)
+                NavigationLink {
+                    ContentView(project: project)
+                } label: {
+                    ProjectRow(project: project)
+                }
+                .listRowBackground(Color.listBackground)
             }
         }
         .toolbar {
             ToolbarItem(placement: .principal) {
                 Text(self.viewModel.navbarTitle)
+                    .foregroundStyle(.accent)
             }
 
             ToolbarItem {
@@ -37,8 +42,6 @@ struct ProjectListView: View {
                 )
             }
         }
-        .foregroundStyle(.navbarContent)
-        .tint(.navbarContent)
     }
 }
 

@@ -12,7 +12,7 @@ import SwiftData
 final class Project {
     var title: String
     var theme: String
-    @Relationship(deleteRule: .cascade)
+    @Relationship(deleteRule: .cascade, inverse: \ProjectContent.project)
     var contents: [ProjectContent]
     var createdDate: Date
     var updatedDate: Date

@@ -9,7 +9,7 @@ import Foundation
 
 extension ProjectView {
     struct ViewModel {
-        func sortDescription(
+        func sortDescriptor(
             sorting: ProjectListSorting,
             isAscendingOrder: Bool
         ) -> SortDescriptor<Project> {

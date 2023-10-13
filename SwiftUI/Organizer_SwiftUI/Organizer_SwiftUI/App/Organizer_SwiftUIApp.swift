@@ -12,7 +12,7 @@ import SwiftUI
 struct Organizer: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
         }
         .modelContainer(
             for: [Project.self, ProjectContent.self], isAutosaveEnabled: true

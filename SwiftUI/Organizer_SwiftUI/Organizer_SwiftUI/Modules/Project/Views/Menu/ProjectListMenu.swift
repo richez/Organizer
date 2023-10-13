@@ -27,7 +27,7 @@ struct ProjectListMenu: View {
     private var selectedTheme: ProjectListTheme = .all
 
     var body: some View {
-        Menu("Menu", systemImage: "ellipsis") {
+        Menu("Menu", systemImage: "slider.horizontal.3") {
             Text("\(self.projectCount) projects")
 
             Menu("List Sorting", systemImage: "arrow.up.arrow.down") {

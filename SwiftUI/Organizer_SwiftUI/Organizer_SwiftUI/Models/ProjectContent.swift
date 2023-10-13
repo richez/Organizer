@@ -24,6 +24,8 @@ final class ProjectContent {
     var createdDate: Date
     var updatedDate: Date
 
+    var project: Project?
+
     init(type: ProjectContentType = .article,
          title: String = "",
          theme: String = "",

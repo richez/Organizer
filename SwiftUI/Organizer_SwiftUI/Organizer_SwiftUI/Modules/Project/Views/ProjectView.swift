@@ -37,7 +37,7 @@ struct ProjectView: View {
 
 private extension ProjectView {
     var sortDescriptor: SortDescriptor<Project> {
-        self.viewModel.sortDescription(
+        self.viewModel.sortDescriptor(
             sorting: self.sorting, isAscendingOrder: self.isAscendingOrder
         )
     }

@@ -5,6 +5,7 @@
 //  Created by Thibaut Richez on 11/10/2023.
 //
 
+import SwiftData
 import SwiftUI
 
 struct ProjectRow: View {
@@ -61,5 +62,13 @@ private extension ProjectRow {
 }
 
 #Preview {
-    return ProjectRow(project: Project.sample[0])
+    // unused but fixes preview crash
+    let container = try! ModelContainer(for: Project.self)
+
+    return List {
+        ProjectRow(project: PreviewDataGenerator.project)
+            .listRowBackground(Color.listBackground)
+    }
+    .background(Color.listBackground)
+    .scrollContentBackground(.hidden)
 }
