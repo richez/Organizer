@@ -9,6 +9,8 @@ import SwiftData
 import SwiftUI
 
 struct ProjectForm: View {
+    var project: Project?
+
     private let viewModel = ViewModel()
 
     @Environment(\.modelContext) private var modelContext
@@ -52,6 +54,12 @@ struct ProjectForm: View {
         }
         .padding(.top)
         .background(Color.listBackground)
+        .onAppear {
+            if let project {
+                self.title = project.title
+                self.theme = project.theme
+            }
+        }
     }
 }
 
@@ -63,7 +71,9 @@ private extension ProjectForm {
     func commit() {
         do {
             self.focusedField = nil
-            try self.viewModel.commit(self.values, in: self.modelContext)
+            try self.viewModel.save(
+                self.values, for: self.project, in: self.modelContext
+            )
             self.dismiss()
         } catch ViewModel.Error.invalidFields(let fields) {
             self.isInvalidTitle = fields.contains(.title)
@@ -74,8 +84,20 @@ private extension ProjectForm {
     }
 }
 
-#Preview {
-    ProjectForm()
+#Preview("Add project") {
+    let container = try? ModelContainer(for: Project.self)
+    _ = container
+
+    return ProjectForm()
+        .scrollContentBackground(.hidden)
+        .previewModelContainer()
+}
+
+#Preview("Edit project") {
+    let container = try? ModelContainer(for: Project.self)
+    _ = container
+
+    return ProjectForm(project: PreviewDataGenerator.project)
         .scrollContentBackground(.hidden)
         .previewModelContainer()
 }

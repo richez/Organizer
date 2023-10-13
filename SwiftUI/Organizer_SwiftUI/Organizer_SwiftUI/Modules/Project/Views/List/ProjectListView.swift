@@ -14,6 +14,8 @@ struct ProjectListView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var projects: [Project]
 
+    @State private var editingProject: Project?
+
     init(predicate: Predicate<Project>?, sort: SortDescriptor<Project>) {
         self._projects = Query(filter: predicate, sort: [sort], animation: .default)
     }
@@ -32,10 +34,13 @@ struct ProjectListView: View {
                         self.viewModel.delete(project, from: self.modelContext)
                     }
                     SwipeActionButton(.edit) {
-
+                        self.editingProject = project
                     }
                 }
             }
+        }
+        .sheet(item: self.$editingProject) { project in
+            ProjectForm(project: project)
         }
         .toolbar {
             ToolbarItem {

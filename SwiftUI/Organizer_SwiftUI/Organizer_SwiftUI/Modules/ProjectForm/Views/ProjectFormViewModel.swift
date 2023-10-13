@@ -39,13 +39,14 @@ extension ProjectForm {
             }
         }
 
-        func commit(_ values: ProjectForm.Values, in context: ModelContext) throws {
+        func save(_ values: ProjectForm.Values, for project: Project?, in context: ModelContext) throws {
             try self.validateFields(with: values)
-            let project = Project(
-                title: values.title.trimmingCharacters(in: .whitespacesAndNewlines),
-                theme: values.theme.trimmingCharacters(in: .whitespacesAndNewlines)
-            )
-            context.insert(project)
+
+            if let project {
+                self.updateProject(project, with: values)
+            } else {
+                self.createProject(with: values, in: context)
+            }
         }
     }
 }
@@ -53,6 +54,8 @@ extension ProjectForm {
 // MARK: - Helpers
 
 private extension ProjectForm.ViewModel {
+    // MARK: Validation
+
     func validateFields(with values: ProjectForm.Values) throws {
         var invalidFields: Set<FormTextField.Name> = []
         self.validate(field: .title, text: values.title, with: &invalidFields)
@@ -75,6 +78,29 @@ private extension ProjectForm.ViewModel {
             !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
         case .theme:
             true
+        }
+    }
+
+    // MARK: Project
+
+    func createProject(with values: ProjectForm.Values, in context: ModelContext) {
+        let project = Project(
+            title: values.title.trimmingCharacters(in: .whitespacesAndNewlines),
+            theme: values.theme.trimmingCharacters(in: .whitespacesAndNewlines)
+        )
+        context.insert(project)
+    }
+
+    func updateProject(_ project: Project, with values: ProjectForm.Values) {
+        let title = values.title.trimmingCharacters(in: .whitespacesAndNewlines)
+        let theme = values.theme.trimmingCharacters(in: .whitespacesAndNewlines)
+
+        let hasChanges = title != project.title || theme != project.theme
+
+        if hasChanges {
+            project.title = title
+            project.theme = theme
+            project.updatedDate = .now
         }
     }
 }
