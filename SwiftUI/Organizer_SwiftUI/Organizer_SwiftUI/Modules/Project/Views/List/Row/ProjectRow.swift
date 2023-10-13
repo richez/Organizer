@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-// TODO: add previews for theme/stats to false
+
 struct ProjectRow: View {
     var project: Project
     private let viewModel = ViewModel()

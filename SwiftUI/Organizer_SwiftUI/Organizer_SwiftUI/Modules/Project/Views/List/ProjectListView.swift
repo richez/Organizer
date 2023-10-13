@@ -7,7 +7,7 @@
 
 import SwiftData
 import SwiftUI
-// TODO: separator color - test with long text
+
 struct ProjectListView: View {
     private let viewModel = ViewModel()
 
@@ -29,6 +29,7 @@ struct ProjectListView: View {
                     ProjectRow(project: project)
                 }
                 .listRowBackground(Color.listBackground)
+                .listRowSeparatorTint(.cellSeparatorTint)
                 .swipeActions {
                     SwipeActionButton(.delete) {
                         self.viewModel.delete(project, from: self.modelContext)

@@ -30,6 +30,7 @@ struct ContentListView: View {
                     content: content, suiteName: self.project.suiteName
                 )
                 .listRowBackground(Color.listBackground)
+                .listRowSeparatorTint(.cellSeparatorTint)
             }
         }
         .toolbar {
