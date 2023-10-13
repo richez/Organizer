@@ -9,6 +9,17 @@ import Foundation
 
 extension ProjectView {
     struct ViewModel {
+        var navbarTitle: String { "Projects" }
+
+        func navbarSubtitle(for selectedTheme: ProjectListTheme) -> String {
+            switch selectedTheme {
+            case .all:
+                return ""
+            case .custom(let theme):
+                return "#\(theme)"
+            }
+        }
+
         func sortDescriptor(
             sorting: ProjectListSorting,
             isAscendingOrder: Bool

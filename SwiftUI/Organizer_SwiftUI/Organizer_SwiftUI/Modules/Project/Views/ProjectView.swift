@@ -28,10 +28,25 @@ struct ProjectView: View {
             }
         }
         .listStyle()
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                VStack {
+                    Text(self.viewModel.navbarTitle)
+                        .font(.headline)
+                    Text(self.navbarSubtitle)
+                        .font(.subheadline)
+                }
+                .foregroundStyle(.accent)
+            }
+        }
     }
 }
 
 private extension ProjectView {
+    var navbarSubtitle: String {
+        self.viewModel.navbarSubtitle(for: self.selectedTheme)
+    }
+
     var sortDescriptor: SortDescriptor<Project> {
         self.viewModel.sortDescriptor(
             sorting: self.sorting, isAscendingOrder: self.isAscendingOrder

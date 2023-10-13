@@ -30,11 +30,6 @@ struct ProjectListView: View {
             }
         }
         .toolbar {
-            ToolbarItem(placement: .principal) {
-                Text(self.viewModel.navbarTitle)
-                    .foregroundStyle(.accent)
-            }
-
             ToolbarItem {
                 ProjectListMenu(
                     projectCount: self.projects.count,

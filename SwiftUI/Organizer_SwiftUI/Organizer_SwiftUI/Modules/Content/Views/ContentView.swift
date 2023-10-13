@@ -22,6 +22,12 @@ struct ContentView: View {
             }
         }
         .listStyle()
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                Text(self.project.title)
+                    .foregroundStyle(.accent)
+            }
+        }
     }
 }
 
@@ -52,8 +58,11 @@ extension ContentView {
 
 #Preview {
     // unused but fixes preview crash
-    let container = try! ModelContainer(for: Project.self)
+    let container = try? ModelContainer(for: Project.self)
+    _ = container
 
-    return ContentView(project: PreviewDataGenerator.project)
-        .previewModelContainer()
+    return NavigationStack {
+        ContentView(project: PreviewDataGenerator.project)
+            .previewModelContainer()
+    }
 }

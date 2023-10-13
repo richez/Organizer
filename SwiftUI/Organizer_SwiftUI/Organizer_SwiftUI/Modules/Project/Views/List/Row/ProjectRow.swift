@@ -63,7 +63,8 @@ private extension ProjectRow {
 
 #Preview {
     // unused but fixes preview crash
-    let container = try! ModelContainer(for: Project.self)
+    let container = try? ModelContainer(for: Project.self)
+    _ = container
 
     return List {
         ProjectRow(project: PreviewDataGenerator.project)

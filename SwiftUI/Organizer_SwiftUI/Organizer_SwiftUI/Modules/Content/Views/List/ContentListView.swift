@@ -23,18 +23,13 @@ struct ContentListView: View {
                     .foregroundStyle(.white)
             }
         }
-        .toolbar {
-            ToolbarItem(placement: .principal) {
-                Text("toto")
-                    .foregroundStyle(.accent)
-            }
-        }
     }
 }
 
 #Preview {
     // unused but fixes preview crash
     let container = try? ModelContainer(for: Project.self)
+    _ = container
 
     return NavigationStack {
         ContentListView(predicate: nil, sort: SortDescriptor(\.updatedDate))
