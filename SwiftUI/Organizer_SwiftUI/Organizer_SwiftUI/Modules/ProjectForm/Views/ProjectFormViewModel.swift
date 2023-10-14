@@ -16,7 +16,6 @@ extension ProjectForm {
 
         var titleConfiguration: FormTextField.Configuration = .init(
             name: .title,
-            sectionName: "Name",
             placeholder: "Your Project",
             submitLabel: .next,
             errorMessage: "This field cannot be empty"
@@ -24,7 +23,6 @@ extension ProjectForm {
 
         var themeConfiguration: FormTextField.Configuration = .init(
             name: .theme,
-            sectionName: "Themes",
             placeholder: "Sport, Construction, Work",
             submitLabel: .return,
             errorMessage: "This field is invalid"
@@ -34,7 +32,7 @@ extension ProjectForm {
             switch currentField {
             case .title:
                 return .theme
-            case .theme, .none:
+            case .theme, .link, .none:
                 return nil
             }
         }
@@ -78,6 +76,8 @@ private extension ProjectForm.ViewModel {
             !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
         case .theme:
             true
+        case .link:
+            false
         }
     }
 

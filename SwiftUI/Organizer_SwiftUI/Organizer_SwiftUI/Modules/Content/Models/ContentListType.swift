@@ -7,6 +7,7 @@
 
 import Foundation
 
+// TODO: use nil for all and type otherwise to avoid this object
 enum ContentListType: RawRepresentable, Hashable, Identifiable {
     case all
     case custom(ProjectContentType)

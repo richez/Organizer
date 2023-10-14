@@ -14,24 +14,20 @@ struct FormTextField: View {
     @FocusState.Binding var focusedField: Name?
 
     var body: some View {
-        Section(self.configuration.sectionName) {
-            TextField(self.configuration.placeholder, text: self.$text)
-                .foregroundStyle(.black)
-                .focused(self.$focusedField, equals: self.configuration.name)
-                .submitLabel(self.configuration.submitLabel)
-                .onChange(of: self.focusedField) {
-                    if self.focusedField == self.configuration.name {
-                        self.isInvalid = false
-                    }
+        TextField(self.configuration.placeholder, text: self.$text)
+            .foregroundStyle(.black)
+            .focused(self.$focusedField, equals: self.configuration.name)
+            .submitLabel(self.configuration.submitLabel)
+            .onChange(of: self.focusedField) {
+                if self.focusedField == self.configuration.name {
+                    self.isInvalid = false
                 }
-
-            if self.isInvalid {
-                Text(self.configuration.errorMessage)
-                    .foregroundStyle(.red)
             }
+
+        if self.isInvalid {
+            Text(self.configuration.errorMessage)
+                .foregroundStyle(.red)
         }
-        .foregroundStyle(.white)
-        .font(.system(size: 13))
     }
 }
 
@@ -52,7 +48,6 @@ private enum PreviewData {
     static var previewConfiguration: FormTextField.Configuration {
         .init(
             name: .title,
-            sectionName: "Name",
             placeholder: "Your project",
             submitLabel: .return,
             errorMessage: "The field cannot be empty"

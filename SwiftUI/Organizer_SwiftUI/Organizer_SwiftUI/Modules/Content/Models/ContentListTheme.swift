@@ -7,6 +7,7 @@
 
 import Foundation
 
+// TODO: use nil for all and theme otherwise to avoid this object
 enum ContentListTheme: RawRepresentable, Hashable, Identifiable {
     case all
     case custom(String)

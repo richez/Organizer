@@ -43,7 +43,7 @@ struct ContentView: View {
             )
 
             FloatingButtonSheet(systemName: "plus") {
-                
+                ContentForm(project: self.project)
             }
         }
         .listStyle()

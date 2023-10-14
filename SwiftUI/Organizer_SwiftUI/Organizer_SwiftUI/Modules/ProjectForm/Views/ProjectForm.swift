@@ -27,18 +27,23 @@ struct ProjectForm: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             Form {
-                FormTextField(
-                    configuration: self.viewModel.titleConfiguration,
-                    text: self.$title,
-                    isInvalid: self.$isInvalidTitle,
-                    focusedField: self.$focusedField
-                )
-                FormTextField(
-                    configuration: self.viewModel.themeConfiguration,
-                    text: self.$theme,
-                    isInvalid: self.$isInvalidTheme,
-                    focusedField: self.$focusedField
-                )
+                FormSection("Name") {
+                    FormTextField(
+                        configuration: self.viewModel.titleConfiguration,
+                        text: self.$title,
+                        isInvalid: self.$isInvalidTitle,
+                        focusedField: self.$focusedField
+                    )
+                }
+
+                FormSection("Themes") {
+                    FormTextField(
+                        configuration: self.viewModel.themeConfiguration,
+                        text: self.$theme,
+                        isInvalid: self.$isInvalidTheme,
+                        focusedField: self.$focusedField
+                    )
+                }
             }
             .onSubmit {
                 self.focusedField = self.viewModel.field(after: self.focusedField)
