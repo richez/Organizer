@@ -14,11 +14,14 @@ extension FormTextField {
         case link
     }
 
-    // TODO: add keyboard style, auto-capitalization and more
     struct Configuration {
         var name: Name
         var placeholder: String
         var submitLabel: SubmitLabel
         var errorMessage: String
+
+        var autoCapitalization: TextInputAutocapitalization = .sentences
+        var keyboardType: UIKeyboardType = .default
+        var autocorrectionDisabled: Bool = false
     }
 }

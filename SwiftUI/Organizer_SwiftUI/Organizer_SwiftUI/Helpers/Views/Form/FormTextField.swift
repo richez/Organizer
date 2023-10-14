@@ -16,6 +16,9 @@ struct FormTextField: View {
     var body: some View {
         TextField(self.configuration.placeholder, text: self.$text)
             .foregroundStyle(.black)
+            .textInputAutocapitalization(self.configuration.autoCapitalization)
+            .keyboardType(self.configuration.keyboardType)
+            .autocorrectionDisabled(self.configuration.autocorrectionDisabled)
             .focused(self.$focusedField, equals: self.configuration.name)
             .submitLabel(self.configuration.submitLabel)
             .onChange(of: self.focusedField) {

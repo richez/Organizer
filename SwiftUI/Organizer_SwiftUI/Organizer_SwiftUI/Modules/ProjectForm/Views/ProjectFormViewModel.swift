@@ -18,14 +18,16 @@ extension ProjectForm {
             name: .title,
             placeholder: "Your Project",
             submitLabel: .next,
-            errorMessage: "This field cannot be empty"
+            errorMessage: "This field cannot be empty",
+            autoCapitalization: .words
         )
 
         var themeConfiguration: FormTextField.Configuration = .init(
             name: .theme,
             placeholder: "Sport, Construction, Work",
             submitLabel: .return,
-            errorMessage: "This field is invalid"
+            errorMessage: "This field is invalid",
+            autoCapitalization: .never
         )
 
         func field(after currentField: FormTextField.Name?) -> FormTextField.Name? {

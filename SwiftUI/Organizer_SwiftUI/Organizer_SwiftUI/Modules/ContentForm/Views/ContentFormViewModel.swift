@@ -18,21 +18,26 @@ extension ContentForm {
             name: .link,
             placeholder: "https://www.youtube.com",
             submitLabel: .next,
-            errorMessage: "This field should start with http(s):// and be valid"
+            errorMessage: "This field should start with http(s):// and be valid",
+            autoCapitalization: .never,
+            keyboardType: .URL,
+            autocorrectionDisabled: true
         )
 
         var titleConfiguration: FormTextField.Configuration = .init(
             name: .title,
             placeholder: "Your Project",
             submitLabel: .next,
-            errorMessage: "This field cannot be empty"
+            errorMessage: "This field cannot be empty",
+            autoCapitalization: .words
         )
 
         var themeConfiguration: FormTextField.Configuration = .init(
             name: .theme,
             placeholder: "Sport, Construction, Work",
             submitLabel: .return,
-            errorMessage: "This field is invalid"
+            errorMessage: "This field is invalid",
+            autoCapitalization: .never
         )
 
         func field(after currentField: FormTextField.Name?) -> FormTextField.Name? {
