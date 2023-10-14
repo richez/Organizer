@@ -13,6 +13,9 @@ struct ContentForm: View {
 
     private let viewModel = ViewModel()
 
+    @Environment(\.modelContext) private var modelContext
+    @Environment(\.dismiss) private var dismiss
+
     @State private var type: ProjectContentType = .article
     @State private var link: String = ""
     @State private var title: String = ""
@@ -21,6 +24,8 @@ struct ContentForm: View {
     @State private var isInvalidTitle: Bool = false
     @State private var isInvalidTheme: Bool = false
     @FocusState private var focusedField: FormTextField.Name?
+
+    @State private var isShowingErrorAlert: Bool = false
 
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -62,14 +67,21 @@ struct ContentForm: View {
                     )
                 }
             }
+            .onSubmit {
+                self.focusedField = self.viewModel.field(after: self.focusedField)
+            }
 
             FloatingButton(systemName: "checkmark") {
-                
+                self.commit()
+            }
+            .alert("An unknown error occured", isPresented: self.$isShowingErrorAlert) {
+            } message: {
+                Text("Please try again later")
             }
         }
         .padding(.top)
         .background(Color.listBackground)
-        .onChange(of: self.type) {} // unused but fixes picker type selection.
+        .onChange(of: self.type) {} // unused but fixes picker type updates.
         .onAppear {
             if let content {
                 self.type = content.type
@@ -77,6 +89,36 @@ struct ContentForm: View {
                 self.title = content.title
                 self.theme = content.theme
             }
+        }
+    }
+}
+
+private extension ContentForm {
+    var values: Values {
+        .init(
+            type: self.type,
+            link: self.link,
+            title: self.title,
+            theme: self.theme
+        )
+    }
+
+    func commit() {
+        do {
+            self.focusedField = nil
+            try self.viewModel.save(
+                self.values, 
+                for: self.content,
+                in: self.project,
+                context: self.modelContext
+            )
+            self.dismiss()
+        } catch ViewModel.Error.invalidFields(let fields) {
+            self.isInvalidLink = fields.contains(.link)
+            self.isInvalidTitle = fields.contains(.title)
+            self.isInvalidTheme = fields.contains(.theme)
+        } catch {
+            self.isShowingErrorAlert = true
         }
     }
 }
