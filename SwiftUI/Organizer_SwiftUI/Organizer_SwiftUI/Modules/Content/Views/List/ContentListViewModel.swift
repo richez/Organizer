@@ -10,6 +10,10 @@ import SwiftData
 
 extension ContentListView {
     struct ViewModel {
+        func delete(_ content: ProjectContent, from context: ModelContext) {
+            context.delete(content)
+        }
+
         func themes(in project: Project?, context: ModelContext) -> [String] {
             guard let project else { return [] }
 

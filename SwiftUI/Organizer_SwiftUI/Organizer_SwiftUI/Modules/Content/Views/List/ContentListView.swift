@@ -16,6 +16,8 @@ struct ContentListView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var contents: [ProjectContent]
 
+    @State private var editingContent: ProjectContent?
+
     init(project: Project,
          predicate: Predicate<ProjectContent>?,
          sort: SortDescriptor<ProjectContent>) {
@@ -31,7 +33,18 @@ struct ContentListView: View {
                 )
                 .listRowBackground(Color.listBackground)
                 .listRowSeparatorTint(.cellSeparatorTint)
+                .swipeActions {
+                    SwipeActionButton(.delete) {
+                        self.viewModel.delete(content, from: self.modelContext)
+                    }
+                    SwipeActionButton(.edit) {
+                        self.editingContent = content
+                    }
+                }
             }
+        }
+        .sheet(item: self.$editingContent) { content in
+            ContentForm(project: self.project, content: content)
         }
         .toolbar {
             ToolbarItem {
