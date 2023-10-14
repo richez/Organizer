@@ -22,12 +22,8 @@ struct ContentRow: View {
         self.content = content
 
         let defaults = UserDefaults(suiteName: suiteName)
-        self._showTheme = AppStorage(
-            wrappedValue: true, .contentListShowTheme, store: defaults
-        )
-        self._showType = AppStorage(
-            wrappedValue: true, .contentListShowType, store: defaults
-        )
+        self._showTheme.update(with: defaults, key: .contentListShowTheme)
+        self._showType.update(with: defaults, key: .contentListShowType)
     }
 
     var body: some View {

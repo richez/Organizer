@@ -23,4 +23,18 @@ extension AppStorage {
     ) where Value == Bool {
         self.init(wrappedValue: wrappedValue, key.rawValue, store: store)
     }
+
+    mutating func update(
+        with store: UserDefaults?,
+        key: StorageKey
+    ) where Value : RawRepresentable, Value.RawValue == String {
+        self = AppStorage(wrappedValue: self.wrappedValue, key, store: store)
+    }
+
+    mutating func update(
+        with store: UserDefaults?,
+        key: StorageKey
+    ) where Value == Bool {
+        self = AppStorage(wrappedValue: self.wrappedValue, key, store: store)
+    }
 }

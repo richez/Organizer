@@ -34,24 +34,12 @@ struct ContentListMenu: View {
         self.themes = themes
 
         let defaults = UserDefaults(suiteName: suiteName)
-        self._sorting = AppStorage(
-            wrappedValue: .updatedDate, .contentListSorting, store: defaults
-        )
-        self._isAscendingOrder = AppStorage(
-            wrappedValue: true, .contentListAscendingOrder, store: defaults
-        )
-        self._showTheme = AppStorage(
-            wrappedValue: true, .contentListShowTheme, store: defaults
-        )
-        self._showType = AppStorage(
-            wrappedValue: true, .contentListShowType, store: defaults
-        )
-        self._selectedTheme = AppStorage(
-            wrappedValue: .all, .contentListSelectedTheme, store: defaults
-        )
-        self._selectedType = AppStorage(
-            wrappedValue: .all, .contentListSelectedType, store: defaults
-        )
+        self._sorting.update(with: defaults, key: .contentListSorting)
+        self._isAscendingOrder.update(with: defaults, key: .contentListAscendingOrder)
+        self._showTheme.update(with: defaults, key: .contentListShowTheme)
+        self._showType.update(with: defaults, key: .contentListShowType)
+        self._selectedTheme.update(with: defaults, key: .contentListSelectedTheme)
+        self._selectedType.update(with: defaults, key: .contentListSelectedType)
     }
 
     var body: some View {

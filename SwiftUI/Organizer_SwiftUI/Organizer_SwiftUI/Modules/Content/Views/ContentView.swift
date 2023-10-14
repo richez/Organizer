@@ -28,18 +28,10 @@ struct ContentView: View {
         self.project = project
 
         let defaults = UserDefaults(suiteName: project.suiteName)
-        self._sorting = AppStorage(
-            wrappedValue: .updatedDate, .contentListSorting, store: defaults
-        )
-        self._isAscendingOrder = AppStorage(
-            wrappedValue: true, .contentListAscendingOrder, store: defaults
-        )
-        self._selectedTheme = AppStorage(
-            wrappedValue: .all, .contentListSelectedTheme, store: defaults
-        )
-        self._selectedType = AppStorage(
-            wrappedValue: .all, .contentListSelectedType, store: defaults
-        )
+        self._sorting.update(with: defaults, key: .contentListSorting)
+        self._isAscendingOrder.update(with: defaults, key: .contentListAscendingOrder)
+        self._selectedTheme.update(with: defaults, key: .contentListSelectedTheme)
+        self._selectedType.update(with: defaults, key: .contentListSelectedType)
     }
 
     var body: some View {
