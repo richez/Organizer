@@ -49,8 +49,13 @@ struct ContentView: View {
         .listStyle()
         .toolbar {
             ToolbarItem(placement: .principal) {
-                Text(self.project.title)
-                    .foregroundStyle(.accent)
+                VStack {
+                    Text(self.project.title)
+                        .font(.headline)
+                    Text(self.navbarSubtitle)
+                        .font(.subheadline)
+                }
+                .foregroundStyle(.accent)
             }
         }
     }
@@ -68,6 +73,12 @@ private extension ContentView {
             for: self.project,
             selectedTheme: self.selectedTheme,
             selectedType: self.selectedType
+        )
+    }
+
+    var navbarSubtitle: String {
+        self.viewModel.navbarSubtitle(
+            selectedTheme: self.selectedTheme, selectedType: self.selectedType
         )
     }
 }

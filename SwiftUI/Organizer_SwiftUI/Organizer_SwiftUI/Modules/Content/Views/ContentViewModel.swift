@@ -54,5 +54,22 @@ extension ContentView {
                 }
             }
         }
+
+        func navbarSubtitle(
+            selectedTheme: ContentListTheme,
+            selectedType: ContentListType
+        ) -> String {
+            switch (selectedTheme, selectedType) {
+            case (.all, .all):
+                return ""
+            case (.all, .custom(let selectedType)):
+                return "\(selectedType.rawValue)s"
+            case (.custom(let selectedTheme), .all):
+                return "#\(selectedTheme)"
+            case (.custom(let selectedTheme), .custom(let selectedType)):
+                return "#\(selectedTheme) - \(selectedType.rawValue)s"
+            }
+
+        }
     }
 }
