@@ -35,7 +35,7 @@ struct ContentListView: View {
                 .listRowSeparatorTint(.cellSeparatorTint)
                 .swipeActions {
                     SwipeActionButton(.delete) {
-                        self.viewModel.delete(content, from: self.modelContext)
+                        self.viewModel.delete(content, in: self.modelContext)
                     }
                     SwipeActionButton(.edit) {
                         self.editingContent = content

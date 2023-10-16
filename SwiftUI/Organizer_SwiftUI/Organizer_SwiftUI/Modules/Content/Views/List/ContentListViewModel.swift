@@ -10,7 +10,7 @@ import SwiftData
 
 extension ContentListView {
     struct ViewModel {
-        func delete(_ content: ProjectContent, from context: ModelContext) {
+        func delete(_ content: ProjectContent, in context: ModelContext) {
             context.delete(content)
         }
 

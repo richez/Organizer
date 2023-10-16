@@ -56,7 +56,7 @@ extension ProjectListViewModel {
             contextMenuTitle: "",
             contextMenuActions: [
                 ProjectListContextMenuActionConfiguration(title: "Duplicate", imageName: "doc.on.doc", action: .duplicate),
-                ProjectListContextMenuActionConfiguration(title: "Edit", imageName: "square.and.pencil", action: .edit),
+                ProjectListContextMenuActionConfiguration(title: "Edit", imageName: "   ", action: .edit),
                 ProjectListContextMenuActionConfiguration(title: "Delete", imageName: "trash", action: .delete)
             ]
         )

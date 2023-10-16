@@ -35,6 +35,8 @@
 		F092AC5B2AD7046C00EAD1F6 /* ProjectContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092AC5A2AD7046C00EAD1F6 /* ProjectContent.swift */; };
 		F092AC5F2AD7083C00EAD1F6 /* ModelContainerPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092AC5E2AD7083C00EAD1F6 /* ModelContainerPreview.swift */; };
 		F092AC632AD7098E00EAD1F6 /* ProjectListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092AC622AD7098E00EAD1F6 /* ProjectListView.swift */; };
+		F0D428892ADD4B2D00DAF2B2 /* ContextMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D428882ADD4B2D00DAF2B2 /* ContextMenuButton.swift */; };
+		F0D4288B2ADD4C0700DAF2B2 /* ContextMenuType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D4288A2ADD4C0700DAF2B2 /* ContextMenuType.swift */; };
 		F0E3473A2AD7681100B12AD9 /* ProjectListMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347392AD7681100B12AD9 /* ProjectListMenu.swift */; };
 		F0E3473C2AD786DC00B12AD9 /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E3473B2AD786DC00B12AD9 /* ProjectView.swift */; };
 		F0E347412AD7F41300B12AD9 /* ProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347402AD7F41300B12AD9 /* ProjectViewModel.swift */; };
@@ -85,6 +87,8 @@
 		F092AC5A2AD7046C00EAD1F6 /* ProjectContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectContent.swift; sourceTree = "<group>"; };
 		F092AC5E2AD7083C00EAD1F6 /* ModelContainerPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelContainerPreview.swift; sourceTree = "<group>"; };
 		F092AC622AD7098E00EAD1F6 /* ProjectListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListView.swift; sourceTree = "<group>"; };
+		F0D428882ADD4B2D00DAF2B2 /* ContextMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuButton.swift; sourceTree = "<group>"; };
+		F0D4288A2ADD4C0700DAF2B2 /* ContextMenuType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuType.swift; sourceTree = "<group>"; };
 		F0E347392AD7681100B12AD9 /* ProjectListMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListMenu.swift; sourceTree = "<group>"; };
 		F0E3473B2AD786DC00B12AD9 /* ProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectView.swift; sourceTree = "<group>"; };
 		F0E347402AD7F41300B12AD9 /* ProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewModel.swift; sourceTree = "<group>"; };
@@ -308,6 +312,15 @@
 			path = Project;
 			sourceTree = "<group>";
 		};
+		F0D428872ADD4B1900DAF2B2 /* ContextMenuButton */ = {
+			isa = PBXGroup;
+			children = (
+				F0D428882ADD4B2D00DAF2B2 /* ContextMenuButton.swift */,
+				F0D4288A2ADD4C0700DAF2B2 /* ContextMenuType.swift */,
+			);
+			path = ContextMenuButton;
+			sourceTree = "<group>";
+		};
 		F0E3473D2AD7F29B00B12AD9 /* List */ = {
 			isa = PBXGroup;
 			children = (
@@ -387,6 +400,7 @@
 		F0E347572AD8258900B12AD9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F0D428872ADD4B1900DAF2B2 /* ContextMenuButton */,
 				F0E3475D2AD83A6A00B12AD9 /* FloatingButton */,
 				F0E984832AD8A7ED0082F6A1 /* Form */,
 				F061DC572AD97FE900507993 /* SwipeActionButton */,
@@ -531,6 +545,7 @@
 				F061DC7D2ADAB04100507993 /* ContentFormValues.swift in Sources */,
 				F092AC462AD6FDDA00EAD1F6 /* Organizer_SwiftUIApp.swift in Sources */,
 				F0E347502AD81C8A00B12AD9 /* StorageKey.swift in Sources */,
+				F0D428892ADD4B2D00DAF2B2 /* ContextMenuButton.swift in Sources */,
 				F061DC4C2AD944F600507993 /* ContentView.swift in Sources */,
 				F0E347522AD81C9C00B12AD9 /* ProjectListSorting.swift in Sources */,
 				F092AC592AD7043100EAD1F6 /* Project.swift in Sources */,
@@ -544,6 +559,7 @@
 				F061DC5D2AD99C3500507993 /* ModelContainer+Preview.swift in Sources */,
 				F0E347612AD83A9E00B12AD9 /* FloatingButtonViewModifier.swift in Sources */,
 				F061DC772ADA966F00507993 /* ContentForm.swift in Sources */,
+				F0D4288B2ADD4C0700DAF2B2 /* ContextMenuType.swift in Sources */,
 				F0E347452AD7F48800B12AD9 /* ProjectRowViewModel.swift in Sources */,
 				F061DC562AD9741100507993 /* ListStyleViewModifier.swift in Sources */,
 				F0E347592AD8259D00B12AD9 /* FloatingButtonSheet.swift in Sources */,

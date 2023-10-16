@@ -13,19 +13,15 @@ enum SwipeActionType {
 
     var systemName: String {
         switch self {
-        case .delete:
-            return "trash"
-        case .edit:
-            return "square.and.pencil"
+        case .delete: "trash"
+        case .edit: "square.and.pencil"
         }
     }
 
     var tint: Color {
         switch self {
-        case .delete:
-            return .swipeDeleteTint
-        case .edit:
-            return .swipeEditTint
+        case .delete: .swipeDeleteTint
+        case .edit: .swipeEditTint
         }
     }
 }

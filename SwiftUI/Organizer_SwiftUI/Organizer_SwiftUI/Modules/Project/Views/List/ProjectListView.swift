@@ -30,9 +30,20 @@ struct ProjectListView: View {
                 }
                 .listRowBackground(Color.listBackground)
                 .listRowSeparatorTint(.cellSeparatorTint)
+                .contextMenu {
+                    ContextMenuButton(.duplicate) {
+                        self.viewModel.duplicate(project, in: self.modelContext)
+                    }
+                    ContextMenuButton(.edit) {
+                        self.editingProject = project
+                    }
+                    ContextMenuButton(.delete) {
+                        self.viewModel.delete(project, in: self.modelContext)
+                    }
+                }
                 .swipeActions {
                     SwipeActionButton(.delete) {
-                        self.viewModel.delete(project, from: self.modelContext)
+                        self.viewModel.delete(project, in: self.modelContext)
                     }
                     SwipeActionButton(.edit) {
                         self.editingProject = project
