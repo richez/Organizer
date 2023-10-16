@@ -8,8 +8,6 @@
 import Foundation
 import SwiftData
 
-// TODO: Context Menu
-// TODO: openURL / SafariVC
 // TODO: Test layout with long strings
 // TODO: ShareExtension
 // TODO: Widgets

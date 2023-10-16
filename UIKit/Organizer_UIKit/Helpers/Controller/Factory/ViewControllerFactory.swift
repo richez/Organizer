@@ -70,7 +70,7 @@ enum ViewControllerFactory {
     // MARK: - Safari
 
     static func safari(with url: URL) -> SFSafariViewController {
-        let safariViewController = SFSafariViewController(url: url)
+        p = SFSafariViewController(url: url)
         safariViewController.dismissButtonStyle = .close
         safariViewController.preferredBarTintColor = .background
         return safariViewController

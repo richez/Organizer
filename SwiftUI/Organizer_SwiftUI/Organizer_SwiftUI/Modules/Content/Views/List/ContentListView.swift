@@ -17,6 +17,7 @@ struct ContentListView: View {
     @Environment(\.openURL) private var openURL
     @Query private var contents: [ProjectContent]
 
+    @State private var isShowingContentURL: URL?
     @State private var editingContent: ProjectContent?
     @State private var isShowingURLError: Bool = false
 
@@ -30,9 +31,15 @@ struct ContentListView: View {
     var body: some View {
         List {
             ForEach(self.contents) { content in
-                ContentRow(
-                    content: content, suiteName: self.project.suiteName
-                )
+                Button {
+                    self.url(for: content) { url in
+                        self.isShowingContentURL = url
+                    }
+                } label: {
+                    ContentRow(
+                        content: content, suiteName: self.project.suiteName
+                    )
+                }
                 .listRowBackground(Color.listBackground)
                 .listRowSeparatorTint(.cellSeparatorTint)
                 .contextMenu {
@@ -62,6 +69,10 @@ struct ContentListView: View {
                     }
                 }
             }
+        }
+        .fullScreenCover(item: self.$isShowingContentURL) { url in
+            SafariView(url: url)
+                .ignoresSafeArea()
         }
         .sheet(item: self.$editingContent) { content in
             ContentForm(project: self.project, content: content)
