@@ -43,7 +43,7 @@ enum PreviewDataGenerator {
 
     private static var selfBuildContents: [ProjectContent] {
         [
-            ProjectContent(type: .article, title: "How to choose your insulation materials ?", theme: "insulation"),
+            ProjectContent(type: .article, title: "How to choose your insulation materials ?", theme: "insulation", link: "https://www.youtube.com"),
             ProjectContent(type: .video, title: "The type of screws you should know", theme: "tools"),
             ProjectContent(type: .note, title: "First time building stairs"),
             ProjectContent(type: .other, title: "How to find the right self-build land", theme: "land"),

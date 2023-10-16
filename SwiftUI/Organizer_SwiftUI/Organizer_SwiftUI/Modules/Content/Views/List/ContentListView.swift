@@ -14,9 +14,11 @@ struct ContentListView: View {
     private let viewModel = ViewModel()
 
     @Environment(\.modelContext) private var modelContext
+    @Environment(\.openURL) private var openURL
     @Query private var contents: [ProjectContent]
 
     @State private var editingContent: ProjectContent?
+    @State private var isShowingURLError: Bool = false
 
     init(project: Project,
          predicate: Predicate<ProjectContent>?,
@@ -33,6 +35,24 @@ struct ContentListView: View {
                 )
                 .listRowBackground(Color.listBackground)
                 .listRowSeparatorTint(.cellSeparatorTint)
+                .contextMenu {
+                    ContextMenuButton(.openBrowser) {
+                        self.url(for: content) { url in
+                            self.openURL(url)
+                        }
+                    }
+                    ContextMenuButton(.copyLink) {
+                        self.url(for: content) { url in
+                            UIPasteboard.general.url = url
+                        }
+                    }
+                    ContextMenuButton(.edit) {
+                        self.editingContent = content
+                    }
+                    ContextMenuButton(.delete) {
+                        self.viewModel.delete(content, in: self.modelContext)
+                    }
+                }
                 .swipeActions {
                     SwipeActionButton(.delete) {
                         self.viewModel.delete(content, in: self.modelContext)
@@ -46,6 +66,10 @@ struct ContentListView: View {
         .sheet(item: self.$editingContent) { content in
             ContentForm(project: self.project, content: content)
         }
+        .alert("The content link is not valid", isPresented: self.$isShowingURLError) {
+        } message: {
+            Text("Edit link and try again")
+        }
         .toolbar {
             ToolbarItem {
                 ContentListMenu(
@@ -56,6 +80,18 @@ struct ContentListView: View {
                     suiteName: self.project.suiteName
                 )
             }
+        }
+    }
+}
+
+private extension ContentListView {
+    func url(for content: ProjectContent, action: (URL) -> Void) {
+        do {
+            let url = try self.viewModel.url(for: content)
+            action(url)
+        } catch {
+            print("Could not retrieve content url: \(error)")
+            self.isShowingURLError = true
         }
     }
 }
