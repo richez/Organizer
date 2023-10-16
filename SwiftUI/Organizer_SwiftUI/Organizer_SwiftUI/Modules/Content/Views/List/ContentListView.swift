@@ -77,10 +77,7 @@ struct ContentListView: View {
         .sheet(item: self.$editingContent) { content in
             ContentForm(project: self.project, content: content)
         }
-        .alert("The content link is not valid", isPresented: self.$isShowingURLError) {
-        } message: {
-            Text("Edit link and try again")
-        }
+        .alert(.invalidContentLink, isPresented: self.$isShowingURLError)
         .toolbar {
             ToolbarItem {
                 ContentListMenu(

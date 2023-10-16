@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		F00601C92ADDE9C5005F57CA /* FormLoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00601C82ADDE9C5005F57CA /* FormLoadingButton.swift */; };
+		F00601CE2ADDF0FE005F57CA /* AlertViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00601CD2ADDF0FE005F57CA /* AlertViewModifier.swift */; };
+		F00601D02ADDF137005F57CA /* AlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00601CF2ADDF137005F57CA /* AlertType.swift */; };
 		F061DC4C2AD944F600507993 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC4B2AD944F600507993 /* ContentView.swift */; };
 		F061DC4F2AD9459200507993 /* ContentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC4E2AD9459200507993 /* ContentListView.swift */; };
 		F061DC522AD9721100507993 /* PreviewDataGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC512AD9721100507993 /* PreviewDataGenerator.swift */; };
@@ -65,6 +67,8 @@
 
 /* Begin PBXFileReference section */
 		F00601C82ADDE9C5005F57CA /* FormLoadingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormLoadingButton.swift; sourceTree = "<group>"; };
+		F00601CD2ADDF0FE005F57CA /* AlertViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewModifier.swift; sourceTree = "<group>"; };
+		F00601CF2ADDF137005F57CA /* AlertType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertType.swift; sourceTree = "<group>"; };
 		F061DC4B2AD944F600507993 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F061DC4E2AD9459200507993 /* ContentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentListView.swift; sourceTree = "<group>"; };
 		F061DC512AD9721100507993 /* PreviewDataGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewDataGenerator.swift; sourceTree = "<group>"; };
@@ -158,6 +162,23 @@
 			path = LoadingButton;
 			sourceTree = "<group>";
 		};
+		F00601CB2ADDF0DA005F57CA /* ListStyle */ = {
+			isa = PBXGroup;
+			children = (
+				F061DC552AD9741100507993 /* ListStyleViewModifier.swift */,
+			);
+			path = ListStyle;
+			sourceTree = "<group>";
+		};
+		F00601CC2ADDF0E4005F57CA /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				F00601CD2ADDF0FE005F57CA /* AlertViewModifier.swift */,
+				F00601CF2ADDF137005F57CA /* AlertType.swift */,
+			);
+			path = Alert;
+			sourceTree = "<group>";
+		};
 		F061DC492AD944D200507993 /* Content */ = {
 			isa = PBXGroup;
 			children = (
@@ -191,7 +212,8 @@
 		F061DC532AD973AD00507993 /* ViewModifiers */ = {
 			isa = PBXGroup;
 			children = (
-				F061DC552AD9741100507993 /* ListStyleViewModifier.swift */,
+				F00601CC2ADDF0E4005F57CA /* Alert */,
+				F00601CB2ADDF0DA005F57CA /* ListStyle */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -617,6 +639,7 @@
 				F092AC592AD7043100EAD1F6 /* Project.swift in Sources */,
 				F0E9848A2AD8A89D0082F6A1 /* ProjectFormValues.swift in Sources */,
 				F092AC632AD7098E00EAD1F6 /* ProjectListView.swift in Sources */,
+				F00601CE2ADDF0FE005F57CA /* AlertViewModifier.swift in Sources */,
 				F061DC522AD9721100507993 /* PreviewDataGenerator.swift in Sources */,
 				F061DC692AD9A58500507993 /* AppStorage+Key.swift in Sources */,
 				F0E347412AD7F41300B12AD9 /* ProjectViewModel.swift in Sources */,
@@ -634,6 +657,7 @@
 				F0E9848C2AD8ACB40082F6A1 /* FormTextFieldConfiguration.swift in Sources */,
 				F061DC4F2AD9459200507993 /* ContentListView.swift in Sources */,
 				F061DC6B2AD9AC9D00507993 /* ContentListViewModel.swift in Sources */,
+				F00601D02ADDF137005F57CA /* AlertType.swift in Sources */,
 				F061DC7B2ADA9A4600507993 /* FormSection.swift in Sources */,
 				F061DC702AD9F02600507993 /* ContentRow.swift in Sources */,
 				F0E347482AD800E300B12AD9 /* Array+Duplicates.swift in Sources */,

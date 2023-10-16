@@ -82,15 +82,12 @@ struct ContentForm: View {
             FloatingButton(systemName: "checkmark") {
                 self.save()
             }
-            .alert("An unknown error occured", isPresented: self.$isShowingErrorAlert) {
-            } message: {
-                Text("Please try again later")
-            }
         }
         .allowsHitTesting(!self.isLoadingTitle)
         .padding(.top)
         .background(Color.listBackground)
         .onChange(of: self.type) {} // unused but fixes picker type updates.
+        .alert(.unknownError, isPresented: self.$isShowingErrorAlert)
         .onAppear {
             self.update(with: self.content)
         }
