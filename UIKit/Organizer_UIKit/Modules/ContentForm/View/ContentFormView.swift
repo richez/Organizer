@@ -7,6 +7,7 @@
 
 import UIKit
 
+@MainActor
 protocol ContentFormViewDelegate: AnyObject {
     func didTapOnView()
     func didEditFields(with values: ContentFormFieldValues)

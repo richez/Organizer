@@ -5,6 +5,7 @@
 //  Created by Thibaut Richez on 11/09/2023.
 //
 
+import Combine
 import UIKit
 
 final class ContentListViewController: UIViewController {
@@ -13,6 +14,8 @@ final class ContentListViewController: UIViewController {
     private let viewModel: ContentListViewModel
     private unowned let coordinator: ContentListCoordinator
     private lazy var dataSource: ContentListDataSource = .init(tableView: self.contentView.tableView)
+
+    var subscriptions: Set<AnyCancellable> = .init()
 
     // MARK: Views
 
@@ -93,16 +96,21 @@ private extension ContentListViewController {
     // MARK: - Notification
 
     func observeNotifications() {
-        let notificationCenter = NotificationCenter.default
+        let center = NotificationCenter.default
 
-        notificationCenter.addObserver(forName: .didCreateContent, object: nil, queue: .main) { [weak self] _ in
-            self?.updateList(animated: true)
-            self?.updateMenu()
-        }
-        notificationCenter.addObserver(forName: .didUpdateContent, object: nil, queue: .main) { [weak self] _ in
-            self?.updateList(animated: true)
-            self?.updateMenu()
-        }
+        center.publisher(for: .didCreateContent)
+            .sink { @MainActor [weak self] _ in
+                self?.updateList(animated: true)
+                self?.updateMenu()
+            }
+            .store(in: &self.subscriptions)
+
+        center.publisher(for: .didUpdateContent)
+            .sink { @MainActor [weak self] _ in
+                self?.updateList(animated: true)
+                self?.updateMenu()
+            }
+            .store(in: &self.subscriptions)
     }
 }
 

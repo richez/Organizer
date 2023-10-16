@@ -5,6 +5,7 @@
 //  Created by Thibaut Richez on 04/09/2023.
 //
 
+import Combine
 import UIKit
 
 final class ProjectListViewController: UIViewController {
@@ -13,6 +14,8 @@ final class ProjectListViewController: UIViewController {
     private let viewModel: ProjectListViewModel
     private unowned let coordinator: ProjectListCoordinator
     private lazy var dataSource: ProjectListDataSource = .init(tableView: self.contentView.tableView)
+
+    var subscriptions: Set<AnyCancellable> = .init()
 
     // MARK: Views
 
@@ -95,29 +98,39 @@ private extension ProjectListViewController {
     // MARK: - Notification
 
     func observeNotifications() {
-        let notificationCenter = NotificationCenter.default
-
-        notificationCenter.addObserver(forName: .didCreateProject, object: nil, queue: .main) { [weak self] _ in
-            self?.updateList(animated: true)
-            self?.updateMenu()
-        }
-        notificationCenter.addObserver(forName: .didUpdateProject, object: nil, queue: .main) { [weak self] _ in
-            self?.updateList(animated: true)
-            self?.updateMenu()
-        }
-        notificationCenter.addObserver(forName: .didUpdateProjectContent, object: nil, queue: .main) { [weak self] _ in
-            // The view is not visible when we update a project content so we don't need to animate the change
-            self?.updateList(animated: false)
-        }
-
-        let willEnterForeground = UIApplication.willEnterForegroundNotification
-        notificationCenter.addObserver(forName: willEnterForeground, object: nil, queue: .main) { [weak self] _ in
-            if self?.viewModel.shareExtensionDidAddContent == true {
-                self?.coordinator.popToRoot(animated: false)
-                self?.updateList(animated: false)
-                self?.viewModel.resetShareExtensionSetting()
+        let center = NotificationCenter.default
+        
+        center.publisher(for: .didCreateProject)
+            .sink { @MainActor [weak self] _ in
+                self?.updateList(animated: true)
+                self?.updateMenu()
             }
-        }
+            .store(in: &self.subscriptions)
+
+        center.publisher(for: .didUpdateProject)
+            .sink { @MainActor [weak self] _ in
+                self?.updateList(animated: true)
+                self?.updateMenu()
+            }
+            .store(in: &self.subscriptions)
+
+        center.publisher(for: .didUpdateProjectContent)
+            .sink { @MainActor [weak self] _ in
+                // The view is not visible when we update a project content so we don't 
+                // need to animate the change
+                self?.updateList(animated: false)
+            }
+            .store(in: &self.subscriptions)
+
+        center.publisher(for: UIApplication.willEnterForegroundNotification)
+            .sink { @MainActor [weak self] _ in
+                if self?.viewModel.shareExtensionDidAddContent == true {
+                    self?.coordinator.popToRoot(animated: false)
+                    self?.updateList(animated: false)
+                    self?.viewModel.resetShareExtensionSetting()
+                }
+            }
+            .store(in: &self.subscriptions)
     }
 }
 

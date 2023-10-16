@@ -7,6 +7,7 @@
 
 import UIKit
 
+@MainActor
 protocol ContentFormFieldsViewDelegate: AnyObject {
     func didEditFields(with values: ContentFormFieldValues)
     func didEndEditingLink(_ link: String)

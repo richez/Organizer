@@ -7,6 +7,7 @@
 
 import UIKit
 
+@MainActor
 protocol ProjectFormFieldsViewDelegate: AnyObject {
     func didEditFields(with values: ProjectFormFieldValues)
 }

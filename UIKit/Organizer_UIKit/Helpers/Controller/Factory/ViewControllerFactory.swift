@@ -8,6 +8,7 @@
 import SafariServices
 import UIKit
 
+@MainActor
 enum ViewControllerFactory {
     // MARK: - Project List
 
@@ -70,7 +71,7 @@ enum ViewControllerFactory {
     // MARK: - Safari
 
     static func safari(with url: URL) -> SFSafariViewController {
-        p = SFSafariViewController(url: url)
+        let safariViewController = SFSafariViewController(url: url)
         safariViewController.dismissButtonStyle = .close
         safariViewController.preferredBarTintColor = .background
         return safariViewController

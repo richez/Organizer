@@ -7,6 +7,7 @@
 
 import UIKit
 
+@MainActor
 protocol ProjectListViewDelegate: AnyObject {
     func didSelectProject(at indexPath: IndexPath)
     func didTapSwipeAction(_ action: ProjectListSwipeAction, at indexPath: IndexPath) -> Bool

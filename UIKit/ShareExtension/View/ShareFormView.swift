@@ -7,6 +7,7 @@
 
 import UIKit
 
+@MainActor
 protocol ShareFormViewDelegate: AnyObject {
     func didTapOnView()
     func didEditFields(with values: ShareFormFieldValues)

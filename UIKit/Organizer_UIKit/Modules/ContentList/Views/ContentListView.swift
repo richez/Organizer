@@ -7,6 +7,7 @@
 
 import UIKit
 
+@MainActor
 protocol ContentListViewDelegate: AnyObject {
     func didSelectContent(at indexPath: IndexPath)
     func didTapSwipeAction(_ action: ContentListSwipeAction, at indexPath: IndexPath) -> Bool
