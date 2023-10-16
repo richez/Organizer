@@ -10,6 +10,8 @@ import SwiftData
 
 extension ContentForm {
     struct ViewModel {
+        var urlMetadataProvider: URLMetadataProviderProtocol = URLMetadataProvider()
+
         enum Error: Swift.Error {
             case invalidFields(Set<FormTextField.Name>)
         }
@@ -40,6 +42,10 @@ extension ContentForm {
             autoCapitalization: .never
         )
 
+        func isValidURL(_ text: String) -> Bool {
+            text.isValidURL()
+        }
+
         func field(after currentField: FormTextField.Name?) -> FormTextField.Name? {
             switch currentField {
             case .link:
@@ -49,6 +55,10 @@ extension ContentForm {
             case .theme, .none:
                 return nil
             }
+        }
+
+        func title(of link: String) async throws -> String {
+            return try await self.urlMetadataProvider.title(of: link)
         }
 
         func save(
