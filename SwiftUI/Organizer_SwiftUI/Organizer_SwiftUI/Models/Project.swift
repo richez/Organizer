@@ -8,7 +8,6 @@
 import Foundation
 import SwiftData
 
-// TODO: Test layout with long strings
 // TODO: ShareExtension
 // TODO: Widgets
 // TODO: MacApp

@@ -38,11 +38,13 @@ struct ContentRow: View {
                 Text(self.title)
                     .font(.system(size: 15, weight: .bold))
                     .foregroundStyle(.cellTitle)
+                    .lineLimit(2)
 
                 if self.showTheme {
                     Text(self.themes)
                         .font(.system(size: 12))
                         .foregroundStyle(.cellSubtitle)
+                        .lineLimit(1)
                 }
             }
         }

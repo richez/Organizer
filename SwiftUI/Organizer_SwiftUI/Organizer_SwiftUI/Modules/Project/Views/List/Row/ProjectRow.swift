@@ -22,14 +22,17 @@ struct ProjectRow: View {
             Text(self.title)
                 .font(.system(size: 15, weight: .bold))
                 .foregroundStyle(.cellTitle)
+                .lineLimit(2)
 
             VStack(alignment: .leading, spacing: 5) {
                 if self.showTheme {
                     Text(self.themes)
+                        .lineLimit(1)
                 }
 
                 if self.showStatistics {
                     Text(self.statistics)
+                        .lineLimit(2)
                 }
             }
             .font(.system(size: 12))
