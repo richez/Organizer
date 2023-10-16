@@ -8,12 +8,17 @@
 import SwiftUI
 
 struct MainView: View {
+    @State private var columnVisibility: NavigationSplitViewVisibility = .all
+
     var body: some View {
-        NavigationSplitView {
+        NavigationSplitView(columnVisibility: self.$columnVisibility) {
             ProjectView()
         } detail: {
-            Text("Select Project")
+            ContentUnavailableView("Select Project", systemImage: "filemenu.and.selection")
+                .foregroundStyle(.white)
+                .background(.listBackground)
         }
+        .navigationSplitViewStyle(.balanced)
     }
 }
 
