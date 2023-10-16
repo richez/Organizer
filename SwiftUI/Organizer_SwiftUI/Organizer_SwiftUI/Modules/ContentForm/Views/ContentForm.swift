@@ -92,26 +92,10 @@ struct ContentForm: View {
         .background(Color.listBackground)
         .onChange(of: self.type) {} // unused but fixes picker type updates.
         .onAppear {
-            if let content {
-                self.type = content.type
-                self.link = content.link
-                self.title = content.title
-                self.theme = content.theme
-            }
+            self.update(with: self.content)
         }
         .task(id: self.isLoadingTitle) {
-            guard self.isLoadingTitle else { return }
-
-            do {
-                self.focusedField = nil
-                let linkTitle = try await self.viewModel.title(of: self.link)
-                try Task.checkCancellation()
-                self.title = linkTitle
-                self.isLoadingTitle = false
-            } catch {
-                self.isLoadingTitle = false
-                self.isShowingErrorAlert = true
-            }
+            await self.loadLinkTitle()
         }
     }
 }
@@ -145,6 +129,30 @@ private extension ContentForm {
             self.isInvalidTitle = fields.contains(.title)
             self.isInvalidTheme = fields.contains(.theme)
         } catch {
+            self.isShowingErrorAlert = true
+        }
+    }
+
+    func update(with content: ProjectContent?) {
+        if let content {
+            self.type = content.type
+            self.link = content.link
+            self.title = content.title
+            self.theme = content.theme
+        }
+    }
+
+    func loadLinkTitle() async {
+        guard self.isLoadingTitle else { return }
+
+        do {
+            self.focusedField = nil
+            let linkTitle = try await self.viewModel.title(of: self.link)
+            try Task.checkCancellation()
+            self.title = linkTitle
+            self.isLoadingTitle = false
+        } catch {
+            self.isLoadingTitle = false
             self.isShowingErrorAlert = true
         }
     }

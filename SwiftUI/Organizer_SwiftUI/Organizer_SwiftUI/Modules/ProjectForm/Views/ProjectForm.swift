@@ -50,7 +50,7 @@ struct ProjectForm: View {
             }
 
             FloatingButton(systemName: "checkmark") {
-                self.commit()
+                self.save()
             }
             .alert("An unknown error occured", isPresented: self.$isShowingErrorAlert) {
             } message: {
@@ -60,10 +60,7 @@ struct ProjectForm: View {
         .padding(.top)
         .background(Color.listBackground)
         .onAppear {
-            if let project {
-                self.title = project.title
-                self.theme = project.theme
-            }
+            self.update(with: self.project)
         }
     }
 }
@@ -73,7 +70,7 @@ private extension ProjectForm {
         .init(title: self.title, theme: self.theme)
     }
 
-    func commit() {
+    func save() {
         do {
             self.focusedField = nil
             try self.viewModel.save(
@@ -85,6 +82,13 @@ private extension ProjectForm {
             self.isInvalidTheme = fields.contains(.theme)
         } catch {
             self.isShowingErrorAlert = true
+        }
+    }
+
+    func update(with project: Project?) {
+        if let project {
+            self.title = project.title
+            self.theme = project.theme
         }
     }
 }
