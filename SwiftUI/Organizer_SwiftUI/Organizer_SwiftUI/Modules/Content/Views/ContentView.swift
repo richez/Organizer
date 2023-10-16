@@ -19,10 +19,10 @@ struct ContentView: View {
     private var isAscendingOrder: Bool = true
 
     @AppStorage(.contentListSelectedTheme)
-    private var selectedTheme: ContentListTheme = .all
+    private var selectedTheme: String? = nil
 
     @AppStorage(.contentListSelectedType)
-    private var selectedType: ContentListType = .all
+    private var selectedType: ProjectContentType?
 
     init(project: Project) {
         self.project = project

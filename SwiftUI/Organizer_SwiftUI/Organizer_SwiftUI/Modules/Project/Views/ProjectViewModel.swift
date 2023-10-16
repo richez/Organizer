@@ -11,11 +11,11 @@ extension ProjectView {
     struct ViewModel {
         var navbarTitle: String { "Projects" }
 
-        func navbarSubtitle(for selectedTheme: ProjectListTheme) -> String {
+        func navbarSubtitle(for selectedTheme: String?) -> String {
             switch selectedTheme {
-            case .all:
+            case .none:
                 return ""
-            case .custom(let theme):
+            case .some(let theme):
                 return "#\(theme)"
             }
         }
@@ -37,11 +37,11 @@ extension ProjectView {
             }
         }
 
-        func predicate(selectedTeme: ProjectListTheme) -> Predicate<Project>? {
+        func predicate(selectedTeme: String?) -> Predicate<Project>? {
             switch selectedTeme {
-            case .all:
+            case .none:
                 return nil
-            case .custom(let theme):
+            case .some(let theme):
                 return #Predicate {
                     $0.theme.contains(theme)
                 }

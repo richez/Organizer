@@ -24,7 +24,7 @@ struct ProjectListMenu: View {
     private var showStatistics: Bool = true
 
     @AppStorage(.projectListSelectedTheme)
-    private var selectedTheme: ProjectListTheme = .all
+    private var selectedTheme: String? = nil
 
     var body: some View {
         Menu("Menu", systemImage: "slider.horizontal.3") {
@@ -48,11 +48,11 @@ struct ProjectListMenu: View {
 
             Menu("Themes", systemImage: "number") {
                 Picker("Themes", selection: self.$selectedTheme) {
-                    Text(ProjectListTheme.all.rawValue)
-                        .tag(ProjectListTheme.all)
+                    Text("All")
+                        .tag(nil as String?)
                     ForEach(self.themes, id: \.self) { theme in
                         Text(theme)
-                            .tag(ProjectListTheme.custom(theme))
+                            .tag(theme as String?)
                     }
                 }
             }

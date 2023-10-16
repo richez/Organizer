@@ -17,7 +17,7 @@ struct ProjectView: View {
     private var isAscendingOrder: Bool = true
 
     @AppStorage(.projectListSelectedTheme)
-    private var selectedTheme: ProjectListTheme = .all
+    private var selectedTheme: String? = nil
 
     var body: some View {
         ZStack(alignment: .bottom) {

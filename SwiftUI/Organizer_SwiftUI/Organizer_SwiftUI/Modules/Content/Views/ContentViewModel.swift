@@ -9,6 +9,22 @@ import Foundation
 
 extension ContentView {
     struct ViewModel {
+        func navbarSubtitle(
+            selectedTheme: String?,
+            selectedType: ProjectContentType?
+        ) -> String {
+            switch (selectedTheme, selectedType) {
+            case (.none, .none):
+                return ""
+            case (.none, .some(let selectedType)):
+                return "\(selectedType.rawValue)s"
+            case (.some(let selectedTheme), .none):
+                return "#\(selectedTheme)"
+            case (.some(let selectedTheme), .some(let selectedType)):
+                return "#\(selectedTheme) - \(selectedType.rawValue)s"
+            }
+        }
+
         func sortDescriptor(
             sorting: ContentListSorting,
             isAscendingOrder: Bool
@@ -31,45 +47,28 @@ extension ContentView {
 
         func predicate(
             for project: Project,
-            selectedTheme: ContentListTheme,
-            selectedType: ContentListType
+            selectedTheme: String?,
+            selectedType: ProjectContentType?
         ) -> Predicate<ProjectContent>? {
             let projectID = project.persistentModelID
             switch (selectedTheme, selectedType) {
-            case (.all, .all):
+            case (.none, .none):
                 return #Predicate { $0.project?.persistentModelID == projectID }
-            case (.all, .custom(let selectedType)):
+            case (.none, .some(let selectedType)):
                 let selectedTypeRawValue = selectedType.rawValue
                 return #Predicate {
                     $0.project?.persistentModelID == projectID && $0.typeRawValue == selectedTypeRawValue
                 }
-            case (.custom(let selectedTheme), .all):
+            case (.some(let selectedTheme), .none):
                 return #Predicate {
                     $0.project?.persistentModelID == projectID && $0.theme.contains(selectedTheme)
                 }
-            case (.custom(let selectedTheme), .custom(let selectedType)):
+            case (.some(let selectedTheme), .some(let selectedType)):
                 let selectedTypeRawValue = selectedType.rawValue
                 return #Predicate {
                     $0.project?.persistentModelID == projectID && $0.typeRawValue == selectedTypeRawValue && $0.theme.contains(selectedTheme)
                 }
             }
-        }
-
-        func navbarSubtitle(
-            selectedTheme: ContentListTheme,
-            selectedType: ContentListType
-        ) -> String {
-            switch (selectedTheme, selectedType) {
-            case (.all, .all):
-                return ""
-            case (.all, .custom(let selectedType)):
-                return "\(selectedType.rawValue)s"
-            case (.custom(let selectedTheme), .all):
-                return "#\(selectedTheme)"
-            case (.custom(let selectedTheme), .custom(let selectedType)):
-                return "#\(selectedTheme) - \(selectedType.rawValue)s"
-            }
-
         }
     }
 }

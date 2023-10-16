@@ -24,10 +24,10 @@ struct ContentListMenu: View {
     private var showType: Bool = true
 
     @AppStorage(.contentListSelectedTheme)
-    private var selectedTheme: ContentListTheme = .all
+    private var selectedTheme: String? = nil
 
     @AppStorage(.contentListSelectedType)
-    private var selectedType: ContentListType = .all
+    private var selectedType: ProjectContentType?
 
     init(contentCount: Int, themes: [String], suiteName: String) {
         self.contentCount = contentCount
@@ -64,22 +64,22 @@ struct ContentListMenu: View {
 
             Menu("Themes", systemImage: "number") {
                 Picker("Themes", selection: self.$selectedTheme) {
-                    Text(ContentListTheme.all.rawValue)
-                        .tag(ContentListTheme.all)
+                    Text("All")
+                        .tag(nil as String?)
                     ForEach(self.themes, id: \.self) { theme in
                         Text(theme)
-                            .tag(ContentListTheme.custom(theme))
+                            .tag(theme as String?)
                     }
                 }
             }
 
             Menu("Type", systemImage: "tray.full") {
                 Picker("Type", selection: self.$selectedType) {
-                    Text(ContentListType.all.rawValue)
-                        .tag(ContentListType.all)
+                    Text("All")
+                        .tag(nil as ProjectContentType?)
                     ForEach(ProjectContentType.allCases) { type in
                         Text(type.rawValue)
-                            .tag(ContentListType.custom(type))
+                            .tag(type as ProjectContentType?)
                     }
                 }
             }
