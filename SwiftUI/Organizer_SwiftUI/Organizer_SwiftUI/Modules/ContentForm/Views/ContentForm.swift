@@ -26,7 +26,7 @@ struct ContentForm: View {
     @FocusState private var focusedField: FormTextField.Name?
 
     @State private var isShowingErrorAlert: Bool = false
-    @State private var isLoadingLinkName: Bool = false
+    @State private var isLoadingTitle: Bool = false
 
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -50,25 +50,20 @@ struct ContentForm: View {
                     )
                 }
 
-                FormSection("Name") {
+                FormSection("Title") {
                     FormTextField(
                         configuration: self.viewModel.titleConfiguration,
                         text: self.$title,
                         isInvalid: self.$isInvalidTitle,
                         focusedField: self.$focusedField
                     )
-                    
-                    HStack(spacing: 10) {
-                        Button("Get link name") {
-                            self.isLoadingLinkName = true
-                        }
-                        .foregroundStyle(self.getLinkNameColor)
-                        .disabled(self.getLinkNameDisabled)
 
-                        if self.isLoadingLinkName {
-                            ProgressView()
+                    FormLoadingButton(
+                        title: "Get link title",
+                        isEnabled: self.isValidLink,
+                        isLoading: self.isLoadingTitle) {
+                            self.isLoadingTitle = true
                         }
-                    }
                 }
 
                 FormSection("Themes") {
@@ -92,7 +87,7 @@ struct ContentForm: View {
                 Text("Please try again later")
             }
         }
-        .allowsHitTesting(!self.isLoadingLinkName)
+        .allowsHitTesting(!self.isLoadingTitle)
         .padding(.top)
         .background(Color.listBackground)
         .onChange(of: self.type) {} // unused but fixes picker type updates.
@@ -104,17 +99,17 @@ struct ContentForm: View {
                 self.theme = content.theme
             }
         }
-        .task(id: self.isLoadingLinkName) {
-            guard self.isLoadingLinkName else { return }
+        .task(id: self.isLoadingTitle) {
+            guard self.isLoadingTitle else { return }
 
             do {
                 self.focusedField = nil
                 let linkTitle = try await self.viewModel.title(of: self.link)
                 try Task.checkCancellation()
                 self.title = linkTitle
-                self.isLoadingLinkName = false
+                self.isLoadingTitle = false
             } catch {
-                self.isLoadingLinkName = false
+                self.isLoadingTitle = false
                 self.isShowingErrorAlert = true
             }
         }
@@ -133,14 +128,6 @@ private extension ContentForm {
 
     var isValidLink: Bool {
         self.viewModel.isValidURL(self.link)
-    }
-
-    var getLinkNameColor: Color {
-        self.isValidLink ? .blue : .blue.opacity(0.2)
-    }
-
-    var getLinkNameDisabled: Bool {
-        !self.isValidLink && self.isLoadingLinkName
     }
 
     func save() {

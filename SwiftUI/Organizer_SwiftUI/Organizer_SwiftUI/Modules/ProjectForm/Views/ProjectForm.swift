@@ -27,7 +27,7 @@ struct ProjectForm: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             Form {
-                FormSection("Name") {
+                FormSection("Title") {
                     FormTextField(
                         configuration: self.viewModel.titleConfiguration,
                         text: self.$title,
