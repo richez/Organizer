@@ -10,13 +10,11 @@ import SwiftData
 
 extension ProjectForm {
     struct ViewModel {
-        enum Error: Swift.Error {
-            case invalidFields(Set<FormTextField.Name>)
-        }
+        var validator: FormFieldValidatorProtocol = FormFieldValidator()
 
         var titleConfiguration: FormTextField.Configuration = .init(
             name: .title,
-            placeholder: "Your Project",
+            placeholder: "My Project",
             submitLabel: .next,
             errorMessage: "This field cannot be empty",
             autoCapitalization: .words
@@ -24,7 +22,7 @@ extension ProjectForm {
 
         var themeConfiguration: FormTextField.Configuration = .init(
             name: .theme,
-            placeholder: "Sport, Construction, Work",
+            placeholder: "DIY, sport, outdoor",
             submitLabel: .return,
             errorMessage: "This field is invalid",
             autoCapitalization: .never
@@ -40,7 +38,7 @@ extension ProjectForm {
         }
 
         func save(_ values: ProjectForm.Values, for project: Project?, in context: ModelContext) throws {
-            try self.validateFields(with: values)
+            try self.validator.validate(values: (.title, values.title), (.theme, values.theme))
 
             if let project {
                 self.updateProject(project, with: values)
@@ -54,37 +52,6 @@ extension ProjectForm {
 // MARK: - Helpers
 
 private extension ProjectForm.ViewModel {
-    // MARK: Validation
-
-    func validateFields(with values: ProjectForm.Values) throws {
-        var invalidFields: Set<FormTextField.Name> = []
-        self.validate(field: .title, text: values.title, with: &invalidFields)
-        self.validate(field: .theme, text: values.theme, with: &invalidFields)
-
-        if !invalidFields.isEmpty {
-            throw Error.invalidFields(invalidFields)
-        }
-    }
-
-    func validate(field: FormTextField.Name, text: String, with invalidFields: inout Set<FormTextField.Name>) {
-        if !self.isValidField(field, text: text) {
-            invalidFields.insert(field)
-        }
-    }
-
-    func isValidField(_ field: FormTextField.Name, text: String) -> Bool {
-        switch field {
-        case .title:
-            !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
-        case .theme:
-            true
-        case .link:
-            false
-        }
-    }
-
-    // MARK: Project
-
     func createProject(with values: ProjectForm.Values, in context: ModelContext) {
         let project = Project(
             title: values.title.trimmingCharacters(in: .whitespacesAndNewlines),

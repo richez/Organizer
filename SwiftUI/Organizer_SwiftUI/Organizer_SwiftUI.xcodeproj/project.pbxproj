@@ -10,6 +10,7 @@
 		F00601C92ADDE9C5005F57CA /* FormLoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00601C82ADDE9C5005F57CA /* FormLoadingButton.swift */; };
 		F00601CE2ADDF0FE005F57CA /* AlertViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00601CD2ADDF0FE005F57CA /* AlertViewModifier.swift */; };
 		F00601D02ADDF137005F57CA /* AlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00601CF2ADDF137005F57CA /* AlertType.swift */; };
+		F00601D52ADEB280005F57CA /* FormFieldValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00601D42ADEB280005F57CA /* FormFieldValidator.swift */; };
 		F061DC4C2AD944F600507993 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC4B2AD944F600507993 /* ContentView.swift */; };
 		F061DC4F2AD9459200507993 /* ContentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC4E2AD9459200507993 /* ContentListView.swift */; };
 		F061DC522AD9721100507993 /* PreviewDataGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC512AD9721100507993 /* PreviewDataGenerator.swift */; };
@@ -69,6 +70,7 @@
 		F00601C82ADDE9C5005F57CA /* FormLoadingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormLoadingButton.swift; sourceTree = "<group>"; };
 		F00601CD2ADDF0FE005F57CA /* AlertViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewModifier.swift; sourceTree = "<group>"; };
 		F00601CF2ADDF137005F57CA /* AlertType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertType.swift; sourceTree = "<group>"; };
+		F00601D42ADEB280005F57CA /* FormFieldValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormFieldValidator.swift; sourceTree = "<group>"; };
 		F061DC4B2AD944F600507993 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F061DC4E2AD9459200507993 /* ContentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentListView.swift; sourceTree = "<group>"; };
 		F061DC512AD9721100507993 /* PreviewDataGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewDataGenerator.swift; sourceTree = "<group>"; };
@@ -177,6 +179,14 @@
 				F00601CF2ADDF137005F57CA /* AlertType.swift */,
 			);
 			path = Alert;
+			sourceTree = "<group>";
+		};
+		F00601D32ADEB271005F57CA /* Validator */ = {
+			isa = PBXGroup;
+			children = (
+				F00601D42ADEB280005F57CA /* FormFieldValidator.swift */,
+			);
+			path = Validator;
 			sourceTree = "<group>";
 		};
 		F061DC492AD944D200507993 /* Content */ = {
@@ -516,6 +526,7 @@
 				F00601C62ADDE99D005F57CA /* Section */,
 				F00601C72ADDE9A8005F57CA /* TextField */,
 				F00601CA2ADDE9C9005F57CA /* LoadingButton */,
+				F00601D32ADEB271005F57CA /* Validator */,
 			);
 			path = Form;
 			sourceTree = "<group>";
@@ -646,6 +657,7 @@
 				F0E984852AD8A7FF0082F6A1 /* FormTextField.swift in Sources */,
 				F061DC5B2AD9815C00507993 /* SwipeActionType.swift in Sources */,
 				F061DC5D2AD99C3500507993 /* ModelContainer+Preview.swift in Sources */,
+				F00601D52ADEB280005F57CA /* FormFieldValidator.swift in Sources */,
 				F0E347612AD83A9E00B12AD9 /* FloatingButtonViewModifier.swift in Sources */,
 				F061DC772ADA966F00507993 /* ContentForm.swift in Sources */,
 				F0D4288B2ADD4C0700DAF2B2 /* ContextMenuType.swift in Sources */,

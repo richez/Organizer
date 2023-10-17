@@ -121,7 +121,7 @@ private extension ContentForm {
                 context: self.modelContext
             )
             self.dismiss()
-        } catch ViewModel.Error.invalidFields(let fields) {
+        } catch FormFieldValidator.Error.invalidFields(let fields) {
             self.isInvalidLink = fields.contains(.link)
             self.isInvalidTitle = fields.contains(.title)
             self.isInvalidTheme = fields.contains(.theme)

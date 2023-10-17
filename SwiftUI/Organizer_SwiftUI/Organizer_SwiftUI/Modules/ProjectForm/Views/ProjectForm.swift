@@ -74,7 +74,7 @@ private extension ProjectForm {
                 self.values, for: self.project, in: self.modelContext
             )
             self.dismiss()
-        } catch ViewModel.Error.invalidFields(let fields) {
+        } catch FormFieldValidator.Error.invalidFields(let fields) {
             self.isInvalidTitle = fields.contains(.title)
             self.isInvalidTheme = fields.contains(.theme)
         } catch {

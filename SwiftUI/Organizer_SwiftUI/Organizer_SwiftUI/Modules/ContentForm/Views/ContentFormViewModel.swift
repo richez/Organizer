@@ -10,11 +10,8 @@ import SwiftData
 
 extension ContentForm {
     struct ViewModel {
+        var validator: FormFieldValidatorProtocol = FormFieldValidator()
         var urlMetadataProvider: URLMetadataProviderProtocol = URLMetadataProvider()
-
-        enum Error: Swift.Error {
-            case invalidFields(Set<FormTextField.Name>)
-        }
 
         var linkConfiguration: FormTextField.Configuration = .init(
             name: .link,
@@ -28,7 +25,7 @@ extension ContentForm {
 
         var titleConfiguration: FormTextField.Configuration = .init(
             name: .title,
-            placeholder: "Your Project",
+            placeholder: "My Content",
             submitLabel: .next,
             errorMessage: "This field cannot be empty",
             autoCapitalization: .words
@@ -36,7 +33,7 @@ extension ContentForm {
 
         var themeConfiguration: FormTextField.Configuration = .init(
             name: .theme,
-            placeholder: "Sport, Construction, Work",
+            placeholder: "spots, tools, build",
             submitLabel: .return,
             errorMessage: "This field is invalid",
             autoCapitalization: .never
@@ -67,7 +64,7 @@ extension ContentForm {
             in project: Project,
             context: ModelContext
         ) throws {
-            try self.validateFields(with: values)
+            try self.validator.validate(values: (.link, values.link), (.title, values.title), (.theme, values.theme))
 
             if let content {
                 self.updateContent(content, with: values)
@@ -81,38 +78,6 @@ extension ContentForm {
 // MARK: - Helpers
 
 private extension ContentForm.ViewModel {
-    // MARK: Validation
-
-    func validateFields(with values: ContentForm.Values) throws {
-        var invalidFields: Set<FormTextField.Name> = []
-        self.validate(field: .link, text: values.link, with: &invalidFields)
-        self.validate(field: .title, text: values.title, with: &invalidFields)
-        self.validate(field: .theme, text: values.theme, with: &invalidFields)
-
-        if !invalidFields.isEmpty {
-            throw Error.invalidFields(invalidFields)
-        }
-    }
-
-    func validate(field: FormTextField.Name, text: String, with invalidFields: inout Set<FormTextField.Name>) {
-        if !self.isValidField(field, text: text) {
-            invalidFields.insert(field)
-        }
-    }
-
-    func isValidField(_ field: FormTextField.Name, text: String) -> Bool {
-        switch field {
-        case .link:
-            text.isValidURL()
-        case .title:
-            !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
-        case .theme:
-            true
-        }
-    }
-
-    // MARK: Content
-
     func createContent(with values: ContentForm.Values, in project: Project, context: ModelContext) {
         let content = ProjectContent(
             type: values.type,
