@@ -13,32 +13,6 @@ extension ContentForm {
         var validator: FormFieldValidatorProtocol = FormFieldValidator()
         var urlMetadataProvider: URLMetadataProviderProtocol = URLMetadataProvider()
 
-        var linkConfiguration: FormTextField.Configuration = .init(
-            name: .link,
-            placeholder: "https://www.youtube.com",
-            submitLabel: .next,
-            errorMessage: "This field should start with http(s):// and be valid",
-            autoCapitalization: .never,
-            keyboardType: .URL,
-            autocorrectionDisabled: true
-        )
-
-        var titleConfiguration: FormTextField.Configuration = .init(
-            name: .title,
-            placeholder: "My Content",
-            submitLabel: .next,
-            errorMessage: "This field cannot be empty",
-            autoCapitalization: .words
-        )
-
-        var themeConfiguration: FormTextField.Configuration = .init(
-            name: .theme,
-            placeholder: "spots, tools, build",
-            submitLabel: .return,
-            errorMessage: "This field is invalid",
-            autoCapitalization: .never
-        )
-
         func isValidURL(_ text: String) -> Bool {
             text.isValidURL()
         }

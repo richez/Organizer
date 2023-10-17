@@ -43,7 +43,7 @@ struct ContentForm: View {
 
                 FormSection("Link") {
                     FormTextField(
-                        configuration: self.viewModel.linkConfiguration,
+                        configuration: .contentLink,
                         text: self.$link,
                         isInvalid: self.$isInvalidLink,
                         focusedField: self.$focusedField
@@ -52,7 +52,7 @@ struct ContentForm: View {
 
                 FormSection("Title") {
                     FormTextField(
-                        configuration: self.viewModel.titleConfiguration,
+                        configuration: .contentTitle,
                         text: self.$title,
                         isInvalid: self.$isInvalidTitle,
                         focusedField: self.$focusedField
@@ -68,7 +68,7 @@ struct ContentForm: View {
 
                 FormSection("Themes") {
                     FormTextField(
-                        configuration: self.viewModel.themeConfiguration,
+                        configuration: .contentLink,
                         text: self.$theme,
                         isInvalid: self.$isInvalidTheme,
                         focusedField: self.$focusedField

@@ -9,7 +9,6 @@ import SwiftData
 import SwiftUI
 
 struct ProjectPicker: View {
-    var configuration: FormTextField.Configuration
     @Binding var title: String
     @Binding var selectedProject: Project?
     @Binding var isInvalid: Bool
@@ -31,7 +30,7 @@ struct ProjectPicker: View {
 
             if selectedProject == nil {
                 FormTextField(
-                    configuration: self.configuration,
+                    configuration: .projectTitle,
                     text: self.$title,
                     isInvalid: self.$isInvalid,
                     focusedField: self.$focusedField

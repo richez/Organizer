@@ -29,7 +29,7 @@ struct ProjectForm: View {
             Form {
                 FormSection("Title") {
                     FormTextField(
-                        configuration: self.viewModel.titleConfiguration,
+                        configuration: .projectTitle,
                         text: self.$title,
                         isInvalid: self.$isInvalidTitle,
                         focusedField: self.$focusedField
@@ -38,7 +38,7 @@ struct ProjectForm: View {
 
                 FormSection("Themes") {
                     FormTextField(
-                        configuration: self.viewModel.themeConfiguration,
+                        configuration: .projectTheme,
                         text: self.$theme,
                         isInvalid: self.$isInvalidTheme,
                         focusedField: self.$focusedField

@@ -12,22 +12,6 @@ extension ProjectForm {
     struct ViewModel {
         var validator: FormFieldValidatorProtocol = FormFieldValidator()
 
-        var titleConfiguration: FormTextField.Configuration = .init(
-            name: .title,
-            placeholder: "My Project",
-            submitLabel: .next,
-            errorMessage: "This field cannot be empty",
-            autoCapitalization: .words
-        )
-
-        var themeConfiguration: FormTextField.Configuration = .init(
-            name: .theme,
-            placeholder: "DIY, sport, outdoor",
-            submitLabel: .return,
-            errorMessage: "This field is invalid",
-            autoCapitalization: .never
-        )
-
         func field(after currentField: FormTextField.Name?) -> FormTextField.Name? {
             switch currentField {
             case .title:
