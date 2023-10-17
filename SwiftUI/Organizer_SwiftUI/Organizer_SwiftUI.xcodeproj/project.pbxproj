@@ -110,6 +110,8 @@
 		F00601EC2ADEBE09005F57CA /* ShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
 		F00601EF2ADEBFBE005F57CA /* ShareViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewModel.swift; sourceTree = "<group>"; };
 		F00601F12ADEC561005F57CA /* ShareForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareForm.swift; sourceTree = "<group>"; };
+		F00601F62ADEC9E1005F57CA /* Organizer_SwiftUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Organizer_SwiftUI.entitlements; sourceTree = "<group>"; };
+		F00601F72ADEC9F7005F57CA /* ShareExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShareExtension.entitlements; sourceTree = "<group>"; };
 		F061DC4B2AD944F600507993 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F061DC4E2AD9459200507993 /* ContentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentListView.swift; sourceTree = "<group>"; };
 		F061DC512AD9721100507993 /* PreviewDataGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewDataGenerator.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 		F00601DB2ADEBCEC005F57CA /* ShareExtension */ = {
 			isa = PBXGroup;
 			children = (
+				F00601F72ADEC9F7005F57CA /* ShareExtension.entitlements */,
 				F00601E92ADEBDE5005F57CA /* Controller */,
 				F00601EA2ADEBDEB005F57CA /* View */,
 				F00601EB2ADEBDF2005F57CA /* ViewModel */,
@@ -401,6 +404,7 @@
 		F092AC442AD6FDDA00EAD1F6 /* Organizer_SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				F00601F62ADEC9E1005F57CA /* Organizer_SwiftUI.entitlements */,
 				F092AC532AD6FE0F00EAD1F6 /* App */,
 				F0E347462AD800CD00B12AD9 /* Extensions */,
 				F0E347552AD8257700B12AD9 /* Helpers */,
@@ -819,6 +823,7 @@
 		F00601E62ADEBCEC005F57CA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ShareExtension/ShareExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = EE36UWQ2XG;
@@ -844,6 +849,7 @@
 		F00601E72ADEBCEC005F57CA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ShareExtension/ShareExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = EE36UWQ2XG;
@@ -991,6 +997,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Organizer_SwiftUI/Organizer_SwiftUI.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Organizer_SwiftUI/Preview Content\"";
@@ -1022,6 +1029,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Organizer_SwiftUI/Organizer_SwiftUI.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Organizer_SwiftUI/Preview Content\"";

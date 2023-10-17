@@ -12,7 +12,18 @@ struct ShareForm: View {
     let content: ShareContent
     let finishAction: () -> Void
 
+    @Query(sort: \Project.updatedDate, order: .reverse)
+    private var projects: [Project]
+
+    @State private var selectedProject: Project?
+
     var body: some View {
-        Text("Hello World!")
+        Form {
+            Picker("Project", selection: self.$selectedProject) {
+                ForEach(self.projects) { project in
+                    Text(project.title)
+                }
+            }
+        }
     }
 }
