@@ -14,6 +14,8 @@ struct ShareForm: View {
 
     private let viewModel = ViewModel()
 
+    @Environment(\.modelContext) private var modelContext
+
     @State private var projectTitle: String = ""
     @State private var isInvalidProjectTitle: Bool = false
     @State private var selectedProject: Project?
@@ -24,8 +26,9 @@ struct ShareForm: View {
     @State private var isInvalidLink: Bool = false
     @State private var isInvalidTitle: Bool = false
     @State private var isInvalidTheme: Bool = false
-
     @FocusState private var focusedField: FormTextField.Name?
+
+    @State private var isShowingErrorAlert: Bool = false
 
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -81,13 +84,14 @@ struct ShareForm: View {
             }
             
             FloatingButton(systemName: "checkmark") {
-
+                self.save()
             }
         }
         .padding(.top)
         .padding(.bottom, 30)
         .background(Color.listBackground)
         .scrollContentBackground(.hidden)
+        .alert(.unknownError, isPresented: self.$isShowingErrorAlert)
         .onAppear {
             self.update(with: self.content)
         }
@@ -95,8 +99,33 @@ struct ShareForm: View {
 }
 
 private extension ShareForm {
+    var values: Values {
+        .init(
+            project: self.selectedProject != nil ? .custom(self.selectedProject!) : .new(self.projectTitle),
+            type: self.type,
+            link: self.link,
+            title: self.title,
+            theme: self.theme
+        )
+    }
+
     func update(with content: ShareContent) {
         self.title = content.title
         self.link = content.url
+    }
+
+    func save() {
+        do {
+            self.focusedField = nil
+            try self.viewModel.save(values, in: self.modelContext)
+            self.finishAction()
+        } catch FormFieldValidator.Error.invalidFields(let fields) {
+            self.isInvalidLink = fields.contains(.link)
+            self.isInvalidTitle = fields.contains(.title)
+            self.isInvalidTheme = fields.contains(.theme)
+            self.isInvalidProjectTitle = fields.contains(.projectPicker)
+        } catch {
+            self.isShowingErrorAlert = true
+        }
     }
 }

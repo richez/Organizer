@@ -43,16 +43,16 @@ extension ContentForm {
             if let content {
                 self.updateContent(content, with: values)
             } else {
-                self.createContent(with: values, in: project, context: context)
+                self.addContent(with: values, to: project, in: context)
             }
         }
     }
 }
 
 // MARK: - Helpers
-
+// TODO: update project updated date
 private extension ContentForm.ViewModel {
-    func createContent(with values: ContentForm.Values, in project: Project, context: ModelContext) {
+    func addContent(with values: ContentForm.Values, to project: Project, in context: ModelContext) {
         let content = ProjectContent(
             type: values.type,
             title: values.title.trimmingCharacters(in: .whitespacesAndNewlines),

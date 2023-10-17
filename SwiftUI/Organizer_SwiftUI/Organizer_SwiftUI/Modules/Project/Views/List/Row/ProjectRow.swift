@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// TODO: fix project stats not updated after add in share extension
 struct ProjectRow: View {
     var project: Project
     private let viewModel = ViewModel()

@@ -27,6 +27,11 @@
 		F00602002ADED4F1005F57CA /* ShareFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00601FF2ADED4F1005F57CA /* ShareFormViewModel.swift */; };
 		F00602012ADED5DE005F57CA /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E3475E2AD83A7700B12AD9 /* FloatingButton.swift */; };
 		F00602022ADED5E5005F57CA /* FloatingButtonViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347602AD83A9E00B12AD9 /* FloatingButtonViewModifier.swift */; };
+		F00602042ADEE857005F57CA /* ShareFormValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00602032ADEE857005F57CA /* ShareFormValues.swift */; };
+		F00602052ADEE98E005F57CA /* AlertViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00601CD2ADDF0FE005F57CA /* AlertViewModifier.swift */; };
+		F00602062ADEE9C8005F57CA /* AlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00601CF2ADDF137005F57CA /* AlertType.swift */; };
+		F00602072ADEEA6B005F57CA /* FormFieldValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00601D42ADEB280005F57CA /* FormFieldValidator.swift */; };
+		F00602082ADEEA74005F57CA /* String+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC7E2ADAB1D200507993 /* String+URL.swift */; };
 		F061DC4C2AD944F600507993 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC4B2AD944F600507993 /* ContentView.swift */; };
 		F061DC4F2AD9459200507993 /* ContentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC4E2AD9459200507993 /* ContentListView.swift */; };
 		F061DC522AD9721100507993 /* PreviewDataGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC512AD9721100507993 /* PreviewDataGenerator.swift */; };
@@ -121,6 +126,7 @@
 		F00601F72ADEC9F7005F57CA /* ShareExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShareExtension.entitlements; sourceTree = "<group>"; };
 		F00601F82ADECF14005F57CA /* ProjectPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectPicker.swift; sourceTree = "<group>"; };
 		F00601FF2ADED4F1005F57CA /* ShareFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareFormViewModel.swift; sourceTree = "<group>"; };
+		F00602032ADEE857005F57CA /* ShareFormValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareFormValues.swift; sourceTree = "<group>"; };
 		F061DC4B2AD944F600507993 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F061DC4E2AD9459200507993 /* ContentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentListView.swift; sourceTree = "<group>"; };
 		F061DC512AD9721100507993 /* PreviewDataGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewDataGenerator.swift; sourceTree = "<group>"; };
@@ -251,8 +257,8 @@
 			children = (
 				F00601F72ADEC9F7005F57CA /* ShareExtension.entitlements */,
 				F00601E92ADEBDE5005F57CA /* Controller */,
+				F00601EB2ADEBDF2005F57CA /* Models */,
 				F00601EA2ADEBDEB005F57CA /* View */,
-				F00601EB2ADEBDF2005F57CA /* ViewModel */,
 				F00601E12ADEBCEC005F57CA /* Info.plist */,
 			);
 			path = ShareExtension;
@@ -262,6 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				F00601DC2ADEBCEC005F57CA /* ShareViewController.swift */,
+				F00601EF2ADEBFBE005F57CA /* ShareViewModel.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -275,12 +282,12 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		F00601EB2ADEBDF2005F57CA /* ViewModel */ = {
+		F00601EB2ADEBDF2005F57CA /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F00601EF2ADEBFBE005F57CA /* ShareViewModel.swift */,
+				F00602032ADEE857005F57CA /* ShareFormValues.swift */,
 			);
-			path = ViewModel;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		F00601FD2ADED4CD005F57CA /* Form */ = {
@@ -768,14 +775,19 @@
 				F00601FB2ADECF59005F57CA /* FormTextField.swift in Sources */,
 				F00602022ADED5E5005F57CA /* FloatingButtonViewModifier.swift in Sources */,
 				F00602002ADED4F1005F57CA /* ShareFormViewModel.swift in Sources */,
+				F00602052ADEE98E005F57CA /* AlertViewModifier.swift in Sources */,
 				F00602012ADED5DE005F57CA /* FloatingButton.swift in Sources */,
+				F00602062ADEE9C8005F57CA /* AlertType.swift in Sources */,
 				F00601FC2ADECF5E005F57CA /* FormTextFieldConfiguration.swift in Sources */,
 				F00601F22ADEC561005F57CA /* ShareForm.swift in Sources */,
 				F00601ED2ADEBE09005F57CA /* ShareView.swift in Sources */,
+				F00602082ADEEA74005F57CA /* String+URL.swift in Sources */,
+				F00602042ADEE857005F57CA /* ShareFormValues.swift in Sources */,
 				F00601F92ADECF14005F57CA /* ProjectPicker.swift in Sources */,
 				F00601F52ADEC7E4005F57CA /* String+Components.swift in Sources */,
 				F00601F42ADEC75D005F57CA /* ProjectContent.swift in Sources */,
 				F00601F32ADEC75B005F57CA /* Project.swift in Sources */,
+				F00602072ADEEA6B005F57CA /* FormFieldValidator.swift in Sources */,
 				F00601DD2ADEBCEC005F57CA /* ShareViewController.swift in Sources */,
 				F00601FA2ADECF49005F57CA /* FormSection.swift in Sources */,
 			);
