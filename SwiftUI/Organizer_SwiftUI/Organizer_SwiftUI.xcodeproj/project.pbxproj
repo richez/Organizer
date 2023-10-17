@@ -20,6 +20,10 @@
 		F00601F32ADEC75B005F57CA /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092AC582AD7043100EAD1F6 /* Project.swift */; };
 		F00601F42ADEC75D005F57CA /* ProjectContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092AC5A2AD7046C00EAD1F6 /* ProjectContent.swift */; };
 		F00601F52ADEC7E4005F57CA /* String+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347492AD8010C00B12AD9 /* String+Components.swift */; };
+		F00601F92ADECF14005F57CA /* ProjectPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00601F82ADECF14005F57CA /* ProjectPicker.swift */; };
+		F00601FA2ADECF49005F57CA /* FormSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC7A2ADA9A4600507993 /* FormSection.swift */; };
+		F00601FB2ADECF59005F57CA /* FormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E984842AD8A7FF0082F6A1 /* FormTextField.swift */; };
+		F00601FC2ADECF5E005F57CA /* FormTextFieldConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E9848B2AD8ACB40082F6A1 /* FormTextFieldConfiguration.swift */; };
 		F061DC4C2AD944F600507993 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC4B2AD944F600507993 /* ContentView.swift */; };
 		F061DC4F2AD9459200507993 /* ContentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC4E2AD9459200507993 /* ContentListView.swift */; };
 		F061DC522AD9721100507993 /* PreviewDataGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC512AD9721100507993 /* PreviewDataGenerator.swift */; };
@@ -112,6 +116,7 @@
 		F00601F12ADEC561005F57CA /* ShareForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareForm.swift; sourceTree = "<group>"; };
 		F00601F62ADEC9E1005F57CA /* Organizer_SwiftUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Organizer_SwiftUI.entitlements; sourceTree = "<group>"; };
 		F00601F72ADEC9F7005F57CA /* ShareExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShareExtension.entitlements; sourceTree = "<group>"; };
+		F00601F82ADECF14005F57CA /* ProjectPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectPicker.swift; sourceTree = "<group>"; };
 		F061DC4B2AD944F600507993 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F061DC4E2AD9459200507993 /* ContentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentListView.swift; sourceTree = "<group>"; };
 		F061DC512AD9721100507993 /* PreviewDataGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewDataGenerator.swift; sourceTree = "<group>"; };
@@ -262,6 +267,7 @@
 			children = (
 				F00601EC2ADEBE09005F57CA /* ShareView.swift */,
 				F00601F12ADEC561005F57CA /* ShareForm.swift */,
+				F00601F82ADECF14005F57CA /* ProjectPicker.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -738,12 +744,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				F00601F02ADEBFBE005F57CA /* ShareViewModel.swift in Sources */,
+				F00601FB2ADECF59005F57CA /* FormTextField.swift in Sources */,
+				F00601FC2ADECF5E005F57CA /* FormTextFieldConfiguration.swift in Sources */,
 				F00601F22ADEC561005F57CA /* ShareForm.swift in Sources */,
 				F00601ED2ADEBE09005F57CA /* ShareView.swift in Sources */,
+				F00601F92ADECF14005F57CA /* ProjectPicker.swift in Sources */,
 				F00601F52ADEC7E4005F57CA /* String+Components.swift in Sources */,
 				F00601F42ADEC75D005F57CA /* ProjectContent.swift in Sources */,
 				F00601F32ADEC75B005F57CA /* Project.swift in Sources */,
 				F00601DD2ADEBCEC005F57CA /* ShareViewController.swift in Sources */,
+				F00601FA2ADECF49005F57CA /* FormSection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
