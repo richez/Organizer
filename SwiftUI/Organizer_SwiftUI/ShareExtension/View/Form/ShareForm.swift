@@ -86,9 +86,10 @@ struct ShareForm: View {
             FloatingButton(systemName: "checkmark") {
                 self.save()
             }
+            .padding(.bottom, 50)
         }
+        .scrollDismissesKeyboard(.interactively)
         .padding(.top)
-        .padding(.bottom, 30)
         .background(Color.listBackground)
         .scrollContentBackground(.hidden)
         .alert(.unknownError, isPresented: self.$isShowingErrorAlert)

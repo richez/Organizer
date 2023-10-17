@@ -9,7 +9,6 @@ import Foundation
 import SwiftData
 
 // TODO: handle keyboard in forms
-// TODO: ShareExtension
 // TODO: Widgets
 // TODO: MacApp
 @Model

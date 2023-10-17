@@ -53,6 +53,7 @@ struct ProjectForm: View {
                 self.save()
             }
         }
+        .scrollDismissesKeyboard(.interactively)
         .padding(.top)
         .background(Color.listBackground)
         .alert(.unknownError, isPresented: self.$isShowingErrorAlert)

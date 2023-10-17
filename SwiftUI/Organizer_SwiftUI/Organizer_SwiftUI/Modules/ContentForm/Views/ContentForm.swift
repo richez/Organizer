@@ -84,6 +84,7 @@ struct ContentForm: View {
             }
         }
         .allowsHitTesting(!self.isLoadingTitle)
+        .scrollDismissesKeyboard(.interactively)
         .padding(.top)
         .background(Color.listBackground)
         .onChange(of: self.type) {} // unused but fixes picker type updates.
