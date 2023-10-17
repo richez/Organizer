@@ -11,6 +11,15 @@
 		F00601CE2ADDF0FE005F57CA /* AlertViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00601CD2ADDF0FE005F57CA /* AlertViewModifier.swift */; };
 		F00601D02ADDF137005F57CA /* AlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00601CF2ADDF137005F57CA /* AlertType.swift */; };
 		F00601D52ADEB280005F57CA /* FormFieldValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00601D42ADEB280005F57CA /* FormFieldValidator.swift */; };
+		F00601DD2ADEBCEC005F57CA /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00601DC2ADEBCEC005F57CA /* ShareViewController.swift */; };
+		F00601E42ADEBCEC005F57CA /* ShareExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F00601DA2ADEBCEC005F57CA /* ShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F00601ED2ADEBE09005F57CA /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00601EC2ADEBE09005F57CA /* ShareView.swift */; };
+		F00601EE2ADEBE4A005F57CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F092AC492AD6FDDB00EAD1F6 /* Assets.xcassets */; };
+		F00601F02ADEBFBE005F57CA /* ShareViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00601EF2ADEBFBE005F57CA /* ShareViewModel.swift */; };
+		F00601F22ADEC561005F57CA /* ShareForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00601F12ADEC561005F57CA /* ShareForm.swift */; };
+		F00601F32ADEC75B005F57CA /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092AC582AD7043100EAD1F6 /* Project.swift */; };
+		F00601F42ADEC75D005F57CA /* ProjectContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092AC5A2AD7046C00EAD1F6 /* ProjectContent.swift */; };
+		F00601F52ADEC7E4005F57CA /* String+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347492AD8010C00B12AD9 /* String+Components.swift */; };
 		F061DC4C2AD944F600507993 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC4B2AD944F600507993 /* ContentView.swift */; };
 		F061DC4F2AD9459200507993 /* ContentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC4E2AD9459200507993 /* ContentListView.swift */; };
 		F061DC522AD9721100507993 /* PreviewDataGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC512AD9721100507993 /* PreviewDataGenerator.swift */; };
@@ -66,11 +75,41 @@
 		F0E9848C2AD8ACB40082F6A1 /* FormTextFieldConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E9848B2AD8ACB40082F6A1 /* FormTextFieldConfiguration.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		F00601E22ADEBCEC005F57CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F092AC3A2AD6FDDA00EAD1F6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F00601D92ADEBCEC005F57CA;
+			remoteInfo = ShareExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F00601E82ADEBCEC005F57CA /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				F00601E42ADEBCEC005F57CA /* ShareExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		F00601C82ADDE9C5005F57CA /* FormLoadingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormLoadingButton.swift; sourceTree = "<group>"; };
 		F00601CD2ADDF0FE005F57CA /* AlertViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewModifier.swift; sourceTree = "<group>"; };
 		F00601CF2ADDF137005F57CA /* AlertType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertType.swift; sourceTree = "<group>"; };
 		F00601D42ADEB280005F57CA /* FormFieldValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormFieldValidator.swift; sourceTree = "<group>"; };
+		F00601DA2ADEBCEC005F57CA /* ShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		F00601DC2ADEBCEC005F57CA /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		F00601E12ADEBCEC005F57CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F00601EC2ADEBE09005F57CA /* ShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
+		F00601EF2ADEBFBE005F57CA /* ShareViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewModel.swift; sourceTree = "<group>"; };
+		F00601F12ADEC561005F57CA /* ShareForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareForm.swift; sourceTree = "<group>"; };
 		F061DC4B2AD944F600507993 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F061DC4E2AD9459200507993 /* ContentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentListView.swift; sourceTree = "<group>"; };
 		F061DC512AD9721100507993 /* PreviewDataGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewDataGenerator.swift; sourceTree = "<group>"; };
@@ -129,6 +168,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		F00601D72ADEBCEC005F57CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F092AC3F2AD6FDDA00EAD1F6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -187,6 +233,42 @@
 				F00601D42ADEB280005F57CA /* FormFieldValidator.swift */,
 			);
 			path = Validator;
+			sourceTree = "<group>";
+		};
+		F00601DB2ADEBCEC005F57CA /* ShareExtension */ = {
+			isa = PBXGroup;
+			children = (
+				F00601E92ADEBDE5005F57CA /* Controller */,
+				F00601EA2ADEBDEB005F57CA /* View */,
+				F00601EB2ADEBDF2005F57CA /* ViewModel */,
+				F00601E12ADEBCEC005F57CA /* Info.plist */,
+			);
+			path = ShareExtension;
+			sourceTree = "<group>";
+		};
+		F00601E92ADEBDE5005F57CA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F00601DC2ADEBCEC005F57CA /* ShareViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F00601EA2ADEBDEB005F57CA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F00601EC2ADEBE09005F57CA /* ShareView.swift */,
+				F00601F12ADEC561005F57CA /* ShareForm.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F00601EB2ADEBDF2005F57CA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F00601EF2ADEBFBE005F57CA /* ShareViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		F061DC492AD944D200507993 /* Content */ = {
@@ -302,6 +384,7 @@
 			isa = PBXGroup;
 			children = (
 				F092AC442AD6FDDA00EAD1F6 /* Organizer_SwiftUI */,
+				F00601DB2ADEBCEC005F57CA /* ShareExtension */,
 				F092AC432AD6FDDA00EAD1F6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -310,6 +393,7 @@
 			isa = PBXGroup;
 			children = (
 				F092AC422AD6FDDA00EAD1F6 /* Organizer_SwiftUI.app */,
+				F00601DA2ADEBCEC005F57CA /* ShareExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -551,6 +635,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		F00601D92ADEBCEC005F57CA /* ShareExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F00601E52ADEBCEC005F57CA /* Build configuration list for PBXNativeTarget "ShareExtension" */;
+			buildPhases = (
+				F00601D62ADEBCEC005F57CA /* Sources */,
+				F00601D72ADEBCEC005F57CA /* Frameworks */,
+				F00601D82ADEBCEC005F57CA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ShareExtension;
+			productName = ShareExtension;
+			productReference = F00601DA2ADEBCEC005F57CA /* ShareExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		F092AC412AD6FDDA00EAD1F6 /* Organizer_SwiftUI */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F092AC502AD6FDDB00EAD1F6 /* Build configuration list for PBXNativeTarget "Organizer_SwiftUI" */;
@@ -558,10 +659,12 @@
 				F092AC3E2AD6FDDA00EAD1F6 /* Sources */,
 				F092AC3F2AD6FDDA00EAD1F6 /* Frameworks */,
 				F092AC402AD6FDDA00EAD1F6 /* Resources */,
+				F00601E82ADEBCEC005F57CA /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				F00601E32ADEBCEC005F57CA /* PBXTargetDependency */,
 			);
 			name = Organizer_SwiftUI;
 			productName = Organizer_SwiftUI;
@@ -578,6 +681,9 @@
 				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
+					F00601D92ADEBCEC005F57CA = {
+						CreatedOnToolsVersion = 15.0;
+					};
 					F092AC412AD6FDDA00EAD1F6 = {
 						CreatedOnToolsVersion = 15.0;
 					};
@@ -597,11 +703,20 @@
 			projectRoot = "";
 			targets = (
 				F092AC412AD6FDDA00EAD1F6 /* Organizer_SwiftUI */,
+				F00601D92ADEBCEC005F57CA /* ShareExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		F00601D82ADEBCEC005F57CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F00601EE2ADEBE4A005F57CA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F092AC402AD6FDDA00EAD1F6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -614,6 +729,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		F00601D62ADEBCEC005F57CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F00601F02ADEBFBE005F57CA /* ShareViewModel.swift in Sources */,
+				F00601F22ADEC561005F57CA /* ShareForm.swift in Sources */,
+				F00601ED2ADEBE09005F57CA /* ShareView.swift in Sources */,
+				F00601F52ADEC7E4005F57CA /* String+Components.swift in Sources */,
+				F00601F42ADEC75D005F57CA /* ProjectContent.swift in Sources */,
+				F00601F32ADEC75B005F57CA /* Project.swift in Sources */,
+				F00601DD2ADEBCEC005F57CA /* ShareViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F092AC3E2AD6FDDA00EAD1F6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -678,7 +807,65 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		F00601E32ADEBCEC005F57CA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F00601D92ADEBCEC005F57CA /* ShareExtension */;
+			targetProxy = F00601E22ADEBCEC005F57CA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		F00601E62ADEBCEC005F57CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = EE36UWQ2XG;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ShareExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ShareExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.thibautrichez.Organizer-SwiftUI.ShareExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F00601E72ADEBCEC005F57CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = EE36UWQ2XG;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ShareExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ShareExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.thibautrichez.Organizer-SwiftUI.ShareExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		F092AC4E2AD6FDDB00EAD1F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -801,6 +988,7 @@
 		F092AC512AD6FDDB00EAD1F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -831,6 +1019,7 @@
 		F092AC522AD6FDDB00EAD1F6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -861,6 +1050,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		F00601E52ADEBCEC005F57CA /* Build configuration list for PBXNativeTarget "ShareExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F00601E62ADEBCEC005F57CA /* Debug */,
+				F00601E72ADEBCEC005F57CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F092AC3D2AD6FDDA00EAD1F6 /* Build configuration list for PBXProject "Organizer_SwiftUI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
