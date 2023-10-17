@@ -23,7 +23,7 @@ extension ContentForm {
                 return .title
             case .title:
                 return .theme
-            case .theme, .none:
+            case .theme, .projectPicker, .none:
                 return nil
             }
         }

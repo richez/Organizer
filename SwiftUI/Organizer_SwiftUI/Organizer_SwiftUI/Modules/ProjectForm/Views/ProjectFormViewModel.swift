@@ -16,7 +16,7 @@ extension ProjectForm {
             switch currentField {
             case .title:
                 return .theme
-            case .theme, .link, .none:
+            case .theme, .link, .projectPicker, .none:
                 return nil
             }
         }

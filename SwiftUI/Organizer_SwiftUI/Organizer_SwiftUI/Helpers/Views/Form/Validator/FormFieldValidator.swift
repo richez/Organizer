@@ -45,7 +45,7 @@ private extension FormFieldValidator {
         switch field {
         case .link:
             text.isValidURL()
-        case .title:
+        case .title, .projectPicker:
             !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
         case .theme:
             true

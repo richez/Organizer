@@ -12,6 +12,7 @@ extension FormTextField {
         case title
         case theme
         case link
+        case projectPicker
     }
 
     struct Configuration {
@@ -67,5 +68,13 @@ extension FormTextField.Configuration {
         submitLabel: .return,
         errorMessage: "This field is invalid",
         autoCapitalization: .never
+    )
+
+    static let projectPicker: Self = .init(
+        name: .projectPicker,
+        placeholder: "My Project",
+        submitLabel: .return,
+        errorMessage: "This field cannot be empty",
+        autoCapitalization: .words
     )
 }
