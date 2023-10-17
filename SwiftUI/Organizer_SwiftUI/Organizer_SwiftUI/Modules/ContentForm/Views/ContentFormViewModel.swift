@@ -50,7 +50,7 @@ extension ContentForm {
 }
 
 // MARK: - Helpers
-// TODO: update project updated date
+
 private extension ContentForm.ViewModel {
     func addContent(with values: ContentForm.Values, to project: Project, in context: ModelContext) {
         let content = ProjectContent(
@@ -60,6 +60,7 @@ private extension ContentForm.ViewModel {
             link: values.link.trimmingCharacters(in: .whitespacesAndNewlines)
         )
         content.project = project
+        project.updatedDate = .now
         context.insert(content)
     }
 
@@ -76,6 +77,8 @@ private extension ContentForm.ViewModel {
             content.link = link
             content.title = title
             content.theme = theme
+            content.updatedDate = .now
+            content.project?.updatedDate = .now
         }
     }
 }

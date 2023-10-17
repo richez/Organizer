@@ -68,7 +68,7 @@ struct ContentForm: View {
 
                 FormSection("Themes") {
                     FormTextField(
-                        configuration: .contentLink,
+                        configuration: .contentTheme,
                         text: self.$theme,
                         isInvalid: self.$isInvalidTheme,
                         focusedField: self.$focusedField
