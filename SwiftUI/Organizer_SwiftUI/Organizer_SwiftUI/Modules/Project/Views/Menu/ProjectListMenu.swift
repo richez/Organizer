@@ -11,62 +11,15 @@ struct ProjectListMenu: View {
     let projectCount: Int
     let themes: [String]
 
-    @AppStorage(.projectListSorting)
-    private var sorting: ProjectListSorting = .updatedDate
-
-    @AppStorage(.projectListAscendingOrder)
-    private var isAscendingOrder: Bool = true
-
-    @AppStorage(.projectListShowTheme)
-    private var showTheme: Bool = true
-
-    @AppStorage(.projectListShowStatistics)
-    private var showStatistics: Bool = true
-
-    @AppStorage(.projectListSelectedTheme)
-    private var selectedTheme: String? = nil
-
     var body: some View {
         Menu("Menu", systemImage: "slider.horizontal.3") {
             Text("\(self.projectCount) projects")
 
-            Menu("List Sorting", systemImage: "arrow.up.arrow.down") {
-                Picker("List Sorting", selection: self.$sorting) {
-                    ForEach(ProjectListSorting.allCases) { sorting in
-                        Text(sorting.rawValue)
-                            .tag(sorting)
-                    }
-                }
+            ProjectListSortingMenu()
 
-                Toggle(self.ascendingOrderTitle, isOn: self.$isAscendingOrder)
-            }
+            ProjectListPreviewStyleMenu()
 
-            Menu("Preview Style", systemImage: "text.alignleft") {
-                Toggle("Theme", isOn: self.$showTheme)
-                Toggle("Statistics", isOn: self.$showStatistics)
-            }
-
-            Menu("Themes", systemImage: "number") {
-                Picker("Themes", selection: self.$selectedTheme) {
-                    Text("All")
-                        .tag(nil as String?)
-                    ForEach(self.themes, id: \.self) { theme in
-                        Text(theme)
-                            .tag(theme as String?)
-                    }
-                }
-            }
-        }
-    }
-}
-
-extension ProjectListMenu {
-    var ascendingOrderTitle: String {
-        switch self.sorting {
-        case .title:
-            return "A to Z"
-        case .updatedDate, .createdDate:
-            return "Newest on Top"
+            ProjectListThemeMenu(themes: self.themes)
         }
     }
 }

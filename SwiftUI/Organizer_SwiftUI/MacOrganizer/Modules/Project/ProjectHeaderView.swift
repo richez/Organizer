@@ -12,8 +12,14 @@ struct ProjectHeaderView: View {
 
     var body: some View {
         HStack {
-            Text("Projects")
+            HStack {
+                Text("Projects")
+                Image(systemName: "chevron.down")
+                    .font(.footnote)
+            }
+
             Spacer()
+
             Button {
                 self.isShowingForm.toggle()
             } label: {

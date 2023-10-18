@@ -15,7 +15,6 @@ struct ListStyleViewModifier: ViewModifier {
             .toolbarBackground(.listBackground)
             .toolbarBackground(.visible)
             .toolbarColorScheme(.dark)
-            .toolbar(removing: .sidebarToggle)
     }
 }
 
