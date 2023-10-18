@@ -14,9 +14,15 @@ struct MainView: View {
         NavigationSplitView(columnVisibility: self.$columnVisibility) {
             ProjectView()
         } detail: {
-            ContentUnavailableView("Select a project", systemImage: "filemenu.and.selection")
+            ContentUnavailableView {
+                VStack(spacing: 20) {
+                    Image(systemName: "filemenu.and.selection")
+                    Text("Select a project")
+                }
+                .font(.largeTitle)
                 .foregroundStyle(.white)
                 .background(.listBackground)
+            }
         }
         .navigationSplitViewStyle(.balanced)
         .background(.listBackground)

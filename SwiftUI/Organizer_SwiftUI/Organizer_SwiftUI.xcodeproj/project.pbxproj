@@ -53,6 +53,8 @@
 		F051E3962AE0266A009F1E50 /* ProjectListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092AC622AD7098E00EAD1F6 /* ProjectListView.swift */; };
 		F051E3972AE02672009F1E50 /* ProjectListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347422AD7F43B00B12AD9 /* ProjectListViewModel.swift */; };
 		F051E3982AE02680009F1E50 /* Array+Duplicates.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347472AD800E300B12AD9 /* Array+Duplicates.swift */; };
+		F051E39D2AE02BD5009F1E50 /* ListStyleViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E39C2AE02BD5009F1E50 /* ListStyleViewModifier.swift */; };
+		F051E39F2AE030DE009F1E50 /* ProjectHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E39E2AE030DE009F1E50 /* ProjectHeaderView.swift */; };
 		F061DC4C2AD944F600507993 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC4B2AD944F600507993 /* ContentView.swift */; };
 		F061DC4F2AD9459200507993 /* ContentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC4E2AD9459200507993 /* ContentListView.swift */; };
 		F061DC522AD9721100507993 /* PreviewDataGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC512AD9721100507993 /* PreviewDataGenerator.swift */; };
@@ -153,6 +155,8 @@
 		F051E37C2AE01D7B009F1E50 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F051E37E2AE01D7B009F1E50 /* MacOrganizer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacOrganizer.entitlements; sourceTree = "<group>"; };
 		F051E3822AE0222C009F1E50 /* ProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectView.swift; sourceTree = "<group>"; };
+		F051E39C2AE02BD5009F1E50 /* ListStyleViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListStyleViewModifier.swift; sourceTree = "<group>"; };
+		F051E39E2AE030DE009F1E50 /* ProjectHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectHeaderView.swift; sourceTree = "<group>"; };
 		F061DC4B2AD944F600507993 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F061DC4E2AD9459200507993 /* ContentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentListView.swift; sourceTree = "<group>"; };
 		F061DC512AD9721100507993 /* PreviewDataGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewDataGenerator.swift; sourceTree = "<group>"; };
@@ -344,6 +348,7 @@
 		F051E3742AE01D7A009F1E50 /* MacOrganizer */ = {
 			isa = PBXGroup;
 			children = (
+				F051E3992AE02BB3009F1E50 /* Helpers */,
 				F051E38E2AE02358009F1E50 /* Modules */,
 				F051E3842AE02240009F1E50 /* Resources */,
 				F051E37B2AE01D7B009F1E50 /* Preview Content */,
@@ -380,8 +385,33 @@
 			isa = PBXGroup;
 			children = (
 				F051E3822AE0222C009F1E50 /* ProjectView.swift */,
+				F051E39E2AE030DE009F1E50 /* ProjectHeaderView.swift */,
 			);
 			path = Project;
+			sourceTree = "<group>";
+		};
+		F051E3992AE02BB3009F1E50 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F051E39A2AE02BBA009F1E50 /* ViewModifiers */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		F051E39A2AE02BBA009F1E50 /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				F051E39B2AE02BC1009F1E50 /* ListStyle */,
+			);
+			path = ViewModifiers;
+			sourceTree = "<group>";
+		};
+		F051E39B2AE02BC1009F1E50 /* ListStyle */ = {
+			isa = PBXGroup;
+			children = (
+				F051E39C2AE02BD5009F1E50 /* ListStyleViewModifier.swift */,
+			);
+			path = ListStyle;
 			sourceTree = "<group>";
 		};
 		F061DC492AD944D200507993 /* Content */ = {
@@ -923,6 +953,8 @@
 				F051E3942AE025D9009F1E50 /* ContextMenuButton.swift in Sources */,
 				F051E3962AE0266A009F1E50 /* ProjectListView.swift in Sources */,
 				F051E3882AE02281009F1E50 /* ModelContainer+Preview.swift in Sources */,
+				F051E39F2AE030DE009F1E50 /* ProjectHeaderView.swift in Sources */,
+				F051E39D2AE02BD5009F1E50 /* ListStyleViewModifier.swift in Sources */,
 				F051E3972AE02672009F1E50 /* ProjectListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

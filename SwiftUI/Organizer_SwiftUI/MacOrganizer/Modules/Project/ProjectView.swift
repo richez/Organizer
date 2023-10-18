@@ -20,14 +20,12 @@ struct ProjectView: View {
     private var selectedTheme: String? = nil
 
     var body: some View {
-        ProjectListView(predicate: self.predicate, sort: self.sortDescriptor)
-            .listStyle()
-            .toolbar {
-                ToolbarItem {
-                    Text("Projects")
-                        .font(.headline)
-                }
-            }
+        VStack {
+            ProjectHeaderView()
+
+            ProjectListView(predicate: self.predicate, sort: self.sortDescriptor)
+        }
+        .listStyle()
     }
 }
 
@@ -58,17 +56,7 @@ struct ContentView: View {
     var project: Project
 
     var body: some View {
-        List {
-            ForEach(0..<15) { index in
-                Text("Cell \(index)")
-            }
-        }
-        .toolbar {
-            ToolbarItem {
-                Text(self.project.title)
-                    .font(.headline)
-            }
-        }
+        Text(self.project.title)
     }
 }
 
@@ -81,25 +69,9 @@ struct ProjectRow: View {
 }
 
 struct ProjectForm: View {
-    var project: Project
+    var project: Project?
 
     var body: some View {
-        Text(self.project.title)
-    }
-}
-
-struct ListStyleViewModifier: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-            .background(Color.listBackground)
-            .scrollContentBackground(.hidden)
-            .toolbarBackground(.listBackground)
-            .toolbarBackground(.visible)
-    }
-}
-
-extension View {
-    func listStyle() -> some View {
-        self.modifier(ListStyleViewModifier())
+        Text("Bonjour")
     }
 }

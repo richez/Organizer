@@ -17,5 +17,8 @@ struct OrganizerApp: App {
         .modelContainer(
             for: [Project.self, ProjectContent.self], isAutosaveEnabled: true
         )
+        #if os(macOS)
+        .windowStyle(.hiddenTitleBar)
+        #endif
     }
 }
