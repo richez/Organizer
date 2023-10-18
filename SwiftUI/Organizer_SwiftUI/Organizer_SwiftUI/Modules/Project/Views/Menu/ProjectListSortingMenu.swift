@@ -16,12 +16,13 @@ struct ProjectListSortingMenu: View {
 
     var body: some View {
         Menu("List Sorting", systemImage: "arrow.up.arrow.down") {
-            Picker("List Sorting", selection: self.$sorting) {
+            Picker("Order", selection: self.$sorting) {
                 ForEach(ProjectListSorting.allCases) { sorting in
                     Text(sorting.rawValue)
                         .tag(sorting)
                 }
             }
+            .pickerStyle(.inline)
 
             Toggle(self.ascendingOrderTitle, isOn: self.$isAscendingOrder)
         }

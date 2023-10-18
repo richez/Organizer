@@ -12,11 +12,12 @@ struct ProjectHeaderView: View {
 
     var body: some View {
         HStack {
-            HStack {
-                Text("Projects")
-                Image(systemName: "chevron.down")
-                    .font(.footnote)
+            Menu("Projects") {
+                ProjectListSortingMenu()
+                ProjectListPreviewStyleMenu()
             }
+            .menuStyle(.borderlessButton)
+            .fixedSize(horizontal: true, vertical: false)
 
             Spacer()
 

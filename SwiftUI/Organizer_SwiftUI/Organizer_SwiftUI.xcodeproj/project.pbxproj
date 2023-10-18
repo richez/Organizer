@@ -80,6 +80,8 @@
 		F051E3DE2AE08C61009F1E50 /* ContentListPreviewStyleMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3DD2AE08C61009F1E50 /* ContentListPreviewStyleMenu.swift */; };
 		F051E3E02AE08CE0009F1E50 /* ContentListThemeMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3DF2AE08CE0009F1E50 /* ContentListThemeMenu.swift */; };
 		F051E3E22AE08D93009F1E50 /* ContentListTypeMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3E12AE08D93009F1E50 /* ContentListTypeMenu.swift */; };
+		F051E3E32AE08FF8009F1E50 /* ProjectListSortingMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3D32AE089C7009F1E50 /* ProjectListSortingMenu.swift */; };
+		F051E3E42AE0947F009F1E50 /* ProjectListPreviewStyleMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3D62AE08A20009F1E50 /* ProjectListPreviewStyleMenu.swift */; };
 		F061DC4C2AD944F600507993 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC4B2AD944F600507993 /* ContentView.swift */; };
 		F061DC4F2AD9459200507993 /* ContentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC4E2AD9459200507993 /* ContentListView.swift */; };
 		F061DC522AD9721100507993 /* PreviewDataGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC512AD9721100507993 /* PreviewDataGenerator.swift */; };
@@ -1059,6 +1061,7 @@
 				F051E3952AE025E0009F1E50 /* ContextMenuType.swift in Sources */,
 				F051E3912AE023A7009F1E50 /* StorageKey.swift in Sources */,
 				F051E3A52AE03984009F1E50 /* ProjectListContainerView.swift in Sources */,
+				F051E3E32AE08FF8009F1E50 /* ProjectListSortingMenu.swift in Sources */,
 				F051E38D2AE022BD009F1E50 /* String+Components.swift in Sources */,
 				F051E3862AE0226C009F1E50 /* MainView.swift in Sources */,
 				F051E3C82AE07A71009F1E50 /* FormSaveButton.swift in Sources */,
@@ -1080,6 +1083,7 @@
 				F051E39F2AE030DE009F1E50 /* ProjectHeaderView.swift in Sources */,
 				F051E3CA2AE07B90009F1E50 /* AlertViewModifier.swift in Sources */,
 				F051E39D2AE02BD5009F1E50 /* ListStyleViewModifier.swift in Sources */,
+				F051E3E42AE0947F009F1E50 /* ProjectListPreviewStyleMenu.swift in Sources */,
 				F051E3C92AE07B8B009F1E50 /* AlertType.swift in Sources */,
 				F051E3972AE02672009F1E50 /* ProjectListViewModel.swift in Sources */,
 			);
