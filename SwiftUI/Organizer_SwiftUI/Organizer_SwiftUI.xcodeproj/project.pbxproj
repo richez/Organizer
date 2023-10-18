@@ -58,6 +58,8 @@
 		F051E3A42AE0391F009F1E50 /* ProjectListContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3A32AE0391F009F1E50 /* ProjectListContainerViewModel.swift */; };
 		F051E3A52AE03984009F1E50 /* ProjectListContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3A12AE038B0009F1E50 /* ProjectListContainerView.swift */; };
 		F051E3A62AE03986009F1E50 /* ProjectListContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3A32AE0391F009F1E50 /* ProjectListContainerViewModel.swift */; };
+		F051E3A92AE03C1B009F1E50 /* ContentListContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3A82AE03C1B009F1E50 /* ContentListContainerView.swift */; };
+		F051E3AB2AE03CD3009F1E50 /* ContentListContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3AA2AE03CD3009F1E50 /* ContentListContainerViewModel.swift */; };
 		F061DC4C2AD944F600507993 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC4B2AD944F600507993 /* ContentView.swift */; };
 		F061DC4F2AD9459200507993 /* ContentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC4E2AD9459200507993 /* ContentListView.swift */; };
 		F061DC522AD9721100507993 /* PreviewDataGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC512AD9721100507993 /* PreviewDataGenerator.swift */; };
@@ -162,6 +164,8 @@
 		F051E39E2AE030DE009F1E50 /* ProjectHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectHeaderView.swift; sourceTree = "<group>"; };
 		F051E3A12AE038B0009F1E50 /* ProjectListContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListContainerView.swift; sourceTree = "<group>"; };
 		F051E3A32AE0391F009F1E50 /* ProjectListContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListContainerViewModel.swift; sourceTree = "<group>"; };
+		F051E3A82AE03C1B009F1E50 /* ContentListContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentListContainerView.swift; sourceTree = "<group>"; };
+		F051E3AA2AE03CD3009F1E50 /* ContentListContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentListContainerViewModel.swift; sourceTree = "<group>"; };
 		F061DC4B2AD944F600507993 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F061DC4E2AD9459200507993 /* ContentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentListView.swift; sourceTree = "<group>"; };
 		F061DC512AD9721100507993 /* PreviewDataGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewDataGenerator.swift; sourceTree = "<group>"; };
@@ -428,6 +432,15 @@
 			path = Container;
 			sourceTree = "<group>";
 		};
+		F051E3A72AE03C12009F1E50 /* Container */ = {
+			isa = PBXGroup;
+			children = (
+				F051E3A82AE03C1B009F1E50 /* ContentListContainerView.swift */,
+				F051E3AA2AE03CD3009F1E50 /* ContentListContainerViewModel.swift */,
+			);
+			path = Container;
+			sourceTree = "<group>";
+		};
 		F061DC492AD944D200507993 /* Content */ = {
 			isa = PBXGroup;
 			children = (
@@ -442,6 +455,7 @@
 			children = (
 				F061DC4B2AD944F600507993 /* ContentView.swift */,
 				F061DC6C2AD9E3C700507993 /* ContentViewModel.swift */,
+				F051E3A72AE03C12009F1E50 /* Container */,
 				F061DC4D2AD9458400507993 /* List */,
 				F061DC632AD9A16600507993 /* Menu */,
 			);
@@ -982,6 +996,7 @@
 				F0D428992ADD8E9100DAF2B2 /* URLMetadataConfiguration.swift in Sources */,
 				F092AC5F2AD7083C00EAD1F6 /* ModelContainerPreview.swift in Sources */,
 				F0D428972ADD8E8A00DAF2B2 /* URLMetadataProvider.swift in Sources */,
+				F051E3AB2AE03CD3009F1E50 /* ContentListContainerViewModel.swift in Sources */,
 				F092AC482AD6FDDA00EAD1F6 /* MainView.swift in Sources */,
 				F0D428902ADD5D9D00DAF2B2 /* URL+Identifiable.swift in Sources */,
 				F061DC592AD9801A00507993 /* SwipeActionButton.swift in Sources */,
@@ -995,6 +1010,7 @@
 				F061DC652AD9A17E00507993 /* ContentListMenu.swift in Sources */,
 				F0E347432AD7F43B00B12AD9 /* ProjectListViewModel.swift in Sources */,
 				F0E3475C2AD8295200B12AD9 /* ProjectForm.swift in Sources */,
+				F051E3A92AE03C1B009F1E50 /* ContentListContainerView.swift in Sources */,
 				F061DC6D2AD9E3C700507993 /* ContentViewModel.swift in Sources */,
 				F0E3473A2AD7681100B12AD9 /* ProjectListMenu.swift in Sources */,
 				F0D428952ADD8E7700DAF2B2 /* URLMetadataProviderError.swift in Sources */,

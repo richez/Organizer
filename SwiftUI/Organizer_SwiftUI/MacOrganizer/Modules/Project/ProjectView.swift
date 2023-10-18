@@ -13,7 +13,7 @@ struct ProjectView: View {
             ProjectHeaderView()
             ProjectListContainerView()
         }
-        .listStyle()
+        .background(.listBackground)
     }
 }
 

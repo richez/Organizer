@@ -12,12 +12,6 @@ struct ContentView: View {
 
     private let viewModel = ViewModel()
 
-    @AppStorage(.contentListSorting)
-    private var sorting: ContentListSorting = .updatedDate
-
-    @AppStorage(.contentListAscendingOrder)
-    private var isAscendingOrder: Bool = true
-
     @AppStorage(.contentListSelectedTheme)
     private var selectedTheme: String? = nil
 
@@ -28,25 +22,18 @@ struct ContentView: View {
         self.project = project
 
         let defaults = UserDefaults(suiteName: project.suiteName)
-        self._sorting.update(with: defaults, key: .contentListSorting)
-        self._isAscendingOrder.update(with: defaults, key: .contentListAscendingOrder)
         self._selectedTheme.update(with: defaults, key: .contentListSelectedTheme)
         self._selectedType.update(with: defaults, key: .contentListSelectedType)
     }
 
     var body: some View {
         ZStack(alignment: .bottom) {
-            ContentListView(
-                project: self.project,
-                predicate: self.predicate,
-                sort: self.sortDescriptor
-            )
+            ContentListContainerView(project: self.project)
 
             FloatingButtonSheet(systemName: "plus") {
                 ContentForm(project: self.project)
             }
         }
-        .listStyle()
         .toolbar {
             ToolbarItem(placement: .principal) {
                 VStack {
@@ -62,20 +49,6 @@ struct ContentView: View {
 }
 
 private extension ContentView {
-    var sortDescriptor: SortDescriptor<ProjectContent> {
-        self.viewModel.sortDescriptor(
-            sorting: self.sorting, isAscendingOrder: self.isAscendingOrder
-        )
-    }
-
-    var predicate: Predicate<ProjectContent>? {
-        self.viewModel.predicate(
-            for: self.project,
-            selectedTheme: self.selectedTheme,
-            selectedType: self.selectedType
-        )
-    }
-
     var navbarSubtitle: String {
         self.viewModel.navbarSubtitle(
             selectedTheme: self.selectedTheme, selectedType: self.selectedType
