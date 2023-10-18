@@ -8,7 +8,6 @@
 import Foundation
 import SwiftData
 
-// TODO: handle keyboard in forms
 // TODO: Widgets
 // TODO: MacApp
 @Model
