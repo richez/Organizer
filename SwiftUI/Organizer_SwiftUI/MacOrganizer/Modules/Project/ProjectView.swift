@@ -8,36 +8,12 @@
 import SwiftUI
 
 struct ProjectView: View {
-    private let viewModel = ViewModel()
-
-    @AppStorage(.projectListSorting)
-    private var sorting: ProjectListSorting = .updatedDate
-
-    @AppStorage(.projectListAscendingOrder)
-    private var isAscendingOrder: Bool = true
-
-    @AppStorage(.projectListSelectedTheme)
-    private var selectedTheme: String? = nil
-
     var body: some View {
         VStack {
             ProjectHeaderView()
-
-            ProjectListView(predicate: self.predicate, sort: self.sortDescriptor)
+            ProjectListContainerView()
         }
         .listStyle()
-    }
-}
-
-private extension ProjectView {
-    var sortDescriptor: SortDescriptor<Project> {
-        self.viewModel.sortDescriptor(
-            sorting: self.sorting, isAscendingOrder: self.isAscendingOrder
-        )
-    }
-
-    var predicate: Predicate<Project>? {
-        self.viewModel.predicate(selectedTeme: self.selectedTheme)
     }
 }
 
