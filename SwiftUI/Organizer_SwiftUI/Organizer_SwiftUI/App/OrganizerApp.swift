@@ -1,5 +1,5 @@
 //
-//  Organizer_SwiftUIApp.swift
+//  OrganizerApp.swift
 //  Organizer_SwiftUI
 //
 //  Created by Thibaut Richez on 11/10/2023.
@@ -9,7 +9,7 @@ import SwiftData
 import SwiftUI
 
 @main
-struct Organizer: App {
+struct OrganizerApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()

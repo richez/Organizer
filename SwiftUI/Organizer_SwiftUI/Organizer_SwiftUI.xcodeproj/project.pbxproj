@@ -56,7 +56,7 @@
 		F061DC7D2ADAB04100507993 /* ContentFormValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC7C2ADAB04100507993 /* ContentFormValues.swift */; };
 		F061DC7F2ADAB1D200507993 /* String+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC7E2ADAB1D200507993 /* String+URL.swift */; };
 		F07DE09B2AD7449300B3B91E /* ProjectRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07DE09A2AD7449300B3B91E /* ProjectRow.swift */; };
-		F092AC462AD6FDDA00EAD1F6 /* Organizer_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092AC452AD6FDDA00EAD1F6 /* Organizer_SwiftUIApp.swift */; };
+		F092AC462AD6FDDA00EAD1F6 /* OrganizerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092AC452AD6FDDA00EAD1F6 /* OrganizerApp.swift */; };
 		F092AC482AD6FDDA00EAD1F6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092AC472AD6FDDA00EAD1F6 /* MainView.swift */; };
 		F092AC4A2AD6FDDB00EAD1F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F092AC492AD6FDDB00EAD1F6 /* Assets.xcassets */; };
 		F092AC4D2AD6FDDB00EAD1F6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F092AC4C2AD6FDDB00EAD1F6 /* Preview Assets.xcassets */; };
@@ -158,7 +158,7 @@
 		F061DC7E2ADAB1D200507993 /* String+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+URL.swift"; sourceTree = "<group>"; };
 		F07DE09A2AD7449300B3B91E /* ProjectRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectRow.swift; sourceTree = "<group>"; };
 		F092AC422AD6FDDA00EAD1F6 /* Organizer_SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Organizer_SwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F092AC452AD6FDDA00EAD1F6 /* Organizer_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organizer_SwiftUIApp.swift; sourceTree = "<group>"; };
+		F092AC452AD6FDDA00EAD1F6 /* OrganizerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizerApp.swift; sourceTree = "<group>"; };
 		F092AC472AD6FDDA00EAD1F6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		F092AC492AD6FDDB00EAD1F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F092AC4C2AD6FDDB00EAD1F6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -499,7 +499,7 @@
 		F092AC532AD6FE0F00EAD1F6 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				F092AC452AD6FDDA00EAD1F6 /* Organizer_SwiftUIApp.swift */,
+				F092AC452AD6FDDA00EAD1F6 /* OrganizerApp.swift */,
 				F092AC472AD6FDDA00EAD1F6 /* MainView.swift */,
 			);
 			path = App;
@@ -899,7 +899,7 @@
 				F061DC792ADA967C00507993 /* ContentFormViewModel.swift in Sources */,
 				F061DC602AD9A0E300507993 /* ContentListSorting.swift in Sources */,
 				F061DC7D2ADAB04100507993 /* ContentFormValues.swift in Sources */,
-				F092AC462AD6FDDA00EAD1F6 /* Organizer_SwiftUIApp.swift in Sources */,
+				F092AC462AD6FDDA00EAD1F6 /* OrganizerApp.swift in Sources */,
 				F0E347502AD81C8A00B12AD9 /* StorageKey.swift in Sources */,
 				F0D428892ADD4B2D00DAF2B2 /* ContextMenuButton.swift in Sources */,
 				F061DC4C2AD944F600507993 /* ContentView.swift in Sources */,
