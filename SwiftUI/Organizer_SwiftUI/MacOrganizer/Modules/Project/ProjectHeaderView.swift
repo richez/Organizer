@@ -25,15 +25,7 @@ struct ProjectHeaderView: View {
         .foregroundStyle(.cellTitle)
         .padding()
         .sheet(isPresented: self.$isShowingForm) {
-            VStack(alignment: .leading, spacing: 20) {
-                Button("Cancel", role: .cancel) {
-                    self.isShowingForm = false
-                }
-
-                ProjectForm()
-                    .frame(width: 500, height: 300)
-            }
-            .padding()
+            ProjectForm()
         }
     }
 }

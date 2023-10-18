@@ -43,11 +43,3 @@ struct ProjectRow: View {
         Text(self.project.title)
     }
 }
-
-struct ProjectForm: View {
-    var project: Project?
-
-    var body: some View {
-        Text("Bonjour")
-    }
-}

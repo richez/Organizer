@@ -8,13 +8,6 @@
 import SwiftUI
 
 extension FormTextField {
-    enum Name {
-        case title
-        case theme
-        case link
-        case projectPicker
-    }
-
     struct Configuration {
         var name: Name
         var placeholder: String
