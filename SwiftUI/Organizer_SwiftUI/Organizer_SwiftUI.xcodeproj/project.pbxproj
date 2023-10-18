@@ -36,7 +36,6 @@
 		F051E37D2AE01D7B009F1E50 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F051E37C2AE01D7B009F1E50 /* Preview Assets.xcassets */; };
 		F051E3832AE0222C009F1E50 /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3822AE0222C009F1E50 /* ProjectView.swift */; };
 		F051E3852AE02269009F1E50 /* OrganizerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092AC452AD6FDDA00EAD1F6 /* OrganizerApp.swift */; };
-		F051E3862AE0226C009F1E50 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092AC472AD6FDDA00EAD1F6 /* MainView.swift */; };
 		F051E3872AE02277009F1E50 /* ModelContainerPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092AC5E2AD7083C00EAD1F6 /* ModelContainerPreview.swift */; };
 		F051E3882AE02281009F1E50 /* ModelContainer+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC5C2AD99C3500507993 /* ModelContainer+Preview.swift */; };
 		F051E3892AE02284009F1E50 /* PreviewDataGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC512AD9721100507993 /* PreviewDataGenerator.swift */; };
@@ -118,6 +117,7 @@
 		F0D428952ADD8E7700DAF2B2 /* URLMetadataProviderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D428942ADD8E7700DAF2B2 /* URLMetadataProviderError.swift */; };
 		F0D428972ADD8E8A00DAF2B2 /* URLMetadataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D428962ADD8E8A00DAF2B2 /* URLMetadataProvider.swift */; };
 		F0D428992ADD8E9100DAF2B2 /* URLMetadataConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D428982ADD8E9100DAF2B2 /* URLMetadataConfiguration.swift */; };
+		F0D9F4162AE0A4B80019231A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D9F4152AE0A4B80019231A /* MainView.swift */; };
 		F0E3473A2AD7681100B12AD9 /* ProjectListMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347392AD7681100B12AD9 /* ProjectListMenu.swift */; };
 		F0E3473C2AD786DC00B12AD9 /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E3473B2AD786DC00B12AD9 /* ProjectView.swift */; };
 		F0E347412AD7F41300B12AD9 /* ProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347402AD7F41300B12AD9 /* ProjectViewModel.swift */; };
@@ -238,6 +238,7 @@
 		F0D428942ADD8E7700DAF2B2 /* URLMetadataProviderError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLMetadataProviderError.swift; sourceTree = "<group>"; };
 		F0D428962ADD8E8A00DAF2B2 /* URLMetadataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLMetadataProvider.swift; sourceTree = "<group>"; };
 		F0D428982ADD8E9100DAF2B2 /* URLMetadataConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLMetadataConfiguration.swift; sourceTree = "<group>"; };
+		F0D9F4152AE0A4B80019231A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		F0E347392AD7681100B12AD9 /* ProjectListMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListMenu.swift; sourceTree = "<group>"; };
 		F0E3473B2AD786DC00B12AD9 /* ProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectView.swift; sourceTree = "<group>"; };
 		F0E347402AD7F41300B12AD9 /* ProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewModel.swift; sourceTree = "<group>"; };
@@ -392,6 +393,7 @@
 		F051E3742AE01D7A009F1E50 /* MacOrganizer */ = {
 			isa = PBXGroup;
 			children = (
+				F0D9F4142AE0A4A70019231A /* App */,
 				F051E3992AE02BB3009F1E50 /* Helpers */,
 				F051E38E2AE02358009F1E50 /* Modules */,
 				F051E3842AE02240009F1E50 /* Resources */,
@@ -752,6 +754,14 @@
 			path = URLMetadata;
 			sourceTree = "<group>";
 		};
+		F0D9F4142AE0A4A70019231A /* App */ = {
+			isa = PBXGroup;
+			children = (
+				F0D9F4152AE0A4B80019231A /* MainView.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 		F0E3473D2AD7F29B00B12AD9 /* List */ = {
 			isa = PBXGroup;
 			children = (
@@ -1063,7 +1073,7 @@
 				F051E3A52AE03984009F1E50 /* ProjectListContainerView.swift in Sources */,
 				F051E3E32AE08FF8009F1E50 /* ProjectListSortingMenu.swift in Sources */,
 				F051E38D2AE022BD009F1E50 /* String+Components.swift in Sources */,
-				F051E3862AE0226C009F1E50 /* MainView.swift in Sources */,
+				F0D9F4162AE0A4B80019231A /* MainView.swift in Sources */,
 				F051E3C82AE07A71009F1E50 /* FormSaveButton.swift in Sources */,
 				F051E3D12AE07CCB009F1E50 /* ProjectFormViewModel.swift in Sources */,
 				F051E3D22AE07CD7009F1E50 /* ProjectFormValues.swift in Sources */,
