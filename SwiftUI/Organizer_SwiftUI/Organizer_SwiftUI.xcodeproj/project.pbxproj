@@ -152,7 +152,7 @@
 		F092AC472AD6FDDA00EAD1F6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		F092AC492AD6FDDB00EAD1F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F092AC4C2AD6FDDB00EAD1F6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		F092AC562AD701F700EAD1F6 /* Organizer-SwiftUI-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Organizer-SwiftUI-Info.plist"; sourceTree = SOURCE_ROOT; };
+		F092AC562AD701F700EAD1F6 /* Organizer-SwiftUI-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Organizer-SwiftUI-Info.plist"; path = "Organizer_SwiftUI/Resources/Organizer-SwiftUI-Info.plist"; sourceTree = SOURCE_ROOT; };
 		F092AC582AD7043100EAD1F6 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		F092AC5A2AD7046C00EAD1F6 /* ProjectContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectContent.swift; sourceTree = "<group>"; };
 		F092AC5E2AD7083C00EAD1F6 /* ModelContainerPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelContainerPreview.swift; sourceTree = "<group>"; };
@@ -444,7 +444,6 @@
 				F092AC572AD7041800EAD1F6 /* Models */,
 				F092AC602AD7092600EAD1F6 /* Modules */,
 				F092AC542AD6FE1E00EAD1F6 /* Resources */,
-				F092AC562AD701F700EAD1F6 /* Organizer-SwiftUI-Info.plist */,
 				F092AC4B2AD6FDDB00EAD1F6 /* Preview Content */,
 			);
 			path = Organizer_SwiftUI;
@@ -470,6 +469,7 @@
 		F092AC542AD6FE1E00EAD1F6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F092AC562AD701F700EAD1F6 /* Organizer-SwiftUI-Info.plist */,
 				F00601F62ADEC9E1005F57CA /* Organizer_SwiftUI.entitlements */,
 				F092AC492AD6FDDB00EAD1F6 /* Assets.xcassets */,
 			);
@@ -1050,7 +1050,7 @@
 				DEVELOPMENT_TEAM = EE36UWQ2XG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Organizer-SwiftUI-Info.plist";
+				INFOPLIST_FILE = "Organizer_SwiftUI/Resources/Organizer-SwiftUI-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Organizer;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1082,7 +1082,7 @@
 				DEVELOPMENT_TEAM = EE36UWQ2XG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Organizer-SwiftUI-Info.plist";
+				INFOPLIST_FILE = "Organizer_SwiftUI/Resources/Organizer-SwiftUI-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Organizer;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
