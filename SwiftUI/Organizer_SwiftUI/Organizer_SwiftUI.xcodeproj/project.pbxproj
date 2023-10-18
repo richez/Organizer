@@ -32,6 +32,10 @@
 		F00602062ADEE9C8005F57CA /* AlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00601CF2ADDF137005F57CA /* AlertType.swift */; };
 		F00602072ADEEA6B005F57CA /* FormFieldValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00601D42ADEB280005F57CA /* FormFieldValidator.swift */; };
 		F00602082ADEEA74005F57CA /* String+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC7E2ADAB1D200507993 /* String+URL.swift */; };
+		F051E3762AE01D7A009F1E50 /* MacOrganizerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3752AE01D7A009F1E50 /* MacOrganizerApp.swift */; };
+		F051E3782AE01D7A009F1E50 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3772AE01D7A009F1E50 /* ContentView.swift */; };
+		F051E37A2AE01D7B009F1E50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F051E3792AE01D7B009F1E50 /* Assets.xcassets */; };
+		F051E37D2AE01D7B009F1E50 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F051E37C2AE01D7B009F1E50 /* Preview Assets.xcassets */; };
 		F061DC4C2AD944F600507993 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC4B2AD944F600507993 /* ContentView.swift */; };
 		F061DC4F2AD9459200507993 /* ContentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC4E2AD9459200507993 /* ContentListView.swift */; };
 		F061DC522AD9721100507993 /* PreviewDataGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC512AD9721100507993 /* PreviewDataGenerator.swift */; };
@@ -127,6 +131,12 @@
 		F00601F82ADECF14005F57CA /* ProjectPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectPicker.swift; sourceTree = "<group>"; };
 		F00601FF2ADED4F1005F57CA /* ShareFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareFormViewModel.swift; sourceTree = "<group>"; };
 		F00602032ADEE857005F57CA /* ShareFormValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareFormValues.swift; sourceTree = "<group>"; };
+		F051E3732AE01D7A009F1E50 /* MacOrganizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacOrganizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F051E3752AE01D7A009F1E50 /* MacOrganizerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacOrganizerApp.swift; sourceTree = "<group>"; };
+		F051E3772AE01D7A009F1E50 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F051E3792AE01D7B009F1E50 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F051E37C2AE01D7B009F1E50 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F051E37E2AE01D7B009F1E50 /* MacOrganizer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacOrganizer.entitlements; sourceTree = "<group>"; };
 		F061DC4B2AD944F600507993 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F061DC4E2AD9459200507993 /* ContentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentListView.swift; sourceTree = "<group>"; };
 		F061DC512AD9721100507993 /* PreviewDataGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewDataGenerator.swift; sourceTree = "<group>"; };
@@ -186,6 +196,13 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		F00601D72ADEBCEC005F57CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F051E3702AE01D7A009F1E50 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -308,6 +325,26 @@
 			path = Picker;
 			sourceTree = "<group>";
 		};
+		F051E3742AE01D7A009F1E50 /* MacOrganizer */ = {
+			isa = PBXGroup;
+			children = (
+				F051E3752AE01D7A009F1E50 /* MacOrganizerApp.swift */,
+				F051E3772AE01D7A009F1E50 /* ContentView.swift */,
+				F051E3792AE01D7B009F1E50 /* Assets.xcassets */,
+				F051E37E2AE01D7B009F1E50 /* MacOrganizer.entitlements */,
+				F051E37B2AE01D7B009F1E50 /* Preview Content */,
+			);
+			path = MacOrganizer;
+			sourceTree = "<group>";
+		};
+		F051E37B2AE01D7B009F1E50 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				F051E37C2AE01D7B009F1E50 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 		F061DC492AD944D200507993 /* Content */ = {
 			isa = PBXGroup;
 			children = (
@@ -422,6 +459,7 @@
 			children = (
 				F092AC442AD6FDDA00EAD1F6 /* Organizer_SwiftUI */,
 				F00601DB2ADEBCEC005F57CA /* ShareExtension */,
+				F051E3742AE01D7A009F1E50 /* MacOrganizer */,
 				F092AC432AD6FDDA00EAD1F6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -431,6 +469,7 @@
 			children = (
 				F092AC422AD6FDDA00EAD1F6 /* Organizer_SwiftUI.app */,
 				F00601DA2ADEBCEC005F57CA /* ShareExtension.appex */,
+				F051E3732AE01D7A009F1E50 /* MacOrganizer.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -690,6 +729,23 @@
 			productReference = F00601DA2ADEBCEC005F57CA /* ShareExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		F051E3722AE01D7A009F1E50 /* MacOrganizer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F051E3812AE01D7B009F1E50 /* Build configuration list for PBXNativeTarget "MacOrganizer" */;
+			buildPhases = (
+				F051E36F2AE01D7A009F1E50 /* Sources */,
+				F051E3702AE01D7A009F1E50 /* Frameworks */,
+				F051E3712AE01D7A009F1E50 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MacOrganizer;
+			productName = MacOrganizer;
+			productReference = F051E3732AE01D7A009F1E50 /* MacOrganizer.app */;
+			productType = "com.apple.product-type.application";
+		};
 		F092AC412AD6FDDA00EAD1F6 /* Organizer_SwiftUI */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F092AC502AD6FDDB00EAD1F6 /* Build configuration list for PBXNativeTarget "Organizer_SwiftUI" */;
@@ -722,6 +778,9 @@
 					F00601D92ADEBCEC005F57CA = {
 						CreatedOnToolsVersion = 15.0;
 					};
+					F051E3722AE01D7A009F1E50 = {
+						CreatedOnToolsVersion = 15.0;
+					};
 					F092AC412AD6FDDA00EAD1F6 = {
 						CreatedOnToolsVersion = 15.0;
 					};
@@ -742,6 +801,7 @@
 			targets = (
 				F092AC412AD6FDDA00EAD1F6 /* Organizer_SwiftUI */,
 				F00601D92ADEBCEC005F57CA /* ShareExtension */,
+				F051E3722AE01D7A009F1E50 /* MacOrganizer */,
 			);
 		};
 /* End PBXProject section */
@@ -752,6 +812,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				F00601EE2ADEBE4A005F57CA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F051E3712AE01D7A009F1E50 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F051E37D2AE01D7B009F1E50 /* Preview Assets.xcassets in Resources */,
+				F051E37A2AE01D7B009F1E50 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -790,6 +859,15 @@
 				F00602072ADEEA6B005F57CA /* FormFieldValidator.swift in Sources */,
 				F00601DD2ADEBCEC005F57CA /* ShareViewController.swift in Sources */,
 				F00601FA2ADECF49005F57CA /* FormSection.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F051E36F2AE01D7A009F1E50 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F051E3782AE01D7A009F1E50 /* ContentView.swift in Sources */,
+				F051E3762AE01D7A009F1E50 /* MacOrganizerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -915,6 +993,68 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F051E37F2AE01D7B009F1E50 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MacOrganizer/MacOrganizer.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MacOrganizer/Preview Content\"";
+				DEVELOPMENT_TEAM = EE36UWQ2XG;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Organizer;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thibautrichez.MacOrganizer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		F051E3802AE01D7B009F1E50 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MacOrganizer/MacOrganizer.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MacOrganizer/Preview Content\"";
+				DEVELOPMENT_TEAM = EE36UWQ2XG;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Organizer;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thibautrichez.MacOrganizer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -1109,6 +1249,15 @@
 			buildConfigurations = (
 				F00601E62ADEBCEC005F57CA /* Debug */,
 				F00601E72ADEBCEC005F57CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F051E3812AE01D7B009F1E50 /* Build configuration list for PBXNativeTarget "MacOrganizer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F051E37F2AE01D7B009F1E50 /* Debug */,
+				F051E3802AE01D7B009F1E50 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
