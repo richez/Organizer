@@ -39,6 +39,7 @@ struct ContentRow: View {
                     .font(.system(size: 15, weight: .bold))
                     .foregroundStyle(.cellTitle)
                     .lineLimit(2)
+                    .padding(.top)
 
                 if self.showTheme {
                     Text(self.themes)
