@@ -32,10 +32,18 @@
 		F00602062ADEE9C8005F57CA /* AlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00601CF2ADDF137005F57CA /* AlertType.swift */; };
 		F00602072ADEEA6B005F57CA /* FormFieldValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00601D42ADEB280005F57CA /* FormFieldValidator.swift */; };
 		F00602082ADEEA74005F57CA /* String+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC7E2ADAB1D200507993 /* String+URL.swift */; };
-		F051E3762AE01D7A009F1E50 /* MacOrganizerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3752AE01D7A009F1E50 /* MacOrganizerApp.swift */; };
-		F051E3782AE01D7A009F1E50 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3772AE01D7A009F1E50 /* ContentView.swift */; };
 		F051E37A2AE01D7B009F1E50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F051E3792AE01D7B009F1E50 /* Assets.xcassets */; };
 		F051E37D2AE01D7B009F1E50 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F051E37C2AE01D7B009F1E50 /* Preview Assets.xcassets */; };
+		F051E3832AE0222C009F1E50 /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3822AE0222C009F1E50 /* ProjectView.swift */; };
+		F051E3852AE02269009F1E50 /* OrganizerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092AC452AD6FDDA00EAD1F6 /* OrganizerApp.swift */; };
+		F051E3862AE0226C009F1E50 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092AC472AD6FDDA00EAD1F6 /* MainView.swift */; };
+		F051E3872AE02277009F1E50 /* ModelContainerPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092AC5E2AD7083C00EAD1F6 /* ModelContainerPreview.swift */; };
+		F051E3882AE02281009F1E50 /* ModelContainer+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC5C2AD99C3500507993 /* ModelContainer+Preview.swift */; };
+		F051E3892AE02284009F1E50 /* PreviewDataGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC512AD9721100507993 /* PreviewDataGenerator.swift */; };
+		F051E38A2AE0228E009F1E50 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092AC582AD7043100EAD1F6 /* Project.swift */; };
+		F051E38B2AE02294009F1E50 /* ProjectContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092AC5A2AD7046C00EAD1F6 /* ProjectContent.swift */; };
+		F051E38C2AE022AA009F1E50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F092AC492AD6FDDB00EAD1F6 /* Assets.xcassets */; };
+		F051E38D2AE022BD009F1E50 /* String+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347492AD8010C00B12AD9 /* String+Components.swift */; };
 		F061DC4C2AD944F600507993 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC4B2AD944F600507993 /* ContentView.swift */; };
 		F061DC4F2AD9459200507993 /* ContentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC4E2AD9459200507993 /* ContentListView.swift */; };
 		F061DC522AD9721100507993 /* PreviewDataGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC512AD9721100507993 /* PreviewDataGenerator.swift */; };
@@ -132,11 +140,10 @@
 		F00601FF2ADED4F1005F57CA /* ShareFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareFormViewModel.swift; sourceTree = "<group>"; };
 		F00602032ADEE857005F57CA /* ShareFormValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareFormValues.swift; sourceTree = "<group>"; };
 		F051E3732AE01D7A009F1E50 /* MacOrganizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacOrganizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F051E3752AE01D7A009F1E50 /* MacOrganizerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacOrganizerApp.swift; sourceTree = "<group>"; };
-		F051E3772AE01D7A009F1E50 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F051E3792AE01D7B009F1E50 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F051E37C2AE01D7B009F1E50 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F051E37E2AE01D7B009F1E50 /* MacOrganizer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacOrganizer.entitlements; sourceTree = "<group>"; };
+		F051E3822AE0222C009F1E50 /* ProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectView.swift; sourceTree = "<group>"; };
 		F061DC4B2AD944F600507993 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F061DC4E2AD9459200507993 /* ContentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentListView.swift; sourceTree = "<group>"; };
 		F061DC512AD9721100507993 /* PreviewDataGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewDataGenerator.swift; sourceTree = "<group>"; };
@@ -328,10 +335,8 @@
 		F051E3742AE01D7A009F1E50 /* MacOrganizer */ = {
 			isa = PBXGroup;
 			children = (
-				F051E3752AE01D7A009F1E50 /* MacOrganizerApp.swift */,
-				F051E3772AE01D7A009F1E50 /* ContentView.swift */,
-				F051E3792AE01D7B009F1E50 /* Assets.xcassets */,
-				F051E37E2AE01D7B009F1E50 /* MacOrganizer.entitlements */,
+				F051E3822AE0222C009F1E50 /* ProjectView.swift */,
+				F051E3842AE02240009F1E50 /* Resources */,
 				F051E37B2AE01D7B009F1E50 /* Preview Content */,
 			);
 			path = MacOrganizer;
@@ -343,6 +348,15 @@
 				F051E37C2AE01D7B009F1E50 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F051E3842AE02240009F1E50 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F051E3792AE01D7B009F1E50 /* Assets.xcassets */,
+				F051E37E2AE01D7B009F1E50 /* MacOrganizer.entitlements */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		F061DC492AD944D200507993 /* Content */ = {
@@ -820,6 +834,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F051E37D2AE01D7B009F1E50 /* Preview Assets.xcassets in Resources */,
+				F051E38C2AE022AA009F1E50 /* Assets.xcassets in Resources */,
 				F051E37A2AE01D7B009F1E50 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -866,8 +881,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F051E3782AE01D7A009F1E50 /* ContentView.swift in Sources */,
-				F051E3762AE01D7A009F1E50 /* MacOrganizerApp.swift in Sources */,
+				F051E3872AE02277009F1E50 /* ModelContainerPreview.swift in Sources */,
+				F051E38B2AE02294009F1E50 /* ProjectContent.swift in Sources */,
+				F051E3832AE0222C009F1E50 /* ProjectView.swift in Sources */,
+				F051E38D2AE022BD009F1E50 /* String+Components.swift in Sources */,
+				F051E3862AE0226C009F1E50 /* MainView.swift in Sources */,
+				F051E3852AE02269009F1E50 /* OrganizerApp.swift in Sources */,
+				F051E3892AE02284009F1E50 /* PreviewDataGenerator.swift in Sources */,
+				F051E38A2AE0228E009F1E50 /* Project.swift in Sources */,
+				F051E3882AE02281009F1E50 /* ModelContainer+Preview.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1001,7 +1023,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = MacOrganizer/MacOrganizer.entitlements;
+				CODE_SIGN_ENTITLEMENTS = MacOrganizer/Resources/MacOrganizer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1032,7 +1054,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = MacOrganizer/MacOrganizer.entitlements;
+				CODE_SIGN_ENTITLEMENTS = MacOrganizer/Resources/MacOrganizer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
