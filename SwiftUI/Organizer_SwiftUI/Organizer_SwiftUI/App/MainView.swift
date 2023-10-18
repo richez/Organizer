@@ -19,6 +19,7 @@ struct MainView: View {
                 .background(.listBackground)
         }
         .navigationSplitViewStyle(.balanced)
+        .background(.listBackground)
     }
 }
 

@@ -41,6 +41,7 @@ struct ProjectListView: View {
                         self.viewModel.delete(project, in: self.modelContext)
                     }
                 }
+                #if !os(macOS)
                 .swipeActions {
                     SwipeActionButton(.delete) {
                         self.viewModel.delete(project, in: self.modelContext)
@@ -49,11 +50,13 @@ struct ProjectListView: View {
                         self.editingProject = project
                     }
                 }
+                #endif
             }
         }
         .sheet(item: self.$editingProject) { project in
             ProjectForm(project: project)
         }
+        #if !os(macOS)
         .toolbar {
             ToolbarItem {
                 ProjectListMenu(
@@ -62,6 +65,7 @@ struct ProjectListView: View {
                 )
             }
         }
+        #endif
     }
 }
 
