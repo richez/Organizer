@@ -76,6 +76,10 @@
 		F051E3D42AE089C7009F1E50 /* ProjectListSortingMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3D32AE089C7009F1E50 /* ProjectListSortingMenu.swift */; };
 		F051E3D72AE08A20009F1E50 /* ProjectListPreviewStyleMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3D62AE08A20009F1E50 /* ProjectListPreviewStyleMenu.swift */; };
 		F051E3DA2AE08A5B009F1E50 /* ProjectListThemeMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3D92AE08A5B009F1E50 /* ProjectListThemeMenu.swift */; };
+		F051E3DC2AE08C1F009F1E50 /* ContentListSortingMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3DB2AE08C1F009F1E50 /* ContentListSortingMenu.swift */; };
+		F051E3DE2AE08C61009F1E50 /* ContentListPreviewStyleMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3DD2AE08C61009F1E50 /* ContentListPreviewStyleMenu.swift */; };
+		F051E3E02AE08CE0009F1E50 /* ContentListThemeMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3DF2AE08CE0009F1E50 /* ContentListThemeMenu.swift */; };
+		F051E3E22AE08D93009F1E50 /* ContentListTypeMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3E12AE08D93009F1E50 /* ContentListTypeMenu.swift */; };
 		F061DC4C2AD944F600507993 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC4B2AD944F600507993 /* ContentView.swift */; };
 		F061DC4F2AD9459200507993 /* ContentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC4E2AD9459200507993 /* ContentListView.swift */; };
 		F061DC522AD9721100507993 /* PreviewDataGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC512AD9721100507993 /* PreviewDataGenerator.swift */; };
@@ -190,6 +194,10 @@
 		F051E3D32AE089C7009F1E50 /* ProjectListSortingMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListSortingMenu.swift; sourceTree = "<group>"; };
 		F051E3D62AE08A20009F1E50 /* ProjectListPreviewStyleMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListPreviewStyleMenu.swift; sourceTree = "<group>"; };
 		F051E3D92AE08A5B009F1E50 /* ProjectListThemeMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListThemeMenu.swift; sourceTree = "<group>"; };
+		F051E3DB2AE08C1F009F1E50 /* ContentListSortingMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentListSortingMenu.swift; sourceTree = "<group>"; };
+		F051E3DD2AE08C61009F1E50 /* ContentListPreviewStyleMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentListPreviewStyleMenu.swift; sourceTree = "<group>"; };
+		F051E3DF2AE08CE0009F1E50 /* ContentListThemeMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentListThemeMenu.swift; sourceTree = "<group>"; };
+		F051E3E12AE08D93009F1E50 /* ContentListTypeMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentListTypeMenu.swift; sourceTree = "<group>"; };
 		F061DC4B2AD944F600507993 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F061DC4E2AD9459200507993 /* ContentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentListView.swift; sourceTree = "<group>"; };
 		F061DC512AD9721100507993 /* PreviewDataGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewDataGenerator.swift; sourceTree = "<group>"; };
@@ -581,6 +589,10 @@
 			isa = PBXGroup;
 			children = (
 				F061DC642AD9A17E00507993 /* ContentListMenu.swift */,
+				F051E3DB2AE08C1F009F1E50 /* ContentListSortingMenu.swift */,
+				F051E3DD2AE08C61009F1E50 /* ContentListPreviewStyleMenu.swift */,
+				F051E3DF2AE08CE0009F1E50 /* ContentListThemeMenu.swift */,
+				F051E3E12AE08D93009F1E50 /* ContentListTypeMenu.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -1077,6 +1089,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F051E3E22AE08D93009F1E50 /* ContentListTypeMenu.swift in Sources */,
 				F0D428992ADD8E9100DAF2B2 /* URLMetadataConfiguration.swift in Sources */,
 				F092AC5F2AD7083C00EAD1F6 /* ModelContainerPreview.swift in Sources */,
 				F0D428972ADD8E8A00DAF2B2 /* URLMetadataProvider.swift in Sources */,
@@ -1093,6 +1106,7 @@
 				F061DC722AD9F02E00507993 /* ContentRowViewModel.swift in Sources */,
 				F061DC652AD9A17E00507993 /* ContentListMenu.swift in Sources */,
 				F0E347432AD7F43B00B12AD9 /* ProjectListViewModel.swift in Sources */,
+				F051E3E02AE08CE0009F1E50 /* ContentListThemeMenu.swift in Sources */,
 				F0E3475C2AD8295200B12AD9 /* ProjectForm.swift in Sources */,
 				F051E3A92AE03C1B009F1E50 /* ContentListContainerView.swift in Sources */,
 				F061DC6D2AD9E3C700507993 /* ContentViewModel.swift in Sources */,
@@ -1118,6 +1132,7 @@
 				F061DC522AD9721100507993 /* PreviewDataGenerator.swift in Sources */,
 				F051E3A22AE038B0009F1E50 /* ProjectListContainerView.swift in Sources */,
 				F061DC692AD9A58500507993 /* AppStorage+Key.swift in Sources */,
+				F051E3DC2AE08C1F009F1E50 /* ContentListSortingMenu.swift in Sources */,
 				F0E347412AD7F41300B12AD9 /* ProjectViewModel.swift in Sources */,
 				F0E984852AD8A7FF0082F6A1 /* FormTextField.swift in Sources */,
 				F061DC5B2AD9815C00507993 /* SwipeActionType.swift in Sources */,
@@ -1128,6 +1143,7 @@
 				F0D4288B2ADD4C0700DAF2B2 /* ContextMenuType.swift in Sources */,
 				F0D4288E2ADD58F600DAF2B2 /* SafariView.swift in Sources */,
 				F0E347452AD7F48800B12AD9 /* ProjectRowViewModel.swift in Sources */,
+				F051E3DE2AE08C61009F1E50 /* ContentListPreviewStyleMenu.swift in Sources */,
 				F051E3DA2AE08A5B009F1E50 /* ProjectListThemeMenu.swift in Sources */,
 				F0D428932ADD8E6300DAF2B2 /* URLMetadataProviderProtocol.swift in Sources */,
 				F061DC562AD9741100507993 /* ListStyleViewModifier.swift in Sources */,
