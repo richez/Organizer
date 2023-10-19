@@ -43,12 +43,3 @@ struct ContentRow: View {
             .foregroundStyle(.white)
     }
 }
-
-struct ContentForm: View {
-    var project: Project
-    var content: ProjectContent?
-
-    var body: some View {
-        Text("Content Form")
-    }
-}

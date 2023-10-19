@@ -12,6 +12,8 @@ struct ContentHeaderView: View {
 
     private let viewModel = ViewModel()
 
+    @State private var isShowingForm: Bool = false
+
     var body: some View {
         HStack {
             Menu {
@@ -31,7 +33,7 @@ struct ContentHeaderView: View {
             Spacer()
 
             Button {
-
+                self.isShowingForm.toggle()
             } label: {
                 Image(systemName: "plus")
             }
@@ -40,6 +42,9 @@ struct ContentHeaderView: View {
             .font(.system(size: 18, weight: .bold))
         }
         .padding()
+        .sheet(isPresented: self.$isShowingForm) {
+            ContentForm(project: self.project)
+        }
     }
 }
 

@@ -139,6 +139,11 @@
 		F0D9F4392AE1DAB70019231A /* ContentListThemeMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3DF2AE08CE0009F1E50 /* ContentListThemeMenu.swift */; };
 		F0D9F43A2AE1DABA0019231A /* ContentListTypeMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3E12AE08D93009F1E50 /* ContentListTypeMenu.swift */; };
 		F0D9F43E2AE1DBBA0019231A /* ContentHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D9F43D2AE1DBBA0019231A /* ContentHeaderViewModel.swift */; };
+		F0D9F4412AE1DC5A0019231A /* ContentForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D9F4402AE1DC5A0019231A /* ContentForm.swift */; };
+		F0D9F4452AE1E1F50019231A /* URLMetadataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D9F4442AE1E1F50019231A /* URLMetadataProvider.swift */; };
+		F0D9F4462AE1E2040019231A /* URLMetadataProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D428922ADD8E6300DAF2B2 /* URLMetadataProviderProtocol.swift */; };
+		F0D9F4472AE1E22B0019231A /* ContentFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC782ADA967C00507993 /* ContentFormViewModel.swift */; };
+		F0D9F4482AE1E2390019231A /* ContentFormValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC7C2ADAB04100507993 /* ContentFormValues.swift */; };
 		F0E3473A2AD7681100B12AD9 /* ProjectListMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347392AD7681100B12AD9 /* ProjectListMenu.swift */; };
 		F0E3473C2AD786DC00B12AD9 /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E3473B2AD786DC00B12AD9 /* ProjectView.swift */; };
 		F0E347412AD7F41300B12AD9 /* ProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347402AD7F41300B12AD9 /* ProjectViewModel.swift */; };
@@ -269,6 +274,8 @@
 		F0D9F42E2AE1C47A0019231A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F0D9F4352AE1D8110019231A /* ContentHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentHeaderView.swift; sourceTree = "<group>"; };
 		F0D9F43D2AE1DBBA0019231A /* ContentHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentHeaderViewModel.swift; sourceTree = "<group>"; };
+		F0D9F4402AE1DC5A0019231A /* ContentForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentForm.swift; sourceTree = "<group>"; };
+		F0D9F4442AE1E1F50019231A /* URLMetadataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLMetadataProvider.swift; sourceTree = "<group>"; };
 		F0E347392AD7681100B12AD9 /* ProjectListMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListMenu.swift; sourceTree = "<group>"; };
 		F0E3473B2AD786DC00B12AD9 /* ProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectView.swift; sourceTree = "<group>"; };
 		F0E347402AD7F41300B12AD9 /* ProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewModel.swift; sourceTree = "<group>"; };
@@ -453,10 +460,11 @@
 		F051E38E2AE02358009F1E50 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				F0D9F4172AE0A65E0019231A /* ThemeList */,
 				F051E38F2AE0235D009F1E50 /* Project */,
 				F051E3BC2AE06BB7009F1E50 /* ProjectForm */,
-				F0D9F4172AE0A65E0019231A /* ThemeList */,
 				F0D9F42D2AE1C45E0019231A /* Content */,
+				F0D9F43F2AE1DC420019231A /* ContentForm */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -473,6 +481,7 @@
 		F051E3992AE02BB3009F1E50 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				F0D9F4432AE1E1CF0019231A /* URLMetadata */,
 				F051E3BF2AE06E7E009F1E50 /* Views */,
 				F051E39A2AE02BBA009F1E50 /* ViewModifiers */,
 			);
@@ -875,6 +884,22 @@
 			path = Header;
 			sourceTree = "<group>";
 		};
+		F0D9F43F2AE1DC420019231A /* ContentForm */ = {
+			isa = PBXGroup;
+			children = (
+				F0D9F4402AE1DC5A0019231A /* ContentForm.swift */,
+			);
+			path = ContentForm;
+			sourceTree = "<group>";
+		};
+		F0D9F4432AE1E1CF0019231A /* URLMetadata */ = {
+			isa = PBXGroup;
+			children = (
+				F0D9F4442AE1E1F50019231A /* URLMetadataProvider.swift */,
+			);
+			path = URLMetadata;
+			sourceTree = "<group>";
+		};
 		F0E3473D2AD7F29B00B12AD9 /* List */ = {
 			isa = PBXGroup;
 			children = (
@@ -1174,6 +1199,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0D9F4262AE1ACFB0019231A /* ProjectRow.swift in Sources */,
+				F0D9F4412AE1DC5A0019231A /* ContentForm.swift in Sources */,
 				F051E3872AE02277009F1E50 /* ModelContainerPreview.swift in Sources */,
 				F0D9F4252AE169DA0019231A /* ProjectUnavailableView.swift in Sources */,
 				F0D9F43E2AE1DBBA0019231A /* ContentHeaderViewModel.swift in Sources */,
@@ -1191,10 +1217,12 @@
 				F051E38D2AE022BD009F1E50 /* String+Components.swift in Sources */,
 				F0D9F4162AE0A4B80019231A /* MainView.swift in Sources */,
 				F0D9F4192AE0A6AA0019231A /* ThemeListView.swift in Sources */,
+				F0D9F4452AE1E1F50019231A /* URLMetadataProvider.swift in Sources */,
 				F0D9F4342AE1CAE90019231A /* ContentListSorting.swift in Sources */,
 				F051E3C82AE07A71009F1E50 /* FormSaveButton.swift in Sources */,
 				F051E3D12AE07CCB009F1E50 /* ProjectFormViewModel.swift in Sources */,
 				F051E3D22AE07CD7009F1E50 /* ProjectFormValues.swift in Sources */,
+				F0D9F4472AE1E22B0019231A /* ContentFormViewModel.swift in Sources */,
 				F051E3852AE02269009F1E50 /* OrganizerApp.swift in Sources */,
 				F051E3922AE023EC009F1E50 /* ProjectListSorting.swift in Sources */,
 				F051E3892AE02284009F1E50 /* PreviewDataGenerator.swift in Sources */,
@@ -1210,7 +1238,9 @@
 				F0D9F4382AE1DAB50019231A /* ContentListPreviewStyleMenu.swift in Sources */,
 				F051E3C52AE070EE009F1E50 /* FormTextFieldConfiguration.swift in Sources */,
 				F051E3D02AE07CBE009F1E50 /* String+URL.swift in Sources */,
+				F0D9F4462AE1E2040019231A /* URLMetadataProviderProtocol.swift in Sources */,
 				F0D9F4312AE1CAD30019231A /* ContentListContainerViewModel.swift in Sources */,
+				F0D9F4482AE1E2390019231A /* ContentFormValues.swift in Sources */,
 				F051E3942AE025D9009F1E50 /* ContextMenuButton.swift in Sources */,
 				F0D9F4372AE1DAAD0019231A /* ContentListSortingMenu.swift in Sources */,
 				F051E3962AE0266A009F1E50 /* ProjectListView.swift in Sources */,
