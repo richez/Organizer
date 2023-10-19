@@ -11,7 +11,7 @@ struct ContentView: View {
     var project: Project
 
     var body: some View {
-        Text(self.project.title)
+        ContentListContainerView(project: self.project)
     }
 }
 
@@ -20,5 +20,27 @@ struct ContentView: View {
         NavigationStack {
             ContentView(project: PreviewDataGenerator.project)
         }
+    }
+}
+
+struct ContentRow: View {
+    var content: ProjectContent
+
+    init(content: ProjectContent, suiteName: String) {
+        self.content = content
+    }
+
+    var body: some View {
+        Text(self.content.title)
+            .foregroundStyle(.white)
+    }
+}
+
+struct ContentForm: View {
+    var project: Project
+    var content: ProjectContent?
+
+    var body: some View {
+        Text("Content Form")
     }
 }

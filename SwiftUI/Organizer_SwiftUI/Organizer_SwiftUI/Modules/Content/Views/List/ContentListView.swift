@@ -40,6 +40,7 @@ struct ContentListView: View {
                         content: content, suiteName: self.project.suiteName
                     )
                 }
+                .buttonStyle(.borderless)
                 .listRowBackground(Color.listBackground)
                 .listRowSeparatorTint(.cellSeparatorTint)
                 .contextMenu {
@@ -50,7 +51,10 @@ struct ContentListView: View {
                     }
                     ContextMenuButton(.copyLink) {
                         self.url(for: content) { url in
+                            // TODO: use NSPasteboard on mac
+                            #if !os(macOS)
                             UIPasteboard.general.url = url
+                            #endif
                         }
                     }
                     ContextMenuButton(.edit) {
@@ -60,6 +64,7 @@ struct ContentListView: View {
                         self.viewModel.delete(content, in: self.modelContext)
                     }
                 }
+                #if !os(macOS)
                 .swipeActions {
                     SwipeActionButton(.delete) {
                         self.viewModel.delete(content, in: self.modelContext)
@@ -68,16 +73,24 @@ struct ContentListView: View {
                         self.editingContent = content
                     }
                 }
+                #endif
             }
-        }
-        .fullScreenCover(item: self.$isShowingContentURL) { url in
-            SafariView(url: url)
-                .ignoresSafeArea()
         }
         .sheet(item: self.$editingContent) { content in
             ContentForm(project: self.project, content: content)
         }
         .alert(.invalidContentLink, isPresented: self.$isShowingURLError)
+        #if os(macOS)
+        .onChange(of: self.isShowingContentURL) {
+            if let url = self.isShowingContentURL {
+                self.openURL(url)
+            }
+        }
+        #else
+        .fullScreenCover(item: self.$isShowingContentURL) { url in
+            SafariView(url: url)
+                .ignoresSafeArea()
+        }
         .toolbar {
             ToolbarItem {
                 ContentListMenu(
@@ -89,6 +102,7 @@ struct ContentListView: View {
                 )
             }
         }
+        #endif
     }
 }
 
