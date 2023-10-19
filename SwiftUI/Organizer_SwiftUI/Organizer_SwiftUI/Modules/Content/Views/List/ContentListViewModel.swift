@@ -26,12 +26,12 @@ extension ContentListView {
             context.delete(content)
         }
 
-        // TODO: sort theme
         func themes(in project: Project?) -> [String] {
             guard let project else { return [] }
             return project.contents
                 .flatMap(\.themes)
                 .removingDuplicates()
+                .sorted(using: .localizedStandard)
         }
     }
 }

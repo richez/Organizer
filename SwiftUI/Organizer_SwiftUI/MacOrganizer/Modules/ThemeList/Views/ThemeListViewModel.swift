@@ -10,10 +10,11 @@ import Foundation
 extension ThemeListView {
     struct ViewModel {
         func themeTypes(in projects: [Project]) -> [ThemeType] {
-            let themes = projects.lazy
+            let themes = projects
                 .flatMap(\.themes)
-                .map(ThemeType.custom)
+                .sorted(using: .localizedStandard)
                 .removingDuplicates()
+                .map(ThemeType.custom)
             return [.all] + themes
         }
     }

@@ -26,12 +26,14 @@ extension ProjectListView {
             context.delete(project)
         }
 
-        // TODO: sort theme
         func themes(in context: ModelContext) -> [String] {
             var descriptor = FetchDescriptor<Project>()
             descriptor.propertiesToFetch = [\.theme]
             let allProjects = (try? context.fetch(descriptor)) ?? []
-            return allProjects.flatMap(\.themes).removingDuplicates()
+            return allProjects
+                .flatMap(\.themes)
+                .removingDuplicates()
+                .sorted(using: .localizedStandard)
         }
     }
 }

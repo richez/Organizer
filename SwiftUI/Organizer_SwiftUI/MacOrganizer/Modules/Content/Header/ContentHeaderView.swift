@@ -17,7 +17,6 @@ struct ContentHeaderView: View {
     var body: some View {
         HStack {
             Menu {
-                // TODO: Test + check if theme is added after creation
                 ContentListSortingMenu(suiteName: self.suiteName)
                 ContentListPreviewStyleMenu(suiteName: self.suiteName)
                 ContentListThemeMenu(themes: self.themes, suiteName: self.suiteName)
