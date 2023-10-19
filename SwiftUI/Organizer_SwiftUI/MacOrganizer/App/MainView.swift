@@ -19,8 +19,10 @@ struct MainView: View {
         } detail: {
             if let selectedProject {
                 ContentView(project: selectedProject)
+                    .frame(minWidth: 300)
             } else {
                 ProjectUnavailableView()
+                    .frame(minWidth: 300)
             }
         }
         .navigationSplitViewStyle(.balanced)
