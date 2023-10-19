@@ -9,21 +9,18 @@ import SwiftUI
 
 struct MainView: View {
     @State private var columnVisibility: NavigationSplitViewVisibility = .all
+    @State private var selectedProject: Project?
 
     var body: some View {
         NavigationSplitView(columnVisibility: self.$columnVisibility) {
             ThemeListView()
         } content: {
-            ProjectView()
+            ProjectView(selected: self.$selectedProject)
         } detail: {
-            ContentUnavailableView {
-                VStack(spacing: 20) {
-                    Image(systemName: "filemenu.and.selection")
-                    Text("Select a project")
-                }
-                .font(.largeTitle)
-                .foregroundStyle(.white)
-                .background(.listBackground)
+            if let selectedProject {
+                ContentView(project: selectedProject)
+            } else {
+                ProjectUnavailableView()
             }
         }
         .navigationSplitViewStyle(.balanced)

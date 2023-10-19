@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ProjectView: View {
+    @Binding var selected: Project?
     private let viewModel = ViewModel()
 
     @AppStorage(.projectListSelectedTheme)
@@ -15,7 +16,7 @@ struct ProjectView: View {
 
     var body: some View {
         ZStack(alignment: .bottom) {
-            ProjectListContainerView()
+            ProjectListContainerView(selected: self.$selected)
 
             FloatingButtonSheet(systemName: "square.and.pencil") {
                 ProjectForm()
@@ -44,7 +45,7 @@ private extension ProjectView {
 #Preview {
     ModelContainerPreview {
         NavigationStack {
-            ProjectView()
+            ProjectView(selected: .constant(nil))
         }
     }
 }

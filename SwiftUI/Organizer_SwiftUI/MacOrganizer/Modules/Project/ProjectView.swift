@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct ProjectView: View {
+    @Binding var selected: Project?
+
     var body: some View {
         VStack {
             ProjectHeaderView()
-            ProjectListContainerView()
+            ProjectListContainerView(selected: self.$selected)
         }
         .background(.listBackground)
     }
@@ -20,7 +22,7 @@ struct ProjectView: View {
 #Preview {
     ModelContainerPreview {
         NavigationStack {
-            ProjectView()
+            ProjectView(selected: .constant(nil))
         }
     }
 }

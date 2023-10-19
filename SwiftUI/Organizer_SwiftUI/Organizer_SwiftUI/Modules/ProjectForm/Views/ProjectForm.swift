@@ -54,6 +54,7 @@ struct ProjectForm: View {
             }
         }
         .scrollDismissesKeyboard(.interactively)
+        .scrollContentBackground(.hidden)
         .padding(.top)
         .background(Color.listBackground)
         .alert(.unknownError, isPresented: self.$isShowingErrorAlert)

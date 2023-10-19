@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ProjectListContainerView: View {
+    @Binding var selected: Project?
+
     private let viewModel = ViewModel()
 
     @AppStorage(.projectListSorting)
@@ -20,8 +22,15 @@ struct ProjectListContainerView: View {
     private var selectedTheme: String? = nil
 
     var body: some View {
-        ProjectListView(predicate: self.predicate, sort: self.sortDescriptor)
-            .listStyle()
+        ProjectListView(
+            selected: self.$selected,
+            predicate: self.predicate,
+            sort: self.sortDescriptor
+        )
+        .listStyle()
+        .onChange(of: self.selectedTheme) {
+            self.selected = nil
+        }
     }
 }
 
@@ -40,7 +49,7 @@ private extension ProjectListContainerView {
 #Preview {
     ModelContainerPreview {
         NavigationStack {
-            ProjectListContainerView()
+            ProjectListContainerView(selected: .constant(nil))
                 .listStyle()
         }
     }
