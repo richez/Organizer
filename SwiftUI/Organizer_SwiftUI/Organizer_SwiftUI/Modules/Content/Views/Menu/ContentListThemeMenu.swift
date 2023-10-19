@@ -30,6 +30,8 @@ struct ContentListThemeMenu: View {
                         .tag(theme as String?)
                 }
             }
+            .labelsHidden()
+            .pickerStyle(.inline)
         }
     }
 }

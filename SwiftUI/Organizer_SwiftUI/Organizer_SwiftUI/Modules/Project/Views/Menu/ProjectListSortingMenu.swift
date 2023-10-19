@@ -22,6 +22,7 @@ struct ProjectListSortingMenu: View {
                         .tag(sorting)
                 }
             }
+            .labelsHidden()
             .pickerStyle(.inline)
 
             Toggle(self.ascendingOrderTitle, isOn: self.$isAscendingOrder)

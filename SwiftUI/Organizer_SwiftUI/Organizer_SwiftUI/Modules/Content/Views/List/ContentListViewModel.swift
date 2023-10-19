@@ -26,6 +26,7 @@ extension ContentListView {
             context.delete(content)
         }
 
+        // TODO: could be retrieve directly from project ? Check if added to menu after content creation
         func themes(in project: Project?, context: ModelContext) -> [String] {
             guard let project else { return [] }
 

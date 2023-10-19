@@ -10,10 +10,16 @@ import SwiftUI
 struct ContentHeaderView: View {
     var project: Project
 
+    private let viewModel = ViewModel()
+
     var body: some View {
         HStack {
             Menu {
-                // TODO: add items
+                // TODO: Test + check if theme is added after creation
+                ContentListSortingMenu(suiteName: self.suiteName)
+                ContentListPreviewStyleMenu(suiteName: self.suiteName)
+                ContentListThemeMenu(themes: self.themes, suiteName: self.suiteName)
+                ContentListTypeMenu(suiteName: self.suiteName)
             } label: {
                 Text(self.project.title)
                     .font(.system(size: 15, weight: .heavy))
@@ -34,6 +40,16 @@ struct ContentHeaderView: View {
             .font(.system(size: 18, weight: .bold))
         }
         .padding()
+    }
+}
+
+private extension ContentHeaderView {
+    var suiteName: String {
+        self.project.suiteName
+    }
+
+    var themes: [String] {
+        self.viewModel.themes(in: self.project)
     }
 }
 

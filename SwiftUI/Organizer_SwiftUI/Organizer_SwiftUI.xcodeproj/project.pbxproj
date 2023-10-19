@@ -134,6 +134,11 @@
 		F0D9F4332AE1CADB0019231A /* ContentListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC6A2AD9AC9D00507993 /* ContentListViewModel.swift */; };
 		F0D9F4342AE1CAE90019231A /* ContentListSorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC5F2AD9A0E300507993 /* ContentListSorting.swift */; };
 		F0D9F4362AE1D8110019231A /* ContentHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D9F4352AE1D8110019231A /* ContentHeaderView.swift */; };
+		F0D9F4372AE1DAAD0019231A /* ContentListSortingMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3DB2AE08C1F009F1E50 /* ContentListSortingMenu.swift */; };
+		F0D9F4382AE1DAB50019231A /* ContentListPreviewStyleMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3DD2AE08C61009F1E50 /* ContentListPreviewStyleMenu.swift */; };
+		F0D9F4392AE1DAB70019231A /* ContentListThemeMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3DF2AE08CE0009F1E50 /* ContentListThemeMenu.swift */; };
+		F0D9F43A2AE1DABA0019231A /* ContentListTypeMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3E12AE08D93009F1E50 /* ContentListTypeMenu.swift */; };
+		F0D9F43E2AE1DBBA0019231A /* ContentHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D9F43D2AE1DBBA0019231A /* ContentHeaderViewModel.swift */; };
 		F0E3473A2AD7681100B12AD9 /* ProjectListMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347392AD7681100B12AD9 /* ProjectListMenu.swift */; };
 		F0E3473C2AD786DC00B12AD9 /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E3473B2AD786DC00B12AD9 /* ProjectView.swift */; };
 		F0E347412AD7F41300B12AD9 /* ProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347402AD7F41300B12AD9 /* ProjectViewModel.swift */; };
@@ -263,6 +268,7 @@
 		F0D9F42B2AE1BAB60019231A /* FocusedValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusedValues.swift; sourceTree = "<group>"; };
 		F0D9F42E2AE1C47A0019231A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F0D9F4352AE1D8110019231A /* ContentHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentHeaderView.swift; sourceTree = "<group>"; };
+		F0D9F43D2AE1DBBA0019231A /* ContentHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentHeaderViewModel.swift; sourceTree = "<group>"; };
 		F0E347392AD7681100B12AD9 /* ProjectListMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListMenu.swift; sourceTree = "<group>"; };
 		F0E3473B2AD786DC00B12AD9 /* ProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectView.swift; sourceTree = "<group>"; };
 		F0E347402AD7F41300B12AD9 /* ProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewModel.swift; sourceTree = "<group>"; };
@@ -459,7 +465,7 @@
 			isa = PBXGroup;
 			children = (
 				F051E3822AE0222C009F1E50 /* ProjectView.swift */,
-				F051E39E2AE030DE009F1E50 /* ProjectHeaderView.swift */,
+				F0D9F43B2AE1DBA60019231A /* Header */,
 			);
 			path = Project;
 			sourceTree = "<group>";
@@ -847,9 +853,26 @@
 			isa = PBXGroup;
 			children = (
 				F0D9F42E2AE1C47A0019231A /* ContentView.swift */,
-				F0D9F4352AE1D8110019231A /* ContentHeaderView.swift */,
+				F0D9F43C2AE1DBAE0019231A /* Header */,
 			);
 			path = Content;
+			sourceTree = "<group>";
+		};
+		F0D9F43B2AE1DBA60019231A /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				F051E39E2AE030DE009F1E50 /* ProjectHeaderView.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		F0D9F43C2AE1DBAE0019231A /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				F0D9F4352AE1D8110019231A /* ContentHeaderView.swift */,
+				F0D9F43D2AE1DBBA0019231A /* ContentHeaderViewModel.swift */,
+			);
+			path = Header;
 			sourceTree = "<group>";
 		};
 		F0E3473D2AD7F29B00B12AD9 /* List */ = {
@@ -1153,7 +1176,9 @@
 				F0D9F4262AE1ACFB0019231A /* ProjectRow.swift in Sources */,
 				F051E3872AE02277009F1E50 /* ModelContainerPreview.swift in Sources */,
 				F0D9F4252AE169DA0019231A /* ProjectUnavailableView.swift in Sources */,
+				F0D9F43E2AE1DBBA0019231A /* ContentHeaderViewModel.swift in Sources */,
 				F051E3BE2AE06BC3009F1E50 /* ProjectForm.swift in Sources */,
+				F0D9F4392AE1DAB70019231A /* ContentListThemeMenu.swift in Sources */,
 				F051E3CF2AE07CB2009F1E50 /* FormFieldValidator.swift in Sources */,
 				F051E3902AE023A3009F1E50 /* AppStorage+Key.swift in Sources */,
 				F051E38B2AE02294009F1E50 /* ProjectContent.swift in Sources */,
@@ -1173,6 +1198,7 @@
 				F051E3852AE02269009F1E50 /* OrganizerApp.swift in Sources */,
 				F051E3922AE023EC009F1E50 /* ProjectListSorting.swift in Sources */,
 				F051E3892AE02284009F1E50 /* PreviewDataGenerator.swift in Sources */,
+				F0D9F43A2AE1DABA0019231A /* ContentListTypeMenu.swift in Sources */,
 				F0D9F4322AE1CAD70019231A /* ContentListView.swift in Sources */,
 				F051E3A62AE03986009F1E50 /* ProjectListContainerViewModel.swift in Sources */,
 				F0D9F4272AE1ACFD0019231A /* ProjectRowViewModel.swift in Sources */,
@@ -1181,10 +1207,12 @@
 				F051E3982AE02680009F1E50 /* Array+Duplicates.swift in Sources */,
 				F0D9F42F2AE1C47A0019231A /* ContentView.swift in Sources */,
 				F0D9F42C2AE1BAB60019231A /* FocusedValues.swift in Sources */,
+				F0D9F4382AE1DAB50019231A /* ContentListPreviewStyleMenu.swift in Sources */,
 				F051E3C52AE070EE009F1E50 /* FormTextFieldConfiguration.swift in Sources */,
 				F051E3D02AE07CBE009F1E50 /* String+URL.swift in Sources */,
 				F0D9F4312AE1CAD30019231A /* ContentListContainerViewModel.swift in Sources */,
 				F051E3942AE025D9009F1E50 /* ContextMenuButton.swift in Sources */,
+				F0D9F4372AE1DAAD0019231A /* ContentListSortingMenu.swift in Sources */,
 				F051E3962AE0266A009F1E50 /* ProjectListView.swift in Sources */,
 				F051E3C32AE06E94009F1E50 /* FormTextField.swift in Sources */,
 				F0D9F4302AE1CAD10019231A /* ContentListContainerView.swift in Sources */,

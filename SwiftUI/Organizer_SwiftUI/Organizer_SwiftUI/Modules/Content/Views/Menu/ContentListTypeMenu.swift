@@ -26,6 +26,8 @@ struct ContentListTypeMenu: View {
                         .tag(type as ProjectContentType?)
                 }
             }
+            .labelsHidden()
+            .pickerStyle(.inline)
         }
     }
 }
