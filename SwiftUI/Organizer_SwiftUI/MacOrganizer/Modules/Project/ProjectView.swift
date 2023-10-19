@@ -15,7 +15,6 @@ struct ProjectView: View {
             ProjectHeaderView()
             ProjectListContainerView(selected: self.$selected)
         }
-        .background(.listBackground)
     }
 }
 
@@ -23,17 +22,7 @@ struct ProjectView: View {
     ModelContainerPreview {
         NavigationStack {
             ProjectView(selected: .constant(nil))
+                .background(.listBackground)
         }
-    }
-}
-
-
-// MARK: - Placeholders
-
-struct ContentView: View {
-    var project: Project
-
-    var body: some View {
-        Text(self.project.title)
     }
 }

@@ -127,6 +127,7 @@
 		F0D9F4272AE1ACFD0019231A /* ProjectRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347442AD7F48800B12AD9 /* ProjectRowViewModel.swift */; };
 		F0D9F42A2AE1BA170019231A /* OrganizerCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D9F4292AE1BA170019231A /* OrganizerCommands.swift */; };
 		F0D9F42C2AE1BAB60019231A /* FocusedValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D9F42B2AE1BAB60019231A /* FocusedValues.swift */; };
+		F0D9F42F2AE1C47A0019231A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D9F42E2AE1C47A0019231A /* ContentView.swift */; };
 		F0E3473A2AD7681100B12AD9 /* ProjectListMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347392AD7681100B12AD9 /* ProjectListMenu.swift */; };
 		F0E3473C2AD786DC00B12AD9 /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E3473B2AD786DC00B12AD9 /* ProjectView.swift */; };
 		F0E347412AD7F41300B12AD9 /* ProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347402AD7F41300B12AD9 /* ProjectViewModel.swift */; };
@@ -254,6 +255,7 @@
 		F0D9F4232AE169DA0019231A /* ProjectUnavailableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectUnavailableView.swift; sourceTree = "<group>"; };
 		F0D9F4292AE1BA170019231A /* OrganizerCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizerCommands.swift; sourceTree = "<group>"; };
 		F0D9F42B2AE1BAB60019231A /* FocusedValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusedValues.swift; sourceTree = "<group>"; };
+		F0D9F42E2AE1C47A0019231A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F0E347392AD7681100B12AD9 /* ProjectListMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListMenu.swift; sourceTree = "<group>"; };
 		F0E3473B2AD786DC00B12AD9 /* ProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectView.swift; sourceTree = "<group>"; };
 		F0E347402AD7F41300B12AD9 /* ProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewModel.swift; sourceTree = "<group>"; };
@@ -441,6 +443,7 @@
 				F051E38F2AE0235D009F1E50 /* Project */,
 				F051E3BC2AE06BB7009F1E50 /* ProjectForm */,
 				F0D9F4172AE0A65E0019231A /* ThemeList */,
+				F0D9F42D2AE1C45E0019231A /* Content */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -833,6 +836,14 @@
 			path = Commands;
 			sourceTree = "<group>";
 		};
+		F0D9F42D2AE1C45E0019231A /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				F0D9F42E2AE1C47A0019231A /* ContentView.swift */,
+			);
+			path = Content;
+			sourceTree = "<group>";
+		};
 		F0E3473D2AD7F29B00B12AD9 /* List */ = {
 			isa = PBXGroup;
 			children = (
@@ -1158,6 +1169,7 @@
 				F051E38A2AE0228E009F1E50 /* Project.swift in Sources */,
 				F051E3CE2AE07C98009F1E50 /* FormTextFieldName.swift in Sources */,
 				F051E3982AE02680009F1E50 /* Array+Duplicates.swift in Sources */,
+				F0D9F42F2AE1C47A0019231A /* ContentView.swift in Sources */,
 				F0D9F42C2AE1BAB60019231A /* FocusedValues.swift in Sources */,
 				F051E3C52AE070EE009F1E50 /* FormTextFieldConfiguration.swift in Sources */,
 				F051E3D02AE07CBE009F1E50 /* String+URL.swift in Sources */,

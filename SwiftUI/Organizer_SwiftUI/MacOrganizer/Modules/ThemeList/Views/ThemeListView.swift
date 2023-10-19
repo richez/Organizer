@@ -27,7 +27,7 @@ struct ThemeListView: View {
             }
         }
         .padding(.top)
-        .background(Color.listBackground.opacity(0.9))
+        .background(Color.listBackground.opacity(0.8))
         .onChange(of: self.selectedThemeType) {
             self.selectedTheme = self.selectedThemeType.theme
         }
