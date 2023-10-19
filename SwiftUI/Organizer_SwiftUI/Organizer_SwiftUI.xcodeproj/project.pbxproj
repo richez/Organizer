@@ -123,6 +123,8 @@
 		F0D9F41F2AE0B8260019231A /* ThemeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D9F41E2AE0B8260019231A /* ThemeListViewModel.swift */; };
 		F0D9F4242AE169DA0019231A /* ProjectUnavailableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D9F4232AE169DA0019231A /* ProjectUnavailableView.swift */; };
 		F0D9F4252AE169DA0019231A /* ProjectUnavailableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D9F4232AE169DA0019231A /* ProjectUnavailableView.swift */; };
+		F0D9F4262AE1ACFB0019231A /* ProjectRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07DE09A2AD7449300B3B91E /* ProjectRow.swift */; };
+		F0D9F4272AE1ACFD0019231A /* ProjectRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347442AD7F48800B12AD9 /* ProjectRowViewModel.swift */; };
 		F0E3473A2AD7681100B12AD9 /* ProjectListMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347392AD7681100B12AD9 /* ProjectListMenu.swift */; };
 		F0E3473C2AD786DC00B12AD9 /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E3473B2AD786DC00B12AD9 /* ProjectView.swift */; };
 		F0E347412AD7F41300B12AD9 /* ProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347402AD7F41300B12AD9 /* ProjectViewModel.swift */; };
@@ -1115,6 +1117,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0D9F4262AE1ACFB0019231A /* ProjectRow.swift in Sources */,
 				F051E3872AE02277009F1E50 /* ModelContainerPreview.swift in Sources */,
 				F0D9F4252AE169DA0019231A /* ProjectUnavailableView.swift in Sources */,
 				F051E3BE2AE06BC3009F1E50 /* ProjectForm.swift in Sources */,
@@ -1137,6 +1140,7 @@
 				F051E3922AE023EC009F1E50 /* ProjectListSorting.swift in Sources */,
 				F051E3892AE02284009F1E50 /* PreviewDataGenerator.swift in Sources */,
 				F051E3A62AE03986009F1E50 /* ProjectListContainerViewModel.swift in Sources */,
+				F0D9F4272AE1ACFD0019231A /* ProjectRowViewModel.swift in Sources */,
 				F051E38A2AE0228E009F1E50 /* Project.swift in Sources */,
 				F051E3CE2AE07C98009F1E50 /* FormTextFieldName.swift in Sources */,
 				F051E3982AE02680009F1E50 /* Array+Duplicates.swift in Sources */,

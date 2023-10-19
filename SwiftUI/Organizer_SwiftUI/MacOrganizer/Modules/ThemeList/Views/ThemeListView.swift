@@ -23,13 +23,11 @@ struct ThemeListView: View {
         List(selection: self.$selectedThemeType) {
             ForEach(self.themeTypes, id: \.self) { themeType in
                 Label(themeType.rawValue, systemImage: themeType.systemImage)
-                    .padding(.bottom, 8)
-                    .listRowBackground(self.listRowBackground(for: themeType))
                     .foregroundStyle(.cellTitle)
             }
         }
         .padding(.top)
-        .background(Color.listBackground.opacity(0.8))
+        .background(Color.listBackground.opacity(0.9))
         .onChange(of: self.selectedThemeType) {
             self.selectedTheme = self.selectedThemeType.theme
         }
@@ -50,10 +48,6 @@ private extension ThemeListView {
 
     var themeTypes: [ThemeType] {
         self.viewModel.themeTypes(in: self.projects)
-    }
-
-    func listRowBackground(for themeType: ThemeType) -> Color {
-        self.selectedThemeType == themeType ? .themeListSelected : .clear
     }
 }
 

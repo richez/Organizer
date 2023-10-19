@@ -12,12 +12,16 @@ struct ProjectHeaderView: View {
 
     var body: some View {
         HStack {
-            Menu("Projects") {
+            Menu {
                 ProjectListSortingMenu()
                 ProjectListPreviewStyleMenu()
+            } label: {
+                Text("Projects")
+                    .font(.system(size: 15, weight: .heavy))
             }
             .menuStyle(.borderlessButton)
             .fixedSize(horizontal: true, vertical: false)
+            .tint(.cellTitle)
 
             Spacer()
 
@@ -27,10 +31,9 @@ struct ProjectHeaderView: View {
                 Image(systemName: "square.and.pencil")
             }
             .buttonStyle(.borderless)
+            .foregroundStyle(.cellTitle.opacity(0.8))
+            .font(.system(size: 18, weight: .bold))
         }
-        .font(.headline)
-        .foregroundStyle(.cellTitle)
-        .tint(.cellTitle)
         .padding([.leading, .trailing])
         .sheet(isPresented: self.$isShowingForm) {
             ProjectForm()

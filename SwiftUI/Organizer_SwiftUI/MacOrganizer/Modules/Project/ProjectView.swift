@@ -37,11 +37,3 @@ struct ContentView: View {
         Text(self.project.title)
     }
 }
-
-struct ProjectRow: View {
-    var project: Project
-
-    var body: some View {
-        Text(self.project.title)
-    }
-}
