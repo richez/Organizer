@@ -144,6 +144,8 @@
 		F0D9F4462AE1E2040019231A /* URLMetadataProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D428922ADD8E6300DAF2B2 /* URLMetadataProviderProtocol.swift */; };
 		F0D9F4472AE1E22B0019231A /* ContentFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC782ADA967C00507993 /* ContentFormViewModel.swift */; };
 		F0D9F4482AE1E2390019231A /* ContentFormValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC7C2ADAB04100507993 /* ContentFormValues.swift */; };
+		F0D9F44B2AE1EE570019231A /* Pasteboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D9F44A2AE1EE570019231A /* Pasteboard.swift */; };
+		F0D9F44C2AE1EE570019231A /* Pasteboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D9F44A2AE1EE570019231A /* Pasteboard.swift */; };
 		F0E3473A2AD7681100B12AD9 /* ProjectListMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347392AD7681100B12AD9 /* ProjectListMenu.swift */; };
 		F0E3473C2AD786DC00B12AD9 /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E3473B2AD786DC00B12AD9 /* ProjectView.swift */; };
 		F0E347412AD7F41300B12AD9 /* ProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347402AD7F41300B12AD9 /* ProjectViewModel.swift */; };
@@ -276,6 +278,7 @@
 		F0D9F43D2AE1DBBA0019231A /* ContentHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentHeaderViewModel.swift; sourceTree = "<group>"; };
 		F0D9F4402AE1DC5A0019231A /* ContentForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentForm.swift; sourceTree = "<group>"; };
 		F0D9F4442AE1E1F50019231A /* URLMetadataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLMetadataProvider.swift; sourceTree = "<group>"; };
+		F0D9F44A2AE1EE570019231A /* Pasteboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pasteboard.swift; sourceTree = "<group>"; };
 		F0E347392AD7681100B12AD9 /* ProjectListMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListMenu.swift; sourceTree = "<group>"; };
 		F0E3473B2AD786DC00B12AD9 /* ProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectView.swift; sourceTree = "<group>"; };
 		F0E347402AD7F41300B12AD9 /* ProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewModel.swift; sourceTree = "<group>"; };
@@ -900,6 +903,14 @@
 			path = URLMetadata;
 			sourceTree = "<group>";
 		};
+		F0D9F4492AE1EE4A0019231A /* Pasteboard */ = {
+			isa = PBXGroup;
+			children = (
+				F0D9F44A2AE1EE570019231A /* Pasteboard.swift */,
+			);
+			path = Pasteboard;
+			sourceTree = "<group>";
+		};
 		F0E3473D2AD7F29B00B12AD9 /* List */ = {
 			isa = PBXGroup;
 			children = (
@@ -961,12 +972,13 @@
 		F0E347552AD8257700B12AD9 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				F0D9F4492AE1EE4A0019231A /* Pasteboard */,
 				F061DC542AD973E800507993 /* Preview */,
+				F0D4288C2ADD58C400DAF2B2 /* SafariView */,
 				F0E347562AD8257E00B12AD9 /* Storage */,
+				F0D428912ADD8DFC00DAF2B2 /* URLMetadata */,
 				F0E347572AD8258900B12AD9 /* Views */,
 				F061DC532AD973AD00507993 /* ViewModifiers */,
-				F0D4288C2ADD58C400DAF2B2 /* SafariView */,
-				F0D428912ADD8DFC00DAF2B2 /* URLMetadata */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1230,6 +1242,7 @@
 				F0D9F4322AE1CAD70019231A /* ContentListView.swift in Sources */,
 				F051E3A62AE03986009F1E50 /* ProjectListContainerViewModel.swift in Sources */,
 				F0D9F4272AE1ACFD0019231A /* ProjectRowViewModel.swift in Sources */,
+				F0D9F44C2AE1EE570019231A /* Pasteboard.swift in Sources */,
 				F051E38A2AE0228E009F1E50 /* Project.swift in Sources */,
 				F051E3CE2AE07C98009F1E50 /* FormTextFieldName.swift in Sources */,
 				F051E3982AE02680009F1E50 /* Array+Duplicates.swift in Sources */,
@@ -1320,6 +1333,7 @@
 				F0D4288E2ADD58F600DAF2B2 /* SafariView.swift in Sources */,
 				F0E347452AD7F48800B12AD9 /* ProjectRowViewModel.swift in Sources */,
 				F051E3DE2AE08C61009F1E50 /* ContentListPreviewStyleMenu.swift in Sources */,
+				F0D9F44B2AE1EE570019231A /* Pasteboard.swift in Sources */,
 				F051E3DA2AE08A5B009F1E50 /* ProjectListThemeMenu.swift in Sources */,
 				F0D428932ADD8E6300DAF2B2 /* URLMetadataProviderProtocol.swift in Sources */,
 				F061DC562AD9741100507993 /* ListStyleViewModifier.swift in Sources */,

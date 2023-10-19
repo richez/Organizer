@@ -51,10 +51,7 @@ struct ContentListView: View {
                     }
                     ContextMenuButton(.copyLink) {
                         self.url(for: content) { url in
-                            // TODO: use NSPasteboard on mac
-                            #if !os(macOS)
-                            UIPasteboard.general.url = url
-                            #endif
+                            Pasteboard.general.set(url)
                         }
                     }
                     ContextMenuButton(.edit) {
