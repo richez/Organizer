@@ -24,6 +24,13 @@ enum ThemeType {
         case .custom(let theme): theme
         }
     }
+
+    init(theme: String?) {
+        switch theme {
+        case .none: self = .all
+        case .some(let theme): self = .custom(theme)
+        }
+    }
 }
 
 extension ThemeType: RawRepresentable, Hashable {

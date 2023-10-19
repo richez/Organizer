@@ -25,12 +25,16 @@ struct ThemeListView: View {
                 Label(themeType.rawValue, systemImage: themeType.systemImage)
                     .padding(.bottom, 8)
                     .listRowBackground(self.listRowBackground(for: themeType))
+                    .foregroundStyle(.cellTitle)
             }
         }
         .padding(.top)
         .background(Color.listBackground.opacity(0.8))
         .onChange(of: self.selectedThemeType) {
             self.selectedTheme = self.selectedThemeType.theme
+        }
+        .onAppear {
+            self.selectedThemeType = .init(theme: self.selectedTheme)
         }
     }
 }
