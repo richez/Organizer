@@ -26,17 +26,12 @@ extension ContentListView {
             context.delete(content)
         }
 
-        // TODO: could be retrieve directly from project ? Check if added to menu after content creation
-        func themes(in project: Project?, context: ModelContext) -> [String] {
+        // TODO: sort theme
+        func themes(in project: Project?) -> [String] {
             guard let project else { return [] }
-
-            let projectID = project.persistentModelID
-            var descriptor = FetchDescriptor<ProjectContent>(predicate: #Predicate {
-                $0.project?.persistentModelID == projectID
-            })
-            descriptor.propertiesToFetch = [\.theme]
-            let projectContents = (try? context.fetch(descriptor)) ?? []
-            return projectContents.flatMap(\.themes).removingDuplicates()
+            return project.contents
+                .flatMap(\.themes)
+                .removingDuplicates()
         }
     }
 }

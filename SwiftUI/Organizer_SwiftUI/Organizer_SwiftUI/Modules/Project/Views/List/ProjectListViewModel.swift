@@ -26,6 +26,7 @@ extension ProjectListView {
             context.delete(project)
         }
 
+        // TODO: sort theme
         func themes(in context: ModelContext) -> [String] {
             var descriptor = FetchDescriptor<Project>()
             descriptor.propertiesToFetch = [\.theme]

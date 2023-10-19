@@ -62,6 +62,7 @@ private extension ContentForm.ViewModel {
         content.project = project
         project.updatedDate = .now
         context.insert(content)
+        project.contents.append(content)
     }
 
     func updateContent(_ content: ProjectContent, with values: ContentForm.Values) {

@@ -95,9 +95,7 @@ struct ContentListView: View {
             ToolbarItem {
                 ContentListMenu(
                     contentCount: self.contents.count,
-                    themes: self.viewModel.themes(
-                        in: self.project, context: self.modelContext
-                    ),
+                    themes: self.viewModel.themes(in: self.project),
                     suiteName: self.project.suiteName
                 )
             }

@@ -61,5 +61,6 @@ private extension ShareForm.ViewModel {
         project.updatedDate = .now
         content.project = project
         context.insert(content)
+        project.contents.append(content)
     }
 }
