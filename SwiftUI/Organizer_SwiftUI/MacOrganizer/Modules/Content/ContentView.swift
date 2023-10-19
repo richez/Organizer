@@ -11,7 +11,14 @@ struct ContentView: View {
     var project: Project
 
     var body: some View {
-        ContentListContainerView(project: self.project)
+        VStack(alignment: .leading) {
+            ContentHeaderView(project: self.project)
+
+            Divider()
+                .foregroundStyle(.black)
+
+            ContentListContainerView(project: self.project)
+        }
     }
 }
 
@@ -19,6 +26,7 @@ struct ContentView: View {
     ModelContainerPreview {
         NavigationStack {
             ContentView(project: PreviewDataGenerator.project)
+                .background(.listBackground)
         }
     }
 }
