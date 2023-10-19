@@ -19,6 +19,9 @@ struct OrganizerApp: App {
         )
         #if os(macOS)
         .windowStyle(.hiddenTitleBar)
+        .commands {
+            OrganizerCommands()
+        }
         #endif
     }
 }

@@ -35,6 +35,7 @@ struct ProjectHeaderView: View {
             .font(.system(size: 18, weight: .bold))
         }
         .padding([.leading, .trailing])
+        .focusedSceneValue(\.showProjectForm, self.$isShowingForm)
         .sheet(isPresented: self.$isShowingForm) {
             ProjectForm()
         }
