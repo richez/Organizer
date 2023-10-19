@@ -14,7 +14,6 @@ struct ProjectView: View {
             ProjectListContainerView()
         }
         .background(.listBackground)
-        .frame(minWidth: 100)
     }
 }
 

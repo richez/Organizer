@@ -30,7 +30,7 @@ struct ProjectHeaderView: View {
         }
         .font(.headline)
         .foregroundStyle(.cellTitle)
-        .padding([.top, .leading, .trailing])
+        .padding([.leading, .trailing])
         .sheet(isPresented: self.$isShowingForm) {
             ProjectForm()
         }

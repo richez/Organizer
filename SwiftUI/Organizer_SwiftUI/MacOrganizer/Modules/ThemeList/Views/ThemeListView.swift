@@ -1,0 +1,60 @@
+//
+//  ThemeListView.swift
+//  MacOrganizer
+//
+//  Created by Thibaut Richez on 19/10/2023.
+//
+
+import SwiftData
+import SwiftUI
+
+struct ThemeListView: View {
+    private let viewModel = ViewModel()
+
+    @Query(ThemeListView.descriptor, animation: .default)
+    private var projects: [Project]
+
+    @State private var selectedThemeType: ThemeType = .all
+
+    @AppStorage(.projectListSelectedTheme)
+    private var selectedTheme: String? = nil
+
+    var body: some View {
+        List(selection: self.$selectedThemeType) {
+            ForEach(self.themeTypes, id: \.self) { themeType in
+                Label(themeType.rawValue, systemImage: themeType.systemImage)
+                    .padding(.bottom, 8)
+                    .listRowBackground(self.listRowBackground(for: themeType))
+            }
+        }
+        .padding(.top)
+        .background(Color.listBackground.opacity(0.8))
+        .onChange(of: self.selectedThemeType) {
+            self.selectedTheme = self.selectedThemeType.theme
+        }
+    }
+}
+
+private extension ThemeListView {
+    static var descriptor: FetchDescriptor<Project> {
+        var descriptor = FetchDescriptor<Project>(sortBy: [
+            SortDescriptor(\.theme, comparator: .localizedStandard, order: .reverse)
+        ])
+        descriptor.propertiesToFetch = [\.theme]
+        return descriptor
+    }
+
+    var themeTypes: [ThemeType] {
+        self.viewModel.themeTypes(in: self.projects)
+    }
+
+    func listRowBackground(for themeType: ThemeType) -> Color {
+        self.selectedThemeType == themeType ? .themeListSelected : .clear
+    }
+}
+
+#Preview {
+    ModelContainerPreview {
+        ThemeListView()
+    }
+}

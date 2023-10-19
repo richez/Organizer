@@ -118,6 +118,9 @@
 		F0D428972ADD8E8A00DAF2B2 /* URLMetadataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D428962ADD8E8A00DAF2B2 /* URLMetadataProvider.swift */; };
 		F0D428992ADD8E9100DAF2B2 /* URLMetadataConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D428982ADD8E9100DAF2B2 /* URLMetadataConfiguration.swift */; };
 		F0D9F4162AE0A4B80019231A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D9F4152AE0A4B80019231A /* MainView.swift */; };
+		F0D9F4192AE0A6AA0019231A /* ThemeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D9F4182AE0A6AA0019231A /* ThemeListView.swift */; };
+		F0D9F41D2AE0B7BD0019231A /* ThemeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D9F41C2AE0B7BD0019231A /* ThemeType.swift */; };
+		F0D9F41F2AE0B8260019231A /* ThemeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D9F41E2AE0B8260019231A /* ThemeListViewModel.swift */; };
 		F0E3473A2AD7681100B12AD9 /* ProjectListMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347392AD7681100B12AD9 /* ProjectListMenu.swift */; };
 		F0E3473C2AD786DC00B12AD9 /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E3473B2AD786DC00B12AD9 /* ProjectView.swift */; };
 		F0E347412AD7F41300B12AD9 /* ProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347402AD7F41300B12AD9 /* ProjectViewModel.swift */; };
@@ -239,6 +242,9 @@
 		F0D428962ADD8E8A00DAF2B2 /* URLMetadataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLMetadataProvider.swift; sourceTree = "<group>"; };
 		F0D428982ADD8E9100DAF2B2 /* URLMetadataConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLMetadataConfiguration.swift; sourceTree = "<group>"; };
 		F0D9F4152AE0A4B80019231A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		F0D9F4182AE0A6AA0019231A /* ThemeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeListView.swift; sourceTree = "<group>"; };
+		F0D9F41C2AE0B7BD0019231A /* ThemeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeType.swift; sourceTree = "<group>"; };
+		F0D9F41E2AE0B8260019231A /* ThemeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeListViewModel.swift; sourceTree = "<group>"; };
 		F0E347392AD7681100B12AD9 /* ProjectListMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListMenu.swift; sourceTree = "<group>"; };
 		F0E3473B2AD786DC00B12AD9 /* ProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectView.swift; sourceTree = "<group>"; };
 		F0E347402AD7F41300B12AD9 /* ProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewModel.swift; sourceTree = "<group>"; };
@@ -424,6 +430,7 @@
 			children = (
 				F051E38F2AE0235D009F1E50 /* Project */,
 				F051E3BC2AE06BB7009F1E50 /* ProjectForm */,
+				F0D9F4172AE0A65E0019231A /* ThemeList */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -762,6 +769,32 @@
 			path = App;
 			sourceTree = "<group>";
 		};
+		F0D9F4172AE0A65E0019231A /* ThemeList */ = {
+			isa = PBXGroup;
+			children = (
+				F0D9F41B2AE0B7AE0019231A /* Models */,
+				F0D9F41A2AE0B7A80019231A /* Views */,
+			);
+			path = ThemeList;
+			sourceTree = "<group>";
+		};
+		F0D9F41A2AE0B7A80019231A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F0D9F4182AE0A6AA0019231A /* ThemeListView.swift */,
+				F0D9F41E2AE0B8260019231A /* ThemeListViewModel.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F0D9F41B2AE0B7AE0019231A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F0D9F41C2AE0B7BD0019231A /* ThemeType.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		F0E3473D2AD7F29B00B12AD9 /* List */ = {
 			isa = PBXGroup;
 			children = (
@@ -1070,10 +1103,12 @@
 				F051E3832AE0222C009F1E50 /* ProjectView.swift in Sources */,
 				F051E3952AE025E0009F1E50 /* ContextMenuType.swift in Sources */,
 				F051E3912AE023A7009F1E50 /* StorageKey.swift in Sources */,
+				F0D9F41F2AE0B8260019231A /* ThemeListViewModel.swift in Sources */,
 				F051E3A52AE03984009F1E50 /* ProjectListContainerView.swift in Sources */,
 				F051E3E32AE08FF8009F1E50 /* ProjectListSortingMenu.swift in Sources */,
 				F051E38D2AE022BD009F1E50 /* String+Components.swift in Sources */,
 				F0D9F4162AE0A4B80019231A /* MainView.swift in Sources */,
+				F0D9F4192AE0A6AA0019231A /* ThemeListView.swift in Sources */,
 				F051E3C82AE07A71009F1E50 /* FormSaveButton.swift in Sources */,
 				F051E3D12AE07CCB009F1E50 /* ProjectFormViewModel.swift in Sources */,
 				F051E3D22AE07CD7009F1E50 /* ProjectFormValues.swift in Sources */,
@@ -1096,6 +1131,7 @@
 				F051E3E42AE0947F009F1E50 /* ProjectListPreviewStyleMenu.swift in Sources */,
 				F051E3C92AE07B8B009F1E50 /* AlertType.swift in Sources */,
 				F051E3972AE02672009F1E50 /* ProjectListViewModel.swift in Sources */,
+				F0D9F41D2AE0B7BD0019231A /* ThemeType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

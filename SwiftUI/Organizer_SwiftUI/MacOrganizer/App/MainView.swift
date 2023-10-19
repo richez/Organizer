@@ -12,7 +12,7 @@ struct MainView: View {
 
     var body: some View {
         NavigationSplitView(columnVisibility: self.$columnVisibility) {
-            Text("Hello World!")
+            ThemeListView()
         } content: {
             ProjectView()
         } detail: {
