@@ -10,13 +10,16 @@ import SwiftUI
 struct ProjectHeaderView: View {
     @State private var isShowingForm: Bool = false
 
+    @AppStorage(.projectListSelectedTheme)
+    private var selectedTheme: String? = nil
+
     var body: some View {
         HStack {
             Menu {
                 ProjectListSortingMenu()
                 ProjectListPreviewStyleMenu()
             } label: {
-                Text("Projects")
+                Text(self.selectedTheme ?? "Projects")
                     .font(.system(size: 15, weight: .heavy))
             }
             .menuStyle(.borderlessButton)
