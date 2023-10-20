@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentHeaderView: View {
     var project: Project
 
-    private let viewModel = ViewModel()
+    private let store: ContentStoreDescriptor & ContentStoreReader = ContentStore()
 
     @AppStorage(.contentListSelectedTheme)
     private var selectedTheme: String? = nil
@@ -69,12 +69,12 @@ private extension ContentHeaderView {
     }
 
     var themes: [String] {
-        self.viewModel.themes(in: self.project)
+        self.store.themes(in: self.project)
     }
 
     var filters: String {
-        self.viewModel.filters(
-            selectedTheme: self.selectedTheme,
+        self.store.filtersDescription(
+            for: self.selectedTheme,
             selectedType: self.selectedType
         )
     }

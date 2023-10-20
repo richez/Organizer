@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 protocol ProjectStoreDescriptor {
-    func themeDescription(for selectedTheme: String?) -> String
+    func filtersDescription(for selectedTheme: String?) -> String
     func sortDescriptor(sorting: ProjectListSorting, isAscendingOrder: Bool) -> SortDescriptor<Project>
     func predicate(selectedTeme: String?) -> Predicate<Project>?
 }

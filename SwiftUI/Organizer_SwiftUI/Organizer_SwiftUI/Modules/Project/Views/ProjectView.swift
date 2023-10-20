@@ -9,7 +9,8 @@ import SwiftUI
 
 struct ProjectView: View {
     @Binding var selected: Project?
-    private let viewModel = ViewModel()
+
+    private let store: ProjectStoreDescriptor = ProjectStore()
 
     @AppStorage(.projectListSelectedTheme)
     private var selectedTheme: String? = nil
@@ -25,7 +26,7 @@ struct ProjectView: View {
         .toolbar {
             ToolbarItem(placement: .principal) {
                 VStack {
-                    Text(self.viewModel.navbarTitle)
+                    Text("Projects")
                         .font(.headline)
                     Text(self.navbarSubtitle)
                         .font(.subheadline)
@@ -38,7 +39,7 @@ struct ProjectView: View {
 
 private extension ProjectView {
     var navbarSubtitle: String {
-        self.viewModel.navbarSubtitle(for: self.selectedTheme)
+        self.store.filtersDescription(for: selectedTheme)
     }
 }
 

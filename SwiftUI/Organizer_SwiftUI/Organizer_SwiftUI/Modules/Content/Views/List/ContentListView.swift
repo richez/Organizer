@@ -11,7 +11,7 @@ import SwiftUI
 struct ContentListView: View {
     var project: Project
 
-    private let viewModel = ViewModel()
+    private let store: ContentStoreOperations = ContentStore()
 
     @Environment(\.modelContext) private var modelContext
     @Environment(\.openURL) private var openURL
@@ -58,13 +58,13 @@ struct ContentListView: View {
                         self.editingContent = content
                     }
                     ContextMenuButton(.delete) {
-                        self.viewModel.delete(content, in: self.modelContext)
+                        self.store.delete(content, in: self.modelContext)
                     }
                 }
                 #if !os(macOS)
                 .swipeActions {
                     SwipeActionButton(.delete) {
-                        self.viewModel.delete(content, in: self.modelContext)
+                        self.store.delete(content, in: self.modelContext)
                     }
                     SwipeActionButton(.edit) {
                         self.editingContent = content
@@ -93,7 +93,7 @@ struct ContentListView: View {
             ToolbarItem {
                 ContentListMenu(
                     contentCount: self.contents.count,
-                    themes: self.viewModel.themes(in: self.project),
+                    themes: self.store.themes(in: self.project),
                     suiteName: self.project.suiteName
                 )
             }
@@ -105,7 +105,7 @@ struct ContentListView: View {
 private extension ContentListView {
     func url(for content: ProjectContent, action: (URL) -> Void) {
         do {
-            let url = try self.viewModel.url(for: content)
+            let url = try self.store.url(for: content)
             action(url)
         } catch {
             print("Could not retrieve content url: \(error)")

@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     var project: Project
 
-    private let viewModel = ViewModel()
+    private let store: ContentStoreDescriptor = ContentStore()
 
     @AppStorage(.contentListSelectedTheme)
     private var selectedTheme: String? = nil
@@ -50,8 +50,9 @@ struct ContentView: View {
 
 private extension ContentView {
     var navbarSubtitle: String {
-        self.viewModel.navbarSubtitle(
-            selectedTheme: self.selectedTheme, selectedType: self.selectedType
+        self.store.filtersDescription(
+            for: self.selectedTheme,
+            selectedType: self.selectedType
         )
     }
 }

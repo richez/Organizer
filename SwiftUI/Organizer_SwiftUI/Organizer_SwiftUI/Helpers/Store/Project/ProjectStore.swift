@@ -15,7 +15,7 @@ struct ProjectStore {
 // MARK: - ProjectStoreDescriptor
 
 extension ProjectStore: ProjectStoreDescriptor {
-    func themeDescription(for selectedTheme: String?) -> String {
+    func filtersDescription(for selectedTheme: String?) -> String {
         switch selectedTheme {
         case .none: ""
         case .some(let theme): "#\(theme)"
@@ -69,8 +69,8 @@ extension ProjectStore: ProjectStoreReader {
     func themes(in projects: [Project]) -> [String] {
         return projects
             .flatMap(\.themes)
-            .sorted(using: .localizedStandard)
             .removingDuplicates()
+            .sorted(using: .localizedStandard)
     }
 }
 
