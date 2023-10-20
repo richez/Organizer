@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProjectFormAction: View {
-    @Binding var showProjectForm: Bool?
+    @FocusedBinding(\.showProjectForm) private var showProjectForm
 
     var body: some View {
         Button("New Project") {

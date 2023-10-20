@@ -10,14 +10,13 @@ import SwiftUI
 // TODO: fix forms in light mode
 
 struct OrganizerCommands: Commands {
-    @FocusedBinding(\.showProjectForm) private var showProjectForm
     @FocusedBinding(\.selectedProject) private var selectedProject
 
     var body: some Commands {
         SidebarCommands()
 
         CommandGroup(after: .newItem) {
-            ProjectFormAction(showProjectForm: self.$showProjectForm)
+            ProjectFormAction()
         }
 
         CommandMenu("Project") {
@@ -30,10 +29,8 @@ struct OrganizerCommands: Commands {
 
                 Divider()
 
-                Button("Edit") {
+                ProjectEditorFormAction(project: self.selectedProject)
 
-                }
-                .keyboardShortcut("e", modifiers: .command)
                 Button("Delete") {
 
                 }

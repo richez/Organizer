@@ -115,6 +115,7 @@
 		F09D54D52AE2939800E23ADC /* ProjectFormAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09D54D42AE2939800E23ADC /* ProjectFormAction.swift */; };
 		F09D54D72AE293A900E23ADC /* OpenProjectWindowAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09D54D62AE293A900E23ADC /* OpenProjectWindowAction.swift */; };
 		F09D54DA2AE2947E00E23ADC /* ProjectWindowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09D54D92AE2947E00E23ADC /* ProjectWindowViewModel.swift */; };
+		F09D54DC2AE2A7CB00E23ADC /* ProjectEditorFormAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09D54DB2AE2A7CB00E23ADC /* ProjectEditorFormAction.swift */; };
 		F0D428892ADD4B2D00DAF2B2 /* ContextMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D428882ADD4B2D00DAF2B2 /* ContextMenuButton.swift */; };
 		F0D4288B2ADD4C0700DAF2B2 /* ContextMenuType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D4288A2ADD4C0700DAF2B2 /* ContextMenuType.swift */; };
 		F0D4288E2ADD58F600DAF2B2 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D4288D2ADD58F600DAF2B2 /* SafariView.swift */; };
@@ -268,6 +269,7 @@
 		F09D54D42AE2939800E23ADC /* ProjectFormAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFormAction.swift; sourceTree = "<group>"; };
 		F09D54D62AE293A900E23ADC /* OpenProjectWindowAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenProjectWindowAction.swift; sourceTree = "<group>"; };
 		F09D54D92AE2947E00E23ADC /* ProjectWindowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectWindowViewModel.swift; sourceTree = "<group>"; };
+		F09D54DB2AE2A7CB00E23ADC /* ProjectEditorFormAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectEditorFormAction.swift; sourceTree = "<group>"; };
 		F0D428882ADD4B2D00DAF2B2 /* ContextMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuButton.swift; sourceTree = "<group>"; };
 		F0D4288A2ADD4C0700DAF2B2 /* ContextMenuType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuType.swift; sourceTree = "<group>"; };
 		F0D4288D2ADD58F600DAF2B2 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
@@ -794,6 +796,7 @@
 			isa = PBXGroup;
 			children = (
 				F09D54D42AE2939800E23ADC /* ProjectFormAction.swift */,
+				F09D54DB2AE2A7CB00E23ADC /* ProjectEditorFormAction.swift */,
 				F09D54D62AE293A900E23ADC /* OpenProjectWindowAction.swift */,
 			);
 			path = Actions;
@@ -1284,6 +1287,7 @@
 				F051E3A62AE03986009F1E50 /* ProjectListContainerViewModel.swift in Sources */,
 				F0D9F4272AE1ACFD0019231A /* ProjectRowViewModel.swift in Sources */,
 				F0D9F44C2AE1EE570019231A /* Pasteboard.swift in Sources */,
+				F09D54DC2AE2A7CB00E23ADC /* ProjectEditorFormAction.swift in Sources */,
 				F051E38A2AE0228E009F1E50 /* Project.swift in Sources */,
 				F051E3CE2AE07C98009F1E50 /* FormTextFieldName.swift in Sources */,
 				F051E3982AE02680009F1E50 /* Array+Duplicates.swift in Sources */,
