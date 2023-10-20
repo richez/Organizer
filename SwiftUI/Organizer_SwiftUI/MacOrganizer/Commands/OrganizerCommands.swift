@@ -20,5 +20,43 @@ struct OrganizerCommands: Commands {
             .keyboardShortcut("n", modifiers: [.shift, .command])
             .disabled(self.showProjectForm == true)
         }
+
+        CommandMenu("Project") {
+            Text("Self-Build")
+
+            Button("Open In New Window") {
+
+            }
+
+            Divider()
+
+            Button("Edit") {
+
+            }
+            .keyboardShortcut("e", modifiers: .command)
+            Button("Delete") {
+
+            }
+            .keyboardShortcut(.delete, modifiers: .command)
+            Button("Duplicate") {
+
+            }
+            .keyboardShortcut("d", modifiers: .command)
+
+            Divider()
+
+            Button("New Content") {
+
+            }
+            .keyboardShortcut("c", modifiers: [.command, .shift])
+            Button("Edit How to choose...") {
+
+            }
+            .keyboardShortcut("e", modifiers: [.command, .shift])
+            Button("Delete How to choose...") {
+                // add prefix(10) to name
+            }
+            .keyboardShortcut(.delete, modifiers: [.command, .shift])
+        }
     }
 }
