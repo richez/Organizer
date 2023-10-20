@@ -44,6 +44,7 @@ struct ContentHeaderView: View {
             .tint(.cellTitle)
 
             Text(self.filters)
+                .foregroundStyle(.cellTitle.opacity(0.8))
 
             Spacer()
 
