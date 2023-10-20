@@ -14,5 +14,21 @@ extension ContentHeaderView {
                 .flatMap(\.themes)
                 .removingDuplicates()
         }
+
+        func filters(
+            selectedTheme: String?,
+            selectedType: ProjectContentType?
+        ) -> String {
+            switch (selectedTheme, selectedType) {
+            case (.none, .none):
+                return ""
+            case (.none, .some(let selectedType)):
+                return "\(selectedType.rawValue)s"
+            case (.some(let selectedTheme), .none):
+                return "#\(selectedTheme)"
+            case (.some(let selectedTheme), .some(let selectedType)):
+                return "#\(selectedTheme) - \(selectedType.rawValue)s"
+            }
+        }
     }
 }

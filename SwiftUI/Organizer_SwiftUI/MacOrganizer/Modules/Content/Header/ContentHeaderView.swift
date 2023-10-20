@@ -12,7 +12,21 @@ struct ContentHeaderView: View {
 
     private let viewModel = ViewModel()
 
+    @AppStorage(.contentListSelectedTheme)
+    private var selectedTheme: String? = nil
+
+    @AppStorage(.contentListSelectedType)
+    private var selectedType: ProjectContentType?
+
     @State private var isShowingForm: Bool = false
+
+    init(project: Project) {
+        self.project = project
+
+        let defaults = UserDefaults(suiteName: project.suiteName)
+        self._selectedTheme.update(with: defaults, key: .contentListSelectedTheme)
+        self._selectedType.update(with: defaults, key: .contentListSelectedType)
+    }
 
     var body: some View {
         HStack {
@@ -28,6 +42,8 @@ struct ContentHeaderView: View {
             .menuStyle(.borderlessButton)
             .fixedSize(horizontal: true, vertical: false)
             .tint(.cellTitle)
+
+            Text(self.filters)
 
             Spacer()
 
@@ -54,6 +70,13 @@ private extension ContentHeaderView {
 
     var themes: [String] {
         self.viewModel.themes(in: self.project)
+    }
+
+    var filters: String {
+        self.viewModel.filters(
+            selectedTheme: self.selectedTheme,
+            selectedType: self.selectedType
+        )
     }
 }
 
