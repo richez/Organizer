@@ -35,7 +35,7 @@ struct ContentRow: View {
             }
 
             VStack(alignment: .leading, spacing: 5) {
-                Text(self.title)
+                Text(self.content.title)
                     .font(.system(size: 15, weight: .bold))
                     .foregroundStyle(.cellTitle)
                     .lineLimit(2)
@@ -54,15 +54,11 @@ struct ContentRow: View {
 
 private extension ContentRow {
     var imageSystemName: String {
-        self.viewModel.imageSystemName(of: self.content)
-    }
-
-    var title: String {
-        self.viewModel.title(of: self.content)
+        self.viewModel.imageSystemName(for: self.content.type)
     }
 
     var themes: String {
-        self.viewModel.themes(of: self.content)
+        self.viewModel.themes(for: self.content.themes)
     }
 }
 

@@ -19,7 +19,7 @@ struct ProjectRow: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text(self.title)
+            Text(self.project.title)
                 .font(.system(size: 15, weight: .bold))
                 .foregroundStyle(.cellTitle)
                 .lineLimit(2)
@@ -46,20 +46,16 @@ struct ProjectRow: View {
 }
 
 private extension ProjectRow {
-    var title: String {
-        self.viewModel.title(of: self.project)
-    }
-
     var themes: String {
-        self.viewModel.themes(of: self.project)
+        self.viewModel.themes(for: self.project.themes)
     }
 
     var statistics: String {
-        self.viewModel.statistics(of: self.project)
+        self.viewModel.statistics(for: self.project.contents)
     }
 
     var updatedDate: String {
-        self.viewModel.updatedDate(of: self.project)
+        self.viewModel.updatedDate(for: self.project.updatedDate)
     }
 }
 

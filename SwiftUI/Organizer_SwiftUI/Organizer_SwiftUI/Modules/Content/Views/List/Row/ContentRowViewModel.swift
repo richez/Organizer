@@ -9,8 +9,8 @@ import Foundation
 
 extension ContentRow {
     struct ViewModel {
-        func imageSystemName(of content: ProjectContent) -> String {
-            switch content.type {
+        func imageSystemName(for type: ProjectContentType) -> String {
+            switch type {
             case .article:
                 return "newspaper"
             case .note:
@@ -22,12 +22,8 @@ extension ContentRow {
             }
         }
 
-        func title(of content: ProjectContent) -> String {
-            content.title
-        }
-
-        func themes(of content: ProjectContent) -> String {
-            content.themes.map { "#\($0)" }.joined(separator: " ")
+        func themes(for themes: [String]) -> String {
+            themes.map { "#\($0)" }.joined(separator: " ")
         }
     }
 }
