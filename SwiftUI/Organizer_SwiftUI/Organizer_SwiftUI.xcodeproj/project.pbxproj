@@ -49,14 +49,11 @@
 		F051E3942AE025D9009F1E50 /* ContextMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D428882ADD4B2D00DAF2B2 /* ContextMenuButton.swift */; };
 		F051E3952AE025E0009F1E50 /* ContextMenuType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D4288A2ADD4C0700DAF2B2 /* ContextMenuType.swift */; };
 		F051E3962AE0266A009F1E50 /* ProjectListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092AC622AD7098E00EAD1F6 /* ProjectListView.swift */; };
-		F051E3972AE02672009F1E50 /* ProjectListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347422AD7F43B00B12AD9 /* ProjectListViewModel.swift */; };
 		F051E3982AE02680009F1E50 /* Array+Duplicates.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347472AD800E300B12AD9 /* Array+Duplicates.swift */; };
 		F051E39D2AE02BD5009F1E50 /* ListStyleViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E39C2AE02BD5009F1E50 /* ListStyleViewModifier.swift */; };
 		F051E39F2AE030DE009F1E50 /* ProjectHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E39E2AE030DE009F1E50 /* ProjectHeaderView.swift */; };
 		F051E3A22AE038B0009F1E50 /* ProjectListContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3A12AE038B0009F1E50 /* ProjectListContainerView.swift */; };
-		F051E3A42AE0391F009F1E50 /* ProjectListContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3A32AE0391F009F1E50 /* ProjectListContainerViewModel.swift */; };
 		F051E3A52AE03984009F1E50 /* ProjectListContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3A12AE038B0009F1E50 /* ProjectListContainerView.swift */; };
-		F051E3A62AE03986009F1E50 /* ProjectListContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3A32AE0391F009F1E50 /* ProjectListContainerViewModel.swift */; };
 		F051E3A92AE03C1B009F1E50 /* ContentListContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3A82AE03C1B009F1E50 /* ContentListContainerView.swift */; };
 		F051E3AB2AE03CD3009F1E50 /* ContentListContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3AA2AE03CD3009F1E50 /* ContentListContainerViewModel.swift */; };
 		F051E3BE2AE06BC3009F1E50 /* ProjectForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3BD2AE06BC3009F1E50 /* ProjectForm.swift */; };
@@ -114,8 +111,11 @@
 		F09D54D22AE2838F00E23ADC /* ProjectWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09D54D12AE2838F00E23ADC /* ProjectWindow.swift */; };
 		F09D54D52AE2939800E23ADC /* ProjectFormAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09D54D42AE2939800E23ADC /* ProjectFormAction.swift */; };
 		F09D54D72AE293A900E23ADC /* OpenProjectWindowAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09D54D62AE293A900E23ADC /* OpenProjectWindowAction.swift */; };
-		F09D54DA2AE2947E00E23ADC /* ProjectWindowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09D54D92AE2947E00E23ADC /* ProjectWindowViewModel.swift */; };
 		F09D54DC2AE2A7CB00E23ADC /* ProjectEditorFormAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09D54DB2AE2A7CB00E23ADC /* ProjectEditorFormAction.swift */; };
+		F09D54DF2AE2B0FF00E23ADC /* ProjectStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09D54DE2AE2B0FF00E23ADC /* ProjectStore.swift */; };
+		F09D54E12AE2B5A300E23ADC /* ProjectStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09D54E02AE2B5A300E23ADC /* ProjectStoreProtocol.swift */; };
+		F09D54E22AE2B66000E23ADC /* ProjectStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09D54E02AE2B5A300E23ADC /* ProjectStoreProtocol.swift */; };
+		F09D54E32AE2B66300E23ADC /* ProjectStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09D54DE2AE2B0FF00E23ADC /* ProjectStore.swift */; };
 		F0D428892ADD4B2D00DAF2B2 /* ContextMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D428882ADD4B2D00DAF2B2 /* ContextMenuButton.swift */; };
 		F0D4288B2ADD4C0700DAF2B2 /* ContextMenuType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D4288A2ADD4C0700DAF2B2 /* ContextMenuType.swift */; };
 		F0D4288E2ADD58F600DAF2B2 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D4288D2ADD58F600DAF2B2 /* SafariView.swift */; };
@@ -156,7 +156,6 @@
 		F0E3473A2AD7681100B12AD9 /* ProjectListMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347392AD7681100B12AD9 /* ProjectListMenu.swift */; };
 		F0E3473C2AD786DC00B12AD9 /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E3473B2AD786DC00B12AD9 /* ProjectView.swift */; };
 		F0E347412AD7F41300B12AD9 /* ProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347402AD7F41300B12AD9 /* ProjectViewModel.swift */; };
-		F0E347432AD7F43B00B12AD9 /* ProjectListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347422AD7F43B00B12AD9 /* ProjectListViewModel.swift */; };
 		F0E347452AD7F48800B12AD9 /* ProjectRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347442AD7F48800B12AD9 /* ProjectRowViewModel.swift */; };
 		F0E347482AD800E300B12AD9 /* Array+Duplicates.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347472AD800E300B12AD9 /* Array+Duplicates.swift */; };
 		F0E3474A2AD8010C00B12AD9 /* String+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347492AD8010C00B12AD9 /* String+Components.swift */; };
@@ -220,7 +219,6 @@
 		F051E39C2AE02BD5009F1E50 /* ListStyleViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListStyleViewModifier.swift; sourceTree = "<group>"; };
 		F051E39E2AE030DE009F1E50 /* ProjectHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectHeaderView.swift; sourceTree = "<group>"; };
 		F051E3A12AE038B0009F1E50 /* ProjectListContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListContainerView.swift; sourceTree = "<group>"; };
-		F051E3A32AE0391F009F1E50 /* ProjectListContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListContainerViewModel.swift; sourceTree = "<group>"; };
 		F051E3A82AE03C1B009F1E50 /* ContentListContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentListContainerView.swift; sourceTree = "<group>"; };
 		F051E3AA2AE03CD3009F1E50 /* ContentListContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentListContainerViewModel.swift; sourceTree = "<group>"; };
 		F051E3BD2AE06BC3009F1E50 /* ProjectForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectForm.swift; sourceTree = "<group>"; };
@@ -268,8 +266,9 @@
 		F09D54D12AE2838F00E23ADC /* ProjectWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectWindow.swift; sourceTree = "<group>"; };
 		F09D54D42AE2939800E23ADC /* ProjectFormAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFormAction.swift; sourceTree = "<group>"; };
 		F09D54D62AE293A900E23ADC /* OpenProjectWindowAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenProjectWindowAction.swift; sourceTree = "<group>"; };
-		F09D54D92AE2947E00E23ADC /* ProjectWindowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectWindowViewModel.swift; sourceTree = "<group>"; };
 		F09D54DB2AE2A7CB00E23ADC /* ProjectEditorFormAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectEditorFormAction.swift; sourceTree = "<group>"; };
+		F09D54DE2AE2B0FF00E23ADC /* ProjectStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectStore.swift; sourceTree = "<group>"; };
+		F09D54E02AE2B5A300E23ADC /* ProjectStoreProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectStoreProtocol.swift; sourceTree = "<group>"; };
 		F0D428882ADD4B2D00DAF2B2 /* ContextMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuButton.swift; sourceTree = "<group>"; };
 		F0D4288A2ADD4C0700DAF2B2 /* ContextMenuType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuType.swift; sourceTree = "<group>"; };
 		F0D4288D2ADD58F600DAF2B2 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
@@ -294,7 +293,6 @@
 		F0E347392AD7681100B12AD9 /* ProjectListMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListMenu.swift; sourceTree = "<group>"; };
 		F0E3473B2AD786DC00B12AD9 /* ProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectView.swift; sourceTree = "<group>"; };
 		F0E347402AD7F41300B12AD9 /* ProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewModel.swift; sourceTree = "<group>"; };
-		F0E347422AD7F43B00B12AD9 /* ProjectListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListViewModel.swift; sourceTree = "<group>"; };
 		F0E347442AD7F48800B12AD9 /* ProjectRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectRowViewModel.swift; sourceTree = "<group>"; };
 		F0E347472AD800E300B12AD9 /* Array+Duplicates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Duplicates.swift"; sourceTree = "<group>"; };
 		F0E347492AD8010C00B12AD9 /* String+Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Components.swift"; sourceTree = "<group>"; };
@@ -524,7 +522,6 @@
 			isa = PBXGroup;
 			children = (
 				F051E3A12AE038B0009F1E50 /* ProjectListContainerView.swift */,
-				F051E3A32AE0391F009F1E50 /* ProjectListContainerViewModel.swift */,
 			);
 			path = Container;
 			sourceTree = "<group>";
@@ -806,7 +803,23 @@
 			isa = PBXGroup;
 			children = (
 				F09D54D12AE2838F00E23ADC /* ProjectWindow.swift */,
-				F09D54D92AE2947E00E23ADC /* ProjectWindowViewModel.swift */,
+			);
+			path = Project;
+			sourceTree = "<group>";
+		};
+		F09D54DD2AE2B0F300E23ADC /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				F09D54E42AE2BD6D00E23ADC /* Project */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		F09D54E42AE2BD6D00E23ADC /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				F09D54E02AE2B5A300E23ADC /* ProjectStoreProtocol.swift */,
+				F09D54DE2AE2B0FF00E23ADC /* ProjectStore.swift */,
 			);
 			path = Project;
 			sourceTree = "<group>";
@@ -956,7 +969,6 @@
 			isa = PBXGroup;
 			children = (
 				F092AC622AD7098E00EAD1F6 /* ProjectListView.swift */,
-				F0E347422AD7F43B00B12AD9 /* ProjectListViewModel.swift */,
 				F0E3473F2AD7F3FF00B12AD9 /* Row */,
 			);
 			path = List;
@@ -1017,6 +1029,7 @@
 				F061DC542AD973E800507993 /* Preview */,
 				F0D4288C2ADD58C400DAF2B2 /* SafariView */,
 				F0E347562AD8257E00B12AD9 /* Storage */,
+				F09D54DD2AE2B0F300E23ADC /* Store */,
 				F0D428912ADD8DFC00DAF2B2 /* URLMetadata */,
 				F0E347572AD8258900B12AD9 /* Views */,
 				F061DC532AD973AD00507993 /* ViewModifiers */,
@@ -1257,7 +1270,6 @@
 				F0D9F4252AE169DA0019231A /* ProjectUnavailableView.swift in Sources */,
 				F0D9F43E2AE1DBBA0019231A /* ContentHeaderViewModel.swift in Sources */,
 				F051E3BE2AE06BC3009F1E50 /* ProjectForm.swift in Sources */,
-				F09D54DA2AE2947E00E23ADC /* ProjectWindowViewModel.swift in Sources */,
 				F0D9F4392AE1DAB70019231A /* ContentListThemeMenu.swift in Sources */,
 				F051E3CF2AE07CB2009F1E50 /* FormFieldValidator.swift in Sources */,
 				F051E3902AE023A3009F1E50 /* AppStorage+Key.swift in Sources */,
@@ -1284,10 +1296,10 @@
 				F051E3892AE02284009F1E50 /* PreviewDataGenerator.swift in Sources */,
 				F0D9F43A2AE1DABA0019231A /* ContentListTypeMenu.swift in Sources */,
 				F0D9F4322AE1CAD70019231A /* ContentListView.swift in Sources */,
-				F051E3A62AE03986009F1E50 /* ProjectListContainerViewModel.swift in Sources */,
 				F0D9F4272AE1ACFD0019231A /* ProjectRowViewModel.swift in Sources */,
 				F0D9F44C2AE1EE570019231A /* Pasteboard.swift in Sources */,
 				F09D54DC2AE2A7CB00E23ADC /* ProjectEditorFormAction.swift in Sources */,
+				F09D54E32AE2B66300E23ADC /* ProjectStore.swift in Sources */,
 				F051E38A2AE0228E009F1E50 /* Project.swift in Sources */,
 				F051E3CE2AE07C98009F1E50 /* FormTextFieldName.swift in Sources */,
 				F051E3982AE02680009F1E50 /* Array+Duplicates.swift in Sources */,
@@ -1298,6 +1310,7 @@
 				F051E3C52AE070EE009F1E50 /* FormTextFieldConfiguration.swift in Sources */,
 				F051E3D02AE07CBE009F1E50 /* String+URL.swift in Sources */,
 				F0D9F4462AE1E2040019231A /* URLMetadataProviderProtocol.swift in Sources */,
+				F09D54E22AE2B66000E23ADC /* ProjectStoreProtocol.swift in Sources */,
 				F0D9F4312AE1CAD30019231A /* ContentListContainerViewModel.swift in Sources */,
 				F0D9F4482AE1E2390019231A /* ContentFormValues.swift in Sources */,
 				F051E3942AE025D9009F1E50 /* ContextMenuButton.swift in Sources */,
@@ -1315,7 +1328,6 @@
 				F051E3C92AE07B8B009F1E50 /* AlertType.swift in Sources */,
 				F09D54D52AE2939800E23ADC /* ProjectFormAction.swift in Sources */,
 				F0D9F4362AE1D8110019231A /* ContentHeaderView.swift in Sources */,
-				F051E3972AE02672009F1E50 /* ProjectListViewModel.swift in Sources */,
 				F0D9F41D2AE0B7BD0019231A /* ThemeType.swift in Sources */,
 				F0D9F4332AE1CADB0019231A /* ContentListViewModel.swift in Sources */,
 			);
@@ -1341,7 +1353,6 @@
 				F07DE09B2AD7449300B3B91E /* ProjectRow.swift in Sources */,
 				F061DC722AD9F02E00507993 /* ContentRowViewModel.swift in Sources */,
 				F061DC652AD9A17E00507993 /* ContentListMenu.swift in Sources */,
-				F0E347432AD7F43B00B12AD9 /* ProjectListViewModel.swift in Sources */,
 				F051E3E02AE08CE0009F1E50 /* ContentListThemeMenu.swift in Sources */,
 				F0E3475C2AD8295200B12AD9 /* ProjectForm.swift in Sources */,
 				F051E3A92AE03C1B009F1E50 /* ContentListContainerView.swift in Sources */,
@@ -1351,11 +1362,11 @@
 				F092AC5B2AD7046C00EAD1F6 /* ProjectContent.swift in Sources */,
 				F061DC7F2ADAB1D200507993 /* String+URL.swift in Sources */,
 				F0D9F4242AE169DA0019231A /* ProjectUnavailableView.swift in Sources */,
-				F051E3A42AE0391F009F1E50 /* ProjectListContainerViewModel.swift in Sources */,
 				F051E3CC2AE07C98009F1E50 /* FormTextFieldName.swift in Sources */,
 				F061DC792ADA967C00507993 /* ContentFormViewModel.swift in Sources */,
 				F061DC602AD9A0E300507993 /* ContentListSorting.swift in Sources */,
 				F051E3D42AE089C7009F1E50 /* ProjectListSortingMenu.swift in Sources */,
+				F09D54DF2AE2B0FF00E23ADC /* ProjectStore.swift in Sources */,
 				F061DC7D2ADAB04100507993 /* ContentFormValues.swift in Sources */,
 				F092AC462AD6FDDA00EAD1F6 /* OrganizerApp.swift in Sources */,
 				F0E347502AD81C8A00B12AD9 /* StorageKey.swift in Sources */,
@@ -1386,6 +1397,7 @@
 				F0D428932ADD8E6300DAF2B2 /* URLMetadataProviderProtocol.swift in Sources */,
 				F061DC562AD9741100507993 /* ListStyleViewModifier.swift in Sources */,
 				F0E347592AD8259D00B12AD9 /* FloatingButtonSheet.swift in Sources */,
+				F09D54E12AE2B5A300E23ADC /* ProjectStoreProtocol.swift in Sources */,
 				F0E9848C2AD8ACB40082F6A1 /* FormTextFieldConfiguration.swift in Sources */,
 				F061DC4F2AD9459200507993 /* ContentListView.swift in Sources */,
 				F061DC6B2AD9AC9D00507993 /* ContentListViewModel.swift in Sources */,

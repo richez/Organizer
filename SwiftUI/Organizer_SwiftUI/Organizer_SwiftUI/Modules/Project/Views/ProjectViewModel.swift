@@ -9,15 +9,12 @@ import Foundation
 
 extension ProjectView {
     struct ViewModel {
+        var store: ProjectStoreDescriptor = ProjectStore()
+
         var navbarTitle: String { "Projects" }
 
         func navbarSubtitle(for selectedTheme: String?) -> String {
-            switch selectedTheme {
-            case .none:
-                return ""
-            case .some(let theme):
-                return "#\(theme)"
-            }
+            self.store.themeDescription(for: selectedTheme)
         }
     }
 }

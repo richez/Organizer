@@ -11,7 +11,7 @@ import SwiftUI
 struct ProjectListView: View {
     @Binding var selected: Project?
 
-    private let viewModel = ViewModel()
+    private let store: ProjectStoreOperations = ProjectStore()
 
     @Environment(\.modelContext) private var modelContext
     @Query private var projects: [Project]
@@ -34,19 +34,19 @@ struct ProjectListView: View {
                     .listRowSeparatorTint(.cellSeparatorTint)
                     .contextMenu {
                         ContextMenuButton(.duplicate) {
-                            self.viewModel.duplicate(project, in: self.modelContext)
+                            self.store.duplicate(project, in: self.modelContext)
                         }
                         ContextMenuButton(.edit) {
                             self.editingProject = project
                         }
                         ContextMenuButton(.delete) {
-                            self.viewModel.delete(project, in: self.modelContext)
+                            self.store.delete(project, in: self.modelContext)
                         }
                     }
                     #if !os(macOS)
                     .swipeActions {
                         SwipeActionButton(.delete) {
-                            self.viewModel.delete(project, in: self.modelContext)
+                            self.store.delete(project, in: self.modelContext)
                         }
                         SwipeActionButton(.edit) {
                             self.editingProject = project
@@ -63,7 +63,7 @@ struct ProjectListView: View {
             ToolbarItem {
                 ProjectListMenu(
                     projectCount: self.projects.count,
-                    themes: self.viewModel.themes(in: self.modelContext)
+                    themes: self.store.themes(in: self.modelContext)
                 )
             }
         }

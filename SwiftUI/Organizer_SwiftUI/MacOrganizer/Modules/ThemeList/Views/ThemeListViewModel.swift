@@ -9,13 +9,10 @@ import Foundation
 
 extension ThemeListView {
     struct ViewModel {
+        var store: ProjectStoreReader = ProjectStore()
+
         func themeTypes(in projects: [Project]) -> [ThemeType] {
-            let themes = projects
-                .flatMap(\.themes)
-                .sorted(using: .localizedStandard)
-                .removingDuplicates()
-                .map(ThemeType.custom)
-            return [.all] + themes
+            return [.all] + self.store.themes(in: projects).map(ThemeType.custom)
         }
     }
 }

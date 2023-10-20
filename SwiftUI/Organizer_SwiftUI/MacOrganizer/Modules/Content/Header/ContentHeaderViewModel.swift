@@ -9,12 +9,14 @@ import Foundation
 
 extension ContentHeaderView {
     struct ViewModel {
+        // TODO: use project store
         func themes(in project: Project) -> [String] {
             return project.contents
                 .flatMap(\.themes)
                 .removingDuplicates()
         }
 
+        // TODO: use content store
         func filters(
             selectedTheme: String?,
             selectedType: ProjectContentType?
