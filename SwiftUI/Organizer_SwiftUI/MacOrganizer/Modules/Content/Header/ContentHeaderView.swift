@@ -43,8 +43,17 @@ struct ContentHeaderView: View {
             .fixedSize(horizontal: true, vertical: false)
             .tint(.cellTitle)
 
-            Text(self.filters)
-                .foregroundStyle(.cellTitle.opacity(0.8))
+            if self.hasFilter {
+                Text(self.filters)
+                    .foregroundStyle(.cellTitle.opacity(0.8))
+
+                Button("Reset") {
+                    self.selectedTheme = nil
+                    self.selectedType = nil
+                }
+                .buttonStyle(.borderless)
+                .foregroundStyle(.blue.opacity(0.8))
+            }
 
             Spacer()
 
@@ -71,6 +80,10 @@ private extension ContentHeaderView {
 
     var themes: [String] {
         self.store.themes(in: self.project)
+    }
+
+    var hasFilter: Bool {
+        self.selectedTheme != nil || self.selectedType != nil
     }
 
     var filters: String {
