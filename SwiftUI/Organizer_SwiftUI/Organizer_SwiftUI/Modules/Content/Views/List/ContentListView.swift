@@ -81,6 +81,7 @@ struct ContentListView: View {
         .onChange(of: self.isShowingContentURL) {
             if let url = self.isShowingContentURL {
                 self.openURL(url)
+                self.isShowingContentURL = nil
             }
         }
         #else

@@ -13,7 +13,6 @@ struct ListStyleViewModifier: ViewModifier {
             .background(Color.listBackground)
             .scrollContentBackground(.hidden)
             .toolbarBackground(.listBackground)
-            .toolbarBackground(.visible)
             .toolbarColorScheme(.dark)
     }
 }

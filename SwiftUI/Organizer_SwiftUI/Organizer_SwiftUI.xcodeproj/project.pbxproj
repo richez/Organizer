@@ -109,6 +109,8 @@
 		F092AC5B2AD7046C00EAD1F6 /* ProjectContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092AC5A2AD7046C00EAD1F6 /* ProjectContent.swift */; };
 		F092AC5F2AD7083C00EAD1F6 /* ModelContainerPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092AC5E2AD7083C00EAD1F6 /* ModelContainerPreview.swift */; };
 		F092AC632AD7098E00EAD1F6 /* ProjectListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092AC622AD7098E00EAD1F6 /* ProjectListView.swift */; };
+		F09D54CE2AE1F8AD00E23ADC /* ContentRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC6F2AD9F02600507993 /* ContentRow.swift */; };
+		F09D54CF2AE1F8BE00E23ADC /* ContentRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC712AD9F02E00507993 /* ContentRowViewModel.swift */; };
 		F0D428892ADD4B2D00DAF2B2 /* ContextMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D428882ADD4B2D00DAF2B2 /* ContextMenuButton.swift */; };
 		F0D4288B2ADD4C0700DAF2B2 /* ContextMenuType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D4288A2ADD4C0700DAF2B2 /* ContextMenuType.swift */; };
 		F0D4288E2ADD58F600DAF2B2 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D4288D2ADD58F600DAF2B2 /* SafariView.swift */; };
@@ -1220,6 +1222,7 @@
 				F051E3CF2AE07CB2009F1E50 /* FormFieldValidator.swift in Sources */,
 				F051E3902AE023A3009F1E50 /* AppStorage+Key.swift in Sources */,
 				F051E38B2AE02294009F1E50 /* ProjectContent.swift in Sources */,
+				F09D54CE2AE1F8AD00E23ADC /* ContentRow.swift in Sources */,
 				F051E3832AE0222C009F1E50 /* ProjectView.swift in Sources */,
 				F051E3952AE025E0009F1E50 /* ContextMenuType.swift in Sources */,
 				F051E3912AE023A7009F1E50 /* StorageKey.swift in Sources */,
@@ -1248,6 +1251,7 @@
 				F051E3982AE02680009F1E50 /* Array+Duplicates.swift in Sources */,
 				F0D9F42F2AE1C47A0019231A /* ContentView.swift in Sources */,
 				F0D9F42C2AE1BAB60019231A /* FocusedValues.swift in Sources */,
+				F09D54CF2AE1F8BE00E23ADC /* ContentRowViewModel.swift in Sources */,
 				F0D9F4382AE1DAB50019231A /* ContentListPreviewStyleMenu.swift in Sources */,
 				F051E3C52AE070EE009F1E50 /* FormTextFieldConfiguration.swift in Sources */,
 				F051E3D02AE07CBE009F1E50 /* String+URL.swift in Sources */,

@@ -30,16 +30,3 @@ struct ContentView: View {
         }
     }
 }
-
-struct ContentRow: View {
-    var content: ProjectContent
-
-    init(content: ProjectContent, suiteName: String) {
-        self.content = content
-    }
-
-    var body: some View {
-        Text(self.content.title)
-            .foregroundStyle(.white)
-    }
-}
