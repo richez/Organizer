@@ -41,6 +41,7 @@ struct ProjectListView: View {
                         }
                         ContextMenuButton(.delete) {
                             self.store.delete(project, in: self.modelContext)
+                            self.selected = nil
                         }
                     }
                     #if !os(macOS)

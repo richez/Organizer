@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProjectEditorFormAction: View {
-    var project: Project??
+    var project: Project?
     
     @FocusedBinding(\.showProjectEditorForm) private var showProjectEditorForm
 

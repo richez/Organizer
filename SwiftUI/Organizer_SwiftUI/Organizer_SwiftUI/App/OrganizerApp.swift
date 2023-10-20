@@ -24,13 +24,13 @@ struct OrganizerApp: App {
         WindowGroup {
             MainView()
         }
-        .modelContainer(self.container)
         #if os(macOS)
         .windowStyle(.hiddenTitleBar)
         .commands {
             OrganizerCommands()
         }
         #endif
+        .modelContainer(self.container)
 
         #if os(macOS)
         WindowGroup(for: PersistentIdentifier.self) { $id in

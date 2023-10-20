@@ -10,7 +10,8 @@ import SwiftUI
 // TODO: fix forms in light mode
 
 struct OrganizerCommands: Commands {
-    @FocusedBinding(\.selectedProject) private var selectedProject
+    @FocusedValue(\.selectedProject) private var selectedProject
+    @Environment(\.modelContext) private var modelContext
 
     var body: some Commands {
         SidebarCommands()
@@ -21,20 +22,18 @@ struct OrganizerCommands: Commands {
 
         CommandMenu("Project") {
             Group {
-                if let title = self.selectedProject??.title {
-                    Text(title)
+                if let project = self.selectedProject?.wrappedValue {
+                    Text(project.title)
                 }
 
-                OpenProjectWindowAction(project: self.selectedProject)
+                OpenProjectWindowAction(project: self.selectedProject?.wrappedValue)
 
                 Divider()
 
-                ProjectEditorFormAction(project: self.selectedProject)
+                ProjectEditorFormAction(project: self.selectedProject?.wrappedValue)
 
-                Button("Delete") {
+                ProjectDeleteAction(selectedProject: self.selectedProject, context: self.modelContext)
 
-                }
-                .keyboardShortcut(.delete, modifiers: .command)
                 Button("Duplicate") {
 
                 }

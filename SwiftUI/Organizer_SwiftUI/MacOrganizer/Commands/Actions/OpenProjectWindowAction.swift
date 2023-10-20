@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct OpenProjectWindowAction: View {
-    var project: Project??
+    var project: Project?
 
     @Environment(\.openWindow) private var openWindow
 
     var body: some View {
         Button("Open In New Window") {
-            if let project, let id = project?.persistentModelID {
-                self.openWindow(value: id)
+            if let project {
+                self.openWindow(value: project.persistentModelID)
             }
         }
     }
