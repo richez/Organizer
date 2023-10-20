@@ -10,18 +10,35 @@ import SwiftUI
 
 @main
 struct OrganizerApp: App {
+    var container: ModelContainer
+
+    init() {
+        do {
+            self.container = try ModelContainer(for: Project.self, ProjectContent.self)
+        } catch {
+            fatalError("Failed to configure SwiftData container.")
+        }
+    }
+
     var body: some Scene {
         WindowGroup {
             MainView()
         }
-        .modelContainer(
-            for: [Project.self, ProjectContent.self], isAutosaveEnabled: true
-        )
+        .modelContainer(self.container)
         #if os(macOS)
         .windowStyle(.hiddenTitleBar)
         .commands {
             OrganizerCommands()
         }
+        #endif
+
+        #if os(macOS)
+        WindowGroup(for: PersistentIdentifier.self) { $id in
+            ProjectWindow(projectID: $id)
+        }
+        .modelContainer(self.container)
+        .windowStyle(.hiddenTitleBar)
+        .commandsRemoved()
         #endif
     }
 }

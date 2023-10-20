@@ -7,56 +7,58 @@
 
 import SwiftUI
 
+// TODO: fix forms in light mode
+
 struct OrganizerCommands: Commands {
     @FocusedBinding(\.showProjectForm) private var showProjectForm
+    @FocusedBinding(\.selectedProject) private var selectedProject
 
     var body: some Commands {
         SidebarCommands()
 
         CommandGroup(after: .newItem) {
-            Button("New Project") {
-                self.showProjectForm?.toggle()
-            }
-            .keyboardShortcut("n", modifiers: [.shift, .command])
-            .disabled(self.showProjectForm == true)
+            ProjectFormAction(showProjectForm: self.$showProjectForm)
         }
 
         CommandMenu("Project") {
-            Text("Self-Build")
+            Group {
+                if let title = self.selectedProject??.title {
+                    Text(title)
+                }
 
-            Button("Open In New Window") {
+                OpenProjectWindowAction(project: self.selectedProject)
 
+                Divider()
+
+                Button("Edit") {
+
+                }
+                .keyboardShortcut("e", modifiers: .command)
+                Button("Delete") {
+
+                }
+                .keyboardShortcut(.delete, modifiers: .command)
+                Button("Duplicate") {
+
+                }
+                .keyboardShortcut("d", modifiers: .command)
+
+                Divider()
+
+                Button("New Content") {
+
+                }
+                .keyboardShortcut("c", modifiers: [.command, .shift])
+                Button("Edit How to choose...") {
+
+                }
+                .keyboardShortcut("e", modifiers: [.command, .shift])
+                Button("Delete How to choose...") {
+                    // add prefix(10) to name
+                }
+                .keyboardShortcut(.delete, modifiers: [.command, .shift])
             }
-
-            Divider()
-
-            Button("Edit") {
-
-            }
-            .keyboardShortcut("e", modifiers: .command)
-            Button("Delete") {
-
-            }
-            .keyboardShortcut(.delete, modifiers: .command)
-            Button("Duplicate") {
-
-            }
-            .keyboardShortcut("d", modifiers: .command)
-
-            Divider()
-
-            Button("New Content") {
-
-            }
-            .keyboardShortcut("c", modifiers: [.command, .shift])
-            Button("Edit How to choose...") {
-
-            }
-            .keyboardShortcut("e", modifiers: [.command, .shift])
-            Button("Delete How to choose...") {
-                // add prefix(10) to name
-            }
-            .keyboardShortcut(.delete, modifiers: [.command, .shift])
+            .disabled(self.selectedProject == nil)
         }
     }
 }
