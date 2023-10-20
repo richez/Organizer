@@ -34,10 +34,7 @@ struct OrganizerCommands: Commands {
 
                 ProjectDeleteAction(selectedProject: self.selectedProject, context: self.modelContext)
 
-                Button("Duplicate") {
-
-                }
-                .keyboardShortcut("d", modifiers: .command)
+                ProjectDuplicateAction(project: self.selectedProject?.wrappedValue, context: self.modelContext)
 
                 Divider()
 
