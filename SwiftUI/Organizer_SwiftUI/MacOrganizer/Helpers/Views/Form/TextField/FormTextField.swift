@@ -16,7 +16,7 @@ struct FormTextField: View {
         Group {
             LabeledContent(self.configuration.name) {
                 TextField("", text: self.$text)
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(.formTextfield)
             }
 
             Text(self.configuration.errorMessage)
