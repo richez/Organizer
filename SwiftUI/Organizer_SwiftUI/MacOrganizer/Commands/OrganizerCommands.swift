@@ -38,18 +38,7 @@ struct OrganizerCommands: Commands {
 
                 Divider()
 
-                Button("New Content") {
-
-                }
-                .keyboardShortcut("c", modifiers: [.command, .shift])
-                Button("Edit How to choose...") {
-
-                }
-                .keyboardShortcut("e", modifiers: [.command, .shift])
-                Button("Delete How to choose...") {
-                    // add prefix(10) to name
-                }
-                .keyboardShortcut(.delete, modifiers: [.command, .shift])
+                ContentFormAction()
             }
             .disabled(self.selectedProject == nil)
         }

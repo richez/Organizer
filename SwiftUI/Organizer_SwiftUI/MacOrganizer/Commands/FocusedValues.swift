@@ -19,6 +19,10 @@ private struct SelectedProject: FocusedValueKey {
     typealias Value = Binding<Project?>
 }
 
+private struct ShowContentFormKey: FocusedValueKey {
+    typealias Value = Binding<Bool>
+}
+
 extension FocusedValues {
     var showProjectForm: Binding<Bool>? {
         get { self[ShowProjectFormKey.self] }
@@ -33,5 +37,10 @@ extension FocusedValues {
     var selectedProject: Binding<Project?>? {
         get { self[SelectedProject.self] }
         set { self[SelectedProject.self] = newValue }
+    }
+
+    var showContentForm: Binding<Bool>? {
+        get { self[ShowContentFormKey.self] }
+        set { self[ShowContentFormKey.self] = newValue }
     }
 }

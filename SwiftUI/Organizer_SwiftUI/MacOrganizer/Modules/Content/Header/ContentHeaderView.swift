@@ -67,6 +67,7 @@ struct ContentHeaderView: View {
             .font(.system(size: 18, weight: .bold))
         }
         .padding()
+        .focusedSceneValue(\.showContentForm, self.$isShowingForm)
         .sheet(isPresented: self.$isShowingForm) {
             ContentForm(project: self.project)
         }
