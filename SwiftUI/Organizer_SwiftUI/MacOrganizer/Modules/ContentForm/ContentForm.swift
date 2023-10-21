@@ -32,16 +32,17 @@ struct ContentForm: View {
                 self.save()
             }
 
-            Picker("Type", selection: self.$type) {
-                ForEach(ProjectContentType.allCases) { type in
-                    Text(type.rawValue)
-                        .tag(type)
-                }
-            }
-            .pickerStyle(.segmented)
-            .padding(.leading, 25)
-
             Form {
+                Picker("Type", selection: self.$type) {
+                    ForEach(ProjectContentType.allCases) { type in
+                        Text(type.rawValue)
+                            .tag(type)
+                    }
+                }
+                .pickerStyle(.segmented)
+                .padding(.bottom)
+                .preferredColorScheme(.dark)
+
                 FormTextField(
                     configuration: .contentLink,
                     text: self.$link,
