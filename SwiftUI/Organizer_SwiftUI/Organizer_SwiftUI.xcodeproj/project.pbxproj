@@ -94,6 +94,8 @@
 		F061DC7B2ADA9A4600507993 /* FormSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC7A2ADA9A4600507993 /* FormSection.swift */; };
 		F061DC7D2ADAB04100507993 /* ContentFormValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC7C2ADAB04100507993 /* ContentFormValues.swift */; };
 		F061DC7F2ADAB1D200507993 /* String+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC7E2ADAB1D200507993 /* String+URL.swift */; };
+		F06A29172AE4756000B5A480 /* ProjectRowSelectedIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06A29162AE4756000B5A480 /* ProjectRowSelectedIndicator.swift */; };
+		F06A291B2AE475A100B5A480 /* ProjectRowSelectedIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06A291A2AE475A100B5A480 /* ProjectRowSelectedIndicator.swift */; };
 		F07DE09B2AD7449300B3B91E /* ProjectRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07DE09A2AD7449300B3B91E /* ProjectRow.swift */; };
 		F092AC462AD6FDDA00EAD1F6 /* OrganizerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092AC452AD6FDDA00EAD1F6 /* OrganizerApp.swift */; };
 		F092AC482AD6FDDA00EAD1F6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092AC472AD6FDDA00EAD1F6 /* MainView.swift */; };
@@ -249,6 +251,8 @@
 		F061DC7A2ADA9A4600507993 /* FormSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormSection.swift; sourceTree = "<group>"; };
 		F061DC7C2ADAB04100507993 /* ContentFormValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentFormValues.swift; sourceTree = "<group>"; };
 		F061DC7E2ADAB1D200507993 /* String+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+URL.swift"; sourceTree = "<group>"; };
+		F06A29162AE4756000B5A480 /* ProjectRowSelectedIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectRowSelectedIndicator.swift; sourceTree = "<group>"; };
+		F06A291A2AE475A100B5A480 /* ProjectRowSelectedIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectRowSelectedIndicator.swift; sourceTree = "<group>"; };
 		F07DE09A2AD7449300B3B91E /* ProjectRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectRow.swift; sourceTree = "<group>"; };
 		F092AC422AD6FDDA00EAD1F6 /* Organizer_SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Organizer_SwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F092AC452AD6FDDA00EAD1F6 /* OrganizerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizerApp.swift; sourceTree = "<group>"; };
@@ -486,6 +490,7 @@
 		F051E38F2AE0235D009F1E50 /* Project */ = {
 			isa = PBXGroup;
 			children = (
+				F06A29182AE4759300B5A480 /* List */,
 				F051E3822AE0222C009F1E50 /* ProjectView.swift */,
 				F0D9F43B2AE1DBA60019231A /* Header */,
 			);
@@ -686,6 +691,22 @@
 				F061DC782ADA967C00507993 /* ContentFormViewModel.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		F06A29182AE4759300B5A480 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				F06A29192AE4759700B5A480 /* Row */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		F06A29192AE4759700B5A480 /* Row */ = {
+			isa = PBXGroup;
+			children = (
+				F06A291A2AE475A100B5A480 /* ProjectRowSelectedIndicator.swift */,
+			);
+			path = Row;
 			sourceTree = "<group>";
 		};
 		F092AC392AD6FDDA00EAD1F6 = {
@@ -999,6 +1020,7 @@
 			children = (
 				F07DE09A2AD7449300B3B91E /* ProjectRow.swift */,
 				F0E347442AD7F48800B12AD9 /* ProjectRowViewModel.swift */,
+				F06A29162AE4756000B5A480 /* ProjectRowSelectedIndicator.swift */,
 			);
 			path = Row;
 			sourceTree = "<group>";
@@ -1332,6 +1354,7 @@
 				F051E3882AE02281009F1E50 /* ModelContainer+Preview.swift in Sources */,
 				F051E39F2AE030DE009F1E50 /* ProjectHeaderView.swift in Sources */,
 				F051E3CA2AE07B90009F1E50 /* AlertViewModifier.swift in Sources */,
+				F06A291B2AE475A100B5A480 /* ProjectRowSelectedIndicator.swift in Sources */,
 				F051E39D2AE02BD5009F1E50 /* ListStyleViewModifier.swift in Sources */,
 				F051E3E42AE0947F009F1E50 /* ProjectListPreviewStyleMenu.swift in Sources */,
 				F0D9F42A2AE1BA170019231A /* OrganizerCommands.swift in Sources */,
@@ -1350,6 +1373,7 @@
 				F051E3E22AE08D93009F1E50 /* ContentListTypeMenu.swift in Sources */,
 				F0D428992ADD8E9100DAF2B2 /* URLMetadataConfiguration.swift in Sources */,
 				F092AC5F2AD7083C00EAD1F6 /* ModelContainerPreview.swift in Sources */,
+				F06A29172AE4756000B5A480 /* ProjectRowSelectedIndicator.swift in Sources */,
 				F0D428972ADD8E8A00DAF2B2 /* URLMetadataProvider.swift in Sources */,
 				F092AC482AD6FDDA00EAD1F6 /* MainView.swift in Sources */,
 				F0D428902ADD5D9D00DAF2B2 /* URL+Identifiable.swift in Sources */,

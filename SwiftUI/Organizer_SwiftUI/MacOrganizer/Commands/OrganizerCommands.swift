@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-// TODO: fix forms in light mode
-
 struct OrganizerCommands: Commands {
     @FocusedValue(\.selectedProject) private var selectedProject
     @Environment(\.modelContext) private var modelContext

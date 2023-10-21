@@ -29,7 +29,7 @@ struct ProjectListView: View {
     var body: some View {
         List(selection: self.$selected) {
             ForEach(self.projects, id: \.self) { project in
-                ProjectRow(project: project)
+                ProjectRow(project: project, isSelected: project == self.selected)
                     .listRowBackground(Color.listBackground)
                     .listRowSeparatorTint(.cellSeparatorTint)
                     .contextMenu {
