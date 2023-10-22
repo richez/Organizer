@@ -19,6 +19,7 @@ struct ContentHeaderView: View {
     private var selectedType: ProjectContentType?
 
     @State private var isShowingForm: Bool = false
+    @State private var isShowingStats: Bool = false
 
     init(project: Project) {
         self.project = project
@@ -57,12 +58,20 @@ struct ContentHeaderView: View {
 
             Spacer()
 
-            Button {
-                self.isShowingForm.toggle()
-            } label: {
-                Image(systemName: "plus")
+            HStack(spacing: 20) {
+                Button("Statistics", systemImage: "info.circle") {
+                    self.isShowingStats.toggle()
+                }
+                .popover(isPresented: self.$isShowingStats) {
+                    StatisticsView(project: self.project)
+                }
+
+                Button("Add Content", systemImage: "plus") {
+                    self.isShowingForm.toggle()
+                }
             }
             .buttonStyle(.borderless)
+            .labelStyle(.iconOnly)
             .foregroundStyle(.cellTitle.opacity(0.8))
             .font(.system(size: 18, weight: .bold))
         }

@@ -15,6 +15,7 @@ struct StatisticsView: View {
     var body: some View {
         Grid {
             Text("Statistics")
+                .font(.subheadline)
                 .foregroundStyle(.statisticsSubtext)
                 .padding(.bottom)
 
@@ -48,11 +49,6 @@ struct StatisticsView: View {
                 )
                 .redacted(reason: maxContentTheme == nil ? .placeholder : [])
             }
-
-            GridRow {
-                Color.clear
-                    .gridCellUnsizedAxes([.vertical, .horizontal])
-            }
             
             GridRow {
                 StatisticsDateContainerView(
@@ -64,6 +60,7 @@ struct StatisticsView: View {
         }
         .padding()
         .background(.listBackground)
+        .frame(width: 280)
     }
 }
 
@@ -81,5 +78,5 @@ extension StatisticsView {
     ModelContainerPreview {
         StatisticsView(project: PreviewDataGenerator.project)
     }
-    .frame(width: 300, height: 420)
+    .frame(width: 280, height: 420)
 }

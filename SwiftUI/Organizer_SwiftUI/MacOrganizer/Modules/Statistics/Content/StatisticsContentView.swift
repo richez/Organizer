@@ -20,6 +20,7 @@ struct StatisticsContentView: View {
                     .foregroundStyle(.statisticsText)
                 Spacer()
                 Image(systemName: self.systemImage)
+                    .font(.title3)
                     .foregroundStyle(.statisticsSubtext)
             }
 

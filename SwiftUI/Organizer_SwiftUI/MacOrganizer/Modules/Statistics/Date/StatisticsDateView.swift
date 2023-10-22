@@ -25,6 +25,7 @@ struct StatisticsDateView: View {
             Spacer()
 
             Image(systemName: "calendar")
+                .font(.title3)
                 .foregroundStyle(.statisticsSubtext)
         }
     }
@@ -36,5 +37,5 @@ struct StatisticsDateView: View {
         StatisticsDateView(title: "Created", date: "22 Oct 2023 at 20:06")
             .padding()
     }
-    .frame(width: 300, height: 200)
+    .frame(width: 280, height: 200)
 }
