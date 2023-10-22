@@ -13,6 +13,7 @@ extension ProjectRow {
             themes.map { "#\($0)" }.joined(separator: " ")
         }
 
+        // TODO: check statistics view logic
         func statistics(for contents: [ProjectContent]) -> String {
             let contentCount = contents.count
             guard contentCount > 0 else { return "" }

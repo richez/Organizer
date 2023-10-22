@@ -8,14 +8,20 @@
 import Foundation
 import SwiftData
 
-private extension Calendar {
-    static func date(byAdding value: Int) -> Date {
-        Calendar.current.date(byAdding: .day, value: value, to: .now)!
+private extension Date {
+    func adding(_ value: Int, to component: Calendar.Component = .day) -> Date {
+        return Calendar.current.date(byAdding: component, value: value, to: self)!
     }
 }
 
 enum PreviewDataGenerator {
-    static var project: Project = .init(title: "Self-Build", theme: "DIY", updatedDate: .now)
+    static var project: Project = .init(
+        title: "Self-Build",
+        theme: "DIY",
+        createdDate: .now.adding(-1, to: .day).adding(-2, to: .month).adding(-3, to: .hour).adding(-4, to: .minute), 
+        updatedDate: .now
+    )
+
     static var content: ProjectContent = .init(
         type: .video, 
         title: "How to choose your insulation materials ?",
@@ -25,9 +31,9 @@ enum PreviewDataGenerator {
 
     static func generateData(in context: ModelContext) {
         let selfBuild = project
-        let hiking = Project(title: "Hiking", theme: "Sport, Outdoor", updatedDate: Calendar.date(byAdding: -1))
-        let bicycle = Project(title: "Bicycle", theme: "Sport, Outdoor", updatedDate: Calendar.date(byAdding: -2))
-        let jobs = Project(title: "Jobs", updatedDate: Calendar.date(byAdding: -3))
+        let hiking = Project(title: "Hiking", theme: "Sport, Outdoor", updatedDate: .now.adding(-1))
+        let bicycle = Project(title: "Bicycle", theme: "Sport, Outdoor", updatedDate: .now.adding(-2))
+        let jobs = Project(title: "Jobs", updatedDate: .now.adding(-3))
 
         [selfBuild, hiking, bicycle, jobs].forEach { context.insert($0) }
 

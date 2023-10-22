@@ -96,6 +96,11 @@
 		F061DC7F2ADAB1D200507993 /* String+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC7E2ADAB1D200507993 /* String+URL.swift */; };
 		F06A29172AE4756000B5A480 /* ProjectRowSelectedIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06A29162AE4756000B5A480 /* ProjectRowSelectedIndicator.swift */; };
 		F06A291B2AE475A100B5A480 /* ProjectRowSelectedIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06A291A2AE475A100B5A480 /* ProjectRowSelectedIndicator.swift */; };
+		F06A291E2AE59DE100B5A480 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06A291D2AE59DE100B5A480 /* StatisticsView.swift */; };
+		F06A29222AE5CE7400B5A480 /* StatisticsContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06A29212AE5CE7400B5A480 /* StatisticsContentView.swift */; };
+		F06A29242AE5CEDF00B5A480 /* StatisticsDateContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06A29232AE5CEDF00B5A480 /* StatisticsDateContainerView.swift */; };
+		F06A29262AE5CF3B00B5A480 /* StatisticsDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06A29252AE5CF3B00B5A480 /* StatisticsDateView.swift */; };
+		F06A29282AE5E5E000B5A480 /* StatisticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06A29272AE5E5E000B5A480 /* StatisticsViewModel.swift */; };
 		F07DE09B2AD7449300B3B91E /* ProjectRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07DE09A2AD7449300B3B91E /* ProjectRow.swift */; };
 		F092AC462AD6FDDA00EAD1F6 /* OrganizerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092AC452AD6FDDA00EAD1F6 /* OrganizerApp.swift */; };
 		F092AC482AD6FDDA00EAD1F6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092AC472AD6FDDA00EAD1F6 /* MainView.swift */; };
@@ -253,6 +258,11 @@
 		F061DC7E2ADAB1D200507993 /* String+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+URL.swift"; sourceTree = "<group>"; };
 		F06A29162AE4756000B5A480 /* ProjectRowSelectedIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectRowSelectedIndicator.swift; sourceTree = "<group>"; };
 		F06A291A2AE475A100B5A480 /* ProjectRowSelectedIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectRowSelectedIndicator.swift; sourceTree = "<group>"; };
+		F06A291D2AE59DE100B5A480 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
+		F06A29212AE5CE7400B5A480 /* StatisticsContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsContentView.swift; sourceTree = "<group>"; };
+		F06A29232AE5CEDF00B5A480 /* StatisticsDateContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsDateContainerView.swift; sourceTree = "<group>"; };
+		F06A29252AE5CF3B00B5A480 /* StatisticsDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsDateView.swift; sourceTree = "<group>"; };
+		F06A29272AE5E5E000B5A480 /* StatisticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewModel.swift; sourceTree = "<group>"; };
 		F07DE09A2AD7449300B3B91E /* ProjectRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectRow.swift; sourceTree = "<group>"; };
 		F092AC422AD6FDDA00EAD1F6 /* Organizer_SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Organizer_SwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F092AC452AD6FDDA00EAD1F6 /* OrganizerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizerApp.swift; sourceTree = "<group>"; };
@@ -483,6 +493,7 @@
 				F051E3BC2AE06BB7009F1E50 /* ProjectForm */,
 				F0D9F42D2AE1C45E0019231A /* Content */,
 				F0D9F43F2AE1DC420019231A /* ContentForm */,
+				F06A291C2AE59DBC00B5A480 /* Statistics */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -707,6 +718,34 @@
 				F06A291A2AE475A100B5A480 /* ProjectRowSelectedIndicator.swift */,
 			);
 			path = Row;
+			sourceTree = "<group>";
+		};
+		F06A291C2AE59DBC00B5A480 /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				F06A291D2AE59DE100B5A480 /* StatisticsView.swift */,
+				F06A29272AE5E5E000B5A480 /* StatisticsViewModel.swift */,
+				F06A291F2AE5CE5D00B5A480 /* Content */,
+				F06A29202AE5CE6200B5A480 /* Date */,
+			);
+			path = Statistics;
+			sourceTree = "<group>";
+		};
+		F06A291F2AE5CE5D00B5A480 /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				F06A29212AE5CE7400B5A480 /* StatisticsContentView.swift */,
+			);
+			path = Content;
+			sourceTree = "<group>";
+		};
+		F06A29202AE5CE6200B5A480 /* Date */ = {
+			isa = PBXGroup;
+			children = (
+				F06A29232AE5CEDF00B5A480 /* StatisticsDateContainerView.swift */,
+				F06A29252AE5CF3B00B5A480 /* StatisticsDateView.swift */,
+			);
+			path = Date;
 			sourceTree = "<group>";
 		};
 		F092AC392AD6FDDA00EAD1F6 = {
@@ -1311,6 +1350,7 @@
 				F051E3952AE025E0009F1E50 /* ContextMenuType.swift in Sources */,
 				F051E3912AE023A7009F1E50 /* StorageKey.swift in Sources */,
 				F0D9F41F2AE0B8260019231A /* ThemeListViewModel.swift in Sources */,
+				F06A29242AE5CEDF00B5A480 /* StatisticsDateContainerView.swift in Sources */,
 				F09D54D22AE2838F00E23ADC /* ProjectWindow.swift in Sources */,
 				F051E3A52AE03984009F1E50 /* ProjectListContainerView.swift in Sources */,
 				F051E3E32AE08FF8009F1E50 /* ProjectListSortingMenu.swift in Sources */,
@@ -1322,9 +1362,11 @@
 				F051E3C82AE07A71009F1E50 /* FormSaveButton.swift in Sources */,
 				F09D54EB2AE2C1C800E23ADC /* ContentStore.swift in Sources */,
 				F051E3D12AE07CCB009F1E50 /* ProjectFormViewModel.swift in Sources */,
+				F06A29222AE5CE7400B5A480 /* StatisticsContentView.swift in Sources */,
 				F051E3D22AE07CD7009F1E50 /* ProjectFormValues.swift in Sources */,
 				F0D9F4472AE1E22B0019231A /* ContentFormViewModel.swift in Sources */,
 				F051E3852AE02269009F1E50 /* OrganizerApp.swift in Sources */,
+				F06A291E2AE59DE100B5A480 /* StatisticsView.swift in Sources */,
 				F051E3922AE023EC009F1E50 /* ProjectListSorting.swift in Sources */,
 				F051E3892AE02284009F1E50 /* PreviewDataGenerator.swift in Sources */,
 				F0D9F43A2AE1DABA0019231A /* ContentListTypeMenu.swift in Sources */,
@@ -1336,6 +1378,7 @@
 				F051E38A2AE0228E009F1E50 /* Project.swift in Sources */,
 				F051E3CE2AE07C98009F1E50 /* FormTextFieldName.swift in Sources */,
 				F051E3982AE02680009F1E50 /* Array+Duplicates.swift in Sources */,
+				F06A29282AE5E5E000B5A480 /* StatisticsViewModel.swift in Sources */,
 				F0D9F42F2AE1C47A0019231A /* ContentView.swift in Sources */,
 				F0D9F42C2AE1BAB60019231A /* FocusedValues.swift in Sources */,
 				F09D54CF2AE1F8BE00E23ADC /* ContentRowViewModel.swift in Sources */,
@@ -1355,6 +1398,7 @@
 				F051E39F2AE030DE009F1E50 /* ProjectHeaderView.swift in Sources */,
 				F051E3CA2AE07B90009F1E50 /* AlertViewModifier.swift in Sources */,
 				F06A291B2AE475A100B5A480 /* ProjectRowSelectedIndicator.swift in Sources */,
+				F06A29262AE5CF3B00B5A480 /* StatisticsDateView.swift in Sources */,
 				F051E39D2AE02BD5009F1E50 /* ListStyleViewModifier.swift in Sources */,
 				F051E3E42AE0947F009F1E50 /* ProjectListPreviewStyleMenu.swift in Sources */,
 				F0D9F42A2AE1BA170019231A /* OrganizerCommands.swift in Sources */,
