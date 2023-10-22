@@ -11,6 +11,13 @@ enum SwipeActionType {
     case delete
     case edit
 
+    var title: String {
+        switch self {
+        case .delete: "Delete"
+        case .edit: "Edit"
+        }
+    }
+
     var systemName: String {
         switch self {
         case .delete: "trash"

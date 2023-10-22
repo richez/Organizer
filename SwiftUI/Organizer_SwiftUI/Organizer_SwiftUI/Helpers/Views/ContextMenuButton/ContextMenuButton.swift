@@ -17,10 +17,8 @@ struct ContextMenuButton: View {
     }
 
     var body: some View {
-        Button {
+        Button(self.type.label, systemImage: self.type.systemName) {
             self.action()
-        } label: {
-            Label(self.type.label, systemImage: self.type.systemName)
         }
     }
 }

@@ -30,7 +30,7 @@ struct ContentView: View {
         ZStack(alignment: .bottom) {
             ContentListContainerView(project: self.project)
 
-            FloatingButtonSheet(systemName: "plus") {
+            FloatingButtonSheet("Add content", systemName: "plus") {
                 ContentForm(project: self.project)
             }
         }

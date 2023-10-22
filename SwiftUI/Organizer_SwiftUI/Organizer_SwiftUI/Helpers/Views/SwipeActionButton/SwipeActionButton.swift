@@ -17,11 +17,10 @@ struct SwipeActionButton: View {
     }
 
     var body: some View {
-        Button {
+        Button(self.type.title, systemImage: self.type.systemName) {
             self.action()
-        } label: {
-            Image(systemName: self.type.systemName)
         }
+        .labelStyle(.iconOnly)
         .tint(self.type.tint)
     }
 }

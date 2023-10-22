@@ -29,12 +29,11 @@ struct ProjectHeaderView: View {
 
             Spacer()
 
-            Button {
+            Button("Add project", systemImage: "square.and.pencil") {
                 self.isShowingForm.toggle()
-            } label: {
-                Image(systemName: "square.and.pencil")
             }
             .buttonStyle(.borderless)
+            .labelStyle(.iconOnly)
             .foregroundStyle(.cellTitle.opacity(0.8))
             .font(.system(size: 18, weight: .bold))
         }

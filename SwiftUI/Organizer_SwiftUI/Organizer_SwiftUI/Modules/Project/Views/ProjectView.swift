@@ -19,7 +19,7 @@ struct ProjectView: View {
         ZStack(alignment: .bottom) {
             ProjectListContainerView(selected: self.$selected)
 
-            FloatingButtonSheet(systemName: "square.and.pencil") {
+            FloatingButtonSheet("Add project", systemName: "square.and.pencil") {
                 ProjectForm()
             }
         }

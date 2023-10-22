@@ -49,7 +49,7 @@ struct ProjectForm: View {
                 self.focusedField = self.viewModel.field(after: self.focusedField)
             }
 
-            FloatingButton(systemName: "checkmark") {
+            FloatingButton("Save project", systemName: "checkmark") {
                 self.save()
             }
         }

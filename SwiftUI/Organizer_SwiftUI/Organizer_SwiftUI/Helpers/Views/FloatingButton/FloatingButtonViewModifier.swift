@@ -15,6 +15,7 @@ struct FloatingButtonViewModifier: ViewModifier {
 
     func body(content: Content) -> some View {
         content
+            .labelStyle(.iconOnly)
             .foregroundStyle(self.color)
             .font(.system(size: self.fontSize, weight: self.fontWeight))
             .padding(15)

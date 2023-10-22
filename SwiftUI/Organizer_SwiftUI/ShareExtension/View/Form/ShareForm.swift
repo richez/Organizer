@@ -83,7 +83,7 @@ struct ShareForm: View {
                 self.focusedField = self.viewModel.field(after: self.focusedField)
             }
             
-            FloatingButton(systemName: "checkmark") {
+            FloatingButton("Save content", systemName: "checkmark") {
                 self.save()
             }
             .padding(.bottom, 50)

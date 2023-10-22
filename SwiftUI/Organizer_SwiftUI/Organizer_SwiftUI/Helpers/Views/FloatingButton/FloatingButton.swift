@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct FloatingButton: View {
+    let title: String
     let systemName: String
     let action: () -> Void
 
-    init(systemName: String, action: @escaping () -> Void) {
+    init(_ title: String, systemName: String, action: @escaping () -> Void) {
+        self.title = title
         self.systemName = systemName
         self.action = action
     }
@@ -19,12 +21,10 @@ struct FloatingButton: View {
     var body: some View {
         HStack {
             Spacer()
-            Button {
+            Button(self.title, systemImage: self.systemName) {
                 self.action()
-            } label: {
-                Image(systemName: self.systemName)
-                    .modifier(FloatingButtonViewModifier())
             }
+            .modifier(FloatingButtonViewModifier())
         }
         .padding()
     }
