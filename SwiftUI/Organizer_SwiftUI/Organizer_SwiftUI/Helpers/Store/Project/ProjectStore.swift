@@ -67,7 +67,7 @@ extension ProjectStore: ProjectStoreReader {
     }
 
     func themes(in projects: [Project]) -> [String] {
-        return projects
+        return projects.lazy
             .flatMap(\.themes)
             .removingDuplicates()
             .sorted(using: .localizedStandard)

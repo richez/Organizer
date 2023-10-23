@@ -8,8 +8,6 @@
 import Foundation
 import SwiftData
 
-// TODO: add statictis popover on macOS
-// TODO: add lazy to array when needed
 // TODO: handle deeplink to open project / content
 // TODO: Widgets -> handle reload only from app (TimelineReloadPolicy.never) -> store id of edited project and reload when app becomes inactive to avoid unnecessary updates
 // https://developer.apple.com/documentation/widgetkit/keeping-a-widget-up-to-date

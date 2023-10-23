@@ -78,7 +78,7 @@ extension ContentStore: ContentStoreReader {
     }
     
     func themes(in project: Project) -> [String] {
-        return project.contents
+        return project.contents.lazy
             .flatMap(\.themes)
             .removingDuplicates()
             .sorted(using: .localizedStandard)

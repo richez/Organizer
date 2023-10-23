@@ -23,7 +23,7 @@ extension ContentRow {
         }
 
         func themes(for themes: [String]) -> String {
-            themes.map { "#\($0)" }.joined(separator: " ")
+            themes.lazy.map { "#\($0)" }.joined(separator: " ")
         }
     }
 }

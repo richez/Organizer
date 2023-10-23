@@ -27,7 +27,10 @@ extension ProjectRow {
         }
 
         func updatedDate(for updatedDate: Date) -> String {
-            updatedDate.formatted(.dateTime.day().month(.abbreviated))
+            let format: Date.FormatStyle = .dateTime
+                .day()
+                .month(.abbreviated)
+            return updatedDate.formatted(format)
         }
     }
 }
