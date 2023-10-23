@@ -21,7 +21,7 @@ struct ContentView: View {
     init(project: Project) {
         self.project = project
 
-        let defaults = UserDefaults(suiteName: project.identifier)
+        let defaults = UserDefaults(suiteName: project.identifier.uuidString)
         self._selectedTheme.update(with: defaults, key: .contentListSelectedTheme)
         self._selectedType.update(with: defaults, key: .contentListSelectedType)
     }

@@ -37,7 +37,7 @@ struct ContentListView: View {
                     }
                 } label: {
                     ContentRow(
-                        content: content, suiteName: self.project.identifier
+                        content: content, suiteName: self.project.identifier.uuidString
                     )
                 }
                 .buttonStyle(.borderless)
@@ -94,7 +94,7 @@ struct ContentListView: View {
                 ContentListMenu(
                     contentCount: self.contents.count,
                     themes: self.store.themes(in: self.project),
-                    suiteName: self.project.identifier
+                    suiteName: self.project.identifier.uuidString
                 )
             }
         }

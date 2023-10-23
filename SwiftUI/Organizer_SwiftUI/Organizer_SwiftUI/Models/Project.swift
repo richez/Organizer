@@ -15,6 +15,7 @@ import SwiftData
 // TODO:    - Medium/Large: list of 3/5 content
 @Model
 final class Project {
+    var identifier: UUID
     var title: String
     var theme: String
     @Relationship(deleteRule: .cascade, inverse: \ProjectContent.project)
@@ -22,11 +23,13 @@ final class Project {
     var createdDate: Date
     var updatedDate: Date
 
-    init(title: String = "",
+    init(identifier: UUID = .init(),
+        title: String = "",
          theme: String = "",
          contents: [ProjectContent] = [],
          createdDate: Date = .now,
          updatedDate: Date = .now) {
+        self.identifier = identifier
         self.title = title
         self.theme = theme
         self.contents = contents
@@ -37,8 +40,4 @@ final class Project {
 
 extension Project {
     var themes: [String] { self.theme.words }
-
-    var identifier: String {
-        "\(self.title.words.joined())-\(self.createdDate.timeIntervalSince1970)"
-    }
 }

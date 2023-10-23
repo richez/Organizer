@@ -108,7 +108,7 @@ extension ProjectStore: ProjectStoreWritter {
     }
     
     func delete(_ project: Project, in context: ModelContext) {
-        self.defaults.removePersistentDomain(forName: project.identifier)
+        self.defaults.removePersistentDomain(forName: project.identifier.uuidString)
         context.delete(project)
     }
 }

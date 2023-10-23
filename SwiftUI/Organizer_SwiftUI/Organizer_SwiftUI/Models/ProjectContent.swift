@@ -19,6 +19,7 @@ enum ProjectContentType: String, Identifiable, CaseIterable, Codable {
 
 @Model
 final class ProjectContent {
+    var identifier: UUID
     // store the raw value to enable sorting and filtering
     var typeRawValue: String
     var title: String
@@ -29,12 +30,14 @@ final class ProjectContent {
 
     var project: Project?
 
-    init(type: ProjectContentType = .article,
+    init(identifier: UUID = .init(),
+        type: ProjectContentType = .article,
          title: String = "",
          theme: String = "",
          link: String = "",
          createdDate: Date = .now,
          updatedDate: Date = .now) {
+        self.identifier = identifier
         self.typeRawValue = type.rawValue
         self.title = title
         self.theme = theme
@@ -47,7 +50,4 @@ final class ProjectContent {
 extension ProjectContent {
     var themes: [String] { self.theme.words }
     var type: ProjectContentType { .init(rawValue: self.typeRawValue) ?? .other }
-    var identifier: String {
-        "\(self.title.words.joined())-\(self.createdDate.timeIntervalSince1970)"
-    }
 }
