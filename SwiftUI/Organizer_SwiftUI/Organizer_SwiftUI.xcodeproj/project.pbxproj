@@ -40,6 +40,8 @@
 		F02E9F342AE72B8500755FF7 /* ContentValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E9F322AE72B8500755FF7 /* ContentValues.swift */; };
 		F02E9F362AE72C5000755FF7 /* ProjectValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E9F352AE72C5000755FF7 /* ProjectValues.swift */; };
 		F02E9F372AE72C5000755FF7 /* ProjectValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E9F352AE72C5000755FF7 /* ProjectValues.swift */; };
+		F02E9F382AE72E5B00755FF7 /* ProjectFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E984862AD8A8600082F6A1 /* ProjectFormViewModel.swift */; };
+		F02E9F392AE72E7100755FF7 /* ContentFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC782ADA967C00507993 /* ContentFormViewModel.swift */; };
 		F051E37A2AE01D7B009F1E50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F051E3792AE01D7B009F1E50 /* Assets.xcassets */; };
 		F051E37D2AE01D7B009F1E50 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F051E37C2AE01D7B009F1E50 /* Preview Assets.xcassets */; };
 		F051E3832AE0222C009F1E50 /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3822AE0222C009F1E50 /* ProjectView.swift */; };
@@ -1318,6 +1320,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F09D54F12AE2E7AA00E23ADC /* ProjectDuplicateAction.swift in Sources */,
+				F02E9F382AE72E5B00755FF7 /* ProjectFormViewModel.swift in Sources */,
 				F0D9F4262AE1ACFB0019231A /* ProjectRow.swift in Sources */,
 				F0D9F4412AE1DC5A0019231A /* ContentForm.swift in Sources */,
 				F051E3872AE02277009F1E50 /* ModelContainerPreview.swift in Sources */,
@@ -1356,6 +1359,7 @@
 				F0D9F4272AE1ACFD0019231A /* ProjectRowViewModel.swift in Sources */,
 				F02E9F342AE72B8500755FF7 /* ContentValues.swift in Sources */,
 				F0D9F44C2AE1EE570019231A /* Pasteboard.swift in Sources */,
+				F02E9F392AE72E7100755FF7 /* ContentFormViewModel.swift in Sources */,
 				F09D54DC2AE2A7CB00E23ADC /* ProjectEditorFormAction.swift in Sources */,
 				F09D54E32AE2B66300E23ADC /* ProjectStore.swift in Sources */,
 				F051E38A2AE0228E009F1E50 /* Project.swift in Sources */,
