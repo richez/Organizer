@@ -23,6 +23,11 @@ struct MainView: View {
         }
         .navigationSplitViewStyle(.balanced)
         .background(.listBackground)
+        .onOpenURL { url in
+            guard let deeplink = Deeplink(url: url) else { return }
+            print(deeplink)
+            print(deeplink.url!)
+        }
     }
 }
 

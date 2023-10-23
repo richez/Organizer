@@ -34,6 +34,8 @@
 		F00602082ADEEA74005F57CA /* String+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC7E2ADAB1D200507993 /* String+URL.swift */; };
 		F02E9F2B2AE6BADB00755FF7 /* Sequence+CountBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E9F2A2AE6BADB00755FF7 /* Sequence+CountBy.swift */; };
 		F02E9F2C2AE6BADB00755FF7 /* Sequence+CountBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E9F2A2AE6BADB00755FF7 /* Sequence+CountBy.swift */; };
+		F02E9F302AE6DF4800755FF7 /* Deeplink.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E9F2F2AE6DF4800755FF7 /* Deeplink.swift */; };
+		F02E9F312AE6DF4800755FF7 /* Deeplink.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E9F2F2AE6DF4800755FF7 /* Deeplink.swift */; };
 		F051E37A2AE01D7B009F1E50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F051E3792AE01D7B009F1E50 /* Assets.xcassets */; };
 		F051E37D2AE01D7B009F1E50 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F051E37C2AE01D7B009F1E50 /* Preview Assets.xcassets */; };
 		F051E3832AE0222C009F1E50 /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3822AE0222C009F1E50 /* ProjectView.swift */; };
@@ -222,6 +224,7 @@
 		F00602032ADEE857005F57CA /* ShareFormValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareFormValues.swift; sourceTree = "<group>"; };
 		F02E9F2A2AE6BADB00755FF7 /* Sequence+CountBy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+CountBy.swift"; sourceTree = "<group>"; };
 		F02E9F2D2AE6CA6300755FF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F02E9F2F2AE6DF4800755FF7 /* Deeplink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deeplink.swift; sourceTree = "<group>"; };
 		F051E3732AE01D7A009F1E50 /* MacOrganizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacOrganizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F051E3792AE01D7B009F1E50 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F051E37C2AE01D7B009F1E50 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -456,6 +459,14 @@
 				F00601F82ADECF14005F57CA /* ProjectPicker.swift */,
 			);
 			path = Picker;
+			sourceTree = "<group>";
+		};
+		F02E9F2E2AE6DF3E00755FF7 /* Deeplink */ = {
+			isa = PBXGroup;
+			children = (
+				F02E9F2F2AE6DF4800755FF7 /* Deeplink.swift */,
+			);
+			path = Deeplink;
 			sourceTree = "<group>";
 		};
 		F051E3742AE01D7A009F1E50 /* MacOrganizer */ = {
@@ -1100,6 +1111,7 @@
 		F0E347552AD8257700B12AD9 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				F02E9F2E2AE6DF3E00755FF7 /* Deeplink */,
 				F0D9F4492AE1EE4A0019231A /* Pasteboard */,
 				F061DC542AD973E800507993 /* Preview */,
 				F0D4288C2ADD58C400DAF2B2 /* SafariView */,
@@ -1396,6 +1408,7 @@
 				F09D54E22AE2B66000E23ADC /* ProjectStoreProtocol.swift in Sources */,
 				F0D9F4482AE1E2390019231A /* ContentFormValues.swift in Sources */,
 				F051E3942AE025D9009F1E50 /* ContextMenuButton.swift in Sources */,
+				F02E9F312AE6DF4800755FF7 /* Deeplink.swift in Sources */,
 				F0D9F4372AE1DAAD0019231A /* ContentListSortingMenu.swift in Sources */,
 				F051E3962AE0266A009F1E50 /* ProjectListView.swift in Sources */,
 				F09D54D72AE293A900E23ADC /* OpenProjectWindowAction.swift in Sources */,
@@ -1486,6 +1499,7 @@
 				F0E9848C2AD8ACB40082F6A1 /* FormTextFieldConfiguration.swift in Sources */,
 				F061DC4F2AD9459200507993 /* ContentListView.swift in Sources */,
 				F051E3D72AE08A20009F1E50 /* ProjectListPreviewStyleMenu.swift in Sources */,
+				F02E9F302AE6DF4800755FF7 /* Deeplink.swift in Sources */,
 				F00601D02ADDF137005F57CA /* AlertType.swift in Sources */,
 				F061DC7B2ADA9A4600507993 /* FormSection.swift in Sources */,
 				F061DC702AD9F02600507993 /* ContentRow.swift in Sources */,
