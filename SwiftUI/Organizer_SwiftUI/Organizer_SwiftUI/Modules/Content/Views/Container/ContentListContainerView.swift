@@ -27,7 +27,7 @@ struct ContentListContainerView: View {
     init(project: Project) {
         self.project = project
 
-        let defaults = UserDefaults(suiteName: project.suiteName)
+        let defaults = UserDefaults(suiteName: project.identifier)
         self._sorting.update(with: defaults, key: .contentListSorting)
         self._isAscendingOrder.update(with: defaults, key: .contentListAscendingOrder)
         self._selectedTheme.update(with: defaults, key: .contentListSelectedTheme)

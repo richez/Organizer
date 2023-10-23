@@ -24,7 +24,7 @@ struct ContentHeaderView: View {
     init(project: Project) {
         self.project = project
 
-        let defaults = UserDefaults(suiteName: project.suiteName)
+        let defaults = UserDefaults(suiteName: project.identifier)
         self._selectedTheme.update(with: defaults, key: .contentListSelectedTheme)
         self._selectedType.update(with: defaults, key: .contentListSelectedType)
     }
@@ -85,7 +85,7 @@ struct ContentHeaderView: View {
 
 private extension ContentHeaderView {
     var suiteName: String {
-        self.project.suiteName
+        self.project.identifier
     }
 
     var themes: [String] {

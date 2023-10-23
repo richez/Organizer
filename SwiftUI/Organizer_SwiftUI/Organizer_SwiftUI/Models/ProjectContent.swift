@@ -47,4 +47,7 @@ final class ProjectContent {
 extension ProjectContent {
     var themes: [String] { self.theme.words }
     var type: ProjectContentType { .init(rawValue: self.typeRawValue) ?? .other }
+    var identifier: String {
+        "\(self.title.words.joined())-\(self.createdDate.timeIntervalSince1970)"
+    }
 }
