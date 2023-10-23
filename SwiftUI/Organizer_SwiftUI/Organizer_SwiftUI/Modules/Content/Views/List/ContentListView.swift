@@ -11,7 +11,7 @@ import SwiftUI
 struct ContentListView: View {
     var project: Project
 
-    private let store: ContentStoreOperations = ContentStore()
+    private let store: ContentStoreOperations = ContentStore.shared
 
     @Environment(\.modelContext) private var modelContext
     @Environment(\.openURL) private var openURL

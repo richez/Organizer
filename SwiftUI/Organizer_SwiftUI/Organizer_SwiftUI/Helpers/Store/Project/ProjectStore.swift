@@ -9,7 +9,13 @@ import Foundation
 import SwiftData
 
 struct ProjectStore {
-    var defaults: UserDefaults = .standard
+    static let shared: ProjectStoreProtocol = ProjectStore()
+
+    private let defaults: UserDefaults
+
+    private init(defaults: UserDefaults = .standard) {
+        self.defaults = defaults
+    }
 }
 
 // MARK: - ProjectStoreDescriptor

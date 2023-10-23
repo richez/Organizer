@@ -11,7 +11,7 @@ import SwiftUI
 struct ProjectListView: View {
     @Binding var selected: Project?
 
-    private let store: ProjectStoreOperations = ProjectStore()
+    private let store: ProjectStoreOperations = ProjectStore.shared
 
     @Environment(\.modelContext) private var modelContext
     @Query private var projects: [Project]

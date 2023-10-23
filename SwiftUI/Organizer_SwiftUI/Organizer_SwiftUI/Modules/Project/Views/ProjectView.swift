@@ -10,7 +10,7 @@ import SwiftUI
 struct ProjectView: View {
     @Binding var selected: Project?
 
-    private let store: ProjectStoreDescriptor = ProjectStore()
+    private let store: ProjectStoreDescriptor = ProjectStore.shared
 
     @AppStorage(.projectListSelectedTheme)
     private var selectedTheme: String? = nil

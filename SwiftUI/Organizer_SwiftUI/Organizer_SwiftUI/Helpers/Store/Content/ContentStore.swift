@@ -9,6 +9,10 @@ import Foundation
 import SwiftData
 
 struct ContentStore {
+    static let shared: ContentStoreProtocol = ContentStore()
+
+    private init() {}
+
     enum Error: Swift.Error {
         case invalidURL(String)
     }

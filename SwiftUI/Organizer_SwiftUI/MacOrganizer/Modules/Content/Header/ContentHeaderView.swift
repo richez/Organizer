@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentHeaderView: View {
     var project: Project
 
-    private let store: ContentStoreDescriptor & ContentStoreReader = ContentStore()
+    private let store: ContentStoreDescriptor & ContentStoreReader = ContentStore.shared
 
     @AppStorage(.contentListSelectedTheme)
     private var selectedTheme: String? = nil

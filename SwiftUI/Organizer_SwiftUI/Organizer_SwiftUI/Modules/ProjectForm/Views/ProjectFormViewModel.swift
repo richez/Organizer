@@ -10,7 +10,7 @@ import SwiftData
 
 extension ProjectForm {
     struct ViewModel {
-        var store: ProjectStoreWritter = ProjectStore()
+        var store: ProjectStoreWritter = ProjectStore.shared
         var validator: FormFieldValidatorProtocol = FormFieldValidator()
 
         func field(after currentField: FormTextField.Name?) -> FormTextField.Name? {

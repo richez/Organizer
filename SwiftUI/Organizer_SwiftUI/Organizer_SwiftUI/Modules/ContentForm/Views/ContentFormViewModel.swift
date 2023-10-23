@@ -10,7 +10,7 @@ import SwiftData
 
 extension ContentForm {
     struct ViewModel {
-        var store: ContentStoreWritter = ContentStore()
+        var store: ContentStoreWritter = ContentStore.shared
         var validator: FormFieldValidatorProtocol = FormFieldValidator()
         var urlMetadataProvider: URLMetadataProviderProtocol = URLMetadataProvider()
 

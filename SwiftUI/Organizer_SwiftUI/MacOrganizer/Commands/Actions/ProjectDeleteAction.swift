@@ -12,7 +12,7 @@ struct ProjectDeleteAction: View {
     var selectedProject: Binding<Project?>?
     var context: ModelContext
 
-    private let store: ProjectStoreWritter = ProjectStore()
+    private let store: ProjectStoreWritter = ProjectStore.shared
 
     @Environment(\.dismissWindow) private var dismissWindow
 

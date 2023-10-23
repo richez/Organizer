@@ -10,7 +10,7 @@ import SwiftUI
 struct ProjectListContainerView: View {
     @Binding var selected: Project?
 
-    private let store: ProjectStoreDescriptor = ProjectStore()
+    private let store: ProjectStoreDescriptor = ProjectStore.shared
 
     @AppStorage(.projectListSorting)
     private var sorting: ProjectListSorting = .updatedDate

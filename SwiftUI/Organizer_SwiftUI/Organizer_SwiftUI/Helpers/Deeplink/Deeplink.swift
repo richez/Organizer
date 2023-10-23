@@ -105,5 +105,5 @@ private extension Sequence where Element == URLQueryItem {
 }
 
 // organizerapp://open-project-form
-// organizerapp://open-project?identifier=YouTube-1697560737.5081658
-// organizerapp://open-content?identifier=My-Content-1697560737.5081658&projectIdentifier=YouTube-1697560737.5081658
+// organizerapp://open-project?identifier=E621E1F8-C36C-495A-93FC-0C247A3E6E5F
+// organizerapp://open-content?identifier=E621E1F8-C36C-495A-93FC-0C247A3E6E5F&projectIdentifier=E621E1F8-C36C-495A-93FC-0C247A3E6E5F

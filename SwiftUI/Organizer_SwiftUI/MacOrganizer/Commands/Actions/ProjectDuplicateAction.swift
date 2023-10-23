@@ -12,7 +12,7 @@ struct ProjectDuplicateAction: View {
     var project: Project?
     var context: ModelContext
 
-    private let store: ProjectStoreWritter = ProjectStore()
+    private let store: ProjectStoreWritter = ProjectStore.shared
 
     var body: some View {
         Button("Duplicate") {

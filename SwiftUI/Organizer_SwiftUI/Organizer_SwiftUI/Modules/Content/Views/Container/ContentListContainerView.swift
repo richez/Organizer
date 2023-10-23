@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentListContainerView: View {
     var project: Project
 
-    private let store: ContentStoreDescriptor = ContentStore()
+    private let store: ContentStoreDescriptor = ContentStore.shared
 
     @AppStorage(.contentListSorting)
     private var sorting: ContentListSorting = .updatedDate

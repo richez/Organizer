@@ -11,7 +11,7 @@ import SwiftUI
 struct ProjectWindow: View {
     @Binding var projectID: PersistentIdentifier?
 
-    private let store: ProjectStoreReader = ProjectStore()
+    private let store: ProjectStoreReader = ProjectStore.shared
 
     @Environment(\.modelContext) private var modelContext
 
