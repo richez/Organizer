@@ -20,8 +20,8 @@ protocol ContentStoreReader {
 }
 
 protocol ContentStoreWritter {
-    func create(with values: ContentForm.Values, for project: Project, in context: ModelContext)
-    func update(_ content: ProjectContent, with values: ContentForm.Values)
+    func create(with values: ContentValues, for project: Project, in context: ModelContext)
+    func update(_ content: ProjectContent, with values: ContentValues)
     func delete(_ content: ProjectContent, in context: ModelContext)
 }
 

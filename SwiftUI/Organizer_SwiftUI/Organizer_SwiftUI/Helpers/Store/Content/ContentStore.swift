@@ -92,7 +92,7 @@ extension ContentStore: ContentStoreReader {
 // MARK: - ContentStoreWritter
 
 extension ContentStore: ContentStoreWritter {
-    func create(with values: ContentForm.Values, for project: Project, in context: ModelContext) {
+    func create(with values: ContentValues, for project: Project, in context: ModelContext) {
         let content = ProjectContent(
             type: values.type,
             title: values.title.trimmingCharacters(in: .whitespacesAndNewlines),
@@ -105,7 +105,7 @@ extension ContentStore: ContentStoreWritter {
         project.contents.append(content)
     }
     
-    func update(_ content: ProjectContent, with values: ContentForm.Values) {
+    func update(_ content: ProjectContent, with values: ContentValues) {
         let type = values.type
         let link = values.link
         let title = values.title.trimmingCharacters(in: .whitespacesAndNewlines)

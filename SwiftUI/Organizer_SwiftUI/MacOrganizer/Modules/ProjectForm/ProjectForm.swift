@@ -53,7 +53,7 @@ struct ProjectForm: View {
 }
 
 private extension ProjectForm {
-    var values: ProjectForm.Values {
+    var values: ProjectValues {
         .init(title: self.title, theme: self.theme)
     }
 

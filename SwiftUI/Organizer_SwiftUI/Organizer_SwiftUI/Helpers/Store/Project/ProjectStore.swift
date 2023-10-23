@@ -83,7 +83,7 @@ extension ProjectStore: ProjectStoreReader {
 // MARK: - ProjectStoreWritter
 
 extension ProjectStore: ProjectStoreWritter {
-    func create(with values: ProjectForm.Values, in context: ModelContext) {
+    func create(with values: ProjectValues, in context: ModelContext) {
         let project = Project(
             title: values.title.trimmingCharacters(in: .whitespacesAndNewlines),
             theme: values.theme.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -91,7 +91,7 @@ extension ProjectStore: ProjectStoreWritter {
         context.insert(project)
     }
 
-    func update(_ project: Project, with values: ProjectForm.Values) {
+    func update(_ project: Project, with values: ProjectValues) {
         let title = values.title.trimmingCharacters(in: .whitespacesAndNewlines)
         let theme = values.theme.trimmingCharacters(in: .whitespacesAndNewlines)
 

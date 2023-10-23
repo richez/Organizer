@@ -22,7 +22,7 @@ extension ProjectForm {
             }
         }
 
-        func save(_ values: ProjectForm.Values, for project: Project?, in context: ModelContext) throws {
+        func save(_ values: ProjectValues, for project: Project?, in context: ModelContext) throws {
             try self.validator.validate(values: (.title, values.title), (.theme, values.theme))
 
             if let project {

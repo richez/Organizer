@@ -34,7 +34,7 @@ extension ContentForm {
         }
 
         func save(
-            _ values: ContentForm.Values,
+            _ values: ContentValues,
             for content: ProjectContent?,
             in project: Project,
             context: ModelContext

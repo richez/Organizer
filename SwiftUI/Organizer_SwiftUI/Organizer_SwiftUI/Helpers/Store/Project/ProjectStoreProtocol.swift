@@ -21,8 +21,8 @@ protocol ProjectStoreReader {
 }
 
 protocol ProjectStoreWritter {
-    func create(with values: ProjectForm.Values, in context: ModelContext)
-    func update(_ project: Project, with values: ProjectForm.Values)
+    func create(with values: ProjectValues, in context: ModelContext)
+    func update(_ project: Project, with values: ProjectValues)
     func duplicate(_ project: Project, in context: ModelContext)
     func delete(_ project: Project, in context: ModelContext)
 }

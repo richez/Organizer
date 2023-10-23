@@ -74,7 +74,7 @@ struct ContentForm: View {
 }
 
 extension ContentForm {
-    var values: Values {
+    var values: ContentValues {
         .init(
             type: self.type,
             link: self.link,
