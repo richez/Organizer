@@ -8,11 +8,6 @@
 import Foundation
 
 extension ShareForm {
-    enum SelectedProject {
-        case new(String)
-        case custom(Project)
-    }
-
     struct Values {
         var project: SelectedProject
         var type: ProjectContentType

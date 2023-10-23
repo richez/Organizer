@@ -42,6 +42,15 @@
 		F02E9F372AE72C5000755FF7 /* ProjectValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E9F352AE72C5000755FF7 /* ProjectValues.swift */; };
 		F02E9F382AE72E5B00755FF7 /* ProjectFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E984862AD8A8600082F6A1 /* ProjectFormViewModel.swift */; };
 		F02E9F392AE72E7100755FF7 /* ContentFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC782ADA967C00507993 /* ContentFormViewModel.swift */; };
+		F02E9F3A2AE7330600755FF7 /* ContentValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E9F322AE72B8500755FF7 /* ContentValues.swift */; };
+		F02E9F3B2AE7330800755FF7 /* ContentStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09D54E62AE2C1C200E23ADC /* ContentStoreProtocol.swift */; };
+		F02E9F3C2AE7330B00755FF7 /* ContentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09D54E92AE2C1C800E23ADC /* ContentStore.swift */; };
+		F02E9F3D2AE7330E00755FF7 /* ProjectValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E9F352AE72C5000755FF7 /* ProjectValues.swift */; };
+		F02E9F3E2AE7331000755FF7 /* ProjectStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09D54E02AE2B5A300E23ADC /* ProjectStoreProtocol.swift */; };
+		F02E9F3F2AE7331300755FF7 /* ProjectStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09D54DE2AE2B0FF00E23ADC /* ProjectStore.swift */; };
+		F02E9F402AE7332100755FF7 /* Array+Duplicates.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347472AD800E300B12AD9 /* Array+Duplicates.swift */; };
+		F02E9F412AE7332A00755FF7 /* ProjectListSorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347512AD81C9C00B12AD9 /* ProjectListSorting.swift */; };
+		F02E9F422AE7333000755FF7 /* ContentListSorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC5F2AD9A0E300507993 /* ContentListSorting.swift */; };
 		F051E37A2AE01D7B009F1E50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F051E3792AE01D7B009F1E50 /* Assets.xcassets */; };
 		F051E37D2AE01D7B009F1E50 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F051E37C2AE01D7B009F1E50 /* Preview Assets.xcassets */; };
 		F051E3832AE0222C009F1E50 /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3822AE0222C009F1E50 /* ProjectView.swift */; };
@@ -1293,19 +1302,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				F00601F02ADEBFBE005F57CA /* ShareViewModel.swift in Sources */,
+				F02E9F3F2AE7331300755FF7 /* ProjectStore.swift in Sources */,
 				F00601FB2ADECF59005F57CA /* FormTextField.swift in Sources */,
 				F00602022ADED5E5005F57CA /* FloatingButtonViewModifier.swift in Sources */,
+				F02E9F402AE7332100755FF7 /* Array+Duplicates.swift in Sources */,
+				F02E9F3E2AE7331000755FF7 /* ProjectStoreProtocol.swift in Sources */,
 				F00602002ADED4F1005F57CA /* ShareFormViewModel.swift in Sources */,
 				F051E3CD2AE07C98009F1E50 /* FormTextFieldName.swift in Sources */,
 				F00602052ADEE98E005F57CA /* AlertViewModifier.swift in Sources */,
 				F00602012ADED5DE005F57CA /* FloatingButton.swift in Sources */,
 				F00602062ADEE9C8005F57CA /* AlertType.swift in Sources */,
 				F00601FC2ADECF5E005F57CA /* FormTextFieldConfiguration.swift in Sources */,
+				F02E9F3C2AE7330B00755FF7 /* ContentStore.swift in Sources */,
 				F00601F22ADEC561005F57CA /* ShareForm.swift in Sources */,
 				F00601ED2ADEBE09005F57CA /* ShareView.swift in Sources */,
+				F02E9F422AE7333000755FF7 /* ContentListSorting.swift in Sources */,
+				F02E9F3A2AE7330600755FF7 /* ContentValues.swift in Sources */,
+				F02E9F412AE7332A00755FF7 /* ProjectListSorting.swift in Sources */,
+				F02E9F3D2AE7330E00755FF7 /* ProjectValues.swift in Sources */,
 				F00602082ADEEA74005F57CA /* String+URL.swift in Sources */,
 				F00602042ADEE857005F57CA /* ShareFormValues.swift in Sources */,
 				F00601F92ADECF14005F57CA /* ProjectPicker.swift in Sources */,
+				F02E9F3B2AE7330800755FF7 /* ContentStoreProtocol.swift in Sources */,
 				F00601F52ADEC7E4005F57CA /* String+Components.swift in Sources */,
 				F00601F42ADEC75D005F57CA /* ProjectContent.swift in Sources */,
 				F00601F32ADEC75B005F57CA /* Project.swift in Sources */,

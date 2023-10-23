@@ -15,15 +15,20 @@ protocol ProjectStoreDescriptor {
 }
 
 protocol ProjectStoreReader {
+    func project(with values: ProjectValues) -> Project
     func project(for id: PersistentIdentifier, in context: ModelContext) -> Project?
     func themes(in context: ModelContext) -> [String]
     func themes(in projects: [Project]) -> [String]
 }
 
 protocol ProjectStoreWritter {
-    func create(with values: ProjectValues, in context: ModelContext)
+    @discardableResult
+    func create(with values: ProjectValues, in context: ModelContext) -> Project
+    @discardableResult
+    func create(with values: ProjectValues, contents: [ProjectContent], in context: ModelContext) -> Project
     func update(_ project: Project, with values: ProjectValues)
-    func duplicate(_ project: Project, in context: ModelContext)
+    @discardableResult
+    func duplicate(_ project: Project, in context: ModelContext) -> Project
     func delete(_ project: Project, in context: ModelContext)
 }
 

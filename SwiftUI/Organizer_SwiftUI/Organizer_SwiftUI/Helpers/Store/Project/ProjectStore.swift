@@ -57,6 +57,13 @@ extension ProjectStore: ProjectStoreDescriptor {
 // MARK: - ProjectStoreReader
 
 extension ProjectStore: ProjectStoreReader {
+    func project(with values: ProjectValues) -> Project {
+        .init(
+            title: values.title.trimmingCharacters(in: .whitespacesAndNewlines),
+            theme: values.theme.trimmingCharacters(in: .whitespacesAndNewlines)
+        )
+    }
+
     func project(for persistentModelID: PersistentIdentifier, in context: ModelContext) -> Project? {
         guard let project = context.model(for: persistentModelID) as? Project else {
             return nil
@@ -83,12 +90,19 @@ extension ProjectStore: ProjectStoreReader {
 // MARK: - ProjectStoreWritter
 
 extension ProjectStore: ProjectStoreWritter {
-    func create(with values: ProjectValues, in context: ModelContext) {
-        let project = Project(
-            title: values.title.trimmingCharacters(in: .whitespacesAndNewlines),
-            theme: values.theme.trimmingCharacters(in: .whitespacesAndNewlines)
-        )
+    @discardableResult
+    func create(with values: ProjectValues, in context: ModelContext) -> Project {
+        let project = self.project(with: values)
         context.insert(project)
+        return project
+    }
+
+    @discardableResult
+    func create(with values: ProjectValues, contents: [ProjectContent], in context: ModelContext) -> Project {
+        let project = self.create(with: values, in: context)
+        contents.forEach { $0.project = project }
+        project.contents = contents
+        return project
     }
 
     func update(_ project: Project, with values: ProjectValues) {
@@ -104,13 +118,15 @@ extension ProjectStore: ProjectStoreWritter {
         }
     }
 
-    func duplicate(_ project: Project, in context: ModelContext) {
+    @discardableResult
+    func duplicate(_ project: Project, in context: ModelContext) -> Project {
         let duplicatedProject = self.duplicate(project: project)
         context.insert(duplicatedProject)
 
         let duplicatedContents = project.contents.map(self.duplicate(content:))
         duplicatedContents.forEach { $0.project = duplicatedProject }
         duplicatedProject.contents = duplicatedContents
+        return duplicatedProject
     }
     
     func delete(_ project: Project, in context: ModelContext) {

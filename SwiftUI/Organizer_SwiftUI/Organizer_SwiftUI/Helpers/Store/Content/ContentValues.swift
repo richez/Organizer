@@ -11,5 +11,5 @@ struct ContentValues {
     var type: ProjectContentType
     var link: String
     var title: String
-    var theme: String
+    var theme: String = ""
 }

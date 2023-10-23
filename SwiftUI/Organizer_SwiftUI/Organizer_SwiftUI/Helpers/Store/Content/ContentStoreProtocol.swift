@@ -15,12 +15,14 @@ protocol ContentStoreDescriptor {
 }
 
 protocol ContentStoreReader {
+    func content(with values: ContentValues) -> ProjectContent
     func url(for content: ProjectContent) throws -> URL
     func themes(in project: Project) -> [String]
 }
 
 protocol ContentStoreWritter {
-    func create(with values: ContentValues, for project: Project, in context: ModelContext)
+    @discardableResult
+    func create(with values: ContentValues, for project: Project, in context: ModelContext) -> ProjectContent
     func update(_ content: ProjectContent, with values: ContentValues)
     func delete(_ content: ProjectContent, in context: ModelContext)
 }

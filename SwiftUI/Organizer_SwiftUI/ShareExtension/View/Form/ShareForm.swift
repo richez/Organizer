@@ -100,9 +100,8 @@ struct ShareForm: View {
 }
 
 private extension ShareForm {
-    var values: Values {
+    var values: ContentValues {
         .init(
-            project: self.selectedProject != nil ? .custom(self.selectedProject!) : .new(self.projectTitle),
             type: self.type,
             link: self.link,
             title: self.title,
@@ -118,7 +117,11 @@ private extension ShareForm {
     func save() {
         do {
             self.focusedField = nil
-            try self.viewModel.save(values, in: self.modelContext)
+            let project: SelectedProject = switch self.selectedProject {
+            case .none: .new(self.projectTitle)
+            case .some(let project): .custom(project)
+            }
+            try self.viewModel.save(values, project: project, in: self.modelContext)
             self.finishAction()
         } catch FormFieldValidator.Error.invalidFields(let fields) {
             self.isInvalidLink = fields.contains(.link)
@@ -128,5 +131,14 @@ private extension ShareForm {
         } catch {
             self.isShowingErrorAlert = true
         }
+    }
+}
+
+extension ShareForm {
+    enum SelectedProject: Hashable, Identifiable {
+        case new(String)
+        case custom(Project)
+
+        var id: SelectedProject { self }
     }
 }

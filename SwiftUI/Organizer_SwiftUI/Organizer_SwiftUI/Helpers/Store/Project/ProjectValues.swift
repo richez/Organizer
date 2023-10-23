@@ -9,5 +9,5 @@ import Foundation
 
 struct ProjectValues {
     var title: String
-    var theme: String
+    var theme: String = ""
 }

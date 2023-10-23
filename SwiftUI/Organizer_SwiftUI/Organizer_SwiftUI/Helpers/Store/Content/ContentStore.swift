@@ -73,6 +73,15 @@ extension ContentStore: ContentStoreDescriptor {
 // MARK: - ContentStoreReader
 
 extension ContentStore: ContentStoreReader {
+    func content(with values: ContentValues) -> ProjectContent {
+        .init(
+            type: values.type,
+            title: values.title.trimmingCharacters(in: .whitespacesAndNewlines),
+            theme: values.theme.trimmingCharacters(in: .whitespacesAndNewlines),
+            link: values.link.trimmingCharacters(in: .whitespacesAndNewlines)
+        )
+    }
+
     func url(for content: ProjectContent) throws -> URL {
         guard content.link.isValidURL(), let url = URL(string: content.link) else {
             throw Error.invalidURL(content.link)
@@ -92,19 +101,16 @@ extension ContentStore: ContentStoreReader {
 // MARK: - ContentStoreWritter
 
 extension ContentStore: ContentStoreWritter {
-    func create(with values: ContentValues, for project: Project, in context: ModelContext) {
-        let content = ProjectContent(
-            type: values.type,
-            title: values.title.trimmingCharacters(in: .whitespacesAndNewlines),
-            theme: values.theme.trimmingCharacters(in: .whitespacesAndNewlines),
-            link: values.link.trimmingCharacters(in: .whitespacesAndNewlines)
-        )
+    @discardableResult
+    func create(with values: ContentValues, for project: Project, in context: ModelContext) -> ProjectContent {
+        let content = self.content(with: values)
         content.project = project
         project.updatedDate = .now
         context.insert(content)
         project.contents.append(content)
+        return content
     }
-    
+
     func update(_ content: ProjectContent, with values: ContentValues) {
         let type = values.type
         let link = values.link

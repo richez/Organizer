@@ -10,6 +10,8 @@ import SwiftData
 
 extension ShareForm {
     struct ViewModel {
+        var contentStore: ContentStoreReader & ContentStoreWritter = ContentStore.shared
+        var projectStore: ProjectStoreWritter = ProjectStore.shared
         var validator: FormFieldValidatorProtocol = FormFieldValidator()
 
         func field(after currentField: FormTextField.Name?) -> FormTextField.Name? {
@@ -23,44 +25,18 @@ extension ShareForm {
             }
         }
 
-        func save(_ values: Values, in context: ModelContext) throws {
+        func save(_ values: ContentValues, project: SelectedProject, in context: ModelContext) throws {
             try self.validator.validate(values: (.link, values.link), (.title, values.title), (.theme, values.theme))
-            let content = self.content(with: values)
 
-            switch values.project {
+            switch project {
             case .new(let title):
-                try self.createProject(with: title, content: content, in: context)
+                try self.validator.validate(values: (.projectPicker, title))
+                let content = self.contentStore.content(with: values)
+                self.projectStore.create(with: .init(title: title), contents: [content], in: context)
+
             case .custom(let project):
-                self.addContent(content, to: project, in: context)
+                self.contentStore.create(with: values, for: project, in: context)
             }
         }
-    }
-}
-
-private extension ShareForm.ViewModel {
-    func content(with values: ShareForm.Values) -> ProjectContent {
-        .init(
-            type: values.type,
-            title: values.title.trimmingCharacters(in: .whitespacesAndNewlines),
-            theme: values.theme.trimmingCharacters(in: .whitespacesAndNewlines),
-            link: values.link.trimmingCharacters(in: .whitespacesAndNewlines)
-        )
-    }
-
-    func createProject(with title: String, content: ProjectContent, in context: ModelContext) throws {
-        try self.validator.validate(values: (.projectPicker, title))
-
-        let project = Project(title: title)
-        context.insert(project)
-
-        content.project = project
-        project.contents = [content]
-    }
-
-    func addContent(_ content: ProjectContent, to project: Project, in context: ModelContext) {
-        project.updatedDate = .now
-        content.project = project
-        context.insert(content)
-        project.contents.append(content)
     }
 }
