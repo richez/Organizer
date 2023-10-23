@@ -21,33 +21,27 @@ struct StatisticsView: View {
 
             GridRow {
                 StatisticsContentView(
-                    title: "Contents",
-                    number: self.project.contents.count,
+                    type: .constant("Contents", number: self.numberOfContents),
                     systemImage: "doc"
                 )
                 StatisticsContentView(
-                    title: "Themes",
-                    number: self.project.contents.count,
+                    type: .constant("Themes", number: self.numberOfThemes),
                     systemImage: "number"
                 )
             }
 
             GridRow {
-                let maxContentType = self.viewModel.maxContentType(in: self.project)
                 StatisticsContentView(
-                    title: maxContentType?.name.capitalized ?? "placeholder",
-                    number: maxContentType?.count ?? 0,
+                    type: .dynamic(self.contentTypeCounts),
                     systemImage: "doc"
                 )
-                .redacted(reason: maxContentType == nil ? .placeholder : [])
+                .redacted(reason: self.contentTypeCounts.isEmpty ? .placeholder : [])
 
-                let maxContentTheme = self.viewModel.maxContentTheme(in: self.project)
                 StatisticsContentView(
-                    title: maxContentTheme?.name.capitalized ?? "placeholder",
-                    number: maxContentTheme?.count ?? 0,
+                    type: .dynamic(self.contentThemeCounts),
                     systemImage: "number"
                 )
-                .redacted(reason: maxContentTheme == nil ? .placeholder : [])
+                .redacted(reason: self.contentThemeCounts.isEmpty ? .placeholder : [])
             }
             
             GridRow {
@@ -61,10 +55,27 @@ struct StatisticsView: View {
         .padding()
         .background(.listBackground)
         .frame(width: 280)
+        .preferredColorScheme(.dark)
     }
 }
 
 extension StatisticsView {
+    var numberOfContents: Int {
+        self.viewModel.numberOfContents(in: self.project)
+    }
+
+    var numberOfThemes: Int {
+        self.viewModel.numberOfThemes(in: self.project)
+    }
+
+    var contentTypeCounts: [String: Int] {
+        self.viewModel.contentTypeCounts(in: self.project)
+    }
+
+    var contentThemeCounts: [String: Int] {
+        self.viewModel.contentThemeCounts(in: self.project)
+    }
+
     var createdDate: String {
         self.viewModel.formattedDate(from: self.project.createdDate)
     }
@@ -78,5 +89,5 @@ extension StatisticsView {
     ModelContainerPreview {
         StatisticsView(project: PreviewDataGenerator.project)
     }
-    .frame(width: 280, height: 420)
+    .frame(width: 280, height: 410)
 }

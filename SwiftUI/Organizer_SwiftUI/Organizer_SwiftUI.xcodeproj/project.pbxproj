@@ -32,6 +32,8 @@
 		F00602062ADEE9C8005F57CA /* AlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00601CF2ADDF137005F57CA /* AlertType.swift */; };
 		F00602072ADEEA6B005F57CA /* FormFieldValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00601D42ADEB280005F57CA /* FormFieldValidator.swift */; };
 		F00602082ADEEA74005F57CA /* String+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC7E2ADAB1D200507993 /* String+URL.swift */; };
+		F02E9F2B2AE6BADB00755FF7 /* Sequence+CountBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E9F2A2AE6BADB00755FF7 /* Sequence+CountBy.swift */; };
+		F02E9F2C2AE6BADB00755FF7 /* Sequence+CountBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E9F2A2AE6BADB00755FF7 /* Sequence+CountBy.swift */; };
 		F051E37A2AE01D7B009F1E50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F051E3792AE01D7B009F1E50 /* Assets.xcassets */; };
 		F051E37D2AE01D7B009F1E50 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F051E37C2AE01D7B009F1E50 /* Preview Assets.xcassets */; };
 		F051E3832AE0222C009F1E50 /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3822AE0222C009F1E50 /* ProjectView.swift */; };
@@ -218,6 +220,7 @@
 		F00601F82ADECF14005F57CA /* ProjectPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectPicker.swift; sourceTree = "<group>"; };
 		F00601FF2ADED4F1005F57CA /* ShareFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareFormViewModel.swift; sourceTree = "<group>"; };
 		F00602032ADEE857005F57CA /* ShareFormValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareFormValues.swift; sourceTree = "<group>"; };
+		F02E9F2A2AE6BADB00755FF7 /* Sequence+CountBy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+CountBy.swift"; sourceTree = "<group>"; };
 		F051E3732AE01D7A009F1E50 /* MacOrganizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacOrganizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F051E3792AE01D7B009F1E50 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F051E37C2AE01D7B009F1E50 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -963,6 +966,7 @@
 				F0E347492AD8010C00B12AD9 /* String+Components.swift */,
 				F061DC7E2ADAB1D200507993 /* String+URL.swift */,
 				F0D4288F2ADD5D9D00DAF2B2 /* URL+Identifiable.swift */,
+				F02E9F2A2AE6BADB00755FF7 /* Sequence+CountBy.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -1383,6 +1387,7 @@
 				F0D9F42C2AE1BAB60019231A /* FocusedValues.swift in Sources */,
 				F09D54CF2AE1F8BE00E23ADC /* ContentRowViewModel.swift in Sources */,
 				F0D9F4382AE1DAB50019231A /* ContentListPreviewStyleMenu.swift in Sources */,
+				F02E9F2C2AE6BADB00755FF7 /* Sequence+CountBy.swift in Sources */,
 				F051E3C52AE070EE009F1E50 /* FormTextFieldConfiguration.swift in Sources */,
 				F051E3D02AE07CBE009F1E50 /* String+URL.swift in Sources */,
 				F0D9F4462AE1E2040019231A /* URLMetadataProviderProtocol.swift in Sources */,
@@ -1458,6 +1463,7 @@
 				F051E3A22AE038B0009F1E50 /* ProjectListContainerView.swift in Sources */,
 				F061DC692AD9A58500507993 /* AppStorage+Key.swift in Sources */,
 				F051E3DC2AE08C1F009F1E50 /* ContentListSortingMenu.swift in Sources */,
+				F02E9F2B2AE6BADB00755FF7 /* Sequence+CountBy.swift in Sources */,
 				F0E984852AD8A7FF0082F6A1 /* FormTextField.swift in Sources */,
 				F061DC5B2AD9815C00507993 /* SwipeActionType.swift in Sources */,
 				F061DC5D2AD99C3500507993 /* ModelContainer+Preview.swift in Sources */,

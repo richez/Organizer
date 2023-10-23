@@ -22,8 +22,8 @@ struct StatisticsDateContainerView: View {
             StatisticsDateView(title: "Created", date: self.created)
                 .padding([.bottom, .leading, .trailing])
         }
+        .foregroundStyle(.statisticsText)
         .background(.statisticsRowBackground)
-        .foregroundStyle(.white)
         .clipShape(RoundedRectangle(cornerRadius: 20))
     }
 }
