@@ -15,12 +15,5 @@
 			</array>
 		</dict>
 	</array>
-	<key>UILaunchScreen</key>
-	<dict>
-		<key>UIColorName</key>
-		<string>Launchscreen-background</string>
-		<key>UIImageName</key>
-		<string>Launchscreen-logo</string>
-	</dict>
 </dict>
 </plist>
