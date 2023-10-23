@@ -88,8 +88,6 @@ struct ContentForm: View {
         .scrollContentBackground(.hidden)
         .padding(.top)
         .background(Color.listBackground)
-        // TODO: remove - fix only on preview ?
-        .onChange(of: self.type) {} // unused but fixes picker type updates.
         .alert(.unknownError, isPresented: self.$isShowingErrorAlert)
         .onAppear {
             self.update(with: self.content)

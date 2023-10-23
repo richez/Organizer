@@ -13,15 +13,15 @@ extension ProjectRow {
             themes.map { "#\($0)" }.joined(separator: " ")
         }
 
-        // TODO: check statistics view logic
         func statistics(for contents: [ProjectContent]) -> String {
             let contentCount = contents.count
             guard contentCount > 0 else { return "" }
 
-            let contentTypeCounts = ProjectContentType.allCases.compactMap { type in
-                let contentTypeCount = contents.filter { $0.type == type }.count
-                return contentTypeCount > 0 ? "\(contentTypeCount) \(type.rawValue)s" : nil
-            }.joined(separator: ", ")
+            let contentTypeCounts = contents
+                .count(by: \.type)
+                .sorted { $0.key.rawValue < $1.key.rawValue }
+                .map { "\($0.value) \($0.key)s" }
+                .joined(separator: ", ")
 
             return "\(contentCount) contents (\(contentTypeCounts))"
         }
