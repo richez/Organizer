@@ -70,15 +70,15 @@ struct ContentHeaderView: View {
                 Button("Add Content", systemImage: "plus") {
                     self.navigationContext.isShowingContentForm.toggle()
                 }
-                .focusedSceneValue(\.showContentForm, $navigationContext.isShowingContentForm)
-                .sheet(isPresented: $navigationContext.isShowingContentForm) {
-                    ContentForm(project: self.project)
-                }
             }
             .buttonStyle(.borderless)
             .labelStyle(.iconOnly)
             .foregroundStyle(.cellTitle.opacity(0.8))
             .font(.system(size: 18, weight: .bold))
+        }
+        .focusedSceneValue(\.showContentForm, $navigationContext.isShowingContentForm)
+        .sheet(isPresented: $navigationContext.isShowingContentForm) {
+            ContentForm(project: self.project)
         }
         .padding()
     }

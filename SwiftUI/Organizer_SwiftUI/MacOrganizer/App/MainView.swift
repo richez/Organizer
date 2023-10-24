@@ -27,7 +27,6 @@ struct MainView: View {
             }
             .frame(minWidth: 300)
         }
-        .environment(self.navigationContext)
         .focusedValue(\.selectedProject, $navigationContext.selectedProject)
         .navigationSplitViewStyle(.balanced)
         .background(.listBackground)

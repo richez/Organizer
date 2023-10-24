@@ -24,7 +24,6 @@ struct MainView: View {
             }
             .background(.listBackground)
         }
-        .environment(self.navigationContext)
         .navigationSplitViewStyle(.balanced)
         .fullScreenCover(item: $navigationContext.selectedContentURL) { url in
             SafariView(url: url)
