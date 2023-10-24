@@ -12,13 +12,13 @@ import SwiftUI
 extension FocusedValues {
     // MARK: Selected
 
-    private struct SelectedProject: FocusedValueKey {
+    private struct SelectedProjectKey: FocusedValueKey {
         typealias Value = Binding<Project?>
     }
 
     var selectedProject: Binding<Project?>? {
-        get { self[SelectedProject.self] }
-        set { self[SelectedProject.self] = newValue }
+        get { self[SelectedProjectKey.self] }
+        set { self[SelectedProjectKey.self] = newValue }
     }
 
     // MARK: Form
@@ -49,6 +49,17 @@ extension FocusedValues {
 // MARK: - Content
 
 extension FocusedValues {
+    // MARK: Selected
+
+    private struct SelectedContentKey: FocusedValueKey {
+        typealias Value = Binding<ProjectContent?>
+    }
+
+    var selectedContent: Binding<ProjectContent?>? {
+        get { self[SelectedContentKey.self] }
+        set { self[SelectedContentKey.self] = newValue }
+    }
+
     // MARK: Form
 
     #if os(macOS)

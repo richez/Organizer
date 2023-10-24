@@ -44,6 +44,7 @@ struct ContentListContainerView: View {
             sort: self.sortDescriptor
         )
         .listStyle()
+        .focusedSceneValue(\.selectedContent, self.$selected)
     }
 }
 
