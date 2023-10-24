@@ -13,11 +13,16 @@ struct ProjectView: View {
     @AppStorage(.projectListSelectedTheme)
     private var selectedTheme: String? = nil
 
+    @State var isShowingForm: Bool = false
+
     var body: some View {
         ZStack(alignment: .bottom) {
             ProjectListContainerView()
 
-            FloatingButtonSheet("Add project", systemName: "square.and.pencil") {
+            FloatingButton("Add project", systemName: "square.and.pencil") {
+                self.isShowingForm.toggle()
+            }
+            .sheet(isPresented: self.$isShowingForm) {
                 ProjectForm()
             }
         }
@@ -37,7 +42,7 @@ struct ProjectView: View {
 
 private extension ProjectView {
     var navbarSubtitle: String {
-        self.store.filtersDescription(for: selectedTheme)
+        self.store.filtersDescription(for: self.selectedTheme)
     }
 }
 

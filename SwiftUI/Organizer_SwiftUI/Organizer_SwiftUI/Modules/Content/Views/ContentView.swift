@@ -18,6 +18,8 @@ struct ContentView: View {
     @AppStorage(.contentListSelectedType)
     private var selectedType: ProjectContentType?
 
+    @State var isShowingForm: Bool = false
+
     init(project: Project) {
         self.project = project
 
@@ -30,7 +32,10 @@ struct ContentView: View {
         ZStack(alignment: .bottom) {
             ContentListContainerView(project: self.project)
 
-            FloatingButtonSheet("Add content", systemName: "plus") {
+            FloatingButton("Add content", systemName: "plus") {
+                self.isShowingForm.toggle()
+            }
+            .sheet(isPresented: self.$isShowingForm) {
                 ContentForm(project: self.project)
             }
         }

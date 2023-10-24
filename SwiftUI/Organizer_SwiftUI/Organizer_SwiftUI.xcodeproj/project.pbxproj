@@ -184,7 +184,6 @@
 		F0E3474A2AD8010C00B12AD9 /* String+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347492AD8010C00B12AD9 /* String+Components.swift */; };
 		F0E347502AD81C8A00B12AD9 /* StorageKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E3474F2AD81C8A00B12AD9 /* StorageKey.swift */; };
 		F0E347522AD81C9C00B12AD9 /* ProjectListSorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347512AD81C9C00B12AD9 /* ProjectListSorting.swift */; };
-		F0E347592AD8259D00B12AD9 /* FloatingButtonSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347582AD8259D00B12AD9 /* FloatingButtonSheet.swift */; };
 		F0E3475C2AD8295200B12AD9 /* ProjectForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E3475B2AD8295200B12AD9 /* ProjectForm.swift */; };
 		F0E3475F2AD83A7700B12AD9 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E3475E2AD83A7700B12AD9 /* FloatingButton.swift */; };
 		F0E347612AD83A9E00B12AD9 /* FloatingButtonViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347602AD83A9E00B12AD9 /* FloatingButtonViewModifier.swift */; };
@@ -332,7 +331,6 @@
 		F0E347492AD8010C00B12AD9 /* String+Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Components.swift"; sourceTree = "<group>"; };
 		F0E3474F2AD81C8A00B12AD9 /* StorageKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageKey.swift; sourceTree = "<group>"; };
 		F0E347512AD81C9C00B12AD9 /* ProjectListSorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListSorting.swift; sourceTree = "<group>"; };
-		F0E347582AD8259D00B12AD9 /* FloatingButtonSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButtonSheet.swift; sourceTree = "<group>"; };
 		F0E3475B2AD8295200B12AD9 /* ProjectForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectForm.swift; sourceTree = "<group>"; };
 		F0E3475E2AD83A7700B12AD9 /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
 		F0E347602AD83A9E00B12AD9 /* FloatingButtonViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButtonViewModifier.swift; sourceTree = "<group>"; };
@@ -1156,7 +1154,6 @@
 			isa = PBXGroup;
 			children = (
 				F0E3475E2AD83A7700B12AD9 /* FloatingButton.swift */,
-				F0E347582AD8259D00B12AD9 /* FloatingButtonSheet.swift */,
 				F0E347602AD83A9E00B12AD9 /* FloatingButtonViewModifier.swift */,
 			);
 			path = FloatingButton;
@@ -1485,7 +1482,6 @@
 				F051E3DA2AE08A5B009F1E50 /* ProjectListThemeMenu.swift in Sources */,
 				F0D428932ADD8E6300DAF2B2 /* URLMetadataProviderProtocol.swift in Sources */,
 				F061DC562AD9741100507993 /* ListStyleViewModifier.swift in Sources */,
-				F0E347592AD8259D00B12AD9 /* FloatingButtonSheet.swift in Sources */,
 				F09D54EA2AE2C1C800E23ADC /* ContentStore.swift in Sources */,
 				F09D54E12AE2B5A300E23ADC /* ProjectStoreProtocol.swift in Sources */,
 				F0E9848C2AD8ACB40082F6A1 /* FormTextFieldConfiguration.swift in Sources */,
