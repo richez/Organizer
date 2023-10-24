@@ -12,8 +12,4 @@ final class NavigationContext {
     var columnVisibility: NavigationSplitViewVisibility = .all
     var selectedProject: Project?
     var selectedContentURL: URL?
-
-    #if os(macOS)
-    var isShowingStatistics: Bool = false
-    #endif
 }

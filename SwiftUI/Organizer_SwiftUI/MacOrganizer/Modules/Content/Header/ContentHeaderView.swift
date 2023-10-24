@@ -19,6 +19,7 @@ struct ContentHeaderView: View {
     private var selectedType: ProjectContentType?
 
     @State private var isShowingForm: Bool = false
+    @State private var isShowingStats: Bool = false
 
     init(project: Project) {
         self.project = project
@@ -59,10 +60,10 @@ struct ContentHeaderView: View {
 
             HStack(spacing: 20) {
                 Button("Statistics", systemImage: "info.circle") {
-                    self.navigationContext.isShowingStatistics.toggle()
+                    self.isShowingStats.toggle()
                 }
-                .focusedSceneValue(\.showStatistics, $navigationContext.isShowingStatistics)
-                .popover(isPresented: $navigationContext.isShowingStatistics) {
+                .focusedSceneValue(\.showStatistics, self.$isShowingStats)
+                .popover(isPresented: self.$isShowingStats) {
                     StatisticsView(project: self.project)
                 }
 
