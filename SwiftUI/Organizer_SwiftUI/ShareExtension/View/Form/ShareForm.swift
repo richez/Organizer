@@ -100,7 +100,7 @@ struct ShareForm: View {
 }
 
 private extension ShareForm {
-    var values: ContentValues {
+    var values: ContentFormValues {
         .init(
             type: self.type,
             link: self.link,

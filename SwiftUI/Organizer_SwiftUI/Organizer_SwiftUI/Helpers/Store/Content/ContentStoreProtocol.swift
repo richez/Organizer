@@ -16,7 +16,6 @@ protocol ContentStoreDescriptor {
 
 protocol ContentStoreReader {
     func content(with values: ContentValues) -> ProjectContent
-    func url(for content: ProjectContent) throws -> URL
     func themes(in project: Project) -> [String]
 }
 

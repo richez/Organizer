@@ -25,8 +25,11 @@ extension ShareForm {
             }
         }
 
-        func save(_ values: ContentValues, project: SelectedProject, in context: ModelContext) throws {
+        func save(_ values: ContentFormValues, project: SelectedProject, in context: ModelContext) throws {
             try self.validator.validate(values: (.link, values.link), (.title, values.title), (.theme, values.theme))
+
+            let url = URL(string: values.link)!
+            let values = ContentValues(type: values.type, url: url, title: values.title, theme: values.theme)
 
             switch project {
             case .new(let title):

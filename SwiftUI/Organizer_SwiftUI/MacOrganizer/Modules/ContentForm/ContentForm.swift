@@ -74,7 +74,7 @@ struct ContentForm: View {
 }
 
 extension ContentForm {
-    var values: ContentValues {
+    var values: ContentFormValues {
         .init(
             type: self.type,
             link: self.link,
@@ -104,7 +104,7 @@ extension ContentForm {
     func update(with content: ProjectContent?) {
         if let content {
             self.type = content.type
-            self.link = content.url
+            self.link = content.url.absoluteString
             self.title = content.title
             self.theme = content.theme
         }

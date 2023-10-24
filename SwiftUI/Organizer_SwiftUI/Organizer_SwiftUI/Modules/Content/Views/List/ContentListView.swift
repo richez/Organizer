@@ -19,7 +19,6 @@ struct ContentListView: View {
 
     @State private var isShowingContentURL: URL?
     @State private var editingContent: ProjectContent?
-    @State private var isShowingURLError: Bool = false
 
     init(project: Project,
          predicate: Predicate<ProjectContent>?,
@@ -32,9 +31,7 @@ struct ContentListView: View {
         List {
             ForEach(self.contents) { content in
                 Button {
-                    self.url(for: content) { url in
-                        self.isShowingContentURL = url
-                    }
+                    self.isShowingContentURL = content.url
                 } label: {
                     ContentRow(
                         content: content, suiteName: self.project.identifier.uuidString
@@ -45,14 +42,10 @@ struct ContentListView: View {
                 .listRowSeparatorTint(.cellSeparatorTint)
                 .contextMenu {
                     ContextMenuButton(.openBrowser) {
-                        self.url(for: content) { url in
-                            self.openURL(url)
-                        }
+                        self.openURL(content.url)
                     }
                     ContextMenuButton(.copyLink) {
-                        self.url(for: content) { url in
-                            Pasteboard.general.set(url)
-                        }
+                        Pasteboard.general.set(content.url)
                     }
                     ContextMenuButton(.edit) {
                         self.editingContent = content
@@ -76,7 +69,6 @@ struct ContentListView: View {
         .sheet(item: self.$editingContent) { content in
             ContentForm(project: self.project, content: content)
         }
-        .alert(.invalidContentLink, isPresented: self.$isShowingURLError)
         #if os(macOS)
         .onChange(of: self.isShowingContentURL) {
             if let url = self.isShowingContentURL {
@@ -99,18 +91,6 @@ struct ContentListView: View {
             }
         }
         #endif
-    }
-}
-
-private extension ContentListView {
-    func url(for content: ProjectContent, action: (URL) -> Void) {
-        do {
-            let url = try self.store.url(for: content)
-            action(url)
-        } catch {
-            print("Could not retrieve content url: \(error)")
-            self.isShowingURLError = true
-        }
     }
 }
 

@@ -34,12 +34,15 @@ extension ContentForm {
         }
 
         func save(
-            _ values: ContentValues,
+            _ values: ContentFormValues,
             for content: ProjectContent?,
             in project: Project,
             context: ModelContext
         ) throws {
             try self.validator.validate(values: (.link, values.link), (.title, values.title), (.theme, values.theme))
+
+            let url = URL(string: values.link)!
+            let values = ContentValues(type: values.type, url: url, title: values.title, theme: values.theme)
 
             if let content {
                 self.store.update(content, with: values)

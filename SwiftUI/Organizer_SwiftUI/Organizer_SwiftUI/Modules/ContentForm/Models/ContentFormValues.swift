@@ -1,5 +1,5 @@
 //
-//  ContentValues.swift
+//  ContentFormValues.swift
 //  Organizer_SwiftUI
 //
 //  Created by Thibaut Richez on 24/10/2023.
@@ -7,9 +7,10 @@
 
 import Foundation
 
-struct ContentValues {
+struct ContentFormValues {
     var type: ProjectContentType
-    var url: URL
+    var link: String
     var title: String
     var theme: String
+
 }

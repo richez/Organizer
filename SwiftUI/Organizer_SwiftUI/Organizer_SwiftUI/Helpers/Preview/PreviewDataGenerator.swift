@@ -26,7 +26,7 @@ enum PreviewDataGenerator {
         type: .video, 
         title: "How to choose your insulation materials ?",
         theme: "insulation",
-        url: "https://www.hackingwithswift.com"
+        url: URL(string: "https://www.hackingwithswift.com")!
     )
 
     static func generateData(in context: ModelContext) {
@@ -49,24 +49,62 @@ enum PreviewDataGenerator {
 
     private static var selfBuildContents: [ProjectContent] {
         [
-            ProjectContent(type: .article, title: "How to choose your insulation materials ?", theme: "insulation", url: "https://www.youtube.com"),
-            ProjectContent(type: .video, title: "The type of screws you should know", theme: "tools"),
-            ProjectContent(type: .note, title: "First time building stairs"),
-            ProjectContent(type: .other, title: "How to find the right self-build land", theme: "land"),
+            ProjectContent(
+                type: .article, title: "How to choose your insulation materials ?",
+                theme: "insulation",
+                url: URL(string: "https://www.youtube.com")!
+            ),
+            ProjectContent(
+                type: .video,
+                title: "The type of screws you should know",
+                theme: "tools",
+                url: URL(string: "https://www.youtube.com")!
+            ),
+            ProjectContent(
+                type: .note,
+                title: "First time building stairs",
+                url: URL(string: "https://www.youtube.com")!
+            ),
+            ProjectContent(
+                type: .other,
+                title: "How to find the right self-build land",
+                theme: "land",
+                url: URL(string: "https://www.youtube.com")!
+            ),
         ]
     }
 
     private static var hikingContents: [ProjectContent] {
         [
-            ProjectContent(type: .note, title: "The best hiking spots", theme: "spots"),
-            ProjectContent(type: .article, title: "The best backpack gear list", theme: "gear")
+            ProjectContent(
+                type: .note,
+                title: "The best hiking spots",
+                theme: "spots",
+                url: URL(string: "https://www.youtube.com")!
+            ),
+            ProjectContent(
+                type: .article,
+                title: "The best backpack gear list",
+                theme: "gear",
+                url: URL(string: "https://www.youtube.com")!
+            )
         ]
     }
 
     private static var bicycleContents: [ProjectContent] {
         [
-            ProjectContent(type: .other, title: "The best cycling spots", theme: "spots"),
-            ProjectContent(type: .video, title: "The best backpack gear list", theme: "gear")
+            ProjectContent(
+                type: .other,
+                title: "The best cycling spots",
+                theme: "spots",
+                url: URL(string: "https://www.youtube.com")!
+            ),
+            ProjectContent(
+                type: .video,
+                title: "The best backpack gear list",
+                theme: "gear",
+                url: URL(string: "https://www.youtube.com")!
+            )
         ]
     }
 }

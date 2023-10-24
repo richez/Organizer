@@ -11,6 +11,7 @@ import RegexBuilder
 extension String {
     /// Returns `true` if the whole associated string starts with 'http(s)://'
     /// and is followed by one or more allowed characters.
+    /// If `true`, the associated string can be safely converted to an `URL`
     func isValidURL() -> Bool {
         let regex = Regex {
             "http"
@@ -22,6 +23,6 @@ extension String {
             "."
             OneOrMore(.whitespace.inverted)
         }
-        return self.wholeMatch(of: regex) != nil
+        return self.wholeMatch(of: regex) != nil && URL(string: self) != nil
     }
 }
