@@ -22,7 +22,7 @@ protocol ContentStoreReader {
 
 protocol ContentStoreWritter {
     @discardableResult
-    func create(with values: ContentValues, for project: Project, in context: ModelContext) -> ProjectContent
+    func create(with values: ContentValues, in project: Project, context: ModelContext) -> ProjectContent
     func update(_ content: ProjectContent, with values: ContentValues)
     func delete(_ content: ProjectContent, in context: ModelContext)
 }

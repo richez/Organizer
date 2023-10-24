@@ -64,8 +64,7 @@ extension ProjectStore: ProjectStoreReader {
         )
     }
 
-    // TODO: change for by with
-    func project(for persistentModelID: PersistentIdentifier, in context: ModelContext) -> Project? {
+    func project(with persistentModelID: PersistentIdentifier, in context: ModelContext) -> Project? {
         guard let project = context.model(for: persistentModelID) as? Project else {
             return nil
         }
@@ -73,7 +72,7 @@ extension ProjectStore: ProjectStoreReader {
         return project
     }
 
-    func project(for identifier: UUID, in context: ModelContext) -> Project? {
+    func project(with identifier: UUID, in context: ModelContext) -> Project? {
         var descriptor = FetchDescriptor<Project>(predicate: #Predicate {
             $0.identifier == identifier
         })

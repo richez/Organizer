@@ -38,7 +38,7 @@ struct ProjectWindow: View {
 private extension ProjectWindow {
     var project: Project? {
         guard let projectID else { return nil }
-        return self.store.project(for: projectID, in: self.modelContext)
+        return self.store.project(with: projectID, in: self.modelContext)
     }
 }
 

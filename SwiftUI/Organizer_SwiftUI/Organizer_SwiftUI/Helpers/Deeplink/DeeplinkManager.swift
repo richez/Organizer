@@ -54,7 +54,7 @@ private extension DeeplinkManager {
     func project(with identifier: String, context: ModelContext) throws -> Project {
         guard
             let uuid = UUID(uuidString: identifier),
-            let project = self.projectStore.project(for: uuid, in: context)
+            let project = self.projectStore.project(with: uuid, in: context)
         else {
             throw Error.projectNotFound(identifier)
         }

@@ -103,9 +103,8 @@ extension ContentStore: ContentStoreReader {
 // MARK: - ContentStoreWritter
 
 extension ContentStore: ContentStoreWritter {
-    // TODO: update for by in
     @discardableResult
-    func create(with values: ContentValues, for project: Project, in context: ModelContext) -> ProjectContent {
+    func create(with values: ContentValues, in project: Project, context: ModelContext) -> ProjectContent {
         let content = self.content(with: values)
         content.project = project
         project.updatedDate = .now

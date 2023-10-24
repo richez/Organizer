@@ -16,8 +16,8 @@ protocol ProjectStoreDescriptor {
 
 protocol ProjectStoreReader {
     func project(with values: ProjectValues) -> Project
-    func project(for id: PersistentIdentifier, in context: ModelContext) -> Project?
-    func project(for identifier: UUID, in context: ModelContext) -> Project?
+    func project(with id: PersistentIdentifier, in context: ModelContext) -> Project?
+    func project(with identifier: UUID, in context: ModelContext) -> Project?
     func themes(in context: ModelContext) -> [String]
     func themes(in projects: [Project]) -> [String]
 }

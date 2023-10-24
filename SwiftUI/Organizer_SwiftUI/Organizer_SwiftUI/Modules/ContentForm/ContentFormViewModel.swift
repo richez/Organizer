@@ -47,7 +47,7 @@ extension ContentForm {
             if let content {
                 self.store.update(content, with: values)
             } else {
-                self.store.create(with: values, for: project, in: context)
+                self.store.create(with: values, in: project, context: context)
             }
         }
     }

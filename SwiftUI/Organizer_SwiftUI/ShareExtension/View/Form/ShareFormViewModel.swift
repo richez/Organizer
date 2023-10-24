@@ -38,7 +38,7 @@ extension ShareForm {
                 self.projectStore.create(with: .init(title: title), contents: [content], in: context)
 
             case .custom(let project):
-                self.contentStore.create(with: values, for: project, in: context)
+                self.contentStore.create(with: values, in: project, context: context)
             }
         }
     }
