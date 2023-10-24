@@ -146,6 +146,7 @@
 		F09D54EF2AE2DA3500E23ADC /* ProjectDeleteAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09D54EE2AE2DA3500E23ADC /* ProjectDeleteAction.swift */; };
 		F09D54F12AE2E7AA00E23ADC /* ProjectDuplicateAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09D54F02AE2E7AA00E23ADC /* ProjectDuplicateAction.swift */; };
 		F09D54F32AE4376A00E23ADC /* ContentFormAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09D54F22AE4376A00E23ADC /* ContentFormAction.swift */; };
+		F0B82DD42AE7F8A0000405EB /* StatisticsAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B82DD32AE7F8A0000405EB /* StatisticsAction.swift */; };
 		F0D428892ADD4B2D00DAF2B2 /* ContextMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D428882ADD4B2D00DAF2B2 /* ContextMenuButton.swift */; };
 		F0D4288B2ADD4C0700DAF2B2 /* ContextMenuType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D4288A2ADD4C0700DAF2B2 /* ContextMenuType.swift */; };
 		F0D4288E2ADD58F600DAF2B2 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D4288D2ADD58F600DAF2B2 /* SafariView.swift */; };
@@ -305,6 +306,7 @@
 		F09D54EE2AE2DA3500E23ADC /* ProjectDeleteAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDeleteAction.swift; sourceTree = "<group>"; };
 		F09D54F02AE2E7AA00E23ADC /* ProjectDuplicateAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDuplicateAction.swift; sourceTree = "<group>"; };
 		F09D54F22AE4376A00E23ADC /* ContentFormAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentFormAction.swift; sourceTree = "<group>"; };
+		F0B82DD32AE7F8A0000405EB /* StatisticsAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsAction.swift; sourceTree = "<group>"; };
 		F0D428882ADD4B2D00DAF2B2 /* ContextMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuButton.swift; sourceTree = "<group>"; };
 		F0D4288A2ADD4C0700DAF2B2 /* ContextMenuType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuType.swift; sourceTree = "<group>"; };
 		F0D4288D2ADD58F600DAF2B2 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
@@ -860,6 +862,7 @@
 			isa = PBXGroup;
 			children = (
 				F09D54D42AE2939800E23ADC /* ProjectFormAction.swift */,
+				F0B82DD32AE7F8A0000405EB /* StatisticsAction.swift */,
 				F09D54DB2AE2A7CB00E23ADC /* ProjectEditorFormAction.swift */,
 				F09D54D62AE293A900E23ADC /* OpenProjectWindowAction.swift */,
 				F09D54EE2AE2DA3500E23ADC /* ProjectDeleteAction.swift */,
@@ -1394,6 +1397,7 @@
 				F051E3C52AE070EE009F1E50 /* FormTextFieldConfiguration.swift in Sources */,
 				F051E3D02AE07CBE009F1E50 /* String+URL.swift in Sources */,
 				F0D9F4462AE1E2040019231A /* URLMetadataProviderProtocol.swift in Sources */,
+				F0B82DD42AE7F8A0000405EB /* StatisticsAction.swift in Sources */,
 				F09D54E22AE2B66000E23ADC /* ProjectStoreProtocol.swift in Sources */,
 				F051E3942AE025D9009F1E50 /* ContextMenuButton.swift in Sources */,
 				F02E9F312AE6DF4800755FF7 /* Deeplink.swift in Sources */,

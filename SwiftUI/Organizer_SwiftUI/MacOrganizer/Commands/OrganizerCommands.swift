@@ -18,6 +18,11 @@ struct OrganizerCommands: Commands {
             ProjectFormAction()
         }
 
+        CommandGroup(after: .sidebar) {
+            StatisticsAction()
+                .disabled(self.selectedProject?.wrappedValue == nil)
+        }
+
         CommandMenu("Project") {
             Group {
                 if let project = self.selectedProject?.wrappedValue {

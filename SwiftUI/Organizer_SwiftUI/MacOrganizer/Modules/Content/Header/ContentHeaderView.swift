@@ -62,12 +62,17 @@ struct ContentHeaderView: View {
                 Button("Statistics", systemImage: "info.circle") {
                     self.navigationContext.isShowingStatistics.toggle()
                 }
+                .focusedSceneValue(\.showStatistics, $navigationContext.isShowingStatistics)
                 .popover(isPresented: $navigationContext.isShowingStatistics) {
                     StatisticsView(project: self.project)
                 }
 
                 Button("Add Content", systemImage: "plus") {
                     self.navigationContext.isShowingContentForm.toggle()
+                }
+                .focusedSceneValue(\.showContentForm, $navigationContext.isShowingContentForm)
+                .sheet(isPresented: $navigationContext.isShowingContentForm) {
+                    ContentForm(project: self.project)
                 }
             }
             .buttonStyle(.borderless)
@@ -76,10 +81,6 @@ struct ContentHeaderView: View {
             .font(.system(size: 18, weight: .bold))
         }
         .padding()
-        .focusedSceneValue(\.showContentForm, $navigationContext.isShowingContentForm)
-        .sheet(isPresented: $navigationContext.isShowingContentForm) {
-            ContentForm(project: self.project)
-        }
     }
 }
 
