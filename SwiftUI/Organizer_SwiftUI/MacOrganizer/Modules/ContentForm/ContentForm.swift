@@ -104,7 +104,7 @@ extension ContentForm {
     func update(with content: ProjectContent?) {
         if let content {
             self.type = content.type
-            self.link = content.link
+            self.link = content.url
             self.title = content.title
             self.theme = content.theme
         }

@@ -7,6 +7,7 @@
 
 import Foundation
 
+// TODO: delete invalidContentLink
 enum AlertType {
     case unknownError
     case invalidContentLink

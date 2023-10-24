@@ -162,7 +162,7 @@ private extension ProjectStore {
             type: content.type,
             title: content.title,
             theme: content.theme,
-            link: content.link,
+            url: content.url,
             createdDate: content.createdDate,
             updatedDate: content.updatedDate
         )

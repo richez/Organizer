@@ -78,13 +78,13 @@ extension ContentStore: ContentStoreReader {
             type: values.type,
             title: values.title.trimmingCharacters(in: .whitespacesAndNewlines),
             theme: values.theme.trimmingCharacters(in: .whitespacesAndNewlines),
-            link: values.link.trimmingCharacters(in: .whitespacesAndNewlines)
+            url: values.link.trimmingCharacters(in: .whitespacesAndNewlines)
         )
     }
 
     func url(for content: ProjectContent) throws -> URL {
-        guard content.link.isValidURL(), let url = URL(string: content.link) else {
-            throw Error.invalidURL(content.link)
+        guard content.url.isValidURL(), let url = URL(string: content.url) else {
+            throw Error.invalidURL(content.url)
         }
 
         return url
@@ -117,11 +117,11 @@ extension ContentStore: ContentStoreWritter {
         let title = values.title.trimmingCharacters(in: .whitespacesAndNewlines)
         let theme = values.theme.trimmingCharacters(in: .whitespacesAndNewlines)
 
-        let hasChanges = type != content.type || link != content.link || title != content.title || theme != content.theme
+        let hasChanges = type != content.type || link != content.url || title != content.title || theme != content.theme
 
         if hasChanges {
             content.typeRawValue = type.rawValue
-            content.link = link
+            content.url = link
             content.title = title
             content.theme = theme
             content.updatedDate = .now

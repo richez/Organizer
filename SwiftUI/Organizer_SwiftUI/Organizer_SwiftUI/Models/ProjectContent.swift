@@ -24,7 +24,7 @@ final class ProjectContent {
     var typeRawValue: String
     var title: String
     var theme: String
-    var link: String
+    var url: String
     var createdDate: Date
     var updatedDate: Date
 
@@ -34,14 +34,14 @@ final class ProjectContent {
         type: ProjectContentType = .article,
          title: String = "",
          theme: String = "",
-         link: String = "",
+         url: String = "",
          createdDate: Date = .now,
          updatedDate: Date = .now) {
         self.identifier = identifier
         self.typeRawValue = type.rawValue
         self.title = title
         self.theme = theme
-        self.link = link
+        self.url = url
         self.createdDate = createdDate
         self.updatedDate = updatedDate
     }
