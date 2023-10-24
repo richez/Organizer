@@ -1,5 +1,5 @@
 //
-//  MainView.swift
+//  NavigationView.swift
 //  MacOrganizer
 //
 //  Created by Thibaut Richez on 19/10/2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MainView: View {
+struct NavigationView: View {
     @Environment(NavigationContext.self) private var navigationContext
     @Environment(\.openURL) private var openURL
 
@@ -41,6 +41,6 @@ struct MainView: View {
 
 #Preview {
     ModelContainerPreview {
-        MainView()
+        NavigationView()
     }
 }

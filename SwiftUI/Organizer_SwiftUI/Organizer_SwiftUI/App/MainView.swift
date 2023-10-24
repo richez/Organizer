@@ -8,32 +8,15 @@
 import SwiftUI
 
 struct MainView: View {
-    @Environment(NavigationContext.self) private var navigationContext
-
     var body: some View {
-        @Bindable var navigationContext = self.navigationContext
-        NavigationSplitView(columnVisibility: $navigationContext.columnVisibility) {
-            ProjectView()
-        } detail: {
-            Group {
-                if let project = self.navigationContext.selectedProject {
-                    ContentView(project: project)
-                } else {
-                    ProjectUnavailableView()
-                }
-            }
+        NavigationView()
+            .navigationSplitViewStyle(.balanced)
             .background(.listBackground)
-        }
-        .navigationSplitViewStyle(.balanced)
-        .fullScreenCover(item: $navigationContext.selectedContentURL) { url in
-            SafariView(url: url)
-                .ignoresSafeArea()
-        }
-        .onOpenURL { url in
-            guard let deeplink = Deeplink(url: url) else { return }
-            print(deeplink)
-            print(deeplink.url!)
-        }
+            .onOpenURL { url in
+                guard let deeplink = Deeplink(url: url) else { return }
+                print(deeplink)
+                print(deeplink.url!)
+            }
     }
 }
 
