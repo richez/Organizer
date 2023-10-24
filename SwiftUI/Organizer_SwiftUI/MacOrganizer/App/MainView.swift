@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct MainView: View {
-    @State private var navigationContext = NavigationContext()
+    @Environment(NavigationContext.self) private var navigationContext
     @Environment(\.openURL) private var openURL
 
     var body: some View {
-        NavigationSplitView(columnVisibility: self.$navigationContext.columnVisibility) {
+        @Bindable var navigationContext = self.navigationContext
+        NavigationSplitView(columnVisibility: $navigationContext.columnVisibility) {
             ThemeListView()
         } content: {
             ProjectView()
@@ -27,7 +28,7 @@ struct MainView: View {
             .frame(minWidth: 300)
         }
         .environment(self.navigationContext)
-        .focusedValue(\.selectedProject, self.$navigationContext.selectedProject)
+        .focusedValue(\.selectedProject, $navigationContext.selectedProject)
         .navigationSplitViewStyle(.balanced)
         .background(.listBackground)
         .onChange(of: self.navigationContext.selectedContentURL) {

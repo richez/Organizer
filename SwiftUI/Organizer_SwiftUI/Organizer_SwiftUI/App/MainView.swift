@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct MainView: View {
-    @State private var navigationContext = NavigationContext()
+    @Environment(NavigationContext.self) private var navigationContext
 
     var body: some View {
-        NavigationSplitView(columnVisibility: self.$navigationContext.columnVisibility) {
+        @Bindable var navigationContext = self.navigationContext
+        NavigationSplitView(columnVisibility: $navigationContext.columnVisibility) {
             ProjectView()
         } detail: {
             Group {
@@ -25,7 +26,7 @@ struct MainView: View {
         }
         .environment(self.navigationContext)
         .navigationSplitViewStyle(.balanced)
-        .fullScreenCover(item: self.$navigationContext.selectedContentURL) { url in
+        .fullScreenCover(item: $navigationContext.selectedContentURL) { url in
             SafariView(url: url)
                 .ignoresSafeArea()
         }
