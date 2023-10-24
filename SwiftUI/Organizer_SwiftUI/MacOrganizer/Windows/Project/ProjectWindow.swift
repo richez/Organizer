@@ -10,20 +10,28 @@ import SwiftUI
 
 struct ProjectWindow: View {
     @Binding var projectID: PersistentIdentifier?
+    @State private var selectedContent: ProjectContent?
 
     private let store: ProjectStoreReader = ProjectStore.shared
 
+    @Environment(\.openURL) private var openURL
     @Environment(\.modelContext) private var modelContext
 
     var body: some View {
         Group {
             if let project {
-                ContentView(project: project)
+                ContentView(project: project, selected: self.$selectedContent)
             } else {
                 ProjectUnavailableView()
             }
         }
         .background(.listBackground)
+        .onChange(of: self.selectedContent) {
+            if let selectedContent {
+                self.openURL(selectedContent.url)
+                self.selectedContent = nil
+            }
+        }
     }
 }
 

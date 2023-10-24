@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ContentListView: View {
     var project: Project
+    @Binding var selected: ProjectContent?
 
     private let store: ContentStoreOperations = ContentStore.shared
 
@@ -17,70 +18,53 @@ struct ContentListView: View {
     @Environment(\.openURL) private var openURL
     @Query private var contents: [ProjectContent]
 
-    @State private var isShowingContentURL: URL?
     @State private var editingContent: ProjectContent?
 
     init(project: Project,
+         selected: Binding<ProjectContent?>,
          predicate: Predicate<ProjectContent>?,
          sort: SortDescriptor<ProjectContent>) {
         self.project = project
+        self._selected = selected
         self._contents = Query(filter: predicate, sort: [sort], animation: .default)
     }
 
     var body: some View {
-        List {
-            ForEach(self.contents) { content in
-                Button {
-                    self.isShowingContentURL = content.url
-                } label: {
-                    ContentRow(
-                        content: content, suiteName: self.project.identifier.uuidString
-                    )
-                }
-                .buttonStyle(.borderless)
-                .listRowBackground(Color.listBackground)
-                .listRowSeparatorTint(.cellSeparatorTint)
-                .contextMenu {
-                    ContextMenuButton(.openBrowser) {
-                        self.openURL(content.url)
+        List(selection: self.$selected) {
+            ForEach(self.contents, id: \.self) { content in
+                ContentRow(content: content, suiteName: self.project.identifier.uuidString)
+                    .listRowBackground(Color.listBackground)
+                    .listRowSeparatorTint(.cellSeparatorTint)
+                    .contextMenu {
+                        ContextMenuButton(.openBrowser) {
+                            self.openURL(content.url)
+                        }
+                        ContextMenuButton(.copyLink) {
+                            Pasteboard.general.set(content.url)
+                        }
+                        ContextMenuButton(.edit) {
+                            self.editingContent = content
+                        }
+                        ContextMenuButton(.delete) {
+                            self.store.delete(content, in: self.modelContext)
+                        }
                     }
-                    ContextMenuButton(.copyLink) {
-                        Pasteboard.general.set(content.url)
+                    #if !os(macOS)
+                    .swipeActions {
+                        SwipeActionButton(.delete) {
+                            self.store.delete(content, in: self.modelContext)
+                        }
+                        SwipeActionButton(.edit) {
+                            self.editingContent = content
+                        }
                     }
-                    ContextMenuButton(.edit) {
-                        self.editingContent = content
-                    }
-                    ContextMenuButton(.delete) {
-                        self.store.delete(content, in: self.modelContext)
-                    }
-                }
-                #if !os(macOS)
-                .swipeActions {
-                    SwipeActionButton(.delete) {
-                        self.store.delete(content, in: self.modelContext)
-                    }
-                    SwipeActionButton(.edit) {
-                        self.editingContent = content
-                    }
-                }
-                #endif
+                    #endif
             }
         }
         .sheet(item: self.$editingContent) { content in
             ContentForm(project: self.project, content: content)
         }
-        #if os(macOS)
-        .onChange(of: self.isShowingContentURL) {
-            if let url = self.isShowingContentURL {
-                self.openURL(url)
-                self.isShowingContentURL = nil
-            }
-        }
-        #else
-        .fullScreenCover(item: self.$isShowingContentURL) { url in
-            SafariView(url: url)
-                .ignoresSafeArea()
-        }
+        #if !os(macOS)
         .toolbar {
             ToolbarItem {
                 ContentListMenu(
@@ -99,6 +83,7 @@ struct ContentListView: View {
         NavigationStack {
             ContentListView(
                 project: PreviewDataGenerator.project,
+                selected: .constant(nil),
                 predicate: nil,
                 sort: SortDescriptor(\.updatedDate)
             )

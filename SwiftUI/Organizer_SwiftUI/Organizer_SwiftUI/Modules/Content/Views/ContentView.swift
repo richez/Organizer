@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var project: Project
+    @Binding var selected: ProjectContent?
 
     private let store: ContentStoreDescriptor = ContentStore.shared
 
@@ -20,8 +21,9 @@ struct ContentView: View {
 
     @State var isShowingForm: Bool = false
 
-    init(project: Project) {
+    init(project: Project, selected: Binding<ProjectContent?>) {
         self.project = project
+        self._selected = selected
 
         let defaults = UserDefaults(suiteName: project.identifier.uuidString)
         self._selectedTheme.update(with: defaults, key: .contentListSelectedTheme)
@@ -30,7 +32,7 @@ struct ContentView: View {
 
     var body: some View {
         ZStack(alignment: .bottom) {
-            ContentListContainerView(project: self.project)
+            ContentListContainerView(project: self.project, selected: self.$selected)
 
             FloatingButton("Add content", systemName: "plus") {
                 self.isShowingForm.toggle()
@@ -65,7 +67,7 @@ private extension ContentView {
 #Preview {
     ModelContainerPreview {
         NavigationStack {
-            ContentView(project: PreviewDataGenerator.project)
+            ContentView(project: PreviewDataGenerator.project, selected: .constant(nil))
         }
     }
 }

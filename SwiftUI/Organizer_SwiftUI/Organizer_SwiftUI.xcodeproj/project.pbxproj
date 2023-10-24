@@ -51,7 +51,6 @@
 		F02E9F402AE7332100755FF7 /* Array+Duplicates.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347472AD800E300B12AD9 /* Array+Duplicates.swift */; };
 		F02E9F412AE7332A00755FF7 /* ProjectListSorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347512AD81C9C00B12AD9 /* ProjectListSorting.swift */; };
 		F02E9F422AE7333000755FF7 /* ContentListSorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC5F2AD9A0E300507993 /* ContentListSorting.swift */; };
-		F02E9F472AE7495100755FF7 /* URL+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E9F462AE7495100755FF7 /* URL+Identifiable.swift */; };
 		F051E37A2AE01D7B009F1E50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F051E3792AE01D7B009F1E50 /* Assets.xcassets */; };
 		F051E37D2AE01D7B009F1E50 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F051E37C2AE01D7B009F1E50 /* Preview Assets.xcassets */; };
 		F051E3832AE0222C009F1E50 /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3822AE0222C009F1E50 /* ProjectView.swift */; };
@@ -243,7 +242,6 @@
 		F02E9F2F2AE6DF4800755FF7 /* Deeplink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deeplink.swift; sourceTree = "<group>"; };
 		F02E9F322AE72B8500755FF7 /* ContentValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentValues.swift; sourceTree = "<group>"; };
 		F02E9F352AE72C5000755FF7 /* ProjectValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectValues.swift; sourceTree = "<group>"; };
-		F02E9F462AE7495100755FF7 /* URL+Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Identifiable.swift"; sourceTree = "<group>"; };
 		F051E3732AE01D7A009F1E50 /* MacOrganizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacOrganizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F051E3792AE01D7B009F1E50 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F051E37C2AE01D7B009F1E50 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -1010,7 +1008,6 @@
 				F0E347492AD8010C00B12AD9 /* String+Components.swift */,
 				F061DC7E2ADAB1D200507993 /* String+URL.swift */,
 				F02E9F2A2AE6BADB00755FF7 /* Sequence+CountBy.swift */,
-				F02E9F462AE7495100755FF7 /* URL+Identifiable.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -1509,7 +1506,6 @@
 				F0E984852AD8A7FF0082F6A1 /* FormTextField.swift in Sources */,
 				F061DC5B2AD9815C00507993 /* SwipeActionType.swift in Sources */,
 				F061DC5D2AD99C3500507993 /* ModelContainer+Preview.swift in Sources */,
-				F02E9F472AE7495100755FF7 /* URL+Identifiable.swift in Sources */,
 				F05BFD522AE80ED300095F74 /* FocusedValues.swift in Sources */,
 				F00601D52ADEB280005F57CA /* FormFieldValidator.swift in Sources */,
 				F0E347612AD83A9E00B12AD9 /* FloatingButtonViewModifier.swift in Sources */,

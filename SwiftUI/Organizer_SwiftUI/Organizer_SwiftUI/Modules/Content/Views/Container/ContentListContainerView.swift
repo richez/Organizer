@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentListContainerView: View {
     var project: Project
+    @Binding var selected: ProjectContent?
 
     private let store: ContentStoreDescriptor = ContentStore.shared
 
@@ -24,8 +25,9 @@ struct ContentListContainerView: View {
     @AppStorage(.contentListSelectedType)
     private var selectedType: ProjectContentType?
 
-    init(project: Project) {
+    init(project: Project, selected: Binding<ProjectContent?>) {
         self.project = project
+        self._selected = selected
 
         let defaults = UserDefaults(suiteName: project.identifier.uuidString)
         self._sorting.update(with: defaults, key: .contentListSorting)
@@ -35,8 +37,13 @@ struct ContentListContainerView: View {
     }
 
     var body: some View {
-        ContentListView(project: self.project, predicate: self.predicate, sort: self.sortDescriptor)
-            .listStyle()
+        ContentListView(
+            project: self.project,
+            selected: self.$selected,
+            predicate: self.predicate,
+            sort: self.sortDescriptor
+        )
+        .listStyle()
     }
 }
 
@@ -60,7 +67,7 @@ private extension ContentListContainerView {
 #Preview {
     ModelContainerPreview {
         NavigationStack {
-            ContentListContainerView(project: PreviewDataGenerator.project)
+            ContentListContainerView(project: PreviewDataGenerator.project, selected: .constant(nil))
                 .listStyle()
         }
     }
