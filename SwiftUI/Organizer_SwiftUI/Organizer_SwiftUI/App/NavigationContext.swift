@@ -13,9 +13,6 @@ final class NavigationContext {
     var selectedProject: Project?
     var selectedContentURL: URL?
 
-    var isShowingContentForm: Bool = false
-    var isEditingContent: ProjectContent?
-
     #if os(macOS)
     var isShowingStatistics: Bool = false
     #endif

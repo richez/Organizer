@@ -18,6 +18,7 @@ struct ContentListView: View {
     @Environment(\.openURL) private var openURL
     @Query private var contents: [ProjectContent]
 
+    @State private var editingContent: ProjectContent?
     @State private var isShowingURLError: Bool = false
 
     init(project: Project,
@@ -28,7 +29,6 @@ struct ContentListView: View {
     }
 
     var body: some View {
-        @Bindable var navigationContext = self.navigationContext
         List {
             ForEach(self.contents) { content in
                 Button {
@@ -55,7 +55,7 @@ struct ContentListView: View {
                         }
                     }
                     ContextMenuButton(.edit) {
-                        self.navigationContext.isEditingContent = content
+                        self.editingContent = content
                     }
                     ContextMenuButton(.delete) {
                         self.store.delete(content, in: self.modelContext)
@@ -67,13 +67,13 @@ struct ContentListView: View {
                         self.store.delete(content, in: self.modelContext)
                     }
                     SwipeActionButton(.edit) {
-                        self.navigationContext.isEditingContent = content
+                        self.editingContent = content
                     }
                 }
                 #endif
             }
         }
-        .sheet(item: $navigationContext.isEditingContent) { content in
+        .sheet(item: self.$editingContent) { content in
             ContentForm(project: self.project, content: content)
         }
         .alert(.invalidContentLink, isPresented: self.$isShowingURLError)

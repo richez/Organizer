@@ -12,13 +12,13 @@ struct ContentView: View {
 
     private let store: ContentStoreDescriptor = ContentStore.shared
 
-    @Environment(NavigationContext.self) private var navigationContext
-
     @AppStorage(.contentListSelectedTheme)
     private var selectedTheme: String? = nil
 
     @AppStorage(.contentListSelectedType)
     private var selectedType: ProjectContentType?
+
+    @State var isShowingForm: Bool = false
 
     init(project: Project) {
         self.project = project
@@ -29,14 +29,13 @@ struct ContentView: View {
     }
 
     var body: some View {
-        @Bindable var navigationContext = self.navigationContext
         ZStack(alignment: .bottom) {
             ContentListContainerView(project: self.project)
 
             FloatingButton("Add content", systemName: "plus") {
-                self.navigationContext.isShowingContentForm.toggle()
+                self.isShowingForm.toggle()
             }
-            .sheet(isPresented: $navigationContext.isShowingContentForm) {
+            .sheet(isPresented: self.$isShowingForm) {
                 ContentForm(project: self.project)
             }
         }
