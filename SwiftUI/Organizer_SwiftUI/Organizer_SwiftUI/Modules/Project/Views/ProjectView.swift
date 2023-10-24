@@ -10,19 +10,20 @@ import SwiftUI
 struct ProjectView: View {
     private let store: ProjectStoreDescriptor = ProjectStore.shared
 
+    @Environment(NavigationContext.self) private var navigationContext
+
     @AppStorage(.projectListSelectedTheme)
     private var selectedTheme: String? = nil
 
-    @State var isShowingForm: Bool = false
-
     var body: some View {
+        @Bindable var navigationContext = self.navigationContext
         ZStack(alignment: .bottom) {
             ProjectListContainerView()
 
             FloatingButton("Add project", systemName: "square.and.pencil") {
-                self.isShowingForm.toggle()
+                self.navigationContext.isShowingProjectForm.toggle()
             }
-            .sheet(isPresented: self.$isShowingForm) {
+            .sheet(isPresented: $navigationContext.isShowingProjectForm) {
                 ProjectForm()
             }
         }

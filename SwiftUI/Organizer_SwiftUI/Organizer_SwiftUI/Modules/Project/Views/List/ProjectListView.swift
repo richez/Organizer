@@ -15,8 +15,6 @@ struct ProjectListView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var projects: [Project]
 
-    @State private var editingProject: Project?
-
     init(predicate: Predicate<Project>?, sort: SortDescriptor<Project>) {
         self._projects = Query(filter: predicate, sort: [sort], animation: .default)
     }
@@ -33,11 +31,11 @@ struct ProjectListView: View {
                             self.store.duplicate(project, in: self.modelContext)
                         }
                         ContextMenuButton(.edit) {
-                            self.editingProject = project
+                            self.navigationContext.isEditingProject = project
                         }
                         ContextMenuButton(.delete) {
                             self.store.delete(project, in: self.modelContext)
-                            self.navigationContext.selectedProject = nil // TODO: test this on macOS
+                            self.navigationContext.selectedProject = nil
                         }
                     }
                     #if !os(macOS)
@@ -46,13 +44,13 @@ struct ProjectListView: View {
                             self.store.delete(project, in: self.modelContext)
                         }
                         SwipeActionButton(.edit) {
-                            self.editingProject = project
+                            self.navigationContext.isEditingProject = project
                         }
                     }
                     #endif
             }
         }
-        .sheet(item: self.$editingProject) { project in
+        .sheet(item: $navigationContext.isEditingProject) { project in
             ProjectForm(project: project)
         }
         #if !os(macOS)

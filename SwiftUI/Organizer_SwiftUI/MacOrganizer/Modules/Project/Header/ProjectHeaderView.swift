@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct ProjectHeaderView: View {
-    @State private var isShowingForm: Bool = false
-    @State private var isShowingEditorForm: Project?
+    @Environment(NavigationContext.self) private var navigationContext
 
     @AppStorage(.projectListSelectedTheme)
     private var selectedTheme: String? = nil
 
     var body: some View {
+        @Bindable var navigationContext = self.navigationContext
         HStack {
             Menu {
                 ProjectListSortingMenu()
@@ -30,7 +30,7 @@ struct ProjectHeaderView: View {
             Spacer()
 
             Button("Add project", systemImage: "square.and.pencil") {
-                self.isShowingForm.toggle()
+                self.navigationContext.isShowingProjectForm.toggle()
             }
             .buttonStyle(.borderless)
             .labelStyle(.iconOnly)
@@ -38,12 +38,12 @@ struct ProjectHeaderView: View {
             .font(.system(size: 18, weight: .bold))
         }
         .padding([.leading, .trailing])
-        .focusedSceneValue(\.showProjectForm, self.$isShowingForm)
-        .sheet(isPresented: self.$isShowingForm) {
+        .focusedSceneValue(\.showProjectForm, $navigationContext.isShowingProjectForm)
+        .sheet(isPresented: $navigationContext.isShowingProjectForm) {
             ProjectForm()
         }
-        .focusedSceneValue(\.showProjectEditorForm, self.$isShowingEditorForm)
-        .sheet(item: self.$isShowingEditorForm) { project in
+        .focusedSceneValue(\.showProjectEditorForm, $navigationContext.isEditingProject)
+        .sheet(item: $navigationContext.isEditingProject) { project in
             ProjectForm(project: project)
         }
     }
