@@ -64,6 +64,7 @@ extension ProjectStore: ProjectStoreReader {
         )
     }
 
+    // TODO: change for by with
     func project(for persistentModelID: PersistentIdentifier, in context: ModelContext) -> Project? {
         guard let project = context.model(for: persistentModelID) as? Project else {
             return nil

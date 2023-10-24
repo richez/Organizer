@@ -16,6 +16,7 @@ protocol ContentStoreDescriptor {
 
 protocol ContentStoreReader {
     func content(with values: ContentValues) -> ProjectContent
+    func content(with identifier: UUID, in project: Project, context: ModelContext) -> ProjectContent?
     func themes(in project: Project) -> [String]
 }
 

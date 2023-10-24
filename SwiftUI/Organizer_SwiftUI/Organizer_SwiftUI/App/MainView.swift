@@ -5,15 +5,17 @@
 //  Created by Thibaut Richez on 11/10/2023.
 //
 
+import SwiftData
 import SwiftUI
 
 struct MainView: View {
     @FocusedValue(\.selectedProject) private var selectedProject
     @FocusedBinding(\.isShowingProjectForm) private var isShowingProjectForm
+    @FocusedValue(\.selectedContent) private var selectedContent
 
     @Environment(\.modelContext) private var modelContext
 
-    private let store: ProjectStoreReader = ProjectStore.shared
+    private let deeplinkManager: DeeplinkManager = .init()
 
     var body: some View {
         NavigationView()
@@ -21,46 +23,40 @@ struct MainView: View {
             .background(.listBackground)
             .handlesExternalEvents(preferring: ["*"], allowing: ["*"])
             .onOpenURL { url in
-                self.handleIncomingURL(url)
+                do {
+                    try self.handleIncomingURL(url)
+                } catch {
+                    print("Could not handle url (\(url)): \(error)")
+                }
             }
     }
 }
 
 private extension MainView {
-    func handleIncomingURL(_ url: URL) {
-        guard let deeplink = Deeplink(url: url) else {
-            print("Unsupported url: \(url)")
-            return
-        }
+    func handleIncomingURL(_ url: URL) throws {
+        let deeplinkTarget = try self.deeplinkManager.target(for: url, context: self.modelContext)
 
-        switch deeplink {
+        switch deeplinkTarget {
         case .projectForm:
-            self.showProjectForm()
-        case .project(let id):
-            self.showProject(with: id)
-        default:
-            break
-        }
-    }
+            withAnimation {
+                self.selectedContent?.wrappedValue = nil
+                self.selectedProject?.wrappedValue = nil
+                self.isShowingProjectForm = true
+            }
 
-    func showProjectForm() {
-        withAnimation {
-            self.selectedProject?.wrappedValue = nil
-            self.isShowingProjectForm = true
-        }
-    }
+        case .project(let project):
+            withAnimation {
+                self.selectedContent?.wrappedValue = nil
+                self.selectedProject?.wrappedValue = project
+            }
 
-    func showProject(with identifier: String) {
-        guard 
-            let uuid = UUID(uuidString: identifier),
-            let project = self.store.project(for: uuid, in: self.modelContext)
-        else {
-            print("Could not find a a project with id: \(identifier)")
-            return
-        }
-
-        withAnimation {
-            self.selectedProject?.wrappedValue = project
+        case .content(let content, let project):
+            withAnimation {
+                self.selectedContent?.wrappedValue = nil
+                self.selectedProject?.wrappedValue = project
+            } completion: {
+                self.selectedContent?.wrappedValue = content
+            }
         }
     }
 }

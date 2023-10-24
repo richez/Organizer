@@ -99,6 +99,8 @@
 		F05BFD562AE86FD400095F74 /* ContentFormValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05BFD552AE86FD400095F74 /* ContentFormValues.swift */; };
 		F05BFD572AE86FD400095F74 /* ContentFormValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05BFD552AE86FD400095F74 /* ContentFormValues.swift */; };
 		F05BFD582AE86FD400095F74 /* ContentFormValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05BFD552AE86FD400095F74 /* ContentFormValues.swift */; };
+		F05BFD5A2AE889F500095F74 /* DeeplinkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05BFD592AE889F500095F74 /* DeeplinkManager.swift */; };
+		F05BFD5B2AE889F500095F74 /* DeeplinkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05BFD592AE889F500095F74 /* DeeplinkManager.swift */; };
 		F061DC4C2AD944F600507993 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC4B2AD944F600507993 /* ContentView.swift */; };
 		F061DC4F2AD9459200507993 /* ContentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC4E2AD9459200507993 /* ContentListView.swift */; };
 		F061DC522AD9721100507993 /* PreviewDataGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC512AD9721100507993 /* PreviewDataGenerator.swift */; };
@@ -264,6 +266,7 @@
 		F051E3E12AE08D93009F1E50 /* ContentListTypeMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentListTypeMenu.swift; sourceTree = "<group>"; };
 		F05BFD512AE80ED300095F74 /* FocusedValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusedValues.swift; sourceTree = "<group>"; };
 		F05BFD552AE86FD400095F74 /* ContentFormValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentFormValues.swift; sourceTree = "<group>"; };
+		F05BFD592AE889F500095F74 /* DeeplinkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeeplinkManager.swift; sourceTree = "<group>"; };
 		F061DC4B2AD944F600507993 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F061DC4E2AD9459200507993 /* ContentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentListView.swift; sourceTree = "<group>"; };
 		F061DC512AD9721100507993 /* PreviewDataGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewDataGenerator.swift; sourceTree = "<group>"; };
@@ -480,6 +483,7 @@
 			isa = PBXGroup;
 			children = (
 				F02E9F2F2AE6DF4800755FF7 /* Deeplink.swift */,
+				F05BFD592AE889F500095F74 /* DeeplinkManager.swift */,
 			);
 			path = Deeplink;
 			sourceTree = "<group>";
@@ -1392,6 +1396,7 @@
 				F09D54D22AE2838F00E23ADC /* ProjectWindow.swift in Sources */,
 				F051E3A52AE03984009F1E50 /* ProjectListContainerView.swift in Sources */,
 				F051E3E32AE08FF8009F1E50 /* ProjectListSortingMenu.swift in Sources */,
+				F05BFD5B2AE889F500095F74 /* DeeplinkManager.swift in Sources */,
 				F051E38D2AE022BD009F1E50 /* String+Components.swift in Sources */,
 				F0D9F4162AE0A4B80019231A /* NavigationView.swift in Sources */,
 				F0D9F4192AE0A6AA0019231A /* ThemeListView.swift in Sources */,
@@ -1494,6 +1499,7 @@
 				F092AC632AD7098E00EAD1F6 /* ProjectListView.swift in Sources */,
 				F00601CE2ADDF0FE005F57CA /* AlertViewModifier.swift in Sources */,
 				F061DC522AD9721100507993 /* PreviewDataGenerator.swift in Sources */,
+				F05BFD5A2AE889F500095F74 /* DeeplinkManager.swift in Sources */,
 				F051E3A22AE038B0009F1E50 /* ProjectListContainerView.swift in Sources */,
 				F061DC692AD9A58500507993 /* AppStorage+Key.swift in Sources */,
 				F051E3DC2AE08C1F009F1E50 /* ContentListSortingMenu.swift in Sources */,

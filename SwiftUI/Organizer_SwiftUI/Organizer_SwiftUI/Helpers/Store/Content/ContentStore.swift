@@ -81,7 +81,17 @@ extension ContentStore: ContentStoreReader {
             url: values.url
         )
     }
-    
+
+    func content(with identifier: UUID, in project: Project, context: ModelContext) -> ProjectContent? {
+        let projectID = project.persistentModelID
+        var descriptor = FetchDescriptor<ProjectContent>(predicate: #Predicate {
+            $0.project?.persistentModelID == projectID && $0.identifier == identifier
+        })
+        descriptor.fetchLimit = 1
+        let contents = (try? context.fetch(descriptor)) ?? []
+        return contents.first
+    }
+
     func themes(in project: Project) -> [String] {
         return project.contents.lazy
             .flatMap(\.themes)
@@ -93,6 +103,7 @@ extension ContentStore: ContentStoreReader {
 // MARK: - ContentStoreWritter
 
 extension ContentStore: ContentStoreWritter {
+    // TODO: update for by in
     @discardableResult
     func create(with values: ContentValues, for project: Project, in context: ModelContext) -> ProjectContent {
         let content = self.content(with: values)

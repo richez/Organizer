@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+// TODO: move to macOS only
 // MARK: - Project
 
 extension FocusedValues {
