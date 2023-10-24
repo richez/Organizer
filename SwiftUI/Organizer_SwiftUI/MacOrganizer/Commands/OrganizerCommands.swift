@@ -38,7 +38,7 @@ struct OrganizerCommands: Commands {
 
                 ContentFormAction()
             }
-            .disabled(self.selectedProject == nil)
+            .disabled(self.selectedProject?.wrappedValue == nil)
         }
     }
 }

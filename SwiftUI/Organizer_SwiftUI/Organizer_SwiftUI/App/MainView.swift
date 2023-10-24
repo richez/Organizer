@@ -8,19 +8,19 @@
 import SwiftUI
 
 struct MainView: View {
-    @State private var columnVisibility: NavigationSplitViewVisibility = .all
-    @State private var selectedProject: Project?
+    @State private var navigationContext = NavigationContext()
 
     var body: some View {
-        NavigationSplitView(columnVisibility: self.$columnVisibility) {
-            ProjectView(selected: self.$selectedProject)
+        NavigationSplitView(columnVisibility: self.$navigationContext.columnVisibility) {
+            ProjectView()
         } detail: {
-            if let selectedProject {
-                ContentView(project: selectedProject)
+            if let project = self.navigationContext.selectedProject {
+                ContentView(project: project)
             } else {
                 ProjectUnavailableView()
             }
         }
+        .environment(self.navigationContext)
         .navigationSplitViewStyle(.balanced)
         .background(.listBackground)
         .onOpenURL { url in

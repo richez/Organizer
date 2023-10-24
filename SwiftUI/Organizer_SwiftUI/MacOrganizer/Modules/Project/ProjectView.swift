@@ -8,21 +8,18 @@
 import SwiftUI
 
 struct ProjectView: View {
-    @Binding var selected: Project?
-
     var body: some View {
         VStack {
             ProjectHeaderView()
-            ProjectListContainerView(selected: self.$selected)
+            ProjectListContainerView()
         }
-        .focusedValue(\.selectedProject, self.$selected)
     }
 }
 
 #Preview {
     ModelContainerPreview {
         NavigationStack {
-            ProjectView(selected: .constant(nil))
+            ProjectView()
                 .background(.listBackground)
         }
     }
