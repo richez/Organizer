@@ -19,7 +19,7 @@ struct ContentHeaderView: View {
     private var selectedType: ProjectContentType?
 
     @State private var isShowingForm: Bool = false
-    @State private var isShowingStats: Bool = false
+    @State private var isShowingStatistics: Bool = false
 
     init(project: Project) {
         self.project = project
@@ -60,10 +60,10 @@ struct ContentHeaderView: View {
 
             HStack(spacing: 20) {
                 Button("Statistics", systemImage: "info.circle") {
-                    self.isShowingStats.toggle()
+                    self.isShowingStatistics.toggle()
                 }
-                .focusedSceneValue(\.showStatistics, self.$isShowingStats)
-                .popover(isPresented: self.$isShowingStats) {
+                .focusedSceneValue(\.isShowingStatistics, self.$isShowingStatistics)
+                .popover(isPresented: self.$isShowingStatistics) {
                     StatisticsView(project: self.project)
                 }
 
@@ -76,7 +76,7 @@ struct ContentHeaderView: View {
             .foregroundStyle(.cellTitle.opacity(0.8))
             .font(.system(size: 18, weight: .bold))
         }
-        .focusedSceneValue(\.showContentForm, self.$isShowingForm)
+        .focusedSceneValue(\.isShowingContentForm, self.$isShowingForm)
         .sheet(isPresented: self.$isShowingForm) {
             ContentForm(project: self.project)
         }

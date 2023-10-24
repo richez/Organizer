@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct StatisticsAction: View {
-    @FocusedBinding(\.showStatistics) private var showStatistics
+    @FocusedBinding(\.isShowingStatistics) private var isShowingStatistics
 
     var body: some View {
         Button("Toggle Statistics Panel") {
-            self.showStatistics?.toggle()
+            self.isShowingStatistics?.toggle()
         }
         .keyboardShortcut("i", modifiers: [.shift, .command])
     }

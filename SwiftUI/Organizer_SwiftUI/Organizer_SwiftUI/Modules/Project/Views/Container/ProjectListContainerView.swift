@@ -28,6 +28,7 @@ struct ProjectListContainerView: View {
             sort: self.sortDescriptor
         )
         .listStyle()
+        .focusedSceneValue(\.selectedProject, self.$selected)
         .onChange(of: self.selectedTheme) {
             self.selected = nil
         }

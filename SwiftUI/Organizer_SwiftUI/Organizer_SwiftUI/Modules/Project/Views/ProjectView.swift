@@ -24,6 +24,7 @@ struct ProjectView: View {
             FloatingButton("Add project", systemName: "square.and.pencil") {
                 self.isShowingForm.toggle()
             }
+            .focusedSceneValue(\.isShowingProjectForm, self.$isShowingForm)
             .sheet(isPresented: self.$isShowingForm) {
                 ProjectForm()
             }

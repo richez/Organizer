@@ -15,7 +15,6 @@ struct ProjectView: View {
             ProjectHeaderView()
             ProjectListContainerView(selected: self.$selected)
         }
-        .focusedValue(\.selectedProject, self.$selected)
     }
 }
 

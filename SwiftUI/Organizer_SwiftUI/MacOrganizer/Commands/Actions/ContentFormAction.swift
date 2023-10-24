@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct ContentFormAction: View {
-    @FocusedBinding(\.showContentForm) private var showContentForm
+    @FocusedBinding(\.isShowingContentForm) private var isShowingContentForm
 
     var body: some View {
         Button("New Content") {
-            self.showContentForm?.toggle()
+            self.isShowingContentForm?.toggle()
         }
         .keyboardShortcut("c", modifiers: [.command, .shift])
-        .disabled(self.showContentForm == true)
+        .disabled(self.isShowingContentForm == true)
     }
 }

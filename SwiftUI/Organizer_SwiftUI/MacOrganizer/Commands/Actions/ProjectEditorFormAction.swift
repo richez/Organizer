@@ -10,11 +10,11 @@ import SwiftUI
 struct ProjectEditorFormAction: View {
     var project: Project?
     
-    @FocusedBinding(\.showProjectEditorForm) private var showProjectEditorForm
+    @FocusedBinding(\.isEditingProject) private var isEditingProject
 
     var body: some View {
         Button("Edit") {
-            self.showProjectEditorForm = self.project
+            self.isEditingProject = self.project
         }
         .keyboardShortcut("e", modifiers: .command)
     }

@@ -26,7 +26,6 @@ struct NavigationView: View {
             }
             .frame(minWidth: 300)
         }
-        .focusedValue(\.selectedProject, self.$selectedProject)
     }
 }
 

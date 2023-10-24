@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProjectHeaderView: View {
     @State private var isShowingForm: Bool = false
-    @State private var isShowingEditorForm: Project?
+    @State private var isEditingProject: Project?
 
     @AppStorage(.projectListSelectedTheme)
     private var selectedTheme: String? = nil
@@ -38,12 +38,12 @@ struct ProjectHeaderView: View {
             .font(.system(size: 18, weight: .bold))
         }
         .padding([.leading, .trailing])
-        .focusedSceneValue(\.showProjectForm, self.$isShowingForm)
+        .focusedSceneValue(\.isShowingProjectForm, self.$isShowingForm)
         .sheet(isPresented: self.$isShowingForm) {
             ProjectForm()
         }
-        .focusedSceneValue(\.showProjectEditorForm, self.$isShowingEditorForm)
-        .sheet(item: self.$isShowingEditorForm) { project in
+        .focusedSceneValue(\.isEditingProject, self.$isEditingProject)
+        .sheet(item: self.$isEditingProject) { project in
             ProjectForm(project: project)
         }
     }

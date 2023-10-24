@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct ProjectFormAction: View {
-    @FocusedBinding(\.showProjectForm) private var showProjectForm
+    @FocusedBinding(\.isShowingProjectForm) private var isShowingForm
 
     var body: some View {
         Button("New Project") {
-            self.showProjectForm?.toggle()
+            self.isShowingForm?.toggle()
         }
         .keyboardShortcut("n", modifiers: [.shift, .command])
-        .disabled(self.showProjectForm == true)
+        .disabled(self.isShowingForm == true)
     }
 }
