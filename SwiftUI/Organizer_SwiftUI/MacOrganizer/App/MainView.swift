@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     @State private var navigationContext = NavigationContext()
+    @Environment(\.openURL) private var openURL
 
     var body: some View {
         NavigationSplitView(columnVisibility: self.$navigationContext.columnVisibility) {
@@ -16,18 +17,25 @@ struct MainView: View {
         } content: {
             ProjectView()
         } detail: {
-            if let project = self.navigationContext.selectedProject {
-                ContentView(project: project)
-                    .frame(minWidth: 300)
-            } else {
-                ProjectUnavailableView()
-                    .frame(minWidth: 300)
+            Group {
+                if let project = self.navigationContext.selectedProject {
+                    ContentView(project: project)
+                } else {
+                    ProjectUnavailableView()
+                }
             }
+            .frame(minWidth: 300)
         }
         .environment(self.navigationContext)
         .focusedValue(\.selectedProject, self.$navigationContext.selectedProject)
         .navigationSplitViewStyle(.balanced)
         .background(.listBackground)
+        .onChange(of: self.navigationContext.selectedContentURL) {
+            if let url = self.navigationContext.selectedContentURL {
+                self.openURL(url)
+                self.navigationContext.selectedContentURL = nil
+            }
+        }
     }
 }
 

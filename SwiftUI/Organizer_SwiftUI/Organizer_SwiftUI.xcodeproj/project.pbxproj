@@ -53,6 +53,7 @@
 		F02E9F422AE7333000755FF7 /* ContentListSorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC5F2AD9A0E300507993 /* ContentListSorting.swift */; };
 		F02E9F442AE73F9600755FF7 /* NavigationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E9F432AE73F9600755FF7 /* NavigationContext.swift */; };
 		F02E9F452AE73F9600755FF7 /* NavigationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E9F432AE73F9600755FF7 /* NavigationContext.swift */; };
+		F02E9F472AE7495100755FF7 /* URL+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E9F462AE7495100755FF7 /* URL+Identifiable.swift */; };
 		F051E37A2AE01D7B009F1E50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F051E3792AE01D7B009F1E50 /* Assets.xcassets */; };
 		F051E37D2AE01D7B009F1E50 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F051E37C2AE01D7B009F1E50 /* Preview Assets.xcassets */; };
 		F051E3832AE0222C009F1E50 /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3822AE0222C009F1E50 /* ProjectView.swift */; };
@@ -148,7 +149,6 @@
 		F0D428892ADD4B2D00DAF2B2 /* ContextMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D428882ADD4B2D00DAF2B2 /* ContextMenuButton.swift */; };
 		F0D4288B2ADD4C0700DAF2B2 /* ContextMenuType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D4288A2ADD4C0700DAF2B2 /* ContextMenuType.swift */; };
 		F0D4288E2ADD58F600DAF2B2 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D4288D2ADD58F600DAF2B2 /* SafariView.swift */; };
-		F0D428902ADD5D9D00DAF2B2 /* URL+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D4288F2ADD5D9D00DAF2B2 /* URL+Identifiable.swift */; };
 		F0D428932ADD8E6300DAF2B2 /* URLMetadataProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D428922ADD8E6300DAF2B2 /* URLMetadataProviderProtocol.swift */; };
 		F0D428952ADD8E7700DAF2B2 /* URLMetadataProviderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D428942ADD8E7700DAF2B2 /* URLMetadataProviderError.swift */; };
 		F0D428972ADD8E8A00DAF2B2 /* URLMetadataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D428962ADD8E8A00DAF2B2 /* URLMetadataProvider.swift */; };
@@ -239,6 +239,7 @@
 		F02E9F322AE72B8500755FF7 /* ContentValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentValues.swift; sourceTree = "<group>"; };
 		F02E9F352AE72C5000755FF7 /* ProjectValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectValues.swift; sourceTree = "<group>"; };
 		F02E9F432AE73F9600755FF7 /* NavigationContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationContext.swift; sourceTree = "<group>"; };
+		F02E9F462AE7495100755FF7 /* URL+Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Identifiable.swift"; sourceTree = "<group>"; };
 		F051E3732AE01D7A009F1E50 /* MacOrganizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacOrganizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F051E3792AE01D7B009F1E50 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F051E37C2AE01D7B009F1E50 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -308,7 +309,6 @@
 		F0D428882ADD4B2D00DAF2B2 /* ContextMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuButton.swift; sourceTree = "<group>"; };
 		F0D4288A2ADD4C0700DAF2B2 /* ContextMenuType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuType.swift; sourceTree = "<group>"; };
 		F0D4288D2ADD58F600DAF2B2 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
-		F0D4288F2ADD5D9D00DAF2B2 /* URL+Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Identifiable.swift"; sourceTree = "<group>"; };
 		F0D428922ADD8E6300DAF2B2 /* URLMetadataProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLMetadataProviderProtocol.swift; sourceTree = "<group>"; };
 		F0D428942ADD8E7700DAF2B2 /* URLMetadataProviderError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLMetadataProviderError.swift; sourceTree = "<group>"; };
 		F0D428962ADD8E8A00DAF2B2 /* URLMetadataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLMetadataProvider.swift; sourceTree = "<group>"; };
@@ -976,8 +976,8 @@
 				F0E347472AD800E300B12AD9 /* Array+Duplicates.swift */,
 				F0E347492AD8010C00B12AD9 /* String+Components.swift */,
 				F061DC7E2ADAB1D200507993 /* String+URL.swift */,
-				F0D4288F2ADD5D9D00DAF2B2 /* URL+Identifiable.swift */,
 				F02E9F2A2AE6BADB00755FF7 /* Sequence+CountBy.swift */,
+				F02E9F462AE7495100755FF7 /* URL+Identifiable.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -1431,7 +1431,6 @@
 				F06A29172AE4756000B5A480 /* ProjectRowSelectedIndicator.swift in Sources */,
 				F0D428972ADD8E8A00DAF2B2 /* URLMetadataProvider.swift in Sources */,
 				F092AC482AD6FDDA00EAD1F6 /* MainView.swift in Sources */,
-				F0D428902ADD5D9D00DAF2B2 /* URL+Identifiable.swift in Sources */,
 				F061DC592AD9801A00507993 /* SwipeActionButton.swift in Sources */,
 				F0E3475F2AD83A7700B12AD9 /* FloatingButton.swift in Sources */,
 				F0E3473C2AD786DC00B12AD9 /* ProjectView.swift in Sources */,
@@ -1474,6 +1473,7 @@
 				F0E984852AD8A7FF0082F6A1 /* FormTextField.swift in Sources */,
 				F061DC5B2AD9815C00507993 /* SwipeActionType.swift in Sources */,
 				F061DC5D2AD99C3500507993 /* ModelContainer+Preview.swift in Sources */,
+				F02E9F472AE7495100755FF7 /* URL+Identifiable.swift in Sources */,
 				F00601D52ADEB280005F57CA /* FormFieldValidator.swift in Sources */,
 				F0E347612AD83A9E00B12AD9 /* FloatingButtonViewModifier.swift in Sources */,
 				F061DC772ADA966F00507993 /* ContentForm.swift in Sources */,

@@ -11,5 +11,5 @@ import SwiftUI
 final class NavigationContext {
     var columnVisibility: NavigationSplitViewVisibility = .all
     var selectedProject: Project?
-    // TODO: add selectedContent
+    var selectedContentURL: URL?
 }

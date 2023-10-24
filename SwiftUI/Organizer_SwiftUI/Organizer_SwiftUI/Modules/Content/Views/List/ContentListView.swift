@@ -13,11 +13,11 @@ struct ContentListView: View {
 
     private let store: ContentStoreOperations = ContentStore.shared
 
+    @Environment(NavigationContext.self) private var navigationContext
     @Environment(\.modelContext) private var modelContext
     @Environment(\.openURL) private var openURL
     @Query private var contents: [ProjectContent]
 
-    @State private var isShowingContentURL: URL?
     @State private var editingContent: ProjectContent?
     @State private var isShowingURLError: Bool = false
 
@@ -33,7 +33,7 @@ struct ContentListView: View {
             ForEach(self.contents) { content in
                 Button {
                     self.url(for: content) { url in
-                        self.isShowingContentURL = url
+                        self.navigationContext.selectedContentURL = url
                     }
                 } label: {
                     ContentRow(
@@ -77,18 +77,7 @@ struct ContentListView: View {
             ContentForm(project: self.project, content: content)
         }
         .alert(.invalidContentLink, isPresented: self.$isShowingURLError)
-        #if os(macOS)
-        .onChange(of: self.isShowingContentURL) {
-            if let url = self.isShowingContentURL {
-                self.openURL(url)
-                self.isShowingContentURL = nil
-            }
-        }
-        #else
-        .fullScreenCover(item: self.$isShowingContentURL) { url in
-            SafariView(url: url)
-                .ignoresSafeArea()
-        }
+        #if !os(macOS)
         .toolbar {
             ToolbarItem {
                 ContentListMenu(

@@ -14,15 +14,21 @@ struct MainView: View {
         NavigationSplitView(columnVisibility: self.$navigationContext.columnVisibility) {
             ProjectView()
         } detail: {
-            if let project = self.navigationContext.selectedProject {
-                ContentView(project: project)
-            } else {
-                ProjectUnavailableView()
+            Group {
+                if let project = self.navigationContext.selectedProject {
+                    ContentView(project: project)
+                } else {
+                    ProjectUnavailableView()
+                }
             }
+            .background(.listBackground)
         }
         .environment(self.navigationContext)
         .navigationSplitViewStyle(.balanced)
-        .background(.listBackground)
+        .fullScreenCover(item: self.$navigationContext.selectedContentURL) { url in
+            SafariView(url: url)
+                .ignoresSafeArea()
+        }
         .onOpenURL { url in
             guard let deeplink = Deeplink(url: url) else { return }
             print(deeplink)

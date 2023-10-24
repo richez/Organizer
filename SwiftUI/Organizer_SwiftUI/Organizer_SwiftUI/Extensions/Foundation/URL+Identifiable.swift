@@ -2,7 +2,7 @@
 //  URL+Identifiable.swift
 //  Organizer_SwiftUI
 //
-//  Created by Thibaut Richez on 16/10/2023.
+//  Created by Thibaut Richez on 24/10/2023.
 //
 
 import Foundation
