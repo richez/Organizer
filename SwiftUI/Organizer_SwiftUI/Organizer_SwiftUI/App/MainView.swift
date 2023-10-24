@@ -11,6 +11,10 @@ struct MainView: View {
     @FocusedValue(\.selectedProject) private var selectedProject
     @FocusedBinding(\.isShowingProjectForm) private var isShowingProjectForm
 
+    @Environment(\.modelContext) private var modelContext
+
+    private let store: ProjectStoreReader = ProjectStore.shared
+
     var body: some View {
         NavigationView()
             .navigationSplitViewStyle(.balanced)
@@ -32,6 +36,8 @@ private extension MainView {
         switch deeplink {
         case .projectForm:
             self.showProjectForm()
+        case .project(let id):
+            self.showProject(with: id)
         default:
             break
         }
@@ -41,6 +47,20 @@ private extension MainView {
         withAnimation {
             self.selectedProject?.wrappedValue = nil
             self.isShowingProjectForm = true
+        }
+    }
+
+    func showProject(with identifier: String) {
+        guard 
+            let uuid = UUID(uuidString: identifier),
+            let project = self.store.project(for: uuid, in: self.modelContext)
+        else {
+            print("Could not find a a project with id: \(identifier)")
+            return
+        }
+
+        withAnimation {
+            self.selectedProject?.wrappedValue = project
         }
     }
 }

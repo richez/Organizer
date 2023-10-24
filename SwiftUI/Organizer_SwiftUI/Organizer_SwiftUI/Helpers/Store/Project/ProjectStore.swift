@@ -72,6 +72,15 @@ extension ProjectStore: ProjectStoreReader {
         return project
     }
 
+    func project(for identifier: UUID, in context: ModelContext) -> Project? {
+        var descriptor = FetchDescriptor<Project>(predicate: #Predicate {
+            $0.identifier == identifier
+        })
+        descriptor.fetchLimit = 1
+        let projects = (try? context.fetch(descriptor)) ?? []
+        return projects.first
+    }
+
     func themes(in context: ModelContext) -> [String] {
         var descriptor = FetchDescriptor<Project>()
         descriptor.propertiesToFetch = [\.theme]
