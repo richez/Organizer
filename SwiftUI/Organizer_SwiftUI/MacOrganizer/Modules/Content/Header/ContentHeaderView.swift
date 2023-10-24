@@ -12,13 +12,14 @@ struct ContentHeaderView: View {
 
     private let store: ContentStoreDescriptor & ContentStoreReader = ContentStore.shared
 
+    @Environment(NavigationContext.self) private var navigationContext
+
     @AppStorage(.contentListSelectedTheme)
     private var selectedTheme: String? = nil
 
     @AppStorage(.contentListSelectedType)
     private var selectedType: ProjectContentType?
 
-    @State private var isShowingForm: Bool = false
     @State private var isShowingStats: Bool = false
 
     init(project: Project) {
@@ -30,6 +31,7 @@ struct ContentHeaderView: View {
     }
 
     var body: some View {
+        @Bindable var navigationContext = self.navigationContext
         HStack {
             Menu {
                 ContentListSortingMenu(suiteName: self.suiteName)
@@ -67,7 +69,7 @@ struct ContentHeaderView: View {
                 }
 
                 Button("Add Content", systemImage: "plus") {
-                    self.isShowingForm.toggle()
+                    self.navigationContext.isShowingContentForm.toggle()
                 }
             }
             .buttonStyle(.borderless)
@@ -76,8 +78,8 @@ struct ContentHeaderView: View {
             .font(.system(size: 18, weight: .bold))
         }
         .padding()
-        .focusedSceneValue(\.showContentForm, self.$isShowingForm)
-        .sheet(isPresented: self.$isShowingForm) {
+        .focusedSceneValue(\.showContentForm, $navigationContext.isShowingContentForm)
+        .sheet(isPresented: $navigationContext.isShowingContentForm) {
             ContentForm(project: self.project)
         }
     }

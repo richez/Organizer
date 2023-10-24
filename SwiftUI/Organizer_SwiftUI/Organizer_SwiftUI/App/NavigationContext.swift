@@ -13,7 +13,10 @@ final class NavigationContext {
     var selectedProject: Project?
     var selectedContentURL: URL?
 
-    // TODO: add content form - editing content - settings (macOS)
+    // settings (macOS)
     var isShowingProjectForm: Bool = false
     var isEditingProject: Project?
+
+    var isShowingContentForm: Bool = false
+    var isEditingContent: ProjectContent?
 }
