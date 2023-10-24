@@ -20,8 +20,6 @@ struct ContentHeaderView: View {
     @AppStorage(.contentListSelectedType)
     private var selectedType: ProjectContentType?
 
-    @State private var isShowingStats: Bool = false
-
     init(project: Project) {
         self.project = project
 
@@ -62,9 +60,9 @@ struct ContentHeaderView: View {
 
             HStack(spacing: 20) {
                 Button("Statistics", systemImage: "info.circle") {
-                    self.isShowingStats.toggle()
+                    self.navigationContext.isShowingStatistics.toggle()
                 }
-                .popover(isPresented: self.$isShowingStats) {
+                .popover(isPresented: $navigationContext.isShowingStatistics) {
                     StatisticsView(project: self.project)
                 }
 
