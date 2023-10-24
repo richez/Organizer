@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct ProjectListContainerView: View {
-    private let store: ProjectStoreDescriptor = ProjectStore.shared
+    @Binding var selected: Project?
 
-    @Environment(NavigationContext.self) private var navigationContext
+    private let store: ProjectStoreDescriptor = ProjectStore.shared
 
     @AppStorage(.projectListSorting)
     private var sorting: ProjectListSorting = .updatedDate
@@ -23,12 +23,13 @@ struct ProjectListContainerView: View {
 
     var body: some View {
         ProjectListView(
+            selected: self.$selected,
             predicate: self.predicate,
             sort: self.sortDescriptor
         )
         .listStyle()
         .onChange(of: self.selectedTheme) {
-            self.navigationContext.selectedProject = nil
+            self.selected = nil
         }
     }
 }
@@ -49,7 +50,7 @@ private extension ProjectListContainerView {
 #Preview {
     ModelContainerPreview {
         NavigationStack {
-            ProjectListContainerView()
+            ProjectListContainerView(selected: .constant(nil))
                 .listStyle()
         }
     }

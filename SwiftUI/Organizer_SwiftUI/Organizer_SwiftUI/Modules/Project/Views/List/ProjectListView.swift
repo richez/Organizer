@@ -9,23 +9,24 @@ import SwiftData
 import SwiftUI
 
 struct ProjectListView: View {
+    @Binding var selected: Project?
+
     private let store: ProjectStoreOperations = ProjectStore.shared
 
-    @Environment(NavigationContext.self) private var navigationContext
     @Environment(\.modelContext) private var modelContext
     @Query private var projects: [Project]
 
     @State private var editingProject: Project?
 
-    init(predicate: Predicate<Project>?, sort: SortDescriptor<Project>) {
+    init(selected: Binding<Project?>, predicate: Predicate<Project>?, sort: SortDescriptor<Project>) {
+        self._selected = selected
         self._projects = Query(filter: predicate, sort: [sort], animation: .default)
     }
 
     var body: some View {
-        @Bindable var navigationContext = self.navigationContext
-        List(selection: $navigationContext.selectedProject) {
+        List(selection: self.$selected) {
             ForEach(self.projects, id: \.self) { project in
-                ProjectRow(project: project, isSelected: project == navigationContext.selectedProject)
+                ProjectRow(project: project, isSelected: project == self.selected)
                     .listRowBackground(Color.listBackground)
                     .listRowSeparatorTint(.cellSeparatorTint)
                     .contextMenu {
@@ -37,7 +38,7 @@ struct ProjectListView: View {
                         }
                         ContextMenuButton(.delete) {
                             self.store.delete(project, in: self.modelContext)
-                            self.navigationContext.selectedProject = nil // TODO: test this on macOS
+                            self.selected = nil
                         }
                     }
                     #if !os(macOS)
@@ -72,6 +73,7 @@ struct ProjectListView: View {
     ModelContainerPreview {
         NavigationStack {
             ProjectListView(
+                selected: .constant(nil),
                 predicate: nil,
                 sort: SortDescriptor(\.updatedDate, order: .reverse)
             )

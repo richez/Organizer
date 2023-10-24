@@ -11,7 +11,6 @@ import SwiftUI
 @main
 struct OrganizerApp: App {
     var container: ModelContainer
-    @State private var navigationContext = NavigationContext()
 
     init() {
         do {
@@ -31,14 +30,12 @@ struct OrganizerApp: App {
             OrganizerCommands()
         }
         #endif
-        .environment(self.navigationContext)
         .modelContainer(self.container)
 
         #if os(macOS)
         WindowGroup(for: PersistentIdentifier.self) { $id in
             ProjectWindow(projectID: $id)
         }
-        .environment(self.navigationContext)
         .modelContainer(self.container)
         .windowStyle(.hiddenTitleBar)
         .commandsRemoved()
