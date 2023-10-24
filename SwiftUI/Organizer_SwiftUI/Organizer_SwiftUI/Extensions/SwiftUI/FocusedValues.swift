@@ -7,22 +7,73 @@
 
 import SwiftUI
 
-private struct SelectedProject: FocusedValueKey {
-    typealias Value = Binding<Project?>
-}
-
-private struct ShowingProjectFormKey: FocusedValueKey {
-    typealias Value = Binding<Bool>
-}
+// MARK: - Project
 
 extension FocusedValues {
+    // MARK: Selected
+
+    private struct SelectedProject: FocusedValueKey {
+        typealias Value = Binding<Project?>
+    }
+
     var selectedProject: Binding<Project?>? {
         get { self[SelectedProject.self] }
         set { self[SelectedProject.self] = newValue }
+    }
+
+    // MARK: Form
+
+    private struct ShowingProjectFormKey: FocusedValueKey {
+        typealias Value = Binding<Bool>
     }
 
     var isShowingProjectForm: Binding<Bool>? {
         get { self[ShowingProjectFormKey.self] }
         set { self[ShowingProjectFormKey.self] = newValue }
     }
+
+    // MARK: Editing
+
+    #if os(macOS)
+    private struct EditingProjectFormKey: FocusedValueKey {
+        typealias Value = Binding<Project?>
+    }
+
+    var isEditingProject: Binding<Project?>? {
+        get { self[EditingProjectFormKey.self] }
+        set { self[EditingProjectFormKey.self] = newValue }
+    }
+    #endif
+}
+
+// MARK: - Content
+
+extension FocusedValues {
+    // MARK: Form
+
+    #if os(macOS)
+    private struct ShowingContentFormKey: FocusedValueKey {
+        typealias Value = Binding<Bool>
+    }
+
+    var isShowingContentForm: Binding<Bool>? {
+        get { self[ShowingContentFormKey.self] }
+        set { self[ShowingContentFormKey.self] = newValue }
+    }
+    #endif
+}
+
+// MARK: - Statistics
+
+extension FocusedValues {
+    #if os(macOS)
+    private struct ShowingStatisticsKey: FocusedValueKey {
+        typealias Value = Binding<Bool>
+    }
+
+    var isShowingStatistics: Binding<Bool>? {
+        get { self[ShowingStatisticsKey.self] }
+        set { self[ShowingStatisticsKey.self] = newValue }
+    }
+    #endif
 }

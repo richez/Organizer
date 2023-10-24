@@ -167,7 +167,6 @@
 		F0D9F4262AE1ACFB0019231A /* ProjectRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07DE09A2AD7449300B3B91E /* ProjectRow.swift */; };
 		F0D9F4272AE1ACFD0019231A /* ProjectRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347442AD7F48800B12AD9 /* ProjectRowViewModel.swift */; };
 		F0D9F42A2AE1BA170019231A /* OrganizerCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D9F4292AE1BA170019231A /* OrganizerCommands.swift */; };
-		F0D9F42C2AE1BAB60019231A /* CommandsFocusedValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D9F42B2AE1BAB60019231A /* CommandsFocusedValues.swift */; };
 		F0D9F42F2AE1C47A0019231A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D9F42E2AE1C47A0019231A /* ContentView.swift */; };
 		F0D9F4302AE1CAD10019231A /* ContentListContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3A82AE03C1B009F1E50 /* ContentListContainerView.swift */; };
 		F0D9F4322AE1CAD70019231A /* ContentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC4E2AD9459200507993 /* ContentListView.swift */; };
@@ -325,7 +324,6 @@
 		F0D9F41E2AE0B8260019231A /* ThemeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeListViewModel.swift; sourceTree = "<group>"; };
 		F0D9F4232AE169DA0019231A /* ProjectUnavailableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectUnavailableView.swift; sourceTree = "<group>"; };
 		F0D9F4292AE1BA170019231A /* OrganizerCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizerCommands.swift; sourceTree = "<group>"; };
-		F0D9F42B2AE1BAB60019231A /* CommandsFocusedValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandsFocusedValues.swift; sourceTree = "<group>"; };
 		F0D9F42E2AE1C47A0019231A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F0D9F4352AE1D8110019231A /* ContentHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentHeaderView.swift; sourceTree = "<group>"; };
 		F0D9F4402AE1DC5A0019231A /* ContentForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentForm.swift; sourceTree = "<group>"; };
@@ -1024,7 +1022,6 @@
 			isa = PBXGroup;
 			children = (
 				F0D9F4292AE1BA170019231A /* OrganizerCommands.swift */,
-				F0D9F42B2AE1BAB60019231A /* CommandsFocusedValues.swift */,
 				F09D54D32AE2938B00E23ADC /* Actions */,
 			);
 			path = Commands;
@@ -1422,7 +1419,6 @@
 				F051E3982AE02680009F1E50 /* Array+Duplicates.swift in Sources */,
 				F06A29282AE5E5E000B5A480 /* StatisticsViewModel.swift in Sources */,
 				F0D9F42F2AE1C47A0019231A /* ContentView.swift in Sources */,
-				F0D9F42C2AE1BAB60019231A /* CommandsFocusedValues.swift in Sources */,
 				F09D54CF2AE1F8BE00E23ADC /* ContentRowViewModel.swift in Sources */,
 				F0D9F4382AE1DAB50019231A /* ContentListPreviewStyleMenu.swift in Sources */,
 				F02E9F2C2AE6BADB00755FF7 /* Sequence+CountBy.swift in Sources */,
