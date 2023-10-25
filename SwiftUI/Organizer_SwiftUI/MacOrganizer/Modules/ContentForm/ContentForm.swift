@@ -56,7 +56,7 @@ struct ContentForm: View {
         .padding()
         .frame(minWidth: 400, maxWidth: 400, minHeight: 250, maxHeight: 250)
         .background(.listBackground)
-        .alert(.unknownError, isPresented: self.$viewModel.hasUnknownError)
+        .errorAlert(self.$viewModel.error)
         .onAppear {
             self.viewModel.update()
         }

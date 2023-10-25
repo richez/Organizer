@@ -82,7 +82,7 @@ struct ShareForm: View {
         .padding(.top)
         .background(Color.listBackground)
         .scrollContentBackground(.hidden)
-        .alert(.unknownError, isPresented: self.$viewModel.hasUnknownError)
+        .errorAlert(self.$viewModel.error)
         .onAppear {
             self.viewModel.update()
         }

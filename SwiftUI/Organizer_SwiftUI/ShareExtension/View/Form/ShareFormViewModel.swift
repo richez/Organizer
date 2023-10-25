@@ -26,7 +26,7 @@ extension ShareForm {
         var isInvalidLink: Bool = false
         var isInvalidTitle: Bool = false
         var isInvalidTheme: Bool = false
-        var hasUnknownError: Bool = false
+        var error: Swift.Error? = nil
         @ObservationIgnored var didSaveContent: Bool = false
 
         init(
@@ -71,7 +71,7 @@ extension ShareForm {
                 self.isInvalidTheme = fields.contains(.theme)
                 self.isInvalidProjectTitle = fields.contains(.projectPicker)
             } catch {
-                self.hasUnknownError = true
+                self.error = Error.save(error)
             }
         }
     }
@@ -99,6 +99,24 @@ private extension ShareForm.ViewModel {
 
         case .custom(let project):
             self.contentStore.create(with: values, in: project, context: context)
+        }
+    }
+}
+
+extension ShareForm.ViewModel {
+    enum Error: LocalizedError {
+        case save(Swift.Error)
+
+        var errorDescription: String? {
+            switch self {
+            case .save: "Fail to save content"
+            }
+        }
+
+        var recoverySuggestion: String? {
+            switch self {
+            case .save: "Check that the provided fields are valid and try again"
+            }
         }
     }
 }

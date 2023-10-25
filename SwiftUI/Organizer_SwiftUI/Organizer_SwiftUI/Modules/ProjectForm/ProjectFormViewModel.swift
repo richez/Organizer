@@ -19,7 +19,7 @@ extension ProjectForm {
         var theme: String = ""
         var isInvalidTitle: Bool = false
         var isInvalidTheme: Bool = false
-        var hasUnknownError: Bool = false
+        var error: Swift.Error? = nil
         @ObservationIgnored var didSaveProject: Bool = false
 
         init(
@@ -58,7 +58,7 @@ extension ProjectForm {
                 self.isInvalidTitle = fields.contains(.title)
                 self.isInvalidTheme = fields.contains(.theme)
             } catch {
-                self.hasUnknownError = true
+                self.error = Error.save(error)
             }
         }
     }
@@ -70,6 +70,24 @@ private extension ProjectForm.ViewModel {
             self.store.update(project, with: values)
         } else {
             self.store.create(with: values, in: context)
+        }
+    }
+}
+
+extension ProjectForm.ViewModel {
+    enum Error: LocalizedError {
+        case save(Swift.Error)
+
+        var errorDescription: String? {
+            switch self {
+            case .save: "Fail to save content"
+            }
+        }
+
+        var recoverySuggestion: String? {
+            switch self {
+            case .save: "Check that the provided fields are valid and try again"
+            }
         }
     }
 }

@@ -24,7 +24,7 @@ extension ContentForm {
         var isInvalidLink: Bool = false
         var isInvalidTitle: Bool = false
         var isInvalidTheme: Bool = false
-        var hasUnknownError: Bool = false
+        var error: Swift.Error? = nil
         var shouldLoadTitle: Bool = false
         var isLoadingTitle: Bool = false
         @ObservationIgnored var didSaveContent: Bool = false
@@ -78,7 +78,7 @@ extension ContentForm {
             } catch {
                 self.isLoadingTitle = false
                 self.shouldLoadTitle = false
-                self.hasUnknownError = true
+                self.error = Error.loadTitle(self.link)
             }
         }
 
@@ -95,7 +95,7 @@ extension ContentForm {
                 self.isInvalidTitle = fields.contains(.title)
                 self.isInvalidTheme = fields.contains(.theme)
             } catch {
-                self.hasUnknownError = true
+                self.error = Error.save(error)
             }
         }
     }
@@ -109,5 +109,25 @@ private extension ContentForm.ViewModel {
             self.store.create(with: values, in: self.project, context: context)
         }
     }
+}
 
+extension ContentForm.ViewModel {
+    enum Error: LocalizedError {
+        case loadTitle(String)
+        case save(Swift.Error)
+
+        var errorDescription: String? {
+            switch self {
+            case .loadTitle: "Fail to retrieve title from url"
+            case .save: "Fail to save content"
+            }
+        }
+
+        var recoverySuggestion: String? {
+            switch self {
+            case .loadTitle(let url): "Check that the provided url is valid and try again: \(url)"
+            case .save: "Check that the provided fields are valid and try again"
+            }
+        }
+    }
 }

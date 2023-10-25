@@ -40,7 +40,7 @@ struct ProjectForm: View {
         .padding()
         .frame(minWidth: 300, maxWidth: 300, minHeight: 150, maxHeight: 150)
         .background(.listBackground)
-        .alert(.unknownError, isPresented: self.$viewModel.hasUnknownError)
+        .errorAlert(self.$viewModel.error)
         .onAppear {
             self.viewModel.update()
         }

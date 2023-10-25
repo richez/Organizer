@@ -51,7 +51,7 @@ struct ProjectForm: View {
         .scrollContentBackground(.hidden)
         .padding(.top)
         .background(Color.listBackground)
-        .alert(.unknownError, isPresented: self.$viewModel.hasUnknownError)
+        .errorAlert(self.$viewModel.error)
         .onAppear {
             self.viewModel.update()
         }

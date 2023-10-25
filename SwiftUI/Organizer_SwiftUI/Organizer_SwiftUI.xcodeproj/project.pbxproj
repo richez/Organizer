@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		F00601C92ADDE9C5005F57CA /* FormLoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00601C82ADDE9C5005F57CA /* FormLoadingButton.swift */; };
-		F00601CE2ADDF0FE005F57CA /* AlertViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00601CD2ADDF0FE005F57CA /* AlertViewModifier.swift */; };
-		F00601D02ADDF137005F57CA /* AlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00601CF2ADDF137005F57CA /* AlertType.swift */; };
 		F00601D52ADEB280005F57CA /* FormFieldValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00601D42ADEB280005F57CA /* FormFieldValidator.swift */; };
 		F00601DD2ADEBCEC005F57CA /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00601DC2ADEBCEC005F57CA /* ShareViewController.swift */; };
 		F00601E42ADEBCEC005F57CA /* ShareExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F00601DA2ADEBCEC005F57CA /* ShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -27,8 +25,6 @@
 		F00602002ADED4F1005F57CA /* ShareFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00601FF2ADED4F1005F57CA /* ShareFormViewModel.swift */; };
 		F00602012ADED5DE005F57CA /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E3475E2AD83A7700B12AD9 /* FloatingButton.swift */; };
 		F00602022ADED5E5005F57CA /* FloatingButtonViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347602AD83A9E00B12AD9 /* FloatingButtonViewModifier.swift */; };
-		F00602052ADEE98E005F57CA /* AlertViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00601CD2ADDF0FE005F57CA /* AlertViewModifier.swift */; };
-		F00602062ADEE9C8005F57CA /* AlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00601CF2ADDF137005F57CA /* AlertType.swift */; };
 		F00602072ADEEA6B005F57CA /* FormFieldValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00601D42ADEB280005F57CA /* FormFieldValidator.swift */; };
 		F00602082ADEEA74005F57CA /* String+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC7E2ADAB1D200507993 /* String+URL.swift */; };
 		F02E9F2B2AE6BADB00755FF7 /* Sequence+CountBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E9F2A2AE6BADB00755FF7 /* Sequence+CountBy.swift */; };
@@ -54,6 +50,9 @@
 		F0466E642AE960420045FB04 /* ContentFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0466E632AE960420045FB04 /* ContentFormViewModel.swift */; };
 		F0466E652AE975770045FB04 /* ProjectFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0466E5F2AE9427E0045FB04 /* ProjectFormViewModel.swift */; };
 		F0466E662AE9760C0045FB04 /* ContentFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0466E632AE960420045FB04 /* ContentFormViewModel.swift */; };
+		F0466E692AE9BF8F0045FB04 /* View+AlertError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0466E682AE9BF8F0045FB04 /* View+AlertError.swift */; };
+		F0466E6A2AE9BF8F0045FB04 /* View+AlertError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0466E682AE9BF8F0045FB04 /* View+AlertError.swift */; };
+		F0466E6B2AE9BF8F0045FB04 /* View+AlertError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0466E682AE9BF8F0045FB04 /* View+AlertError.swift */; };
 		F051E37A2AE01D7B009F1E50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F051E3792AE01D7B009F1E50 /* Assets.xcassets */; };
 		F051E37D2AE01D7B009F1E50 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F051E37C2AE01D7B009F1E50 /* Preview Assets.xcassets */; };
 		F051E3832AE0222C009F1E50 /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3822AE0222C009F1E50 /* ProjectView.swift */; };
@@ -81,8 +80,6 @@
 		F051E3C32AE06E94009F1E50 /* FormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3C22AE06E94009F1E50 /* FormTextField.swift */; };
 		F051E3C52AE070EE009F1E50 /* FormTextFieldConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3C42AE070EE009F1E50 /* FormTextFieldConfiguration.swift */; };
 		F051E3C82AE07A71009F1E50 /* FormSaveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3C72AE07A71009F1E50 /* FormSaveButton.swift */; };
-		F051E3C92AE07B8B009F1E50 /* AlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00601CF2ADDF137005F57CA /* AlertType.swift */; };
-		F051E3CA2AE07B90009F1E50 /* AlertViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00601CD2ADDF0FE005F57CA /* AlertViewModifier.swift */; };
 		F051E3CC2AE07C98009F1E50 /* FormTextFieldName.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3CB2AE07C98009F1E50 /* FormTextFieldName.swift */; };
 		F051E3CD2AE07C98009F1E50 /* FormTextFieldName.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3CB2AE07C98009F1E50 /* FormTextFieldName.swift */; };
 		F051E3CE2AE07C98009F1E50 /* FormTextFieldName.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3CB2AE07C98009F1E50 /* FormTextFieldName.swift */; };
@@ -221,8 +218,6 @@
 
 /* Begin PBXFileReference section */
 		F00601C82ADDE9C5005F57CA /* FormLoadingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormLoadingButton.swift; sourceTree = "<group>"; };
-		F00601CD2ADDF0FE005F57CA /* AlertViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewModifier.swift; sourceTree = "<group>"; };
-		F00601CF2ADDF137005F57CA /* AlertType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertType.swift; sourceTree = "<group>"; };
 		F00601D42ADEB280005F57CA /* FormFieldValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormFieldValidator.swift; sourceTree = "<group>"; };
 		F00601DA2ADEBCEC005F57CA /* ShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F00601DC2ADEBCEC005F57CA /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
@@ -243,6 +238,7 @@
 		F0466E5F2AE9427E0045FB04 /* ProjectFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFormViewModel.swift; sourceTree = "<group>"; };
 		F0466E612AE960100045FB04 /* ContentForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentForm.swift; sourceTree = "<group>"; };
 		F0466E632AE960420045FB04 /* ContentFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentFormViewModel.swift; sourceTree = "<group>"; };
+		F0466E682AE9BF8F0045FB04 /* View+AlertError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+AlertError.swift"; sourceTree = "<group>"; };
 		F051E3732AE01D7A009F1E50 /* MacOrganizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacOrganizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F051E3792AE01D7B009F1E50 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F051E37C2AE01D7B009F1E50 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -402,15 +398,6 @@
 			path = ListStyle;
 			sourceTree = "<group>";
 		};
-		F00601CC2ADDF0E4005F57CA /* Alert */ = {
-			isa = PBXGroup;
-			children = (
-				F00601CD2ADDF0FE005F57CA /* AlertViewModifier.swift */,
-				F00601CF2ADDF137005F57CA /* AlertType.swift */,
-			);
-			path = Alert;
-			sourceTree = "<group>";
-		};
 		F00601D32ADEB271005F57CA /* Validator */ = {
 			isa = PBXGroup;
 			children = (
@@ -473,6 +460,14 @@
 				F05BFD592AE889F500095F74 /* DeeplinkManager.swift */,
 			);
 			path = Deeplink;
+			sourceTree = "<group>";
+		};
+		F0466E672AE9BF7C0045FB04 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				F0466E682AE9BF8F0045FB04 /* View+AlertError.swift */,
+			);
+			path = SwiftUI;
 			sourceTree = "<group>";
 		};
 		F051E3742AE01D7A009F1E50 /* MacOrganizer */ = {
@@ -646,7 +641,6 @@
 		F061DC532AD973AD00507993 /* ViewModifiers */ = {
 			isa = PBXGroup;
 			children = (
-				F00601CC2ADDF0E4005F57CA /* Alert */,
 				F00601CB2ADDF0DA005F57CA /* ListStyle */,
 			);
 			path = ViewModifiers;
@@ -1086,6 +1080,7 @@
 			isa = PBXGroup;
 			children = (
 				F0D9F4202AE1689F0019231A /* Foundation */,
+				F0466E672AE9BF7C0045FB04 /* SwiftUI */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1311,13 +1306,12 @@
 				F02E9F3F2AE7331300755FF7 /* ProjectStore.swift in Sources */,
 				F00601FB2ADECF59005F57CA /* FormTextField.swift in Sources */,
 				F00602022ADED5E5005F57CA /* FloatingButtonViewModifier.swift in Sources */,
+				F0466E6A2AE9BF8F0045FB04 /* View+AlertError.swift in Sources */,
 				F02E9F402AE7332100755FF7 /* Array+Duplicates.swift in Sources */,
 				F02E9F3E2AE7331000755FF7 /* ProjectStoreProtocol.swift in Sources */,
 				F00602002ADED4F1005F57CA /* ShareFormViewModel.swift in Sources */,
 				F051E3CD2AE07C98009F1E50 /* FormTextFieldName.swift in Sources */,
-				F00602052ADEE98E005F57CA /* AlertViewModifier.swift in Sources */,
 				F00602012ADED5DE005F57CA /* FloatingButton.swift in Sources */,
-				F00602062ADEE9C8005F57CA /* AlertType.swift in Sources */,
 				F00601FC2ADECF5E005F57CA /* FormTextFieldConfiguration.swift in Sources */,
 				F02E9F3C2AE7330B00755FF7 /* ContentStore.swift in Sources */,
 				F00601F22ADEC561005F57CA /* ShareForm.swift in Sources */,
@@ -1362,6 +1356,7 @@
 				F051E3912AE023A7009F1E50 /* StorageKey.swift in Sources */,
 				F0D9F41F2AE0B8260019231A /* ThemeListViewModel.swift in Sources */,
 				F06A29242AE5CEDF00B5A480 /* StatisticsDateContainerView.swift in Sources */,
+				F0466E6B2AE9BF8F0045FB04 /* View+AlertError.swift in Sources */,
 				F09D54D22AE2838F00E23ADC /* ProjectWindow.swift in Sources */,
 				F051E3A52AE03984009F1E50 /* ProjectListContainerView.swift in Sources */,
 				F051E3E32AE08FF8009F1E50 /* ProjectListSortingMenu.swift in Sources */,
@@ -1409,7 +1404,6 @@
 				F0D9F4302AE1CAD10019231A /* ContentListContainerView.swift in Sources */,
 				F051E3882AE02281009F1E50 /* ModelContainer+Preview.swift in Sources */,
 				F051E39F2AE030DE009F1E50 /* ProjectHeaderView.swift in Sources */,
-				F051E3CA2AE07B90009F1E50 /* AlertViewModifier.swift in Sources */,
 				F06A291B2AE475A100B5A480 /* ProjectRowSelectedIndicator.swift in Sources */,
 				F06A29262AE5CF3B00B5A480 /* StatisticsDateView.swift in Sources */,
 				F051E39D2AE02BD5009F1E50 /* ListStyleViewModifier.swift in Sources */,
@@ -1417,7 +1411,6 @@
 				F0D9F42A2AE1BA170019231A /* OrganizerCommands.swift in Sources */,
 				F0466E662AE9760C0045FB04 /* ContentFormViewModel.swift in Sources */,
 				F09D54F32AE4376A00E23ADC /* ContentFormAction.swift in Sources */,
-				F051E3C92AE07B8B009F1E50 /* AlertType.swift in Sources */,
 				F0466E652AE975770045FB04 /* ProjectFormViewModel.swift in Sources */,
 				F09D54D52AE2939800E23ADC /* ProjectFormAction.swift in Sources */,
 				F0D9F4362AE1D8110019231A /* ContentHeaderView.swift in Sources */,
@@ -1467,7 +1460,6 @@
 				F092AC592AD7043100EAD1F6 /* Project.swift in Sources */,
 				F02E9F332AE72B8500755FF7 /* ContentValues.swift in Sources */,
 				F092AC632AD7098E00EAD1F6 /* ProjectListView.swift in Sources */,
-				F00601CE2ADDF0FE005F57CA /* AlertViewModifier.swift in Sources */,
 				F061DC522AD9721100507993 /* PreviewDataGenerator.swift in Sources */,
 				F05BFD5A2AE889F500095F74 /* DeeplinkManager.swift in Sources */,
 				F051E3A22AE038B0009F1E50 /* ProjectListContainerView.swift in Sources */,
@@ -1485,6 +1477,7 @@
 				F0E347452AD7F48800B12AD9 /* ProjectRowViewModel.swift in Sources */,
 				F051E3DE2AE08C61009F1E50 /* ContentListPreviewStyleMenu.swift in Sources */,
 				F0D9F44B2AE1EE570019231A /* Pasteboard.swift in Sources */,
+				F0466E692AE9BF8F0045FB04 /* View+AlertError.swift in Sources */,
 				F051E3DA2AE08A5B009F1E50 /* ProjectListThemeMenu.swift in Sources */,
 				F0D428932ADD8E6300DAF2B2 /* URLMetadataProviderProtocol.swift in Sources */,
 				F061DC562AD9741100507993 /* ListStyleViewModifier.swift in Sources */,
@@ -1495,7 +1488,6 @@
 				F0466E5E2AE942590045FB04 /* ProjectForm.swift in Sources */,
 				F051E3D72AE08A20009F1E50 /* ProjectListPreviewStyleMenu.swift in Sources */,
 				F02E9F302AE6DF4800755FF7 /* Deeplink.swift in Sources */,
-				F00601D02ADDF137005F57CA /* AlertType.swift in Sources */,
 				F061DC7B2ADA9A4600507993 /* FormSection.swift in Sources */,
 				F061DC702AD9F02600507993 /* ContentRow.swift in Sources */,
 				F0E347482AD800E300B12AD9 /* Array+Duplicates.swift in Sources */,
