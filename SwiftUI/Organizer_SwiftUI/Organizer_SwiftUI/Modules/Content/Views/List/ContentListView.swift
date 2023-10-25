@@ -10,27 +10,26 @@ import SwiftUI
 
 struct ContentListView: View {
     var project: Project
-    @Binding var selected: ProjectContent?
 
     private let store: ContentStoreOperations = ContentStore.shared
 
+    @Environment(NavigationContext.self) private var navigationContext
     @Environment(\.modelContext) private var modelContext
     @Environment(\.openURL) private var openURL
-    @Query private var contents: [ProjectContent]
 
+    @Query private var contents: [ProjectContent]
     @State private var editingContent: ProjectContent?
 
     init(project: Project,
-         selected: Binding<ProjectContent?>,
          predicate: Predicate<ProjectContent>?,
          sort: SortDescriptor<ProjectContent>) {
         self.project = project
-        self._selected = selected
         self._contents = Query(filter: predicate, sort: [sort], animation: .default)
     }
 
     var body: some View {
-        List(selection: self.$selected) {
+        @Bindable var navigationContext = self.navigationContext
+        List(selection: $navigationContext.selectedContent) {
             ForEach(self.contents, id: \.self) { content in
                 ContentRow(content: content, suiteName: self.project.identifier.uuidString)
                     .listRowBackground(Color.listBackground)
@@ -83,7 +82,6 @@ struct ContentListView: View {
         NavigationStack {
             ContentListView(
                 project: PreviewDataGenerator.project,
-                selected: .constant(nil),
                 predicate: nil,
                 sort: SortDescriptor(\.updatedDate)
             )

@@ -24,6 +24,7 @@ struct ModelContainerPreview<Content: View>: View {
 
     var body: some View {
         self.content()
+            .environment(NavigationContext())
             .modelContainer(container)
     }
 }

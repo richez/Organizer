@@ -8,6 +8,15 @@
 import SwiftData
 import SwiftUI
 
+// @State object created in the app first view are shared
+// between windows. Thus, this type is used to force SwiftUI
+// to create a new NavigationContext for each window.
+struct MainContainerView: View {
+    var body: some View {
+        MainView()
+    }
+}
+
 struct MainView: View {
     @State private var navigationContext: NavigationContext = .init()
     @Environment(\.modelContext) private var modelContext
@@ -15,9 +24,10 @@ struct MainView: View {
     private let deeplinkManager: DeeplinkManager = .init()
 
     var body: some View {
-        NavigationView(navigationContext: self.$navigationContext)
+        NavigationView()
             .navigationSplitViewStyle(.balanced)
             .background(.listBackground)
+            .environment(self.navigationContext)
             .handlesExternalEvents(preferring: ["*"], allowing: ["*"])
             .onOpenURL { url in
                 do {

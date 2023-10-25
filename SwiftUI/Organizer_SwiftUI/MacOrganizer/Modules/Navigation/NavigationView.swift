@@ -8,22 +8,19 @@
 import SwiftUI
 
 struct NavigationView: View {
-    @Binding var navigationContext: NavigationContext
-
+    @Environment(NavigationContext.self) private var navigationContext
     @Environment(\.openURL) private var openURL
 
     var body: some View {
-        NavigationSplitView(columnVisibility: self.$navigationContext.columnVisibility) {
+        @Bindable var navigationContext = self.navigationContext
+        NavigationSplitView(columnVisibility: $navigationContext.columnVisibility) {
             ThemeListView()
         } content: {
-            ProjectView(
-                selectedProject: self.$navigationContext.selectedProject,
-                isShowingForm: self.$navigationContext.isShowingProjectForm
-            )
+            ProjectView()
         } detail: {
             Group {
                 if let project = self.navigationContext.selectedProject {
-                    ContentView(project: project, selected: self.$navigationContext.selectedContent)
+                    ContentView(project: project)
                 } else {
                     ProjectUnavailableView()
                 }
@@ -41,6 +38,7 @@ struct NavigationView: View {
 
 #Preview {
     ModelContainerPreview {
-        NavigationView(navigationContext: .constant(NavigationContext()))
+        NavigationView()
+            .background(.listBackground)
     }
 }

@@ -22,7 +22,7 @@ struct OrganizerApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MainView()
+            MainContainerView()
         }
         #if os(macOS)
         .windowStyle(.hiddenTitleBar)
@@ -36,6 +36,7 @@ struct OrganizerApp: App {
         WindowGroup(for: PersistentIdentifier.self) { $id in
             ProjectWindow(projectID: $id)
         }
+        .environment(NavigationContext())
         .modelContainer(self.container)
         .windowStyle(.hiddenTitleBar)
         .commandsRemoved()

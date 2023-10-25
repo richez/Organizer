@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
     var project: Project
-    @Binding var selected: ProjectContent?
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -18,7 +17,7 @@ struct ContentView: View {
             Divider()
                 .foregroundStyle(.black)
 
-            ContentListContainerView(project: self.project, selected: self.$selected)
+            ContentListContainerView(project: self.project)
         }
     }
 }
@@ -26,7 +25,7 @@ struct ContentView: View {
 #Preview {
     ModelContainerPreview {
         NavigationStack {
-            ContentView(project: PreviewDataGenerator.project, selected: .constant(nil))
+            ContentView(project: PreviewDataGenerator.project)
                 .background(.listBackground)
         }
     }
