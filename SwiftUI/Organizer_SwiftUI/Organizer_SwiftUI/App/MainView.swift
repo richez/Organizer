@@ -28,6 +28,7 @@ struct MainView: View {
             .navigationSplitViewStyle(.balanced)
             .background(.listBackground)
             .environment(self.navigationContext)
+            // Received URL will be handled by the current window instead of opening a new one (macOS, iPadOS)
             .handlesExternalEvents(preferring: ["*"], allowing: ["*"])
             .onOpenURL { url in
                 do {
@@ -40,20 +41,26 @@ struct MainView: View {
 }
 
 private extension MainView {
+    // We need to add a delay before performing some actions on iOS to
+    // make sure the associated view is displayed after navigation changes.
+    // On macOS, the views are always displayed so we don't need to wait.
+    var actionDelay: DispatchTime {
+        #if os(iOS)
+        return .now() + 1
+        #else
+        return .now()
+        #endif
+    }
+
     func handleIncomingURL(_ url: URL) throws {
         let deeplinkTarget = try self.deeplinkManager.target(for: url, context: self.modelContext)
-        #if os(iOS)
-        let delay: DispatchTime = .now() + 1
-        #else
-        let delay: DispatchTime = .now()
-        #endif
 
         switch deeplinkTarget {
         case .projectForm:
             withAnimation {
                 self.navigationContext.selectedContent = nil
                 self.navigationContext.selectedProject = nil
-                DispatchQueue.main.asyncAfter(deadline: delay) {
+                DispatchQueue.main.asyncAfter(deadline: self.actionDelay) {
                     self.navigationContext.isShowingProjectForm = true
                 }
             }
@@ -68,7 +75,7 @@ private extension MainView {
             withAnimation {
                 self.navigationContext.selectedContent = nil
                 self.navigationContext.selectedProject = project
-                DispatchQueue.main.asyncAfter(deadline: delay) {
+                DispatchQueue.main.asyncAfter(deadline: self.actionDelay) {
                     self.navigationContext.selectedContent = content
                 }
             }

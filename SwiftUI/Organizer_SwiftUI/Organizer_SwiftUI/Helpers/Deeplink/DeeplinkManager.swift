@@ -15,15 +15,17 @@ struct DeeplinkManager {
 
     func target(for url: URL, context: ModelContext) throws -> Target {
         guard let deeplink = Deeplink(url: url) else {
-            throw Error.invalidURL(url)
+            throw Error.unsupportedURL(url)
         }
 
         switch deeplink {
         case .projectForm:
             return .projectForm
+
         case .project(let id):
             let project = try self.project(with: id, context: context)
             return .project(project)
+
         case .content(let id, let projectID):
             let project = try self.project(with: projectID, context: context)
             let content = try self.content(with: id, in: project, context: context)
@@ -40,7 +42,7 @@ extension DeeplinkManager {
     }
 
     enum Error: Swift.Error {
-        case invalidURL(URL)
+        case unsupportedURL(URL)
         case projectNotFound(String)
         case contentNotFound(String)
     }
