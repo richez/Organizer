@@ -8,31 +8,32 @@
 import SwiftUI
 
 struct NavigationView: View {
-    @State private var columnVisibility: NavigationSplitViewVisibility = .all
-    @State private var selectedProject: Project?
-    @State private var selectedContent: ProjectContent?
+    @Binding var navigationContext: NavigationContext
 
     @Environment(\.openURL) private var openURL
 
     var body: some View {
-        NavigationSplitView(columnVisibility: self.$columnVisibility) {
+        NavigationSplitView(columnVisibility: self.$navigationContext.columnVisibility) {
             ThemeListView()
         } content: {
-            ProjectView(selected: self.$selectedProject)
+            ProjectView(
+                selectedProject: self.$navigationContext.selectedProject,
+                isShowingForm: self.$navigationContext.isShowingProjectForm
+            )
         } detail: {
             Group {
-                if let selectedProject {
-                    ContentView(project: selectedProject, selected: self.$selectedContent)
+                if let project = self.navigationContext.selectedProject {
+                    ContentView(project: project, selected: self.$navigationContext.selectedContent)
                 } else {
                     ProjectUnavailableView()
                 }
             }
             .frame(minWidth: 300)
         }
-        .onChange(of: self.selectedContent) {
-            if let selectedContent {
-                self.openURL(selectedContent.url)
-                self.selectedContent = nil
+        .onChange(of: self.navigationContext.selectedContent) {
+            if let content = self.navigationContext.selectedContent {
+                self.openURL(content.url)
+                self.navigationContext.selectedContent = nil
             }
         }
     }
@@ -40,6 +41,6 @@ struct NavigationView: View {
 
 #Preview {
     ModelContainerPreview {
-        NavigationView()
+        NavigationView(navigationContext: .constant(NavigationContext()))
     }
 }

@@ -8,23 +8,21 @@
 import SwiftUI
 
 struct ProjectView: View {
-    @Binding var selected: Project?
+    @Binding var selectedProject: Project?
+    @Binding var isShowingForm: Bool
 
     private let store: ProjectStoreDescriptor = ProjectStore.shared
 
     @AppStorage(.projectListSelectedTheme)
     private var selectedTheme: String? = nil
 
-    @State var isShowingForm: Bool = false
-
     var body: some View {
         ZStack(alignment: .bottom) {
-            ProjectListContainerView(selected: self.$selected)
+            ProjectListContainerView(selected: self.$selectedProject)
 
             FloatingButton("Add project", systemName: "square.and.pencil") {
                 self.isShowingForm.toggle()
             }
-            .focusedSceneValue(\.isShowingProjectForm, self.$isShowingForm)
             .sheet(isPresented: self.$isShowingForm) {
                 ProjectForm()
             }
@@ -52,7 +50,7 @@ private extension ProjectView {
 #Preview {
     ModelContainerPreview {
         NavigationStack {
-            ProjectView(selected: .constant(nil))
+            ProjectView(selectedProject: .constant(nil), isShowingForm: .constant(false))
         }
     }
 }

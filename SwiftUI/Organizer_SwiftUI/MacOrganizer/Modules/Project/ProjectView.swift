@@ -8,20 +8,22 @@
 import SwiftUI
 
 struct ProjectView: View {
-    @Binding var selected: Project?
+    @Binding var selectedProject: Project?
+    @Binding var isShowingForm: Bool
 
     var body: some View {
         VStack {
-            ProjectHeaderView()
-            ProjectListContainerView(selected: self.$selected)
+            ProjectHeaderView(isShowingForm: self.$isShowingForm)
+            ProjectListContainerView(selected: self.$selectedProject)
         }
+        .focusedSceneValue(\.selectedProject, self.$selectedProject)
     }
 }
 
 #Preview {
     ModelContainerPreview {
         NavigationStack {
-            ProjectView(selected: .constant(nil))
+            ProjectView(selectedProject: .constant(nil), isShowingForm: .constant(false))
                 .background(.listBackground)
         }
     }

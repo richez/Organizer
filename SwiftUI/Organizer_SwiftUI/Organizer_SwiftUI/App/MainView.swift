@@ -9,16 +9,13 @@ import SwiftData
 import SwiftUI
 
 struct MainView: View {
-    @FocusedValue(\.selectedProject) private var selectedProject
-    @FocusedBinding(\.isShowingProjectForm) private var isShowingProjectForm
-    @FocusedValue(\.selectedContent) private var selectedContent
-
+    @State private var navigationContext: NavigationContext = .init()
     @Environment(\.modelContext) private var modelContext
 
     private let deeplinkManager: DeeplinkManager = .init()
 
     var body: some View {
-        NavigationView()
+        NavigationView(navigationContext: self.$navigationContext)
             .navigationSplitViewStyle(.balanced)
             .background(.listBackground)
             .handlesExternalEvents(preferring: ["*"], allowing: ["*"])
@@ -35,27 +32,35 @@ struct MainView: View {
 private extension MainView {
     func handleIncomingURL(_ url: URL) throws {
         let deeplinkTarget = try self.deeplinkManager.target(for: url, context: self.modelContext)
+        #if os(iOS)
+        let delay: DispatchTime = .now() + 1
+        #else
+        let delay: DispatchTime = .now()
+        #endif
 
         switch deeplinkTarget {
         case .projectForm:
             withAnimation {
-                self.selectedContent?.wrappedValue = nil
-                self.selectedProject?.wrappedValue = nil
-                self.isShowingProjectForm = true
+                self.navigationContext.selectedContent = nil
+                self.navigationContext.selectedProject = nil
+                DispatchQueue.main.asyncAfter(deadline: delay) {
+                    self.navigationContext.isShowingProjectForm = true
+                }
             }
 
         case .project(let project):
             withAnimation {
-                self.selectedContent?.wrappedValue = nil
-                self.selectedProject?.wrappedValue = project
+                self.navigationContext.selectedContent = nil
+                self.navigationContext.selectedProject = project
             }
 
         case .content(let content, let project):
             withAnimation {
-                self.selectedContent?.wrappedValue = nil
-                self.selectedProject?.wrappedValue = project
-            } completion: {
-                self.selectedContent?.wrappedValue = content
+                self.navigationContext.selectedContent = nil
+                self.navigationContext.selectedProject = project
+                DispatchQueue.main.asyncAfter(deadline: delay) {
+                    self.navigationContext.selectedContent = content
+                }
             }
         }
     }

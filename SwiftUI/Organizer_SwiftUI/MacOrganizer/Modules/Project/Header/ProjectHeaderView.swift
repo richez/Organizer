@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProjectHeaderView: View {
-    @State private var isShowingForm: Bool = false
+    @Binding var isShowingForm: Bool
     @State private var isEditingProject: Project?
 
     @AppStorage(.projectListSelectedTheme)
@@ -50,6 +50,6 @@ struct ProjectHeaderView: View {
 }
 
 #Preview {
-    ProjectHeaderView()
+    ProjectHeaderView(isShowingForm: .constant(false))
         .background(.listBackground)
 }

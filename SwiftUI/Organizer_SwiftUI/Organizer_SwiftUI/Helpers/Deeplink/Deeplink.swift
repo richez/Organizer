@@ -107,3 +107,7 @@ private extension Sequence where Element == URLQueryItem {
 // organizerapp://open-project-form
 // organizerapp://open-project?identifier=E621E1F8-C36C-495A-93FC-0C247A3E6E5F
 // organizerapp://open-content?identifier=E621E1F8-C36C-495A-93FC-0C247A3E6E5F&projectIdentifier=E621E1F8-C36C-495A-93FC-0C247A3E6E5F
+
+
+// organizerapp://open-project?identifier=90A72099-5492-47C2-8F10-1DACB64FB6B6
+// organizerapp://open-content?identifier=BAAA07EC-488C-4FF5-BB14-99BD1824228B&projectIdentifier=90A72099-5492-47C2-8F10-1DACB64FB6B6

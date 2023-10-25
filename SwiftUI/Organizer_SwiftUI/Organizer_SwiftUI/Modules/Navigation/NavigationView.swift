@@ -8,24 +8,25 @@
 import SwiftUI
 
 struct NavigationView: View {
-    @State private var columnVisibility: NavigationSplitViewVisibility = .all
-    @State private var selectedProject: Project?
-    @State private var selectedContent: ProjectContent?
+    @Binding var navigationContext: NavigationContext
 
     var body: some View {
-        NavigationSplitView(columnVisibility: self.$columnVisibility) {
-            ProjectView(selected: self.$selectedProject)
+        NavigationSplitView(columnVisibility: self.$navigationContext.columnVisibility) {
+            ProjectView(
+                selectedProject: self.$navigationContext.selectedProject,
+                isShowingForm: self.$navigationContext.isShowingProjectForm
+            )
         } detail: {
             Group {
-                if let selectedProject {
-                    ContentView(project: selectedProject, selected: self.$selectedContent)
+                if let project = self.navigationContext.selectedProject {
+                    ContentView(project: project, selected: self.$navigationContext.selectedContent)
                 } else {
                     ProjectUnavailableView()
                 }
             }
             .background(.listBackground)
         }
-        .fullScreenCover(item: self.$selectedContent) { content in
+        .fullScreenCover(item: self.$navigationContext.selectedContent) { content in
             SafariView(url: content.url)
                 .ignoresSafeArea()
         }
@@ -34,6 +35,6 @@ struct NavigationView: View {
 
 #Preview {
     ModelContainerPreview {
-        NavigationView()
+        NavigationView(navigationContext: .constant(NavigationContext()))
     }
 }
