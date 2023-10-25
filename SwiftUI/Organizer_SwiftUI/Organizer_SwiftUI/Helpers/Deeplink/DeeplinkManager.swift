@@ -8,10 +8,15 @@
 import Foundation
 import SwiftData
 
-// TODO: Error with title/message to display on MainView
 struct DeeplinkManager {
     var projectStore: ProjectStoreReader = ProjectStore.shared
     var contentStore: ContentStoreReader = ContentStore.shared
+
+    enum Target {
+        case projectForm
+        case project(Project)
+        case content(ProjectContent, in: Project)
+    }
 
     func target(for url: URL, context: ModelContext) throws -> Target {
         guard let deeplink = Deeplink(url: url) else {
@@ -31,20 +36,6 @@ struct DeeplinkManager {
             let content = try self.content(with: id, in: project, context: context)
             return .content(content, in: project)
         }
-    }
-}
-
-extension DeeplinkManager {
-    enum Target {
-        case projectForm
-        case project(Project)
-        case content(ProjectContent, in: Project)
-    }
-
-    enum Error: Swift.Error {
-        case unsupportedURL(URL)
-        case projectNotFound(String)
-        case contentNotFound(String)
     }
 }
 
@@ -71,9 +62,33 @@ private extension DeeplinkManager {
             let uuid = UUID(uuidString: identifier),
             let content = self.contentStore.content(with: uuid, in: project, context: context)
         else {
-            throw Error.contentNotFound(identifier)
+            throw Error.contentNotFound(identifier, in: project)
         }
 
         return content
+    }
+}
+
+extension DeeplinkManager {
+    enum Error: LocalizedError {
+        case unsupportedURL(URL)
+        case projectNotFound(String)
+        case contentNotFound(String, in: Project)
+
+        var errorDescription: String? {
+            switch self {
+            case .unsupportedURL: "Could not open url"
+            case .projectNotFound: "Could not find project"
+            case .contentNotFound: "Could not find content"
+            }
+        }
+
+        var recoverySuggestion: String? {
+            switch self {
+            case .unsupportedURL(let url): "Check that the provided url is valid and try again: \(url.absoluteString)"
+            case .projectNotFound: "Verify that the project exists and try again"
+            case .contentNotFound(_, let project): "Verify that the content exists in project '\(project.title)' and try again"
+            }
+        }
     }
 }

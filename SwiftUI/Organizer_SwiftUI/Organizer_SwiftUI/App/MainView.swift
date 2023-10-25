@@ -19,6 +19,7 @@ struct MainContainerView: View {
 
 struct MainView: View {
     @State private var navigationContext: NavigationContext = .init()
+    @State private var deeplinkError: Error?
     @Environment(\.modelContext) private var modelContext
 
     private let deeplinkManager: DeeplinkManager = .init()
@@ -35,8 +36,10 @@ struct MainView: View {
                     try self.handleIncomingURL(url)
                 } catch {
                     print("Could not handle url (\(url)): \(error)")
+                    self.deeplinkError = error
                 }
             }
+            .errorAlert(self.$deeplinkError)
     }
 }
 
