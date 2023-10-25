@@ -2,27 +2,21 @@
 //  ProjectForm.swift
 //  Organizer_SwiftUI
 //
-//  Created by Thibaut Richez on 12/10/2023.
+//  Created by Thibaut Richez on 25/10/2023.
 //
 
 import SwiftData
 import SwiftUI
 
 struct ProjectForm: View {
-    var project: Project?
-
-    private let viewModel = ViewModel()
-
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
-
-    @State private var title: String = ""
-    @State private var theme: String = ""
-    @State private var isInvalidTitle: Bool = false
-    @State private var isInvalidTheme: Bool = false
     @FocusState private var focusedField: FormTextField.Name?
+    @State private var viewModel: ViewModel
 
-    @State private var isShowingErrorAlert: Bool = false
+    init(project: Project? = nil) {
+        self._viewModel = State(initialValue: ViewModel(project: project))
+    }
 
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -30,8 +24,8 @@ struct ProjectForm: View {
                 FormSection("Title") {
                     FormTextField(
                         configuration: .projectTitle,
-                        text: self.$title,
-                        isInvalid: self.$isInvalidTitle,
+                        text: self.$viewModel.title,
+                        isInvalid: self.$viewModel.isInvalidTitle,
                         focusedField: self.$focusedField
                     )
                 }
@@ -39,8 +33,8 @@ struct ProjectForm: View {
                 FormSection("Themes") {
                     FormTextField(
                         configuration: .projectTheme,
-                        text: self.$theme,
-                        isInvalid: self.$isInvalidTheme,
+                        text: self.$viewModel.theme,
+                        isInvalid: self.$viewModel.isInvalidTheme,
                         focusedField: self.$focusedField
                     )
                 }
@@ -57,37 +51,19 @@ struct ProjectForm: View {
         .scrollContentBackground(.hidden)
         .padding(.top)
         .background(Color.listBackground)
-        .alert(.unknownError, isPresented: self.$isShowingErrorAlert)
+        .alert(.unknownError, isPresented: self.$viewModel.hasUnknownError)
         .onAppear {
-            self.update(with: self.project)
+            self.viewModel.update()
         }
     }
 }
 
 private extension ProjectForm {
-    var values: ProjectValues {
-        .init(title: self.title, theme: self.theme)
-    }
-
     func save() {
-        do {
-            self.focusedField = nil
-            try self.viewModel.save(
-                self.values, for: self.project, in: self.modelContext
-            )
+        self.focusedField = nil
+        self.viewModel.save(in: self.modelContext)
+        if self.viewModel.didSaveProject {
             self.dismiss()
-        } catch FormFieldValidator.Error.invalidFields(let fields) {
-            self.isInvalidTitle = fields.contains(.title)
-            self.isInvalidTheme = fields.contains(.theme)
-        } catch {
-            self.isShowingErrorAlert = true
-        }
-    }
-
-    func update(with project: Project?) {
-        if let project {
-            self.title = project.title
-            self.theme = project.theme
         }
     }
 }

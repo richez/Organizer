@@ -8,23 +8,13 @@
 import SwiftUI
 
 struct ContentForm: View {
-    var project: Project
-    var content: ProjectContent?
-
-    private let viewModel = ViewModel()
-
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
+    @State private var viewModel: ViewModel
 
-    @State private var type: ProjectContentType = .article
-    @State private var link: String = ""
-    @State private var title: String = ""
-    @State private var theme: String = ""
-    @State private var isInvalidLink: Bool = false
-    @State private var isInvalidTitle: Bool = false
-    @State private var isInvalidTheme: Bool = false
-
-    @State private var isShowingErrorAlert: Bool = false
+    init(project: Project, content: ProjectContent? = nil) {
+        self._viewModel = State(initialValue: ViewModel(project: project, content: content))
+    }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
@@ -33,7 +23,7 @@ struct ContentForm: View {
             }
 
             Form {
-                Picker("Type", selection: self.$type) {
+                Picker("Type", selection: self.$viewModel.type) {
                     ForEach(ProjectContentType.allCases) { type in
                         Text(type.rawValue)
                             .tag(type)
@@ -45,20 +35,20 @@ struct ContentForm: View {
 
                 FormTextField(
                     configuration: .contentLink,
-                    text: self.$link,
-                    isInvalid: self.$isInvalidLink
+                    text: self.$viewModel.link,
+                    isInvalid: self.$viewModel.isInvalidLink
                 )
 
                 FormTextField(
                     configuration: .contentTitle,
-                    text: self.$title,
-                    isInvalid: self.$isInvalidTitle
+                    text: self.$viewModel.title,
+                    isInvalid: self.$viewModel.isInvalidTitle
                 )
 
                 FormTextField(
                     configuration: .contentTheme,
-                    text: self.$theme,
-                    isInvalid: self.$isInvalidTheme
+                    text: self.$viewModel.theme,
+                    isInvalid: self.$viewModel.isInvalidTheme
                 )
             }
             .foregroundStyle(.white)
@@ -66,47 +56,18 @@ struct ContentForm: View {
         .padding()
         .frame(minWidth: 400, maxWidth: 400, minHeight: 250, maxHeight: 250)
         .background(.listBackground)
-        .alert(.unknownError, isPresented: self.$isShowingErrorAlert)
+        .alert(.unknownError, isPresented: self.$viewModel.hasUnknownError)
         .onAppear {
-            self.update(with: self.content)
+            self.viewModel.update()
         }
     }
 }
 
 extension ContentForm {
-    var values: ContentFormValues {
-        .init(
-            type: self.type,
-            link: self.link,
-            title: self.title,
-            theme: self.theme
-        )
-    }
-    
     func save() {
-        do {
-            try self.viewModel.save(
-                self.values,
-                for: self.content,
-                in: self.project,
-                context: self.modelContext
-            )
+        self.viewModel.save(in: self.modelContext)
+        if self.viewModel.didSaveContent {
             self.dismiss()
-        } catch FormFieldValidator.Error.invalidFields(let fields) {
-            self.isInvalidLink = fields.contains(.link)
-            self.isInvalidTitle = fields.contains(.title)
-            self.isInvalidTheme = fields.contains(.theme)
-        } catch {
-            self.isShowingErrorAlert = true
-        }
-    }
-
-    func update(with content: ProjectContent?) {
-        if let content {
-            self.type = content.type
-            self.link = content.url.absoluteString
-            self.title = content.title
-            self.theme = content.theme
         }
     }
 }

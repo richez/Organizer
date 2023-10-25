@@ -2,37 +2,26 @@
 //  ContentForm.swift
 //  Organizer_SwiftUI
 //
-//  Created by Thibaut Richez on 14/10/2023.
+//  Created by Thibaut Richez on 25/10/2023.
 //
 
 import SwiftUI
 
 struct ContentForm: View {
-    var project: Project
-    var content: ProjectContent?
-
-    private let viewModel = ViewModel()
-
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
-
-    @State private var type: ProjectContentType = .article
-    @State private var link: String = ""
-    @State private var title: String = ""
-    @State private var theme: String = ""
-    @State private var isInvalidLink: Bool = false
-    @State private var isInvalidTitle: Bool = false
-    @State private var isInvalidTheme: Bool = false
     @FocusState private var focusedField: FormTextField.Name?
+    @State private var viewModel: ViewModel
 
-    @State private var isShowingErrorAlert: Bool = false
-    @State private var isLoadingTitle: Bool = false
+    init(project: Project, content: ProjectContent? = nil) {
+        self._viewModel = State(initialValue: ViewModel(project: project, content: content))
+    }
 
     var body: some View {
         ZStack(alignment: .bottom) {
             Form {
                 FormSection("Type") {
-                    Picker("Type", selection: self.$type) {
+                    Picker("Type", selection: self.$viewModel.type) {
                         ForEach(ProjectContentType.allCases) { type in
                             Text(type.rawValue)
                                 .tag(type)
@@ -44,8 +33,8 @@ struct ContentForm: View {
                 FormSection("Link") {
                     FormTextField(
                         configuration: .contentLink,
-                        text: self.$link,
-                        isInvalid: self.$isInvalidLink,
+                        text: self.$viewModel.link,
+                        isInvalid: self.$viewModel.isInvalidLink,
                         focusedField: self.$focusedField
                     )
                 }
@@ -53,24 +42,24 @@ struct ContentForm: View {
                 FormSection("Title") {
                     FormTextField(
                         configuration: .contentTitle,
-                        text: self.$title,
-                        isInvalid: self.$isInvalidTitle,
+                        text: self.$viewModel.title,
+                        isInvalid: self.$viewModel.isInvalidTitle,
                         focusedField: self.$focusedField
                     )
 
                     FormLoadingButton(
                         title: "Get link title",
-                        isEnabled: self.isValidLink,
-                        isLoading: self.isLoadingTitle) {
-                            self.isLoadingTitle = true
+                        isEnabled: self.viewModel.isValidURL,
+                        isLoading: self.viewModel.isLoadingTitle) {
+                            self.viewModel.shouldLoadTitle = true
                         }
                 }
 
                 FormSection("Themes") {
                     FormTextField(
                         configuration: .contentTheme,
-                        text: self.$theme,
-                        isInvalid: self.$isInvalidTheme,
+                        text: self.$viewModel.theme,
+                        isInvalid: self.$viewModel.isInvalidTheme,
                         focusedField: self.$focusedField
                     )
                 }
@@ -83,75 +72,28 @@ struct ContentForm: View {
                 self.save()
             }
         }
-        .allowsHitTesting(!self.isLoadingTitle)
+        .allowsHitTesting(!self.viewModel.isLoadingTitle)
         .scrollDismissesKeyboard(.interactively)
         .scrollContentBackground(.hidden)
         .padding(.top)
         .background(Color.listBackground)
-        .alert(.unknownError, isPresented: self.$isShowingErrorAlert)
+        .alert(.unknownError, isPresented: self.$viewModel.hasUnknownError)
         .onAppear {
-            self.update(with: self.content)
+            self.viewModel.update()
         }
-        .task(id: self.isLoadingTitle) {
-            await self.loadLinkTitle()
+        .task(id: self.viewModel.shouldLoadTitle) {
+            self.focusedField = nil
+            await self.viewModel.loadLinkTitle()
         }
     }
 }
 
 private extension ContentForm {
-    var values: ContentFormValues {
-        .init(
-            type: self.type,
-            link: self.link,
-            title: self.title,
-            theme: self.theme
-        )
-    }
-
-    var isValidLink: Bool {
-        self.viewModel.isValidURL(self.link)
-    }
-
     func save() {
-        do {
-            self.focusedField = nil
-            try self.viewModel.save(
-                self.values, 
-                for: self.content,
-                in: self.project,
-                context: self.modelContext
-            )
+        self.focusedField = nil
+        self.viewModel.save(in: self.modelContext)
+        if self.viewModel.didSaveContent {
             self.dismiss()
-        } catch FormFieldValidator.Error.invalidFields(let fields) {
-            self.isInvalidLink = fields.contains(.link)
-            self.isInvalidTitle = fields.contains(.title)
-            self.isInvalidTheme = fields.contains(.theme)
-        } catch {
-            self.isShowingErrorAlert = true
-        }
-    }
-
-    func update(with content: ProjectContent?) {
-        if let content {
-            self.type = content.type
-            self.link = content.url.absoluteString
-            self.title = content.title
-            self.theme = content.theme
-        }
-    }
-
-    func loadLinkTitle() async {
-        guard self.isLoadingTitle else { return }
-
-        do {
-            self.focusedField = nil
-            let linkTitle = try await self.viewModel.title(of: self.link)
-            try Task.checkCancellation()
-            self.title = linkTitle
-            self.isLoadingTitle = false
-        } catch {
-            self.isLoadingTitle = false
-            self.isShowingErrorAlert = true
         }
     }
 }

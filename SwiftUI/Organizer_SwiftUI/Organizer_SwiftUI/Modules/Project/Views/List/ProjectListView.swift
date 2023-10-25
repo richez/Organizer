@@ -44,7 +44,6 @@ struct ProjectListView: View {
                     .swipeActions {
                         SwipeActionButton(.delete) {
                             self.store.delete(project, in: self.modelContext)
-                            self.navigationContext.selectedProject = nil
                         }
                         SwipeActionButton(.edit) {
                             self.editingProject = project

@@ -46,6 +46,7 @@ struct ContentListView: View {
                         }
                         ContextMenuButton(.delete) {
                             self.store.delete(content, in: self.modelContext)
+                            self.navigationContext.selectedContent = nil
                         }
                     }
                     #if !os(macOS)
