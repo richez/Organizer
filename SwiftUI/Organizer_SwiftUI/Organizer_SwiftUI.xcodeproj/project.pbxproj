@@ -27,6 +27,8 @@
 		F00602022ADED5E5005F57CA /* FloatingButtonViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347602AD83A9E00B12AD9 /* FloatingButtonViewModifier.swift */; };
 		F00602072ADEEA6B005F57CA /* FormFieldValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00601D42ADEB280005F57CA /* FormFieldValidator.swift */; };
 		F00602082ADEEA74005F57CA /* String+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC7E2ADAB1D200507993 /* String+URL.swift */; };
+		F013038D2AEB0E9300D28886 /* WidgetStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F013038C2AEB0E9300D28886 /* WidgetStore.swift */; };
+		F013038E2AEB0E9300D28886 /* WidgetStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F013038C2AEB0E9300D28886 /* WidgetStore.swift */; };
 		F02E9F2B2AE6BADB00755FF7 /* Sequence+CountBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E9F2A2AE6BADB00755FF7 /* Sequence+CountBy.swift */; };
 		F02E9F2C2AE6BADB00755FF7 /* Sequence+CountBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E9F2A2AE6BADB00755FF7 /* Sequence+CountBy.swift */; };
 		F02E9F302AE6DF4800755FF7 /* Deeplink.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E9F2F2AE6DF4800755FF7 /* Deeplink.swift */; };
@@ -181,6 +183,12 @@
 		F0BD69A82AEAC9E9002490E7 /* Deeplink.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E9F2F2AE6DF4800755FF7 /* Deeplink.swift */; };
 		F0BD69A92AEAC9EF002490E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F092AC492AD6FDDB00EAD1F6 /* Assets.xcassets */; };
 		F0BD69AA2AEAC9EF002490E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F092AC492AD6FDDB00EAD1F6 /* Assets.xcassets */; };
+		F0BD69B02AEACEEA002490E7 /* String+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347492AD8010C00B12AD9 /* String+Components.swift */; };
+		F0BD69B12AEACEEA002490E7 /* String+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347492AD8010C00B12AD9 /* String+Components.swift */; };
+		F0BD69B22AEACEF9002490E7 /* ProjectContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092AC5A2AD7046C00EAD1F6 /* ProjectContent.swift */; };
+		F0BD69B32AEACEF9002490E7 /* ProjectContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092AC5A2AD7046C00EAD1F6 /* ProjectContent.swift */; };
+		F0BD69B42AEACEFC002490E7 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092AC582AD7043100EAD1F6 /* Project.swift */; };
+		F0BD69B52AEACEFD002490E7 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092AC582AD7043100EAD1F6 /* Project.swift */; };
 		F0D428892ADD4B2D00DAF2B2 /* ContextMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D428882ADD4B2D00DAF2B2 /* ContextMenuButton.swift */; };
 		F0D4288B2ADD4C0700DAF2B2 /* ContextMenuType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D4288A2ADD4C0700DAF2B2 /* ContextMenuType.swift */; };
 		F0D4288E2ADD58F600DAF2B2 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D4288D2ADD58F600DAF2B2 /* SafariView.swift */; };
@@ -287,6 +295,7 @@
 		F00601F72ADEC9F7005F57CA /* ShareExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShareExtension.entitlements; sourceTree = "<group>"; };
 		F00601F82ADECF14005F57CA /* ProjectPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectPicker.swift; sourceTree = "<group>"; };
 		F00601FF2ADED4F1005F57CA /* ShareFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareFormViewModel.swift; sourceTree = "<group>"; };
+		F013038C2AEB0E9300D28886 /* WidgetStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetStore.swift; sourceTree = "<group>"; };
 		F02E9F2A2AE6BADB00755FF7 /* Sequence+CountBy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+CountBy.swift"; sourceTree = "<group>"; };
 		F02E9F2D2AE6CA6300755FF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F02E9F2F2AE6DF4800755FF7 /* Deeplink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deeplink.swift; sourceTree = "<group>"; };
@@ -1019,6 +1028,7 @@
 			children = (
 				F0BD69A12AEAC9C4002490E7 /* WidgetsBundle.swift */,
 				F0BD69A22AEAC9C4002490E7 /* WidgetKind.swift */,
+				F0BD69AB2AEACDF1002490E7 /* Helpers */,
 				F0BD69812AEAC8E1002490E7 /* AddProject */,
 				F0BD69852AEAC8FF002490E7 /* LastProject */,
 				F0BD697F2AEAC839002490E7 /* Resources */,
@@ -1121,6 +1131,22 @@
 				F0BD69952AEAC99F002490E7 /* LastProjectEntry.swift */,
 			);
 			path = Entry;
+			sourceTree = "<group>";
+		};
+		F0BD69AB2AEACDF1002490E7 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F0BD69AC2AEACDF7002490E7 /* Store */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		F0BD69AC2AEACDF7002490E7 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				F013038C2AEB0E9300D28886 /* WidgetStore.swift */,
+			);
+			path = Store;
 			sourceTree = "<group>";
 		};
 		F0C352C42AE9DDBE002B86BE /* Frameworks */ = {
@@ -1782,16 +1808,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F013038D2AEB0E9300D28886 /* WidgetStore.swift in Sources */,
 				F0BD698D2AEAC972002490E7 /* AddProjectTimelineProvider.swift in Sources */,
+				F0BD69B22AEACEF9002490E7 /* ProjectContent.swift in Sources */,
 				F0BD699F2AEAC9B9002490E7 /* LastProjectWidget.swift in Sources */,
 				F0BD69992AEAC9A9002490E7 /* LastProjectTimelineProvider.swift in Sources */,
 				F0BD69932AEAC989002490E7 /* AddProjectWidget.swift in Sources */,
 				F0BD698A2AEAC963002490E7 /* AddProjectEntry.swift in Sources */,
 				F0BD69962AEAC99F002490E7 /* LastProjectEntry.swift in Sources */,
 				F0BD69A32AEAC9C4002490E7 /* WidgetsBundle.swift in Sources */,
+				F0BD69B42AEACEFC002490E7 /* Project.swift in Sources */,
 				F0BD69902AEAC97B002490E7 /* AddProjectEntryView.swift in Sources */,
 				F0BD699C2AEAC9B2002490E7 /* LastProjectEntryView.swift in Sources */,
 				F0BD69A72AEAC9E9002490E7 /* Deeplink.swift in Sources */,
+				F0BD69B02AEACEEA002490E7 /* String+Components.swift in Sources */,
 				F0BD69A52AEAC9C4002490E7 /* WidgetKind.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1800,16 +1830,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F013038E2AEB0E9300D28886 /* WidgetStore.swift in Sources */,
 				F0BD698E2AEAC972002490E7 /* AddProjectTimelineProvider.swift in Sources */,
+				F0BD69B32AEACEF9002490E7 /* ProjectContent.swift in Sources */,
 				F0BD69A02AEAC9B9002490E7 /* LastProjectWidget.swift in Sources */,
 				F0BD699A2AEAC9A9002490E7 /* LastProjectTimelineProvider.swift in Sources */,
 				F0BD69942AEAC989002490E7 /* AddProjectWidget.swift in Sources */,
 				F0BD698B2AEAC963002490E7 /* AddProjectEntry.swift in Sources */,
 				F0BD69972AEAC99F002490E7 /* LastProjectEntry.swift in Sources */,
 				F0BD69A42AEAC9C4002490E7 /* WidgetsBundle.swift in Sources */,
+				F0BD69B52AEACEFD002490E7 /* Project.swift in Sources */,
 				F0BD69912AEAC97B002490E7 /* AddProjectEntryView.swift in Sources */,
 				F0BD699D2AEAC9B2002490E7 /* LastProjectEntryView.swift in Sources */,
 				F0BD69A82AEAC9E9002490E7 /* Deeplink.swift in Sources */,
+				F0BD69B12AEACEEA002490E7 /* String+Components.swift in Sources */,
 				F0BD69A62AEAC9C4002490E7 /* WidgetKind.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
