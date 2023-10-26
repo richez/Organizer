@@ -8,7 +8,7 @@
 import Foundation
 import SwiftData
 
-// TODO: handle deeplink to open project / content
+// TODO: Add relationshipKeyPathsForPrefetching for contents (used directly for stats)
 // TODO: Widgets -> handle reload only from app (TimelineReloadPolicy.never) -> store id of edited project and reload when app becomes inactive to avoid unnecessary updates
 // https://developer.apple.com/documentation/widgetkit/keeping-a-widget-up-to-date
 // TODO:    - Small: project row like with add button to create content (add deeplink)

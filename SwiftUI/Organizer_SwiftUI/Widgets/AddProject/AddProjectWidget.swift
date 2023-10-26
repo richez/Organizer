@@ -30,7 +30,7 @@ struct AddProjectWidget: Widget {
 }
 
 #if !os(macOS)
-#Preview("Lock Screen", as: .accessoryCircular) {
+#Preview("Circular", as: .accessoryCircular) {
     AddProjectWidget()
 } timeline: {
     AddProjectEntry()

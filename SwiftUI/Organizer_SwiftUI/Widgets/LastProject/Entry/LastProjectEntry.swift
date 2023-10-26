@@ -8,5 +8,6 @@
 import WidgetKit
 
 struct LastProjectEntry: TimelineEntry {
+    var project: Project?
     var date: Date = .now
 }

@@ -29,13 +29,15 @@ extension WidgetStore {
         predicate: Predicate<Project>? = nil,
         sortBy: [SortDescriptor<Project>] = [],
         fetchLimit: Int? = nil,
-        propertiesToFetch: [PartialKeyPath<Project>] = []
+        propertiesToFetch: [PartialKeyPath<Project>] = [],
+        relationshipKeyPathsForPrefetching: [PartialKeyPath<Project>] = []
     ) throws -> [Project] {
         guard let context else { throw Error.databaseUnreachable }
 
         var descriptor = FetchDescriptor<Project>(predicate: predicate, sortBy: sortBy)
         descriptor.fetchLimit = fetchLimit
         descriptor.propertiesToFetch = propertiesToFetch
+        descriptor.relationshipKeyPathsForPrefetching = relationshipKeyPathsForPrefetching
         return try context.fetch(descriptor)
     }
 }

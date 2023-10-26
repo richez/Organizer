@@ -20,11 +20,31 @@ struct LastProjectWidget: Widget {
     var body: some WidgetConfiguration {
         StaticConfiguration(
             kind: .lastProject,
-            provider: LastProjectTimelineProvider()) { _ in
-                LastProjectEntryView()
+            provider: LastProjectTimelineProvider()) { entry in
+                LastProjectEntryView(entry: entry)
             }
             .configurationDisplayName(for: .lastProject)
             .description(for: .lastProject)
             .supportedFamilies(self.families)
     }
 }
+
+#if !os(macOS)
+#Preview("Circular", as: .accessoryCircular) {
+    LastProjectWidget()
+ } timeline: {
+     LastProjectEntry()
+ }
+
+#Preview("Rectangular", as: .accessoryRectangular) {
+    LastProjectWidget()
+ } timeline: {
+     LastProjectEntry()
+ }
+#endif
+
+#Preview("Small", as: .systemSmall) {
+    LastProjectWidget()
+ } timeline: {
+     LastProjectEntry()
+ }
