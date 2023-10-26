@@ -47,4 +47,5 @@ struct LastProjectWidget: Widget {
     LastProjectWidget()
  } timeline: {
      LastProjectEntry()
+     LastProjectEntry(project: .preview)
  }

@@ -29,6 +29,10 @@
 		F00602082ADEEA74005F57CA /* String+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC7E2ADAB1D200507993 /* String+URL.swift */; };
 		F013038D2AEB0E9300D28886 /* WidgetStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F013038C2AEB0E9300D28886 /* WidgetStore.swift */; };
 		F013038E2AEB0E9300D28886 /* WidgetStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F013038C2AEB0E9300D28886 /* WidgetStore.swift */; };
+		F01303912AEB1E8F00D28886 /* Project+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01303902AEB1E8F00D28886 /* Project+Preview.swift */; };
+		F01303922AEB1E8F00D28886 /* Project+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01303902AEB1E8F00D28886 /* Project+Preview.swift */; };
+		F01303942AEB213600D28886 /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01303932AEB213600D28886 /* ProjectView.swift */; };
+		F01303952AEB213600D28886 /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01303932AEB213600D28886 /* ProjectView.swift */; };
 		F02E9F2B2AE6BADB00755FF7 /* Sequence+CountBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E9F2A2AE6BADB00755FF7 /* Sequence+CountBy.swift */; };
 		F02E9F2C2AE6BADB00755FF7 /* Sequence+CountBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E9F2A2AE6BADB00755FF7 /* Sequence+CountBy.swift */; };
 		F02E9F302AE6DF4800755FF7 /* Deeplink.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E9F2F2AE6DF4800755FF7 /* Deeplink.swift */; };
@@ -296,6 +300,8 @@
 		F00601F82ADECF14005F57CA /* ProjectPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectPicker.swift; sourceTree = "<group>"; };
 		F00601FF2ADED4F1005F57CA /* ShareFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareFormViewModel.swift; sourceTree = "<group>"; };
 		F013038C2AEB0E9300D28886 /* WidgetStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetStore.swift; sourceTree = "<group>"; };
+		F01303902AEB1E8F00D28886 /* Project+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Project+Preview.swift"; sourceTree = "<group>"; };
+		F01303932AEB213600D28886 /* ProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectView.swift; sourceTree = "<group>"; };
 		F02E9F2A2AE6BADB00755FF7 /* Sequence+CountBy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+CountBy.swift"; sourceTree = "<group>"; };
 		F02E9F2D2AE6CA6300755FF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F02E9F2F2AE6DF4800755FF7 /* Deeplink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deeplink.swift; sourceTree = "<group>"; };
@@ -555,6 +561,14 @@
 				F00601F82ADECF14005F57CA /* ProjectPicker.swift */,
 			);
 			path = Picker;
+			sourceTree = "<group>";
+		};
+		F013038F2AEB1E7500D28886 /* Preview */ = {
+			isa = PBXGroup;
+			children = (
+				F01303902AEB1E8F00D28886 /* Project+Preview.swift */,
+			);
+			path = Preview;
 			sourceTree = "<group>";
 		};
 		F02E9F2E2AE6DF3E00755FF7 /* Deeplink */ = {
@@ -1113,6 +1127,7 @@
 			isa = PBXGroup;
 			children = (
 				F0BD699B2AEAC9B2002490E7 /* LastProjectEntryView.swift */,
+				F01303932AEB213600D28886 /* ProjectView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1136,6 +1151,7 @@
 		F0BD69AB2AEACDF1002490E7 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				F013038F2AEB1E7500D28886 /* Preview */,
 				F0BD69AC2AEACDF7002490E7 /* Store */,
 			);
 			path = Helpers;
@@ -1812,6 +1828,8 @@
 				F0BD698D2AEAC972002490E7 /* AddProjectTimelineProvider.swift in Sources */,
 				F0BD69B22AEACEF9002490E7 /* ProjectContent.swift in Sources */,
 				F0BD699F2AEAC9B9002490E7 /* LastProjectWidget.swift in Sources */,
+				F01303942AEB213600D28886 /* ProjectView.swift in Sources */,
+				F01303912AEB1E8F00D28886 /* Project+Preview.swift in Sources */,
 				F0BD69992AEAC9A9002490E7 /* LastProjectTimelineProvider.swift in Sources */,
 				F0BD69932AEAC989002490E7 /* AddProjectWidget.swift in Sources */,
 				F0BD698A2AEAC963002490E7 /* AddProjectEntry.swift in Sources */,
@@ -1834,6 +1852,8 @@
 				F0BD698E2AEAC972002490E7 /* AddProjectTimelineProvider.swift in Sources */,
 				F0BD69B32AEACEF9002490E7 /* ProjectContent.swift in Sources */,
 				F0BD69A02AEAC9B9002490E7 /* LastProjectWidget.swift in Sources */,
+				F01303952AEB213600D28886 /* ProjectView.swift in Sources */,
+				F01303922AEB1E8F00D28886 /* Project+Preview.swift in Sources */,
 				F0BD699A2AEAC9A9002490E7 /* LastProjectTimelineProvider.swift in Sources */,
 				F0BD69942AEAC989002490E7 /* AddProjectWidget.swift in Sources */,
 				F0BD698B2AEAC963002490E7 /* AddProjectEntry.swift in Sources */,
