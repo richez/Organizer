@@ -156,6 +156,10 @@
 		F0BD692C2AEA88CB002490E7 /* AddProjectEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BD692B2AEA88CB002490E7 /* AddProjectEntryView.swift */; };
 		F0BD692D2AEA9405002490E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F092AC492AD6FDDB00EAD1F6 /* Assets.xcassets */; };
 		F0BD692E2AEAA68B002490E7 /* Deeplink.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E9F2F2AE6DF4800755FF7 /* Deeplink.swift */; };
+		F0BD69312AEABC62002490E7 /* LastProjectWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BD69302AEABC62002490E7 /* LastProjectWidget.swift */; };
+		F0BD69362AEABC81002490E7 /* LastProjectEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BD69352AEABC81002490E7 /* LastProjectEntry.swift */; };
+		F0BD69382AEABCF0002490E7 /* LastProjectTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BD69372AEABCF0002490E7 /* LastProjectTimelineProvider.swift */; };
+		F0BD693A2AEABD4D002490E7 /* LastProjectEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BD69392AEABD4D002490E7 /* LastProjectEntryView.swift */; };
 		F0C352C62AE9DDBE002B86BE /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C352C52AE9DDBE002B86BE /* WidgetKit.framework */; };
 		F0C352C82AE9DDBE002B86BE /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C352C72AE9DDBE002B86BE /* SwiftUI.framework */; };
 		F0C352CB2AE9DDBE002B86BE /* WidgetsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C352CA2AE9DDBE002B86BE /* WidgetsBundle.swift */; };
@@ -352,6 +356,10 @@
 		F0BD69272AEA881F002490E7 /* AddProjectEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectEntry.swift; sourceTree = "<group>"; };
 		F0BD69292AEA8839002490E7 /* AddProjectTimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectTimelineProvider.swift; sourceTree = "<group>"; };
 		F0BD692B2AEA88CB002490E7 /* AddProjectEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectEntryView.swift; sourceTree = "<group>"; };
+		F0BD69302AEABC62002490E7 /* LastProjectWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastProjectWidget.swift; sourceTree = "<group>"; };
+		F0BD69352AEABC81002490E7 /* LastProjectEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastProjectEntry.swift; sourceTree = "<group>"; };
+		F0BD69372AEABCF0002490E7 /* LastProjectTimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastProjectTimelineProvider.swift; sourceTree = "<group>"; };
+		F0BD69392AEABD4D002490E7 /* LastProjectEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastProjectEntryView.swift; sourceTree = "<group>"; };
 		F0C352C32AE9DDBE002B86BE /* WidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0C352C52AE9DDBE002B86BE /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = /System/Library/Frameworks/WidgetKit.framework; sourceTree = "<absolute>"; };
 		F0C352C72AE9DDBE002B86BE /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = /System/Library/Frameworks/SwiftUI.framework; sourceTree = "<absolute>"; };
@@ -1012,6 +1020,41 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		F0BD692F2AEABC51002490E7 /* LastProject */ = {
+			isa = PBXGroup;
+			children = (
+				F0BD69302AEABC62002490E7 /* LastProjectWidget.swift */,
+				F0BD69342AEABC74002490E7 /* Entry */,
+				F0BD69332AEABC6C002490E7 /* TimelineProvider */,
+				F0BD69322AEABC67002490E7 /* View */,
+			);
+			path = LastProject;
+			sourceTree = "<group>";
+		};
+		F0BD69322AEABC67002490E7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F0BD69392AEABD4D002490E7 /* LastProjectEntryView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F0BD69332AEABC6C002490E7 /* TimelineProvider */ = {
+			isa = PBXGroup;
+			children = (
+				F0BD69372AEABCF0002490E7 /* LastProjectTimelineProvider.swift */,
+			);
+			path = TimelineProvider;
+			sourceTree = "<group>";
+		};
+		F0BD69342AEABC74002490E7 /* Entry */ = {
+			isa = PBXGroup;
+			children = (
+				F0BD69352AEABC81002490E7 /* LastProjectEntry.swift */,
+			);
+			path = Entry;
+			sourceTree = "<group>";
+		};
 		F0C352C42AE9DDBE002B86BE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1027,6 +1070,7 @@
 				F0C352CA2AE9DDBE002B86BE /* WidgetsBundle.swift */,
 				F0BD691F2AEA838F002490E7 /* WidgetKind.swift */,
 				F0BD69212AEA870D002490E7 /* AddProject */,
+				F0BD692F2AEABC51002490E7 /* LastProject */,
 				F0C352DC2AE9DE38002B86BE /* Resources */,
 			);
 			path = Widgets;
@@ -1661,12 +1705,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0BD692C2AEA88CB002490E7 /* AddProjectEntryView.swift in Sources */,
+				F0BD69312AEABC62002490E7 /* LastProjectWidget.swift in Sources */,
 				F0BD692A2AEA8839002490E7 /* AddProjectTimelineProvider.swift in Sources */,
+				F0BD693A2AEABD4D002490E7 /* LastProjectEntryView.swift in Sources */,
 				F0BD692E2AEAA68B002490E7 /* Deeplink.swift in Sources */,
+				F0BD69362AEABC81002490E7 /* LastProjectEntry.swift in Sources */,
 				F0C352CB2AE9DDBE002B86BE /* WidgetsBundle.swift in Sources */,
 				F0BD69232AEA871E002490E7 /* AddProjectWidget.swift in Sources */,
 				F0BD69282AEA881F002490E7 /* AddProjectEntry.swift in Sources */,
 				F0BD69202AEA838F002490E7 /* WidgetKind.swift in Sources */,
+				F0BD69382AEABCF0002490E7 /* LastProjectTimelineProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
