@@ -149,23 +149,38 @@
 		F0B82DD42AE7F8A0000405EB /* StatisticsAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B82DD32AE7F8A0000405EB /* StatisticsAction.swift */; };
 		F0B82DD72AE7FEFB000405EB /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B82DD62AE7FEFB000405EB /* NavigationView.swift */; };
 		F0B82DD92AE8002C000405EB /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092AC472AD6FDDA00EAD1F6 /* MainView.swift */; };
-		F0BD69202AEA838F002490E7 /* WidgetKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BD691F2AEA838F002490E7 /* WidgetKind.swift */; };
-		F0BD69232AEA871E002490E7 /* AddProjectWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BD69222AEA871E002490E7 /* AddProjectWidget.swift */; };
-		F0BD69282AEA881F002490E7 /* AddProjectEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BD69272AEA881F002490E7 /* AddProjectEntry.swift */; };
-		F0BD692A2AEA8839002490E7 /* AddProjectTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BD69292AEA8839002490E7 /* AddProjectTimelineProvider.swift */; };
-		F0BD692C2AEA88CB002490E7 /* AddProjectEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BD692B2AEA88CB002490E7 /* AddProjectEntryView.swift */; };
-		F0BD692D2AEA9405002490E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F092AC492AD6FDDB00EAD1F6 /* Assets.xcassets */; };
-		F0BD692E2AEAA68B002490E7 /* Deeplink.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E9F2F2AE6DF4800755FF7 /* Deeplink.swift */; };
-		F0BD69312AEABC62002490E7 /* LastProjectWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BD69302AEABC62002490E7 /* LastProjectWidget.swift */; };
-		F0BD69362AEABC81002490E7 /* LastProjectEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BD69352AEABC81002490E7 /* LastProjectEntry.swift */; };
-		F0BD69382AEABCF0002490E7 /* LastProjectTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BD69372AEABCF0002490E7 /* LastProjectTimelineProvider.swift */; };
-		F0BD693A2AEABD4D002490E7 /* LastProjectEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BD69392AEABD4D002490E7 /* LastProjectEntryView.swift */; };
-		F0C352C62AE9DDBE002B86BE /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C352C52AE9DDBE002B86BE /* WidgetKit.framework */; };
-		F0C352C82AE9DDBE002B86BE /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C352C72AE9DDBE002B86BE /* SwiftUI.framework */; };
-		F0C352CB2AE9DDBE002B86BE /* WidgetsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C352CA2AE9DDBE002B86BE /* WidgetsBundle.swift */; };
-		F0C352CF2AE9DDBF002B86BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0C352CE2AE9DDBF002B86BE /* Assets.xcassets */; };
-		F0C352D42AE9DDBF002B86BE /* WidgetsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F0C352C32AE9DDBE002B86BE /* WidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		F0C352D82AE9DDE5002B86BE /* WidgetsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F0C352C32AE9DDBE002B86BE /* WidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F0BD69582AEAC698002490E7 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C352C52AE9DDBE002B86BE /* WidgetKit.framework */; };
+		F0BD69592AEAC698002490E7 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C352C72AE9DDBE002B86BE /* SwiftUI.framework */; };
+		F0BD69602AEAC699002490E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0BD695F2AEAC699002490E7 /* Assets.xcassets */; };
+		F0BD69642AEAC699002490E7 /* WidgetsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F0BD69572AEAC698002490E7 /* WidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F0BD696D2AEAC7C8002490E7 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C352C52AE9DDBE002B86BE /* WidgetKit.framework */; };
+		F0BD696E2AEAC7C8002490E7 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C352C72AE9DDBE002B86BE /* SwiftUI.framework */; };
+		F0BD69752AEAC7C9002490E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0BD69742AEAC7C9002490E7 /* Assets.xcassets */; };
+		F0BD697A2AEAC7C9002490E7 /* MacWidgetsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F0BD696C2AEAC7C8002490E7 /* MacWidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F0BD698A2AEAC963002490E7 /* AddProjectEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BD69892AEAC963002490E7 /* AddProjectEntry.swift */; };
+		F0BD698B2AEAC963002490E7 /* AddProjectEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BD69892AEAC963002490E7 /* AddProjectEntry.swift */; };
+		F0BD698D2AEAC972002490E7 /* AddProjectTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BD698C2AEAC972002490E7 /* AddProjectTimelineProvider.swift */; };
+		F0BD698E2AEAC972002490E7 /* AddProjectTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BD698C2AEAC972002490E7 /* AddProjectTimelineProvider.swift */; };
+		F0BD69902AEAC97B002490E7 /* AddProjectEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BD698F2AEAC97B002490E7 /* AddProjectEntryView.swift */; };
+		F0BD69912AEAC97B002490E7 /* AddProjectEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BD698F2AEAC97B002490E7 /* AddProjectEntryView.swift */; };
+		F0BD69932AEAC989002490E7 /* AddProjectWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BD69922AEAC989002490E7 /* AddProjectWidget.swift */; };
+		F0BD69942AEAC989002490E7 /* AddProjectWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BD69922AEAC989002490E7 /* AddProjectWidget.swift */; };
+		F0BD69962AEAC99F002490E7 /* LastProjectEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BD69952AEAC99F002490E7 /* LastProjectEntry.swift */; };
+		F0BD69972AEAC99F002490E7 /* LastProjectEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BD69952AEAC99F002490E7 /* LastProjectEntry.swift */; };
+		F0BD69992AEAC9A9002490E7 /* LastProjectTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BD69982AEAC9A9002490E7 /* LastProjectTimelineProvider.swift */; };
+		F0BD699A2AEAC9A9002490E7 /* LastProjectTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BD69982AEAC9A9002490E7 /* LastProjectTimelineProvider.swift */; };
+		F0BD699C2AEAC9B2002490E7 /* LastProjectEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BD699B2AEAC9B2002490E7 /* LastProjectEntryView.swift */; };
+		F0BD699D2AEAC9B2002490E7 /* LastProjectEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BD699B2AEAC9B2002490E7 /* LastProjectEntryView.swift */; };
+		F0BD699F2AEAC9B9002490E7 /* LastProjectWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BD699E2AEAC9B9002490E7 /* LastProjectWidget.swift */; };
+		F0BD69A02AEAC9B9002490E7 /* LastProjectWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BD699E2AEAC9B9002490E7 /* LastProjectWidget.swift */; };
+		F0BD69A32AEAC9C4002490E7 /* WidgetsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BD69A12AEAC9C4002490E7 /* WidgetsBundle.swift */; };
+		F0BD69A42AEAC9C4002490E7 /* WidgetsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BD69A12AEAC9C4002490E7 /* WidgetsBundle.swift */; };
+		F0BD69A52AEAC9C4002490E7 /* WidgetKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BD69A22AEAC9C4002490E7 /* WidgetKind.swift */; };
+		F0BD69A62AEAC9C4002490E7 /* WidgetKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BD69A22AEAC9C4002490E7 /* WidgetKind.swift */; };
+		F0BD69A72AEAC9E9002490E7 /* Deeplink.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E9F2F2AE6DF4800755FF7 /* Deeplink.swift */; };
+		F0BD69A82AEAC9E9002490E7 /* Deeplink.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E9F2F2AE6DF4800755FF7 /* Deeplink.swift */; };
+		F0BD69A92AEAC9EF002490E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F092AC492AD6FDDB00EAD1F6 /* Assets.xcassets */; };
+		F0BD69AA2AEAC9EF002490E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F092AC492AD6FDDB00EAD1F6 /* Assets.xcassets */; };
 		F0D428892ADD4B2D00DAF2B2 /* ContextMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D428882ADD4B2D00DAF2B2 /* ContextMenuButton.swift */; };
 		F0D4288B2ADD4C0700DAF2B2 /* ContextMenuType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D4288A2ADD4C0700DAF2B2 /* ContextMenuType.swift */; };
 		F0D4288E2ADD58F600DAF2B2 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D4288D2ADD58F600DAF2B2 /* SafariView.swift */; };
@@ -217,19 +232,19 @@
 			remoteGlobalIDString = F00601D92ADEBCEC005F57CA;
 			remoteInfo = ShareExtension;
 		};
-		F0C352D22AE9DDBF002B86BE /* PBXContainerItemProxy */ = {
+		F0BD69622AEAC699002490E7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F092AC3A2AD6FDDA00EAD1F6 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = F0C352C22AE9DDBE002B86BE;
+			remoteGlobalIDString = F0BD69562AEAC698002490E7;
 			remoteInfo = WidgetsExtension;
 		};
-		F0C352D92AE9DDE5002B86BE /* PBXContainerItemProxy */ = {
+		F0BD69782AEAC7C9002490E7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F092AC3A2AD6FDDA00EAD1F6 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = F0C352C22AE9DDBE002B86BE;
-			remoteInfo = WidgetsExtension;
+			remoteGlobalIDString = F0BD696B2AEAC7C8002490E7;
+			remoteInfo = MacWidgetsExtension;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -240,19 +255,19 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				F0C352D42AE9DDBF002B86BE /* WidgetsExtension.appex in Embed Foundation Extensions */,
+				F0BD69642AEAC699002490E7 /* WidgetsExtension.appex in Embed Foundation Extensions */,
 				F00601E42ADEBCEC005F57CA /* ShareExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F0C352DB2AE9DDE5002B86BE /* Embed Foundation Extensions */ = {
+		F0BD697E2AEAC7C9002490E7 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				F0C352D82AE9DDE5002B86BE /* WidgetsExtension.appex in Embed Foundation Extensions */,
+				F0BD697A2AEAC7C9002490E7 /* MacWidgetsExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -351,22 +366,25 @@
 		F09D54F22AE4376A00E23ADC /* ContentFormAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentFormAction.swift; sourceTree = "<group>"; };
 		F0B82DD32AE7F8A0000405EB /* StatisticsAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsAction.swift; sourceTree = "<group>"; };
 		F0B82DD62AE7FEFB000405EB /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
-		F0BD691F2AEA838F002490E7 /* WidgetKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetKind.swift; sourceTree = "<group>"; };
-		F0BD69222AEA871E002490E7 /* AddProjectWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectWidget.swift; sourceTree = "<group>"; };
-		F0BD69272AEA881F002490E7 /* AddProjectEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectEntry.swift; sourceTree = "<group>"; };
-		F0BD69292AEA8839002490E7 /* AddProjectTimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectTimelineProvider.swift; sourceTree = "<group>"; };
-		F0BD692B2AEA88CB002490E7 /* AddProjectEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectEntryView.swift; sourceTree = "<group>"; };
-		F0BD69302AEABC62002490E7 /* LastProjectWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastProjectWidget.swift; sourceTree = "<group>"; };
-		F0BD69352AEABC81002490E7 /* LastProjectEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastProjectEntry.swift; sourceTree = "<group>"; };
-		F0BD69372AEABCF0002490E7 /* LastProjectTimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastProjectTimelineProvider.swift; sourceTree = "<group>"; };
-		F0BD69392AEABD4D002490E7 /* LastProjectEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastProjectEntryView.swift; sourceTree = "<group>"; };
-		F0C352C32AE9DDBE002B86BE /* WidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0BD69572AEAC698002490E7 /* WidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0BD695F2AEAC699002490E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F0BD69612AEAC699002490E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F0BD696C2AEAC7C8002490E7 /* MacWidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MacWidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0BD69742AEAC7C9002490E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F0BD69762AEAC7C9002490E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F0BD69772AEAC7C9002490E7 /* MacWidgets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacWidgets.entitlements; sourceTree = "<group>"; };
+		F0BD69892AEAC963002490E7 /* AddProjectEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProjectEntry.swift; sourceTree = "<group>"; };
+		F0BD698C2AEAC972002490E7 /* AddProjectTimelineProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProjectTimelineProvider.swift; sourceTree = "<group>"; };
+		F0BD698F2AEAC97B002490E7 /* AddProjectEntryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProjectEntryView.swift; sourceTree = "<group>"; };
+		F0BD69922AEAC989002490E7 /* AddProjectWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProjectWidget.swift; sourceTree = "<group>"; };
+		F0BD69952AEAC99F002490E7 /* LastProjectEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastProjectEntry.swift; sourceTree = "<group>"; };
+		F0BD69982AEAC9A9002490E7 /* LastProjectTimelineProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastProjectTimelineProvider.swift; sourceTree = "<group>"; };
+		F0BD699B2AEAC9B2002490E7 /* LastProjectEntryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastProjectEntryView.swift; sourceTree = "<group>"; };
+		F0BD699E2AEAC9B9002490E7 /* LastProjectWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastProjectWidget.swift; sourceTree = "<group>"; };
+		F0BD69A12AEAC9C4002490E7 /* WidgetsBundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetsBundle.swift; sourceTree = "<group>"; };
+		F0BD69A22AEAC9C4002490E7 /* WidgetKind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetKind.swift; sourceTree = "<group>"; };
 		F0C352C52AE9DDBE002B86BE /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = /System/Library/Frameworks/WidgetKit.framework; sourceTree = "<absolute>"; };
 		F0C352C72AE9DDBE002B86BE /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = /System/Library/Frameworks/SwiftUI.framework; sourceTree = "<absolute>"; };
-		F0C352CA2AE9DDBE002B86BE /* WidgetsBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsBundle.swift; sourceTree = "<group>"; };
-		F0C352CE2AE9DDBF002B86BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F0C352D02AE9DDBF002B86BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F0C352D12AE9DDBF002B86BE /* Widgets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Widgets.entitlements; sourceTree = "<group>"; };
 		F0D428882ADD4B2D00DAF2B2 /* ContextMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuButton.swift; sourceTree = "<group>"; };
 		F0D4288A2ADD4C0700DAF2B2 /* ContextMenuType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuType.swift; sourceTree = "<group>"; };
 		F0D4288D2ADD58F600DAF2B2 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
@@ -420,12 +438,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F0C352C02AE9DDBE002B86BE /* Frameworks */ = {
+		F0BD69542AEAC698002490E7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F0C352C82AE9DDBE002B86BE /* SwiftUI.framework in Frameworks */,
-				F0C352C62AE9DDBE002B86BE /* WidgetKit.framework in Frameworks */,
+				F0BD69592AEAC698002490E7 /* SwiftUI.framework in Frameworks */,
+				F0BD69582AEAC698002490E7 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0BD69692AEAC7C8002490E7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0BD696E2AEAC7C8002490E7 /* SwiftUI.framework in Frameworks */,
+				F0BD696D2AEAC7C8002490E7 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -821,7 +848,8 @@
 				F092AC442AD6FDDA00EAD1F6 /* Organizer_SwiftUI */,
 				F00601DB2ADEBCEC005F57CA /* ShareExtension */,
 				F051E3742AE01D7A009F1E50 /* MacOrganizer */,
-				F0C352C92AE9DDBE002B86BE /* Widgets */,
+				F0BD695A2AEAC698002490E7 /* Widgets */,
+				F0BD696F2AEAC7C8002490E7 /* MacWidgets */,
 				F0C352C42AE9DDBE002B86BE /* Frameworks */,
 				F092AC432AD6FDDA00EAD1F6 /* Products */,
 			);
@@ -833,7 +861,8 @@
 				F092AC422AD6FDDA00EAD1F6 /* Organizer_SwiftUI.app */,
 				F00601DA2ADEBCEC005F57CA /* ShareExtension.appex */,
 				F051E3732AE01D7A009F1E50 /* MacOrganizer.app */,
-				F0C352C32AE9DDBE002B86BE /* WidgetsExtension.appex */,
+				F0BD69572AEAC698002490E7 /* WidgetsExtension.appex */,
+				F0BD696C2AEAC7C8002490E7 /* MacWidgetsExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -985,72 +1014,111 @@
 			path = Navigation;
 			sourceTree = "<group>";
 		};
-		F0BD69212AEA870D002490E7 /* AddProject */ = {
+		F0BD695A2AEAC698002490E7 /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
-				F0BD69222AEA871E002490E7 /* AddProjectWidget.swift */,
-				F0BD69252AEA87F7002490E7 /* Entry */,
-				F0BD69242AEA87F1002490E7 /* TimelineProvider */,
-				F0BD69262AEA880B002490E7 /* View */,
+				F0BD69A12AEAC9C4002490E7 /* WidgetsBundle.swift */,
+				F0BD69A22AEAC9C4002490E7 /* WidgetKind.swift */,
+				F0BD69812AEAC8E1002490E7 /* AddProject */,
+				F0BD69852AEAC8FF002490E7 /* LastProject */,
+				F0BD697F2AEAC839002490E7 /* Resources */,
+			);
+			path = Widgets;
+			sourceTree = "<group>";
+		};
+		F0BD696F2AEAC7C8002490E7 /* MacWidgets */ = {
+			isa = PBXGroup;
+			children = (
+				F0BD69802AEAC843002490E7 /* Resources */,
+			);
+			path = MacWidgets;
+			sourceTree = "<group>";
+		};
+		F0BD697F2AEAC839002490E7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F0BD695F2AEAC699002490E7 /* Assets.xcassets */,
+				F0BD69612AEAC699002490E7 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F0BD69802AEAC843002490E7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F0BD69742AEAC7C9002490E7 /* Assets.xcassets */,
+				F0BD69762AEAC7C9002490E7 /* Info.plist */,
+				F0BD69772AEAC7C9002490E7 /* MacWidgets.entitlements */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F0BD69812AEAC8E1002490E7 /* AddProject */ = {
+			isa = PBXGroup;
+			children = (
+				F0BD69922AEAC989002490E7 /* AddProjectWidget.swift */,
+				F0BD69842AEAC8F7002490E7 /* Entry */,
+				F0BD69832AEAC8F0002490E7 /* TimelineProvider */,
+				F0BD69822AEAC8EB002490E7 /* View */,
 			);
 			path = AddProject;
 			sourceTree = "<group>";
 		};
-		F0BD69242AEA87F1002490E7 /* TimelineProvider */ = {
+		F0BD69822AEAC8EB002490E7 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F0BD69292AEA8839002490E7 /* AddProjectTimelineProvider.swift */,
+				F0BD698F2AEAC97B002490E7 /* AddProjectEntryView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F0BD69832AEAC8F0002490E7 /* TimelineProvider */ = {
+			isa = PBXGroup;
+			children = (
+				F0BD698C2AEAC972002490E7 /* AddProjectTimelineProvider.swift */,
 			);
 			path = TimelineProvider;
 			sourceTree = "<group>";
 		};
-		F0BD69252AEA87F7002490E7 /* Entry */ = {
+		F0BD69842AEAC8F7002490E7 /* Entry */ = {
 			isa = PBXGroup;
 			children = (
-				F0BD69272AEA881F002490E7 /* AddProjectEntry.swift */,
+				F0BD69892AEAC963002490E7 /* AddProjectEntry.swift */,
 			);
 			path = Entry;
 			sourceTree = "<group>";
 		};
-		F0BD69262AEA880B002490E7 /* View */ = {
+		F0BD69852AEAC8FF002490E7 /* LastProject */ = {
 			isa = PBXGroup;
 			children = (
-				F0BD692B2AEA88CB002490E7 /* AddProjectEntryView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		F0BD692F2AEABC51002490E7 /* LastProject */ = {
-			isa = PBXGroup;
-			children = (
-				F0BD69302AEABC62002490E7 /* LastProjectWidget.swift */,
-				F0BD69342AEABC74002490E7 /* Entry */,
-				F0BD69332AEABC6C002490E7 /* TimelineProvider */,
-				F0BD69322AEABC67002490E7 /* View */,
+				F0BD699E2AEAC9B9002490E7 /* LastProjectWidget.swift */,
+				F0BD69882AEAC917002490E7 /* Entry */,
+				F0BD69872AEAC910002490E7 /* TimelineProvider */,
+				F0BD69862AEAC90C002490E7 /* View */,
 			);
 			path = LastProject;
 			sourceTree = "<group>";
 		};
-		F0BD69322AEABC67002490E7 /* View */ = {
+		F0BD69862AEAC90C002490E7 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F0BD69392AEABD4D002490E7 /* LastProjectEntryView.swift */,
+				F0BD699B2AEAC9B2002490E7 /* LastProjectEntryView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		F0BD69332AEABC6C002490E7 /* TimelineProvider */ = {
+		F0BD69872AEAC910002490E7 /* TimelineProvider */ = {
 			isa = PBXGroup;
 			children = (
-				F0BD69372AEABCF0002490E7 /* LastProjectTimelineProvider.swift */,
+				F0BD69982AEAC9A9002490E7 /* LastProjectTimelineProvider.swift */,
 			);
 			path = TimelineProvider;
 			sourceTree = "<group>";
 		};
-		F0BD69342AEABC74002490E7 /* Entry */ = {
+		F0BD69882AEAC917002490E7 /* Entry */ = {
 			isa = PBXGroup;
 			children = (
-				F0BD69352AEABC81002490E7 /* LastProjectEntry.swift */,
+				F0BD69952AEAC99F002490E7 /* LastProjectEntry.swift */,
 			);
 			path = Entry;
 			sourceTree = "<group>";
@@ -1062,28 +1130,6 @@
 				F0C352C72AE9DDBE002B86BE /* SwiftUI.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		F0C352C92AE9DDBE002B86BE /* Widgets */ = {
-			isa = PBXGroup;
-			children = (
-				F0C352CA2AE9DDBE002B86BE /* WidgetsBundle.swift */,
-				F0BD691F2AEA838F002490E7 /* WidgetKind.swift */,
-				F0BD69212AEA870D002490E7 /* AddProject */,
-				F0BD692F2AEABC51002490E7 /* LastProject */,
-				F0C352DC2AE9DE38002B86BE /* Resources */,
-			);
-			path = Widgets;
-			sourceTree = "<group>";
-		};
-		F0C352DC2AE9DE38002B86BE /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				F0C352CE2AE9DDBF002B86BE /* Assets.xcassets */,
-				F0C352D02AE9DDBF002B86BE /* Info.plist */,
-				F0C352D12AE9DDBF002B86BE /* Widgets.entitlements */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		F0D428872ADD4B1900DAF2B2 /* ContextMenuButton */ = {
@@ -1369,12 +1415,12 @@
 				F051E36F2AE01D7A009F1E50 /* Sources */,
 				F051E3702AE01D7A009F1E50 /* Frameworks */,
 				F051E3712AE01D7A009F1E50 /* Resources */,
-				F0C352DB2AE9DDE5002B86BE /* Embed Foundation Extensions */,
+				F0BD697E2AEAC7C9002490E7 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				F0C352DA2AE9DDE5002B86BE /* PBXTargetDependency */,
+				F0BD69792AEAC7C9002490E7 /* PBXTargetDependency */,
 			);
 			name = MacOrganizer;
 			productName = MacOrganizer;
@@ -1394,20 +1440,20 @@
 			);
 			dependencies = (
 				F00601E32ADEBCEC005F57CA /* PBXTargetDependency */,
-				F0C352D32AE9DDBF002B86BE /* PBXTargetDependency */,
+				F0BD69632AEAC699002490E7 /* PBXTargetDependency */,
 			);
 			name = Organizer_SwiftUI;
 			productName = Organizer_SwiftUI;
 			productReference = F092AC422AD6FDDA00EAD1F6 /* Organizer_SwiftUI.app */;
 			productType = "com.apple.product-type.application";
 		};
-		F0C352C22AE9DDBE002B86BE /* WidgetsExtension */ = {
+		F0BD69562AEAC698002490E7 /* WidgetsExtension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F0C352D72AE9DDBF002B86BE /* Build configuration list for PBXNativeTarget "WidgetsExtension" */;
+			buildConfigurationList = F0BD69652AEAC699002490E7 /* Build configuration list for PBXNativeTarget "WidgetsExtension" */;
 			buildPhases = (
-				F0C352BF2AE9DDBE002B86BE /* Sources */,
-				F0C352C02AE9DDBE002B86BE /* Frameworks */,
-				F0C352C12AE9DDBE002B86BE /* Resources */,
+				F0BD69532AEAC698002490E7 /* Sources */,
+				F0BD69542AEAC698002490E7 /* Frameworks */,
+				F0BD69552AEAC698002490E7 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -1415,7 +1461,24 @@
 			);
 			name = WidgetsExtension;
 			productName = WidgetsExtension;
-			productReference = F0C352C32AE9DDBE002B86BE /* WidgetsExtension.appex */;
+			productReference = F0BD69572AEAC698002490E7 /* WidgetsExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		F0BD696B2AEAC7C8002490E7 /* MacWidgetsExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F0BD697B2AEAC7C9002490E7 /* Build configuration list for PBXNativeTarget "MacWidgetsExtension" */;
+			buildPhases = (
+				F0BD69682AEAC7C8002490E7 /* Sources */,
+				F0BD69692AEAC7C8002490E7 /* Frameworks */,
+				F0BD696A2AEAC7C8002490E7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MacWidgetsExtension;
+			productName = MacWidgetsExtension;
+			productReference = F0BD696C2AEAC7C8002490E7 /* MacWidgetsExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -1437,8 +1500,13 @@
 					F092AC412AD6FDDA00EAD1F6 = {
 						CreatedOnToolsVersion = 15.0;
 					};
-					F0C352C22AE9DDBE002B86BE = {
+					F0BD69562AEAC698002490E7 = {
 						CreatedOnToolsVersion = 15.0;
+						LastSwiftMigration = 1500;
+					};
+					F0BD696B2AEAC7C8002490E7 = {
+						CreatedOnToolsVersion = 15.0;
+						LastSwiftMigration = 1500;
 					};
 				};
 			};
@@ -1458,7 +1526,8 @@
 				F092AC412AD6FDDA00EAD1F6 /* Organizer_SwiftUI */,
 				F00601D92ADEBCEC005F57CA /* ShareExtension */,
 				F051E3722AE01D7A009F1E50 /* MacOrganizer */,
-				F0C352C22AE9DDBE002B86BE /* WidgetsExtension */,
+				F0BD69562AEAC698002490E7 /* WidgetsExtension */,
+				F0BD696B2AEAC7C8002490E7 /* MacWidgetsExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -1491,12 +1560,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F0C352C12AE9DDBE002B86BE /* Resources */ = {
+		F0BD69552AEAC698002490E7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F0BD692D2AEA9405002490E7 /* Assets.xcassets in Resources */,
-				F0C352CF2AE9DDBF002B86BE /* Assets.xcassets in Resources */,
+				F0BD69A92AEAC9EF002490E7 /* Assets.xcassets in Resources */,
+				F0BD69602AEAC699002490E7 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0BD696A2AEAC7C8002490E7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0BD69AA2AEAC9EF002490E7 /* Assets.xcassets in Resources */,
+				F0BD69752AEAC7C9002490E7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1700,21 +1778,39 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F0C352BF2AE9DDBE002B86BE /* Sources */ = {
+		F0BD69532AEAC698002490E7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F0BD692C2AEA88CB002490E7 /* AddProjectEntryView.swift in Sources */,
-				F0BD69312AEABC62002490E7 /* LastProjectWidget.swift in Sources */,
-				F0BD692A2AEA8839002490E7 /* AddProjectTimelineProvider.swift in Sources */,
-				F0BD693A2AEABD4D002490E7 /* LastProjectEntryView.swift in Sources */,
-				F0BD692E2AEAA68B002490E7 /* Deeplink.swift in Sources */,
-				F0BD69362AEABC81002490E7 /* LastProjectEntry.swift in Sources */,
-				F0C352CB2AE9DDBE002B86BE /* WidgetsBundle.swift in Sources */,
-				F0BD69232AEA871E002490E7 /* AddProjectWidget.swift in Sources */,
-				F0BD69282AEA881F002490E7 /* AddProjectEntry.swift in Sources */,
-				F0BD69202AEA838F002490E7 /* WidgetKind.swift in Sources */,
-				F0BD69382AEABCF0002490E7 /* LastProjectTimelineProvider.swift in Sources */,
+				F0BD698D2AEAC972002490E7 /* AddProjectTimelineProvider.swift in Sources */,
+				F0BD699F2AEAC9B9002490E7 /* LastProjectWidget.swift in Sources */,
+				F0BD69992AEAC9A9002490E7 /* LastProjectTimelineProvider.swift in Sources */,
+				F0BD69932AEAC989002490E7 /* AddProjectWidget.swift in Sources */,
+				F0BD698A2AEAC963002490E7 /* AddProjectEntry.swift in Sources */,
+				F0BD69962AEAC99F002490E7 /* LastProjectEntry.swift in Sources */,
+				F0BD69A32AEAC9C4002490E7 /* WidgetsBundle.swift in Sources */,
+				F0BD69902AEAC97B002490E7 /* AddProjectEntryView.swift in Sources */,
+				F0BD699C2AEAC9B2002490E7 /* LastProjectEntryView.swift in Sources */,
+				F0BD69A72AEAC9E9002490E7 /* Deeplink.swift in Sources */,
+				F0BD69A52AEAC9C4002490E7 /* WidgetKind.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0BD69682AEAC7C8002490E7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0BD698E2AEAC972002490E7 /* AddProjectTimelineProvider.swift in Sources */,
+				F0BD69A02AEAC9B9002490E7 /* LastProjectWidget.swift in Sources */,
+				F0BD699A2AEAC9A9002490E7 /* LastProjectTimelineProvider.swift in Sources */,
+				F0BD69942AEAC989002490E7 /* AddProjectWidget.swift in Sources */,
+				F0BD698B2AEAC963002490E7 /* AddProjectEntry.swift in Sources */,
+				F0BD69972AEAC99F002490E7 /* LastProjectEntry.swift in Sources */,
+				F0BD69A42AEAC9C4002490E7 /* WidgetsBundle.swift in Sources */,
+				F0BD69912AEAC97B002490E7 /* AddProjectEntryView.swift in Sources */,
+				F0BD699D2AEAC9B2002490E7 /* LastProjectEntryView.swift in Sources */,
+				F0BD69A82AEAC9E9002490E7 /* Deeplink.swift in Sources */,
+				F0BD69A62AEAC9C4002490E7 /* WidgetKind.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1726,15 +1822,15 @@
 			target = F00601D92ADEBCEC005F57CA /* ShareExtension */;
 			targetProxy = F00601E22ADEBCEC005F57CA /* PBXContainerItemProxy */;
 		};
-		F0C352D32AE9DDBF002B86BE /* PBXTargetDependency */ = {
+		F0BD69632AEAC699002490E7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F0C352C22AE9DDBE002B86BE /* WidgetsExtension */;
-			targetProxy = F0C352D22AE9DDBF002B86BE /* PBXContainerItemProxy */;
+			target = F0BD69562AEAC698002490E7 /* WidgetsExtension */;
+			targetProxy = F0BD69622AEAC699002490E7 /* PBXContainerItemProxy */;
 		};
-		F0C352DA2AE9DDE5002B86BE /* PBXTargetDependency */ = {
+		F0BD69792AEAC7C9002490E7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F0C352C22AE9DDBE002B86BE /* WidgetsExtension */;
-			targetProxy = F0C352D92AE9DDE5002B86BE /* PBXContainerItemProxy */;
+			target = F0BD696B2AEAC7C8002490E7 /* MacWidgetsExtension */;
+			targetProxy = F0BD69782AEAC7C9002490E7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1794,6 +1890,7 @@
 		F051E37F2AE01D7B009F1E50 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MacOrganizer/Resources/MacOrganizer.entitlements;
@@ -1815,7 +1912,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.thibautrichez.Organizer-SwiftUI";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thibautrichez.MacOrganizer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1826,6 +1923,7 @@
 		F051E3802AE01D7B009F1E50 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MacOrganizer/Resources/MacOrganizer.entitlements;
@@ -1847,7 +1945,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.thibautrichez.Organizer-SwiftUI";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thibautrichez.MacOrganizer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -2038,79 +2136,123 @@
 			};
 			name = Release;
 		};
-		F0C352D52AE9DDBF002B86BE /* Debug */ = {
+		F0BD69662AEAC699002490E7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = Widgets/Resources/Widgets.entitlements;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = EE36UWQ2XG;
-				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Widgets/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Widgets;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@executable_path/../../../../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.thibautrichez.Organizer-SwiftUI.Widgets";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		F0C352D62AE9DDBF002B86BE /* Release */ = {
+		F0BD69672AEAC699002490E7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = Widgets/Resources/Widgets.entitlements;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = EE36UWQ2XG;
-				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Widgets/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Widgets;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = (
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.thibautrichez.Organizer-SwiftUI.Widgets";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F0BD697C2AEAC7C9002490E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = MacWidgets/Resources/MacWidgets.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = EE36UWQ2XG;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MacWidgets/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MacWidgets;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.thibautrichez.Organizer-SwiftUI.Widgets";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thibautrichez.MacOrganizer.MacWidgets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
+				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		F0BD697D2AEAC7C9002490E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = MacWidgets/Resources/MacWidgets.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = EE36UWQ2XG;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MacWidgets/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MacWidgets;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thibautrichez.MacOrganizer.MacWidgets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -2153,11 +2295,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F0C352D72AE9DDBF002B86BE /* Build configuration list for PBXNativeTarget "WidgetsExtension" */ = {
+		F0BD69652AEAC699002490E7 /* Build configuration list for PBXNativeTarget "WidgetsExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F0C352D52AE9DDBF002B86BE /* Debug */,
-				F0C352D62AE9DDBF002B86BE /* Release */,
+				F0BD69662AEAC699002490E7 /* Debug */,
+				F0BD69672AEAC699002490E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F0BD697B2AEAC7C9002490E7 /* Build configuration list for PBXNativeTarget "MacWidgetsExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F0BD697C2AEAC7C9002490E7 /* Debug */,
+				F0BD697D2AEAC7C9002490E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -21,7 +21,7 @@ struct LastProjectWidget: Widget {
         StaticConfiguration(
             kind: .lastProject,
             provider: LastProjectTimelineProvider()) { _ in
-                AddProjectEntryView()
+                LastProjectEntryView()
             }
             .configurationDisplayName(for: .lastProject)
             .description(for: .lastProject)
