@@ -155,6 +155,7 @@
 		F0BD692A2AEA8839002490E7 /* AddProjectTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BD69292AEA8839002490E7 /* AddProjectTimelineProvider.swift */; };
 		F0BD692C2AEA88CB002490E7 /* AddProjectEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BD692B2AEA88CB002490E7 /* AddProjectEntryView.swift */; };
 		F0BD692D2AEA9405002490E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F092AC492AD6FDDB00EAD1F6 /* Assets.xcassets */; };
+		F0BD692E2AEAA68B002490E7 /* Deeplink.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E9F2F2AE6DF4800755FF7 /* Deeplink.swift */; };
 		F0C352C62AE9DDBE002B86BE /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C352C52AE9DDBE002B86BE /* WidgetKit.framework */; };
 		F0C352C82AE9DDBE002B86BE /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C352C72AE9DDBE002B86BE /* SwiftUI.framework */; };
 		F0C352CB2AE9DDBE002B86BE /* WidgetsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C352CA2AE9DDBE002B86BE /* WidgetsBundle.swift */; };
@@ -1661,6 +1662,7 @@
 			files = (
 				F0BD692C2AEA88CB002490E7 /* AddProjectEntryView.swift in Sources */,
 				F0BD692A2AEA8839002490E7 /* AddProjectTimelineProvider.swift in Sources */,
+				F0BD692E2AEAA68B002490E7 /* Deeplink.swift in Sources */,
 				F0C352CB2AE9DDBE002B86BE /* WidgetsBundle.swift in Sources */,
 				F0BD69232AEA871E002490E7 /* AddProjectWidget.swift in Sources */,
 				F0BD69282AEA881F002490E7 /* AddProjectEntry.swift in Sources */,

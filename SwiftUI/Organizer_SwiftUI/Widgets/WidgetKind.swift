@@ -25,7 +25,7 @@ enum WidgetKind: String {
 
     var description: String {
         switch self {
-        case .addProject: "Add a new project to Organizer and start creating content"
+        case .addProject: "Add a new project to Organizer and start adding content"
         case .lastProject: "Quick access to the most recently edited project"
         case .projects: "Display recent projects from any Organizer tag"
         case .singleProject: "Pick a single project for quick access from the home screen"

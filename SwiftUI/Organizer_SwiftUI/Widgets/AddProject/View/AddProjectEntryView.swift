@@ -25,6 +25,7 @@ struct AddProjectEntryView: View {
         .containerBackground(for: .widget) {
             Color.listBackground
         }
+        .widgetURL(Deeplink.projectForm.url)
     }
 }
 
@@ -48,10 +49,10 @@ private extension AddProjectEntryView {
             VStack(alignment: .leading) {
                 ForEach([70, 90, 80, 50], id: \.self) { width in
                     Capsule()
+                        .fill(.cellSeparatorTint)
                         .frame(width: width)
                 }
             }
-            .foregroundStyle(.placeholder)
             .redacted(reason: .placeholder)
 
             Spacer()
