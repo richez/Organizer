@@ -302,6 +302,7 @@
 		F013038C2AEB0E9300D28886 /* WidgetStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetStore.swift; sourceTree = "<group>"; };
 		F01303902AEB1E8F00D28886 /* Project+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Project+Preview.swift"; sourceTree = "<group>"; };
 		F01303932AEB213600D28886 /* ProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectView.swift; sourceTree = "<group>"; };
+		F01303962AEB21D800D28886 /* WidgetsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetsExtension.entitlements; sourceTree = "<group>"; };
 		F02E9F2A2AE6BADB00755FF7 /* Sequence+CountBy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+CountBy.swift"; sourceTree = "<group>"; };
 		F02E9F2D2AE6CA6300755FF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F02E9F2F2AE6DF4800755FF7 /* Deeplink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deeplink.swift; sourceTree = "<group>"; };
@@ -868,6 +869,7 @@
 		F092AC392AD6FDDA00EAD1F6 = {
 			isa = PBXGroup;
 			children = (
+				F01303962AEB21D800D28886 /* WidgetsExtension.entitlements */,
 				F092AC442AD6FDDA00EAD1F6 /* Organizer_SwiftUI */,
 				F00601DB2ADEBCEC005F57CA /* ShareExtension */,
 				F051E3742AE01D7A009F1E50 /* MacOrganizer */,
@@ -2196,6 +2198,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = WidgetsExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = EE36UWQ2XG;
@@ -2225,6 +2228,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = WidgetsExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = EE36UWQ2XG;
