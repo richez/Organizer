@@ -1,5 +1,5 @@
 //
-//  AddProjectTimeline.swift
+//  AddProjectTimelineProvider.swift
 //  WidgetsExtension
 //
 //  Created by Thibaut Richez on 26/10/2023.
@@ -13,7 +13,8 @@ struct AddProjectTimelineProvider: TimelineProvider {
     }
     
     func getSnapshot(in context: Context, completion: @escaping (AddProjectEntry) -> Void) {
-        completion(AddProjectEntry())
+        let entry = AddProjectEntry()
+        completion(entry)
     }
     
     func getTimeline(in context: Context, completion: @escaping (Timeline<AddProjectEntry>) -> Void) {
