@@ -11,7 +11,7 @@ import SwiftUI
 struct ContentListView: View {
     var project: Project
 
-    private let store: ContentStoreOperations = ContentStore.shared
+    private let viewModel = ViewModel()
 
     @Environment(NavigationContext.self) private var navigationContext
     @Environment(\.modelContext) private var modelContext
@@ -45,14 +45,14 @@ struct ContentListView: View {
                             self.editingContent = content
                         }
                         ContextMenuButton(.delete) {
-                            self.store.delete(content, in: self.modelContext)
+                            self.viewModel.delete(content, in: self.modelContext)
                             self.navigationContext.selectedContent = nil
                         }
                     }
                     #if !os(macOS)
                     .swipeActions {
                         SwipeActionButton(.delete) {
-                            self.store.delete(content, in: self.modelContext)
+                            self.viewModel.delete(content, in: self.modelContext)
                         }
                         SwipeActionButton(.edit) {
                             self.editingContent = content
@@ -69,7 +69,7 @@ struct ContentListView: View {
             ToolbarItem {
                 ContentListMenu(
                     contentCount: self.contents.count,
-                    themes: self.store.themes(in: self.project),
+                    themes: self.viewModel.themes(in: self.project),
                     suiteName: self.project.identifier.uuidString
                 )
             }

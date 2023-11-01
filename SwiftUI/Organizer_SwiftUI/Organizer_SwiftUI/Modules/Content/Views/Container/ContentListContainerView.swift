@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentListContainerView: View {
     var project: Project
 
-    private let store: ContentStoreDescriptor = ContentStore.shared
+    private let viewModel = ViewModel()
 
     @AppStorage(.contentListSorting)
     private var sorting: ContentListSorting = .updatedDate
@@ -46,14 +46,11 @@ struct ContentListContainerView: View {
 
 private extension ContentListContainerView {
     var sortDescriptor: SortDescriptor<ProjectContent> {
-        self.store.sortDescriptor(
-            sorting: self.sorting,
-            isAscendingOrder: self.isAscendingOrder
-        )
+        self.viewModel.sortDescriptor(with: self.sorting, isAscending: self.isAscendingOrder)
     }
 
     var predicate: Predicate<ProjectContent>? {
-        self.store.predicate(
+        self.viewModel.predicate(
             for: self.project,
             selectedTheme: self.selectedTheme,
             selectedType: self.selectedType

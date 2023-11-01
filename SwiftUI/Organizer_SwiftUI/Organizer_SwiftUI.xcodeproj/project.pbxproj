@@ -56,6 +56,12 @@
 		F041B3AF2AF3024800EE13DE /* ProjectListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3AE2AF3024800EE13DE /* ProjectListViewModel.swift */; };
 		F041B3B02AF3025000EE13DE /* ProjectListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3AE2AF3024800EE13DE /* ProjectListViewModel.swift */; };
 		F041B3B22AF3043100EE13DE /* ProjectWindowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3B12AF3043100EE13DE /* ProjectWindowViewModel.swift */; };
+		F041B3B42AF305BF00EE13DE /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3B32AF305BF00EE13DE /* ContentViewModel.swift */; };
+		F041B3B62AF3066700EE13DE /* ContentListContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3B52AF3066700EE13DE /* ContentListContainerViewModel.swift */; };
+		F041B3B72AF3066700EE13DE /* ContentListContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3B52AF3066700EE13DE /* ContentListContainerViewModel.swift */; };
+		F041B3B92AF3076600EE13DE /* ContentListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3B82AF3076600EE13DE /* ContentListViewModel.swift */; };
+		F041B3BA2AF3076600EE13DE /* ContentListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3B82AF3076600EE13DE /* ContentListViewModel.swift */; };
+		F041B3BC2AF3084800EE13DE /* ContentHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3BB2AF3084800EE13DE /* ContentHeaderViewModel.swift */; };
 		F0466E5E2AE942590045FB04 /* ProjectForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0466E5D2AE942590045FB04 /* ProjectForm.swift */; };
 		F0466E602AE9427E0045FB04 /* ProjectFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0466E5F2AE9427E0045FB04 /* ProjectFormViewModel.swift */; };
 		F0466E622AE960100045FB04 /* ContentForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0466E612AE960100045FB04 /* ContentForm.swift */; };
@@ -318,6 +324,10 @@
 		F041B3AB2AF3015A00EE13DE /* ProjectListContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListContainerViewModel.swift; sourceTree = "<group>"; };
 		F041B3AE2AF3024800EE13DE /* ProjectListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListViewModel.swift; sourceTree = "<group>"; };
 		F041B3B12AF3043100EE13DE /* ProjectWindowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectWindowViewModel.swift; sourceTree = "<group>"; };
+		F041B3B32AF305BF00EE13DE /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		F041B3B52AF3066700EE13DE /* ContentListContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentListContainerViewModel.swift; sourceTree = "<group>"; };
+		F041B3B82AF3076600EE13DE /* ContentListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentListViewModel.swift; sourceTree = "<group>"; };
+		F041B3BB2AF3084800EE13DE /* ContentHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentHeaderViewModel.swift; sourceTree = "<group>"; };
 		F0466E5D2AE942590045FB04 /* ProjectForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectForm.swift; sourceTree = "<group>"; };
 		F0466E5F2AE9427E0045FB04 /* ProjectFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFormViewModel.swift; sourceTree = "<group>"; };
 		F0466E612AE960100045FB04 /* ContentForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentForm.swift; sourceTree = "<group>"; };
@@ -693,6 +703,7 @@
 			isa = PBXGroup;
 			children = (
 				F051E3A82AE03C1B009F1E50 /* ContentListContainerView.swift */,
+				F041B3B52AF3066700EE13DE /* ContentListContainerViewModel.swift */,
 			);
 			path = Container;
 			sourceTree = "<group>";
@@ -752,6 +763,7 @@
 			isa = PBXGroup;
 			children = (
 				F061DC4B2AD944F600507993 /* ContentView.swift */,
+				F041B3B32AF305BF00EE13DE /* ContentViewModel.swift */,
 				F051E3A72AE03C12009F1E50 /* Container */,
 				F061DC4D2AD9458400507993 /* List */,
 				F061DC632AD9A16600507993 /* Menu */,
@@ -763,6 +775,7 @@
 			isa = PBXGroup;
 			children = (
 				F061DC4E2AD9459200507993 /* ContentListView.swift */,
+				F041B3B82AF3076600EE13DE /* ContentListViewModel.swift */,
 				F061DC6E2AD9F00400507993 /* Row */,
 			);
 			path = List;
@@ -1292,6 +1305,7 @@
 			isa = PBXGroup;
 			children = (
 				F0D9F4352AE1D8110019231A /* ContentHeaderView.swift */,
+				F041B3BB2AF3084800EE13DE /* ContentHeaderViewModel.swift */,
 			);
 			path = Header;
 			sourceTree = "<group>";
@@ -1684,6 +1698,7 @@
 				F0D9F4252AE169DA0019231A /* ProjectUnavailableView.swift in Sources */,
 				F051E3BE2AE06BC3009F1E50 /* ProjectForm.swift in Sources */,
 				F09D54E82AE2C1C200E23ADC /* ContentStoreProtocol.swift in Sources */,
+				F041B3BC2AF3084800EE13DE /* ContentHeaderViewModel.swift in Sources */,
 				F05BFD5E2AE89C5F00095F74 /* NavigationContext.swift in Sources */,
 				F0D9F4392AE1DAB70019231A /* ContentListThemeMenu.swift in Sources */,
 				F051E3CF2AE07CB2009F1E50 /* FormFieldValidator.swift in Sources */,
@@ -1711,6 +1726,7 @@
 				F051E3C82AE07A71009F1E50 /* FormSaveButton.swift in Sources */,
 				F09D54EB2AE2C1C800E23ADC /* ContentStore.swift in Sources */,
 				F06A29222AE5CE7400B5A480 /* StatisticsContentView.swift in Sources */,
+				F041B3B72AF3066700EE13DE /* ContentListContainerViewModel.swift in Sources */,
 				F051E3852AE02269009F1E50 /* OrganizerApp.swift in Sources */,
 				F06A291E2AE59DE100B5A480 /* StatisticsView.swift in Sources */,
 				F051E3922AE023EC009F1E50 /* ProjectListSorting.swift in Sources */,
@@ -1744,6 +1760,7 @@
 				F051E3962AE0266A009F1E50 /* ProjectListView.swift in Sources */,
 				F09D54D72AE293A900E23ADC /* OpenProjectWindowAction.swift in Sources */,
 				F051E3C32AE06E94009F1E50 /* FormTextField.swift in Sources */,
+				F041B3BA2AF3076600EE13DE /* ContentListViewModel.swift in Sources */,
 				F0D9F4302AE1CAD10019231A /* ContentListContainerView.swift in Sources */,
 				F051E3882AE02281009F1E50 /* ModelContainer+Preview.swift in Sources */,
 				F051E39F2AE030DE009F1E50 /* ProjectHeaderView.swift in Sources */,
@@ -1767,6 +1784,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F051E3E22AE08D93009F1E50 /* ContentListTypeMenu.swift in Sources */,
+				F041B3B62AF3066700EE13DE /* ContentListContainerViewModel.swift in Sources */,
 				F0D428992ADD8E9100DAF2B2 /* URLMetadataConfiguration.swift in Sources */,
 				F092AC5F2AD7083C00EAD1F6 /* ModelContainerPreview.swift in Sources */,
 				F06A29172AE4756000B5A480 /* ProjectRowSelectedIndicator.swift in Sources */,
@@ -1798,8 +1816,10 @@
 				F092AC462AD6FDDA00EAD1F6 /* OrganizerApp.swift in Sources */,
 				F0E347502AD81C8A00B12AD9 /* StorageKey.swift in Sources */,
 				F0466E602AE9427E0045FB04 /* ProjectFormViewModel.swift in Sources */,
+				F041B3B42AF305BF00EE13DE /* ContentViewModel.swift in Sources */,
 				F0D428892ADD4B2D00DAF2B2 /* ContextMenuButton.swift in Sources */,
 				F061DC4C2AD944F600507993 /* ContentView.swift in Sources */,
+				F041B3B92AF3076600EE13DE /* ContentListViewModel.swift in Sources */,
 				F0E347522AD81C9C00B12AD9 /* ProjectListSorting.swift in Sources */,
 				F0466E622AE960100045FB04 /* ContentForm.swift in Sources */,
 				F092AC592AD7043100EAD1F6 /* Project.swift in Sources */,

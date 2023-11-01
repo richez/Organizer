@@ -11,6 +11,8 @@ import SwiftData
 extension ContentForm {
     @Observable
     final class ViewModel {
+        // MARK: - Properties
+
         private let project: Project
         private let content: ProjectContent?
         private let store: ContentStoreWritter
@@ -29,6 +31,8 @@ extension ContentForm {
         var isLoadingTitle: Bool = false
         @ObservationIgnored var didSaveContent: Bool = false
 
+        // MARK: - Initialization
+
         init(
             project: Project,
             content: ProjectContent?,
@@ -42,6 +46,8 @@ extension ContentForm {
             self.validator = validator
             self.urlMetadataProvider = urlMetadataProvider
         }
+
+        // MARK: - Public
 
         var isValidURL: Bool { self.link.isValidURL() }
 
@@ -101,6 +107,8 @@ extension ContentForm {
     }
 }
 
+// MARK: - Helpers
+
 private extension ContentForm.ViewModel {
     func save(_ values: ContentValues, in context: ModelContext) {
         if let content {
@@ -110,6 +118,8 @@ private extension ContentForm.ViewModel {
         }
     }
 }
+
+// MARK: - Error
 
 extension ContentForm.ViewModel {
     enum Error: LocalizedError {
