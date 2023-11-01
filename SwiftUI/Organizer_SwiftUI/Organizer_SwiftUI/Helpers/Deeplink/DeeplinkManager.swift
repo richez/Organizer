@@ -9,14 +9,30 @@ import Foundation
 import SwiftData
 
 struct DeeplinkManager {
-    var projectStore: ProjectStoreReader = ProjectStore.shared
-    var contentStore: ContentStoreReader = ContentStore.shared
+    // MARK: - Properties
+
+    private let projectStore: ProjectStoreReader
+    private let contentStore: ContentStoreReader
+
+    // MARK: - Initialization
+
+    init(
+        projectStore: ProjectStoreReader = ProjectStore.shared,
+        contentStore: ContentStoreReader = ContentStore.shared
+    ) {
+        self.projectStore = projectStore
+        self.contentStore = contentStore
+    }
+
+    // MARK: - Type
 
     enum Target {
         case projectForm
         case project(Project)
         case content(ProjectContent, in: Project)
     }
+
+    // MARK: - Public
 
     func target(for url: URL, context: ModelContext) throws -> Target {
         guard let deeplink = Deeplink(url: url) else {

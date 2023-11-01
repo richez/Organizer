@@ -11,6 +11,8 @@ import SwiftData
 extension ShareForm {
     @Observable
     final class ViewModel {
+        // MARK: - Properties
+
         private let content: ShareContent
         private let contentStore: ContentStoreReader & ContentStoreWritter
         private let projectStore: ProjectStoreWritter
@@ -29,6 +31,8 @@ extension ShareForm {
         var error: Swift.Error? = nil
         @ObservationIgnored var didSaveContent: Bool = false
 
+        // MARK: - Initialization
+
         init(
             content: ShareContent,
             contentStore: ContentStoreReader & ContentStoreWritter = ContentStore.shared,
@@ -40,6 +44,8 @@ extension ShareForm {
             self.projectStore = projectStore
             self.validator = validator
         }
+
+        // MARK: - Public
 
         func field(after currentField: FormTextField.Name?) -> FormTextField.Name? {
             switch currentField {
@@ -77,12 +83,12 @@ extension ShareForm {
     }
 }
 
+// MARK: - Helpers
+
 private extension ShareForm.ViewModel {
-    enum SelectedProject: Hashable, Identifiable {
+    enum SelectedProject {
         case new(String)
         case custom(Project)
-
-        var id: SelectedProject { self }
     }
 
     func save(_ values: ContentValues, in context: ModelContext) throws {
@@ -102,6 +108,8 @@ private extension ShareForm.ViewModel {
         }
     }
 }
+
+// MARK: - Error
 
 extension ShareForm.ViewModel {
     enum Error: LocalizedError {

@@ -11,7 +11,7 @@ import SwiftUI
 struct ProjectWindow: View {
     @Binding var projectID: PersistentIdentifier?
 
-    private let store: ProjectStoreReader = ProjectStore.shared
+    private let viewModel = ViewModel()
 
     @Environment(NavigationContext.self) private var navigationContext
     @Environment(\.modelContext) private var modelContext
@@ -37,8 +37,7 @@ struct ProjectWindow: View {
 
 private extension ProjectWindow {
     var project: Project? {
-        guard let projectID else { return nil }
-        return self.store.project(with: projectID, in: self.modelContext)
+        self.viewModel.project(with: self.projectID, in: self.modelContext)
     }
 }
 

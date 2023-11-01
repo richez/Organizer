@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProjectView: View {
-    private let store: ProjectStoreDescriptor = ProjectStore.shared
+    private let viewModel = ViewModel()
 
     @Environment(NavigationContext.self) private var navigationContext
 
@@ -43,7 +43,7 @@ struct ProjectView: View {
 
 private extension ProjectView {
     var navbarSubtitle: String {
-        self.store.filtersDescription(for: self.selectedTheme)
+        self.viewModel.navbarSubtitle(with: self.selectedTheme)
     }
 }
 

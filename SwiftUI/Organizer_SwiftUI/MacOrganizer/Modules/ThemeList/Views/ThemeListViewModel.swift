@@ -9,7 +9,17 @@ import Foundation
 
 extension ThemeListView {
     struct ViewModel {
-        var store: ProjectStoreReader = ProjectStore.shared
+        // MARK: - Properties
+
+        private let store: ProjectStoreReader
+
+        // MARK: - Initialization
+
+        init(store: ProjectStoreReader = ProjectStore.shared) {
+            self.store = store
+        }
+
+        // MARK: - Public
 
         func themeTypes(in projects: [Project]) -> [ThemeType] {
             return [.all] + self.store.themes(in: projects).map(ThemeType.custom)

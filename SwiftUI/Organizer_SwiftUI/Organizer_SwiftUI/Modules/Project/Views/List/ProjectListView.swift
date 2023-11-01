@@ -9,7 +9,7 @@ import SwiftData
 import SwiftUI
 
 struct ProjectListView: View {
-    private let store: ProjectStoreOperations = ProjectStore.shared
+    private let viewModel = ViewModel()
 
     @Environment(NavigationContext.self) private var navigationContext
     @Environment(\.modelContext) private var modelContext
@@ -30,20 +30,20 @@ struct ProjectListView: View {
                     .listRowSeparatorTint(.cellSeparatorTint)
                     .contextMenu {
                         ContextMenuButton(.duplicate) {
-                            self.store.duplicate(project, in: self.modelContext)
+                            self.viewModel.duplicate(project, in: self.modelContext)
                         }
                         ContextMenuButton(.edit) {
                             self.editingProject = project
                         }
                         ContextMenuButton(.delete) {
-                            self.store.delete(project, in: self.modelContext)
+                            self.viewModel.delete(project, in: self.modelContext)
                             self.navigationContext.selectedProject = nil
                         }
                     }
                     #if !os(macOS)
                     .swipeActions {
                         SwipeActionButton(.delete) {
-                            self.store.delete(project, in: self.modelContext)
+                            self.viewModel.delete(project, in: self.modelContext)
                         }
                         SwipeActionButton(.edit) {
                             self.editingProject = project
@@ -60,7 +60,7 @@ struct ProjectListView: View {
             ToolbarItem {
                 ProjectListMenu(
                     projectCount: self.projects.count,
-                    themes: self.store.themes(in: self.modelContext)
+                    themes: self.viewModel.themes(in: self.modelContext)
                 )
             }
         }

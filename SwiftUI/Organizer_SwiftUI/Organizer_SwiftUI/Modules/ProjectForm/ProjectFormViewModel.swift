@@ -11,6 +11,8 @@ import SwiftData
 extension ProjectForm {
     @Observable
     final class ViewModel {
+        // MARK: - Properties
+
         private let project: Project?
         private let store: ProjectStoreWritter
         private let validator: FormFieldValidatorProtocol
@@ -22,6 +24,8 @@ extension ProjectForm {
         var error: Swift.Error? = nil
         @ObservationIgnored var didSaveProject: Bool = false
 
+        // MARK: - Initialization
+
         init(
             project: Project?,
             store: ProjectStoreWritter = ProjectStore.shared,
@@ -31,6 +35,8 @@ extension ProjectForm {
             self.store = store
             self.validator = validator
         }
+
+        // MARK: - Public
 
         func field(after currentField: FormTextField.Name?) -> FormTextField.Name? {
             switch currentField {
@@ -64,6 +70,8 @@ extension ProjectForm {
     }
 }
 
+// MARK: - Helpers
+
 private extension ProjectForm.ViewModel {
     private func save(_ values: ProjectValues, in context: ModelContext) {
         if let project {
@@ -73,6 +81,8 @@ private extension ProjectForm.ViewModel {
         }
     }
 }
+
+// MARK: - Error
 
 extension ProjectForm.ViewModel {
     enum Error: LocalizedError {

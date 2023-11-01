@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProjectListContainerView: View {
-    private let store: ProjectStoreDescriptor = ProjectStore.shared
+    private let viewModel = ViewModel()
 
     @Environment(NavigationContext.self) private var navigationContext
 
@@ -35,14 +35,11 @@ struct ProjectListContainerView: View {
 
 private extension ProjectListContainerView {
     var sortDescriptor: SortDescriptor<Project> {
-        self.store.sortDescriptor(
-            sorting: self.sorting,
-            isAscendingOrder: self.isAscendingOrder
-        )
+        self.viewModel.sortDescriptor(with: self.sorting, isAscending: self.isAscendingOrder)
     }
 
     var predicate: Predicate<Project>? {
-        self.store.predicate(selectedTeme: self.selectedTheme)
+        self.viewModel.predicate(with: self.selectedTheme)
     }
 }
 
