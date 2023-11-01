@@ -11,18 +11,18 @@ extension ContentView {
     struct ViewModel {
         // MARK: - Properties
 
-        private let store: ContentStoreDescriptor
+        private let formatter: ContentFormatterProtocol
 
         // MARK: - Initialization
 
-        init(store: ContentStoreDescriptor = ContentStore.shared) {
-            self.store = store
+        init(formatter: ContentFormatterProtocol = ContentFormatter.shared) {
+            self.formatter = formatter
         }
 
         // MARK: - Public
 
         func navbarSubtitle(with selectedTheme: String?, selectedType: ProjectContentType?) -> String {
-            self.store.filtersDescription(for: selectedTheme, selectedType: selectedType)
+            self.formatter.filtersDescription(from: selectedTheme, selectedType: selectedType)
         }
     }
 }

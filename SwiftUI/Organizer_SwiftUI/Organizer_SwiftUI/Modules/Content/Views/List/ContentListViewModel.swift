@@ -13,11 +13,14 @@ extension ContentListView {
         // MARK: - Properties
 
         private let store: ContentStoreOperations
+        private let formatter: ContentFormatterProtocol
 
         // MARK: - Initialization
 
-        init(store: ContentStoreOperations = ContentStore.shared) {
+        init(store: ContentStoreOperations = ContentStore.shared,
+             formatter: ContentFormatterProtocol = ContentFormatter.shared) {
             self.store = store
+            self.formatter = formatter
         }
 
         // MARK: - Public
@@ -26,8 +29,8 @@ extension ContentListView {
             self.store.delete(content, in: context)
         }
 
-        func themes(in project: Project) -> [String] {
-            self.store.themes(in: project)
+        func themes(in contents: [ProjectContent]) -> [String] {
+            self.formatter.themes(from: contents)
         }
     }
 }

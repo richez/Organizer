@@ -9,9 +9,15 @@ import Foundation
 import SwiftData
 
 struct ContentStore {
+    // MARK: - Properties
+
     static let shared: ContentStoreProtocol = ContentStore()
 
+    // MARK: - Initialization
+
     private init() {}
+
+    // MARK: - Error
 
     enum Error: Swift.Error {
         case invalidURL(String)
@@ -20,16 +26,7 @@ struct ContentStore {
 
 // MARK: - ContentStoreDescriptor
 
-extension ContentStore: ContentStoreDescriptor {
-    func filtersDescription(for selectedTheme: String?, selectedType: ProjectContentType?) -> String {
-        switch (selectedTheme, selectedType) {
-        case (.none, .none): ""
-        case (.none, .some(let selectedType)): "\(selectedType.rawValue)s"
-        case (.some(let selectedTheme), .none): "#\(selectedTheme)"
-        case (.some(let selectedTheme), .some(let selectedType)): "#\(selectedTheme) - \(selectedType.rawValue)s"
-        }
-    }
-    
+extension ContentStore: ContentStoreDescriptor {    
     func sortDescriptor(sorting: ContentListSorting, isAscendingOrder: Bool) -> SortDescriptor<ProjectContent> {
         switch sorting {
         case .updatedDate:
@@ -73,15 +70,6 @@ extension ContentStore: ContentStoreDescriptor {
 // MARK: - ContentStoreReader
 
 extension ContentStore: ContentStoreReader {
-    func content(with values: ContentValues) -> ProjectContent {
-        .init(
-            type: values.type,
-            title: values.title.trimmingCharacters(in: .whitespacesAndNewlines),
-            theme: values.theme.trimmingCharacters(in: .whitespacesAndNewlines),
-            url: values.url
-        )
-    }
-
     func content(with identifier: UUID, in project: Project, context: ModelContext) -> ProjectContent? {
         let projectID = project.persistentModelID
         var descriptor = FetchDescriptor<ProjectContent>(predicate: #Predicate {
@@ -91,33 +79,23 @@ extension ContentStore: ContentStoreReader {
         let contents = (try? context.fetch(descriptor)) ?? []
         return contents.first
     }
-
-    func themes(in project: Project) -> [String] {
-        return project.contents.lazy
-            .flatMap(\.themes)
-            .removingDuplicates()
-            .sorted(using: .localizedStandard)
-    }
 }
 
 // MARK: - ContentStoreWritter
 
 extension ContentStore: ContentStoreWritter {
-    @discardableResult
-    func create(with values: ContentValues, in project: Project, context: ModelContext) -> ProjectContent {
-        let content = self.content(with: values)
+    func create(_ content: ProjectContent, in project: Project, context: ModelContext) {
         content.project = project
         project.updatedDate = .now
         context.insert(content)
         project.contents.append(content)
-        return content
     }
 
     func update(_ content: ProjectContent, with values: ContentValues) {
         let type = values.type
         let url = values.url
-        let title = values.title.trimmingCharacters(in: .whitespacesAndNewlines)
-        let theme = values.theme.trimmingCharacters(in: .whitespacesAndNewlines)
+        let title = values.title
+        let theme = values.theme
 
         let hasChanges = type != content.type || url != content.url || title != content.title || theme != content.theme
 

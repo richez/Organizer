@@ -48,6 +48,5 @@ final class ProjectContent {
 }
 
 extension ProjectContent {
-    var themes: [String] { self.theme.words }
     var type: ProjectContentType { .init(rawValue: self.typeRawValue) ?? .other }
 }

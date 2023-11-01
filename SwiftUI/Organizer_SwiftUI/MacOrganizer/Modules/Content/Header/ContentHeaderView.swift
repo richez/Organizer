@@ -90,7 +90,7 @@ private extension ContentHeaderView {
     }
 
     var themes: [String] {
-        self.viewModel.themes(in: self.project)
+        self.viewModel.themes(in: self.project.contents)
     }
 
     var hasFilter: Bool {

@@ -58,7 +58,7 @@ private extension ContentRow {
     }
 
     var themes: String {
-        self.viewModel.themes(for: self.content.themes)
+        self.viewModel.themes(from: self.content.theme)
     }
 }
 

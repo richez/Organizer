@@ -9,15 +9,24 @@ import Foundation
 
 extension StatisticsView {
     struct ViewModel {
+        // MARK: - Properties
+
+        private let formatter: ContentFormatterProtocol
+
+        // MARK: - Initialization
+
+        init(formatter: ContentFormatterProtocol = ContentFormatter.shared) {
+            self.formatter = formatter
+        }
+
+        // MARK: - Public
+
         func numberOfContents(in project: Project) -> Int {
             project.contents.count
         }
 
         func numberOfThemes(in project: Project) -> Int {
-            project.contents.lazy
-                .flatMap(\.themes)
-                .removingDuplicates()
-                .count
+            self.formatter.themes(from: project.contents).count
         }
 
         func contentTypeCounts(in project: Project) -> [String: Int] {
@@ -26,7 +35,7 @@ extension StatisticsView {
 
         func contentThemeCounts(in project: Project) -> [String: Int] {
             project.contents.lazy
-                .flatMap(\.themes)
+                .flatMap(\.theme.words)
                 .count(by: \.self)
         }
 

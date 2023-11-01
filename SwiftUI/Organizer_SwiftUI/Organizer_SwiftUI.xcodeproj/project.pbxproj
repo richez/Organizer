@@ -62,6 +62,12 @@
 		F041B3B92AF3076600EE13DE /* ContentListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3B82AF3076600EE13DE /* ContentListViewModel.swift */; };
 		F041B3BA2AF3076600EE13DE /* ContentListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3B82AF3076600EE13DE /* ContentListViewModel.swift */; };
 		F041B3BC2AF3084800EE13DE /* ContentHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3BB2AF3084800EE13DE /* ContentHeaderViewModel.swift */; };
+		F041B3C02AF309C800EE13DE /* ContentFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3BF2AF309C800EE13DE /* ContentFormatter.swift */; };
+		F041B3C12AF309C800EE13DE /* ContentFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3BF2AF309C800EE13DE /* ContentFormatter.swift */; };
+		F041B3C32AF30AA900EE13DE /* ContentFormatterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3C22AF30AA900EE13DE /* ContentFormatterProtocol.swift */; };
+		F041B3C42AF30AA900EE13DE /* ContentFormatterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3C22AF30AA900EE13DE /* ContentFormatterProtocol.swift */; };
+		F041B3C52AF30FE600EE13DE /* ContentFormatterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3C22AF30AA900EE13DE /* ContentFormatterProtocol.swift */; };
+		F041B3C62AF30FE900EE13DE /* ContentFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3BF2AF309C800EE13DE /* ContentFormatter.swift */; };
 		F0466E5E2AE942590045FB04 /* ProjectForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0466E5D2AE942590045FB04 /* ProjectForm.swift */; };
 		F0466E602AE9427E0045FB04 /* ProjectFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0466E5F2AE9427E0045FB04 /* ProjectFormViewModel.swift */; };
 		F0466E622AE960100045FB04 /* ContentForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0466E612AE960100045FB04 /* ContentForm.swift */; };
@@ -328,6 +334,8 @@
 		F041B3B52AF3066700EE13DE /* ContentListContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentListContainerViewModel.swift; sourceTree = "<group>"; };
 		F041B3B82AF3076600EE13DE /* ContentListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentListViewModel.swift; sourceTree = "<group>"; };
 		F041B3BB2AF3084800EE13DE /* ContentHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentHeaderViewModel.swift; sourceTree = "<group>"; };
+		F041B3BF2AF309C800EE13DE /* ContentFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentFormatter.swift; sourceTree = "<group>"; };
+		F041B3C22AF30AA900EE13DE /* ContentFormatterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentFormatterProtocol.swift; sourceTree = "<group>"; };
 		F0466E5D2AE942590045FB04 /* ProjectForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectForm.swift; sourceTree = "<group>"; };
 		F0466E5F2AE9427E0045FB04 /* ProjectFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFormViewModel.swift; sourceTree = "<group>"; };
 		F0466E612AE960100045FB04 /* ContentForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentForm.swift; sourceTree = "<group>"; };
@@ -599,6 +607,23 @@
 				F05BFD592AE889F500095F74 /* DeeplinkManager.swift */,
 			);
 			path = Deeplink;
+			sourceTree = "<group>";
+		};
+		F041B3BD2AF309A400EE13DE /* Formatters */ = {
+			isa = PBXGroup;
+			children = (
+				F041B3BE2AF309B600EE13DE /* Content */,
+			);
+			path = Formatters;
+			sourceTree = "<group>";
+		};
+		F041B3BE2AF309B600EE13DE /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				F041B3C22AF30AA900EE13DE /* ContentFormatterProtocol.swift */,
+				F041B3BF2AF309C800EE13DE /* ContentFormatter.swift */,
+			);
+			path = Content;
 			sourceTree = "<group>";
 		};
 		F0466E672AE9BF7C0045FB04 /* SwiftUI */ = {
@@ -1019,13 +1044,13 @@
 			path = Project;
 			sourceTree = "<group>";
 		};
-		F09D54DD2AE2B0F300E23ADC /* Store */ = {
+		F09D54DD2AE2B0F300E23ADC /* Stores */ = {
 			isa = PBXGroup;
 			children = (
 				F09D54E52AE2C1B200E23ADC /* Content */,
 				F09D54E42AE2BD6D00E23ADC /* Project */,
 			);
-			path = Store;
+			path = Stores;
 			sourceTree = "<group>";
 		};
 		F09D54E42AE2BD6D00E23ADC /* Project */ = {
@@ -1398,11 +1423,12 @@
 			isa = PBXGroup;
 			children = (
 				F02E9F2E2AE6DF3E00755FF7 /* Deeplink */,
+				F041B3BD2AF309A400EE13DE /* Formatters */,
 				F0D9F4492AE1EE4A0019231A /* Pasteboard */,
 				F061DC542AD973E800507993 /* Preview */,
 				F0D4288C2ADD58C400DAF2B2 /* SafariView */,
 				F0E347562AD8257E00B12AD9 /* Storage */,
-				F09D54DD2AE2B0F300E23ADC /* Store */,
+				F09D54DD2AE2B0F300E23ADC /* Stores */,
 				F0D428912ADD8DFC00DAF2B2 /* URLMetadata */,
 				F0E347572AD8258900B12AD9 /* Views */,
 				F061DC532AD973AD00507993 /* ViewModifiers */,
@@ -1667,6 +1693,7 @@
 				F00602002ADED4F1005F57CA /* ShareFormViewModel.swift in Sources */,
 				F051E3CD2AE07C98009F1E50 /* FormTextFieldName.swift in Sources */,
 				F00602012ADED5DE005F57CA /* FloatingButton.swift in Sources */,
+				F041B3C52AF30FE600EE13DE /* ContentFormatterProtocol.swift in Sources */,
 				F00601FC2ADECF5E005F57CA /* FormTextFieldConfiguration.swift in Sources */,
 				F02E9F3C2AE7330B00755FF7 /* ContentStore.swift in Sources */,
 				F00601F22ADEC561005F57CA /* ShareForm.swift in Sources */,
@@ -1684,6 +1711,7 @@
 				F00602072ADEEA6B005F57CA /* FormFieldValidator.swift in Sources */,
 				F00601DD2ADEBCEC005F57CA /* ShareViewController.swift in Sources */,
 				F00601FA2ADECF49005F57CA /* FormSection.swift in Sources */,
+				F041B3C62AF30FE900EE13DE /* ContentFormatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1721,6 +1749,7 @@
 				F051E38D2AE022BD009F1E50 /* String+Components.swift in Sources */,
 				F0D9F4162AE0A4B80019231A /* NavigationView.swift in Sources */,
 				F0D9F4192AE0A6AA0019231A /* ThemeListView.swift in Sources */,
+				F041B3C12AF309C800EE13DE /* ContentFormatter.swift in Sources */,
 				F0D9F4452AE1E1F50019231A /* URLMetadataProvider.swift in Sources */,
 				F0D9F4342AE1CAE90019231A /* ContentListSorting.swift in Sources */,
 				F051E3C82AE07A71009F1E50 /* FormSaveButton.swift in Sources */,
@@ -1745,6 +1774,7 @@
 				F051E3982AE02680009F1E50 /* Array+Duplicates.swift in Sources */,
 				F06A29282AE5E5E000B5A480 /* StatisticsViewModel.swift in Sources */,
 				F0D9F42F2AE1C47A0019231A /* ContentView.swift in Sources */,
+				F041B3C42AF30AA900EE13DE /* ContentFormatterProtocol.swift in Sources */,
 				F09D54CF2AE1F8BE00E23ADC /* ContentRowViewModel.swift in Sources */,
 				F0D9F4382AE1DAB50019231A /* ContentListPreviewStyleMenu.swift in Sources */,
 				F02E9F2C2AE6BADB00755FF7 /* Sequence+CountBy.swift in Sources */,
@@ -1787,6 +1817,7 @@
 				F041B3B62AF3066700EE13DE /* ContentListContainerViewModel.swift in Sources */,
 				F0D428992ADD8E9100DAF2B2 /* URLMetadataConfiguration.swift in Sources */,
 				F092AC5F2AD7083C00EAD1F6 /* ModelContainerPreview.swift in Sources */,
+				F041B3C32AF30AA900EE13DE /* ContentFormatterProtocol.swift in Sources */,
 				F06A29172AE4756000B5A480 /* ProjectRowSelectedIndicator.swift in Sources */,
 				F0D428972ADD8E8A00DAF2B2 /* URLMetadataProvider.swift in Sources */,
 				F092AC482AD6FDDA00EAD1F6 /* MainView.swift in Sources */,
@@ -1830,6 +1861,7 @@
 				F051E3A22AE038B0009F1E50 /* ProjectListContainerView.swift in Sources */,
 				F061DC692AD9A58500507993 /* AppStorage+Key.swift in Sources */,
 				F051E3DC2AE08C1F009F1E50 /* ContentListSortingMenu.swift in Sources */,
+				F041B3C02AF309C800EE13DE /* ContentFormatter.swift in Sources */,
 				F02E9F2B2AE6BADB00755FF7 /* Sequence+CountBy.swift in Sources */,
 				F02E9F362AE72C5000755FF7 /* ProjectValues.swift in Sources */,
 				F0E984852AD8A7FF0082F6A1 /* FormTextField.swift in Sources */,

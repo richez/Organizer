@@ -9,6 +9,18 @@ import Foundation
 
 extension ContentRow {
     struct ViewModel {
+        // MARK: - Properties
+
+        private let formatter: ContentFormatterProtocol
+
+        // MARK: - Initialization
+
+        init(formatter: ContentFormatterProtocol = ContentFormatter.shared) {
+            self.formatter = formatter
+        }
+
+        // MARK: - Public
+
         func imageSystemName(for type: ProjectContentType) -> String {
             switch type {
             case .article:
@@ -22,8 +34,8 @@ extension ContentRow {
             }
         }
 
-        func themes(for themes: [String]) -> String {
-            themes.lazy.map { "#\($0)" }.joined(separator: " ")
+        func themes(from theme: String) -> String {
+            self.formatter.themes(from: theme)
         }
     }
 }

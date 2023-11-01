@@ -14,9 +14,10 @@ extension ShareForm {
         // MARK: - Properties
 
         private let content: ShareContent
-        private let contentStore: ContentStoreReader & ContentStoreWritter
+        private let contentStore: ContentStoreWritter
         private let projectStore: ProjectStoreWritter
         private let validator: FormFieldValidatorProtocol
+        private let contentFormatter: ContentFormatterProtocol
 
         var projectTitle: String = ""
         var isInvalidProjectTitle: Bool = false
@@ -37,12 +38,14 @@ extension ShareForm {
             content: ShareContent,
             contentStore: ContentStoreReader & ContentStoreWritter = ContentStore.shared,
             projectStore: ProjectStoreWritter = ProjectStore.shared,
-            validator: FormFieldValidatorProtocol = FormFieldValidator()
+            validator: FormFieldValidatorProtocol = FormFieldValidator(),
+            contentFormatter: ContentFormatterProtocol = ContentFormatter.shared
         ) {
             self.content = content
             self.contentStore = contentStore
             self.projectStore = projectStore
             self.validator = validator
+            self.contentFormatter = contentFormatter
         }
 
         // MARK: - Public
@@ -66,7 +69,7 @@ extension ShareForm {
         func save(in context: ModelContext) {
             do {
                 try self.validator.validate(values: (.link, self.link), (.title, self.title), (.theme, self.theme))
-                let values = ContentValues(
+                let values = self.contentFormatter.values(
                     type: self.type, url: URL(string: self.link)!, title: self.title, theme: self.theme
                 )
                 try self.save(values, in: context)
@@ -100,11 +103,12 @@ private extension ShareForm.ViewModel {
         switch project {
         case .new(let title):
             try self.validator.validate(values: (.projectPicker, title))
-            let content = self.contentStore.content(with: values)
+            let content = self.contentFormatter.content(with: values)
             self.projectStore.create(with: .init(title: title), contents: [content], in: context)
 
         case .custom(let project):
-            self.contentStore.create(with: values, in: project, context: context)
+            let content = self.contentFormatter.content(with: values)
+            self.contentStore.create(content, in: project, context: context)
         }
     }
 }

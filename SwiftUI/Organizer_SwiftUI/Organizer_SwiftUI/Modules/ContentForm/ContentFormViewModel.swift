@@ -18,6 +18,7 @@ extension ContentForm {
         private let store: ContentStoreWritter
         private let validator: FormFieldValidatorProtocol
         private let urlMetadataProvider: URLMetadataProviderProtocol
+        private let formatter: ContentFormatterProtocol
 
         var type: ProjectContentType = .article
         var link: String = ""
@@ -38,13 +39,15 @@ extension ContentForm {
             content: ProjectContent?,
             store: ContentStoreWritter = ContentStore.shared,
             validator: FormFieldValidatorProtocol = FormFieldValidator(),
-            urlMetadataProvider: URLMetadataProviderProtocol = URLMetadataProvider()
+            urlMetadataProvider: URLMetadataProviderProtocol = URLMetadataProvider(),
+            formatter: ContentFormatterProtocol = ContentFormatter.shared
         ) {
             self.project = project
             self.content = content
             self.store = store
             self.validator = validator
             self.urlMetadataProvider = urlMetadataProvider
+            self.formatter = formatter
         }
 
         // MARK: - Public
@@ -91,7 +94,7 @@ extension ContentForm {
         func save(in context: ModelContext) {
             do {
                 try self.validator.validate(values: (.link, self.link), (.title, self.title), (.theme, self.theme))
-                let values = ContentValues(
+                let values = self.formatter.values(
                     type: self.type, url: URL(string: self.link)!, title: self.title, theme: self.theme
                 )
                 self.save(values, in: context)
@@ -114,7 +117,8 @@ private extension ContentForm.ViewModel {
         if let content {
             self.store.update(content, with: values)
         } else {
-            self.store.create(with: values, in: self.project, context: context)
+            let content = self.formatter.content(with: values)
+            self.store.create(content, in: self.project, context: context)
         }
     }
 }
