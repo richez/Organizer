@@ -16,15 +16,36 @@ struct AddProjectEntryView: View {
             switch self.widgetFamily {
             #if !os(macOS)
             case .accessoryCircular:
-                AddProjectCircularView()
+                CircularView(systemImage: "square.and.pencil")
             #endif
             default:
-                AddProjectView()
+                self.defaultView
             }
         }
         .containerBackground(for: .widget) {
             Color.listBackground
         }
         .widgetURL(Deeplink.projectForm.url)
+    }
+}
+
+private extension AddProjectEntryView {
+    var defaultView: some View {
+        ContentContainerView(systemImage: "plus") {
+            Text("New Project")
+                .font(.system(size: 13, weight: .bold))
+                .foregroundStyle(.cellTitle)
+
+            Spacer()
+
+            VStack(alignment: .leading) {
+                ForEach([70, 90, 80, 50], id: \.self) { width in
+                    Capsule()
+                        .fill(.cellSeparatorTint)
+                        .frame(width: width)
+                }
+            }
+            .redacted(reason: .placeholder)
+        }
     }
 }

@@ -87,10 +87,8 @@
 		F041B3DD2AF3B92600EE13DE /* Array+Duplicates.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347472AD800E300B12AD9 /* Array+Duplicates.swift */; };
 		F041B3DE2AF3B93C00EE13DE /* Sequence+CountBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E9F2A2AE6BADB00755FF7 /* Sequence+CountBy.swift */; };
 		F041B3DF2AF3B93C00EE13DE /* Sequence+CountBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E9F2A2AE6BADB00755FF7 /* Sequence+CountBy.swift */; };
-		F041B3E32AF3C23B00EE13DE /* AddProjectCircularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3E22AF3C23B00EE13DE /* AddProjectCircularView.swift */; };
-		F041B3E42AF3C23B00EE13DE /* AddProjectCircularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3E22AF3C23B00EE13DE /* AddProjectCircularView.swift */; };
-		F041B3E62AF3C27C00EE13DE /* AddProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3E52AF3C27C00EE13DE /* AddProjectView.swift */; };
-		F041B3E72AF3C27C00EE13DE /* AddProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3E52AF3C27C00EE13DE /* AddProjectView.swift */; };
+		F041B3E32AF3C23B00EE13DE /* CircularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3E22AF3C23B00EE13DE /* CircularView.swift */; };
+		F041B3E42AF3C23B00EE13DE /* CircularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3E22AF3C23B00EE13DE /* CircularView.swift */; };
 		F041B3EB2AF3C52700EE13DE /* ContentContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3EA2AF3C52700EE13DE /* ContentContainerView.swift */; };
 		F041B3EC2AF3C52700EE13DE /* ContentContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3EA2AF3C52700EE13DE /* ContentContainerView.swift */; };
 		F0466E5E2AE942590045FB04 /* ProjectForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0466E5D2AE942590045FB04 /* ProjectForm.swift */; };
@@ -364,8 +362,7 @@
 		F041B3C82AF3AF6900EE13DE /* ProjectFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFormatter.swift; sourceTree = "<group>"; };
 		F041B3CB2AF3AF7100EE13DE /* ProjectFormatterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFormatterProtocol.swift; sourceTree = "<group>"; };
 		F041B3D92AF3B8A000EE13DE /* ProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewModel.swift; sourceTree = "<group>"; };
-		F041B3E22AF3C23B00EE13DE /* AddProjectCircularView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectCircularView.swift; sourceTree = "<group>"; };
-		F041B3E52AF3C27C00EE13DE /* AddProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectView.swift; sourceTree = "<group>"; };
+		F041B3E22AF3C23B00EE13DE /* CircularView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularView.swift; sourceTree = "<group>"; };
 		F041B3EA2AF3C52700EE13DE /* ContentContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentContainerView.swift; sourceTree = "<group>"; };
 		F0466E5D2AE942590045FB04 /* ProjectForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectForm.swift; sourceTree = "<group>"; };
 		F0466E5F2AE9427E0045FB04 /* ProjectFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFormViewModel.swift; sourceTree = "<group>"; };
@@ -669,25 +666,10 @@
 			path = Project;
 			sourceTree = "<group>";
 		};
-		F041B3E02AF3C1E300EE13DE /* Circular */ = {
-			isa = PBXGroup;
-			children = (
-				F041B3E22AF3C23B00EE13DE /* AddProjectCircularView.swift */,
-			);
-			path = Circular;
-			sourceTree = "<group>";
-		};
-		F041B3E12AF3C20C00EE13DE /* Default */ = {
-			isa = PBXGroup;
-			children = (
-				F041B3E52AF3C27C00EE13DE /* AddProjectView.swift */,
-			);
-			path = Default;
-			sourceTree = "<group>";
-		};
 		F041B3E82AF3C50F00EE13DE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F041B3ED2AF3C6D200EE13DE /* Circular */,
 				F041B3E92AF3C52100EE13DE /* ContentContainer */,
 			);
 			path = Views;
@@ -699,6 +681,14 @@
 				F041B3EA2AF3C52700EE13DE /* ContentContainerView.swift */,
 			);
 			path = ContentContainer;
+			sourceTree = "<group>";
+		};
+		F041B3ED2AF3C6D200EE13DE /* Circular */ = {
+			isa = PBXGroup;
+			children = (
+				F041B3E22AF3C23B00EE13DE /* CircularView.swift */,
+			);
+			path = Circular;
 			sourceTree = "<group>";
 		};
 		F0466E672AE9BF7C0045FB04 /* SwiftUI */ = {
@@ -1217,8 +1207,6 @@
 			isa = PBXGroup;
 			children = (
 				F0BD698F2AEAC97B002490E7 /* AddProjectEntryView.swift */,
-				F041B3E02AF3C1E300EE13DE /* Circular */,
-				F041B3E12AF3C20C00EE13DE /* Default */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1993,7 +1981,6 @@
 				F041B3DC2AF3B92600EE13DE /* Array+Duplicates.swift in Sources */,
 				F041B3DA2AF3B8A000EE13DE /* ProjectViewModel.swift in Sources */,
 				F0BD69932AEAC989002490E7 /* AddProjectWidget.swift in Sources */,
-				F041B3E62AF3C27C00EE13DE /* AddProjectView.swift in Sources */,
 				F0BD698A2AEAC963002490E7 /* AddProjectEntry.swift in Sources */,
 				F041B3D42AF3B82D00EE13DE /* ProjectFormatterProtocol.swift in Sources */,
 				F0BD69962AEAC99F002490E7 /* LastProjectEntry.swift in Sources */,
@@ -2007,7 +1994,7 @@
 				F0BD69B02AEACEEA002490E7 /* String+Components.swift in Sources */,
 				F041B3DE2AF3B93C00EE13DE /* Sequence+CountBy.swift in Sources */,
 				F0BD69A52AEAC9C4002490E7 /* WidgetKind.swift in Sources */,
-				F041B3E32AF3C23B00EE13DE /* AddProjectCircularView.swift in Sources */,
+				F041B3E32AF3C23B00EE13DE /* CircularView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2026,7 +2013,6 @@
 				F041B3DD2AF3B92600EE13DE /* Array+Duplicates.swift in Sources */,
 				F041B3DB2AF3B8A000EE13DE /* ProjectViewModel.swift in Sources */,
 				F0BD69942AEAC989002490E7 /* AddProjectWidget.swift in Sources */,
-				F041B3E72AF3C27C00EE13DE /* AddProjectView.swift in Sources */,
 				F0BD698B2AEAC963002490E7 /* AddProjectEntry.swift in Sources */,
 				F041B3D52AF3B82E00EE13DE /* ProjectFormatterProtocol.swift in Sources */,
 				F0BD69972AEAC99F002490E7 /* LastProjectEntry.swift in Sources */,
@@ -2040,7 +2026,7 @@
 				F0BD69B12AEACEEA002490E7 /* String+Components.swift in Sources */,
 				F041B3DF2AF3B93C00EE13DE /* Sequence+CountBy.swift in Sources */,
 				F0BD69A62AEAC9C4002490E7 /* WidgetKind.swift in Sources */,
-				F041B3E42AF3C23B00EE13DE /* AddProjectCircularView.swift in Sources */,
+				F041B3E42AF3C23B00EE13DE /* CircularView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,7 +10,7 @@ import WidgetKit
 
 struct LastProjectEntryView: View {
     var entry: LastProjectEntry
-    
+
     var body: some View {
         ContentContainerView(systemImage: "ellipsis") {
             if let project = self.entry.project {
