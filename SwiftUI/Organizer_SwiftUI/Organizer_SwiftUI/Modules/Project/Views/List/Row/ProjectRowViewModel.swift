@@ -9,28 +9,28 @@ import Foundation
 
 extension ProjectRow {
     struct ViewModel {
-        func themes(for themes: [String]) -> String {
-            themes.map { "#\($0)" }.joined(separator: " ")
+        // MARK: - Properties
+
+        private let formatter: ProjectFormatterProtocol
+
+        // MARK: Initialization
+
+        init(formatter: ProjectFormatterProtocol = ProjectFormatter.shared) {
+            self.formatter = formatter
         }
 
-        func statistics(for contents: [ProjectContent]) -> String {
-            let contentCount = contents.count
-            guard contentCount > 0 else { return "" }
+        // MARK: - Public
 
-            let contentTypeCounts = contents
-                .count(by: \.type)
-                .sorted { $0.key.rawValue < $1.key.rawValue }
-                .map { "\($0.value) \($0.key)s" }
-                .joined(separator: ", ")
-
-            return "\(contentCount) contents (\(contentTypeCounts))"
+        func themes(from theme: String) -> String {
+            self.formatter.themes(from: theme)
         }
 
-        func updatedDate(for updatedDate: Date) -> String {
-            let format: Date.FormatStyle = .dateTime
-                .day()
-                .month(.abbreviated)
-            return updatedDate.formatted(format)
+        func statistics(from contents: [ProjectContent]) -> String {
+            self.formatter.statistics(from: contents)
+        }
+
+        func updatedDate(from date: Date) -> String {
+            self.formatter.string(from: date, format: .abbreviated)
         }
     }
 }

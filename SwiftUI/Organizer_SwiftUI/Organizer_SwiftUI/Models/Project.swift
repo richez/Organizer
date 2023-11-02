@@ -37,7 +37,3 @@ final class Project {
         self.updatedDate = updatedDate
     }
 }
-
-extension Project {
-    var themes: [String] { self.theme.words }
-}

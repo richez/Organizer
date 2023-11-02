@@ -9,27 +9,21 @@ import Foundation
 import SwiftData
 
 protocol ProjectStoreDescriptor {
-    func filtersDescription(for selectedTheme: String?) -> String
     func sortDescriptor(sorting: ProjectListSorting, isAscendingOrder: Bool) -> SortDescriptor<Project>
     func predicate(selectedTeme: String?) -> Predicate<Project>?
 }
 
 protocol ProjectStoreReader {
-    func project(with values: ProjectValues) -> Project
     func project(with id: PersistentIdentifier, in context: ModelContext) -> Project?
     func project(with identifier: UUID, in context: ModelContext) -> Project?
-    func themes(in context: ModelContext) -> [String]
-    func themes(in projects: [Project]) -> [String]
+    func projects(propertiesToFetch: [PartialKeyPath<Project>], in context: ModelContext) -> [Project]
 }
 
 protocol ProjectStoreWritter {
-    @discardableResult
-    func create(with values: ProjectValues, in context: ModelContext) -> Project
-    @discardableResult
-    func create(with values: ProjectValues, contents: [ProjectContent], in context: ModelContext) -> Project
+    func create(_ project: Project, in context: ModelContext)
+    func create(_ project: Project, contents: [ProjectContent], in context: ModelContext)
     func update(_ project: Project, with values: ProjectValues)
-    @discardableResult
-    func duplicate(_ project: Project, in context: ModelContext) -> Project
+    func duplicate(_ project: Project, in context: ModelContext)
     func delete(_ project: Project, in context: ModelContext)
 }
 

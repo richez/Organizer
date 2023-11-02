@@ -54,15 +54,15 @@ struct ProjectRow: View {
 
 private extension ProjectRow {
     var themes: String {
-        self.viewModel.themes(for: self.project.themes)
+        self.viewModel.themes(from: self.project.theme)
     }
 
     var statistics: String {
-        self.viewModel.statistics(for: self.project.contents)
+        self.viewModel.statistics(from: self.project.contents)
     }
 
     var updatedDate: String {
-        self.viewModel.updatedDate(for: self.project.updatedDate)
+        self.viewModel.updatedDate(from: self.project.updatedDate)
     }
 }
 

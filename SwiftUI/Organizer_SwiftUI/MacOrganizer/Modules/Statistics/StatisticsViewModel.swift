@@ -11,12 +11,16 @@ extension StatisticsView {
     struct ViewModel {
         // MARK: - Properties
 
-        private let formatter: ContentFormatterProtocol
+        private let projectFormatter: ProjectFormatterProtocol
+        private let contentFormatter: ContentFormatterProtocol
 
         // MARK: - Initialization
 
-        init(formatter: ContentFormatterProtocol = ContentFormatter.shared) {
-            self.formatter = formatter
+        init(projectFormatter: ProjectFormatterProtocol = ProjectFormatter.shared,
+            contentFormatter: ContentFormatterProtocol = ContentFormatter.shared
+        ) {
+            self.projectFormatter = projectFormatter
+            self.contentFormatter = contentFormatter
         }
 
         // MARK: - Public
@@ -26,7 +30,7 @@ extension StatisticsView {
         }
 
         func numberOfThemes(in project: Project) -> Int {
-            self.formatter.themes(from: project.contents).count
+            self.contentFormatter.themes(from: project.contents).count
         }
 
         func contentTypeCounts(in project: Project) -> [String: Int] {
@@ -40,13 +44,7 @@ extension StatisticsView {
         }
 
         func formattedDate(from date: Date) -> String {
-            let format: Date.FormatStyle = .dateTime
-                .day(.defaultDigits)
-                .month(.abbreviated)
-                .year(.defaultDigits)
-                .hour(.conversationalTwoDigits(amPM: .wide))
-                .minute(.twoDigits)
-            return date.formatted(format)
+            self.projectFormatter.string(from: date, format: .full)
         }
     }
 }

@@ -20,9 +20,9 @@ struct ContentFormatter {
 // MARK: - ContentFormatterProtocol
 
 extension ContentFormatter: ContentFormatterProtocol {
-    // MARK: - Content
+    // MARK: Content
 
-    func content(with values: ContentValues) -> ProjectContent {
+    func content(from values: ContentValues) -> ProjectContent {
         .init(
             type: values.type,
             title: values.title.trimmingCharacters(in: .whitespacesAndNewlines),
@@ -31,7 +31,7 @@ extension ContentFormatter: ContentFormatterProtocol {
         )
     }
 
-    // MARK: - Values
+    // MARK: Values
 
     func values(type: ProjectContentType, url: URL, title: String, theme: String) -> ContentValues {
         .init(
@@ -42,7 +42,7 @@ extension ContentFormatter: ContentFormatterProtocol {
         )
     }
 
-    // MARK: - Themes
+    // MARK: Themes
 
     func themes(from contents: [ProjectContent]) -> [String] {
         contents.lazy

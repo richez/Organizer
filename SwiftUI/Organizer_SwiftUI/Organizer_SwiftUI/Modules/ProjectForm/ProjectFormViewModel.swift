@@ -16,6 +16,7 @@ extension ProjectForm {
         private let project: Project?
         private let store: ProjectStoreWritter
         private let validator: FormFieldValidatorProtocol
+        private let formatter: ProjectFormatterProtocol
 
         var title: String = ""
         var theme: String = ""
@@ -29,11 +30,13 @@ extension ProjectForm {
         init(
             project: Project?,
             store: ProjectStoreWritter = ProjectStore.shared,
-            validator: FormFieldValidatorProtocol = FormFieldValidator()
+            validator: FormFieldValidatorProtocol = FormFieldValidator(),
+            formatter: ProjectFormatterProtocol = ProjectFormatter.shared
         ) {
             self.project = project
             self.store = store
             self.validator = validator
+            self.formatter = formatter
         }
 
         // MARK: - Public
@@ -57,7 +60,7 @@ extension ProjectForm {
         func save(in context: ModelContext) {
             do {
                 try self.validator.validate(values: (.title, self.title), (.theme, self.theme))
-                let values = ProjectValues(title: self.title, theme: self.theme)
+                let values = self.formatter.values(title: self.title, theme: self.theme)
                 self.save(values, in: context)
                 self.didSaveProject = true
             } catch FormFieldValidator.Error.invalidFields(let fields) {
@@ -77,7 +80,8 @@ private extension ProjectForm.ViewModel {
         if let project {
             self.store.update(project, with: values)
         } else {
-            self.store.create(with: values, in: context)
+            let project = self.formatter.project(from: values)
+            self.store.create(project, in: context)
         }
     }
 }

@@ -21,13 +21,6 @@ struct ProjectStore {
 // MARK: - ProjectStoreDescriptor
 
 extension ProjectStore: ProjectStoreDescriptor {
-    func filtersDescription(for selectedTheme: String?) -> String {
-        switch selectedTheme {
-        case .none: ""
-        case .some(let theme): "#\(theme)"
-        }
-    }
-
     func sortDescriptor(sorting: ProjectListSorting, isAscendingOrder: Bool) -> SortDescriptor<Project> {
         switch sorting {
         case .updatedDate:
@@ -57,13 +50,6 @@ extension ProjectStore: ProjectStoreDescriptor {
 // MARK: - ProjectStoreReader
 
 extension ProjectStore: ProjectStoreReader {
-    func project(with values: ProjectValues) -> Project {
-        .init(
-            title: values.title.trimmingCharacters(in: .whitespacesAndNewlines),
-            theme: values.theme.trimmingCharacters(in: .whitespacesAndNewlines)
-        )
-    }
-
     func project(with persistentModelID: PersistentIdentifier, in context: ModelContext) -> Project? {
         guard let project = context.model(for: persistentModelID) as? Project else {
             return nil
@@ -81,42 +67,29 @@ extension ProjectStore: ProjectStoreReader {
         return projects.first
     }
 
-    func themes(in context: ModelContext) -> [String] {
+    func projects(propertiesToFetch: [PartialKeyPath<Project>], in context: ModelContext) -> [Project] {
         var descriptor = FetchDescriptor<Project>()
-        descriptor.propertiesToFetch = [\.theme]
-        let projects = (try? context.fetch(descriptor)) ?? []
-        return self.themes(in: projects)
-    }
-
-    func themes(in projects: [Project]) -> [String] {
-        return projects.lazy
-            .flatMap(\.themes)
-            .removingDuplicates()
-            .sorted(using: .localizedStandard)
+        descriptor.propertiesToFetch = propertiesToFetch
+        return (try? context.fetch(descriptor)) ?? []
     }
 }
 
 // MARK: - ProjectStoreWritter
 
 extension ProjectStore: ProjectStoreWritter {
-    @discardableResult
-    func create(with values: ProjectValues, in context: ModelContext) -> Project {
-        let project = self.project(with: values)
+    func create(_ project: Project, in context: ModelContext) {
         context.insert(project)
-        return project
     }
 
-    @discardableResult
-    func create(with values: ProjectValues, contents: [ProjectContent], in context: ModelContext) -> Project {
-        let project = self.create(with: values, in: context)
+    func create(_ project: Project, contents: [ProjectContent], in context: ModelContext) {
+        self.create(project, in: context)
         contents.forEach { $0.project = project }
         project.contents = contents
-        return project
     }
 
     func update(_ project: Project, with values: ProjectValues) {
-        let title = values.title.trimmingCharacters(in: .whitespacesAndNewlines)
-        let theme = values.theme.trimmingCharacters(in: .whitespacesAndNewlines)
+        let title = values.title
+        let theme = values.theme
 
         let hasChanges = title != project.title || theme != project.theme
 
@@ -127,15 +100,13 @@ extension ProjectStore: ProjectStoreWritter {
         }
     }
 
-    @discardableResult
-    func duplicate(_ project: Project, in context: ModelContext) -> Project {
+    func duplicate(_ project: Project, in context: ModelContext) {
         let duplicatedProject = self.duplicate(project: project)
         context.insert(duplicatedProject)
 
         let duplicatedContents = project.contents.map(self.duplicate(content:))
         duplicatedContents.forEach { $0.project = duplicatedProject }
         duplicatedProject.contents = duplicatedContents
-        return duplicatedProject
     }
     
     func delete(_ project: Project, in context: ModelContext) {

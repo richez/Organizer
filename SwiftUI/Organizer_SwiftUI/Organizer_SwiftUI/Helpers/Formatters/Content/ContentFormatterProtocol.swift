@@ -8,7 +8,7 @@
 import Foundation
 
 protocol ContentFormatterProtocol {
-    func content(with values: ContentValues) -> ProjectContent
+    func content(from values: ContentValues) -> ProjectContent
     func values(type: ProjectContentType, url: URL, title: String, theme: String) -> ContentValues
     func themes(from contents: [ProjectContent]) -> [String]
     func themes(from string: String) -> String

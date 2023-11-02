@@ -17,6 +17,7 @@ extension ShareForm {
         private let contentStore: ContentStoreWritter
         private let projectStore: ProjectStoreWritter
         private let validator: FormFieldValidatorProtocol
+        private let projectFormatter: ProjectFormatterProtocol
         private let contentFormatter: ContentFormatterProtocol
 
         var projectTitle: String = ""
@@ -39,12 +40,14 @@ extension ShareForm {
             contentStore: ContentStoreReader & ContentStoreWritter = ContentStore.shared,
             projectStore: ProjectStoreWritter = ProjectStore.shared,
             validator: FormFieldValidatorProtocol = FormFieldValidator(),
+            projectFormatter: ProjectFormatterProtocol = ProjectFormatter.shared,
             contentFormatter: ContentFormatterProtocol = ContentFormatter.shared
         ) {
             self.content = content
             self.contentStore = contentStore
             self.projectStore = projectStore
             self.validator = validator
+            self.projectFormatter = projectFormatter
             self.contentFormatter = contentFormatter
         }
 
@@ -103,11 +106,12 @@ private extension ShareForm.ViewModel {
         switch project {
         case .new(let title):
             try self.validator.validate(values: (.projectPicker, title))
-            let content = self.contentFormatter.content(with: values)
-            self.projectStore.create(with: .init(title: title), contents: [content], in: context)
+            let project = self.projectFormatter.project(from: .init(title: title))
+            let content = self.contentFormatter.content(from: values)
+            self.projectStore.create(project, contents: [content], in: context)
 
         case .custom(let project):
-            let content = self.contentFormatter.content(with: values)
+            let content = self.contentFormatter.content(from: values)
             self.contentStore.create(content, in: project, context: context)
         }
     }

@@ -13,11 +13,15 @@ extension ProjectListView {
         // MARK: - Properties
 
         private let store: ProjectStoreOperations
+        private let formatter: ProjectFormatterProtocol
 
         // MARK: - Initialization
 
-        init(store: ProjectStoreOperations = ProjectStore.shared) {
+        init(store: ProjectStoreOperations = ProjectStore.shared,
+             formatter: ProjectFormatterProtocol = ProjectFormatter.shared
+        ) {
             self.store = store
+            self.formatter = formatter
         }
 
         // MARK: - Public
@@ -31,7 +35,8 @@ extension ProjectListView {
         }
 
         func themes(in context: ModelContext) -> [String] {
-            self.store.themes(in: context)
+            let projects = self.store.projects(propertiesToFetch: [\.theme], in: context)
+            return self.formatter.themes(from: projects)
         }
     }
 }

@@ -11,18 +11,18 @@ extension ThemeListView {
     struct ViewModel {
         // MARK: - Properties
 
-        private let store: ProjectStoreReader
+        private let formatter: ProjectFormatterProtocol
 
         // MARK: - Initialization
 
-        init(store: ProjectStoreReader = ProjectStore.shared) {
-            self.store = store
+        init(formatter: ProjectFormatterProtocol = ProjectFormatter.shared) {
+            self.formatter = formatter
         }
 
         // MARK: - Public
 
         func themeTypes(in projects: [Project]) -> [ThemeType] {
-            return [.all] + self.store.themes(in: projects).map(ThemeType.custom)
+            return [.all] + self.formatter.themes(from: projects).map(ThemeType.custom)
         }
     }
 }

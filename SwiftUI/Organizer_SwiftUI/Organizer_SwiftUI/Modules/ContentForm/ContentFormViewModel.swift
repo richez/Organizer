@@ -117,7 +117,7 @@ private extension ContentForm.ViewModel {
         if let content {
             self.store.update(content, with: values)
         } else {
-            let content = self.formatter.content(with: values)
+            let content = self.formatter.content(from: values)
             self.store.create(content, in: self.project, context: context)
         }
     }

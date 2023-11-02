@@ -44,7 +44,6 @@
 		F02E9F3A2AE7330600755FF7 /* ContentValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E9F322AE72B8500755FF7 /* ContentValues.swift */; };
 		F02E9F3B2AE7330800755FF7 /* ContentStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09D54E62AE2C1C200E23ADC /* ContentStoreProtocol.swift */; };
 		F02E9F3C2AE7330B00755FF7 /* ContentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09D54E92AE2C1C800E23ADC /* ContentStore.swift */; };
-		F02E9F3D2AE7330E00755FF7 /* ProjectValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E9F352AE72C5000755FF7 /* ProjectValues.swift */; };
 		F02E9F3E2AE7331000755FF7 /* ProjectStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09D54E02AE2B5A300E23ADC /* ProjectStoreProtocol.swift */; };
 		F02E9F3F2AE7331300755FF7 /* ProjectStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09D54DE2AE2B0FF00E23ADC /* ProjectStore.swift */; };
 		F02E9F402AE7332100755FF7 /* Array+Duplicates.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347472AD800E300B12AD9 /* Array+Duplicates.swift */; };
@@ -68,6 +67,14 @@
 		F041B3C42AF30AA900EE13DE /* ContentFormatterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3C22AF30AA900EE13DE /* ContentFormatterProtocol.swift */; };
 		F041B3C52AF30FE600EE13DE /* ContentFormatterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3C22AF30AA900EE13DE /* ContentFormatterProtocol.swift */; };
 		F041B3C62AF30FE900EE13DE /* ContentFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3BF2AF309C800EE13DE /* ContentFormatter.swift */; };
+		F041B3C92AF3AF6900EE13DE /* ProjectFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3C82AF3AF6900EE13DE /* ProjectFormatter.swift */; };
+		F041B3CA2AF3AF6900EE13DE /* ProjectFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3C82AF3AF6900EE13DE /* ProjectFormatter.swift */; };
+		F041B3CC2AF3AF7100EE13DE /* ProjectFormatterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3CB2AF3AF7100EE13DE /* ProjectFormatterProtocol.swift */; };
+		F041B3CD2AF3AF7100EE13DE /* ProjectFormatterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3CB2AF3AF7100EE13DE /* ProjectFormatterProtocol.swift */; };
+		F041B3CE2AF3B09200EE13DE /* ProjectValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E9F352AE72C5000755FF7 /* ProjectValues.swift */; };
+		F041B3CF2AF3B09C00EE13DE /* ProjectFormatterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3CB2AF3AF7100EE13DE /* ProjectFormatterProtocol.swift */; };
+		F041B3D02AF3B09F00EE13DE /* ProjectFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3C82AF3AF6900EE13DE /* ProjectFormatter.swift */; };
+		F041B3D12AF3B0BE00EE13DE /* Sequence+CountBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E9F2A2AE6BADB00755FF7 /* Sequence+CountBy.swift */; };
 		F0466E5E2AE942590045FB04 /* ProjectForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0466E5D2AE942590045FB04 /* ProjectForm.swift */; };
 		F0466E602AE9427E0045FB04 /* ProjectFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0466E5F2AE9427E0045FB04 /* ProjectFormViewModel.swift */; };
 		F0466E622AE960100045FB04 /* ContentForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0466E612AE960100045FB04 /* ContentForm.swift */; };
@@ -336,6 +343,8 @@
 		F041B3BB2AF3084800EE13DE /* ContentHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentHeaderViewModel.swift; sourceTree = "<group>"; };
 		F041B3BF2AF309C800EE13DE /* ContentFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentFormatter.swift; sourceTree = "<group>"; };
 		F041B3C22AF30AA900EE13DE /* ContentFormatterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentFormatterProtocol.swift; sourceTree = "<group>"; };
+		F041B3C82AF3AF6900EE13DE /* ProjectFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFormatter.swift; sourceTree = "<group>"; };
+		F041B3CB2AF3AF7100EE13DE /* ProjectFormatterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFormatterProtocol.swift; sourceTree = "<group>"; };
 		F0466E5D2AE942590045FB04 /* ProjectForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectForm.swift; sourceTree = "<group>"; };
 		F0466E5F2AE9427E0045FB04 /* ProjectFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFormViewModel.swift; sourceTree = "<group>"; };
 		F0466E612AE960100045FB04 /* ContentForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentForm.swift; sourceTree = "<group>"; };
@@ -613,6 +622,7 @@
 			isa = PBXGroup;
 			children = (
 				F041B3BE2AF309B600EE13DE /* Content */,
+				F041B3C72AF3AF5A00EE13DE /* Project */,
 			);
 			path = Formatters;
 			sourceTree = "<group>";
@@ -620,10 +630,21 @@
 		F041B3BE2AF309B600EE13DE /* Content */ = {
 			isa = PBXGroup;
 			children = (
+				F02E9F322AE72B8500755FF7 /* ContentValues.swift */,
 				F041B3C22AF30AA900EE13DE /* ContentFormatterProtocol.swift */,
 				F041B3BF2AF309C800EE13DE /* ContentFormatter.swift */,
 			);
 			path = Content;
+			sourceTree = "<group>";
+		};
+		F041B3C72AF3AF5A00EE13DE /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				F02E9F352AE72C5000755FF7 /* ProjectValues.swift */,
+				F041B3CB2AF3AF7100EE13DE /* ProjectFormatterProtocol.swift */,
+				F041B3C82AF3AF6900EE13DE /* ProjectFormatter.swift */,
+			);
+			path = Project;
 			sourceTree = "<group>";
 		};
 		F0466E672AE9BF7C0045FB04 /* SwiftUI */ = {
@@ -1056,7 +1077,6 @@
 		F09D54E42AE2BD6D00E23ADC /* Project */ = {
 			isa = PBXGroup;
 			children = (
-				F02E9F352AE72C5000755FF7 /* ProjectValues.swift */,
 				F09D54E02AE2B5A300E23ADC /* ProjectStoreProtocol.swift */,
 				F09D54DE2AE2B0FF00E23ADC /* ProjectStore.swift */,
 			);
@@ -1066,7 +1086,6 @@
 		F09D54E52AE2C1B200E23ADC /* Content */ = {
 			isa = PBXGroup;
 			children = (
-				F02E9F322AE72B8500755FF7 /* ContentValues.swift */,
 				F09D54E62AE2C1C200E23ADC /* ContentStoreProtocol.swift */,
 				F09D54E92AE2C1C800E23ADC /* ContentStore.swift */,
 			);
@@ -1693,7 +1712,10 @@
 				F00602002ADED4F1005F57CA /* ShareFormViewModel.swift in Sources */,
 				F051E3CD2AE07C98009F1E50 /* FormTextFieldName.swift in Sources */,
 				F00602012ADED5DE005F57CA /* FloatingButton.swift in Sources */,
+				F041B3D02AF3B09F00EE13DE /* ProjectFormatter.swift in Sources */,
+				F041B3CF2AF3B09C00EE13DE /* ProjectFormatterProtocol.swift in Sources */,
 				F041B3C52AF30FE600EE13DE /* ContentFormatterProtocol.swift in Sources */,
+				F041B3CE2AF3B09200EE13DE /* ProjectValues.swift in Sources */,
 				F00601FC2ADECF5E005F57CA /* FormTextFieldConfiguration.swift in Sources */,
 				F02E9F3C2AE7330B00755FF7 /* ContentStore.swift in Sources */,
 				F00601F22ADEC561005F57CA /* ShareForm.swift in Sources */,
@@ -1701,11 +1723,11 @@
 				F02E9F422AE7333000755FF7 /* ContentListSorting.swift in Sources */,
 				F02E9F3A2AE7330600755FF7 /* ContentValues.swift in Sources */,
 				F02E9F412AE7332A00755FF7 /* ProjectListSorting.swift in Sources */,
-				F02E9F3D2AE7330E00755FF7 /* ProjectValues.swift in Sources */,
 				F00602082ADEEA74005F57CA /* String+URL.swift in Sources */,
 				F00601F92ADECF14005F57CA /* ProjectPicker.swift in Sources */,
 				F02E9F3B2AE7330800755FF7 /* ContentStoreProtocol.swift in Sources */,
 				F00601F52ADEC7E4005F57CA /* String+Components.swift in Sources */,
+				F041B3D12AF3B0BE00EE13DE /* Sequence+CountBy.swift in Sources */,
 				F00601F42ADEC75D005F57CA /* ProjectContent.swift in Sources */,
 				F00601F32ADEC75B005F57CA /* Project.swift in Sources */,
 				F00602072ADEEA6B005F57CA /* FormFieldValidator.swift in Sources */,
@@ -1730,6 +1752,7 @@
 				F05BFD5E2AE89C5F00095F74 /* NavigationContext.swift in Sources */,
 				F0D9F4392AE1DAB70019231A /* ContentListThemeMenu.swift in Sources */,
 				F051E3CF2AE07CB2009F1E50 /* FormFieldValidator.swift in Sources */,
+				F041B3CD2AF3AF7100EE13DE /* ProjectFormatterProtocol.swift in Sources */,
 				F051E3902AE023A3009F1E50 /* AppStorage+Key.swift in Sources */,
 				F051E38B2AE02294009F1E50 /* ProjectContent.swift in Sources */,
 				F09D54CE2AE1F8AD00E23ADC /* ContentRow.swift in Sources */,
@@ -1747,6 +1770,7 @@
 				F051E3E32AE08FF8009F1E50 /* ProjectListSortingMenu.swift in Sources */,
 				F05BFD5B2AE889F500095F74 /* DeeplinkManager.swift in Sources */,
 				F051E38D2AE022BD009F1E50 /* String+Components.swift in Sources */,
+				F041B3CA2AF3AF6900EE13DE /* ProjectFormatter.swift in Sources */,
 				F0D9F4162AE0A4B80019231A /* NavigationView.swift in Sources */,
 				F0D9F4192AE0A6AA0019231A /* ThemeListView.swift in Sources */,
 				F041B3C12AF309C800EE13DE /* ContentFormatter.swift in Sources */,
@@ -1859,6 +1883,7 @@
 				F061DC522AD9721100507993 /* PreviewDataGenerator.swift in Sources */,
 				F05BFD5A2AE889F500095F74 /* DeeplinkManager.swift in Sources */,
 				F051E3A22AE038B0009F1E50 /* ProjectListContainerView.swift in Sources */,
+				F041B3C92AF3AF6900EE13DE /* ProjectFormatter.swift in Sources */,
 				F061DC692AD9A58500507993 /* AppStorage+Key.swift in Sources */,
 				F051E3DC2AE08C1F009F1E50 /* ContentListSortingMenu.swift in Sources */,
 				F041B3C02AF309C800EE13DE /* ContentFormatter.swift in Sources */,
@@ -1882,6 +1907,7 @@
 				F061DC562AD9741100507993 /* ListStyleViewModifier.swift in Sources */,
 				F09D54EA2AE2C1C800E23ADC /* ContentStore.swift in Sources */,
 				F09D54E12AE2B5A300E23ADC /* ProjectStoreProtocol.swift in Sources */,
+				F041B3CC2AF3AF7100EE13DE /* ProjectFormatterProtocol.swift in Sources */,
 				F0E9848C2AD8ACB40082F6A1 /* FormTextFieldConfiguration.swift in Sources */,
 				F061DC4F2AD9459200507993 /* ContentListView.swift in Sources */,
 				F0466E5E2AE942590045FB04 /* ProjectForm.swift in Sources */,

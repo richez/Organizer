@@ -11,18 +11,18 @@ extension ProjectView {
     struct ViewModel {
         // MARK: - Properties
 
-        private let store: ProjectStoreDescriptor
+        private let formatter: ProjectFormatterProtocol
 
         // MARK: - Initialization
 
-        init(store: ProjectStoreDescriptor = ProjectStore.shared) {
-            self.store = store
+        init(formatter: ProjectFormatterProtocol = ProjectFormatter.shared) {
+            self.formatter = formatter
         }
 
         // MARK: - Public
 
         func navbarSubtitle(with selectedTheme: String?) -> String {
-            self.store.filtersDescription(for: selectedTheme)
+            self.formatter.filterDescription(from: selectedTheme)
         }
     }
 }
