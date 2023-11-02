@@ -12,14 +12,31 @@ struct ProjectView: View {
 
     private let viewModel = ViewModel()
 
+    @Environment(\.widgetFamily) private var widgetFamily
+
     var body: some View {
+        Group {
+            switch self.widgetFamily {
+            #if !os(macOS)
+            case .accessoryCircular:
+                CircularView(systemImage: "doc.text.magnifyingglass")
+            #endif
+            default:
+                self.defaultView
+            }
+        }
+    }
+}
+
+private extension ProjectView {
+    var defaultView: some View {
         ContentContainerView(systemImage: "ellipsis") {
             VStack(alignment: .leading, spacing: 12) {
                 Text(self.project.title)
                     .font(.system(size: 15, weight: .bold))
                     .foregroundStyle(.cellTitle)
                     .lineLimit(2)
-                
+
                 Group {
                     Text(self.themes)
                         .lineLimit(1)
@@ -33,7 +50,7 @@ struct ProjectView: View {
     }
 }
 
-extension ProjectView {
+private extension ProjectView {
     var themes: String {
         self.viewModel.themes(from: self.project.theme)
     }

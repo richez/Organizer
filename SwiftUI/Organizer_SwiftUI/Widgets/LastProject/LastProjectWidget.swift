@@ -34,6 +34,7 @@ struct LastProjectWidget: Widget {
     LastProjectWidget()
  } timeline: {
      LastProjectEntry()
+     LastProjectEntry(project: .preview)
  }
 
 #Preview("Rectangular", as: .accessoryRectangular) {

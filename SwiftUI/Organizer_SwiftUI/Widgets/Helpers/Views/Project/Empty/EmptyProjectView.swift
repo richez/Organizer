@@ -8,7 +8,24 @@
 import SwiftUI
 
 struct EmptyProjectView: View {
+    @Environment(\.widgetFamily) private var widgetFamily
+
     var body: some View {
+        Group {
+            switch self.widgetFamily {
+            #if !os(macOS)
+            case .accessoryCircular:
+                CircularView(systemImage: "doc.text.magnifyingglass")
+            #endif
+            default:
+                self.defaultView
+            }
+        }
+    }
+}
+
+private extension EmptyProjectView {
+    var defaultView: some View {
         ContentContainerView(systemImage: "ellipsis") {
             Group {
                 Image(.launchscreenLogo)
