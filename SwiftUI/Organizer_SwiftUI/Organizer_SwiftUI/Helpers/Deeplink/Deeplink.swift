@@ -8,6 +8,7 @@
 import Foundation
 
 enum Deeplink {
+    case home
     case projectForm
     case project(id: String)
     case content(id: String, projectID: String)
@@ -22,6 +23,8 @@ enum Deeplink {
         }
 
         switch host {
+        case .home:
+            self = .home
         case .projectForm:
             self = .projectForm
         case .project:
@@ -47,6 +50,7 @@ fileprivate extension Deeplink {
     static let scheme: String = "organizerapp"
 
     enum Host: String {
+        case home = "home"
         case projectForm = "open-project-form"
         case project = "open-project"
         case content = "open-content"
@@ -63,6 +67,7 @@ fileprivate extension Deeplink {
 
     var host: Host {
         switch self {
+        case .home: .home
         case .projectForm: .projectForm
         case .project: .project
         case .content: .content
@@ -76,6 +81,8 @@ fileprivate extension Deeplink {
 
     var queryItems: [URLQueryItem]? {
         switch self {
+        case .home:
+            return nil
         case .projectForm:
             return nil
         case .project(let id):

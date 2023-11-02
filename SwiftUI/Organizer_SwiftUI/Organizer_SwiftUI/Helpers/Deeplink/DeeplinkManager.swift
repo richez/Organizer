@@ -27,6 +27,7 @@ struct DeeplinkManager {
     // MARK: - Type
 
     enum Target {
+        case home
         case projectForm
         case project(Project)
         case content(ProjectContent, in: Project)
@@ -40,6 +41,9 @@ struct DeeplinkManager {
         }
 
         switch deeplink {
+        case .home:
+            return .home
+
         case .projectForm:
             return .projectForm
 

@@ -59,6 +59,11 @@ private extension MainView {
         let deeplinkTarget = try self.deeplinkManager.target(for: url, context: self.modelContext)
 
         switch deeplinkTarget {
+        case .home:
+            withAnimation {
+                self.navigationContext.selectedContent = nil
+                self.navigationContext.selectedProject = nil
+            }
         case .projectForm:
             withAnimation {
                 self.navigationContext.selectedContent = nil
