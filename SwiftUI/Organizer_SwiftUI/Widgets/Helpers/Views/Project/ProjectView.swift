@@ -20,6 +20,8 @@ struct ProjectView: View {
             #if !os(macOS)
             case .accessoryCircular:
                 CircularView(systemImage: "doc.text.magnifyingglass")
+            case .accessoryRectangular:
+                RectangularView(title: self.project.title, subtitle: self.themes)
             #endif
             default:
                 self.defaultView

@@ -93,6 +93,8 @@
 		F041B3EC2AF3C52700EE13DE /* ContentContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3EA2AF3C52700EE13DE /* ContentContainerView.swift */; };
 		F041B3F12AF3C8D800EE13DE /* EmptyProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3F02AF3C8D800EE13DE /* EmptyProjectView.swift */; };
 		F041B3F22AF3C8D800EE13DE /* EmptyProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3F02AF3C8D800EE13DE /* EmptyProjectView.swift */; };
+		F041B3F52AF3DB2400EE13DE /* RectangularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3F42AF3DB2400EE13DE /* RectangularView.swift */; };
+		F041B3F62AF3DB2400EE13DE /* RectangularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3F42AF3DB2400EE13DE /* RectangularView.swift */; };
 		F0466E5E2AE942590045FB04 /* ProjectForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0466E5D2AE942590045FB04 /* ProjectForm.swift */; };
 		F0466E602AE9427E0045FB04 /* ProjectFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0466E5F2AE9427E0045FB04 /* ProjectFormViewModel.swift */; };
 		F0466E622AE960100045FB04 /* ContentForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0466E612AE960100045FB04 /* ContentForm.swift */; };
@@ -367,6 +369,7 @@
 		F041B3E22AF3C23B00EE13DE /* CircularView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularView.swift; sourceTree = "<group>"; };
 		F041B3EA2AF3C52700EE13DE /* ContentContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentContainerView.swift; sourceTree = "<group>"; };
 		F041B3F02AF3C8D800EE13DE /* EmptyProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyProjectView.swift; sourceTree = "<group>"; };
+		F041B3F42AF3DB2400EE13DE /* RectangularView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangularView.swift; sourceTree = "<group>"; };
 		F0466E5D2AE942590045FB04 /* ProjectForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectForm.swift; sourceTree = "<group>"; };
 		F0466E5F2AE9427E0045FB04 /* ProjectFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFormViewModel.swift; sourceTree = "<group>"; };
 		F0466E612AE960100045FB04 /* ContentForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentForm.swift; sourceTree = "<group>"; };
@@ -675,6 +678,7 @@
 				F041B3ED2AF3C6D200EE13DE /* Circular */,
 				F041B3E92AF3C52100EE13DE /* ContentContainer */,
 				F041B3EE2AF3C8BA00EE13DE /* Project */,
+				F041B3F32AF3DB1400EE13DE /* Rectangular */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -711,6 +715,14 @@
 				F041B3F02AF3C8D800EE13DE /* EmptyProjectView.swift */,
 			);
 			path = Empty;
+			sourceTree = "<group>";
+		};
+		F041B3F32AF3DB1400EE13DE /* Rectangular */ = {
+			isa = PBXGroup;
+			children = (
+				F041B3F42AF3DB2400EE13DE /* RectangularView.swift */,
+			);
+			path = Rectangular;
 			sourceTree = "<group>";
 		};
 		F0466E672AE9BF7C0045FB04 /* SwiftUI */ = {
@@ -1994,6 +2006,7 @@
 				F0BD698D2AEAC972002490E7 /* AddProjectTimelineProvider.swift in Sources */,
 				F0BD69B22AEACEF9002490E7 /* ProjectContent.swift in Sources */,
 				F0BD699F2AEAC9B9002490E7 /* LastProjectWidget.swift in Sources */,
+				F041B3F52AF3DB2400EE13DE /* RectangularView.swift in Sources */,
 				F041B3EB2AF3C52700EE13DE /* ContentContainerView.swift in Sources */,
 				F01303942AEB213600D28886 /* ProjectView.swift in Sources */,
 				F01303912AEB1E8F00D28886 /* Project+Preview.swift in Sources */,
@@ -2027,6 +2040,7 @@
 				F0BD698E2AEAC972002490E7 /* AddProjectTimelineProvider.swift in Sources */,
 				F0BD69B32AEACEF9002490E7 /* ProjectContent.swift in Sources */,
 				F0BD69A02AEAC9B9002490E7 /* LastProjectWidget.swift in Sources */,
+				F041B3F62AF3DB2400EE13DE /* RectangularView.swift in Sources */,
 				F041B3EC2AF3C52700EE13DE /* ContentContainerView.swift in Sources */,
 				F01303952AEB213600D28886 /* ProjectView.swift in Sources */,
 				F01303922AEB1E8F00D28886 /* Project+Preview.swift in Sources */,
