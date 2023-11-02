@@ -95,6 +95,8 @@
 		F041B3F22AF3C8D800EE13DE /* EmptyProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3F02AF3C8D800EE13DE /* EmptyProjectView.swift */; };
 		F041B3F52AF3DB2400EE13DE /* RectangularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3F42AF3DB2400EE13DE /* RectangularView.swift */; };
 		F041B3F62AF3DB2400EE13DE /* RectangularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3F42AF3DB2400EE13DE /* RectangularView.swift */; };
+		F041B3F92AF464D800EE13DE /* WidgetURL+Deeplink.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3F82AF464D800EE13DE /* WidgetURL+Deeplink.swift */; };
+		F041B3FA2AF464D800EE13DE /* WidgetURL+Deeplink.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3F82AF464D800EE13DE /* WidgetURL+Deeplink.swift */; };
 		F0466E5E2AE942590045FB04 /* ProjectForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0466E5D2AE942590045FB04 /* ProjectForm.swift */; };
 		F0466E602AE9427E0045FB04 /* ProjectFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0466E5F2AE9427E0045FB04 /* ProjectFormViewModel.swift */; };
 		F0466E622AE960100045FB04 /* ContentForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0466E612AE960100045FB04 /* ContentForm.swift */; };
@@ -370,6 +372,7 @@
 		F041B3EA2AF3C52700EE13DE /* ContentContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentContainerView.swift; sourceTree = "<group>"; };
 		F041B3F02AF3C8D800EE13DE /* EmptyProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyProjectView.swift; sourceTree = "<group>"; };
 		F041B3F42AF3DB2400EE13DE /* RectangularView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangularView.swift; sourceTree = "<group>"; };
+		F041B3F82AF464D800EE13DE /* WidgetURL+Deeplink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetURL+Deeplink.swift"; sourceTree = "<group>"; };
 		F0466E5D2AE942590045FB04 /* ProjectForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectForm.swift; sourceTree = "<group>"; };
 		F0466E5F2AE9427E0045FB04 /* ProjectFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFormViewModel.swift; sourceTree = "<group>"; };
 		F0466E612AE960100045FB04 /* ContentForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentForm.swift; sourceTree = "<group>"; };
@@ -723,6 +726,14 @@
 				F041B3F42AF3DB2400EE13DE /* RectangularView.swift */,
 			);
 			path = Rectangular;
+			sourceTree = "<group>";
+		};
+		F041B3F72AF464C200EE13DE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F041B3F82AF464D800EE13DE /* WidgetURL+Deeplink.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		F0466E672AE9BF7C0045FB04 /* SwiftUI */ = {
@@ -1191,6 +1202,7 @@
 			children = (
 				F0BD69A12AEAC9C4002490E7 /* WidgetsBundle.swift */,
 				F0BD69A22AEAC9C4002490E7 /* WidgetKind.swift */,
+				F041B3F72AF464C200EE13DE /* Extensions */,
 				F0BD69AB2AEACDF1002490E7 /* Helpers */,
 				F0BD69812AEAC8E1002490E7 /* AddProject */,
 				F0BD69852AEAC8FF002490E7 /* LastProject */,
@@ -2011,6 +2023,7 @@
 				F01303942AEB213600D28886 /* ProjectView.swift in Sources */,
 				F01303912AEB1E8F00D28886 /* Project+Preview.swift in Sources */,
 				F0BD69992AEAC9A9002490E7 /* LastProjectTimelineProvider.swift in Sources */,
+				F041B3F92AF464D800EE13DE /* WidgetURL+Deeplink.swift in Sources */,
 				F041B3DC2AF3B92600EE13DE /* Array+Duplicates.swift in Sources */,
 				F041B3DA2AF3B8A000EE13DE /* ProjectViewModel.swift in Sources */,
 				F0BD69932AEAC989002490E7 /* AddProjectWidget.swift in Sources */,
@@ -2045,6 +2058,7 @@
 				F01303952AEB213600D28886 /* ProjectView.swift in Sources */,
 				F01303922AEB1E8F00D28886 /* Project+Preview.swift in Sources */,
 				F0BD699A2AEAC9A9002490E7 /* LastProjectTimelineProvider.swift in Sources */,
+				F041B3FA2AF464D800EE13DE /* WidgetURL+Deeplink.swift in Sources */,
 				F041B3DD2AF3B92600EE13DE /* Array+Duplicates.swift in Sources */,
 				F041B3DB2AF3B8A000EE13DE /* ProjectViewModel.swift in Sources */,
 				F0BD69942AEAC989002490E7 /* AddProjectWidget.swift in Sources */,

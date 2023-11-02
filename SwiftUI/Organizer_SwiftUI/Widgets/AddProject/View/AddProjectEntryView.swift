@@ -25,7 +25,7 @@ struct AddProjectEntryView: View {
         .containerBackground(for: .widget) {
             Color.listBackground
         }
-        .widgetURL(Deeplink.projectForm.url)
+        .widgetURL(.projectForm)
     }
 }
 

@@ -27,7 +27,7 @@ struct ProjectView: View {
                 self.defaultView
             }
         }
-        .widgetURL(Deeplink.project(id: self.projectID).url)
+        .widgetURL(.project(id: self.projectID))
     }
 }
 
