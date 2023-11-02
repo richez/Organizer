@@ -27,6 +27,7 @@ struct ProjectView: View {
                 self.defaultView
             }
         }
+        .widgetURL(Deeplink.project(id: self.projectID).url)
     }
 }
 
@@ -59,5 +60,9 @@ private extension ProjectView {
 
     var statistics: String {
         self.viewModel.statistics(from: self.project.contents)
+    }
+
+    var projectID: String {
+        self.project.identifier.uuidString
     }
 }

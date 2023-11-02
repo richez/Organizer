@@ -23,6 +23,7 @@ struct EmptyProjectView: View {
                 self.defaultView
             }
         }
+        .widgetURL(Deeplink.projectForm.url)
     }
 }
 
