@@ -12,20 +12,13 @@ struct LastProjectEntryView: View {
     var entry: LastProjectEntry
     
     var body: some View {
-        VStack(alignment: .leading) {
-
+        ContentContainerView(systemImage: "ellipsis") {
             if let project = self.entry.project {
                 ProjectView(project: project)
             } else {
                 self.emptyView
             }
-
-            Spacer()
-
-            Image(systemName: "ellipsis")
-                .foregroundStyle(.launchscreenBackground)
         }
-        .frame(maxWidth: .infinity, alignment: .topLeading)
         .containerBackground(for: .widget) {
             Color.listBackground
         }
