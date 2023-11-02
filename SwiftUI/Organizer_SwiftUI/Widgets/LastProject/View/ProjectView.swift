@@ -10,20 +10,33 @@ import SwiftUI
 struct ProjectView: View {
     var project: Project
 
+    private let viewModel = ViewModel()
+
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text(project.title)
+            Text(self.project.title)
                 .font(.system(size: 15, weight: .bold))
                 .foregroundStyle(.cellTitle)
                 .lineLimit(2)
 
             Group {
-                Text("#DIY")
+                Text(self.themes)
                     .lineLimit(1)
-                Text("4 contents (1 articles, 2 videos)")
+                Text(self.statistics)
+                    .lineLimit(2)
             }
             .font(.system(size: 12))
             .foregroundStyle(.cellSubtitle)
         }
+    }
+}
+
+extension ProjectView {
+    var themes: String {
+        self.viewModel.themes(from: self.project.theme)
+    }
+
+    var statistics: String {
+        self.viewModel.statistics(from: self.project.contents)
     }
 }
