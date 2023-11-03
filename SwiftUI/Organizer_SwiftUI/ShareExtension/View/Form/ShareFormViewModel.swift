@@ -37,7 +37,7 @@ extension ShareForm {
 
         init(
             content: ShareContent,
-            contentStore: ContentStoreReader & ContentStoreWritter = ContentStore.shared,
+            contentStore: ContentStoreReader & ContentStoreWritter = ContentStore(),
             contentFormatter: ContentFormatterProtocol = ContentFormatter(),
             projectStore: ProjectStoreWritter = ProjectStore.shared,
             projectFormatter: ProjectFormatterProtocol = ProjectFormatter(),

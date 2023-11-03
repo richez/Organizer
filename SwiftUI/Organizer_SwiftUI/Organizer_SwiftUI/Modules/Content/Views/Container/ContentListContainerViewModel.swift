@@ -15,7 +15,7 @@ extension ContentListContainerView {
 
         // MARK: - Initialization
 
-        init(store: ContentStoreDescriptor = ContentStore.shared) {
+        init(store: ContentStoreDescriptor = ContentStore()) {
             self.store = store
         }
 

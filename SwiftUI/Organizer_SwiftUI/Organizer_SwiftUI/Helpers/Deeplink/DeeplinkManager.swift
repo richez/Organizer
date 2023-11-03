@@ -18,7 +18,7 @@ struct DeeplinkManager {
 
     init(
         projectStore: ProjectStoreReader = ProjectStore.shared,
-        contentStore: ContentStoreReader = ContentStore.shared
+        contentStore: ContentStoreReader = ContentStore()
     ) {
         self.projectStore = projectStore
         self.contentStore = contentStore

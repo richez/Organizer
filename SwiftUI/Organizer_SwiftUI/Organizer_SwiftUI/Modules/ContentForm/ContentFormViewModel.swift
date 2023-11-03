@@ -37,7 +37,7 @@ extension ContentForm {
         init(
             project: Project,
             content: ProjectContent?,
-            store: ContentStoreWritter = ContentStore.shared,
+            store: ContentStoreWritter = ContentStore(),
             formatter: ContentFormatterProtocol = ContentFormatter(),
             validator: FormFieldValidatorProtocol = FormFieldValidator(),
             urlMetadataProvider: URLMetadataProviderProtocol = URLMetadataProvider()

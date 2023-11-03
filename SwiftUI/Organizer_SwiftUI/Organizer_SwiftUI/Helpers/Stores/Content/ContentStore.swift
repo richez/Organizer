@@ -9,14 +9,6 @@ import Foundation
 import SwiftData
 
 struct ContentStore {
-    // MARK: - Properties
-
-    static let shared: ContentStoreProtocol = ContentStore()
-
-    // MARK: - Initialization
-
-    private init() {}
-
     // MARK: - Error
 
     enum Error: Swift.Error {
