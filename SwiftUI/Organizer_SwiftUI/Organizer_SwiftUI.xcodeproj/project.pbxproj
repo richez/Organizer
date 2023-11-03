@@ -107,6 +107,12 @@
 		F041B40B2AF46EAD00EE13DE /* ProjectsTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B4092AF46EAD00EE13DE /* ProjectsTimelineProvider.swift */; };
 		F041B40D2AF46EC000EE13DE /* ProjectsEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B40C2AF46EC000EE13DE /* ProjectsEntryView.swift */; };
 		F041B40E2AF46EC000EE13DE /* ProjectsEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B40C2AF46EC000EE13DE /* ProjectsEntryView.swift */; };
+		F041B4112AF50F6B00EE13DE /* TagEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B4102AF50F6B00EE13DE /* TagEntity.swift */; };
+		F041B4122AF50F6B00EE13DE /* TagEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B4102AF50F6B00EE13DE /* TagEntity.swift */; };
+		F041B4152AF50FB200EE13DE /* TagEntityQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B4142AF50FB200EE13DE /* TagEntityQuery.swift */; };
+		F041B4162AF50FB200EE13DE /* TagEntityQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B4142AF50FB200EE13DE /* TagEntityQuery.swift */; };
+		F041B4182AF50FDC00EE13DE /* TagType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B4172AF50FDC00EE13DE /* TagType.swift */; };
+		F041B4192AF50FDC00EE13DE /* TagType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B4172AF50FDC00EE13DE /* TagType.swift */; };
 		F0466E5E2AE942590045FB04 /* ProjectForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0466E5D2AE942590045FB04 /* ProjectForm.swift */; };
 		F0466E602AE9427E0045FB04 /* ProjectFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0466E5F2AE9427E0045FB04 /* ProjectFormViewModel.swift */; };
 		F0466E622AE960100045FB04 /* ContentForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0466E612AE960100045FB04 /* ContentForm.swift */; };
@@ -388,6 +394,9 @@
 		F041B4062AF46E9900EE13DE /* ProjectsIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsIntent.swift; sourceTree = "<group>"; };
 		F041B4092AF46EAD00EE13DE /* ProjectsTimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsTimelineProvider.swift; sourceTree = "<group>"; };
 		F041B40C2AF46EC000EE13DE /* ProjectsEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsEntryView.swift; sourceTree = "<group>"; };
+		F041B4102AF50F6B00EE13DE /* TagEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagEntity.swift; sourceTree = "<group>"; };
+		F041B4142AF50FB200EE13DE /* TagEntityQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagEntityQuery.swift; sourceTree = "<group>"; };
+		F041B4172AF50FDC00EE13DE /* TagType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagType.swift; sourceTree = "<group>"; };
 		F0466E5D2AE942590045FB04 /* ProjectForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectForm.swift; sourceTree = "<group>"; };
 		F0466E5F2AE9427E0045FB04 /* ProjectFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFormViewModel.swift; sourceTree = "<group>"; };
 		F0466E612AE960100045FB04 /* ContentForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentForm.swift; sourceTree = "<group>"; };
@@ -791,8 +800,27 @@
 			isa = PBXGroup;
 			children = (
 				F041B4062AF46E9900EE13DE /* ProjectsIntent.swift */,
+				F041B40F2AF50F5D00EE13DE /* Entities */,
+				F041B4132AF50F9C00EE13DE /* Queries */,
 			);
 			path = Intent;
+			sourceTree = "<group>";
+		};
+		F041B40F2AF50F5D00EE13DE /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				F041B4172AF50FDC00EE13DE /* TagType.swift */,
+				F041B4102AF50F6B00EE13DE /* TagEntity.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		F041B4132AF50F9C00EE13DE /* Queries */ = {
+			isa = PBXGroup;
+			children = (
+				F041B4142AF50FB200EE13DE /* TagEntityQuery.swift */,
+			);
+			path = Queries;
 			sourceTree = "<group>";
 		};
 		F0466E672AE9BF7C0045FB04 /* SwiftUI */ = {
@@ -2081,6 +2109,7 @@
 				F0BD699F2AEAC9B9002490E7 /* LastProjectWidget.swift in Sources */,
 				F041B40A2AF46EAD00EE13DE /* ProjectsTimelineProvider.swift in Sources */,
 				F041B3F52AF3DB2400EE13DE /* RectangularView.swift in Sources */,
+				F041B4112AF50F6B00EE13DE /* TagEntity.swift in Sources */,
 				F041B3EB2AF3C52700EE13DE /* ContentContainerView.swift in Sources */,
 				F01303942AEB213600D28886 /* ProjectView.swift in Sources */,
 				F01303912AEB1E8F00D28886 /* Project+Preview.swift in Sources */,
@@ -2091,6 +2120,7 @@
 				F041B3DA2AF3B8A000EE13DE /* ProjectViewModel.swift in Sources */,
 				F0BD69932AEAC989002490E7 /* AddProjectWidget.swift in Sources */,
 				F041B4072AF46E9900EE13DE /* ProjectsIntent.swift in Sources */,
+				F041B4182AF50FDC00EE13DE /* TagType.swift in Sources */,
 				F0BD698A2AEAC963002490E7 /* AddProjectEntry.swift in Sources */,
 				F041B3D42AF3B82D00EE13DE /* ProjectFormatterProtocol.swift in Sources */,
 				F0BD69962AEAC99F002490E7 /* LastProjectEntry.swift in Sources */,
@@ -2098,6 +2128,7 @@
 				F0BD69A32AEAC9C4002490E7 /* WidgetsBundle.swift in Sources */,
 				F0BD69B42AEACEFC002490E7 /* Project.swift in Sources */,
 				F0BD69902AEAC97B002490E7 /* AddProjectEntryView.swift in Sources */,
+				F041B4152AF50FB200EE13DE /* TagEntityQuery.swift in Sources */,
 				F0BD699C2AEAC9B2002490E7 /* LastProjectEntryView.swift in Sources */,
 				F0BD69A72AEAC9E9002490E7 /* Deeplink.swift in Sources */,
 				F041B3D82AF3B83400EE13DE /* ProjectValues.swift in Sources */,
@@ -2121,6 +2152,7 @@
 				F0BD69A02AEAC9B9002490E7 /* LastProjectWidget.swift in Sources */,
 				F041B40B2AF46EAD00EE13DE /* ProjectsTimelineProvider.swift in Sources */,
 				F041B3F62AF3DB2400EE13DE /* RectangularView.swift in Sources */,
+				F041B4122AF50F6B00EE13DE /* TagEntity.swift in Sources */,
 				F041B3EC2AF3C52700EE13DE /* ContentContainerView.swift in Sources */,
 				F01303952AEB213600D28886 /* ProjectView.swift in Sources */,
 				F01303922AEB1E8F00D28886 /* Project+Preview.swift in Sources */,
@@ -2131,6 +2163,7 @@
 				F041B3DB2AF3B8A000EE13DE /* ProjectViewModel.swift in Sources */,
 				F0BD69942AEAC989002490E7 /* AddProjectWidget.swift in Sources */,
 				F041B4082AF46E9900EE13DE /* ProjectsIntent.swift in Sources */,
+				F041B4192AF50FDC00EE13DE /* TagType.swift in Sources */,
 				F0BD698B2AEAC963002490E7 /* AddProjectEntry.swift in Sources */,
 				F041B3D52AF3B82E00EE13DE /* ProjectFormatterProtocol.swift in Sources */,
 				F0BD69972AEAC99F002490E7 /* LastProjectEntry.swift in Sources */,
@@ -2138,6 +2171,7 @@
 				F0BD69A42AEAC9C4002490E7 /* WidgetsBundle.swift in Sources */,
 				F0BD69B52AEACEFD002490E7 /* Project.swift in Sources */,
 				F0BD69912AEAC97B002490E7 /* AddProjectEntryView.swift in Sources */,
+				F041B4162AF50FB200EE13DE /* TagEntityQuery.swift in Sources */,
 				F0BD699D2AEAC9B2002490E7 /* LastProjectEntryView.swift in Sources */,
 				F0BD69A82AEAC9E9002490E7 /* Deeplink.swift in Sources */,
 				F041B3D72AF3B83200EE13DE /* ProjectValues.swift in Sources */,
