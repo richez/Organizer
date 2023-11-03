@@ -17,7 +17,7 @@ struct DeeplinkManager {
     // MARK: - Initialization
 
     init(
-        projectStore: ProjectStoreReader = ProjectStore.shared,
+        projectStore: ProjectStoreReader = ProjectStore(),
         contentStore: ContentStoreReader = ContentStore()
     ) {
         self.projectStore = projectStore

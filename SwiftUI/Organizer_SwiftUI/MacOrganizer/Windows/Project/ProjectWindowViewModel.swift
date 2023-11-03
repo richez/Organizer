@@ -16,7 +16,7 @@ extension ProjectWindow {
 
         // MARK: - Initialization
 
-        init(store: ProjectStoreReader = ProjectStore.shared) {
+        init(store: ProjectStoreReader = ProjectStore()) {
             self.store = store
         }
 

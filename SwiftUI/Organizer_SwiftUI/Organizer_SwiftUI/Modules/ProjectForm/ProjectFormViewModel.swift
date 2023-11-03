@@ -29,7 +29,7 @@ extension ProjectForm {
 
         init(
             project: Project?,
-            store: ProjectStoreWritter = ProjectStore.shared,
+            store: ProjectStoreWritter = ProjectStore(),
             formatter: ProjectFormatterProtocol = ProjectFormatter(),
             validator: FormFieldValidatorProtocol = FormFieldValidator()
         ) {

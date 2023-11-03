@@ -15,7 +15,7 @@ extension ProjectListContainerView {
 
         // MARK: - Initialization
 
-        init(store: ProjectStoreDescriptor = ProjectStore.shared) {
+        init(store: ProjectStoreDescriptor = ProjectStore()) {
             self.store = store
         }
 
