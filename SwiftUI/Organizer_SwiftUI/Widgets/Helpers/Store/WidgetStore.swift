@@ -10,14 +10,17 @@ import SwiftData
 
 // TODO: Add AppGroup to macOS (main & widget)
 struct WidgetStore {
-    var modelContainer: ModelContainer?
+    static var container: ModelContainer {
+        get throws {
+            try ModelContainer(for: Project.self, ProjectContent.self)
+        }
+    }
+
     var context: ModelContext?
 
     init() {
         do {
-            self.modelContainer = try ModelContainer(for: Project.self, ProjectContent.self)
-            self.context = ModelContext(self.modelContainer!)
-            self.context!.autosaveEnabled = true
+            self.context = try ModelContext(WidgetStore.container)
         } catch {
             print("Fail to initialize model container: \(error)")
         }

@@ -97,6 +97,16 @@
 		F041B3F62AF3DB2400EE13DE /* RectangularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3F42AF3DB2400EE13DE /* RectangularView.swift */; };
 		F041B3F92AF464D800EE13DE /* WidgetURL+Deeplink.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3F82AF464D800EE13DE /* WidgetURL+Deeplink.swift */; };
 		F041B3FA2AF464D800EE13DE /* WidgetURL+Deeplink.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3F82AF464D800EE13DE /* WidgetURL+Deeplink.swift */; };
+		F041B4012AF46E0700EE13DE /* ProjectsWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B4002AF46E0700EE13DE /* ProjectsWidget.swift */; };
+		F041B4022AF46E0700EE13DE /* ProjectsWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B4002AF46E0700EE13DE /* ProjectsWidget.swift */; };
+		F041B4042AF46E2400EE13DE /* ProjectsEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B4032AF46E2400EE13DE /* ProjectsEntry.swift */; };
+		F041B4052AF46E2400EE13DE /* ProjectsEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B4032AF46E2400EE13DE /* ProjectsEntry.swift */; };
+		F041B4072AF46E9900EE13DE /* ProjectsIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B4062AF46E9900EE13DE /* ProjectsIntent.swift */; };
+		F041B4082AF46E9900EE13DE /* ProjectsIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B4062AF46E9900EE13DE /* ProjectsIntent.swift */; };
+		F041B40A2AF46EAD00EE13DE /* ProjectsTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B4092AF46EAD00EE13DE /* ProjectsTimelineProvider.swift */; };
+		F041B40B2AF46EAD00EE13DE /* ProjectsTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B4092AF46EAD00EE13DE /* ProjectsTimelineProvider.swift */; };
+		F041B40D2AF46EC000EE13DE /* ProjectsEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B40C2AF46EC000EE13DE /* ProjectsEntryView.swift */; };
+		F041B40E2AF46EC000EE13DE /* ProjectsEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B40C2AF46EC000EE13DE /* ProjectsEntryView.swift */; };
 		F0466E5E2AE942590045FB04 /* ProjectForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0466E5D2AE942590045FB04 /* ProjectForm.swift */; };
 		F0466E602AE9427E0045FB04 /* ProjectFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0466E5F2AE9427E0045FB04 /* ProjectFormViewModel.swift */; };
 		F0466E622AE960100045FB04 /* ContentForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0466E612AE960100045FB04 /* ContentForm.swift */; };
@@ -373,6 +383,11 @@
 		F041B3F02AF3C8D800EE13DE /* EmptyProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyProjectView.swift; sourceTree = "<group>"; };
 		F041B3F42AF3DB2400EE13DE /* RectangularView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangularView.swift; sourceTree = "<group>"; };
 		F041B3F82AF464D800EE13DE /* WidgetURL+Deeplink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetURL+Deeplink.swift"; sourceTree = "<group>"; };
+		F041B4002AF46E0700EE13DE /* ProjectsWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsWidget.swift; sourceTree = "<group>"; };
+		F041B4032AF46E2400EE13DE /* ProjectsEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsEntry.swift; sourceTree = "<group>"; };
+		F041B4062AF46E9900EE13DE /* ProjectsIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsIntent.swift; sourceTree = "<group>"; };
+		F041B4092AF46EAD00EE13DE /* ProjectsTimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsTimelineProvider.swift; sourceTree = "<group>"; };
+		F041B40C2AF46EC000EE13DE /* ProjectsEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsEntryView.swift; sourceTree = "<group>"; };
 		F0466E5D2AE942590045FB04 /* ProjectForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectForm.swift; sourceTree = "<group>"; };
 		F0466E5F2AE9427E0045FB04 /* ProjectFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFormViewModel.swift; sourceTree = "<group>"; };
 		F0466E612AE960100045FB04 /* ContentForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentForm.swift; sourceTree = "<group>"; };
@@ -734,6 +749,50 @@
 				F041B3F82AF464D800EE13DE /* WidgetURL+Deeplink.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F041B3FB2AF46D2E00EE13DE /* Projects */ = {
+			isa = PBXGroup;
+			children = (
+				F041B4002AF46E0700EE13DE /* ProjectsWidget.swift */,
+				F041B3FC2AF46D3C00EE13DE /* Entry */,
+				F041B3FF2AF46D5E00EE13DE /* Intent */,
+				F041B3FE2AF46D4900EE13DE /* TimelineProvider */,
+				F041B3FD2AF46D4200EE13DE /* View */,
+			);
+			path = Projects;
+			sourceTree = "<group>";
+		};
+		F041B3FC2AF46D3C00EE13DE /* Entry */ = {
+			isa = PBXGroup;
+			children = (
+				F041B4032AF46E2400EE13DE /* ProjectsEntry.swift */,
+			);
+			path = Entry;
+			sourceTree = "<group>";
+		};
+		F041B3FD2AF46D4200EE13DE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F041B40C2AF46EC000EE13DE /* ProjectsEntryView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F041B3FE2AF46D4900EE13DE /* TimelineProvider */ = {
+			isa = PBXGroup;
+			children = (
+				F041B4092AF46EAD00EE13DE /* ProjectsTimelineProvider.swift */,
+			);
+			path = TimelineProvider;
+			sourceTree = "<group>";
+		};
+		F041B3FF2AF46D5E00EE13DE /* Intent */ = {
+			isa = PBXGroup;
+			children = (
+				F041B4062AF46E9900EE13DE /* ProjectsIntent.swift */,
+			);
+			path = Intent;
 			sourceTree = "<group>";
 		};
 		F0466E672AE9BF7C0045FB04 /* SwiftUI */ = {
@@ -1206,6 +1265,7 @@
 				F0BD69AB2AEACDF1002490E7 /* Helpers */,
 				F0BD69812AEAC8E1002490E7 /* AddProject */,
 				F0BD69852AEAC8FF002490E7 /* LastProject */,
+				F041B3FB2AF46D2E00EE13DE /* Projects */,
 				F0BD697F2AEAC839002490E7 /* Resources */,
 			);
 			path = Widgets;
@@ -2015,18 +2075,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				F013038D2AEB0E9300D28886 /* WidgetStore.swift in Sources */,
+				F041B4012AF46E0700EE13DE /* ProjectsWidget.swift in Sources */,
 				F0BD698D2AEAC972002490E7 /* AddProjectTimelineProvider.swift in Sources */,
 				F0BD69B22AEACEF9002490E7 /* ProjectContent.swift in Sources */,
 				F0BD699F2AEAC9B9002490E7 /* LastProjectWidget.swift in Sources */,
+				F041B40A2AF46EAD00EE13DE /* ProjectsTimelineProvider.swift in Sources */,
 				F041B3F52AF3DB2400EE13DE /* RectangularView.swift in Sources */,
 				F041B3EB2AF3C52700EE13DE /* ContentContainerView.swift in Sources */,
 				F01303942AEB213600D28886 /* ProjectView.swift in Sources */,
 				F01303912AEB1E8F00D28886 /* Project+Preview.swift in Sources */,
 				F0BD69992AEAC9A9002490E7 /* LastProjectTimelineProvider.swift in Sources */,
+				F041B40D2AF46EC000EE13DE /* ProjectsEntryView.swift in Sources */,
 				F041B3F92AF464D800EE13DE /* WidgetURL+Deeplink.swift in Sources */,
 				F041B3DC2AF3B92600EE13DE /* Array+Duplicates.swift in Sources */,
 				F041B3DA2AF3B8A000EE13DE /* ProjectViewModel.swift in Sources */,
 				F0BD69932AEAC989002490E7 /* AddProjectWidget.swift in Sources */,
+				F041B4072AF46E9900EE13DE /* ProjectsIntent.swift in Sources */,
 				F0BD698A2AEAC963002490E7 /* AddProjectEntry.swift in Sources */,
 				F041B3D42AF3B82D00EE13DE /* ProjectFormatterProtocol.swift in Sources */,
 				F0BD69962AEAC99F002490E7 /* LastProjectEntry.swift in Sources */,
@@ -2039,6 +2103,7 @@
 				F041B3D82AF3B83400EE13DE /* ProjectValues.swift in Sources */,
 				F0BD69B02AEACEEA002490E7 /* String+Components.swift in Sources */,
 				F041B3DE2AF3B93C00EE13DE /* Sequence+CountBy.swift in Sources */,
+				F041B4042AF46E2400EE13DE /* ProjectsEntry.swift in Sources */,
 				F0BD69A52AEAC9C4002490E7 /* WidgetKind.swift in Sources */,
 				F041B3F12AF3C8D800EE13DE /* EmptyProjectView.swift in Sources */,
 				F041B3E32AF3C23B00EE13DE /* CircularView.swift in Sources */,
@@ -2050,18 +2115,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				F013038E2AEB0E9300D28886 /* WidgetStore.swift in Sources */,
+				F041B4022AF46E0700EE13DE /* ProjectsWidget.swift in Sources */,
 				F0BD698E2AEAC972002490E7 /* AddProjectTimelineProvider.swift in Sources */,
 				F0BD69B32AEACEF9002490E7 /* ProjectContent.swift in Sources */,
 				F0BD69A02AEAC9B9002490E7 /* LastProjectWidget.swift in Sources */,
+				F041B40B2AF46EAD00EE13DE /* ProjectsTimelineProvider.swift in Sources */,
 				F041B3F62AF3DB2400EE13DE /* RectangularView.swift in Sources */,
 				F041B3EC2AF3C52700EE13DE /* ContentContainerView.swift in Sources */,
 				F01303952AEB213600D28886 /* ProjectView.swift in Sources */,
 				F01303922AEB1E8F00D28886 /* Project+Preview.swift in Sources */,
 				F0BD699A2AEAC9A9002490E7 /* LastProjectTimelineProvider.swift in Sources */,
+				F041B40E2AF46EC000EE13DE /* ProjectsEntryView.swift in Sources */,
 				F041B3FA2AF464D800EE13DE /* WidgetURL+Deeplink.swift in Sources */,
 				F041B3DD2AF3B92600EE13DE /* Array+Duplicates.swift in Sources */,
 				F041B3DB2AF3B8A000EE13DE /* ProjectViewModel.swift in Sources */,
 				F0BD69942AEAC989002490E7 /* AddProjectWidget.swift in Sources */,
+				F041B4082AF46E9900EE13DE /* ProjectsIntent.swift in Sources */,
 				F0BD698B2AEAC963002490E7 /* AddProjectEntry.swift in Sources */,
 				F041B3D52AF3B82E00EE13DE /* ProjectFormatterProtocol.swift in Sources */,
 				F0BD69972AEAC99F002490E7 /* LastProjectEntry.swift in Sources */,
@@ -2074,6 +2143,7 @@
 				F041B3D72AF3B83200EE13DE /* ProjectValues.swift in Sources */,
 				F0BD69B12AEACEEA002490E7 /* String+Components.swift in Sources */,
 				F041B3DF2AF3B93C00EE13DE /* Sequence+CountBy.swift in Sources */,
+				F041B4052AF46E2400EE13DE /* ProjectsEntry.swift in Sources */,
 				F0BD69A62AEAC9C4002490E7 /* WidgetKind.swift in Sources */,
 				F041B3F22AF3C8D800EE13DE /* EmptyProjectView.swift in Sources */,
 				F041B3E42AF3C23B00EE13DE /* CircularView.swift in Sources */,
