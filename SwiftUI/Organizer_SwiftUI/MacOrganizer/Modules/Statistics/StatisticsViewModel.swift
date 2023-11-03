@@ -16,7 +16,7 @@ extension StatisticsView {
 
         // MARK: - Initialization
 
-        init(projectFormatter: ProjectFormatterProtocol = ProjectFormatter.shared,
+        init(projectFormatter: ProjectFormatterProtocol = ProjectFormatter(),
             contentFormatter: ContentFormatterProtocol = ContentFormatter()
         ) {
             self.projectFormatter = projectFormatter

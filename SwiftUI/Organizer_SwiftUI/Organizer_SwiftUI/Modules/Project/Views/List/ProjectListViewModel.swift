@@ -18,7 +18,7 @@ extension ProjectListView {
         // MARK: - Initialization
 
         init(store: ProjectStoreOperations = ProjectStore.shared,
-             formatter: ProjectFormatterProtocol = ProjectFormatter.shared
+             formatter: ProjectFormatterProtocol = ProjectFormatter()
         ) {
             self.store = store
             self.formatter = formatter

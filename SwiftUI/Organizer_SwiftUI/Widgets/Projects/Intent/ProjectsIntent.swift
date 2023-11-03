@@ -51,7 +51,7 @@ struct TagEntityQuery: EntityQuery {
 
     func suggestedEntities() async throws -> [TagEntity] {
         let store = WidgetStore()
-        let formatter = ProjectFormatter.shared
+        let formatter = ProjectFormatter()
         let projects = try store.projects(propertiesToFetch: [\.theme])
         let themes = formatter.themes(from: projects)
         return themes.map(TagEntity.init(name:))

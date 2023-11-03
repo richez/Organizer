@@ -8,13 +8,6 @@
 import Foundation
 
 struct ProjectFormatter {
-    // MARK: - Properties
-
-    static let shared: ProjectFormatterProtocol = ProjectFormatter()
-
-    // MARK: - Initialization
-
-    private init() {}
 }
 
 // MARK: - ProjectFormatterProtocol

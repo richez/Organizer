@@ -31,7 +31,7 @@ extension ProjectForm {
             project: Project?,
             store: ProjectStoreWritter = ProjectStore.shared,
             validator: FormFieldValidatorProtocol = FormFieldValidator(),
-            formatter: ProjectFormatterProtocol = ProjectFormatter.shared
+            formatter: ProjectFormatterProtocol = ProjectFormatter()
         ) {
             self.project = project
             self.store = store

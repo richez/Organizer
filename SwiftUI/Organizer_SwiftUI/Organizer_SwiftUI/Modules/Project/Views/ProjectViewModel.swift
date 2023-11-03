@@ -15,7 +15,7 @@ extension ProjectView {
 
         // MARK: - Initialization
 
-        init(formatter: ProjectFormatterProtocol = ProjectFormatter.shared) {
+        init(formatter: ProjectFormatterProtocol = ProjectFormatter()) {
             self.formatter = formatter
         }
 

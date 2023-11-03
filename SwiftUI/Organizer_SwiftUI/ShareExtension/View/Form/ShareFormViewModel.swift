@@ -40,7 +40,7 @@ extension ShareForm {
             contentStore: ContentStoreReader & ContentStoreWritter = ContentStore.shared,
             projectStore: ProjectStoreWritter = ProjectStore.shared,
             validator: FormFieldValidatorProtocol = FormFieldValidator(),
-            projectFormatter: ProjectFormatterProtocol = ProjectFormatter.shared,
+            projectFormatter: ProjectFormatterProtocol = ProjectFormatter(),
             contentFormatter: ContentFormatterProtocol = ContentFormatter()
         ) {
             self.content = content
