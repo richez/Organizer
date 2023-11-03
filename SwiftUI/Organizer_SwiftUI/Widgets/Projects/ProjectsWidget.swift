@@ -25,6 +25,9 @@ struct ProjectsWidget: Widget {
         ) { entry in
             ProjectsEntryView(entry: entry)
         }
+        .configurationDisplayName(for: .projects)
+        .description(for: .projects)
+        .supportedFamilies(self.families)
     }
 }
 
