@@ -21,7 +21,7 @@ struct ProjectsTimelineProvider: AppIntentTimelineProvider {
     func snapshot(for configuration: ProjectsIntent, in context: Context) async -> ProjectsEntry {
         logger.info("Finding projects for widget snapshot with type \(configuration.type.rawValue) and theme \(configuration.theme?.name ?? "nil")")
         let projects = self.projects(for: configuration, widgetFamily: context.family)
-        logger.info("Found \(projects)")
+        logger.info("Found \(projects ?? [])")
 
         return ProjectsEntry(projects: projects)
     }
@@ -29,7 +29,7 @@ struct ProjectsTimelineProvider: AppIntentTimelineProvider {
     func timeline(for configuration: ProjectsIntent, in context: Context) async -> Timeline<ProjectsEntry> {
         logger.info("Finding projects for widget timeline with type \(configuration.type.rawValue) and theme \(configuration.theme?.name ?? "nil")")
         let projects = self.projects(for: configuration, widgetFamily: context.family)
-        logger.info("Found \(projects)")
+        logger.info("Found \(projects ?? [])")
 
         let entry = ProjectsEntry(projects: projects)
         return Timeline(entries: [entry], policy: .never)
@@ -37,18 +37,19 @@ struct ProjectsTimelineProvider: AppIntentTimelineProvider {
 }
 
 private extension ProjectsTimelineProvider {
-    func projects(for configuration: ProjectsIntent?, widgetFamily: WidgetFamily) -> [Project] {
+    func projects(for configuration: ProjectsIntent?, widgetFamily: WidgetFamily) -> [Project]? {
         do {
-            return try self.store.projects(
+            let projects = try self.store.projects(
                 predicate: self.predicate(for: configuration),
                 sortBy: [.init(\.updatedDate, order: .reverse)],
                 fetchLimit: self.fetchLimit(for: widgetFamily),
                 propertiesToFetch: [\.title, \.theme],
                 relationshipKeyPathsForPrefetching: [\.contents]
             )
+            return projects.isEmpty ? nil : projects
         } catch {
             print("Fail to retrieve projects: \(error)")
-            return []
+            return nil
         }
     }
 
