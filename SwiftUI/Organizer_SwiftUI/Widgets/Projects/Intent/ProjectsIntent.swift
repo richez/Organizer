@@ -31,5 +31,3 @@ struct ProjectsIntent: WidgetConfigurationIntent {
         }
     }
 }
-
-// TODO: RectangularView: use .frame(maxWidth: .infinity, alignment: .topLeading) instead of nested HStack ?

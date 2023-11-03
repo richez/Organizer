@@ -12,22 +12,24 @@ struct RectangularView: View {
     var subtitle: String
 
     var body: some View {
-        HStack {
-            VStack(alignment: .leading) {
-                Text(self.title)
-                    .font(.system(size: 15, weight: .bold))
-                    .foregroundStyle(.cellTitle)
-                    .lineLimit(1)
+        VStack(alignment: .leading) {
+            Text(self.title)
+                .font(.system(size: 15, weight: .bold))
+                .foregroundStyle(.white)
+                .lineLimit(1)
 
-                Spacer()
-
-                Text(self.subtitle)
-                    .font(.system(size: 12))
-                    .foregroundStyle(.cellSubtitle)
-                    .lineLimit(1)
-            }
             Spacer()
+
+            Text(self.subtitle)
+                .font(.system(size: 12, weight: .bold))
+                .foregroundStyle(.white)
+                .lineLimit(1)
         }
-        .padding([.top, .bottom])
+        .frame(maxWidth: .infinity, alignment: .topLeading)
+        .padding()
+        .background {
+            Color.floatingButton
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+        }
     }
 }
