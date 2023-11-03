@@ -39,16 +39,19 @@ struct ProjectsTimelineProvider: AppIntentTimelineProvider {
 private extension ProjectsTimelineProvider {
     func projects(for configuration: ProjectsIntent?, widgetFamily: WidgetFamily) -> [Project]? {
         do {
+            let predicate = self.predicate(for: configuration)
+            let fetchLimit = ProjectsWidgetConfiguration.numberOfProject(for: widgetFamily)
+
             let projects = try self.store.projects(
-                predicate: self.predicate(for: configuration),
+                predicate: predicate,
                 sortBy: [.init(\.updatedDate, order: .reverse)],
-                fetchLimit: self.fetchLimit(for: widgetFamily),
+                fetchLimit: fetchLimit,
                 propertiesToFetch: [\.title, \.theme],
                 relationshipKeyPathsForPrefetching: [\.contents]
             )
             return projects.isEmpty ? nil : projects
         } catch {
-            print("Fail to retrieve projects: \(error)")
+            logger.info("Fail to retrieve projects: \(error)")
             return nil
         }
     }
@@ -60,18 +63,6 @@ private extension ProjectsTimelineProvider {
             return #Predicate { $0.theme.contains(theme) }
         default:
             return nil
-        }
-    }
-
-    func fetchLimit(for family: WidgetFamily) -> Int {
-        switch family {
-        #if !os(macOS)
-        case .accessoryCircular, .accessoryRectangular: 1
-        #endif
-        case .systemSmall: 1
-        case .systemMedium: 3
-        case .systemLarge: 5
-        default: 0
         }
     }
 }

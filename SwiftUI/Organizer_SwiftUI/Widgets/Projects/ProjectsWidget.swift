@@ -59,6 +59,7 @@ struct ProjectsWidget: Widget {
  } timeline: {
      ProjectsEntry()
      ProjectsEntry(projects: [.preview])
+     ProjectsEntry(projects: [.preview, .preview])
  }
 
 #Preview("Large", as: .systemLarge) {
@@ -66,4 +67,8 @@ struct ProjectsWidget: Widget {
  } timeline: {
      ProjectsEntry()
      ProjectsEntry(projects: [.preview])
+     ProjectsEntry(projects: [.preview, .preview])
+     ProjectsEntry(projects: [.preview, .preview, .preview])
+     ProjectsEntry(projects: [.preview, .preview, .preview, .preview])
+     ProjectsEntry(projects: [.preview, .preview, .preview, .preview, .preview])
  }

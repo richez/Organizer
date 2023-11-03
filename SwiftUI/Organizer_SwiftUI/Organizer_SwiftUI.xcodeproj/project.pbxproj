@@ -189,6 +189,14 @@
 		F06A29242AE5CEDF00B5A480 /* StatisticsDateContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06A29232AE5CEDF00B5A480 /* StatisticsDateContainerView.swift */; };
 		F06A29262AE5CF3B00B5A480 /* StatisticsDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06A29252AE5CF3B00B5A480 /* StatisticsDateView.swift */; };
 		F06A29282AE5E5E000B5A480 /* StatisticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06A29272AE5E5E000B5A480 /* StatisticsViewModel.swift */; };
+		F06BC11D2AF5B79900989C82 /* ProjectsWidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06BC11C2AF5B79900989C82 /* ProjectsWidgetConfiguration.swift */; };
+		F06BC11E2AF5B79900989C82 /* ProjectsWidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06BC11C2AF5B79900989C82 /* ProjectsWidgetConfiguration.swift */; };
+		F06BC1222AF5B7CB00989C82 /* ProjectListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06BC1212AF5B7CB00989C82 /* ProjectListView.swift */; };
+		F06BC1232AF5B7CB00989C82 /* ProjectListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06BC1212AF5B7CB00989C82 /* ProjectListView.swift */; };
+		F06BC1252AF5B7E600989C82 /* ProjectRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06BC1242AF5B7E600989C82 /* ProjectRow.swift */; };
+		F06BC1262AF5B7E600989C82 /* ProjectRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06BC1242AF5B7E600989C82 /* ProjectRow.swift */; };
+		F06BC1282AF5B81000989C82 /* ProjectRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06BC1272AF5B81000989C82 /* ProjectRowViewModel.swift */; };
+		F06BC1292AF5B81000989C82 /* ProjectRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06BC1272AF5B81000989C82 /* ProjectRowViewModel.swift */; };
 		F07DE09B2AD7449300B3B91E /* ProjectRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07DE09A2AD7449300B3B91E /* ProjectRow.swift */; };
 		F092AC462AD6FDDA00EAD1F6 /* OrganizerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092AC452AD6FDDA00EAD1F6 /* OrganizerApp.swift */; };
 		F092AC482AD6FDDA00EAD1F6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092AC472AD6FDDA00EAD1F6 /* MainView.swift */; };
@@ -447,6 +455,10 @@
 		F06A29232AE5CEDF00B5A480 /* StatisticsDateContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsDateContainerView.swift; sourceTree = "<group>"; };
 		F06A29252AE5CF3B00B5A480 /* StatisticsDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsDateView.swift; sourceTree = "<group>"; };
 		F06A29272AE5E5E000B5A480 /* StatisticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewModel.swift; sourceTree = "<group>"; };
+		F06BC11C2AF5B79900989C82 /* ProjectsWidgetConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsWidgetConfiguration.swift; sourceTree = "<group>"; };
+		F06BC1212AF5B7CB00989C82 /* ProjectListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListView.swift; sourceTree = "<group>"; };
+		F06BC1242AF5B7E600989C82 /* ProjectRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectRow.swift; sourceTree = "<group>"; };
+		F06BC1272AF5B81000989C82 /* ProjectRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectRowViewModel.swift; sourceTree = "<group>"; };
 		F07DE09A2AD7449300B3B91E /* ProjectRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectRow.swift; sourceTree = "<group>"; };
 		F092AC422AD6FDDA00EAD1F6 /* Organizer_SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Organizer_SwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F092AC452AD6FDDA00EAD1F6 /* OrganizerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizerApp.swift; sourceTree = "<group>"; };
@@ -732,6 +744,7 @@
 				F01303932AEB213600D28886 /* ProjectView.swift */,
 				F041B3D92AF3B8A000EE13DE /* ProjectViewModel.swift */,
 				F041B3EF2AF3C8C900EE13DE /* Empty */,
+				F06BC11F2AF5B7B300989C82 /* List */,
 			);
 			path = Project;
 			sourceTree = "<group>";
@@ -764,6 +777,7 @@
 			isa = PBXGroup;
 			children = (
 				F041B4002AF46E0700EE13DE /* ProjectsWidget.swift */,
+				F06BC11B2AF5B78700989C82 /* Configuration */,
 				F041B3FC2AF46D3C00EE13DE /* Entry */,
 				F041B3FF2AF46D5E00EE13DE /* Intent */,
 				F041B3FE2AF46D4900EE13DE /* TimelineProvider */,
@@ -1110,6 +1124,32 @@
 				F06A29252AE5CF3B00B5A480 /* StatisticsDateView.swift */,
 			);
 			path = Date;
+			sourceTree = "<group>";
+		};
+		F06BC11B2AF5B78700989C82 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				F06BC11C2AF5B79900989C82 /* ProjectsWidgetConfiguration.swift */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		F06BC11F2AF5B7B300989C82 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				F06BC1212AF5B7CB00989C82 /* ProjectListView.swift */,
+				F06BC1202AF5B7BF00989C82 /* Row */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		F06BC1202AF5B7BF00989C82 /* Row */ = {
+			isa = PBXGroup;
+			children = (
+				F06BC1242AF5B7E600989C82 /* ProjectRow.swift */,
+				F06BC1272AF5B81000989C82 /* ProjectRowViewModel.swift */,
+			);
+			path = Row;
 			sourceTree = "<group>";
 		};
 		F092AC392AD6FDDA00EAD1F6 = {
@@ -2102,7 +2142,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F06BC1252AF5B7E600989C82 /* ProjectRow.swift in Sources */,
+				F06BC1222AF5B7CB00989C82 /* ProjectListView.swift in Sources */,
 				F013038D2AEB0E9300D28886 /* WidgetStore.swift in Sources */,
+				F06BC11D2AF5B79900989C82 /* ProjectsWidgetConfiguration.swift in Sources */,
 				F041B4012AF46E0700EE13DE /* ProjectsWidget.swift in Sources */,
 				F0BD698D2AEAC972002490E7 /* AddProjectTimelineProvider.swift in Sources */,
 				F0BD69B22AEACEF9002490E7 /* ProjectContent.swift in Sources */,
@@ -2122,6 +2165,7 @@
 				F041B4072AF46E9900EE13DE /* ProjectsIntent.swift in Sources */,
 				F041B4182AF50FDC00EE13DE /* ThemeType.swift in Sources */,
 				F0BD698A2AEAC963002490E7 /* AddProjectEntry.swift in Sources */,
+				F06BC1282AF5B81000989C82 /* ProjectRowViewModel.swift in Sources */,
 				F041B3D42AF3B82D00EE13DE /* ProjectFormatterProtocol.swift in Sources */,
 				F0BD69962AEAC99F002490E7 /* LastProjectEntry.swift in Sources */,
 				F041B3D22AF3B82800EE13DE /* ProjectFormatter.swift in Sources */,
@@ -2145,7 +2189,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F06BC1262AF5B7E600989C82 /* ProjectRow.swift in Sources */,
+				F06BC1232AF5B7CB00989C82 /* ProjectListView.swift in Sources */,
 				F013038E2AEB0E9300D28886 /* WidgetStore.swift in Sources */,
+				F06BC11E2AF5B79900989C82 /* ProjectsWidgetConfiguration.swift in Sources */,
 				F041B4022AF46E0700EE13DE /* ProjectsWidget.swift in Sources */,
 				F0BD698E2AEAC972002490E7 /* AddProjectTimelineProvider.swift in Sources */,
 				F0BD69B32AEACEF9002490E7 /* ProjectContent.swift in Sources */,
@@ -2165,6 +2212,7 @@
 				F041B4082AF46E9900EE13DE /* ProjectsIntent.swift in Sources */,
 				F041B4192AF50FDC00EE13DE /* ThemeType.swift in Sources */,
 				F0BD698B2AEAC963002490E7 /* AddProjectEntry.swift in Sources */,
+				F06BC1292AF5B81000989C82 /* ProjectRowViewModel.swift in Sources */,
 				F041B3D52AF3B82E00EE13DE /* ProjectFormatterProtocol.swift in Sources */,
 				F0BD69972AEAC99F002490E7 /* LastProjectEntry.swift in Sources */,
 				F041B3D32AF3B82900EE13DE /* ProjectFormatter.swift in Sources */,
