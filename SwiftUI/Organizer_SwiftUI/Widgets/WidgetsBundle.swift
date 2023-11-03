@@ -13,5 +13,6 @@ struct WidgetsBundle: WidgetBundle {
     var body: some Widget {
         AddProjectWidget()
         LastProjectWidget()
+        ProjectsWidget()
     }
 }
