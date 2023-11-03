@@ -11,9 +11,15 @@ struct ProjectsEntryView: View {
     var entry: ProjectsEntry
 
     var body: some View {
-        Text("Hello World!")
-            .containerBackground(for: .widget) {
-                Color.listBackground
+        Group {
+            if let project = self.entry.projects?.first {
+                ProjectView(project: project)
+            } else {
+                EmptyProjectView()
             }
+        }
+        .containerBackground(for: .widget) {
+            Color.listBackground
+        }
     }
 }

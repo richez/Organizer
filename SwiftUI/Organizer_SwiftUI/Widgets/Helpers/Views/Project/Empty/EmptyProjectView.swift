@@ -17,7 +17,7 @@ struct EmptyProjectView: View {
             case .accessoryCircular:
                 CircularView(systemImage: "doc.text.magnifyingglass")
             case .accessoryRectangular:
-                RectangularView(title: "Create a project", subtitle: "#theme")
+                RectangularView(title: "Create project", subtitle: "#theme")
             #endif
             default:
                 self.defaultView

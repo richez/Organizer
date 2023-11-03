@@ -27,3 +27,40 @@ struct ProjectsWidget: Widget {
         }
     }
 }
+
+#if !os(macOS)
+#Preview("Circular", as: .accessoryCircular) {
+    ProjectsWidget()
+ } timeline: {
+     ProjectsEntry()
+     ProjectsEntry(projects: [.preview])
+ }
+
+#Preview("Rectangular", as: .accessoryRectangular) {
+    ProjectsWidget()
+ } timeline: {
+     ProjectsEntry()
+     ProjectsEntry(projects: [.preview])
+ }
+#endif
+
+#Preview("Small", as: .systemSmall) {
+    ProjectsWidget()
+ } timeline: {
+     ProjectsEntry()
+     ProjectsEntry(projects: [.preview])
+ }
+
+#Preview("Medium", as: .systemMedium) {
+    ProjectsWidget()
+ } timeline: {
+     ProjectsEntry()
+     ProjectsEntry(projects: [.preview])
+ }
+
+#Preview("Large", as: .systemLarge) {
+    ProjectsWidget()
+ } timeline: {
+     ProjectsEntry()
+     ProjectsEntry(projects: [.preview])
+ }
