@@ -40,7 +40,7 @@ extension ContentForm {
             store: ContentStoreWritter = ContentStore.shared,
             validator: FormFieldValidatorProtocol = FormFieldValidator(),
             urlMetadataProvider: URLMetadataProviderProtocol = URLMetadataProvider(),
-            formatter: ContentFormatterProtocol = ContentFormatter.shared
+            formatter: ContentFormatterProtocol = ContentFormatter()
         ) {
             self.project = project
             self.content = content

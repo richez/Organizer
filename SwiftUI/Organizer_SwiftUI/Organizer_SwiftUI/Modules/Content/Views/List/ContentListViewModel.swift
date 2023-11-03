@@ -18,7 +18,7 @@ extension ContentListView {
         // MARK: - Initialization
 
         init(store: ContentStoreOperations = ContentStore.shared,
-             formatter: ContentFormatterProtocol = ContentFormatter.shared) {
+             formatter: ContentFormatterProtocol = ContentFormatter()) {
             self.store = store
             self.formatter = formatter
         }

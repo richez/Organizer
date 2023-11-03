@@ -15,7 +15,7 @@ extension ContentView {
 
         // MARK: - Initialization
 
-        init(formatter: ContentFormatterProtocol = ContentFormatter.shared) {
+        init(formatter: ContentFormatterProtocol = ContentFormatter()) {
             self.formatter = formatter
         }
 

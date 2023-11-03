@@ -8,13 +8,6 @@
 import Foundation
 
 struct ContentFormatter {
-    // MARK: - Properties
-
-    static let shared: ContentFormatterProtocol = ContentFormatter()
-
-    // MARK: - Initialization
-
-    private init() {}
 }
 
 // MARK: - ContentFormatterProtocol
