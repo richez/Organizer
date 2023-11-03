@@ -15,10 +15,10 @@ extension ShareForm {
 
         private let content: ShareContent
         private let contentStore: ContentStoreWritter
-        private let projectStore: ProjectStoreWritter
-        private let validator: FormFieldValidatorProtocol
-        private let projectFormatter: ProjectFormatterProtocol
         private let contentFormatter: ContentFormatterProtocol
+        private let projectStore: ProjectStoreWritter
+        private let projectFormatter: ProjectFormatterProtocol
+        private let validator: FormFieldValidatorProtocol
 
         var projectTitle: String = ""
         var isInvalidProjectTitle: Bool = false
@@ -38,17 +38,17 @@ extension ShareForm {
         init(
             content: ShareContent,
             contentStore: ContentStoreReader & ContentStoreWritter = ContentStore.shared,
+            contentFormatter: ContentFormatterProtocol = ContentFormatter(),
             projectStore: ProjectStoreWritter = ProjectStore.shared,
-            validator: FormFieldValidatorProtocol = FormFieldValidator(),
             projectFormatter: ProjectFormatterProtocol = ProjectFormatter(),
-            contentFormatter: ContentFormatterProtocol = ContentFormatter()
+            validator: FormFieldValidatorProtocol = FormFieldValidator()
         ) {
             self.content = content
             self.contentStore = contentStore
-            self.projectStore = projectStore
-            self.validator = validator
-            self.projectFormatter = projectFormatter
             self.contentFormatter = contentFormatter
+            self.projectStore = projectStore
+            self.projectFormatter = projectFormatter
+            self.validator = validator
         }
 
         // MARK: - Public

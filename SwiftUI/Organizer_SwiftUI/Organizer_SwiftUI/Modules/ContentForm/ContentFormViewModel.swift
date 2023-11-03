@@ -16,9 +16,9 @@ extension ContentForm {
         private let project: Project
         private let content: ProjectContent?
         private let store: ContentStoreWritter
+        private let formatter: ContentFormatterProtocol
         private let validator: FormFieldValidatorProtocol
         private let urlMetadataProvider: URLMetadataProviderProtocol
-        private let formatter: ContentFormatterProtocol
 
         var type: ProjectContentType = .article
         var link: String = ""
@@ -38,16 +38,16 @@ extension ContentForm {
             project: Project,
             content: ProjectContent?,
             store: ContentStoreWritter = ContentStore.shared,
+            formatter: ContentFormatterProtocol = ContentFormatter(),
             validator: FormFieldValidatorProtocol = FormFieldValidator(),
-            urlMetadataProvider: URLMetadataProviderProtocol = URLMetadataProvider(),
-            formatter: ContentFormatterProtocol = ContentFormatter()
+            urlMetadataProvider: URLMetadataProviderProtocol = URLMetadataProvider()
         ) {
             self.project = project
             self.content = content
             self.store = store
+            self.formatter = formatter
             self.validator = validator
             self.urlMetadataProvider = urlMetadataProvider
-            self.formatter = formatter
         }
 
         // MARK: - Public

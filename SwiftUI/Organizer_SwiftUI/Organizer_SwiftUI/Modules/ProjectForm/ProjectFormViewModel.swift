@@ -15,8 +15,8 @@ extension ProjectForm {
 
         private let project: Project?
         private let store: ProjectStoreWritter
-        private let validator: FormFieldValidatorProtocol
         private let formatter: ProjectFormatterProtocol
+        private let validator: FormFieldValidatorProtocol
 
         var title: String = ""
         var theme: String = ""
@@ -30,13 +30,13 @@ extension ProjectForm {
         init(
             project: Project?,
             store: ProjectStoreWritter = ProjectStore.shared,
-            validator: FormFieldValidatorProtocol = FormFieldValidator(),
-            formatter: ProjectFormatterProtocol = ProjectFormatter()
+            formatter: ProjectFormatterProtocol = ProjectFormatter(),
+            validator: FormFieldValidatorProtocol = FormFieldValidator()
         ) {
             self.project = project
             self.store = store
-            self.validator = validator
             self.formatter = formatter
+            self.validator = validator
         }
 
         // MARK: - Public
