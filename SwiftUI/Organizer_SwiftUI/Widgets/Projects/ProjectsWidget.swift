@@ -22,8 +22,8 @@ struct ProjectsWidget: Widget {
             kind: .projects,
             intent: ProjectsIntent.self,
             provider: ProjectsTimelineProvider()
-        ) { _ in
-            ProjectsEntryView()
+        ) { entry in
+            ProjectsEntryView(entry: entry)
         }
     }
 }

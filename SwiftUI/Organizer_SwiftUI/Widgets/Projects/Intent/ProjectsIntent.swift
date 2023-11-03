@@ -12,17 +12,17 @@ struct ProjectsIntent: WidgetConfigurationIntent {
     static let title: LocalizedStringResource = "Project"
     static let description = IntentDescription("Keep track of your projects.")
 
-    @Parameter(title: "Tags", default: .all)
-    var type: TagType
+    @Parameter(title: "Themes", default: .all)
+    var type: ThemeType
 
     @Parameter(title: "Tag")
-    var tag: TagEntity?
+    var theme: ThemeEntity?
 
     static var parameterSummary:  some ParameterSummary {
-        When(\.$type, .equalTo, TagType.specific) {
+        When(\.$type, .equalTo, ThemeType.specific) {
             Summary {
                 \.$type
-                \.$tag
+                \.$theme
             }
         } otherwise: {
             Summary {

@@ -1,5 +1,5 @@
 //
-//  TagEntity.swift
+//  ThemeEntity.swift
 //  Organizer_SwiftUI
 //
 //  Created by Thibaut Richez on 03/11/2023.
@@ -8,7 +8,7 @@
 import AppIntents
 import Foundation
 
-struct TagEntity: AppEntity, Identifiable {
+struct ThemeEntity: AppEntity, Identifiable {
     var name: String
     var id: String { self.name }
 
@@ -16,5 +16,5 @@ struct TagEntity: AppEntity, Identifiable {
         .init(stringLiteral: self.name)
     }
     static var typeDisplayRepresentation = TypeDisplayRepresentation(name: "Tag")
-    static var defaultQuery = TagEntityQuery()
+    static var defaultQuery = ThemeEntityQuery()
 }

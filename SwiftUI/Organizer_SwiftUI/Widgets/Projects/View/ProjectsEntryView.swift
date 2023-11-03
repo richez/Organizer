@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ProjectsEntryView: View {
+    var entry: ProjectsEntry
+
     var body: some View {
         Text("Hello World!")
             .containerBackground(for: .widget) {

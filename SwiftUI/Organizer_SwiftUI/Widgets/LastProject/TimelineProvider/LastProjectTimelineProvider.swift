@@ -49,7 +49,7 @@ private extension LastProjectTimelineProvider {
             )
             return projects.first
         } catch {
-            print("Fail to retrieve projects: \(error)")
+            logger.info("Fail to retrieve projects: \(error)")
             return nil
         }
     }
