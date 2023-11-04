@@ -22,8 +22,8 @@ struct SingleProjectWidget: Widget {
             kind: .singleProject,
             intent: SingleProjectIntent.self,
             provider: SingleProjectTimelineProvider()
-        ) { _ in
-            SingleProjectEntryView()
+        ) { entry in
+            SingleProjectEntryView(entry: entry)
         }
         .configurationDisplayName(for: .singleProject)
         .description(for: .singleProject)

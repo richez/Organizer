@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SingleProjectEntryView: View {
+    var entry: SingleProjectEntry
+
     var body: some View {
         Text("")
     }

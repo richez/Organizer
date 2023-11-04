@@ -62,8 +62,9 @@ private extension SingleProjectTimelineProvider {
         guard let projectEntity = configuration?.project else { return [] }
 
         do {
+            let projectID = projectEntity.id
             return try self.store.models(
-                predicate: #Predicate { $0.project?.identifier == projectEntity.id },
+                predicate: #Predicate { $0.project?.identifier == projectID },
                 sortBy: [.init(\.updatedDate, order: .reverse)],
                 fetchLimit: fetchLimit,
                 propertiesToFetch: [\.identifier, \.typeRawValue, \.title, \.theme]
@@ -76,7 +77,8 @@ private extension SingleProjectTimelineProvider {
 
     func predicate(for configuration: SingleProjectIntent?) -> Predicate<Project>? {
         guard let projectEntity = configuration?.project else { return nil }
-        return #Predicate { $0.identifier == projectEntity.id }
+        let projectID = projectEntity.id
+        return #Predicate { $0.identifier == projectID }
     }
 
     func requiredCapacity(for family: WidgetFamily) -> Int {
