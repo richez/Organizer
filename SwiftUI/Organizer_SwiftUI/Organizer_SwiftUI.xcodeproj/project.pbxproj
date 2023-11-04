@@ -49,6 +49,20 @@
 		F02E9F402AE7332100755FF7 /* Array+Duplicates.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347472AD800E300B12AD9 /* Array+Duplicates.swift */; };
 		F02E9F412AE7332A00755FF7 /* ProjectListSorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347512AD81C9C00B12AD9 /* ProjectListSorting.swift */; };
 		F02E9F422AE7333000755FF7 /* ContentListSorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061DC5F2AD9A0E300507993 /* ContentListSorting.swift */; };
+		F030C0CA2AF6F7CF0065BF1A /* SingleProjectWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F030C0C92AF6F7CF0065BF1A /* SingleProjectWidget.swift */; };
+		F030C0CB2AF6F7CF0065BF1A /* SingleProjectWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F030C0C92AF6F7CF0065BF1A /* SingleProjectWidget.swift */; };
+		F030C0CD2AF6F7DD0065BF1A /* SingleProjectEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F030C0CC2AF6F7DD0065BF1A /* SingleProjectEntry.swift */; };
+		F030C0CE2AF6F7DD0065BF1A /* SingleProjectEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F030C0CC2AF6F7DD0065BF1A /* SingleProjectEntry.swift */; };
+		F030C0D02AF6F80B0065BF1A /* SingleProjectEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F030C0CF2AF6F80B0065BF1A /* SingleProjectEntryView.swift */; };
+		F030C0D12AF6F80B0065BF1A /* SingleProjectEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F030C0CF2AF6F80B0065BF1A /* SingleProjectEntryView.swift */; };
+		F030C0D32AF6F82D0065BF1A /* SingleProjectTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F030C0D22AF6F82D0065BF1A /* SingleProjectTimelineProvider.swift */; };
+		F030C0D42AF6F82D0065BF1A /* SingleProjectTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F030C0D22AF6F82D0065BF1A /* SingleProjectTimelineProvider.swift */; };
+		F030C0D62AF6F83B0065BF1A /* SingleProjectIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F030C0D52AF6F83B0065BF1A /* SingleProjectIntent.swift */; };
+		F030C0D72AF6F83B0065BF1A /* SingleProjectIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F030C0D52AF6F83B0065BF1A /* SingleProjectIntent.swift */; };
+		F030C0D92AF6F8530065BF1A /* ProjectEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F030C0D82AF6F8530065BF1A /* ProjectEntity.swift */; };
+		F030C0DA2AF6F8530065BF1A /* ProjectEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F030C0D82AF6F8530065BF1A /* ProjectEntity.swift */; };
+		F030C0DC2AF6F8630065BF1A /* ProjectEntityQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = F030C0DB2AF6F8630065BF1A /* ProjectEntityQuery.swift */; };
+		F030C0DD2AF6F8630065BF1A /* ProjectEntityQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = F030C0DB2AF6F8630065BF1A /* ProjectEntityQuery.swift */; };
 		F041B3AA2AF3005A00EE13DE /* ProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3A92AF3005A00EE13DE /* ProjectViewModel.swift */; };
 		F041B3AC2AF3015A00EE13DE /* ProjectListContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3AB2AF3015A00EE13DE /* ProjectListContainerViewModel.swift */; };
 		F041B3AD2AF3016200EE13DE /* ProjectListContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3AB2AF3015A00EE13DE /* ProjectListContainerViewModel.swift */; };
@@ -377,6 +391,13 @@
 		F02E9F2F2AE6DF4800755FF7 /* Deeplink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deeplink.swift; sourceTree = "<group>"; };
 		F02E9F322AE72B8500755FF7 /* ContentValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentValues.swift; sourceTree = "<group>"; };
 		F02E9F352AE72C5000755FF7 /* ProjectValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectValues.swift; sourceTree = "<group>"; };
+		F030C0C92AF6F7CF0065BF1A /* SingleProjectWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleProjectWidget.swift; sourceTree = "<group>"; };
+		F030C0CC2AF6F7DD0065BF1A /* SingleProjectEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleProjectEntry.swift; sourceTree = "<group>"; };
+		F030C0CF2AF6F80B0065BF1A /* SingleProjectEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleProjectEntryView.swift; sourceTree = "<group>"; };
+		F030C0D22AF6F82D0065BF1A /* SingleProjectTimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleProjectTimelineProvider.swift; sourceTree = "<group>"; };
+		F030C0D52AF6F83B0065BF1A /* SingleProjectIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleProjectIntent.swift; sourceTree = "<group>"; };
+		F030C0D82AF6F8530065BF1A /* ProjectEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectEntity.swift; sourceTree = "<group>"; };
+		F030C0DB2AF6F8630065BF1A /* ProjectEntityQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectEntityQuery.swift; sourceTree = "<group>"; };
 		F041B3A92AF3005A00EE13DE /* ProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewModel.swift; sourceTree = "<group>"; };
 		F041B3AB2AF3015A00EE13DE /* ProjectListContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListContainerViewModel.swift; sourceTree = "<group>"; };
 		F041B3AE2AF3024800EE13DE /* ProjectListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListViewModel.swift; sourceTree = "<group>"; };
@@ -677,6 +698,68 @@
 				F05BFD592AE889F500095F74 /* DeeplinkManager.swift */,
 			);
 			path = Deeplink;
+			sourceTree = "<group>";
+		};
+		F030C0C22AF6F7700065BF1A /* SingleProject */ = {
+			isa = PBXGroup;
+			children = (
+				F030C0C92AF6F7CF0065BF1A /* SingleProjectWidget.swift */,
+				F030C0C42AF6F7850065BF1A /* Entry */,
+				F030C0C62AF6F7950065BF1A /* Intent */,
+				F030C0C52AF6F78B0065BF1A /* TimelineProvider */,
+				F030C0C32AF6F7810065BF1A /* View */,
+			);
+			path = SingleProject;
+			sourceTree = "<group>";
+		};
+		F030C0C32AF6F7810065BF1A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F030C0CF2AF6F80B0065BF1A /* SingleProjectEntryView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F030C0C42AF6F7850065BF1A /* Entry */ = {
+			isa = PBXGroup;
+			children = (
+				F030C0CC2AF6F7DD0065BF1A /* SingleProjectEntry.swift */,
+			);
+			path = Entry;
+			sourceTree = "<group>";
+		};
+		F030C0C52AF6F78B0065BF1A /* TimelineProvider */ = {
+			isa = PBXGroup;
+			children = (
+				F030C0D22AF6F82D0065BF1A /* SingleProjectTimelineProvider.swift */,
+			);
+			path = TimelineProvider;
+			sourceTree = "<group>";
+		};
+		F030C0C62AF6F7950065BF1A /* Intent */ = {
+			isa = PBXGroup;
+			children = (
+				F030C0D52AF6F83B0065BF1A /* SingleProjectIntent.swift */,
+				F030C0C82AF6F7BE0065BF1A /* Entities */,
+				F030C0C72AF6F7B80065BF1A /* Queries */,
+			);
+			path = Intent;
+			sourceTree = "<group>";
+		};
+		F030C0C72AF6F7B80065BF1A /* Queries */ = {
+			isa = PBXGroup;
+			children = (
+				F030C0DB2AF6F8630065BF1A /* ProjectEntityQuery.swift */,
+			);
+			path = Queries;
+			sourceTree = "<group>";
+		};
+		F030C0C82AF6F7BE0065BF1A /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				F030C0D82AF6F8530065BF1A /* ProjectEntity.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		F041B3BD2AF309A400EE13DE /* Formatters */ = {
@@ -1322,6 +1405,7 @@
 				F0BD69812AEAC8E1002490E7 /* AddProject */,
 				F0BD69852AEAC8FF002490E7 /* LastProject */,
 				F041B3FB2AF46D2E00EE13DE /* Projects */,
+				F030C0C22AF6F7700065BF1A /* SingleProject */,
 				F0BD697F2AEAC839002490E7 /* Resources */,
 			);
 			path = Widgets;
@@ -2130,6 +2214,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F030C0D92AF6F8530065BF1A /* ProjectEntity.swift in Sources */,
 				F06BC1252AF5B7E600989C82 /* ProjectRow.swift in Sources */,
 				F06BC1222AF5B7CB00989C82 /* ProjectListView.swift in Sources */,
 				F013038D2AEB0E9300D28886 /* WidgetStore.swift in Sources */,
@@ -2139,22 +2224,27 @@
 				F0BD699F2AEAC9B9002490E7 /* LastProjectWidget.swift in Sources */,
 				F041B40A2AF46EAD00EE13DE /* ProjectsTimelineProvider.swift in Sources */,
 				F041B3F52AF3DB2400EE13DE /* RectangularView.swift in Sources */,
+				F030C0CA2AF6F7CF0065BF1A /* SingleProjectWidget.swift in Sources */,
 				F041B4112AF50F6B00EE13DE /* ThemeEntity.swift in Sources */,
 				F041B3EB2AF3C52700EE13DE /* ContentContainerView.swift in Sources */,
 				F01303942AEB213600D28886 /* ProjectView.swift in Sources */,
 				F01303912AEB1E8F00D28886 /* Project+Preview.swift in Sources */,
 				F0BD69992AEAC9A9002490E7 /* LastProjectTimelineProvider.swift in Sources */,
+				F030C0D62AF6F83B0065BF1A /* SingleProjectIntent.swift in Sources */,
+				F030C0D02AF6F80B0065BF1A /* SingleProjectEntryView.swift in Sources */,
 				F041B40D2AF46EC000EE13DE /* ProjectsEntryView.swift in Sources */,
 				F041B3F92AF464D800EE13DE /* WidgetURL+Deeplink.swift in Sources */,
 				F041B3DC2AF3B92600EE13DE /* Array+Duplicates.swift in Sources */,
 				F041B3DA2AF3B8A000EE13DE /* ProjectViewModel.swift in Sources */,
 				F0BD69932AEAC989002490E7 /* AddProjectWidget.swift in Sources */,
+				F030C0DC2AF6F8630065BF1A /* ProjectEntityQuery.swift in Sources */,
 				F041B4072AF46E9900EE13DE /* ProjectsIntent.swift in Sources */,
 				F041B4182AF50FDC00EE13DE /* ThemeType.swift in Sources */,
 				F0BD698A2AEAC963002490E7 /* AddProjectEntry.swift in Sources */,
 				F06BC1282AF5B81000989C82 /* ProjectRowViewModel.swift in Sources */,
 				F041B3D42AF3B82D00EE13DE /* ProjectFormatterProtocol.swift in Sources */,
 				F0BD69962AEAC99F002490E7 /* LastProjectEntry.swift in Sources */,
+				F030C0D32AF6F82D0065BF1A /* SingleProjectTimelineProvider.swift in Sources */,
 				F041B3D22AF3B82800EE13DE /* ProjectFormatter.swift in Sources */,
 				F0BD69A32AEAC9C4002490E7 /* WidgetsBundle.swift in Sources */,
 				F0BD69B42AEACEFC002490E7 /* Project.swift in Sources */,
@@ -2163,6 +2253,7 @@
 				F0BD699C2AEAC9B2002490E7 /* LastProjectEntryView.swift in Sources */,
 				F0BD69A72AEAC9E9002490E7 /* Deeplink.swift in Sources */,
 				F041B3D82AF3B83400EE13DE /* ProjectValues.swift in Sources */,
+				F030C0CD2AF6F7DD0065BF1A /* SingleProjectEntry.swift in Sources */,
 				F0BD69B02AEACEEA002490E7 /* String+Components.swift in Sources */,
 				F041B3DE2AF3B93C00EE13DE /* Sequence+CountBy.swift in Sources */,
 				F041B4042AF46E2400EE13DE /* ProjectsEntry.swift in Sources */,
@@ -2176,6 +2267,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F030C0DA2AF6F8530065BF1A /* ProjectEntity.swift in Sources */,
 				F06BC1262AF5B7E600989C82 /* ProjectRow.swift in Sources */,
 				F06BC1232AF5B7CB00989C82 /* ProjectListView.swift in Sources */,
 				F013038E2AEB0E9300D28886 /* WidgetStore.swift in Sources */,
@@ -2185,22 +2277,27 @@
 				F0BD69A02AEAC9B9002490E7 /* LastProjectWidget.swift in Sources */,
 				F041B40B2AF46EAD00EE13DE /* ProjectsTimelineProvider.swift in Sources */,
 				F041B3F62AF3DB2400EE13DE /* RectangularView.swift in Sources */,
+				F030C0CB2AF6F7CF0065BF1A /* SingleProjectWidget.swift in Sources */,
 				F041B4122AF50F6B00EE13DE /* ThemeEntity.swift in Sources */,
 				F041B3EC2AF3C52700EE13DE /* ContentContainerView.swift in Sources */,
 				F01303952AEB213600D28886 /* ProjectView.swift in Sources */,
 				F01303922AEB1E8F00D28886 /* Project+Preview.swift in Sources */,
 				F0BD699A2AEAC9A9002490E7 /* LastProjectTimelineProvider.swift in Sources */,
+				F030C0D72AF6F83B0065BF1A /* SingleProjectIntent.swift in Sources */,
+				F030C0D12AF6F80B0065BF1A /* SingleProjectEntryView.swift in Sources */,
 				F041B40E2AF46EC000EE13DE /* ProjectsEntryView.swift in Sources */,
 				F041B3FA2AF464D800EE13DE /* WidgetURL+Deeplink.swift in Sources */,
 				F041B3DD2AF3B92600EE13DE /* Array+Duplicates.swift in Sources */,
 				F041B3DB2AF3B8A000EE13DE /* ProjectViewModel.swift in Sources */,
 				F0BD69942AEAC989002490E7 /* AddProjectWidget.swift in Sources */,
+				F030C0DD2AF6F8630065BF1A /* ProjectEntityQuery.swift in Sources */,
 				F041B4082AF46E9900EE13DE /* ProjectsIntent.swift in Sources */,
 				F041B4192AF50FDC00EE13DE /* ThemeType.swift in Sources */,
 				F0BD698B2AEAC963002490E7 /* AddProjectEntry.swift in Sources */,
 				F06BC1292AF5B81000989C82 /* ProjectRowViewModel.swift in Sources */,
 				F041B3D52AF3B82E00EE13DE /* ProjectFormatterProtocol.swift in Sources */,
 				F0BD69972AEAC99F002490E7 /* LastProjectEntry.swift in Sources */,
+				F030C0D42AF6F82D0065BF1A /* SingleProjectTimelineProvider.swift in Sources */,
 				F041B3D32AF3B82900EE13DE /* ProjectFormatter.swift in Sources */,
 				F0BD69A42AEAC9C4002490E7 /* WidgetsBundle.swift in Sources */,
 				F0BD69B52AEACEFD002490E7 /* Project.swift in Sources */,
@@ -2209,6 +2306,7 @@
 				F0BD699D2AEAC9B2002490E7 /* LastProjectEntryView.swift in Sources */,
 				F0BD69A82AEAC9E9002490E7 /* Deeplink.swift in Sources */,
 				F041B3D72AF3B83200EE13DE /* ProjectValues.swift in Sources */,
+				F030C0CE2AF6F7DD0065BF1A /* SingleProjectEntry.swift in Sources */,
 				F0BD69B12AEACEEA002490E7 /* String+Components.swift in Sources */,
 				F041B3DF2AF3B93C00EE13DE /* Sequence+CountBy.swift in Sources */,
 				F041B4052AF46E2400EE13DE /* ProjectsEntry.swift in Sources */,

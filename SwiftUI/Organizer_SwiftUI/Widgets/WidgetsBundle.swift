@@ -14,5 +14,6 @@ struct WidgetsBundle: WidgetBundle {
         AddProjectWidget()
         LastProjectWidget()
         ProjectsWidget()
+        SingleProjectWidget()
     }
 }
