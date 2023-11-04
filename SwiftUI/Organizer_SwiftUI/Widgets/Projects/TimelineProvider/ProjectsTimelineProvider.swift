@@ -46,7 +46,7 @@ private extension ProjectsTimelineProvider {
                 predicate: self.predicate(for: configuration),
                 sortBy: [.init(\.updatedDate, order: .reverse)],
                 fetchLimit: fetchLimit,
-                propertiesToFetch: [\.title, \.theme],
+                propertiesToFetch: [\.identifier, \.title, \.theme],
                 relationshipKeyPathsForPrefetching: [\.contents]
             )
             return projects.isEmpty ? nil : projects

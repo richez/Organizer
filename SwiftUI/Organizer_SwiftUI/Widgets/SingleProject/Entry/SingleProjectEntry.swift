@@ -9,5 +9,7 @@ import WidgetKit
 
 struct SingleProjectEntry: TimelineEntry {
     var project: Project?
+    var contents: [ProjectContent] = []
+    var requiredCapacity: Int = 0
     var date: Date = .now
 }

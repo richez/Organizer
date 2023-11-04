@@ -14,15 +14,81 @@ struct SingleProjectTimelineProvider: AppIntentTimelineProvider {
     var store: WidgetStore = .init()
 
     func placeholder(in context: Context) -> SingleProjectEntry {
-        SingleProjectEntry()
+        let requiredCapacity = self.requiredCapacity(for: context.family)
+        let project = self.project(for: nil)
+        let contents = self.contents(for: nil, fetchLimit: requiredCapacity)
+        return SingleProjectEntry(project: project, contents: contents, requiredCapacity: requiredCapacity)
     }
     
     func snapshot(for configuration: SingleProjectIntent, in context: Context) async -> SingleProjectEntry {
-        SingleProjectEntry()
+        logger.info("Finding project for widget snapshot with title \(configuration.project?.title ?? "")")
+        let requiredCapacity = self.requiredCapacity(for: context.family)
+        let project = self.project(for: configuration)
+        let contents = self.contents(for: configuration, fetchLimit: requiredCapacity)
+        logger.info("Found \(project?.title ?? "nil") with contents: \(contents)")
+
+        return SingleProjectEntry(project: project, contents: contents, requiredCapacity: requiredCapacity)
     }
     
     func timeline(for configuration: SingleProjectIntent, in context: Context) async -> Timeline<SingleProjectEntry> {
-        let entry = SingleProjectEntry()
+        logger.info("Finding project for widget timeline with title \(configuration.project?.title ?? "")")
+        let requiredCapacity = self.requiredCapacity(for: context.family)
+        let project = self.project(for: configuration)
+        let contents = self.contents(for: configuration, fetchLimit: requiredCapacity)
+        logger.info("Found \(project?.title ?? "nil") with contents: \(contents)")
+
+        let entry = SingleProjectEntry(project: project, contents: contents, requiredCapacity: requiredCapacity)
         return Timeline(entries: [entry], policy: .never)
+    }
+}
+
+private extension SingleProjectTimelineProvider {
+    func project(for configuration: SingleProjectIntent?) -> Project? {
+        do {
+            let projects: [Project] = try self.store.models(
+                predicate: self.predicate(for: configuration),
+                sortBy: [.init(\.updatedDate, order: .reverse)],
+                fetchLimit: 1,
+                propertiesToFetch: [\.identifier, \.title, \.theme],
+                relationshipKeyPathsForPrefetching: [\.contents]
+            )
+            return projects.first
+        } catch {
+            logger.info("Fail to retrieve projects: \(error)")
+            return nil
+        }
+    }
+
+    func contents(for configuration: SingleProjectIntent?, fetchLimit: Int) -> [ProjectContent] {
+        guard let projectEntity = configuration?.project else { return [] }
+
+        do {
+            return try self.store.models(
+                predicate: #Predicate { $0.project?.identifier == projectEntity.id },
+                sortBy: [.init(\.updatedDate, order: .reverse)],
+                fetchLimit: fetchLimit,
+                propertiesToFetch: [\.identifier, \.typeRawValue, \.title, \.theme]
+            )
+        } catch {
+            logger.info("Fail to retrieve project (\(projectEntity.id)) contents: \(error)")
+            return []
+        }
+    }
+
+    func predicate(for configuration: SingleProjectIntent?) -> Predicate<Project>? {
+        guard let projectEntity = configuration?.project else { return nil }
+        return #Predicate { $0.identifier == projectEntity.id }
+    }
+
+    func requiredCapacity(for family: WidgetFamily) -> Int {
+        switch family {
+        #if !os(macOS)
+        case .accessoryCircular, .accessoryRectangular: 0
+        #endif
+        case .systemSmall: 0
+        case .systemMedium: 2
+        case .systemLarge: 5
+        default: 0
+        }
     }
 }

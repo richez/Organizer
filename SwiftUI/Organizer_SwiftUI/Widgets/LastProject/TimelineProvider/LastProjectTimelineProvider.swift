@@ -44,7 +44,7 @@ private extension LastProjectTimelineProvider {
             let projects: [Project] = try self.store.models(
                 sortBy: [.init(\.updatedDate, order: .reverse)],
                 fetchLimit: 1,
-                propertiesToFetch: [\.title, \.theme],
+                propertiesToFetch: [\.identifier, \.title, \.theme],
                 relationshipKeyPathsForPrefetching: [\.contents]
             )
             return projects.first
