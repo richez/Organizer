@@ -14,31 +14,33 @@ struct LastProjectTimelineProvider: TimelineProvider {
     var store: WidgetStore = .init()
 
     func placeholder(in context: Context) -> LastProjectEntry {
-        let project = self.lastUpdatedProject()
-        return LastProjectEntry(project: project)
+        return self.entry()
     }
     
     func getSnapshot(in context: Context, completion: @escaping (LastProjectEntry) -> Void) {
         logger.info("Finding last updated project for widget snapshot")
-        let project = self.lastUpdatedProject()
-        logger.info("Found \(project?.title ?? "nil")")
+        let entry = self.entry()
+        logger.info("Found \(entry.project?.title ?? "nil")")
 
-        let entry = LastProjectEntry(project: project)
         completion(entry)
     }
     
     func getTimeline(in context: Context, completion: @escaping (Timeline<LastProjectEntry>) -> Void) {
         logger.info("Finding last updated project for widget timeline")
-        let project = self.lastUpdatedProject()
-        logger.info("Found \(project?.title ?? "nil")")
+        let entry = self.entry()
+        logger.info("Found \(entry.project?.title ?? "nil")")
 
-        let entry = LastProjectEntry(project: project)
         let timeline = Timeline(entries: [entry], policy: .never)
         completion(timeline)
     }
 }
 
 private extension LastProjectTimelineProvider {
+    func entry() -> LastProjectEntry {
+        let project = self.lastUpdatedProject()
+        return LastProjectEntry(project: project)
+    }
+
     func lastUpdatedProject() -> Project? {
         do {
             let projects: [Project] = try self.store.models(

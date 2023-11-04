@@ -14,32 +14,33 @@ struct ProjectsTimelineProvider: AppIntentTimelineProvider {
     var store: WidgetStore = .init()
 
     func placeholder(in context: Context) -> ProjectsEntry {
-        let requiredCapacity = self.requiredCapacity(for: context.family)
-        let projects = self.projects(for: nil, fetchLimit: requiredCapacity)
-        return ProjectsEntry(projects: projects, requiredCapacity: requiredCapacity)
+        return self.entry(for: nil, family: context.family)
     }
     
     func snapshot(for configuration: ProjectsIntent, in context: Context) async -> ProjectsEntry {
         logger.info("Finding projects for widget snapshot with type \(configuration.type.rawValue) and theme \(configuration.theme?.name ?? "nil")")
-        let requiredCapacity = self.requiredCapacity(for: context.family)
-        let projects = self.projects(for: configuration, fetchLimit: requiredCapacity)
-        logger.info("Found \(projects ?? [])")
+        let entry = self.entry(for: configuration, family: context.family)
+        logger.info("Found \(entry.projects ?? [])")
 
-        return ProjectsEntry(projects: projects, requiredCapacity: requiredCapacity)
+        return entry
     }
     
     func timeline(for configuration: ProjectsIntent, in context: Context) async -> Timeline<ProjectsEntry> {
         logger.info("Finding projects for widget timeline with type \(configuration.type.rawValue) and theme \(configuration.theme?.name ?? "nil")")
-        let requiredCapacity = self.requiredCapacity(for: context.family)
-        let projects = self.projects(for: configuration, fetchLimit: requiredCapacity)
-        logger.info("Found \(projects ?? [])")
+        let entry = self.entry(for: configuration, family: context.family)
+        logger.info("Found \(entry.projects ?? [])")
 
-        let entry = ProjectsEntry(projects: projects, requiredCapacity: requiredCapacity)
         return Timeline(entries: [entry], policy: .never)
     }
 }
 
 private extension ProjectsTimelineProvider {
+    func entry(for configuration: ProjectsIntent?, family: WidgetFamily) -> ProjectsEntry {
+        let requiredCapacity = self.requiredCapacity(for: family)
+        let projects = self.projects(for: nil, fetchLimit: requiredCapacity)
+        return ProjectsEntry(projects: projects, requiredCapacity: requiredCapacity)
+    }
+
     func projects(for configuration: ProjectsIntent?, fetchLimit: Int) -> [Project]? {
         do {
             let projects: [Project] = try self.store.models(

@@ -14,35 +14,34 @@ struct SingleProjectTimelineProvider: AppIntentTimelineProvider {
     var store: WidgetStore = .init()
 
     func placeholder(in context: Context) -> SingleProjectEntry {
-        let requiredCapacity = self.requiredCapacity(for: context.family)
-        let project = self.project(for: nil)
-        let contents = self.contents(for: nil, fetchLimit: requiredCapacity)
-        return SingleProjectEntry(project: project, contents: contents, requiredCapacity: requiredCapacity)
+        return self.entry(for: nil, family: context.family)
     }
     
     func snapshot(for configuration: SingleProjectIntent, in context: Context) async -> SingleProjectEntry {
         logger.info("Finding project for widget snapshot with title \(configuration.project?.title ?? "")")
-        let requiredCapacity = self.requiredCapacity(for: context.family)
-        let project = self.project(for: configuration)
-        let contents = self.contents(for: configuration, fetchLimit: requiredCapacity)
-        logger.info("Found \(project?.title ?? "nil") with contents: \(contents)")
+        let entry = self.entry(for: configuration, family: context.family)
+        logger.info("Found \(entry.project?.title ?? "nil") with contents: \(entry.contents)")
 
-        return SingleProjectEntry(project: project, contents: contents, requiredCapacity: requiredCapacity)
+        return entry
     }
     
     func timeline(for configuration: SingleProjectIntent, in context: Context) async -> Timeline<SingleProjectEntry> {
         logger.info("Finding project for widget timeline with title \(configuration.project?.title ?? "")")
-        let requiredCapacity = self.requiredCapacity(for: context.family)
-        let project = self.project(for: configuration)
-        let contents = self.contents(for: configuration, fetchLimit: requiredCapacity)
-        logger.info("Found \(project?.title ?? "nil") with contents: \(contents)")
+        let entry = self.entry(for: configuration, family: context.family)
+        logger.info("Found \(entry.project?.title ?? "nil") with contents: \(entry.contents)")
 
-        let entry = SingleProjectEntry(project: project, contents: contents, requiredCapacity: requiredCapacity)
         return Timeline(entries: [entry], policy: .never)
     }
 }
 
 private extension SingleProjectTimelineProvider {
+    func entry(for configuration: SingleProjectIntent?, family: WidgetFamily) -> SingleProjectEntry {
+        let requiredCapacity = self.requiredCapacity(for: family)
+        let project = self.project(for: configuration)
+        let contents = self.contents(for: configuration, fetchLimit: requiredCapacity)
+        return SingleProjectEntry(project: project, contents: contents, requiredCapacity: requiredCapacity)
+    }
+
     func project(for configuration: SingleProjectIntent?) -> Project? {
         do {
             let projects: [Project] = try self.store.models(
