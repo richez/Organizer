@@ -16,7 +16,7 @@ struct SingleProjectTimelineProvider: AppIntentTimelineProvider {
     func placeholder(in context: Context) -> SingleProjectEntry {
         return self.entry(for: nil, family: context.family)
     }
-    
+
     func snapshot(for configuration: SingleProjectIntent, in context: Context) async -> SingleProjectEntry {
         logger.info("Finding project for widget snapshot with title \(configuration.project?.title ?? "")")
         let entry = self.entry(for: configuration, family: context.family)
@@ -24,7 +24,7 @@ struct SingleProjectTimelineProvider: AppIntentTimelineProvider {
 
         return entry
     }
-    
+
     func timeline(for configuration: SingleProjectIntent, in context: Context) async -> Timeline<SingleProjectEntry> {
         logger.info("Finding project for widget timeline with title \(configuration.project?.title ?? "")")
         let entry = self.entry(for: configuration, family: context.family)
@@ -40,6 +40,18 @@ private extension SingleProjectTimelineProvider {
         let project = self.project(for: configuration)
         let contents = self.contents(for: configuration, fetchLimit: requiredCapacity)
         return SingleProjectEntry(project: project, contents: contents, requiredCapacity: requiredCapacity)
+    }
+
+    func requiredCapacity(for family: WidgetFamily) -> Int {
+        switch family {
+        #if !os(macOS)
+        case .accessoryCircular, .accessoryRectangular: 0
+        #endif
+        case .systemSmall: 0
+        case .systemMedium: 2
+        case .systemLarge: 5
+        default: 0
+        }
     }
 
     func project(for configuration: SingleProjectIntent?) -> Project? {
@@ -58,6 +70,12 @@ private extension SingleProjectTimelineProvider {
         }
     }
 
+    func predicate(for configuration: SingleProjectIntent?) -> Predicate<Project>? {
+        guard let projectEntity = configuration?.project else { return nil }
+        let projectID = projectEntity.id
+        return #Predicate { $0.identifier == projectID }
+    }
+
     func contents(for configuration: SingleProjectIntent?, fetchLimit: Int) -> [ProjectContent] {
         guard let projectEntity = configuration?.project else { return [] }
 
@@ -72,24 +90,6 @@ private extension SingleProjectTimelineProvider {
         } catch {
             logger.info("Fail to retrieve project (\(projectEntity.id)) contents: \(error)")
             return []
-        }
-    }
-
-    func predicate(for configuration: SingleProjectIntent?) -> Predicate<Project>? {
-        guard let projectEntity = configuration?.project else { return nil }
-        let projectID = projectEntity.id
-        return #Predicate { $0.identifier == projectID }
-    }
-
-    func requiredCapacity(for family: WidgetFamily) -> Int {
-        switch family {
-        #if !os(macOS)
-        case .accessoryCircular, .accessoryRectangular: 0
-        #endif
-        case .systemSmall: 0
-        case .systemMedium: 2
-        case .systemLarge: 5
-        default: 0
         }
     }
 }

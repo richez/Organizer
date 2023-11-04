@@ -16,7 +16,7 @@ struct ProjectsTimelineProvider: AppIntentTimelineProvider {
     func placeholder(in context: Context) -> ProjectsEntry {
         return self.entry(for: nil, family: context.family)
     }
-    
+
     func snapshot(for configuration: ProjectsIntent, in context: Context) async -> ProjectsEntry {
         logger.info("Finding projects for widget snapshot with type \(configuration.type.rawValue) and theme \(configuration.theme?.name ?? "nil")")
         let entry = self.entry(for: configuration, family: context.family)
@@ -24,7 +24,7 @@ struct ProjectsTimelineProvider: AppIntentTimelineProvider {
 
         return entry
     }
-    
+
     func timeline(for configuration: ProjectsIntent, in context: Context) async -> Timeline<ProjectsEntry> {
         logger.info("Finding projects for widget timeline with type \(configuration.type.rawValue) and theme \(configuration.theme?.name ?? "nil")")
         let entry = self.entry(for: configuration, family: context.family)
@@ -39,6 +39,18 @@ private extension ProjectsTimelineProvider {
         let requiredCapacity = self.requiredCapacity(for: family)
         let projects = self.projects(for: nil, fetchLimit: requiredCapacity)
         return ProjectsEntry(projects: projects, requiredCapacity: requiredCapacity)
+    }
+
+    func requiredCapacity(for family: WidgetFamily) -> Int {
+        switch family {
+        #if !os(macOS)
+        case .accessoryCircular, .accessoryRectangular: 1
+        #endif
+        case .systemSmall: 1
+        case .systemMedium: 2
+        case .systemLarge: 5
+        default: 0
+        }
     }
 
     func projects(for configuration: ProjectsIntent?, fetchLimit: Int) -> [Project]? {
@@ -64,18 +76,6 @@ private extension ProjectsTimelineProvider {
             return #Predicate { $0.theme.contains(theme) }
         default:
             return nil
-        }
-    }
-
-    func requiredCapacity(for family: WidgetFamily) -> Int {
-        switch family {
-        #if !os(macOS)
-        case .accessoryCircular, .accessoryRectangular: 1
-        #endif
-        case .systemSmall: 1
-        case .systemMedium: 2
-        case .systemLarge: 5
-        default: 0
         }
     }
 }

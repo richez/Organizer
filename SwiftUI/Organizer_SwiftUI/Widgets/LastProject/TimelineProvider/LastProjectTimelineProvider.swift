@@ -16,7 +16,7 @@ struct LastProjectTimelineProvider: TimelineProvider {
     func placeholder(in context: Context) -> LastProjectEntry {
         return self.entry()
     }
-    
+
     func getSnapshot(in context: Context, completion: @escaping (LastProjectEntry) -> Void) {
         logger.info("Finding last updated project for widget snapshot")
         let entry = self.entry()
@@ -24,7 +24,7 @@ struct LastProjectTimelineProvider: TimelineProvider {
 
         completion(entry)
     }
-    
+
     func getTimeline(in context: Context, completion: @escaping (Timeline<LastProjectEntry>) -> Void) {
         logger.info("Finding last updated project for widget timeline")
         let entry = self.entry()
