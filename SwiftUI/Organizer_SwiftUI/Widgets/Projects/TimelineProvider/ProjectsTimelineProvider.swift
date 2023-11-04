@@ -14,36 +14,36 @@ struct ProjectsTimelineProvider: AppIntentTimelineProvider {
     var store: WidgetStore = .init()
 
     func placeholder(in context: Context) -> ProjectsEntry {
-        let projects = self.projects(for: nil, widgetFamily: context.family)
-        return ProjectsEntry(projects: projects)
+        let requiredCapacity = self.requiredCapacity(for: context.family)
+        let projects = self.projects(for: nil, fetchLimit: requiredCapacity)
+        return ProjectsEntry(projects: projects, requiredCapacity: requiredCapacity)
     }
     
     func snapshot(for configuration: ProjectsIntent, in context: Context) async -> ProjectsEntry {
         logger.info("Finding projects for widget snapshot with type \(configuration.type.rawValue) and theme \(configuration.theme?.name ?? "nil")")
-        let projects = self.projects(for: configuration, widgetFamily: context.family)
+        let requiredCapacity = self.requiredCapacity(for: context.family)
+        let projects = self.projects(for: configuration, fetchLimit: requiredCapacity)
         logger.info("Found \(projects ?? [])")
 
-        return ProjectsEntry(projects: projects)
+        return ProjectsEntry(projects: projects, requiredCapacity: requiredCapacity)
     }
     
     func timeline(for configuration: ProjectsIntent, in context: Context) async -> Timeline<ProjectsEntry> {
         logger.info("Finding projects for widget timeline with type \(configuration.type.rawValue) and theme \(configuration.theme?.name ?? "nil")")
-        let projects = self.projects(for: configuration, widgetFamily: context.family)
+        let requiredCapacity = self.requiredCapacity(for: context.family)
+        let projects = self.projects(for: configuration, fetchLimit: requiredCapacity)
         logger.info("Found \(projects ?? [])")
 
-        let entry = ProjectsEntry(projects: projects)
+        let entry = ProjectsEntry(projects: projects, requiredCapacity: requiredCapacity)
         return Timeline(entries: [entry], policy: .never)
     }
 }
 
 private extension ProjectsTimelineProvider {
-    func projects(for configuration: ProjectsIntent?, widgetFamily: WidgetFamily) -> [Project]? {
+    func projects(for configuration: ProjectsIntent?, fetchLimit: Int) -> [Project]? {
         do {
-            let predicate = self.predicate(for: configuration)
-            let fetchLimit = ProjectsWidgetConfiguration.numberOfProject(for: widgetFamily)
-
             let projects = try self.store.projects(
-                predicate: predicate,
+                predicate: self.predicate(for: configuration),
                 sortBy: [.init(\.updatedDate, order: .reverse)],
                 fetchLimit: fetchLimit,
                 propertiesToFetch: [\.title, \.theme],
@@ -63,6 +63,18 @@ private extension ProjectsTimelineProvider {
             return #Predicate { $0.theme.contains(theme) }
         default:
             return nil
+        }
+    }
+
+    func requiredCapacity(for family: WidgetFamily) -> Int {
+        switch family {
+        #if !os(macOS)
+        case .accessoryCircular, .accessoryRectangular: 1
+        #endif
+        case .systemSmall: 1
+        case .systemMedium: 2
+        case .systemLarge: 5
+        default: 0
         }
     }
 }

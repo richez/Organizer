@@ -36,13 +36,9 @@ struct ProjectsEntryView: View {
 }
 
 private extension ProjectsEntryView {
-    var placeholders: [Project] {
-        let count = self.entry.projects?.count ?? 0
-        let requiredCapacity = ProjectsWidgetConfiguration.numberOfProject(for: self.widgetFamily)
-        if count < requiredCapacity {
-            return [Project](repeating: .preview, count: requiredCapacity - count)
-        } else {
-            return []
-        }
+    var placeholders: Int {
+        guard let count = self.entry.projects?.count else { return 0 }
+        let requiredCapacity = self.entry.requiredCapacity
+        return count < requiredCapacity ? requiredCapacity - count : 0
     }
 }

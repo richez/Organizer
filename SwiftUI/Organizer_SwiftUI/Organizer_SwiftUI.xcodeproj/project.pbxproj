@@ -189,8 +189,6 @@
 		F06A29242AE5CEDF00B5A480 /* StatisticsDateContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06A29232AE5CEDF00B5A480 /* StatisticsDateContainerView.swift */; };
 		F06A29262AE5CF3B00B5A480 /* StatisticsDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06A29252AE5CF3B00B5A480 /* StatisticsDateView.swift */; };
 		F06A29282AE5E5E000B5A480 /* StatisticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06A29272AE5E5E000B5A480 /* StatisticsViewModel.swift */; };
-		F06BC11D2AF5B79900989C82 /* ProjectsWidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06BC11C2AF5B79900989C82 /* ProjectsWidgetConfiguration.swift */; };
-		F06BC11E2AF5B79900989C82 /* ProjectsWidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06BC11C2AF5B79900989C82 /* ProjectsWidgetConfiguration.swift */; };
 		F06BC1222AF5B7CB00989C82 /* ProjectListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06BC1212AF5B7CB00989C82 /* ProjectListView.swift */; };
 		F06BC1232AF5B7CB00989C82 /* ProjectListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06BC1212AF5B7CB00989C82 /* ProjectListView.swift */; };
 		F06BC1252AF5B7E600989C82 /* ProjectRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06BC1242AF5B7E600989C82 /* ProjectRow.swift */; };
@@ -455,7 +453,6 @@
 		F06A29232AE5CEDF00B5A480 /* StatisticsDateContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsDateContainerView.swift; sourceTree = "<group>"; };
 		F06A29252AE5CF3B00B5A480 /* StatisticsDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsDateView.swift; sourceTree = "<group>"; };
 		F06A29272AE5E5E000B5A480 /* StatisticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewModel.swift; sourceTree = "<group>"; };
-		F06BC11C2AF5B79900989C82 /* ProjectsWidgetConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsWidgetConfiguration.swift; sourceTree = "<group>"; };
 		F06BC1212AF5B7CB00989C82 /* ProjectListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListView.swift; sourceTree = "<group>"; };
 		F06BC1242AF5B7E600989C82 /* ProjectRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectRow.swift; sourceTree = "<group>"; };
 		F06BC1272AF5B81000989C82 /* ProjectRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectRowViewModel.swift; sourceTree = "<group>"; };
@@ -777,7 +774,6 @@
 			isa = PBXGroup;
 			children = (
 				F041B4002AF46E0700EE13DE /* ProjectsWidget.swift */,
-				F06BC11B2AF5B78700989C82 /* Configuration */,
 				F041B3FC2AF46D3C00EE13DE /* Entry */,
 				F041B3FF2AF46D5E00EE13DE /* Intent */,
 				F041B3FE2AF46D4900EE13DE /* TimelineProvider */,
@@ -1124,14 +1120,6 @@
 				F06A29252AE5CF3B00B5A480 /* StatisticsDateView.swift */,
 			);
 			path = Date;
-			sourceTree = "<group>";
-		};
-		F06BC11B2AF5B78700989C82 /* Configuration */ = {
-			isa = PBXGroup;
-			children = (
-				F06BC11C2AF5B79900989C82 /* ProjectsWidgetConfiguration.swift */,
-			);
-			path = Configuration;
 			sourceTree = "<group>";
 		};
 		F06BC11F2AF5B7B300989C82 /* List */ = {
@@ -2145,7 +2133,6 @@
 				F06BC1252AF5B7E600989C82 /* ProjectRow.swift in Sources */,
 				F06BC1222AF5B7CB00989C82 /* ProjectListView.swift in Sources */,
 				F013038D2AEB0E9300D28886 /* WidgetStore.swift in Sources */,
-				F06BC11D2AF5B79900989C82 /* ProjectsWidgetConfiguration.swift in Sources */,
 				F041B4012AF46E0700EE13DE /* ProjectsWidget.swift in Sources */,
 				F0BD698D2AEAC972002490E7 /* AddProjectTimelineProvider.swift in Sources */,
 				F0BD69B22AEACEF9002490E7 /* ProjectContent.swift in Sources */,
@@ -2192,7 +2179,6 @@
 				F06BC1262AF5B7E600989C82 /* ProjectRow.swift in Sources */,
 				F06BC1232AF5B7CB00989C82 /* ProjectListView.swift in Sources */,
 				F013038E2AEB0E9300D28886 /* WidgetStore.swift in Sources */,
-				F06BC11E2AF5B79900989C82 /* ProjectsWidgetConfiguration.swift in Sources */,
 				F041B4022AF46E0700EE13DE /* ProjectsWidget.swift in Sources */,
 				F0BD698E2AEAC972002490E7 /* AddProjectTimelineProvider.swift in Sources */,
 				F0BD69B32AEACEF9002490E7 /* ProjectContent.swift in Sources */,
