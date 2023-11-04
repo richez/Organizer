@@ -30,3 +30,47 @@ struct SingleProjectWidget: Widget {
         .supportedFamilies(self.families)
     }
 }
+
+#if !os(macOS)
+#Preview("Circular", as: .accessoryCircular) {
+    SingleProjectWidget()
+} timeline: {
+    SingleProjectEntry()
+    SingleProjectEntry(project: .preview)
+}
+
+#Preview("Rectangular", as: .accessoryRectangular) {
+    SingleProjectWidget()
+} timeline: {
+    SingleProjectEntry()
+    SingleProjectEntry(project: .preview)
+}
+#endif
+
+#Preview("Small", as: .systemSmall) {
+    SingleProjectWidget()
+} timeline: {
+    SingleProjectEntry()
+    SingleProjectEntry(project: .preview)
+}
+
+#Preview("Medium", as: .systemMedium) {
+    SingleProjectWidget()
+} timeline: {
+    SingleProjectEntry()
+    SingleProjectEntry(project: .preview, requiredCapacity: 2)
+    SingleProjectEntry(project: .preview, contents: [.preview], requiredCapacity: 2)
+    SingleProjectEntry(project: .preview, contents: [.preview, .preview])
+}
+
+#Preview("Large", as: .systemLarge) {
+    SingleProjectWidget()
+} timeline: {
+    SingleProjectEntry()
+    SingleProjectEntry(project: .preview, requiredCapacity: 5)
+    SingleProjectEntry(project: .preview, contents: [.preview], requiredCapacity: 5)
+    SingleProjectEntry(project: .preview, contents: [.preview, .preview], requiredCapacity: 5)
+    SingleProjectEntry(project: .preview, contents: [.preview, .preview, .preview], requiredCapacity: 5)
+    SingleProjectEntry(project: .preview, contents: [.preview, .preview, .preview, .preview], requiredCapacity: 5)
+    SingleProjectEntry(project: .preview, contents: [.preview, .preview, .preview, .preview, .preview])
+}

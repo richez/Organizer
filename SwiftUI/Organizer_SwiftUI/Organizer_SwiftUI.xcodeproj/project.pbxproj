@@ -63,6 +63,8 @@
 		F030C0DA2AF6F8530065BF1A /* ProjectEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F030C0D82AF6F8530065BF1A /* ProjectEntity.swift */; };
 		F030C0DC2AF6F8630065BF1A /* ProjectEntityQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = F030C0DB2AF6F8630065BF1A /* ProjectEntityQuery.swift */; };
 		F030C0DD2AF6F8630065BF1A /* ProjectEntityQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = F030C0DB2AF6F8630065BF1A /* ProjectEntityQuery.swift */; };
+		F030C0DF2AF709EF0065BF1A /* Content+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F030C0DE2AF709EF0065BF1A /* Content+Preview.swift */; };
+		F030C0E02AF709F00065BF1A /* Content+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F030C0DE2AF709EF0065BF1A /* Content+Preview.swift */; };
 		F041B3AA2AF3005A00EE13DE /* ProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3A92AF3005A00EE13DE /* ProjectViewModel.swift */; };
 		F041B3AC2AF3015A00EE13DE /* ProjectListContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3AB2AF3015A00EE13DE /* ProjectListContainerViewModel.swift */; };
 		F041B3AD2AF3016200EE13DE /* ProjectListContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B3AB2AF3015A00EE13DE /* ProjectListContainerViewModel.swift */; };
@@ -398,6 +400,7 @@
 		F030C0D52AF6F83B0065BF1A /* SingleProjectIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleProjectIntent.swift; sourceTree = "<group>"; };
 		F030C0D82AF6F8530065BF1A /* ProjectEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectEntity.swift; sourceTree = "<group>"; };
 		F030C0DB2AF6F8630065BF1A /* ProjectEntityQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectEntityQuery.swift; sourceTree = "<group>"; };
+		F030C0DE2AF709EF0065BF1A /* Content+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Content+Preview.swift"; sourceTree = "<group>"; };
 		F041B3A92AF3005A00EE13DE /* ProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewModel.swift; sourceTree = "<group>"; };
 		F041B3AB2AF3015A00EE13DE /* ProjectListContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListContainerViewModel.swift; sourceTree = "<group>"; };
 		F041B3AE2AF3024800EE13DE /* ProjectListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListViewModel.swift; sourceTree = "<group>"; };
@@ -687,6 +690,7 @@
 			isa = PBXGroup;
 			children = (
 				F01303902AEB1E8F00D28886 /* Project+Preview.swift */,
+				F030C0DE2AF709EF0065BF1A /* Content+Preview.swift */,
 			);
 			path = Preview;
 			sourceTree = "<group>";
@@ -2219,6 +2223,7 @@
 				F06BC1222AF5B7CB00989C82 /* ProjectListView.swift in Sources */,
 				F013038D2AEB0E9300D28886 /* WidgetStore.swift in Sources */,
 				F041B4012AF46E0700EE13DE /* ProjectsWidget.swift in Sources */,
+				F030C0DF2AF709EF0065BF1A /* Content+Preview.swift in Sources */,
 				F0BD698D2AEAC972002490E7 /* AddProjectTimelineProvider.swift in Sources */,
 				F0BD69B22AEACEF9002490E7 /* ProjectContent.swift in Sources */,
 				F0BD699F2AEAC9B9002490E7 /* LastProjectWidget.swift in Sources */,
@@ -2272,6 +2277,7 @@
 				F06BC1232AF5B7CB00989C82 /* ProjectListView.swift in Sources */,
 				F013038E2AEB0E9300D28886 /* WidgetStore.swift in Sources */,
 				F041B4022AF46E0700EE13DE /* ProjectsWidget.swift in Sources */,
+				F030C0E02AF709F00065BF1A /* Content+Preview.swift in Sources */,
 				F0BD698E2AEAC972002490E7 /* AddProjectTimelineProvider.swift in Sources */,
 				F0BD69B32AEACEF9002490E7 /* ProjectContent.swift in Sources */,
 				F0BD69A02AEAC9B9002490E7 /* LastProjectWidget.swift in Sources */,

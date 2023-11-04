@@ -34,41 +34,41 @@ struct ProjectsWidget: Widget {
 #if !os(macOS)
 #Preview("Circular", as: .accessoryCircular) {
     ProjectsWidget()
- } timeline: {
-     ProjectsEntry()
-     ProjectsEntry(projects: [.preview])
- }
+} timeline: {
+    ProjectsEntry()
+    ProjectsEntry(projects: [.preview])
+}
 
 #Preview("Rectangular", as: .accessoryRectangular) {
     ProjectsWidget()
- } timeline: {
-     ProjectsEntry()
-     ProjectsEntry(projects: [.preview])
- }
+} timeline: {
+    ProjectsEntry()
+    ProjectsEntry(projects: [.preview])
+}
 #endif
 
 #Preview("Small", as: .systemSmall) {
     ProjectsWidget()
- } timeline: {
-     ProjectsEntry()
-     ProjectsEntry(projects: [.preview])
- }
+} timeline: {
+    ProjectsEntry()
+    ProjectsEntry(projects: [.preview])
+}
 
 #Preview("Medium", as: .systemMedium) {
     ProjectsWidget()
- } timeline: {
-     ProjectsEntry()
-     ProjectsEntry(projects: [.preview])
-     ProjectsEntry(projects: [.preview, .preview])
- }
+} timeline: {
+    ProjectsEntry()
+    ProjectsEntry(projects: [.preview], requiredCapacity: 2)
+    ProjectsEntry(projects: [.preview, .preview])
+}
 
 #Preview("Large", as: .systemLarge) {
     ProjectsWidget()
- } timeline: {
-     ProjectsEntry()
-     ProjectsEntry(projects: [.preview])
-     ProjectsEntry(projects: [.preview, .preview])
-     ProjectsEntry(projects: [.preview, .preview, .preview])
-     ProjectsEntry(projects: [.preview, .preview, .preview, .preview])
-     ProjectsEntry(projects: [.preview, .preview, .preview, .preview, .preview])
- }
+} timeline: {
+    ProjectsEntry()
+    ProjectsEntry(projects: [.preview], requiredCapacity: 5)
+    ProjectsEntry(projects: [.preview, .preview], requiredCapacity: 5)
+    ProjectsEntry(projects: [.preview, .preview, .preview], requiredCapacity: 5)
+    ProjectsEntry(projects: [.preview, .preview, .preview, .preview], requiredCapacity: 5)
+    ProjectsEntry(projects: [.preview, .preview, .preview, .preview, .preview])
+}
