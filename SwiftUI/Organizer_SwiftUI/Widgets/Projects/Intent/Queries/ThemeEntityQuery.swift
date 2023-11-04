@@ -16,7 +16,7 @@ struct ThemeEntityQuery: EntityQuery {
     func suggestedEntities() async throws -> [ThemeEntity] {
         let store = WidgetStore()
         let formatter = ProjectFormatter()
-        let projects = try store.projects(propertiesToFetch: [\.theme])
+        let projects: [Project] = try store.models(propertiesToFetch: [\.theme])
         let themes = formatter.themes(from: projects)
         return themes.map(ThemeEntity.init(name:))
     }

@@ -15,7 +15,7 @@ struct ProjectEntityQuery: EntityQuery {
     func entities(for identifiers: [ProjectEntity.ID]) async throws -> [ProjectEntity] {
         let store = WidgetStore()
         logger.info("Loading projects for identifiers: \(identifiers)")
-        let projects = try store.projects(
+        let projects: [Project] = try store.models(
             predicate: #Predicate { identifiers.contains($0.identifier) },
             fetchLimit: 1,
             propertiesToFetch: [\.identifier, \.title]
@@ -27,7 +27,7 @@ struct ProjectEntityQuery: EntityQuery {
     func suggestedEntities() async throws -> [ProjectEntity] {
         let store = WidgetStore()
         logger.info("Loading projects to suggest for specific project...")
-        let projects = try store.projects(propertiesToFetch: [\.identifier, \.title])
+        let projects: [Project] = try store.models(propertiesToFetch: [\.identifier, \.title])
         logger.info("Found \(projects.map(\.title)) projects")
         return projects.map(ProjectEntity.init(from:))
     }

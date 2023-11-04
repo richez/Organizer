@@ -41,7 +41,7 @@ struct LastProjectTimelineProvider: TimelineProvider {
 private extension LastProjectTimelineProvider {
     func lastUpdatedProject() -> Project? {
         do {
-            let projects = try self.store.projects(
+            let projects: [Project] = try self.store.models(
                 sortBy: [.init(\.updatedDate, order: .reverse)],
                 fetchLimit: 1,
                 propertiesToFetch: [\.title, \.theme],

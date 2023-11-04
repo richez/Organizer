@@ -42,7 +42,7 @@ struct ProjectsTimelineProvider: AppIntentTimelineProvider {
 private extension ProjectsTimelineProvider {
     func projects(for configuration: ProjectsIntent?, fetchLimit: Int) -> [Project]? {
         do {
-            let projects = try self.store.projects(
+            let projects: [Project] = try self.store.models(
                 predicate: self.predicate(for: configuration),
                 sortBy: [.init(\.updatedDate, order: .reverse)],
                 fetchLimit: fetchLimit,
