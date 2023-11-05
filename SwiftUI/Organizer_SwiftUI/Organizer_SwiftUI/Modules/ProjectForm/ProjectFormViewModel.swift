@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import OSLog
 import SwiftData
 
 extension ProjectForm {
@@ -66,8 +67,10 @@ extension ProjectForm {
             } catch FormFieldValidator.Error.invalidFields(let fields) {
                 self.isInvalidTitle = fields.contains(.title)
                 self.isInvalidTheme = fields.contains(.theme)
+                Logger.forms.info("Fail to validate project form with invalid fields: \(fields)")
             } catch {
                 self.error = Error.save(error)
+                Logger.forms.info("Fail to validate project form with error: \(error)")
             }
         }
     }

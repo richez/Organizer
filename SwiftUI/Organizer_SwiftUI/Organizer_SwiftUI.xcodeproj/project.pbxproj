@@ -257,6 +257,9 @@
 		F09D54F32AE4376A00E23ADC /* ContentFormAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09D54F22AE4376A00E23ADC /* ContentFormAction.swift */; };
 		F09F65F92AF8549A00615AB1 /* Logger+Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09F65F82AF8549A00615AB1 /* Logger+Widget.swift */; };
 		F09F65FA2AF8549A00615AB1 /* Logger+Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09F65F82AF8549A00615AB1 /* Logger+Widget.swift */; };
+		F09F65FD2AF8556800615AB1 /* OSLog+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09F65FC2AF8556800615AB1 /* OSLog+App.swift */; };
+		F09F65FE2AF8556800615AB1 /* OSLog+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09F65FC2AF8556800615AB1 /* OSLog+App.swift */; };
+		F09F65FF2AF8594100615AB1 /* OSLog+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09F65FC2AF8556800615AB1 /* OSLog+App.swift */; };
 		F0B82DD42AE7F8A0000405EB /* StatisticsAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B82DD32AE7F8A0000405EB /* StatisticsAction.swift */; };
 		F0B82DD72AE7FEFB000405EB /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B82DD62AE7FEFB000405EB /* NavigationView.swift */; };
 		F0B82DD92AE8002C000405EB /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092AC472AD6FDDA00EAD1F6 /* MainView.swift */; };
@@ -529,6 +532,7 @@
 		F09D54F02AE2E7AA00E23ADC /* ProjectDuplicateAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDuplicateAction.swift; sourceTree = "<group>"; };
 		F09D54F22AE4376A00E23ADC /* ContentFormAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentFormAction.swift; sourceTree = "<group>"; };
 		F09F65F82AF8549A00615AB1 /* Logger+Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+Widget.swift"; sourceTree = "<group>"; };
+		F09F65FC2AF8556800615AB1 /* OSLog+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OSLog+App.swift"; sourceTree = "<group>"; };
 		F0B82DD32AE7F8A0000405EB /* StatisticsAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsAction.swift; sourceTree = "<group>"; };
 		F0B82DD62AE7FEFB000405EB /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
 		F0BD69572AEAC698002490E7 /* WidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1448,6 +1452,14 @@
 			path = Content;
 			sourceTree = "<group>";
 		};
+		F09F65FB2AF8555100615AB1 /* OSLog */ = {
+			isa = PBXGroup;
+			children = (
+				F09F65FC2AF8556800615AB1 /* OSLog+App.swift */,
+			);
+			path = OSLog;
+			sourceTree = "<group>";
+		};
 		F0B82DD52AE7FEC1000405EB /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
@@ -1773,6 +1785,7 @@
 			isa = PBXGroup;
 			children = (
 				F0D9F4202AE1689F0019231A /* Foundation */,
+				F09F65FB2AF8555100615AB1 /* OSLog */,
 				F0466E672AE9BF7C0045FB04 /* SwiftUI */,
 			);
 			path = Extensions;
@@ -2075,6 +2088,7 @@
 				F041B3D02AF3B09F00EE13DE /* ProjectFormatter.swift in Sources */,
 				F041B3CF2AF3B09C00EE13DE /* ProjectFormatterProtocol.swift in Sources */,
 				F041B3C52AF30FE600EE13DE /* ContentFormatterProtocol.swift in Sources */,
+				F09F65FF2AF8594100615AB1 /* OSLog+App.swift in Sources */,
 				F041B3CE2AF3B09200EE13DE /* ProjectValues.swift in Sources */,
 				F00601FC2ADECF5E005F57CA /* FormTextFieldConfiguration.swift in Sources */,
 				F02E9F3C2AE7330B00755FF7 /* ContentStore.swift in Sources */,
@@ -2159,6 +2173,7 @@
 				F06A29282AE5E5E000B5A480 /* StatisticsViewModel.swift in Sources */,
 				F0D9F42F2AE1C47A0019231A /* ContentView.swift in Sources */,
 				F041B3C42AF30AA900EE13DE /* ContentFormatterProtocol.swift in Sources */,
+				F09F65FE2AF8556800615AB1 /* OSLog+App.swift in Sources */,
 				F09D54CF2AE1F8BE00E23ADC /* ContentRowViewModel.swift in Sources */,
 				F0D9F4382AE1DAB50019231A /* ContentListPreviewStyleMenu.swift in Sources */,
 				F02E9F2C2AE6BADB00755FF7 /* Sequence+CountBy.swift in Sources */,
@@ -2201,6 +2216,7 @@
 				F041B3B62AF3066700EE13DE /* ContentListContainerViewModel.swift in Sources */,
 				F0D428992ADD8E9100DAF2B2 /* URLMetadataConfiguration.swift in Sources */,
 				F092AC5F2AD7083C00EAD1F6 /* ModelContainerPreview.swift in Sources */,
+				F09F65FD2AF8556800615AB1 /* OSLog+App.swift in Sources */,
 				F041B3C32AF30AA900EE13DE /* ContentFormatterProtocol.swift in Sources */,
 				F06A29172AE4756000B5A480 /* ProjectRowSelectedIndicator.swift in Sources */,
 				F0D428972ADD8E8A00DAF2B2 /* URLMetadataProvider.swift in Sources */,

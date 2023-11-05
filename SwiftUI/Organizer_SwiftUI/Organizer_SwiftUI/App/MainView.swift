@@ -5,6 +5,7 @@
 //  Created by Thibaut Richez on 11/10/2023.
 //
 
+import OSLog
 import SwiftData
 import SwiftUI
 
@@ -34,8 +35,9 @@ struct MainView: View {
             .onOpenURL { url in
                 do {
                     try self.handleIncomingURL(url)
+                    Logger.deeplinks.info("Did handle url \(url)")
                 } catch {
-                    print("Could not handle url (\(url)): \(error)")
+                    Logger.deeplinks.info("Fail to handle url \(url): \(error)")
                     self.deeplinkError = error
                 }
             }

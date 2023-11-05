@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import OSLog
 import SwiftData
 
 extension ContentForm {
@@ -84,10 +85,12 @@ extension ContentForm {
                 self.title = linkTitle
                 self.isLoadingTitle = false
                 self.shouldLoadTitle = false
+                Logger.forms.info("Link \(self.link) title loaded: \(linkTitle)")
             } catch {
                 self.isLoadingTitle = false
                 self.shouldLoadTitle = false
                 self.error = Error.loadTitle(self.link)
+                Logger.forms.info("Fail to load link \(self.link): \(error)")
             }
         }
 
@@ -103,8 +106,10 @@ extension ContentForm {
                 self.isInvalidLink = fields.contains(.link)
                 self.isInvalidTitle = fields.contains(.title)
                 self.isInvalidTheme = fields.contains(.theme)
+                Logger.forms.info("Fail to validate content form with invalid fields: \(fields)")
             } catch {
                 self.error = Error.save(error)
+                Logger.forms.info("Fail to validate content form with error: \(error)")
             }
         }
     }

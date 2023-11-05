@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import OSLog
 import SwiftData
 
 struct ContentStore {
@@ -81,6 +82,11 @@ extension ContentStore: ContentStoreWritter {
         project.updatedDate = .now
         context.insert(content)
         project.contents.append(content)
+
+        Logger.swiftData.info("""
+       Content \(content.identifier) (\(content.title)) inserted in \
+       project \(project.identifier) (\(project.title))
+       """)
     }
 
     func update(_ content: ProjectContent, with values: ContentValues) {
@@ -98,10 +104,16 @@ extension ContentStore: ContentStoreWritter {
             content.theme = theme
             content.updatedDate = .now
             content.project?.updatedDate = .now
+            
+            Logger.swiftData.info("""
+          Content \(content.identifier) (\(content.title)) updated with values \(String(describing: values))
+          """)
         }
     }
     
     func delete(_ content: ProjectContent, in context: ModelContext) {
         context.delete(content)
+
+        Logger.swiftData.info("Content \(content.identifier) (\(content.title)) deleted")
     }
 }

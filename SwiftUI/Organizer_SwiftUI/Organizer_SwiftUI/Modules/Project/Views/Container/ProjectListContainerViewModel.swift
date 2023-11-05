@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import OSLog
 
 extension ProjectListContainerView {
     struct ViewModel {
@@ -22,11 +23,18 @@ extension ProjectListContainerView {
         // MARK: - Public
 
         func sortDescriptor(with sorting: ProjectListSorting, isAscending: Bool) -> SortDescriptor<Project> {
-            self.store.sortDescriptor(sorting: sorting, isAscendingOrder: isAscending)
+            Logger.viewUpdates.info("""
+          Update project list sorted by \(String(describing: sorting)) in \
+          \(isAscending ? "ascending" : "descending") order
+          """)
+
+            return self.store.sortDescriptor(sorting: sorting, isAscendingOrder: isAscending)
         }
 
         func predicate(with selectedTheme: String?) -> Predicate<Project>? {
-            self.store.predicate(selectedTeme: selectedTheme)
+            Logger.viewUpdates.info("Update project list with theme: \(String(describing: selectedTheme))")
+
+            return self.store.predicate(selectedTeme: selectedTheme)
         }
     }
 }

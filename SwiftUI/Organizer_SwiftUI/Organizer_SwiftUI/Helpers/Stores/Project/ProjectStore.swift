@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import OSLog
 import SwiftData
 
 struct ProjectStore {
@@ -77,12 +78,19 @@ extension ProjectStore: ProjectStoreReader {
 extension ProjectStore: ProjectStoreWritter {
     func create(_ project: Project, in context: ModelContext) {
         context.insert(project)
+
+        Logger.swiftData.info("Project \(project.identifier) (\(project.title)) inserted")
     }
 
     func create(_ project: Project, contents: [ProjectContent], in context: ModelContext) {
         self.create(project, in: context)
         contents.forEach { $0.project = project }
         project.contents = contents
+
+        Logger.swiftData.info("""
+       Project \(project.identifier) (\(project.title)) inserted with contents \
+       \(contents.map { "\($0.identifier) (\($0.title)" })
+       """)
     }
 
     func update(_ project: Project, with values: ProjectValues) {
@@ -95,6 +103,10 @@ extension ProjectStore: ProjectStoreWritter {
             project.title = title
             project.theme = theme
             project.updatedDate = .now
+
+            Logger.swiftData.info("""
+          Project \(project.identifier) (\(project.title)) updated with values \(String(describing: values))
+          """)
         }
     }
 
@@ -105,11 +117,17 @@ extension ProjectStore: ProjectStoreWritter {
         let duplicatedContents = project.contents.map(self.duplicate(content:))
         duplicatedContents.forEach { $0.project = duplicatedProject }
         duplicatedProject.contents = duplicatedContents
+
+        Logger.swiftData.info("""
+       Project \(project.identifier) (\(project.title)) duplicated in \(duplicatedProject.identifier)
+       """)
     }
     
     func delete(_ project: Project, in context: ModelContext) {
         self.defaults.removePersistentDomain(forName: project.identifier.uuidString)
         context.delete(project)
+
+        Logger.swiftData.info("Project \(project.identifier) (\(project.title)) deleted")
     }
 }
 
