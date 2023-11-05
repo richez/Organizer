@@ -38,7 +38,7 @@ private extension SingleProjectTimelineProvider {
     func entry(for configuration: SingleProjectIntent?, family: WidgetFamily) -> SingleProjectEntry {
         let requiredCapacity = self.requiredCapacity(for: family)
         let project = self.project(for: configuration)
-        let contents = self.contents(for: configuration, fetchLimit: requiredCapacity)
+        let contents = self.contents(for: project, fetchLimit: requiredCapacity)
         return SingleProjectEntry(project: project, contents: contents, requiredCapacity: requiredCapacity)
     }
 
@@ -76,11 +76,11 @@ private extension SingleProjectTimelineProvider {
         return #Predicate { $0.identifier == projectID }
     }
 
-    func contents(for configuration: SingleProjectIntent?, fetchLimit: Int) -> [ProjectContent] {
-        guard let projectEntity = configuration?.project else { return [] }
+    func contents(for project: Project?, fetchLimit: Int) -> [ProjectContent] {
+        guard let project else { return [] }
 
         do {
-            let projectID = projectEntity.id
+            let projectID = project.identifier
             return try self.store.models(
                 predicate: #Predicate { $0.project?.identifier == projectID },
                 sortBy: [.init(\.updatedDate, order: .reverse)],
@@ -88,7 +88,7 @@ private extension SingleProjectTimelineProvider {
                 propertiesToFetch: [\.identifier, \.typeRawValue, \.title, \.theme]
             )
         } catch {
-            logger.info("Fail to retrieve project (\(projectEntity.id)) contents: \(error)")
+            logger.info("Fail to retrieve project (\(project.identifier)) contents: \(error)")
             return []
         }
     }
