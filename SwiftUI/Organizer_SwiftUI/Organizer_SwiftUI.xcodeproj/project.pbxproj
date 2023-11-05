@@ -214,6 +214,8 @@
 		F0677E492AF7B87A00A089DD /* ContentRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0677E472AF7B87A00A089DD /* ContentRow.swift */; };
 		F0677E4B2AF7B88D00A089DD /* ContentRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0677E4A2AF7B88D00A089DD /* ContentRowViewModel.swift */; };
 		F0677E4C2AF7B88D00A089DD /* ContentRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0677E4A2AF7B88D00A089DD /* ContentRowViewModel.swift */; };
+		F0677E4F2AF8116B00A089DD /* DeeplinkViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0677E4E2AF8116B00A089DD /* DeeplinkViewModifier.swift */; };
+		F0677E502AF8116B00A089DD /* DeeplinkViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0677E4E2AF8116B00A089DD /* DeeplinkViewModifier.swift */; };
 		F06A29172AE4756000B5A480 /* ProjectRowSelectedIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06A29162AE4756000B5A480 /* ProjectRowSelectedIndicator.swift */; };
 		F06A291B2AE475A100B5A480 /* ProjectRowSelectedIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06A291A2AE475A100B5A480 /* ProjectRowSelectedIndicator.swift */; };
 		F06A291E2AE59DE100B5A480 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06A291D2AE59DE100B5A480 /* StatisticsView.swift */; };
@@ -491,6 +493,7 @@
 		F0677E442AF7B7DD00A089DD /* ContentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentListView.swift; sourceTree = "<group>"; };
 		F0677E472AF7B87A00A089DD /* ContentRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentRow.swift; sourceTree = "<group>"; };
 		F0677E4A2AF7B88D00A089DD /* ContentRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentRowViewModel.swift; sourceTree = "<group>"; };
+		F0677E4E2AF8116B00A089DD /* DeeplinkViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeeplinkViewModifier.swift; sourceTree = "<group>"; };
 		F06A29162AE4756000B5A480 /* ProjectRowSelectedIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectRowSelectedIndicator.swift; sourceTree = "<group>"; };
 		F06A291A2AE475A100B5A480 /* ProjectRowSelectedIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectRowSelectedIndicator.swift; sourceTree = "<group>"; };
 		F06A291D2AE59DE100B5A480 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
@@ -1215,6 +1218,14 @@
 			path = Row;
 			sourceTree = "<group>";
 		};
+		F0677E4D2AF8115800A089DD /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				F0677E4E2AF8116B00A089DD /* DeeplinkViewModifier.swift */,
+			);
+			path = ViewModifiers;
+			sourceTree = "<group>";
+		};
 		F06A29182AE4759300B5A480 /* List */ = {
 			isa = PBXGroup;
 			children = (
@@ -1568,6 +1579,7 @@
 				F013038F2AEB1E7500D28886 /* Preview */,
 				F0BD69AC2AEACDF7002490E7 /* Store */,
 				F041B3E82AF3C50F00EE13DE /* Views */,
+				F0677E4D2AF8115800A089DD /* ViewModifiers */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -2287,6 +2299,7 @@
 				F0BD69992AEAC9A9002490E7 /* LastProjectTimelineProvider.swift in Sources */,
 				F030C0D62AF6F83B0065BF1A /* SingleProjectIntent.swift in Sources */,
 				F030C0D02AF6F80B0065BF1A /* SingleProjectEntryView.swift in Sources */,
+				F0677E4F2AF8116B00A089DD /* DeeplinkViewModifier.swift in Sources */,
 				F041B40D2AF46EC000EE13DE /* ProjectsEntryView.swift in Sources */,
 				F041B3F92AF464D800EE13DE /* WidgetURL+Deeplink.swift in Sources */,
 				F041B3DC2AF3B92600EE13DE /* Array+Duplicates.swift in Sources */,
@@ -2349,6 +2362,7 @@
 				F0BD699A2AEAC9A9002490E7 /* LastProjectTimelineProvider.swift in Sources */,
 				F030C0D72AF6F83B0065BF1A /* SingleProjectIntent.swift in Sources */,
 				F030C0D12AF6F80B0065BF1A /* SingleProjectEntryView.swift in Sources */,
+				F0677E502AF8116B00A089DD /* DeeplinkViewModifier.swift in Sources */,
 				F041B40E2AF46EC000EE13DE /* ProjectsEntryView.swift in Sources */,
 				F041B3FA2AF464D800EE13DE /* WidgetURL+Deeplink.swift in Sources */,
 				F041B3DD2AF3B92600EE13DE /* Array+Duplicates.swift in Sources */,

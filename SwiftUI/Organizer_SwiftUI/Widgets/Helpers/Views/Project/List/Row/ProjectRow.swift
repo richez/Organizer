@@ -15,16 +15,6 @@ struct ProjectRow: View {
     @Environment(\.widgetFamily) private var widgetFamily
 
     var body: some View {
-        if let url = Deeplink.project(id: self.projectID).url {
-            Link(destination: url) { self.row }
-        } else {
-            self.row
-        }
-    }
-}
-
-private extension ProjectRow {
-    var row: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text(self.project.title)
                 .font(.system(size: 15, weight: .bold))
@@ -37,8 +27,11 @@ private extension ProjectRow {
                 .lineLimit(1)
         }
         .padding(.bottom, self.padding)
+        .deeplink(.project(id: self.projectID))
     }
+}
 
+private extension ProjectRow {
     var padding: CGFloat {
         switch self.widgetFamily {
         case .systemMedium: 3
