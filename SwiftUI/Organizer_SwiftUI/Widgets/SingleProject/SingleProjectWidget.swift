@@ -8,6 +8,7 @@
 import SwiftUI
 import WidgetKit
 
+// TODO: fix empty project message
 struct SingleProjectWidget: Widget {
     var families: [WidgetFamily] {
         #if os(macOS)

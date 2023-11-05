@@ -30,7 +30,7 @@ struct ContentRow: View {
         HStack(spacing: 15) {
 
             if self.showType {
-                Image(systemName: self.imageSystemName)
+                Image(systemName: self.content.type.systemImage)
                     .foregroundStyle(.contentImageTint)
             }
 
@@ -53,10 +53,6 @@ struct ContentRow: View {
 }
 
 private extension ContentRow {
-    var imageSystemName: String {
-        self.viewModel.imageSystemName(for: self.content.type)
-    }
-
     var themes: String {
         self.viewModel.themes(from: self.content.theme)
     }

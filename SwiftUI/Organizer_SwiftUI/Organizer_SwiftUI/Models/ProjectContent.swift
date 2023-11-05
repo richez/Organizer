@@ -15,6 +15,19 @@ enum ProjectContentType: String, Identifiable, CaseIterable, Codable {
     case other
 
     var id: ProjectContentType { self }
+
+    var systemImage: String {
+        switch self {
+        case .article:
+            return "newspaper"
+        case .note:
+            return "note"
+        case .video:
+            return "video"
+        case .other:
+            return "questionmark.square"
+        }
+    }
 }
 
 @Model

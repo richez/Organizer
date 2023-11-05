@@ -2,7 +2,7 @@
 //  ContentRowViewModel.swift
 //  Organizer_SwiftUI
 //
-//  Created by Thibaut Richez on 13/10/2023.
+//  Created by Thibaut Richez on 05/11/2023.
 //
 
 import Foundation

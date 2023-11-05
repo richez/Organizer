@@ -17,16 +17,22 @@ struct ProjectListView: View {
                 ProjectRow(project: project)
             }
             ForEach(0..<self.placeholders, id: \.self) { _ in
-                VStack(alignment: .leading) {
-                    ForEach([80, 120], id: \.self) { width in
-                        Capsule()
-                            .fill(.cellSeparatorTint)
-                            .frame(width: width, height: 10)
-                    }
-                }
-                .padding(.bottom, 10)
-                .redacted(reason: .placeholder)
+                self.placeholderRow
             }
         }
+    }
+}
+
+private extension ProjectListView {
+    var placeholderRow: some View {
+        VStack(alignment: .leading) {
+            ForEach([80, 120], id: \.self) { width in
+                Capsule()
+                    .fill(.cellSeparatorTint)
+                    .frame(width: width, height: 10)
+            }
+        }
+        .padding(.bottom, 10)
+        .redacted(reason: .placeholder)
     }
 }

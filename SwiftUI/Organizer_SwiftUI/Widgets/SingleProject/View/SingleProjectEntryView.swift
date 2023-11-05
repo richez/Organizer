@@ -23,7 +23,7 @@ struct SingleProjectEntryView: View {
                 case .systemSmall:
                     ProjectView(project: project)
                 default:
-                    EmptyView() // TODO: add custom view
+                    ContentView(project: project, contents: self.entry.contents, placeholders: self.placeholders)
                 }
             } else {
                 EmptyProjectView()
@@ -32,5 +32,13 @@ struct SingleProjectEntryView: View {
         .containerBackground(for: .widget) {
             Color.listBackground
         }
+    }
+}
+
+private extension SingleProjectEntryView {
+    var placeholders: Int {
+        let count = self.entry.contents.count
+        let requiredCapacity = self.entry.requiredCapacity
+        return count < requiredCapacity ? requiredCapacity - count : 0
     }
 }

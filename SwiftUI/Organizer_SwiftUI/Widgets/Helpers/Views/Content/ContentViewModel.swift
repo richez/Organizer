@@ -1,21 +1,21 @@
 //
-//  ContentRowViewModel.swift
+//  ContentViewModel.swift
 //  Organizer_SwiftUI
 //
-//  Created by Thibaut Richez on 13/10/2023.
+//  Created by Thibaut Richez on 05/11/2023.
 //
 
 import Foundation
 
-extension ContentRow {
+extension ContentView {
     struct ViewModel {
         // MARK: - Properties
 
-        private let formatter: ContentFormatterProtocol
+        var formatter: ProjectFormatterProtocol
 
         // MARK: - Initialization
 
-        init(formatter: ContentFormatterProtocol = ContentFormatter()) {
+        init(formatter: ProjectFormatterProtocol = ProjectFormatter()) {
             self.formatter = formatter
         }
 

@@ -7,7 +7,6 @@
 
 import Foundation
 
-// TODO: move to models directory
 struct ContentValues {
     var type: ProjectContentType
     var url: URL
