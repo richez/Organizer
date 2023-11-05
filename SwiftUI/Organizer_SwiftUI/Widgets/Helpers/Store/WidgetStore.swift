@@ -9,7 +9,7 @@ import Foundation
 import OSLog
 import SwiftData
 
-private let logger = Logger(subsystem: "Widgets", category: "WidgetStore")
+private let logger = Logger(category: "WidgetStore")
 
 // TODO: Add AppGroup to macOS (main & widget)
 struct WidgetStore {

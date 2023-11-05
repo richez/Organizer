@@ -8,7 +8,7 @@
 import OSLog
 import WidgetKit
 
-private let logger = Logger(subsystem: "Widgets", category: "SingleProjectTimelineProvider")
+private let logger = Logger(category: "SingleProjectTimelineProvider")
 
 struct SingleProjectTimelineProvider: AppIntentTimelineProvider {
     var store: WidgetStore = .init()
@@ -18,17 +18,17 @@ struct SingleProjectTimelineProvider: AppIntentTimelineProvider {
     }
 
     func snapshot(for configuration: SingleProjectIntent, in context: Context) async -> SingleProjectEntry {
-        logger.info("Finding project for widget snapshot with title \(configuration.project?.title ?? "")")
+        logger.info("Finding project for widget snapshot with title \(configuration.project?.title ?? "none")")
         let entry = self.entry(for: configuration, family: context.family)
-        logger.info("Found \(entry.project?.title ?? "nil") with contents: \(entry.contents)")
+        logger.info("Found \(entry.project?.title ?? "none") with contents: \(entry.contents.map(\.title))")
 
         return entry
     }
 
     func timeline(for configuration: SingleProjectIntent, in context: Context) async -> Timeline<SingleProjectEntry> {
-        logger.info("Finding project for widget timeline with title \(configuration.project?.title ?? "")")
+        logger.info("Finding project for widget timeline with title \(configuration.project?.title ?? "none")")
         let entry = self.entry(for: configuration, family: context.family)
-        logger.info("Found \(entry.project?.title ?? "nil") with contents: \(entry.contents)")
+        logger.info("Found \(entry.project?.title ?? "none") with contents: \(entry.contents.map(\.title))")
 
         return Timeline(entries: [entry], policy: .never)
     }

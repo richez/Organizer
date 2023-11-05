@@ -8,7 +8,7 @@
 import OSLog
 import WidgetKit
 
-private let logger = Logger(subsystem: "Widgets", category: "ProjectsTimelineProvider")
+private let logger = Logger(category: "ProjectsTimelineProvider")
 
 struct ProjectsTimelineProvider: AppIntentTimelineProvider {
     var store: WidgetStore = .init()
@@ -20,7 +20,7 @@ struct ProjectsTimelineProvider: AppIntentTimelineProvider {
     func snapshot(for configuration: ProjectsIntent, in context: Context) async -> ProjectsEntry {
         logger.info("Finding projects for widget snapshot with type \(configuration.type.rawValue) and theme \(configuration.theme?.name ?? "nil")")
         let entry = self.entry(for: configuration, family: context.family)
-        logger.info("Found \(entry.projects ?? [])")
+        logger.info("Found \(entry.projects?.map(\.title) ?? [])")
 
         return entry
     }
@@ -28,7 +28,7 @@ struct ProjectsTimelineProvider: AppIntentTimelineProvider {
     func timeline(for configuration: ProjectsIntent, in context: Context) async -> Timeline<ProjectsEntry> {
         logger.info("Finding projects for widget timeline with type \(configuration.type.rawValue) and theme \(configuration.theme?.name ?? "nil")")
         let entry = self.entry(for: configuration, family: context.family)
-        logger.info("Found \(entry.projects ?? [])")
+        logger.info("Found \(entry.projects?.map(\.title) ?? [])")
 
         return Timeline(entries: [entry], policy: .never)
     }

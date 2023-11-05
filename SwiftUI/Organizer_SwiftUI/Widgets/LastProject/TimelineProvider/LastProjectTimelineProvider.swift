@@ -8,7 +8,7 @@
 import WidgetKit
 import OSLog
 
-private let logger = Logger(subsystem: "Widgets", category: "LastProjectTimelineProvider")
+private let logger = Logger(category: "LastProjectTimelineProvider")
 
 struct LastProjectTimelineProvider: TimelineProvider {
     var store: WidgetStore = .init()
@@ -20,7 +20,7 @@ struct LastProjectTimelineProvider: TimelineProvider {
     func getSnapshot(in context: Context, completion: @escaping (LastProjectEntry) -> Void) {
         logger.info("Finding last updated project for widget snapshot")
         let entry = self.entry()
-        logger.info("Found \(entry.project?.title ?? "nil")")
+        logger.info("Found \(entry.project?.title ?? "none")")
 
         completion(entry)
     }
@@ -28,7 +28,7 @@ struct LastProjectTimelineProvider: TimelineProvider {
     func getTimeline(in context: Context, completion: @escaping (Timeline<LastProjectEntry>) -> Void) {
         logger.info("Finding last updated project for widget timeline")
         let entry = self.entry()
-        logger.info("Found \(entry.project?.title ?? "nil")")
+        logger.info("Found \(entry.project?.title ?? "none")")
 
         let timeline = Timeline(entries: [entry], policy: .never)
         completion(timeline)

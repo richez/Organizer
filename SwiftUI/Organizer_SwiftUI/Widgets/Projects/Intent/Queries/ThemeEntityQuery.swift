@@ -9,7 +9,7 @@ import AppIntents
 import Foundation
 import OSLog
 
-private let logger = Logger(subsystem: "Widgets", category: "ThemeEntityQuery")
+private let logger = Logger(category: "ThemeEntityQuery")
 
 struct ThemeEntityQuery: EntityQuery {
     func entities(for identifiers: [ThemeEntity.ID]) async throws -> [ThemeEntity] {
