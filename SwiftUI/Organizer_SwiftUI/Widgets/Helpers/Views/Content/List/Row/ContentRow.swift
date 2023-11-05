@@ -31,11 +31,20 @@ struct ContentRow: View {
                     .lineLimit(1)
             }
         }
+        .deeplink(.content(id: self.contentID, projectID: self.projectID))
     }
 }
 
 private extension ContentRow {
     var themes: String {
         self.viewModel.themes(from: self.content.theme)
+    }
+
+    var contentID: String {
+        self.content.identifier.uuidString
+    }
+
+    var projectID: String {
+        self.content.project?.identifier.uuidString ?? ""
     }
 }

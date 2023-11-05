@@ -36,6 +36,7 @@ struct ContentView: View {
 
             ContentListView(contents: self.contents, placeholders: self.placeholders)
         }
+        .widgetURL(.project(id: self.projectID))
     }
 }
 
@@ -53,5 +54,9 @@ private extension ContentView {
 
     var themes: String {
         self.viewModel.themes(from: self.project.theme)
+    }
+
+    var projectID: String {
+        self.project.identifier.uuidString
     }
 }
