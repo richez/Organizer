@@ -9,8 +9,6 @@ import Foundation
 import OSLog
 import SwiftData
 
-private let logger = Logger(category: "WidgetStore")
-
 // TODO: Add AppGroup to macOS (main & widget)
 struct WidgetStore {
     static var container: ModelContainer {
@@ -25,7 +23,7 @@ struct WidgetStore {
         do {
             self.context = try ModelContext(WidgetStore.container)
         } catch {
-            logger.error("Fail to initialize model container: \(error)")
+            Logger.swiftData.error("Fail to initialize model container: \(error)")
         }
     }
 }

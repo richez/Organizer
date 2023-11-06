@@ -8,8 +8,6 @@
 import OSLog
 import WidgetKit
 
-private let logger = Logger(category: "SingleProjectTimelineProvider")
-
 struct SingleProjectTimelineProvider: AppIntentTimelineProvider {
     var store: WidgetStore = .init()
 
@@ -18,17 +16,25 @@ struct SingleProjectTimelineProvider: AppIntentTimelineProvider {
     }
 
     func snapshot(for configuration: SingleProjectIntent, in context: Context) async -> SingleProjectEntry {
-        logger.info("Finding project for widget snapshot with title \(configuration.project?.title ?? "none")")
+        Logger.timelineProviders.info("""
+       Finding project for widget snapshot with title \(configuration.project?.title ?? "none")
+       """)
         let entry = self.entry(for: configuration, family: context.family)
-        logger.info("Found \(entry.project?.title ?? "none") with contents: \(entry.contents.map(\.title))")
+        Logger.timelineProviders.info("""
+       Found \(entry.project?.title ?? "none") with contents: \(entry.contents.map(\.title))
+       """)
 
         return entry
     }
 
     func timeline(for configuration: SingleProjectIntent, in context: Context) async -> Timeline<SingleProjectEntry> {
-        logger.info("Finding project for widget timeline with title \(configuration.project?.title ?? "none")")
+        Logger.timelineProviders.info("""
+       Finding project for widget timeline with title \(configuration.project?.title ?? "none")
+       """)
         let entry = self.entry(for: configuration, family: context.family)
-        logger.info("Found \(entry.project?.title ?? "none") with contents: \(entry.contents.map(\.title))")
+        Logger.timelineProviders.info("""
+       Found \(entry.project?.title ?? "none") with contents: \(entry.contents.map(\.title))
+       """)
 
         return Timeline(entries: [entry], policy: .never)
     }
@@ -65,7 +71,7 @@ private extension SingleProjectTimelineProvider {
             )
             return projects.first
         } catch {
-            logger.info("Fail to retrieve projects: \(error)")
+            Logger.timelineProviders.info("Fail to retrieve projects: \(error)")
             return nil
         }
     }
@@ -88,7 +94,7 @@ private extension SingleProjectTimelineProvider {
                 propertiesToFetch: [\.identifier, \.typeRawValue, \.title, \.theme]
             )
         } catch {
-            logger.info("Fail to retrieve project (\(project.identifier)) contents: \(error)")
+            Logger.timelineProviders.info("Fail to retrieve project (\(project.identifier)) contents: \(error)")
             return []
         }
     }

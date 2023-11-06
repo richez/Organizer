@@ -8,8 +8,6 @@
 import OSLog
 import WidgetKit
 
-private let logger = Logger(category: "ProjectsTimelineProvider")
-
 struct ProjectsTimelineProvider: AppIntentTimelineProvider {
     var store: WidgetStore = .init()
 
@@ -18,17 +16,23 @@ struct ProjectsTimelineProvider: AppIntentTimelineProvider {
     }
 
     func snapshot(for configuration: ProjectsIntent, in context: Context) async -> ProjectsEntry {
-        logger.info("Finding projects for widget snapshot with type \(configuration.type.rawValue) and theme \(configuration.theme?.name ?? "nil")")
+        Logger.timelineProviders.info("""
+       Finding projects for widget snapshot with type \(configuration.type.rawValue) and \
+       theme \(configuration.theme?.name ?? "nil")
+       """)
         let entry = self.entry(for: configuration, family: context.family)
-        logger.info("Found \(entry.projects?.map(\.title) ?? [])")
+        Logger.timelineProviders.info("Found \(entry.projects?.map(\.title) ?? [])")
 
         return entry
     }
 
     func timeline(for configuration: ProjectsIntent, in context: Context) async -> Timeline<ProjectsEntry> {
-        logger.info("Finding projects for widget timeline with type \(configuration.type.rawValue) and theme \(configuration.theme?.name ?? "nil")")
+        Logger.timelineProviders.info("""
+       Finding projects for widget timeline with type \(configuration.type.rawValue) and \
+       theme \(configuration.theme?.name ?? "nil")
+       """)
         let entry = self.entry(for: configuration, family: context.family)
-        logger.info("Found \(entry.projects?.map(\.title) ?? [])")
+        Logger.timelineProviders.info("Found \(entry.projects?.map(\.title) ?? [])")
 
         return Timeline(entries: [entry], policy: .never)
     }
@@ -64,7 +68,7 @@ private extension ProjectsTimelineProvider {
             )
             return projects.isEmpty ? nil : projects
         } catch {
-            logger.info("Fail to retrieve projects: \(error)")
+            Logger.timelineProviders.info("Fail to retrieve projects: \(error)")
             return nil
         }
     }

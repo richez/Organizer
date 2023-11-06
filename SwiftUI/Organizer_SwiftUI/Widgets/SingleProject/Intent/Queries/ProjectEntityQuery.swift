@@ -9,26 +9,28 @@ import AppIntents
 import Foundation
 import OSLog
 
-private let logger = Logger(category: "ProjectEntityQuery")
-
 struct ProjectEntityQuery: EntityQuery {
     func entities(for identifiers: [ProjectEntity.ID]) async throws -> [ProjectEntity] {
         let store = WidgetStore()
-        logger.info("Loading projects for identifiers: \(identifiers)")
+
+        Logger.entityQueries.info("Loading projects for identifiers: \(identifiers)")
         let projects: [Project] = try store.models(
             predicate: #Predicate { identifiers.contains($0.identifier) },
             fetchLimit: 1,
             propertiesToFetch: [\.identifier, \.title]
         )
-        logger.info("Found \(projects.map(\.title)) projects")
+        Logger.entityQueries.info("Found \(projects.map(\.title)) projects")
+
         return projects.map(ProjectEntity.init(from:))
     }
 
     func suggestedEntities() async throws -> [ProjectEntity] {
         let store = WidgetStore()
-        logger.info("Loading projects to suggest for specific project...")
+
+        Logger.entityQueries.info("Loading projects to suggest for specific project...")
         let projects: [Project] = try store.models(propertiesToFetch: [\.identifier, \.title])
-        logger.info("Found \(projects.map(\.title)) projects")
+        Logger.entityQueries.info("Found \(projects.map(\.title)) projects")
+        
         return projects.map(ProjectEntity.init(from:))
     }
 }

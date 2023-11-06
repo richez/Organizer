@@ -8,8 +8,6 @@
 import WidgetKit
 import OSLog
 
-private let logger = Logger(category: "LastProjectTimelineProvider")
-
 struct LastProjectTimelineProvider: TimelineProvider {
     var store: WidgetStore = .init()
 
@@ -18,17 +16,17 @@ struct LastProjectTimelineProvider: TimelineProvider {
     }
 
     func getSnapshot(in context: Context, completion: @escaping (LastProjectEntry) -> Void) {
-        logger.info("Finding last updated project for widget snapshot")
+        Logger.timelineProviders.info("Finding last updated project for widget snapshot")
         let entry = self.entry()
-        logger.info("Found \(entry.project?.title ?? "none")")
+        Logger.timelineProviders.info("Found \(entry.project?.title ?? "none")")
 
         completion(entry)
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<LastProjectEntry>) -> Void) {
-        logger.info("Finding last updated project for widget timeline")
+        Logger.timelineProviders.info("Finding last updated project for widget timeline")
         let entry = self.entry()
-        logger.info("Found \(entry.project?.title ?? "none")")
+        Logger.timelineProviders.info("Found \(entry.project?.title ?? "none")")
 
         let timeline = Timeline(entries: [entry], policy: .never)
         completion(timeline)
@@ -51,7 +49,7 @@ private extension LastProjectTimelineProvider {
             )
             return projects.first
         } catch {
-            logger.info("Fail to retrieve projects: \(error)")
+            Logger.timelineProviders.info("Fail to retrieve projects: \(error)")
             return nil
         }
     }

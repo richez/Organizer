@@ -9,8 +9,9 @@ import Foundation
 import OSLog
 
 extension Logger {
-    init(category: String) {
-        let subsystem = Bundle.main.bundleIdentifier ?? "Widgets"
-        self.init(subsystem: subsystem, category: category)
-    }
+    private static var subsystem: String { Bundle.main.bundleIdentifier ?? "Organizer" }
+
+    static let swiftData = Logger(subsystem: subsystem, category: "SwiftData")
+    static let timelineProviders = Logger(subsystem: subsystem, category: "TimelineProvider")
+    static let entityQueries = Logger(subsystem: subsystem, category: "EntityQuery")
 }
