@@ -1009,8 +1009,8 @@
 		F051E38F2AE0235D009F1E50 /* Project */ = {
 			isa = PBXGroup;
 			children = (
-				F06A29182AE4759300B5A480 /* List */,
 				F051E3822AE0222C009F1E50 /* ProjectView.swift */,
+				F06A29182AE4759300B5A480 /* List */,
 				F0D9F43B2AE1DBA60019231A /* Header */,
 			);
 			path = Project;

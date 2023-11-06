@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import OSLog
 import SwiftData
 
 extension ProjectWindow {
@@ -24,7 +25,14 @@ extension ProjectWindow {
 
         func project(with identifier: PersistentIdentifier?, in context: ModelContext) -> Project? {
             guard let identifier else { return nil }
-            return self.store.project(with: identifier, in: context)
+
+            let project = self.store.project(with: identifier, in: context)
+
+            Logger.viewUpdates.info("""
+          Showing window for project \(project?.identifier.uuidString ?? "") (\(project?.title ?? ""))
+          """)
+
+            return project
         }
     }
 }
