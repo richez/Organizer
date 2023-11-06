@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import OSLog
 import SwiftData
 
 extension ShareForm {
@@ -82,8 +83,10 @@ extension ShareForm {
                 self.isInvalidTitle = fields.contains(.title)
                 self.isInvalidTheme = fields.contains(.theme)
                 self.isInvalidProjectTitle = fields.contains(.projectPicker)
+                Logger.forms.info("Fail to validate share form with invalid fields: \(fields)")
             } catch {
                 self.error = Error.save(error)
+                Logger.forms.info("Fail to validate share form with error: \(error)")
             }
         }
     }

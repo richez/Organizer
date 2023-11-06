@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import OSLog
 import UniformTypeIdentifiers
 
 struct ShareContent {
@@ -18,6 +19,7 @@ struct ShareViewModel {
     func loadContent(in extensionItem: NSExtensionItem?) async -> ShareContent {
         let title = extensionItem?.attributedTitle?.string ?? extensionItem?.attributedContentText?.string ?? ""
         let url = await self.url(in: extensionItem?.attachments)
+        Logger.forms.info("Title \(title) and url \(url) retrieved from extension context")
         return .init(title: title, url: url)
     }
 }
