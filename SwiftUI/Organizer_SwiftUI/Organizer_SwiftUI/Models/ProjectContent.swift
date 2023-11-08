@@ -63,3 +63,16 @@ final class ProjectContent {
 extension ProjectContent {
     var type: ProjectContentType { .init(rawValue: self.typeRawValue) ?? .other }
 }
+
+extension ProjectContent: CustomStringConvertible {
+    var description: String {
+        """
+       \(self.title) (\(self.identifier)), \
+       type \(self.typeRawValue), \
+       themes \(self.theme.words), \
+       url \(self.url) \
+       created at \(self.createdDate), \
+       updated at \(self.updatedDate)
+       """
+    }
+}

@@ -24,7 +24,7 @@ extension ProjectListContainerView {
 
         func sortDescriptor(with sorting: ProjectListSorting, isAscending: Bool) -> SortDescriptor<Project> {
             Logger.viewUpdates.info("""
-          Update project list sorted by \(String(describing: sorting)) in \
+          Update project list sorted by '\(sorting.rawValue)' in \
           \(isAscending ? "ascending" : "descending") order
           """)
 
@@ -32,7 +32,7 @@ extension ProjectListContainerView {
         }
 
         func predicate(with selectedTheme: String?) -> Predicate<Project>? {
-            Logger.viewUpdates.info("Update project list with theme: \(String(describing: selectedTheme))")
+            Logger.viewUpdates.info("Update project list with theme: \(selectedTheme ?? "nil")")
 
             return self.store.predicate(selectedTeme: selectedTheme)
         }

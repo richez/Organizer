@@ -11,3 +11,9 @@ struct ProjectValues {
     var title: String
     var theme: String = ""
 }
+
+extension ProjectValues: CustomStringConvertible {
+    var description: String {
+        "title '\(self.title)', themes '\(self.theme.words)'"
+    }
+}

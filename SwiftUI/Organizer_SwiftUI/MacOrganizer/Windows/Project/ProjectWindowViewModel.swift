@@ -29,7 +29,7 @@ extension ProjectWindow {
             let project = self.store.project(with: identifier, in: context)
 
             Logger.viewUpdates.info("""
-          Showing window for project \(project?.identifier.uuidString ?? "") (\(project?.title ?? ""))
+          Showing window for project \(project?.title ?? "") (\(project?.identifier.uuidString ?? ""))
           """)
 
             return project

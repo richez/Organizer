@@ -36,3 +36,15 @@ final class Project {
         self.updatedDate = updatedDate
     }
 }
+
+extension Project: CustomStringConvertible {
+    var description: String {
+        """
+       \(self.title) (\(self.identifier)), \
+       themes \(self.theme.words), \
+       \(self.contents.count) contents, \
+       created at \(self.createdDate), \
+       updated at \(self.updatedDate)
+       """
+    }
+}

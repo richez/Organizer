@@ -24,8 +24,8 @@ extension ContentListContainerView {
 
         func sortDescriptor(with sorting: ContentListSorting, isAscending: Bool) -> SortDescriptor<ProjectContent> {
             Logger.viewUpdates.info("""
-          Update content list sorted by \(String(describing: sorting)) in \
-          \(isAscending ? "ascending" : "descending") order
+          Update content list sorted by '\(sorting.rawValue)' \
+          in \(isAscending ? "ascending" : "descending") order
           """)
 
             return self.store.sortDescriptor(sorting: sorting, isAscendingOrder: isAscending)
@@ -37,8 +37,8 @@ extension ContentListContainerView {
             selectedType: ProjectContentType?
         ) -> Predicate<ProjectContent>? {
             Logger.viewUpdates.info("""
-          Update content list with theme: \(String(describing: selectedTheme)) and \
-          type \(String(describing: selectedType))
+          Update content list with theme: \(selectedTheme ?? "nil") and \
+          type \(selectedType?.rawValue ?? "nil")
           """)
 
             return self.store.predicate(for: project, selectedTheme: selectedTheme, selectedType: selectedType)

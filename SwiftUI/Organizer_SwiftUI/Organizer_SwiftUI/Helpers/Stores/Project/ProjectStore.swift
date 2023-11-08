@@ -79,7 +79,7 @@ extension ProjectStore: ProjectStoreWritter {
     func create(_ project: Project, in context: ModelContext) {
         context.insert(project)
 
-        Logger.swiftData.info("Project \(project.identifier) (\(project.title)) inserted")
+        Logger.swiftData.info("Project \(project) inserted")
     }
 
     func create(_ project: Project, contents: [ProjectContent], in context: ModelContext) {
@@ -87,10 +87,7 @@ extension ProjectStore: ProjectStoreWritter {
         contents.forEach { $0.project = project }
         project.contents = contents
 
-        Logger.swiftData.info("""
-       Project \(project.identifier) (\(project.title)) inserted with contents \
-       \(contents.map { "\($0.identifier) (\($0.title)" })
-       """)
+        Logger.swiftData.info("Project \(project) inserted with contents \(contents)")
     }
 
     func update(_ project: Project, with values: ProjectValues) {
@@ -104,9 +101,7 @@ extension ProjectStore: ProjectStoreWritter {
             project.theme = theme
             project.updatedDate = .now
 
-            Logger.swiftData.info("""
-          Project \(project.identifier) (\(project.title)) updated with values \(String(describing: values))
-          """)
+            Logger.swiftData.info("Project \(project) updated with values \(values)")
         }
     }
 
@@ -118,16 +113,14 @@ extension ProjectStore: ProjectStoreWritter {
         duplicatedContents.forEach { $0.project = duplicatedProject }
         duplicatedProject.contents = duplicatedContents
 
-        Logger.swiftData.info("""
-       Project \(project.identifier) (\(project.title)) duplicated in \(duplicatedProject.identifier)
-       """)
+        Logger.swiftData.info("Project \(project) duplicated in \(duplicatedProject.identifier)")
     }
     
     func delete(_ project: Project, in context: ModelContext) {
         self.defaults.removePersistentDomain(forName: project.identifier.uuidString)
         context.delete(project)
 
-        Logger.swiftData.info("Project \(project.identifier) (\(project.title)) deleted")
+        Logger.swiftData.info("Project \(project) deleted")
     }
 }
 

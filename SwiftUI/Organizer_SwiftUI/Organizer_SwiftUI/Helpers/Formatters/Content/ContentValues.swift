@@ -13,3 +13,14 @@ struct ContentValues {
     var title: String
     var theme: String
 }
+
+extension ContentValues: CustomStringConvertible {
+    var description: String {
+        """
+       title '\(self.title)', \
+       themes '\(self.theme.words)', \
+       type \(self.type), \
+       url '\(self.url)'
+       """
+    }
+}

@@ -83,10 +83,7 @@ extension ContentStore: ContentStoreWritter {
         context.insert(content)
         project.contents.append(content)
 
-        Logger.swiftData.info("""
-       Content \(content.identifier) (\(content.title)) inserted in \
-       project \(project.identifier) (\(project.title))
-       """)
+        Logger.swiftData.info("Content \(content) inserted in project \(project)")
     }
 
     func update(_ content: ProjectContent, with values: ContentValues) {
@@ -105,15 +102,13 @@ extension ContentStore: ContentStoreWritter {
             content.updatedDate = .now
             content.project?.updatedDate = .now
             
-            Logger.swiftData.info("""
-          Content \(content.identifier) (\(content.title)) updated with values \(String(describing: values))
-          """)
+            Logger.swiftData.info("Content \(content) updated with values \(values)")
         }
     }
     
     func delete(_ content: ProjectContent, in context: ModelContext) {
         context.delete(content)
 
-        Logger.swiftData.info("Content \(content.identifier) (\(content.title)) deleted")
+        Logger.swiftData.info("Content \(content) deleted")
     }
 }
