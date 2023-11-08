@@ -41,7 +41,7 @@ struct ProjectsTimelineProvider: AppIntentTimelineProvider {
 private extension ProjectsTimelineProvider {
     func entry(for configuration: ProjectsIntent?, family: WidgetFamily) -> ProjectsEntry {
         let requiredCapacity = self.requiredCapacity(for: family)
-        let projects = self.projects(for: nil, fetchLimit: requiredCapacity)
+        let projects = self.projects(for: configuration, fetchLimit: requiredCapacity)
         return ProjectsEntry(projects: projects, requiredCapacity: requiredCapacity)
     }
 
