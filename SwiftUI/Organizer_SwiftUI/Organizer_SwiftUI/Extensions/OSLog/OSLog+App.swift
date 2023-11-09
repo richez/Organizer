@@ -15,6 +15,7 @@ extension Logger {
     static let deeplinks = Logger(subsystem: subsystem, category: "Deeplinks")
     static let viewUpdates = Logger(subsystem: subsystem, category: "viewupdates")
     static let forms = Logger(subsystem: subsystem, category: "forms")
+    static let widgets = Logger(subsystem: subsystem, category: "Widgets")
 
     static let timelineProviders = Logger(subsystem: subsystem, category: "TimelineProvider")
     static let entityQueries = Logger(subsystem: subsystem, category: "EntityQuery")

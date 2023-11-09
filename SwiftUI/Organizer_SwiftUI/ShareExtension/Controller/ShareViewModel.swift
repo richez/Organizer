@@ -16,11 +16,17 @@ struct ShareContent {
 
 @MainActor
 struct ShareViewModel {
+    var widgetManager: WidgetManager = .init()
+
     func loadContent(in extensionItem: NSExtensionItem?) async -> ShareContent {
         let title = extensionItem?.attributedTitle?.string ?? extensionItem?.attributedContentText?.string ?? ""
         let url = await self.url(in: extensionItem?.attachments)
         Logger.forms.info("Title \(title) and url \(url) retrieved from extension context")
         return .init(title: title, url: url)
+    }
+
+    func observeStoreNotifications() {
+        self.widgetManager.observeStoreNotifications()
     }
 }
 

@@ -13,6 +13,12 @@ import SwiftUI
 // between windows. Thus, this type is used to force SwiftUI
 // to create a new NavigationContext for each window.
 struct MainContainerView: View {
+    private let widgetManager: WidgetManager = .init()
+
+    init() {
+        self.widgetManager.observeStoreNotifications()
+    }
+
     var body: some View {
         MainView()
     }

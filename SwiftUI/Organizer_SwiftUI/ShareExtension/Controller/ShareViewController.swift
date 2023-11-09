@@ -27,6 +27,7 @@ final class ShareViewController: UIViewController {
         super.viewDidLoad()
 
         self.loadContent()
+        self.viewModel.observeStoreNotifications()
     }
 
     override func viewDidDisappear(_ animated: Bool) {

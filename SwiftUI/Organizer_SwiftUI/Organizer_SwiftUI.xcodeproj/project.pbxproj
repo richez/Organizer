@@ -272,6 +272,15 @@
 		F0AEC1422AFD8C45003C385D /* StoreNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AEC1412AFD8C45003C385D /* StoreNotification.swift */; };
 		F0AEC1432AFD8C45003C385D /* StoreNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AEC1412AFD8C45003C385D /* StoreNotification.swift */; };
 		F0AEC1442AFD8C45003C385D /* StoreNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AEC1412AFD8C45003C385D /* StoreNotification.swift */; };
+		F0AEC1472AFD8DC0003C385D /* WidgetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AEC1462AFD8DC0003C385D /* WidgetManager.swift */; };
+		F0AEC1482AFD8DC0003C385D /* WidgetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AEC1462AFD8DC0003C385D /* WidgetManager.swift */; };
+		F0AEC1492AFD937C003C385D /* WidgetKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BD69A22AEAC9C4002490E7 /* WidgetKind.swift */; };
+		F0AEC14A2AFD937D003C385D /* WidgetKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BD69A22AEAC9C4002490E7 /* WidgetKind.swift */; };
+		F0AEC14D2AFDA33A003C385D /* WidgetCenter+Concurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AEC14C2AFDA33A003C385D /* WidgetCenter+Concurrency.swift */; };
+		F0AEC14E2AFDA33A003C385D /* WidgetCenter+Concurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AEC14C2AFDA33A003C385D /* WidgetCenter+Concurrency.swift */; };
+		F0AEC14F2AFDA40F003C385D /* WidgetCenter+Concurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AEC14C2AFDA33A003C385D /* WidgetCenter+Concurrency.swift */; };
+		F0AEC1502AFDA423003C385D /* WidgetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AEC1462AFD8DC0003C385D /* WidgetManager.swift */; };
+		F0AEC1512AFDA42D003C385D /* WidgetKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BD69A22AEAC9C4002490E7 /* WidgetKind.swift */; };
 		F0B82DD42AE7F8A0000405EB /* StatisticsAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B82DD32AE7F8A0000405EB /* StatisticsAction.swift */; };
 		F0B82DD72AE7FEFB000405EB /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B82DD62AE7FEFB000405EB /* NavigationView.swift */; };
 		F0B82DD92AE8002C000405EB /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092AC472AD6FDDA00EAD1F6 /* MainView.swift */; };
@@ -548,6 +557,8 @@
 		F0AEC1392AFD87CC003C385D /* Notification+Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Store.swift"; sourceTree = "<group>"; };
 		F0AEC13D2AFD8A4A003C385D /* StoreNotificationCenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreNotificationCenterProtocol.swift; sourceTree = "<group>"; };
 		F0AEC1412AFD8C45003C385D /* StoreNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreNotification.swift; sourceTree = "<group>"; };
+		F0AEC1462AFD8DC0003C385D /* WidgetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetManager.swift; sourceTree = "<group>"; };
+		F0AEC14C2AFDA33A003C385D /* WidgetCenter+Concurrency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetCenter+Concurrency.swift"; sourceTree = "<group>"; };
 		F0B82DD32AE7F8A0000405EB /* StatisticsAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsAction.swift; sourceTree = "<group>"; };
 		F0B82DD62AE7FEFB000405EB /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
 		F0BD69572AEAC698002490E7 /* WidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1485,6 +1496,22 @@
 			path = Notification;
 			sourceTree = "<group>";
 		};
+		F0AEC1452AFD8D80003C385D /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				F0AEC1462AFD8DC0003C385D /* WidgetManager.swift */,
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
+		F0AEC14B2AFDA324003C385D /* WidgetKit */ = {
+			isa = PBXGroup;
+			children = (
+				F0AEC14C2AFDA33A003C385D /* WidgetCenter+Concurrency.swift */,
+			);
+			path = WidgetKit;
+			sourceTree = "<group>";
+		};
 		F0B82DD52AE7FEC1000405EB /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
@@ -1813,6 +1840,7 @@
 				F0D9F4202AE1689F0019231A /* Foundation */,
 				F09F65FB2AF8555100615AB1 /* OSLog */,
 				F0466E672AE9BF7C0045FB04 /* SwiftUI */,
+				F0AEC14B2AFDA324003C385D /* WidgetKit */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1850,6 +1878,7 @@
 				F0D428912ADD8DFC00DAF2B2 /* URLMetadata */,
 				F0E347572AD8258900B12AD9 /* Views */,
 				F061DC532AD973AD00507993 /* ViewModifiers */,
+				F0AEC1452AFD8D80003C385D /* Widget */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -2113,6 +2142,7 @@
 				F00602002ADED4F1005F57CA /* ShareFormViewModel.swift in Sources */,
 				F051E3CD2AE07C98009F1E50 /* FormTextFieldName.swift in Sources */,
 				F00602012ADED5DE005F57CA /* FloatingButton.swift in Sources */,
+				F0AEC14F2AFDA40F003C385D /* WidgetCenter+Concurrency.swift in Sources */,
 				F041B3D02AF3B09F00EE13DE /* ProjectFormatter.swift in Sources */,
 				F041B3CF2AF3B09C00EE13DE /* ProjectFormatterProtocol.swift in Sources */,
 				F041B3C52AF30FE600EE13DE /* ContentFormatterProtocol.swift in Sources */,
@@ -2129,6 +2159,8 @@
 				F00602082ADEEA74005F57CA /* String+URL.swift in Sources */,
 				F00601F92ADECF14005F57CA /* ProjectPicker.swift in Sources */,
 				F02E9F3B2AE7330800755FF7 /* ContentStoreProtocol.swift in Sources */,
+				F0AEC1512AFDA42D003C385D /* WidgetKind.swift in Sources */,
+				F0AEC1502AFDA423003C385D /* WidgetManager.swift in Sources */,
 				F00601F52ADEC7E4005F57CA /* String+Components.swift in Sources */,
 				F041B3D12AF3B0BE00EE13DE /* Sequence+CountBy.swift in Sources */,
 				F00601F42ADEC75D005F57CA /* ProjectContent.swift in Sources */,
@@ -2154,6 +2186,7 @@
 				F09D54E82AE2C1C200E23ADC /* ContentStoreProtocol.swift in Sources */,
 				F041B3BC2AF3084800EE13DE /* ContentHeaderViewModel.swift in Sources */,
 				F05BFD5E2AE89C5F00095F74 /* NavigationContext.swift in Sources */,
+				F0AEC14E2AFDA33A003C385D /* WidgetCenter+Concurrency.swift in Sources */,
 				F0D9F4392AE1DAB70019231A /* ContentListThemeMenu.swift in Sources */,
 				F051E3CF2AE07CB2009F1E50 /* FormFieldValidator.swift in Sources */,
 				F041B3CD2AF3AF7100EE13DE /* ProjectFormatterProtocol.swift in Sources */,
@@ -2201,6 +2234,7 @@
 				F051E38A2AE0228E009F1E50 /* Project.swift in Sources */,
 				F051E3CE2AE07C98009F1E50 /* FormTextFieldName.swift in Sources */,
 				F051E3982AE02680009F1E50 /* Array+Duplicates.swift in Sources */,
+				F0AEC1482AFD8DC0003C385D /* WidgetManager.swift in Sources */,
 				F06A29282AE5E5E000B5A480 /* StatisticsViewModel.swift in Sources */,
 				F0D9F42F2AE1C47A0019231A /* ContentView.swift in Sources */,
 				F041B3C42AF30AA900EE13DE /* ContentFormatterProtocol.swift in Sources */,
@@ -2229,6 +2263,7 @@
 				F06A291B2AE475A100B5A480 /* ProjectRowSelectedIndicator.swift in Sources */,
 				F0AEC1442AFD8C45003C385D /* StoreNotification.swift in Sources */,
 				F06A29262AE5CF3B00B5A480 /* StatisticsDateView.swift in Sources */,
+				F0AEC1492AFD937C003C385D /* WidgetKind.swift in Sources */,
 				F041B3B22AF3043100EE13DE /* ProjectWindowViewModel.swift in Sources */,
 				F051E39D2AE02BD5009F1E50 /* ListStyleViewModifier.swift in Sources */,
 				F051E3E42AE0947F009F1E50 /* ProjectListPreviewStyleMenu.swift in Sources */,
@@ -2301,6 +2336,8 @@
 				F02E9F362AE72C5000755FF7 /* ProjectValues.swift in Sources */,
 				F0E984852AD8A7FF0082F6A1 /* FormTextField.swift in Sources */,
 				F061DC5B2AD9815C00507993 /* SwipeActionType.swift in Sources */,
+				F0AEC14A2AFD937D003C385D /* WidgetKind.swift in Sources */,
+				F0AEC1472AFD8DC0003C385D /* WidgetManager.swift in Sources */,
 				F061DC5D2AD99C3500507993 /* ModelContainer+Preview.swift in Sources */,
 				F041B3AC2AF3015A00EE13DE /* ProjectListContainerViewModel.swift in Sources */,
 				F0AEC13A2AFD87CC003C385D /* Notification+Store.swift in Sources */,
@@ -2320,6 +2357,7 @@
 				F0AEC13E2AFD8A4A003C385D /* StoreNotificationCenterProtocol.swift in Sources */,
 				F09D54EA2AE2C1C800E23ADC /* ContentStore.swift in Sources */,
 				F0AEC1422AFD8C45003C385D /* StoreNotification.swift in Sources */,
+				F0AEC14D2AFDA33A003C385D /* WidgetCenter+Concurrency.swift in Sources */,
 				F09D54E12AE2B5A300E23ADC /* ProjectStoreProtocol.swift in Sources */,
 				F041B3CC2AF3AF7100EE13DE /* ProjectFormatterProtocol.swift in Sources */,
 				F0E9848C2AD8ACB40082F6A1 /* FormTextFieldConfiguration.swift in Sources */,
