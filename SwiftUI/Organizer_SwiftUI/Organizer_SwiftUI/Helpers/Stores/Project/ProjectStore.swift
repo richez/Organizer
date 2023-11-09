@@ -10,11 +10,10 @@ import OSLog
 import SwiftData
 
 struct ProjectStore {
-    private let defaults: UserDefaults
+    // MARK: - Properties
 
-    init(defaults: UserDefaults = .standard) {
-        self.defaults = defaults
-    }
+    var defaults: UserDefaults = .standard
+    var notificationCenter: StoreNotificationCenterProtocol = StoreNotificationCenter()
 }
 
 // MARK: - ProjectStoreDescriptor
@@ -79,6 +78,8 @@ extension ProjectStore: ProjectStoreWritter {
     func create(_ project: Project, in context: ModelContext) {
         context.insert(project)
 
+        self.notificationCenter.post(.created(project))
+
         Logger.swiftData.info("Project \(project) inserted")
     }
 
@@ -86,6 +87,8 @@ extension ProjectStore: ProjectStoreWritter {
         self.create(project, in: context)
         contents.forEach { $0.project = project }
         project.contents = contents
+
+        self.notificationCenter.post(.created(project))
 
         Logger.swiftData.info("Project \(project) inserted with contents \(contents)")
     }
@@ -97,6 +100,8 @@ extension ProjectStore: ProjectStoreWritter {
         let hasChanges = title != project.title || theme != project.theme
 
         if hasChanges {
+            self.notificationCenter.post(.willUpdate(project, values))
+
             project.title = title
             project.theme = theme
             project.updatedDate = .now
@@ -113,12 +118,16 @@ extension ProjectStore: ProjectStoreWritter {
         duplicatedContents.forEach { $0.project = duplicatedProject }
         duplicatedProject.contents = duplicatedContents
 
+        self.notificationCenter.post(.created(duplicatedProject))
+
         Logger.swiftData.info("Project \(project) duplicated in \(duplicatedProject.identifier)")
     }
     
     func delete(_ project: Project, in context: ModelContext) {
         self.defaults.removePersistentDomain(forName: project.identifier.uuidString)
         context.delete(project)
+
+        self.notificationCenter.post(.deleted(project))
 
         Logger.swiftData.info("Project \(project) deleted")
     }

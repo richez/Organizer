@@ -260,6 +260,18 @@
 		F09F65FF2AF8594100615AB1 /* OSLog+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09F65FC2AF8556800615AB1 /* OSLog+App.swift */; };
 		F0AEC1322AFBA6EC003C385D /* OSLog+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09F65FC2AF8556800615AB1 /* OSLog+App.swift */; };
 		F0AEC1332AFBA6ED003C385D /* OSLog+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09F65FC2AF8556800615AB1 /* OSLog+App.swift */; };
+		F0AEC1362AFD8768003C385D /* StoreNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AEC1352AFD8768003C385D /* StoreNotificationCenter.swift */; };
+		F0AEC1372AFD8768003C385D /* StoreNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AEC1352AFD8768003C385D /* StoreNotificationCenter.swift */; };
+		F0AEC1382AFD8768003C385D /* StoreNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AEC1352AFD8768003C385D /* StoreNotificationCenter.swift */; };
+		F0AEC13A2AFD87CC003C385D /* Notification+Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AEC1392AFD87CC003C385D /* Notification+Store.swift */; };
+		F0AEC13B2AFD87CC003C385D /* Notification+Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AEC1392AFD87CC003C385D /* Notification+Store.swift */; };
+		F0AEC13C2AFD87CC003C385D /* Notification+Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AEC1392AFD87CC003C385D /* Notification+Store.swift */; };
+		F0AEC13E2AFD8A4A003C385D /* StoreNotificationCenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AEC13D2AFD8A4A003C385D /* StoreNotificationCenterProtocol.swift */; };
+		F0AEC13F2AFD8A4A003C385D /* StoreNotificationCenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AEC13D2AFD8A4A003C385D /* StoreNotificationCenterProtocol.swift */; };
+		F0AEC1402AFD8A4A003C385D /* StoreNotificationCenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AEC13D2AFD8A4A003C385D /* StoreNotificationCenterProtocol.swift */; };
+		F0AEC1422AFD8C45003C385D /* StoreNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AEC1412AFD8C45003C385D /* StoreNotification.swift */; };
+		F0AEC1432AFD8C45003C385D /* StoreNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AEC1412AFD8C45003C385D /* StoreNotification.swift */; };
+		F0AEC1442AFD8C45003C385D /* StoreNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AEC1412AFD8C45003C385D /* StoreNotification.swift */; };
 		F0B82DD42AE7F8A0000405EB /* StatisticsAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B82DD32AE7F8A0000405EB /* StatisticsAction.swift */; };
 		F0B82DD72AE7FEFB000405EB /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B82DD62AE7FEFB000405EB /* NavigationView.swift */; };
 		F0B82DD92AE8002C000405EB /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092AC472AD6FDDA00EAD1F6 /* MainView.swift */; };
@@ -532,6 +544,10 @@
 		F09D54F02AE2E7AA00E23ADC /* ProjectDuplicateAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDuplicateAction.swift; sourceTree = "<group>"; };
 		F09D54F22AE4376A00E23ADC /* ContentFormAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentFormAction.swift; sourceTree = "<group>"; };
 		F09F65FC2AF8556800615AB1 /* OSLog+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OSLog+App.swift"; sourceTree = "<group>"; };
+		F0AEC1352AFD8768003C385D /* StoreNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreNotificationCenter.swift; sourceTree = "<group>"; };
+		F0AEC1392AFD87CC003C385D /* Notification+Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Store.swift"; sourceTree = "<group>"; };
+		F0AEC13D2AFD8A4A003C385D /* StoreNotificationCenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreNotificationCenterProtocol.swift; sourceTree = "<group>"; };
+		F0AEC1412AFD8C45003C385D /* StoreNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreNotification.swift; sourceTree = "<group>"; };
 		F0B82DD32AE7F8A0000405EB /* StatisticsAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsAction.swift; sourceTree = "<group>"; };
 		F0B82DD62AE7FEFB000405EB /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
 		F0BD69572AEAC698002490E7 /* WidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1428,6 +1444,7 @@
 			children = (
 				F09D54E52AE2C1B200E23ADC /* Content */,
 				F09D54E42AE2BD6D00E23ADC /* Project */,
+				F0AEC1342AFD874F003C385D /* Notification */,
 			);
 			path = Stores;
 			sourceTree = "<group>";
@@ -1456,6 +1473,16 @@
 				F09F65FC2AF8556800615AB1 /* OSLog+App.swift */,
 			);
 			path = OSLog;
+			sourceTree = "<group>";
+		};
+		F0AEC1342AFD874F003C385D /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				F0AEC1412AFD8C45003C385D /* StoreNotification.swift */,
+				F0AEC13D2AFD8A4A003C385D /* StoreNotificationCenterProtocol.swift */,
+				F0AEC1352AFD8768003C385D /* StoreNotificationCenter.swift */,
+			);
+			path = Notification;
 			sourceTree = "<group>";
 		};
 		F0B82DD52AE7FEC1000405EB /* Navigation */ = {
@@ -1676,6 +1703,7 @@
 				F0E347492AD8010C00B12AD9 /* String+Components.swift */,
 				F061DC7E2ADAB1D200507993 /* String+URL.swift */,
 				F02E9F2A2AE6BADB00755FF7 /* Sequence+CountBy.swift */,
+				F0AEC1392AFD87CC003C385D /* Notification+Store.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -2077,8 +2105,10 @@
 				F02E9F3F2AE7331300755FF7 /* ProjectStore.swift in Sources */,
 				F00601FB2ADECF59005F57CA /* FormTextField.swift in Sources */,
 				F00602022ADED5E5005F57CA /* FloatingButtonViewModifier.swift in Sources */,
+				F0AEC13B2AFD87CC003C385D /* Notification+Store.swift in Sources */,
 				F0466E6A2AE9BF8F0045FB04 /* View+AlertError.swift in Sources */,
 				F02E9F402AE7332100755FF7 /* Array+Duplicates.swift in Sources */,
+				F0AEC1432AFD8C45003C385D /* StoreNotification.swift in Sources */,
 				F02E9F3E2AE7331000755FF7 /* ProjectStoreProtocol.swift in Sources */,
 				F00602002ADED4F1005F57CA /* ShareFormViewModel.swift in Sources */,
 				F051E3CD2AE07C98009F1E50 /* FormTextFieldName.swift in Sources */,
@@ -2095,6 +2125,7 @@
 				F02E9F422AE7333000755FF7 /* ContentListSorting.swift in Sources */,
 				F02E9F3A2AE7330600755FF7 /* ContentValues.swift in Sources */,
 				F02E9F412AE7332A00755FF7 /* ProjectListSorting.swift in Sources */,
+				F0AEC13F2AFD8A4A003C385D /* StoreNotificationCenterProtocol.swift in Sources */,
 				F00602082ADEEA74005F57CA /* String+URL.swift in Sources */,
 				F00601F92ADECF14005F57CA /* ProjectPicker.swift in Sources */,
 				F02E9F3B2AE7330800755FF7 /* ContentStoreProtocol.swift in Sources */,
@@ -2102,6 +2133,7 @@
 				F041B3D12AF3B0BE00EE13DE /* Sequence+CountBy.swift in Sources */,
 				F00601F42ADEC75D005F57CA /* ProjectContent.swift in Sources */,
 				F00601F32ADEC75B005F57CA /* Project.swift in Sources */,
+				F0AEC1372AFD8768003C385D /* StoreNotificationCenter.swift in Sources */,
 				F00602072ADEEA6B005F57CA /* FormFieldValidator.swift in Sources */,
 				F00601DD2ADEBCEC005F57CA /* ShareViewController.swift in Sources */,
 				F00601FA2ADECF49005F57CA /* FormSection.swift in Sources */,
@@ -2160,6 +2192,7 @@
 				F0D9F4322AE1CAD70019231A /* ContentListView.swift in Sources */,
 				F0D9F4272AE1ACFD0019231A /* ProjectRowViewModel.swift in Sources */,
 				F02E9F342AE72B8500755FF7 /* ContentValues.swift in Sources */,
+				F0AEC1402AFD8A4A003C385D /* StoreNotificationCenterProtocol.swift in Sources */,
 				F0D9F44C2AE1EE570019231A /* Pasteboard.swift in Sources */,
 				F09D54DC2AE2A7CB00E23ADC /* ProjectEditorFormAction.swift in Sources */,
 				F05BFD532AE80ED300095F74 /* FocusedValues.swift in Sources */,
@@ -2179,12 +2212,14 @@
 				F051E3D02AE07CBE009F1E50 /* String+URL.swift in Sources */,
 				F0D9F4462AE1E2040019231A /* URLMetadataProviderProtocol.swift in Sources */,
 				F041B3B02AF3025000EE13DE /* ProjectListViewModel.swift in Sources */,
+				F0AEC13C2AFD87CC003C385D /* Notification+Store.swift in Sources */,
 				F0B82DD42AE7F8A0000405EB /* StatisticsAction.swift in Sources */,
 				F09D54E22AE2B66000E23ADC /* ProjectStoreProtocol.swift in Sources */,
 				F051E3942AE025D9009F1E50 /* ContextMenuButton.swift in Sources */,
 				F02E9F312AE6DF4800755FF7 /* Deeplink.swift in Sources */,
 				F0D9F4372AE1DAAD0019231A /* ContentListSortingMenu.swift in Sources */,
 				F051E3962AE0266A009F1E50 /* ProjectListView.swift in Sources */,
+				F0AEC1382AFD8768003C385D /* StoreNotificationCenter.swift in Sources */,
 				F09D54D72AE293A900E23ADC /* OpenProjectWindowAction.swift in Sources */,
 				F051E3C32AE06E94009F1E50 /* FormTextField.swift in Sources */,
 				F041B3BA2AF3076600EE13DE /* ContentListViewModel.swift in Sources */,
@@ -2192,6 +2227,7 @@
 				F051E3882AE02281009F1E50 /* ModelContainer+Preview.swift in Sources */,
 				F051E39F2AE030DE009F1E50 /* ProjectHeaderView.swift in Sources */,
 				F06A291B2AE475A100B5A480 /* ProjectRowSelectedIndicator.swift in Sources */,
+				F0AEC1442AFD8C45003C385D /* StoreNotification.swift in Sources */,
 				F06A29262AE5CF3B00B5A480 /* StatisticsDateView.swift in Sources */,
 				F041B3B22AF3043100EE13DE /* ProjectWindowViewModel.swift in Sources */,
 				F051E39D2AE02BD5009F1E50 /* ListStyleViewModifier.swift in Sources */,
@@ -2267,6 +2303,8 @@
 				F061DC5B2AD9815C00507993 /* SwipeActionType.swift in Sources */,
 				F061DC5D2AD99C3500507993 /* ModelContainer+Preview.swift in Sources */,
 				F041B3AC2AF3015A00EE13DE /* ProjectListContainerViewModel.swift in Sources */,
+				F0AEC13A2AFD87CC003C385D /* Notification+Store.swift in Sources */,
+				F0AEC1362AFD8768003C385D /* StoreNotificationCenter.swift in Sources */,
 				F00601D52ADEB280005F57CA /* FormFieldValidator.swift in Sources */,
 				F041B3AA2AF3005A00EE13DE /* ProjectViewModel.swift in Sources */,
 				F0E347612AD83A9E00B12AD9 /* FloatingButtonViewModifier.swift in Sources */,
@@ -2279,7 +2317,9 @@
 				F051E3DA2AE08A5B009F1E50 /* ProjectListThemeMenu.swift in Sources */,
 				F0D428932ADD8E6300DAF2B2 /* URLMetadataProviderProtocol.swift in Sources */,
 				F061DC562AD9741100507993 /* ListStyleViewModifier.swift in Sources */,
+				F0AEC13E2AFD8A4A003C385D /* StoreNotificationCenterProtocol.swift in Sources */,
 				F09D54EA2AE2C1C800E23ADC /* ContentStore.swift in Sources */,
+				F0AEC1422AFD8C45003C385D /* StoreNotification.swift in Sources */,
 				F09D54E12AE2B5A300E23ADC /* ProjectStoreProtocol.swift in Sources */,
 				F041B3CC2AF3AF7100EE13DE /* ProjectFormatterProtocol.swift in Sources */,
 				F0E9848C2AD8ACB40082F6A1 /* FormTextFieldConfiguration.swift in Sources */,

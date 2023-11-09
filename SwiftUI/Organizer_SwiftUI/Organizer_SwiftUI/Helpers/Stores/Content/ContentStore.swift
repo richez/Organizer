@@ -10,6 +10,10 @@ import OSLog
 import SwiftData
 
 struct ContentStore {
+    // MARK: - Properties
+
+    var notificationCenter: StoreNotificationCenterProtocol = StoreNotificationCenter()
+
     // MARK: - Error
 
     enum Error: Swift.Error {
@@ -83,6 +87,8 @@ extension ContentStore: ContentStoreWritter {
         context.insert(content)
         project.contents.append(content)
 
+        self.notificationCenter.post(.didUpdateContent(project))
+
         Logger.swiftData.info("Content \(content) inserted in project \(project)")
     }
 
@@ -101,13 +107,21 @@ extension ContentStore: ContentStoreWritter {
             content.theme = theme
             content.updatedDate = .now
             content.project?.updatedDate = .now
-            
+
+            if let project = content.project {
+                self.notificationCenter.post(.didUpdateContent(project))
+            }
+
             Logger.swiftData.info("Content \(content) updated with values \(values)")
         }
     }
     
     func delete(_ content: ProjectContent, in context: ModelContext) {
         context.delete(content)
+
+        if let project = content.project {
+            self.notificationCenter.post(.didUpdateContent(project))
+        }
 
         Logger.swiftData.info("Content \(content) deleted")
     }
