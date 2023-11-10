@@ -361,6 +361,30 @@
 		F0E347522AD81C9C00B12AD9 /* ProjectListSorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347512AD81C9C00B12AD9 /* ProjectListSorting.swift */; };
 		F0E3475F2AD83A7700B12AD9 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E3475E2AD83A7700B12AD9 /* FloatingButton.swift */; };
 		F0E347612AD83A9E00B12AD9 /* FloatingButtonViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E347602AD83A9E00B12AD9 /* FloatingButtonViewModifier.swift */; };
+		F0E62AC02AFEE7290042DA09 /* WidgetStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F013038C2AEB0E9300D28886 /* WidgetStore.swift */; };
+		F0E62AC12AFEE72A0042DA09 /* WidgetStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F013038C2AEB0E9300D28886 /* WidgetStore.swift */; };
+		F0E62AC22AFEE72A0042DA09 /* WidgetStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F013038C2AEB0E9300D28886 /* WidgetStore.swift */; };
+		F0E62AC32AFEE7340042DA09 /* ThemeEntityQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B4142AF50FB200EE13DE /* ThemeEntityQuery.swift */; };
+		F0E62AC42AFEE7340042DA09 /* ThemeEntityQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B4142AF50FB200EE13DE /* ThemeEntityQuery.swift */; };
+		F0E62AC52AFEE7350042DA09 /* ThemeEntityQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B4142AF50FB200EE13DE /* ThemeEntityQuery.swift */; };
+		F0E62AC62AFEE73B0042DA09 /* ThemeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B4102AF50F6B00EE13DE /* ThemeEntity.swift */; };
+		F0E62AC72AFEE73B0042DA09 /* ThemeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B4102AF50F6B00EE13DE /* ThemeEntity.swift */; };
+		F0E62AC82AFEE73C0042DA09 /* ThemeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B4102AF50F6B00EE13DE /* ThemeEntity.swift */; };
+		F0E62AC92AFEE73F0042DA09 /* ThemeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B4172AF50FDC00EE13DE /* ThemeType.swift */; };
+		F0E62ACA2AFEE7400042DA09 /* ThemeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B4172AF50FDC00EE13DE /* ThemeType.swift */; };
+		F0E62ACB2AFEE7400042DA09 /* ThemeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B4172AF50FDC00EE13DE /* ThemeType.swift */; };
+		F0E62ACC2AFEE7450042DA09 /* ProjectsIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B4062AF46E9900EE13DE /* ProjectsIntent.swift */; };
+		F0E62ACD2AFEE7450042DA09 /* ProjectsIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B4062AF46E9900EE13DE /* ProjectsIntent.swift */; };
+		F0E62ACE2AFEE7460042DA09 /* ProjectsIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B4062AF46E9900EE13DE /* ProjectsIntent.swift */; };
+		F0E62ACF2AFEE7490042DA09 /* ProjectEntityQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = F030C0DB2AF6F8630065BF1A /* ProjectEntityQuery.swift */; };
+		F0E62AD02AFEE74A0042DA09 /* ProjectEntityQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = F030C0DB2AF6F8630065BF1A /* ProjectEntityQuery.swift */; };
+		F0E62AD12AFEE74B0042DA09 /* ProjectEntityQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = F030C0DB2AF6F8630065BF1A /* ProjectEntityQuery.swift */; };
+		F0E62AD22AFEE74E0042DA09 /* ProjectEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F030C0D82AF6F8530065BF1A /* ProjectEntity.swift */; };
+		F0E62AD32AFEE74F0042DA09 /* ProjectEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F030C0D82AF6F8530065BF1A /* ProjectEntity.swift */; };
+		F0E62AD42AFEE74F0042DA09 /* ProjectEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F030C0D82AF6F8530065BF1A /* ProjectEntity.swift */; };
+		F0E62AD52AFEE7540042DA09 /* SingleProjectIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F030C0D52AF6F83B0065BF1A /* SingleProjectIntent.swift */; };
+		F0E62AD62AFEE7550042DA09 /* SingleProjectIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F030C0D52AF6F83B0065BF1A /* SingleProjectIntent.swift */; };
+		F0E62AD72AFEE7550042DA09 /* SingleProjectIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F030C0D52AF6F83B0065BF1A /* SingleProjectIntent.swift */; };
 		F0E984852AD8A7FF0082F6A1 /* FormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E984842AD8A7FF0082F6A1 /* FormTextField.swift */; };
 		F0E9848C2AD8ACB40082F6A1 /* FormTextFieldConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E9848B2AD8ACB40082F6A1 /* FormTextFieldConfiguration.swift */; };
 /* End PBXBuildFile section */
@@ -2135,9 +2159,11 @@
 				F00601FB2ADECF59005F57CA /* FormTextField.swift in Sources */,
 				F00602022ADED5E5005F57CA /* FloatingButtonViewModifier.swift in Sources */,
 				F0AEC13B2AFD87CC003C385D /* Notification+Store.swift in Sources */,
+				F0E62AC12AFEE72A0042DA09 /* WidgetStore.swift in Sources */,
 				F0466E6A2AE9BF8F0045FB04 /* View+AlertError.swift in Sources */,
 				F02E9F402AE7332100755FF7 /* Array+Duplicates.swift in Sources */,
 				F0AEC1432AFD8C45003C385D /* StoreNotification.swift in Sources */,
+				F0E62AC42AFEE7340042DA09 /* ThemeEntityQuery.swift in Sources */,
 				F02E9F3E2AE7331000755FF7 /* ProjectStoreProtocol.swift in Sources */,
 				F00602002ADED4F1005F57CA /* ShareFormViewModel.swift in Sources */,
 				F051E3CD2AE07C98009F1E50 /* FormTextFieldName.swift in Sources */,
@@ -2151,11 +2177,14 @@
 				F00601FC2ADECF5E005F57CA /* FormTextFieldConfiguration.swift in Sources */,
 				F02E9F3C2AE7330B00755FF7 /* ContentStore.swift in Sources */,
 				F00601F22ADEC561005F57CA /* ShareForm.swift in Sources */,
+				F0E62AD02AFEE74A0042DA09 /* ProjectEntityQuery.swift in Sources */,
 				F00601ED2ADEBE09005F57CA /* ShareView.swift in Sources */,
 				F02E9F422AE7333000755FF7 /* ContentListSorting.swift in Sources */,
 				F02E9F3A2AE7330600755FF7 /* ContentValues.swift in Sources */,
 				F02E9F412AE7332A00755FF7 /* ProjectListSorting.swift in Sources */,
+				F0E62ACD2AFEE7450042DA09 /* ProjectsIntent.swift in Sources */,
 				F0AEC13F2AFD8A4A003C385D /* StoreNotificationCenterProtocol.swift in Sources */,
+				F0E62AD32AFEE74F0042DA09 /* ProjectEntity.swift in Sources */,
 				F00602082ADEEA74005F57CA /* String+URL.swift in Sources */,
 				F00601F92ADECF14005F57CA /* ProjectPicker.swift in Sources */,
 				F02E9F3B2AE7330800755FF7 /* ContentStoreProtocol.swift in Sources */,
@@ -2163,13 +2192,16 @@
 				F0AEC1502AFDA423003C385D /* WidgetManager.swift in Sources */,
 				F00601F52ADEC7E4005F57CA /* String+Components.swift in Sources */,
 				F041B3D12AF3B0BE00EE13DE /* Sequence+CountBy.swift in Sources */,
+				F0E62ACA2AFEE7400042DA09 /* ThemeType.swift in Sources */,
 				F00601F42ADEC75D005F57CA /* ProjectContent.swift in Sources */,
 				F00601F32ADEC75B005F57CA /* Project.swift in Sources */,
 				F0AEC1372AFD8768003C385D /* StoreNotificationCenter.swift in Sources */,
 				F00602072ADEEA6B005F57CA /* FormFieldValidator.swift in Sources */,
+				F0E62AC72AFEE73B0042DA09 /* ThemeEntity.swift in Sources */,
 				F00601DD2ADEBCEC005F57CA /* ShareViewController.swift in Sources */,
 				F00601FA2ADECF49005F57CA /* FormSection.swift in Sources */,
 				F041B3C62AF30FE900EE13DE /* ContentFormatter.swift in Sources */,
+				F0E62AD62AFEE7550042DA09 /* SingleProjectIntent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2186,9 +2218,11 @@
 				F09D54E82AE2C1C200E23ADC /* ContentStoreProtocol.swift in Sources */,
 				F041B3BC2AF3084800EE13DE /* ContentHeaderViewModel.swift in Sources */,
 				F05BFD5E2AE89C5F00095F74 /* NavigationContext.swift in Sources */,
+				F0E62ACC2AFEE7450042DA09 /* ProjectsIntent.swift in Sources */,
 				F0AEC14E2AFDA33A003C385D /* WidgetCenter+Concurrency.swift in Sources */,
 				F0D9F4392AE1DAB70019231A /* ContentListThemeMenu.swift in Sources */,
 				F051E3CF2AE07CB2009F1E50 /* FormFieldValidator.swift in Sources */,
+				F0E62AC32AFEE7340042DA09 /* ThemeEntityQuery.swift in Sources */,
 				F041B3CD2AF3AF7100EE13DE /* ProjectFormatterProtocol.swift in Sources */,
 				F051E3902AE023A3009F1E50 /* AppStorage+Key.swift in Sources */,
 				F051E38B2AE02294009F1E50 /* ProjectContent.swift in Sources */,
@@ -2210,6 +2244,7 @@
 				F041B3CA2AF3AF6900EE13DE /* ProjectFormatter.swift in Sources */,
 				F0D9F4162AE0A4B80019231A /* NavigationView.swift in Sources */,
 				F0D9F4192AE0A6AA0019231A /* ThemeListView.swift in Sources */,
+				F0E62AC92AFEE73F0042DA09 /* ThemeType.swift in Sources */,
 				F041B3C12AF309C800EE13DE /* ContentFormatter.swift in Sources */,
 				F0D9F4452AE1E1F50019231A /* URLMetadataProvider.swift in Sources */,
 				F0D9F4342AE1CAE90019231A /* ContentListSorting.swift in Sources */,
@@ -2233,12 +2268,15 @@
 				F0B82DD92AE8002C000405EB /* MainView.swift in Sources */,
 				F051E38A2AE0228E009F1E50 /* Project.swift in Sources */,
 				F051E3CE2AE07C98009F1E50 /* FormTextFieldName.swift in Sources */,
+				F0E62AD52AFEE7540042DA09 /* SingleProjectIntent.swift in Sources */,
 				F051E3982AE02680009F1E50 /* Array+Duplicates.swift in Sources */,
 				F0AEC1482AFD8DC0003C385D /* WidgetManager.swift in Sources */,
 				F06A29282AE5E5E000B5A480 /* StatisticsViewModel.swift in Sources */,
 				F0D9F42F2AE1C47A0019231A /* ContentView.swift in Sources */,
 				F041B3C42AF30AA900EE13DE /* ContentFormatterProtocol.swift in Sources */,
+				F0E62AC02AFEE7290042DA09 /* WidgetStore.swift in Sources */,
 				F09F65FE2AF8556800615AB1 /* OSLog+App.swift in Sources */,
+				F0E62AC62AFEE73B0042DA09 /* ThemeEntity.swift in Sources */,
 				F09D54CF2AE1F8BE00E23ADC /* ContentRowViewModel.swift in Sources */,
 				F0D9F4382AE1DAB50019231A /* ContentListPreviewStyleMenu.swift in Sources */,
 				F02E9F2C2AE6BADB00755FF7 /* Sequence+CountBy.swift in Sources */,
@@ -2253,6 +2291,7 @@
 				F02E9F312AE6DF4800755FF7 /* Deeplink.swift in Sources */,
 				F0D9F4372AE1DAAD0019231A /* ContentListSortingMenu.swift in Sources */,
 				F051E3962AE0266A009F1E50 /* ProjectListView.swift in Sources */,
+				F0E62ACF2AFEE7490042DA09 /* ProjectEntityQuery.swift in Sources */,
 				F0AEC1382AFD8768003C385D /* StoreNotificationCenter.swift in Sources */,
 				F09D54D72AE293A900E23ADC /* OpenProjectWindowAction.swift in Sources */,
 				F051E3C32AE06E94009F1E50 /* FormTextField.swift in Sources */,
@@ -2261,6 +2300,7 @@
 				F051E3882AE02281009F1E50 /* ModelContainer+Preview.swift in Sources */,
 				F051E39F2AE030DE009F1E50 /* ProjectHeaderView.swift in Sources */,
 				F06A291B2AE475A100B5A480 /* ProjectRowSelectedIndicator.swift in Sources */,
+				F0E62AD22AFEE74E0042DA09 /* ProjectEntity.swift in Sources */,
 				F0AEC1442AFD8C45003C385D /* StoreNotification.swift in Sources */,
 				F06A29262AE5CF3B00B5A480 /* StatisticsDateView.swift in Sources */,
 				F0AEC1492AFD937C003C385D /* WidgetKind.swift in Sources */,
@@ -2298,6 +2338,7 @@
 				F00601C92ADDE9C5005F57CA /* FormLoadingButton.swift in Sources */,
 				F0E3474A2AD8010C00B12AD9 /* String+Components.swift in Sources */,
 				F09D54E72AE2C1C200E23ADC /* ContentStoreProtocol.swift in Sources */,
+				F0E62AD12AFEE74B0042DA09 /* ProjectEntityQuery.swift in Sources */,
 				F07DE09B2AD7449300B3B91E /* ProjectRow.swift in Sources */,
 				F061DC722AD9F02E00507993 /* ContentRowViewModel.swift in Sources */,
 				F061DC652AD9A17E00507993 /* ContentListMenu.swift in Sources */,
@@ -2305,6 +2346,7 @@
 				F051E3A92AE03C1B009F1E50 /* ContentListContainerView.swift in Sources */,
 				F0E3473A2AD7681100B12AD9 /* ProjectListMenu.swift in Sources */,
 				F0D428952ADD8E7700DAF2B2 /* URLMetadataProviderError.swift in Sources */,
+				F0E62AD42AFEE74F0042DA09 /* ProjectEntity.swift in Sources */,
 				F092AC5B2AD7046C00EAD1F6 /* ProjectContent.swift in Sources */,
 				F061DC7F2ADAB1D200507993 /* String+URL.swift in Sources */,
 				F0D9F4242AE169DA0019231A /* ProjectUnavailableView.swift in Sources */,
@@ -2326,12 +2368,14 @@
 				F02E9F332AE72B8500755FF7 /* ContentValues.swift in Sources */,
 				F092AC632AD7098E00EAD1F6 /* ProjectListView.swift in Sources */,
 				F061DC522AD9721100507993 /* PreviewDataGenerator.swift in Sources */,
+				F0E62ACE2AFEE7460042DA09 /* ProjectsIntent.swift in Sources */,
 				F05BFD5A2AE889F500095F74 /* DeeplinkManager.swift in Sources */,
 				F051E3A22AE038B0009F1E50 /* ProjectListContainerView.swift in Sources */,
 				F041B3C92AF3AF6900EE13DE /* ProjectFormatter.swift in Sources */,
 				F061DC692AD9A58500507993 /* AppStorage+Key.swift in Sources */,
 				F051E3DC2AE08C1F009F1E50 /* ContentListSortingMenu.swift in Sources */,
 				F041B3C02AF309C800EE13DE /* ContentFormatter.swift in Sources */,
+				F0E62ACB2AFEE7400042DA09 /* ThemeType.swift in Sources */,
 				F02E9F2B2AE6BADB00755FF7 /* Sequence+CountBy.swift in Sources */,
 				F02E9F362AE72C5000755FF7 /* ProjectValues.swift in Sources */,
 				F0E984852AD8A7FF0082F6A1 /* FormTextField.swift in Sources */,
@@ -2345,16 +2389,19 @@
 				F00601D52ADEB280005F57CA /* FormFieldValidator.swift in Sources */,
 				F041B3AA2AF3005A00EE13DE /* ProjectViewModel.swift in Sources */,
 				F0E347612AD83A9E00B12AD9 /* FloatingButtonViewModifier.swift in Sources */,
+				F0E62AC22AFEE72A0042DA09 /* WidgetStore.swift in Sources */,
 				F0D4288B2ADD4C0700DAF2B2 /* ContextMenuType.swift in Sources */,
 				F0D4288E2ADD58F600DAF2B2 /* SafariView.swift in Sources */,
 				F0E347452AD7F48800B12AD9 /* ProjectRowViewModel.swift in Sources */,
 				F051E3DE2AE08C61009F1E50 /* ContentListPreviewStyleMenu.swift in Sources */,
 				F0D9F44B2AE1EE570019231A /* Pasteboard.swift in Sources */,
 				F0466E692AE9BF8F0045FB04 /* View+AlertError.swift in Sources */,
+				F0E62AC82AFEE73C0042DA09 /* ThemeEntity.swift in Sources */,
 				F051E3DA2AE08A5B009F1E50 /* ProjectListThemeMenu.swift in Sources */,
 				F0D428932ADD8E6300DAF2B2 /* URLMetadataProviderProtocol.swift in Sources */,
 				F061DC562AD9741100507993 /* ListStyleViewModifier.swift in Sources */,
 				F0AEC13E2AFD8A4A003C385D /* StoreNotificationCenterProtocol.swift in Sources */,
+				F0E62AC52AFEE7350042DA09 /* ThemeEntityQuery.swift in Sources */,
 				F09D54EA2AE2C1C800E23ADC /* ContentStore.swift in Sources */,
 				F0AEC1422AFD8C45003C385D /* StoreNotification.swift in Sources */,
 				F0AEC14D2AFDA33A003C385D /* WidgetCenter+Concurrency.swift in Sources */,
@@ -2369,6 +2416,7 @@
 				F061DC702AD9F02600507993 /* ContentRow.swift in Sources */,
 				F0E347482AD800E300B12AD9 /* Array+Duplicates.swift in Sources */,
 				F0B82DD72AE7FEFB000405EB /* NavigationView.swift in Sources */,
+				F0E62AD72AFEE7550042DA09 /* SingleProjectIntent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

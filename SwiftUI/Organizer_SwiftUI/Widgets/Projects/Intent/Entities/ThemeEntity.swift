@@ -15,6 +15,6 @@ struct ThemeEntity: AppEntity, Identifiable {
     var displayRepresentation: DisplayRepresentation {
         .init(stringLiteral: self.name)
     }
-    static var typeDisplayRepresentation = TypeDisplayRepresentation(name: "Tag")
+    static var typeDisplayRepresentation = TypeDisplayRepresentation(name: "Theme")
     static var defaultQuery = ThemeEntityQuery()
 }

@@ -108,9 +108,11 @@ private extension WidgetManager {
         case .lastProject:
             return .lastProject
         case .projects:
-            return .projects(theme: "DIY")
+            let theme = widget.widgetConfigurationIntent(of: ProjectsIntent.self)?.theme?.name
+            return .projects(theme: theme)
         case .singleProject:
-            return .singleProject(UUID(uuidString: "identifier"))
+            let projectID = widget.widgetConfigurationIntent(of: SingleProjectIntent.self)?.project?.id
+            return .singleProject(projectID)
         default:
             return nil
         }
