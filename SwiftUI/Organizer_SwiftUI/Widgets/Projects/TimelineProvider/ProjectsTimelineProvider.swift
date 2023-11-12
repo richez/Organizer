@@ -12,7 +12,7 @@ struct ProjectsTimelineProvider: AppIntentTimelineProvider {
     var store: WidgetStore = .init()
 
     func placeholder(in context: Context) -> ProjectsEntry {
-        return self.entry(for: nil, family: context.family)
+        return self.entry(family: context.family)
     }
 
     func snapshot(for configuration: ProjectsIntent, in context: Context) async -> ProjectsEntry {
@@ -39,7 +39,7 @@ struct ProjectsTimelineProvider: AppIntentTimelineProvider {
 }
 
 private extension ProjectsTimelineProvider {
-    func entry(for configuration: ProjectsIntent?, family: WidgetFamily) -> ProjectsEntry {
+    func entry(for configuration: ProjectsIntent? = nil, family: WidgetFamily) -> ProjectsEntry {
         let requiredCapacity = self.requiredCapacity(for: family)
         let projects = self.projects(for: configuration, fetchLimit: requiredCapacity)
         return ProjectsEntry(projects: projects, requiredCapacity: requiredCapacity)
