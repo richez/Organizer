@@ -1348,7 +1348,6 @@
 		F092AC392AD6FDDA00EAD1F6 = {
 			isa = PBXGroup;
 			children = (
-				F01303962AEB21D800D28886 /* WidgetsExtension.entitlements */,
 				F092AC442AD6FDDA00EAD1F6 /* Organizer_SwiftUI */,
 				F00601DB2ADEBCEC005F57CA /* ShareExtension */,
 				F051E3742AE01D7A009F1E50 /* MacOrganizer */,
@@ -1579,6 +1578,7 @@
 		F0BD697F2AEAC839002490E7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F01303962AEB21D800D28886 /* WidgetsExtension.entitlements */,
 				F0BD695F2AEAC699002490E7 /* Assets.xcassets */,
 				F0BD69612AEAC699002490E7 /* Info.plist */,
 			);
@@ -2876,7 +2876,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = WidgetsExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Widgets/Resources/WidgetsExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = EE36UWQ2XG;
@@ -2906,7 +2906,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = WidgetsExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Widgets/Resources/WidgetsExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = EE36UWQ2XG;
