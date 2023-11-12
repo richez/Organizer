@@ -2058,7 +2058,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1510;
 				TargetAttributes = {
 					F00601D92ADEBCEC005F57CA = {
 						CreatedOnToolsVersion = 15.0;
@@ -2631,6 +2631,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"MacOrganizer/Preview Content\"";
 				DEVELOPMENT_TEAM = EE36UWQ2XG;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -2664,6 +2665,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"MacOrganizer/Preview Content\"";
 				DEVELOPMENT_TEAM = EE36UWQ2XG;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -2938,6 +2940,7 @@
 				CODE_SIGN_ENTITLEMENTS = MacWidgets/Resources/MacWidgets.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = EE36UWQ2XG;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -2970,6 +2973,7 @@
 				CODE_SIGN_ENTITLEMENTS = MacWidgets/Resources/MacWidgets.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = EE36UWQ2XG;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
