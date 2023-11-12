@@ -28,7 +28,10 @@ struct ProjectEntityQuery: EntityQuery {
         let store = WidgetStore()
 
         Logger.entityQueries.info("Loading projects to suggest for specific project...")
-        let projects: [Project] = try store.models(propertiesToFetch: [\.identifier, \.title])
+        let projects: [Project] = try store.models(
+            sortBy: [SortDescriptor(\.updatedDate)],
+            propertiesToFetch: [\.identifier, \.title]
+        )
         Logger.entityQueries.info("Found \(projects.map(\.title)) projects")
         
         return projects.map(ProjectEntity.init(from:))
