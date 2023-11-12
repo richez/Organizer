@@ -52,11 +52,13 @@ private extension StoreNotificationCenter {
     }
 
     func deleted(_ project: Project) {
+        let oldValues = ProjectValues(title: project.title, theme: project.theme)
         self.center.post(
             name: .didDeleteProject,
             object: nil,
             userInfo: [
-                UserInfoKey.projectID: project.identifier
+                UserInfoKey.projectID: project.identifier,
+                UserInfoKey.oldValues: oldValues
             ]
         )
     }
