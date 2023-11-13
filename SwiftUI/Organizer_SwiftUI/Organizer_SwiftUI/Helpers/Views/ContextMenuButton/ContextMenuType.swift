@@ -5,7 +5,7 @@
 //  Created by Thibaut Richez on 16/10/2023.
 //
 
-import Foundation
+import SwiftUI
 
 enum ContextMenuType {
     case duplicate
@@ -14,13 +14,13 @@ enum ContextMenuType {
     case openBrowser
     case copyLink
 
-    var label: String {
+    var label: LocalizedStringKey {
         switch self {
-        case .duplicate: String(localized: "Duplicate")
-        case .edit: String(localized: "Edit")
-        case .delete: String(localized: "Delete")
-        case .openBrowser: String(localized: "Open in Browser")
-        case .copyLink: String(localized: "Copy Link")
+        case .duplicate: "Duplicate"
+        case .edit: "Edit"
+        case .delete: "Delete"
+        case .openBrowser: "Open in Browser"
+        case .copyLink: "Copy Link"
         }
     }
 

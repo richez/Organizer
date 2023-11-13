@@ -50,6 +50,7 @@ private extension EmptyProjectView {
     }
 }
 // TODO: localize
+// TODO: fix blue placeholder in content form
 extension EmptyProjectView {
     enum Kind {
         case `default`

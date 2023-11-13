@@ -37,12 +37,12 @@ struct ContentListSortingMenu: View {
 }
 
 private extension ContentListSortingMenu {
-    var ascendingOrderTitle: String {
+    var ascendingOrderTitle: LocalizedStringKey {
         switch self.sorting {
         case .title, .type:
-            return String(localized: "A to Z")
+            return "A to Z"
         case .updatedDate, .createdDate:
-            return String(localized: "Newest on Top")
+            return "Newest on Top"
         }
     }
 }
