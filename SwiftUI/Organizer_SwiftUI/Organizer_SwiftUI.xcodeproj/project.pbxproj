@@ -386,6 +386,8 @@
 		F0E98E322B02660400572C94 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F0E98E312B02660400572C94 /* Localizable.xcstrings */; };
 		F0E98E332B02660400572C94 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F0E98E312B02660400572C94 /* Localizable.xcstrings */; };
 		F0E98E342B0270A900572C94 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F0E98E312B02660400572C94 /* Localizable.xcstrings */; };
+		F0E98E372B02925400572C94 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F0E98E312B02660400572C94 /* Localizable.xcstrings */; };
+		F0E98E382B02925500572C94 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F0E98E312B02660400572C94 /* Localizable.xcstrings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -2160,6 +2162,7 @@
 			files = (
 				F0BD69A92AEAC9EF002490E7 /* Assets.xcassets in Resources */,
 				F0BD69602AEAC699002490E7 /* Assets.xcassets in Resources */,
+				F0E98E372B02925400572C94 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2169,6 +2172,7 @@
 			files = (
 				F0BD69AA2AEAC9EF002490E7 /* Assets.xcassets in Resources */,
 				F0BD69752AEAC7C9002490E7 /* Assets.xcassets in Resources */,
+				F0E98E382B02925500572C94 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
