@@ -248,6 +248,16 @@
         }
       }
     },
+    "Create project" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Créez un projet"
+          }
+        }
+      }
+    },
     "Create Project" : {
       "localizations" : {
         "fr" : {
@@ -678,6 +688,26 @@
         }
       }
     },
+    "Select project" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sélectionnez projet"
+          }
+        }
+      }
+    },
+    "Select theme" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sélectionnez thème"
+          }
+        }
+      }
+    },
     "Single Project" : {
       "localizations" : {
         "fr" : {
@@ -714,6 +744,36 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Statistiques"
+          }
+        }
+      }
+    },
+    "Tap and create your first project" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Appuyez et créez votre premier projet"
+          }
+        }
+      }
+    },
+    "Tap and hold to choose a project" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Appuyez et maintenez pour choisir un projet"
+          }
+        }
+      }
+    },
+    "Tap and hold to choose a theme" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Appuyez et maintenez pour choisir un thème"
           }
         }
       }

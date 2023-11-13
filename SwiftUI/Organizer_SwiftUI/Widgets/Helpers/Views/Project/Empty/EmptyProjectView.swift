@@ -49,8 +49,7 @@ private extension EmptyProjectView {
         }
     }
 }
-// TODO: localize
-// TODO: fix blue placeholder in content form
+
 extension EmptyProjectView {
     enum Kind {
         case `default`
@@ -59,17 +58,17 @@ extension EmptyProjectView {
 
         var shortText: String {
             switch self {
-            case .default: "Create project"
-            case .projects: "Select theme"
-            case .singleProject: "Select project"
+            case .default: String(localized: "Create project")
+            case .projects: String(localized: "Select theme")
+            case .singleProject: String(localized: "Select project")
             }
         }
 
         var text: String {
             switch self {
-            case .default: "Tap and create your first project"
-            case .projects: "Tap and hold to choose a theme"
-            case .singleProject: "Tap and hold to choose a project"
+            case .default: String(localized: "Tap and create your first project")
+            case .projects: String(localized: "Tap and hold to choose a theme")
+            case .singleProject: String(localized: "Tap and hold to choose a project")
             }
         }
     }
