@@ -42,11 +42,13 @@ extension StoreNotificationCenter: StoreNotificationCenterProtocol {
 
 private extension StoreNotificationCenter {
     func created(_ project: Project) {
+        let newValues = ProjectValues(title: project.title, theme: project.theme)
         self.center.post(
             name: .didCreateProject,
             object: nil,
             userInfo: [
-                UserInfoKey.projectID: project.identifier
+                UserInfoKey.projectID: project.identifier,
+                UserInfoKey.newValues: newValues
             ]
         )
     }
@@ -77,11 +79,13 @@ private extension StoreNotificationCenter {
     }
 
     func didUpdateContent(in project: Project) {
+        let values = ProjectValues(title: project.title, theme: project.theme)
         self.center.post(
             name: .didUpdateProjectContent,
             object: nil,
             userInfo: [
-                UserInfoKey.projectID: project.identifier
+                UserInfoKey.projectID: project.identifier,
+                UserInfoKey.newValues: values
             ]
         )
     }
