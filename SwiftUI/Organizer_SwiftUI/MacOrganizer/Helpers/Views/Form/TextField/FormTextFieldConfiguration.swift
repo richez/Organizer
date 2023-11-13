@@ -9,34 +9,34 @@ import SwiftUI
 
 extension FormTextField {
     struct Configuration {
-        var name: LocalizedStringKey
-        var errorMessage: LocalizedStringKey
+        var name: String
+        var errorMessage: String
     }
 }
 
 extension FormTextField.Configuration {
     static let projectTitle: Self = .init(
-        name: "Title",
-        errorMessage: "This field cannot be empty"
+        name: String(localized: "Title"),
+        errorMessage: String(localized: "This field cannot be empty")
     )
 
     static let projectTheme: Self = .init(
-        name: "Themes",
-        errorMessage: "This field is invalid"
+        name: String(localized: "Themes"),
+        errorMessage: String(localized: "This field is invalid")
     )
 
     static let contentLink: Self = .init(
-        name: "Link",
-        errorMessage: "This field should start with http(s):// and be valid"
+        name: String(localized: "Link"),
+        errorMessage: String(localized: "This field should start with http(s):// and be valid")
     )
 
     static let contentTitle: Self = .init(
-        name: "Title",
-        errorMessage: "This field cannot be empty"
+        name: String(localized: "Title"),
+        errorMessage: String(localized: "This field cannot be empty")
     )
 
     static let contentTheme: Self = .init(
-        name: "Themes",
-        errorMessage: "This field is invalid"
+        name: String(localized: "Themes"),
+        errorMessage: String(localized: "This field is invalid")
     )
 }
