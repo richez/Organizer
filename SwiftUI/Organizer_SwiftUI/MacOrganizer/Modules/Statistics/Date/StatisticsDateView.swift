@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct StatisticsDateView: View {
-    var title: String
+    var title: LocalizedStringResource
     var date: String
 
     var body: some View {

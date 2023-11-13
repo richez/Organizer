@@ -25,7 +25,7 @@ struct ContentForm: View {
             Form {
                 Picker("Type", selection: self.$viewModel.type) {
                     ForEach(ProjectContentType.allCases) { type in
-                        Text(type.rawValue)
+                        Text(type.name)
                             .tag(type)
                     }
                 }

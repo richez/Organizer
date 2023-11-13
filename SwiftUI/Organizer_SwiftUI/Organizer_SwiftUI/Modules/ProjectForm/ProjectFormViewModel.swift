@@ -97,13 +97,13 @@ extension ProjectForm.ViewModel {
 
         var errorDescription: String? {
             switch self {
-            case .save: "Fail to save content"
+            case .save: String(localized: "Fail to save content")
             }
         }
 
         var recoverySuggestion: String? {
             switch self {
-            case .save: "Check that the provided fields are valid and try again"
+            case .save: String(localized: "Check that the provided fields are valid and try again")
             }
         }
     }

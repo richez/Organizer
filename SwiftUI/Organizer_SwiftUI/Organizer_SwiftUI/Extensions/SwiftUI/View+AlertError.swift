@@ -11,11 +11,11 @@ struct LocalizedAlertError: LocalizedError {
     var underlyingError: LocalizedError?
 
     var errorDescription: String? {
-        self.underlyingError?.errorDescription ?? "An unknown error occured"
+        self.underlyingError?.errorDescription ?? String(localized: "An unknown error occured")
     }
 
     var recoverySuggestion: String? {
-        self.underlyingError?.recoverySuggestion ?? "Please try again later"
+        self.underlyingError?.recoverySuggestion ?? String(localized: "Please try again later")
     }
 
     init?(error: Error?) {

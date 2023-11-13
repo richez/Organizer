@@ -18,7 +18,7 @@ struct ProjectListSortingMenu: View {
         Menu("List Sorting", systemImage: "arrow.up.arrow.down") {
             Picker("Order", selection: self.$sorting) {
                 ForEach(ProjectListSorting.allCases) { sorting in
-                    Text(sorting.rawValue)
+                    Text(sorting.name)
                         .tag(sorting)
                 }
             }
@@ -34,9 +34,9 @@ private extension ProjectListSortingMenu {
     var ascendingOrderTitle: String {
         switch self.sorting {
         case .title:
-            return "A to Z"
+            return String(localized: "A to Z")
         case .updatedDate, .createdDate:
-            return "Newest on Top"
+            return String(localized: "Newest on Top")
         }
     }
 }

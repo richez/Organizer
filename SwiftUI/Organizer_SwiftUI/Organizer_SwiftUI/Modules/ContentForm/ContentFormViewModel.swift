@@ -137,15 +137,15 @@ extension ContentForm.ViewModel {
 
         var errorDescription: String? {
             switch self {
-            case .loadTitle: "Fail to retrieve title from url"
-            case .save: "Fail to save content"
+            case .loadTitle: String(localized: "Fail to retrieve title from url")
+            case .save: String(localized: "Fail to save content")
             }
         }
 
         var recoverySuggestion: String? {
             switch self {
-            case .loadTitle(let url): "Check that the provided url is valid and try again: \(url)"
-            case .save: "Check that the provided fields are valid and try again"
+            case .loadTitle(let url): String(localized: "Check that the provided url is valid and try again: \(url)")
+            case .save: String(localized: "Check that the provided fields are valid and try again")
             }
         }
     }

@@ -12,5 +12,13 @@ enum ProjectListSorting: String, Identifiable, CaseIterable {
     case createdDate = "Creation Date"
     case title = "Title"
 
+    var name: LocalizedStringResource {
+        switch self {
+        case .updatedDate: "Modification Date"
+        case .createdDate: "Creation Date"
+        case .title: "Title"
+        }
+    }
+
     var id: ProjectListSorting { self }
 }

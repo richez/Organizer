@@ -385,6 +385,7 @@
 		F0E9848C2AD8ACB40082F6A1 /* FormTextFieldConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E9848B2AD8ACB40082F6A1 /* FormTextFieldConfiguration.swift */; };
 		F0E98E322B02660400572C94 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F0E98E312B02660400572C94 /* Localizable.xcstrings */; };
 		F0E98E332B02660400572C94 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F0E98E312B02660400572C94 /* Localizable.xcstrings */; };
+		F0E98E342B0270A900572C94 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F0E98E312B02660400572C94 /* Localizable.xcstrings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -2127,6 +2128,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0E98E342B0270A900572C94 /* Localizable.xcstrings in Resources */,
 				F00601EE2ADEBE4A005F57CA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -13,8 +13,8 @@ enum SwipeActionType {
 
     var title: String {
         switch self {
-        case .delete: "Delete"
-        case .edit: "Edit"
+        case .delete: String(localized: "Delete")
+        case .edit: String(localized: "Edit")
         }
     }
 

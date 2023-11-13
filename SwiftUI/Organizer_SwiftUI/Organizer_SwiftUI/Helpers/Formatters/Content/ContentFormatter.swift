@@ -51,9 +51,9 @@ extension ContentFormatter: ContentFormatterProtocol {
     func filtersDescription(from selectedTheme: String?, selectedType: ProjectContentType?) -> String {
         switch (selectedTheme, selectedType) {
         case (.none, .none): ""
-        case (.none, .some(let selectedType)): "\(selectedType.rawValue)s"
+        case (.none, .some(let selectedType)): "\(selectedType.name)s"
         case (.some(let selectedTheme), .none): "#\(selectedTheme)"
-        case (.some(let selectedTheme), .some(let selectedType)): "#\(selectedTheme) - \(selectedType.rawValue)s"
+        case (.some(let selectedTheme), .some(let selectedType)): "#\(selectedTheme) - \(selectedType.name)s"
         }
     }
 }

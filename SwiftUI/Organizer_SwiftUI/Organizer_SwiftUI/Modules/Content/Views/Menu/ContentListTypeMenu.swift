@@ -22,7 +22,7 @@ struct ContentListTypeMenu: View {
                 Text("All")
                     .tag(nil as ProjectContentType?)
                 ForEach(ProjectContentType.allCases) { type in
-                    Text(type.rawValue)
+                    Text(type.name)
                         .tag(type as ProjectContentType?)
                 }
             }

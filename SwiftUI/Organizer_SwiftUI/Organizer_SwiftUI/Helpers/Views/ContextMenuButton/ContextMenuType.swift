@@ -16,11 +16,11 @@ enum ContextMenuType {
 
     var label: String {
         switch self {
-        case .duplicate: "Duplicate"
-        case .edit: "Edit"
-        case .delete: "Delete"
-        case .openBrowser: "Open in Browser"
-        case .copyLink: "Copy Link"
+        case .duplicate: String(localized: "Duplicate")
+        case .edit: String(localized: "Edit")
+        case .delete: String(localized: "Delete")
+        case .openBrowser: String(localized: "Open in Browser")
+        case .copyLink: String(localized: "Copy Link")
         }
     }
 

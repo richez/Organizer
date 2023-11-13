@@ -16,6 +16,15 @@ enum ProjectContentType: String, Identifiable, CaseIterable, Codable {
 
     var id: ProjectContentType { self }
 
+    var name: LocalizedStringResource {
+        switch self {
+        case .article: "article"
+        case .note: "note"
+        case .video: "video"
+        case .other: "other"
+        }
+    }
+
     var systemImage: String {
         switch self {
         case .article:

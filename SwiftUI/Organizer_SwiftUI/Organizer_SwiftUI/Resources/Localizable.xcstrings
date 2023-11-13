@@ -10,7 +10,20 @@
     "%lld contents" : {
 
     },
+    "%lld contents (%@)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld contents (%2$@)"
+          }
+        }
+      }
+    },
     "%lld projects" : {
+
+    },
+    "A to Z" : {
 
     },
     "Add Content" : {
@@ -22,16 +35,52 @@
     "All" : {
 
     },
+    "An unknown error occured" : {
+
+    },
+    "article" : {
+
+    },
     "Cancel" : {
 
     },
+    "Check that the provided fields are valid and try again" : {
+
+    },
+    "Check that the provided url is valid and try again: %@" : {
+
+    },
+    "Copy Link" : {
+
+    },
+    "Could not open url" : {
+
+    },
+    "Created" : {
+
+    },
+    "Creation Date" : {
+
+    },
     "Delete" : {
+
+    },
+    "DIY, sport, outdoor" : {
 
     },
     "Duplicate" : {
 
     },
     "Edit" : {
+
+    },
+    "Fail to retrieve title from url" : {
+
+    },
+    "Fail to save content" : {
+
+    },
+    "https://www.youtube.com" : {
 
     },
     "Jon Doe" : {
@@ -49,19 +98,49 @@
     "Menu" : {
 
     },
+    "Modification Date" : {
+
+    },
+    "Modified" : {
+
+    },
+    "My Content" : {
+
+    },
+    "My Project" : {
+
+    },
+    "New" : {
+
+    },
     "New Content" : {
 
     },
     "New Project" : {
 
     },
+    "Newest on Top" : {
+
+    },
+    "note" : {
+
+    },
     "OK" : {
+
+    },
+    "Open in Browser" : {
 
     },
     "Open In New Window" : {
 
     },
     "Order" : {
+
+    },
+    "other" : {
+
+    },
+    "Please try again later" : {
 
     },
     "Preview Style" : {
@@ -88,10 +167,16 @@
     "Specific" : {
 
     },
+    "spots, tools, build" : {
+
+    },
     "Statistics" : {
 
     },
     "Tag" : {
+
+    },
+    "The field cannot be empty" : {
 
     },
     "Theme" : {
@@ -103,10 +188,28 @@
     "Themes" : {
 
     },
+    "This field cannot be empty" : {
+
+    },
+    "This field is invalid" : {
+
+    },
+    "This field should start with http(s):// and be valid" : {
+
+    },
+    "Title" : {
+
+    },
     "Toggle Statistics Panel" : {
 
     },
     "Type" : {
+
+    },
+    "video" : {
+
+    },
+    "Your project" : {
 
     }
   },

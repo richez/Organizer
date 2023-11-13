@@ -95,7 +95,7 @@ extension DeeplinkManager {
         case projectNotFound(String)
         case contentNotFound(String, in: Project)
 
-        var errorDescription: String? {
+        var errorDescription: LocalizedStringResource? {
             switch self {
             case .unsupportedURL: "Could not open url"
             case .projectNotFound: "Could not find project"
@@ -103,7 +103,7 @@ extension DeeplinkManager {
             }
         }
 
-        var recoverySuggestion: String? {
+        var recoverySuggestion: LocalizedStringResource? {
             switch self {
             case .unsupportedURL(let url): "Check that the provided url is valid and try again: \(url.absoluteString)"
             case .projectNotFound: "Verify that the project exists and try again"

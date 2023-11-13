@@ -63,7 +63,7 @@ extension ProjectFormatter: ProjectFormatterProtocol {
             .map { "\($0.value) \($0.key)s" }
             .joined(separator: ", ")
 
-        return "\(contentCount) contents (\(contentTypeCounts))"
+        return String(localized: "\(contentCount) contents (\(contentTypeCounts))")
     }
 
     // MARK: Date

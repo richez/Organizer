@@ -13,5 +13,14 @@ enum ContentListSorting: String, Identifiable, CaseIterable {
     case title = "Title"
     case type = "Type"
 
+    var name: LocalizedStringResource {
+        switch self {
+        case .updatedDate: "Modification Date"
+        case .createdDate: "Creation Date"
+        case .title: "Title"
+        case .type: "Type"
+        }
+    }
+
     var id: ContentListSorting { self }
 }

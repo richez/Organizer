@@ -23,17 +23,17 @@ extension FormTextField {
 extension FormTextField.Configuration {
     static let projectTitle: Self = .init(
         name: .title,
-        placeholder: "My Project",
+        placeholder: String(localized: "My Project"),
         submitLabel: .next,
-        errorMessage: "This field cannot be empty",
+        errorMessage: String(localized: "This field cannot be empty"),
         autoCapitalization: .words
     )
 
     static let projectTheme: Self = .init(
         name: .theme,
-        placeholder: "DIY, sport, outdoor",
+        placeholder: String(localized: "DIY, sport, outdoor"),
         submitLabel: .return,
-        errorMessage: "This field is invalid",
+        errorMessage: String(localized: "This field is invalid"),
         autoCapitalization: .never
     )
 
@@ -41,7 +41,7 @@ extension FormTextField.Configuration {
         name: .link,
         placeholder: "https://www.youtube.com",
         submitLabel: .next,
-        errorMessage: "This field should start with http(s):// and be valid",
+        errorMessage: String(localized: "This field should start with http(s):// and be valid"),
         autoCapitalization: .never,
         keyboardType: .URL,
         autocorrectionDisabled: true
@@ -49,25 +49,25 @@ extension FormTextField.Configuration {
 
     static let contentTitle: Self = .init(
         name: .title,
-        placeholder: "My Content",
+        placeholder: String(localized: "My Content"),
         submitLabel: .next,
-        errorMessage: "This field cannot be empty",
+        errorMessage: String(localized: "This field cannot be empty"),
         autoCapitalization: .words
     )
 
     static let contentTheme: Self = .init(
         name: .theme,
-        placeholder: "spots, tools, build",
+        placeholder: String(localized: "spots, tools, build"),
         submitLabel: .return,
-        errorMessage: "This field is invalid",
+        errorMessage: String(localized: "This field is invalid"),
         autoCapitalization: .never
     )
 
     static let projectPicker: Self = .init(
         name: .projectPicker,
-        placeholder: "My Project",
+        placeholder: String(localized: "My Project"),
         submitLabel: .return,
-        errorMessage: "This field cannot be empty",
+        errorMessage: String(localized: "This field cannot be empty"),
         autoCapitalization: .words
     )
 }

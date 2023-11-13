@@ -24,7 +24,7 @@ struct ContentListSortingMenu: View {
         Menu("List Sorting", systemImage: "arrow.up.arrow.down") {
             Picker("Order", selection: self.$sorting) {
                 ForEach(ContentListSorting.allCases) { sorting in
-                    Text(sorting.rawValue)
+                    Text(sorting.name)
                         .tag(sorting)
                 }
             }
@@ -40,9 +40,9 @@ private extension ContentListSortingMenu {
     var ascendingOrderTitle: String {
         switch self.sorting {
         case .title, .type:
-            return "A to Z"
+            return String(localized: "A to Z")
         case .updatedDate, .createdDate:
-            return "Newest on Top"
+            return String(localized: "Newest on Top")
         }
     }
 }
