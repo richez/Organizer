@@ -9,7 +9,6 @@ import Foundation
 import OSLog
 import SwiftData
 
-// TODO: Add AppGroup to macOS (main & widget)
 struct WidgetStore {
     static var container: ModelContainer {
         get throws {

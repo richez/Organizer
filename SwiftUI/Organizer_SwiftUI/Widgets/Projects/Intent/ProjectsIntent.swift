@@ -13,13 +13,13 @@ struct ProjectsIntent: WidgetConfigurationIntent {
     static let description = IntentDescription("Keep track of your projects.")
 
     @Parameter(title: "Themes", default: .all)
-    var type: ThemeType
+    var type: ThemeTypeEntity
 
     @Parameter(title: "Tag")
     var theme: ThemeEntity?
 
     static var parameterSummary:  some ParameterSummary {
-        When(\.$type, .equalTo, ThemeType.specific) {
+        When(\.$type, .equalTo, ThemeTypeEntity.specific) {
             Summary {
                 \.$type
                 \.$theme

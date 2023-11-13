@@ -8,8 +8,6 @@
 import Foundation
 import SwiftData
 
-// TODO: Widgets -> handle reload only from app (TimelineReloadPolicy.never) -> store id of edited project and reload when app becomes inactive to avoid unnecessary updates
-// https://developer.apple.com/documentation/widgetkit/keeping-a-widget-up-to-date
 @Model
 final class Project {
     var identifier: UUID

@@ -127,8 +127,8 @@
 		F041B4122AF50F6B00EE13DE /* ThemeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B4102AF50F6B00EE13DE /* ThemeEntity.swift */; };
 		F041B4152AF50FB200EE13DE /* ThemeEntityQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B4142AF50FB200EE13DE /* ThemeEntityQuery.swift */; };
 		F041B4162AF50FB200EE13DE /* ThemeEntityQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B4142AF50FB200EE13DE /* ThemeEntityQuery.swift */; };
-		F041B4182AF50FDC00EE13DE /* ThemeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B4172AF50FDC00EE13DE /* ThemeType.swift */; };
-		F041B4192AF50FDC00EE13DE /* ThemeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B4172AF50FDC00EE13DE /* ThemeType.swift */; };
+		F041B4182AF50FDC00EE13DE /* ThemeTypeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B4172AF50FDC00EE13DE /* ThemeTypeEntity.swift */; };
+		F041B4192AF50FDC00EE13DE /* ThemeTypeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B4172AF50FDC00EE13DE /* ThemeTypeEntity.swift */; };
 		F0466E5E2AE942590045FB04 /* ProjectForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0466E5D2AE942590045FB04 /* ProjectForm.swift */; };
 		F0466E602AE9427E0045FB04 /* ProjectFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0466E5F2AE9427E0045FB04 /* ProjectFormViewModel.swift */; };
 		F0466E622AE960100045FB04 /* ContentForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0466E612AE960100045FB04 /* ContentForm.swift */; };
@@ -371,8 +371,8 @@
 		F0E62AC52AFEE7350042DA09 /* ThemeEntityQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B4142AF50FB200EE13DE /* ThemeEntityQuery.swift */; };
 		F0E62AC62AFEE73B0042DA09 /* ThemeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B4102AF50F6B00EE13DE /* ThemeEntity.swift */; };
 		F0E62AC82AFEE73C0042DA09 /* ThemeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B4102AF50F6B00EE13DE /* ThemeEntity.swift */; };
-		F0E62AC92AFEE73F0042DA09 /* ThemeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B4172AF50FDC00EE13DE /* ThemeType.swift */; };
-		F0E62ACB2AFEE7400042DA09 /* ThemeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B4172AF50FDC00EE13DE /* ThemeType.swift */; };
+		F0E62AC92AFEE73F0042DA09 /* ThemeTypeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B4172AF50FDC00EE13DE /* ThemeTypeEntity.swift */; };
+		F0E62ACB2AFEE7400042DA09 /* ThemeTypeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B4172AF50FDC00EE13DE /* ThemeTypeEntity.swift */; };
 		F0E62ACC2AFEE7450042DA09 /* ProjectsIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B4062AF46E9900EE13DE /* ProjectsIntent.swift */; };
 		F0E62ACE2AFEE7460042DA09 /* ProjectsIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041B4062AF46E9900EE13DE /* ProjectsIntent.swift */; };
 		F0E62ACF2AFEE7490042DA09 /* ProjectEntityQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = F030C0DB2AF6F8630065BF1A /* ProjectEntityQuery.swift */; };
@@ -490,7 +490,7 @@
 		F041B40C2AF46EC000EE13DE /* ProjectsEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsEntryView.swift; sourceTree = "<group>"; };
 		F041B4102AF50F6B00EE13DE /* ThemeEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeEntity.swift; sourceTree = "<group>"; };
 		F041B4142AF50FB200EE13DE /* ThemeEntityQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeEntityQuery.swift; sourceTree = "<group>"; };
-		F041B4172AF50FDC00EE13DE /* ThemeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeType.swift; sourceTree = "<group>"; };
+		F041B4172AF50FDC00EE13DE /* ThemeTypeEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeTypeEntity.swift; sourceTree = "<group>"; };
 		F0466E5D2AE942590045FB04 /* ProjectForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectForm.swift; sourceTree = "<group>"; };
 		F0466E5F2AE9427E0045FB04 /* ProjectFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFormViewModel.swift; sourceTree = "<group>"; };
 		F0466E612AE960100045FB04 /* ContentForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentForm.swift; sourceTree = "<group>"; };
@@ -987,7 +987,7 @@
 		F041B40F2AF50F5D00EE13DE /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				F041B4172AF50FDC00EE13DE /* ThemeType.swift */,
+				F041B4172AF50FDC00EE13DE /* ThemeTypeEntity.swift */,
 				F041B4102AF50F6B00EE13DE /* ThemeEntity.swift */,
 			);
 			path = Entities;
@@ -2254,7 +2254,7 @@
 				F041B3CA2AF3AF6900EE13DE /* ProjectFormatter.swift in Sources */,
 				F0D9F4162AE0A4B80019231A /* NavigationView.swift in Sources */,
 				F0D9F4192AE0A6AA0019231A /* ThemeListView.swift in Sources */,
-				F0E62AC92AFEE73F0042DA09 /* ThemeType.swift in Sources */,
+				F0E62AC92AFEE73F0042DA09 /* ThemeTypeEntity.swift in Sources */,
 				F041B3C12AF309C800EE13DE /* ContentFormatter.swift in Sources */,
 				F0D9F4452AE1E1F50019231A /* URLMetadataProvider.swift in Sources */,
 				F0D9F4342AE1CAE90019231A /* ContentListSorting.swift in Sources */,
@@ -2386,7 +2386,7 @@
 				F061DC692AD9A58500507993 /* AppStorage+Key.swift in Sources */,
 				F051E3DC2AE08C1F009F1E50 /* ContentListSortingMenu.swift in Sources */,
 				F041B3C02AF309C800EE13DE /* ContentFormatter.swift in Sources */,
-				F0E62ACB2AFEE7400042DA09 /* ThemeType.swift in Sources */,
+				F0E62ACB2AFEE7400042DA09 /* ThemeTypeEntity.swift in Sources */,
 				F02E9F2B2AE6BADB00755FF7 /* Sequence+CountBy.swift in Sources */,
 				F02E9F362AE72C5000755FF7 /* ProjectValues.swift in Sources */,
 				F0E984852AD8A7FF0082F6A1 /* FormTextField.swift in Sources */,
@@ -2465,7 +2465,7 @@
 				F0677E372AF7B1CF00A089DD /* ContentFormatterProtocol.swift in Sources */,
 				F030C0DC2AF6F8630065BF1A /* ProjectEntityQuery.swift in Sources */,
 				F041B4072AF46E9900EE13DE /* ProjectsIntent.swift in Sources */,
-				F041B4182AF50FDC00EE13DE /* ThemeType.swift in Sources */,
+				F041B4182AF50FDC00EE13DE /* ThemeTypeEntity.swift in Sources */,
 				F0BD698A2AEAC963002490E7 /* AddProjectEntry.swift in Sources */,
 				F06BC1282AF5B81000989C82 /* ProjectRowViewModel.swift in Sources */,
 				F0677E4B2AF7B88D00A089DD /* ContentRowViewModel.swift in Sources */,
@@ -2529,7 +2529,7 @@
 				F0677E382AF7B1D000A089DD /* ContentFormatterProtocol.swift in Sources */,
 				F030C0DD2AF6F8630065BF1A /* ProjectEntityQuery.swift in Sources */,
 				F041B4082AF46E9900EE13DE /* ProjectsIntent.swift in Sources */,
-				F041B4192AF50FDC00EE13DE /* ThemeType.swift in Sources */,
+				F041B4192AF50FDC00EE13DE /* ThemeTypeEntity.swift in Sources */,
 				F0BD698B2AEAC963002490E7 /* AddProjectEntry.swift in Sources */,
 				F06BC1292AF5B81000989C82 /* ProjectRowViewModel.swift in Sources */,
 				F0677E4C2AF7B88D00A089DD /* ContentRowViewModel.swift in Sources */,

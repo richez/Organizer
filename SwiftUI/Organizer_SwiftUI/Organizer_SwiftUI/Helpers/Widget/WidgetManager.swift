@@ -10,8 +10,6 @@ import Foundation
 import OSLog
 import WidgetKit
 
-// TODO: fix widget content delete and selection
-// TODO: test
 final class WidgetManager {
     // MARK: - Properties
 
