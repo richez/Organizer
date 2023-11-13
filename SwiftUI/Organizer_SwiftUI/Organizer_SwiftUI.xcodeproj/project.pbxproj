@@ -383,6 +383,8 @@
 		F0E62AD72AFEE7550042DA09 /* SingleProjectIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F030C0D52AF6F83B0065BF1A /* SingleProjectIntent.swift */; };
 		F0E984852AD8A7FF0082F6A1 /* FormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E984842AD8A7FF0082F6A1 /* FormTextField.swift */; };
 		F0E9848C2AD8ACB40082F6A1 /* FormTextFieldConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E9848B2AD8ACB40082F6A1 /* FormTextFieldConfiguration.swift */; };
+		F0E98E322B02660400572C94 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F0E98E312B02660400572C94 /* Localizable.xcstrings */; };
+		F0E98E332B02660400572C94 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F0E98E312B02660400572C94 /* Localizable.xcstrings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -631,6 +633,7 @@
 		F0E347602AD83A9E00B12AD9 /* FloatingButtonViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButtonViewModifier.swift; sourceTree = "<group>"; };
 		F0E984842AD8A7FF0082F6A1 /* FormTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextField.swift; sourceTree = "<group>"; };
 		F0E9848B2AD8ACB40082F6A1 /* FormTextFieldConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextFieldConfiguration.swift; sourceTree = "<group>"; };
+		F0E98E312B02660400572C94 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1407,6 +1410,7 @@
 				F092AC562AD701F700EAD1F6 /* Organizer-SwiftUI-Info.plist */,
 				F00601F62ADEC9E1005F57CA /* Organizer_SwiftUI.entitlements */,
 				F092AC492AD6FDDB00EAD1F6 /* Assets.xcassets */,
+				F0E98E312B02660400572C94 /* Localizable.xcstrings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -2102,6 +2106,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = F092AC392AD6FDDA00EAD1F6;
 			productRefGroup = F092AC432AD6FDDA00EAD1F6 /* Products */;
@@ -2132,6 +2137,7 @@
 			files = (
 				F051E37D2AE01D7B009F1E50 /* Preview Assets.xcassets in Resources */,
 				F051E38C2AE022AA009F1E50 /* Assets.xcassets in Resources */,
+				F0E98E332B02660400572C94 /* Localizable.xcstrings in Resources */,
 				F051E37A2AE01D7B009F1E50 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2142,6 +2148,7 @@
 			files = (
 				F092AC4D2AD6FDDB00EAD1F6 /* Preview Assets.xcassets in Resources */,
 				F092AC4A2AD6FDDB00EAD1F6 /* Assets.xcassets in Resources */,
+				F0E98E322B02660400572C94 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,0 +1,114 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {
+
+    },
+    "%lld" : {
+
+    },
+    "%lld contents" : {
+
+    },
+    "%lld projects" : {
+
+    },
+    "Add Content" : {
+
+    },
+    "Add project" : {
+
+    },
+    "All" : {
+
+    },
+    "Cancel" : {
+
+    },
+    "Delete" : {
+
+    },
+    "Duplicate" : {
+
+    },
+    "Edit" : {
+
+    },
+    "Jon Doe" : {
+
+    },
+    "Keep track of a specific project." : {
+
+    },
+    "Keep track of your projects." : {
+
+    },
+    "List Sorting" : {
+
+    },
+    "Menu" : {
+
+    },
+    "New Content" : {
+
+    },
+    "New Project" : {
+
+    },
+    "OK" : {
+
+    },
+    "Open In New Window" : {
+
+    },
+    "Order" : {
+
+    },
+    "Preview Style" : {
+
+    },
+    "Project" : {
+
+    },
+    "Projects" : {
+
+    },
+    "Reset" : {
+
+    },
+    "Save" : {
+
+    },
+    "Select a project" : {
+
+    },
+    "Select element" : {
+
+    },
+    "Specific" : {
+
+    },
+    "Statistics" : {
+
+    },
+    "Tag" : {
+
+    },
+    "Theme" : {
+
+    },
+    "Theme List" : {
+
+    },
+    "Themes" : {
+
+    },
+    "Toggle Statistics Panel" : {
+
+    },
+    "Type" : {
+
+    }
+  },
+  "version" : "1.0"
+}
