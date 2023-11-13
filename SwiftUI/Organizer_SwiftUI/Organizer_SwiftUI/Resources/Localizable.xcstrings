@@ -27,6 +27,24 @@
               }
             }
           }
+        },
+        "fr" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%1$lld %2$@"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%1$lld %2$@s"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -340,6 +358,16 @@
         }
       }
     },
+    "Link" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lien"
+          }
+        }
+      }
+    },
     "List Sorting" : {
       "localizations" : {
         "fr" : {
@@ -396,6 +424,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mon projet"
+          }
+        }
+      }
+    },
+    "Name" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nom"
           }
         }
       }

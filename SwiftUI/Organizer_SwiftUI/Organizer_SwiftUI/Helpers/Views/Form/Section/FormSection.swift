@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct FormSection<Content: View>: View {
-    var title: String
+    var title: LocalizedStringKey
     var content: () -> Content
 
-    init(_ title: String, @ViewBuilder content: @escaping () -> Content) {
+    init(_ title: LocalizedStringKey, @ViewBuilder content: @escaping () -> Content) {
         self.title = title
         self.content = content
     }
