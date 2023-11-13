@@ -49,7 +49,7 @@ private extension EmptyProjectView {
         }
     }
 }
-
+// TODO: localize
 extension EmptyProjectView {
     enum Kind {
         case `default`

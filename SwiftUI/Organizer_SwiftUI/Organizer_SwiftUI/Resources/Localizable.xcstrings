@@ -138,6 +138,16 @@
         }
       }
     },
+    "Add a new project to Organizer and start adding content" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Créez un projet et commencez à ajouter du contenu"
+          }
+        }
+      }
+    },
     "Add Content" : {
       "localizations" : {
         "fr" : {
@@ -238,6 +248,16 @@
         }
       }
     },
+    "Create Project" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Créer un projet"
+          }
+        }
+      }
+    },
     "Created" : {
       "localizations" : {
         "fr" : {
@@ -264,6 +284,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Supprimer"
+          }
+        }
+      }
+    },
+    "Display recent projects from any Organizer theme" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher les projets récents associés a un thème"
           }
         }
       }
@@ -354,6 +384,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Garder un oeil sur vos projets"
+          }
+        }
+      }
+    },
+    "Last Project" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Projet le plus récent"
           }
         }
       }
@@ -538,6 +578,16 @@
         }
       }
     },
+    "Pick a single project for quick access from the home screen" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choisissez un projet pour un accès rapide depuis l'écran d'accueil"
+          }
+        }
+      }
+    },
     "Please try again later" : {
       "localizations" : {
         "fr" : {
@@ -578,6 +628,16 @@
         }
       }
     },
+    "Quick access to the most recently edited project" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accès rapide au projet le plus récent"
+          }
+        }
+      }
+    },
     "Reset" : {
       "localizations" : {
         "fr" : {
@@ -614,6 +674,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sélectionner un élément"
+          }
+        }
+      }
+    },
+    "Single Project" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Projet"
           }
         }
       }

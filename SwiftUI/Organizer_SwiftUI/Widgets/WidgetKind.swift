@@ -14,7 +14,7 @@ enum WidgetKind: String {
     case projects = "Projects Widget"
     case singleProject = "Single Project Widget"
 
-    var displayName: String {
+    var displayName: LocalizedStringKey {
         switch self {
         case .addProject: "Create Project"
         case .lastProject: "Last Project"
@@ -23,7 +23,7 @@ enum WidgetKind: String {
         }
     }
 
-    var description: String {
+    var description: LocalizedStringKey {
         switch self {
         case .addProject: "Add a new project to Organizer and start adding content"
         case .lastProject: "Quick access to the most recently edited project"
