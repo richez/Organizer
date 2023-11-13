@@ -61,9 +61,12 @@ private extension SingleProjectTimelineProvider {
     }
 
     func project(for configuration: SingleProjectIntent?) -> Project? {
+        guard let projectEntity = configuration?.project else { return nil }
+
         do {
+            let projectID = projectEntity.id
             let projects: [Project] = try self.store.models(
-                predicate: self.predicate(for: configuration),
+                predicate: #Predicate { $0.identifier == projectID },
                 sortBy: [.init(\.updatedDate, order: .reverse)],
                 fetchLimit: 1,
                 propertiesToFetch: [\.identifier, \.title, \.theme],
@@ -74,12 +77,6 @@ private extension SingleProjectTimelineProvider {
             Logger.timelineProviders.info("Fail to retrieve projects: \(error)")
             return nil
         }
-    }
-
-    func predicate(for configuration: SingleProjectIntent?) -> Predicate<Project>? {
-        guard let projectEntity = configuration?.project else { return nil }
-        let projectID = projectEntity.id
-        return #Predicate { $0.identifier == projectID }
     }
 
     func contents(for project: Project?, fetchLimit: Int) -> [ProjectContent] {
