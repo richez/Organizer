@@ -15,7 +15,7 @@ struct ProjectsIntent: WidgetConfigurationIntent {
     @Parameter(title: "Themes", default: .all)
     var type: ThemeTypeEntity
 
-    @Parameter(title: "Tag")
+    @Parameter(title: "Theme")
     var theme: ThemeEntity?
 
     static var parameterSummary:  some ParameterSummary {

@@ -60,10 +60,10 @@ extension ProjectFormatter: ProjectFormatterProtocol {
         let contentTypeCounts = contents.lazy
             .count(by: \.type)
             .sorted { $0.key.rawValue < $1.key.rawValue }
-            .map { "\($0.value) \($0.key)s" }
+            .map { String(localized: "\($0.value) \($0.key.name)", comment: "Number of content type") }
             .joined(separator: ", ")
 
-        return String(localized: "\(contentCount) contents (\(contentTypeCounts))")
+        return String(localized: "\(contentCount) contents") + " (\(contentTypeCounts))"
     }
 
     // MARK: Date
