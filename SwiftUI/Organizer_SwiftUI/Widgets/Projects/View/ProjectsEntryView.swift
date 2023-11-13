@@ -26,7 +26,7 @@ struct ProjectsEntryView: View {
                     ProjectListView(projects: projects, placeholders: self.placeholders)
                 }
             } else {
-                EmptyProjectView()
+                EmptyProjectView(kind: .projects)
             }
         }
         .containerBackground(for: .widget) {

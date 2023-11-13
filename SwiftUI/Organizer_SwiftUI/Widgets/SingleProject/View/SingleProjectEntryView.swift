@@ -26,7 +26,7 @@ struct SingleProjectEntryView: View {
                     ContentView(project: project, contents: self.entry.contents, placeholders: self.placeholders)
                 }
             } else {
-                EmptyProjectView()
+                EmptyProjectView(kind: .singleProject)
             }
         }
         .containerBackground(for: .widget) {
