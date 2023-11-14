@@ -8,10 +8,9 @@
 import SwiftUI
 
 struct ProjectRow: View {
-    var project: Project
     var isSelected: Bool
 
-    private let viewModel = ViewModel()
+    @State private var viewModel: ViewModel
 
     @AppStorage(.projectListShowTheme)
     private var showTheme: Bool = true
@@ -19,50 +18,41 @@ struct ProjectRow: View {
     @AppStorage(.projectListShowStatistics)
     private var showStatistics: Bool = true
 
+    init(project: Project, isSelected: Bool) {
+        self._viewModel = State(initialValue: ViewModel(project: project))
+        self.isSelected = isSelected
+    }
+
     var body: some View {
         HStack {
             ProjectRowSelectedIndicator()
                 .opacity(self.isSelected ? 1 : 0)
 
             VStack(alignment: .leading, spacing: 8) {
-                Text(self.project.title)
+                Text(self.viewModel.title)
                     .font(.system(size: 15, weight: .bold))
                     .foregroundStyle(.cellTitle)
                     .lineLimit(2)
 
                 VStack(alignment: .leading, spacing: 5) {
                     if self.showTheme {
-                        Text(self.themes)
+                        Text(self.viewModel.themes)
                             .lineLimit(1)
                     }
 
                     if self.showStatistics {
-                        Text(self.statistics)
+                        Text(self.viewModel.statistics)
                             .lineLimit(2)
                     }
                 }
                 .font(.system(size: 12))
                 .foregroundStyle(.cellSubtitle)
 
-                Text(self.updatedDate)
+                Text(self.viewModel.updatedDate)
                     .font(.system(size: 12, weight: .light))
                     .foregroundStyle(.cellDate)
             }
         }
-    }
-}
-
-private extension ProjectRow {
-    var themes: String {
-        self.viewModel.themes(from: self.project.theme)
-    }
-
-    var statistics: String {
-        self.viewModel.statistics(from: self.project.contents)
-    }
-
-    var updatedDate: String {
-        self.viewModel.updatedDate(from: self.project.updatedDate)
     }
 }
 

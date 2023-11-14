@@ -8,29 +8,36 @@
 import Foundation
 
 extension ProjectRow {
-    struct ViewModel {
+    @Observable
+    final class ViewModel {
         // MARK: - Properties
 
+        private let project: Project
         private let formatter: ProjectFormatterProtocol
 
         // MARK: Initialization
 
-        init(formatter: ProjectFormatterProtocol = ProjectFormatter()) {
+        init(project: Project, formatter: ProjectFormatterProtocol = ProjectFormatter()) {
+            self.project = project
             self.formatter = formatter
         }
 
         // MARK: - Public
 
-        func themes(from theme: String) -> String {
-            self.formatter.themes(from: theme)
+        var title: String {
+            self.project.title
         }
 
-        func statistics(from contents: [ProjectContent]) -> String {
-            self.formatter.statistics(from: contents)
+        var themes: String {
+            self.formatter.themes(from: self.project.theme)
         }
 
-        func updatedDate(from date: Date) -> String {
-            self.formatter.string(from: date, format: .abbreviated)
+        var statistics: String {
+            self.formatter.statistics(from: self.project.contents)
+        }
+
+        var updatedDate: String {
+            self.formatter.string(from: self.project.updatedDate, format: .abbreviated)
         }
     }
 }
