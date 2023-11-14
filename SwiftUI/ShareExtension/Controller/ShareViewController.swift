@@ -5,6 +5,7 @@
 //  Created by Thibaut Richez on 17/10/2023.
 //
 
+import OSLog
 import SwiftData
 import SwiftUI
 import UIKit
@@ -52,7 +53,7 @@ private extension ShareViewController {
                 self.contentView.stopLoader()
                 self.addFormController(with: content)
             } catch {
-                print("Fail to load content: \(error)")
+                Logger.forms.info("Fail to load content from extension context: \(error)")
                 self.contentView.stopLoader()
             }
         }

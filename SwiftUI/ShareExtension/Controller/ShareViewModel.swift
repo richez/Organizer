@@ -16,7 +16,11 @@ struct ShareContent {
 
 @MainActor
 struct ShareViewModel {
+    // MARK: - Properties
+
     var widgetManager: WidgetManager = .init()
+
+    // MARK: - Public
 
     func loadContent(in extensionItem: NSExtensionItem?) async -> ShareContent {
         let title = extensionItem?.attributedTitle?.string ?? extensionItem?.attributedContentText?.string ?? ""
@@ -29,6 +33,8 @@ struct ShareViewModel {
         self.widgetManager.observeStoreNotifications()
     }
 }
+
+// MARK: - Helpers
 
 private extension ShareViewModel {
     func url(in attachments: [NSItemProvider]?) async -> String {
