@@ -28,8 +28,8 @@ struct ThemeListView: View {
         }
         .padding(.top)
         .background(Color.listBackground.opacity(0.8))
-        .onChange(of: self.selectedThemeType) {
-            self.selectedTheme = self.selectedThemeType.theme
+        .onChange(of: self.selectedThemeType) { _, selectedThemeType in
+            self.selectedTheme = selectedThemeType.theme
         }
         .onAppear {
             self.selectedThemeType = .init(theme: self.selectedTheme)

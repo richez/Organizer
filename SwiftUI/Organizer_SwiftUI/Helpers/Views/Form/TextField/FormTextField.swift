@@ -22,8 +22,8 @@ struct FormTextField: View {
             .autocorrectionDisabled(self.configuration.autocorrectionDisabled)
             .focused(self.$focusedField, equals: self.configuration.name)
             .submitLabel(self.configuration.submitLabel)
-            .onChange(of: self.focusedField) {
-                if self.focusedField == self.configuration.name {
+            .onChange(of: self.focusedField) { _, focusedField in
+                if focusedField == self.configuration.name {
                     self.isInvalid = false
                 }
             }

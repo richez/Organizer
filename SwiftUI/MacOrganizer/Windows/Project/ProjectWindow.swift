@@ -26,9 +26,9 @@ struct ProjectWindow: View {
             }
         }
         .background(.listBackground)
-        .onChange(of: self.navigationContext.selectedContent) {
-            if let content = self.navigationContext.selectedContent {
-                self.openURL(content.url)
+        .onChange(of: self.navigationContext.selectedContent) { _, selectedContent in
+            if let selectedContent {
+                self.openURL(selectedContent.url)
                 self.navigationContext.selectedContent = nil
             }
         }
