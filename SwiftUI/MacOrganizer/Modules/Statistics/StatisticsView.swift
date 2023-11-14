@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct StatisticsView: View {
-    var project: Project
+    @State private var viewModel: ViewModel
 
-    private let viewModel = ViewModel()
+    init(project: Project) {
+        self._viewModel = State(initialValue: ViewModel(project: project))
+    }
 
     var body: some View {
         Grid {
@@ -21,33 +23,33 @@ struct StatisticsView: View {
 
             GridRow {
                 StatisticsContentView(
-                    type: .constant("Contents", number: self.numberOfContents),
+                    type: .constant("Contents", number: self.viewModel.numberOfContents),
                     systemImage: "doc"
                 )
                 StatisticsContentView(
-                    type: .constant("Themes", number: self.numberOfThemes),
+                    type: .constant("Themes", number: self.viewModel.numberOfThemes),
                     systemImage: "number"
                 )
             }
 
             GridRow {
                 StatisticsContentView(
-                    type: .dynamic(self.contentTypeCounts),
+                    type: .dynamic(self.viewModel.contentTypeCounts),
                     systemImage: "doc"
                 )
-                .redacted(reason: self.contentTypeCounts.isEmpty ? .placeholder : [])
+                .redacted(reason: self.viewModel.contentTypeCounts.isEmpty ? .placeholder : [])
 
                 StatisticsContentView(
-                    type: .dynamic(self.contentThemeCounts),
+                    type: .dynamic(self.viewModel.contentThemeCounts),
                     systemImage: "number"
                 )
-                .redacted(reason: self.contentThemeCounts.isEmpty ? .placeholder : [])
+                .redacted(reason: self.viewModel.contentThemeCounts.isEmpty ? .placeholder : [])
             }
             
             GridRow {
                 StatisticsDateContainerView(
-                    created: self.createdDate,
-                    updated: self.updatedDate
+                    created: self.viewModel.createdDate,
+                    updated: self.viewModel.updatedDate
                 )
                 .gridCellColumns(2)
             }
@@ -56,32 +58,6 @@ struct StatisticsView: View {
         .background(.listBackground)
         .frame(width: 280)
         .preferredColorScheme(.dark)
-    }
-}
-
-extension StatisticsView {
-    var numberOfContents: Int {
-        self.viewModel.numberOfContents(in: self.project)
-    }
-
-    var numberOfThemes: Int {
-        self.viewModel.numberOfThemes(in: self.project)
-    }
-
-    var contentTypeCounts: [String: Int] {
-        self.viewModel.contentTypeCounts(in: self.project)
-    }
-
-    var contentThemeCounts: [String: Int] {
-        self.viewModel.contentThemeCounts(in: self.project)
-    }
-
-    var createdDate: String {
-        self.viewModel.formattedDate(from: self.project.createdDate)
-    }
-
-    var updatedDate: String {
-        self.viewModel.formattedDate(from: self.project.updatedDate)
     }
 }
 

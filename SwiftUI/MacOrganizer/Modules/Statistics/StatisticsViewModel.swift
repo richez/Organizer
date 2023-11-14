@@ -8,43 +8,52 @@
 import Foundation
 
 extension StatisticsView {
-    struct ViewModel {
+    @Observable
+    final class ViewModel {
         // MARK: - Properties
 
+        private let project: Project
         private let projectFormatter: ProjectFormatterProtocol
         private let contentFormatter: ContentFormatterProtocol
 
         // MARK: - Initialization
 
-        init(projectFormatter: ProjectFormatterProtocol = ProjectFormatter(),
+        init(
+            project: Project,
+            projectFormatter: ProjectFormatterProtocol = ProjectFormatter(),
             contentFormatter: ContentFormatterProtocol = ContentFormatter()
         ) {
+            self.project = project
             self.projectFormatter = projectFormatter
             self.contentFormatter = contentFormatter
         }
 
         // MARK: - Public
 
-        func numberOfContents(in project: Project) -> Int {
-            project.contents.count
+        var numberOfContents: Int {
+            self.project.contents.count
         }
 
-        func numberOfThemes(in project: Project) -> Int {
-            self.contentFormatter.themes(from: project.contents).count
+        var numberOfThemes: Int {
+            self.contentFormatter.themes(from: self.project.contents).count
         }
 
-        func contentTypeCounts(in project: Project) -> [String: Int] {
-            project.contents.count(by: \.type.rawValue)
+        var contentTypeCounts: [String: Int] {
+            self.project.contents.count(by: \.type.rawValue)
         }
 
-        func contentThemeCounts(in project: Project) -> [String: Int] {
-            project.contents.lazy
+        var contentThemeCounts: [String: Int] {
+            self.project.contents.lazy
                 .flatMap(\.theme.words)
                 .count(by: \.self)
         }
 
-        func formattedDate(from date: Date) -> String {
-            self.projectFormatter.string(from: date, format: .full)
+        var createdDate: String {
+            self.projectFormatter.string(from: self.project.createdDate, format: .full)
+        }
+
+        var updatedDate: String {
+            self.projectFormatter.string(from: self.project.updatedDate, format: .full)
         }
     }
 }
