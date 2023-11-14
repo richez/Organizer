@@ -56,9 +56,19 @@ It is mainly used to practice the usage of   [SwiftData](https://developer.apple
 * Open (in app or in browser), copy, edit or delete contents
 * Retrieve the title associated with an url when creating a content
 * Share content consulted in other applications to a new or existing project
+  
+[SwiftUI](SwiftUI) only
+* macOS app
+* Statistics view on macOS to see the number of content, themes and content type of a project
+* Scene commands on macOS: add project, toggle statistics panel, open project in a new window, edit/delete/duplicate project, add content
+* Widgets available in [WidgetFamily](https://developer.apple.com/documentation/widgetkit/widgetfamily) small, medium, large for iOS/macOS and accessory circular/rectangular on iOS lockscreen
+    * Static: Add a new project, Quick access to the most recently edited project
+    * Intent: Display recent projects from any Organizer theme, Pick a single project for quick access
+* Deeplinks to handle widget interactions: `organizerapp://home`, `organizerapp://open-project-form`, `organizerapp://open-project?identifier=xxx`, `organizerapp://open-content?identifier=xxx&projectIdentifier=xxx`
+* Localization (English / French) with [string catalog](https://developer.apple.com/documentation/Xcode/localizing-and-varying-text-with-a-string-catalog)
+* OSLog
 
 ## Roadmap
-- [ ] Add SwiftUI app
 - [ ] Sync SwiftData database to iCloud
 
 ## License
