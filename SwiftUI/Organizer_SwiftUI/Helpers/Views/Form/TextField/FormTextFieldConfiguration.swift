@@ -52,7 +52,7 @@ extension FormTextField.Configuration {
         placeholder: String(localized: "My Content"),
         submitLabel: .next,
         errorMessage: String(localized: "This field cannot be empty"),
-        autoCapitalization: .words
+        autoCapitalization: .sentences
     )
 
     static let contentTheme: Self = .init(
