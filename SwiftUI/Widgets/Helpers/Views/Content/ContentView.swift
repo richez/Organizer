@@ -20,12 +20,12 @@ struct ContentView: View {
         ContentContainerView(systemImage: "ellipsis") {
             self.projectStack {
                 Text(self.project.title)
-                    .font(.system(size: 13, weight: .bold))
+                    .font(.system(size: 12, weight: .bold))
                     .foregroundStyle(.cellTitle)
                     .lineLimit(1)
 
                 Text(self.themes)
-                    .font(.system(size: 10))
+                    .font(.system(size: 9))
                     .foregroundStyle(.cellSubtitle)
                     .lineLimit(1)
             }

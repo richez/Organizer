@@ -20,13 +20,13 @@ struct ContentRow: View {
 
             VStack(alignment: .leading, spacing: 1) {
                 Text(self.content.title)
-                    .font(.system(size: 11, weight: .bold))
+                    .font(.system(size: 10, weight: .bold))
                     .foregroundStyle(.cellTitle)
                     .lineLimit(1)
                     .padding(.top)
 
                 Text(self.themes)
-                    .font(.system(size: 8))
+                    .font(.system(size: 7))
                     .foregroundStyle(.cellSubtitle)
                     .lineLimit(1)
             }
