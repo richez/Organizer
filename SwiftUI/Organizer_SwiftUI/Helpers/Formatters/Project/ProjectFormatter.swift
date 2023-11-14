@@ -53,6 +53,8 @@ extension ProjectFormatter: ProjectFormatterProtocol {
 
     // MARK: Statistics
 
+    /// Returns a String representation of the ``ProjectContent`` in a project.
+    /// (Ex: "4 contents (2 articles, 4 notes, 1 video)")
     func statistics(from contents: [ProjectContent]) -> String {
         let contentCount = contents.count
         guard contentCount > 0 else { return "" }
@@ -68,6 +70,12 @@ extension ProjectFormatter: ProjectFormatterProtocol {
 
     // MARK: Date
 
+    /// Returns string representation of a date using the specified date format style.
+    ///
+    /// - Parameters:
+    ///   - date: The date to format.
+    ///   - format: The date format style to apply to the date (e.g. '14 Nov' for
+    ///   ``DateFormat/abbreviated`` or '14 Nov 2023 at 11:41' for ``DateFormat/full``).
     func string(from date: Date, format: DateFormat) -> String {
         date.formatted(format.style)
     }

@@ -8,7 +8,7 @@
 import Foundation
 
 struct URLMetadataConfiguration {
-    /// A Boolean value indicating whether to download subresources (con, image, or video) specified
+    /// A Boolean value indicating whether to download subresources (icon, image, or video) specified
     /// by the metadata.  Equivalent to `LPMetadataProvider.shouldFetchSubresources` property.
     var shouldFetchSubresources: Bool = false
 

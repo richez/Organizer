@@ -238,6 +238,26 @@
         }
       }
     },
+    "Could not find content" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de trouver le contenu"
+          }
+        }
+      }
+    },
+    "Could not find project" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de trouver le projet"
+          }
+        }
+      }
+    },
     "Could not open url" : {
       "localizations" : {
         "fr" : {
@@ -874,6 +894,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Type"
+          }
+        }
+      }
+    },
+    "Verify that the content exists in project '%@' and try again" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vérifiez que le contenu existe dans le projet '%@' et réessayez"
+          }
+        }
+      }
+    },
+    "Verify that the project exists and try again" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vérifiez que le projet existe et réessayez"
           }
         }
       }

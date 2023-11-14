@@ -35,6 +35,10 @@ struct DeeplinkManager {
 
     // MARK: - Public
 
+    /// Returns a ``DeeplinkManager/Target`` if the provided `URL`
+    /// can be converted to a ``Deeplink`` and the associted project
+    /// or content exist in the database. Otherwise, throw a
+    /// ``DeeplinkManager/Error``
     func target(for url: URL, context: ModelContext) throws -> Target {
         guard let deeplink = Deeplink(url: url) else {
             throw Error.unsupportedURL(url)
@@ -95,19 +99,22 @@ extension DeeplinkManager {
         case projectNotFound(String)
         case contentNotFound(String, in: Project)
 
-        var errorDescription: LocalizedStringResource? {
+        var errorDescription: String? {
             switch self {
-            case .unsupportedURL: "Could not open url"
-            case .projectNotFound: "Could not find project"
-            case .contentNotFound: "Could not find content"
+            case .unsupportedURL: String(localized: "Could not open url")
+            case .projectNotFound: String(localized: "Could not find project")
+            case .contentNotFound: String(localized: "Could not find content")
             }
         }
 
-        var recoverySuggestion: LocalizedStringResource? {
+        var recoverySuggestion: String? {
             switch self {
-            case .unsupportedURL(let url): "Check that the provided url is valid and try again: \(url.absoluteString)"
-            case .projectNotFound: "Verify that the project exists and try again"
-            case .contentNotFound(_, let project): "Verify that the content exists in project '\(project.title)' and try again"
+            case .unsupportedURL(let url):
+                String(localized: "Check that the provided url is valid and try again: \(url.absoluteString)")
+            case .projectNotFound: 
+                String(localized: "Verify that the project exists and try again")
+            case .contentNotFound(_, let project):
+                String(localized: "Verify that the content exists in project '\(project.title)' and try again")
             }
         }
     }

@@ -9,7 +9,7 @@ import OSLog
 import SwiftData
 import SwiftUI
 
-// @State object created in the app first view are shared
+// Properties created in the app first view are shared
 // between windows. Thus, this type is used to force SwiftUI
 // to create a new NavigationContext for each window.
 struct MainContainerView: View {

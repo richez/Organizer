@@ -7,6 +7,15 @@
 
 import SwiftUI
 
+/// Defines `init` and `update` methods for the types used
+/// with `AppStorage` to be able to reference ``StorageKey``
+/// cases instead of strings.
+///
+///     @AppStorage(.contentListSorting)
+///     var sorting: ProjectListSorting = .updatedDate
+///
+///     let defaults = UserDefaults(suiteName: "xxx")
+///     self._sorting.update(with: defaults, key: .contentListSorting)
 extension AppStorage {
     // MARK: Optional RawRepresentable
 

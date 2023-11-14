@@ -10,6 +10,8 @@ import Foundation
 import OSLog
 import WidgetKit
 
+/// An object responsible of requesting widget timelines reload by observing 
+/// the notifications posted by ``StoreNotificationCenter``.
 final class WidgetManager {
     // MARK: - Properties
 
@@ -55,6 +57,8 @@ private extension WidgetManager {
 // MARK: - Project Data
 
 private extension WidgetManager {
+    /// Defines the properties received in the notification
+    /// user-info dictionnary.
     struct ProjectData {
         var identifier: UUID
         var oldValues: ProjectValues?
@@ -91,6 +95,8 @@ private extension WidgetManager {
         }
     }
 
+    /// Returns the widgets installed in the user's device with their configurations
+    /// to determine if they need to be reloaded after a change occured in the databse.
     func installedWidgets() async -> [InstalledWidget] {
         do {
             let widgets = try await self.widgetCenter.getCurrentConfigurations()
@@ -118,6 +124,18 @@ private extension WidgetManager {
         }
     }
 
+    /// Returns `true` if the provided widget needs to be updated after the change described
+    /// by ``WidgetManager/ProjectData`` occured in the database.
+    ///
+    /// - The ``WidgetKind/addProject`` widget never needs to be updated since it display static data.
+    /// - The ``WidgetKind/lastProject`` widget needs to be updated every time a change occurs in the
+    /// database since it will always change which is the last edited project.
+    /// - The ``WidgetKind/projects`` widget needs to be updated every time a change occurs if the user
+    /// did not configured the associated theme since the last edited project is used. Otherwise, it
+    /// needs to be updated only if the change concerns a project that had or added the selected theme.
+    /// - The ``WidgetKind/singleProject`` widget needs to be updated every time a change occurs if the user
+    /// did not configured the associated project since the last edited project is used. Otherwise, it
+    /// needs to be updated only if the change concerns the configured project.
     func needsUpdate(_ installedWidget: InstalledWidget, project: ProjectData) -> Bool {
         switch installedWidget {
         case .lastProject:

@@ -13,12 +13,6 @@ struct ContentStore {
     // MARK: - Properties
 
     var notificationCenter: StoreNotificationCenterProtocol = StoreNotificationCenter()
-
-    // MARK: - Error
-
-    enum Error: Swift.Error {
-        case invalidURL(String)
-    }
 }
 
 // MARK: - ContentStoreDescriptor
