@@ -46,7 +46,7 @@ It acts as an organised reading list to find all the articles, videos, notes and
 
 This app is developed twice with [UIKit](UIKit) and [SwiftUI](SwiftUI)
 
-It is mainly used to practice the usage of   [SwiftData](https://developer.apple.com/documentation/swiftdata),  [SwiftUI](https://developer.apple.com/documentation/swiftui/),  [Concurrency](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/concurrency/), [Property wrappers](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/properties/#Property-Wrappers), [Opaque types](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/opaquetypes/), [Share extension](https://developer.apple.com/library/archive/documentation/General/Conceptual/ExtensibilityPG/Share.html).
+It is mainly used to practice the usage of   [SwiftData](https://developer.apple.com/documentation/swiftdata),  [SwiftUI](https://developer.apple.com/documentation/swiftui/),  [Concurrency](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/concurrency/), [Property wrappers](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/properties/#Property-Wrappers), [Opaque types](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/opaquetypes/), [WidgetKit](https://developer.apple.com/documentation/widgetkit), [OSLog](https://developer.apple.com/documentation/oslog), [Share extension](https://developer.apple.com/library/archive/documentation/General/Conceptual/ExtensibilityPG/Share.html).
 
 ## Features
 * Projects and content persisted with `SwiftData`
