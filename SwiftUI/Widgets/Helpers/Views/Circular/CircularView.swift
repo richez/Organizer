@@ -6,15 +6,19 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 struct CircularView: View {
     var systemImage: String
 
     var body: some View {
-        Image(systemName: self.systemImage)
-            .font(.system(size: 17, weight: .bold))
-            .padding(10)
-            .background(.floatingButton)
-            .clipShape(.circle)
+        ZStack {
+            AccessoryWidgetBackground()
+
+            Image(systemName: self.systemImage)
+                .font(.system(size: 20, weight: .bold))
+                .padding(10)
+                .clipShape(.circle)
+        }
     }
 }
