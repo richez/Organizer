@@ -48,6 +48,7 @@ private extension SingleProjectTimelineProvider {
         return SingleProjectEntry(project: project, contents: contents, requiredCapacity: requiredCapacity)
     }
 
+    /// Returns the number of elements the widget needs.
     func requiredCapacity(for family: WidgetFamily) -> Int {
         switch family {
         #if !os(macOS)
@@ -69,8 +70,7 @@ private extension SingleProjectTimelineProvider {
                 predicate: #Predicate { $0.identifier == projectID },
                 sortBy: [.init(\.updatedDate, order: .reverse)],
                 fetchLimit: 1,
-                propertiesToFetch: [\.identifier, \.title, \.theme],
-                relationshipKeyPathsForPrefetching: [\.contents]
+                propertiesToFetch: [\.identifier, \.title, \.theme]
             )
             return projects.first
         } catch {

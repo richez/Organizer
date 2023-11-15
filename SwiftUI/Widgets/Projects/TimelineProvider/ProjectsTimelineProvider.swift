@@ -45,6 +45,7 @@ private extension ProjectsTimelineProvider {
         return ProjectsEntry(projects: projects, requiredCapacity: requiredCapacity)
     }
 
+    /// Returns the number of elements the widget needs.
     func requiredCapacity(for family: WidgetFamily) -> Int {
         switch family {
         #if !os(macOS)

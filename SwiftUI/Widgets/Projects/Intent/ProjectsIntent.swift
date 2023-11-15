@@ -18,7 +18,7 @@ struct ProjectsIntent: WidgetConfigurationIntent {
     @Parameter(title: "Theme")
     var theme: ThemeEntity?
 
-    static var parameterSummary:  some ParameterSummary {
+    static var parameterSummary: some ParameterSummary {
         When(\.$type, .equalTo, ThemeTypeEntity.specific) {
             Summary {
                 \.$type

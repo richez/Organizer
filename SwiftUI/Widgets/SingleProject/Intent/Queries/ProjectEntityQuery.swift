@@ -16,7 +16,8 @@ struct ProjectEntityQuery: EntityQuery {
         Logger.entityQueries.info("Loading default project")
         let projects: [Project]? = try? store.models(
             sortBy: [SortDescriptor(\.updatedDate)],
-            fetchLimit: 1
+            fetchLimit: 1,
+            propertiesToFetch: [\.identifier, \.title]
         )
         Logger.entityQueries.info("Found \(projects?.map(\.title) ?? []) projects")
         return projects?.map(ProjectEntity.init(from:)).first
