@@ -8,26 +8,27 @@
 import SwiftUI
 
 struct ProjectRow: View {
-    var project: Project
-
-    private let viewModel = ViewModel()
-
+    @State private var viewModel: ViewModel
     @Environment(\.widgetFamily) private var widgetFamily
+
+    init(project: Project) {
+        self._viewModel = State(initialValue: ViewModel(project: project))
+    }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text(self.project.title)
+            Text(self.viewModel.title)
                 .font(.system(size: 15, weight: .bold))
                 .foregroundStyle(.cellTitle)
                 .lineLimit(1)
 
-            Text(self.statistics)
+            Text(self.viewModel.statistics)
                 .font(.system(size: 12))
                 .foregroundStyle(.cellSubtitle)
                 .lineLimit(1)
         }
         .padding(.bottom, self.padding)
-        .deeplink(.project(id: self.projectID))
+        .deeplink(.project(id: self.viewModel.projectID))
     }
 }
 
@@ -37,13 +38,5 @@ private extension ProjectRow {
         case .systemMedium: 3
         default: 8
         }
-    }
-
-    var statistics: String {
-        self.viewModel.statistics(from: self.project.contents)
-    }
-
-    var projectID: String {
-        self.project.identifier.uuidString
     }
 }

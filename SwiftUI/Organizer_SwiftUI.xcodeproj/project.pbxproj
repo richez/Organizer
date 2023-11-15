@@ -179,6 +179,8 @@
 		F051E3E22AE08D93009F1E50 /* ContentListTypeMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3E12AE08D93009F1E50 /* ContentListTypeMenu.swift */; };
 		F051E3E32AE08FF8009F1E50 /* ProjectListSortingMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3D32AE089C7009F1E50 /* ProjectListSortingMenu.swift */; };
 		F051E3E42AE0947F009F1E50 /* ProjectListPreviewStyleMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051E3D62AE08A20009F1E50 /* ProjectListPreviewStyleMenu.swift */; };
+		F05743482B04DD85005894CE /* Configuration+WidgetKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05743472B04DD85005894CE /* Configuration+WidgetKind.swift */; };
+		F05743492B04DD85005894CE /* Configuration+WidgetKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05743472B04DD85005894CE /* Configuration+WidgetKind.swift */; };
 		F05BFD532AE80ED300095F74 /* FocusedValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05BFD512AE80ED300095F74 /* FocusedValues.swift */; };
 		F05BFD5A2AE889F500095F74 /* DeeplinkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05BFD592AE889F500095F74 /* DeeplinkManager.swift */; };
 		F05BFD5B2AE889F500095F74 /* DeeplinkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05BFD592AE889F500095F74 /* DeeplinkManager.swift */; };
@@ -522,6 +524,7 @@
 		F051E3DD2AE08C61009F1E50 /* ContentListPreviewStyleMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentListPreviewStyleMenu.swift; sourceTree = "<group>"; };
 		F051E3DF2AE08CE0009F1E50 /* ContentListThemeMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentListThemeMenu.swift; sourceTree = "<group>"; };
 		F051E3E12AE08D93009F1E50 /* ContentListTypeMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentListTypeMenu.swift; sourceTree = "<group>"; };
+		F05743472B04DD85005894CE /* Configuration+WidgetKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Configuration+WidgetKind.swift"; sourceTree = "<group>"; };
 		F05BFD512AE80ED300095F74 /* FocusedValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusedValues.swift; sourceTree = "<group>"; };
 		F05BFD592AE889F500095F74 /* DeeplinkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeeplinkManager.swift; sourceTree = "<group>"; };
 		F05BFD5C2AE89C5F00095F74 /* NavigationContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationContext.swift; sourceTree = "<group>"; };
@@ -940,6 +943,7 @@
 			isa = PBXGroup;
 			children = (
 				F041B3F82AF464D800EE13DE /* WidgetURL+Deeplink.swift */,
+				F05743472B04DD85005894CE /* Configuration+WidgetKind.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -2453,6 +2457,7 @@
 				F06BC1252AF5B7E600989C82 /* ProjectRow.swift in Sources */,
 				F06BC1222AF5B7CB00989C82 /* ProjectListView.swift in Sources */,
 				F013038D2AEB0E9300D28886 /* WidgetStore.swift in Sources */,
+				F05743482B04DD85005894CE /* Configuration+WidgetKind.swift in Sources */,
 				F041B4012AF46E0700EE13DE /* ProjectsWidget.swift in Sources */,
 				F030C0DF2AF709EF0065BF1A /* Content+Preview.swift in Sources */,
 				F0BD698D2AEAC972002490E7 /* AddProjectTimelineProvider.swift in Sources */,
@@ -2517,6 +2522,7 @@
 				F06BC1262AF5B7E600989C82 /* ProjectRow.swift in Sources */,
 				F06BC1232AF5B7CB00989C82 /* ProjectListView.swift in Sources */,
 				F013038E2AEB0E9300D28886 /* WidgetStore.swift in Sources */,
+				F05743492B04DD85005894CE /* Configuration+WidgetKind.swift in Sources */,
 				F041B4022AF46E0700EE13DE /* ProjectsWidget.swift in Sources */,
 				F030C0E02AF709F00065BF1A /* Content+Preview.swift in Sources */,
 				F0BD698E2AEAC972002490E7 /* AddProjectTimelineProvider.swift in Sources */,

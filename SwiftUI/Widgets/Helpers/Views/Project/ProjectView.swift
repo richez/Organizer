@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct ProjectView: View {
-    var project: Project
-
-    private let viewModel = ViewModel()
-
+    @State private var viewModel: ViewModel
     @Environment(\.widgetFamily) private var widgetFamily
+
+    init(project: Project) {
+        self._viewModel = State(initialValue: ViewModel(project: project))
+    }
 
     var body: some View {
         Group {
@@ -21,13 +22,13 @@ struct ProjectView: View {
             case .accessoryCircular:
                 CircularView(systemImage: "doc.text.magnifyingglass")
             case .accessoryRectangular:
-                RectangularView(title: self.project.title, subtitle: self.themes)
+                RectangularView(title: self.viewModel.title, subtitle: self.viewModel.themes)
             #endif
             default:
                 self.defaultView
             }
         }
-        .widgetURL(.project(id: self.projectID))
+        .widgetURL(.project(id: self.viewModel.projectID))
     }
 }
 
@@ -35,34 +36,20 @@ private extension ProjectView {
     var defaultView: some View {
         ContentContainerView(systemImage: "ellipsis") {
             VStack(alignment: .leading, spacing: 12) {
-                Text(self.project.title)
+                Text(self.viewModel.title)
                     .font(.system(size: 15, weight: .bold))
                     .foregroundStyle(.cellTitle)
                     .lineLimit(2)
 
                 Group {
-                    Text(self.themes)
+                    Text(self.viewModel.themes)
                         .lineLimit(1)
-                    Text(self.statistics)
+                    Text(self.viewModel.statistics)
                         .lineLimit(2)
                 }
                 .font(.system(size: 12))
                 .foregroundStyle(.cellSubtitle)
             }
         }
-    }
-}
-
-private extension ProjectView {
-    var themes: String {
-        self.viewModel.themes(from: self.project.theme)
-    }
-
-    var statistics: String {
-        self.viewModel.statistics(from: self.project.contents)
-    }
-
-    var projectID: String {
-        self.project.identifier.uuidString
     }
 }

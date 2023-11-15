@@ -8,23 +8,27 @@
 import SwiftUI
 
 struct ContentView: View {
-    var project: Project
     var contents: [ProjectContent]
     var placeholders: Int
 
-    private let viewModel = ViewModel()
-
+    @State private var viewModel: ViewModel
     @Environment(\.widgetFamily) private var widgetFamily
+
+    init(project: Project, contents: [ProjectContent], placeholders: Int) {
+        self._viewModel = State(initialValue: ViewModel(project: project))
+        self.contents = contents
+        self.placeholders = placeholders
+    }
 
     var body: some View {
         ContentContainerView(systemImage: "ellipsis") {
             self.projectStack {
-                Text(self.project.title)
+                Text(self.viewModel.title)
                     .font(.system(size: 12, weight: .bold))
                     .foregroundStyle(.cellTitle)
                     .lineLimit(1)
 
-                Text(self.themes)
+                Text(self.viewModel.themes)
                     .font(.system(size: 9))
                     .foregroundStyle(.cellSubtitle)
                     .lineLimit(1)
@@ -36,7 +40,7 @@ struct ContentView: View {
 
             ContentListView(contents: self.contents, placeholders: self.placeholders)
         }
-        .widgetURL(.project(id: self.projectID))
+        .widgetURL(.project(id: self.viewModel.projectID))
     }
 }
 
@@ -49,14 +53,5 @@ private extension ContentView {
         default:
             VStack(alignment: .leading, spacing: 8) { content() }
         }
-    }
-
-
-    var themes: String {
-        self.viewModel.themes(from: self.project.theme)
-    }
-
-    var projectID: String {
-        self.project.identifier.uuidString
     }
 }

@@ -8,21 +8,40 @@
 import Foundation
 
 extension ContentRow {
-    struct ViewModel {
+    @Observable
+    final class ViewModel {
         // MARK: - Properties
 
+        private let content: ProjectContent
         private let formatter: ContentFormatterProtocol
 
         // MARK: - Initialization
 
-        init(formatter: ContentFormatterProtocol = ContentFormatter()) {
+        init(content: ProjectContent, formatter: ContentFormatterProtocol = ContentFormatter()) {
+            self.content = content
             self.formatter = formatter
         }
 
         // MARK: - Public
 
-        func themes(from theme: String) -> String {
-            self.formatter.themes(from: theme)
+        var contentID: String {
+            self.content.identifier.uuidString
+        }
+
+        var projectID: String {
+            self.content.project?.identifier.uuidString ?? ""
+        }
+
+        var systemImage: String {
+            self.content.type.systemImage
+        }
+
+        var title: String {
+            self.content.title
+        }
+
+        var themes: String {
+            self.formatter.themes(from: self.content.theme)
         }
     }
 }

@@ -8,43 +8,31 @@
 import SwiftUI
 
 struct ContentRow: View {
-    var content: ProjectContent
+    @State private var viewModel: ViewModel
 
-    private let viewModel = ViewModel()
+    init(content: ProjectContent) {
+        self._viewModel = State(initialValue: ViewModel(content: content))
+    }
 
     var body: some View {
         HStack(spacing: 15) {
 
-            Image(systemName: self.content.type.systemImage)
+            Image(systemName: self.viewModel.systemImage)
                 .foregroundStyle(.contentImageTint)
 
             VStack(alignment: .leading, spacing: 1) {
-                Text(self.content.title)
+                Text(self.viewModel.title)
                     .font(.system(size: 10, weight: .bold))
                     .foregroundStyle(.cellTitle)
                     .lineLimit(1)
                     .padding(.top)
 
-                Text(self.themes)
+                Text(self.viewModel.themes)
                     .font(.system(size: 7))
                     .foregroundStyle(.cellSubtitle)
                     .lineLimit(1)
             }
         }
-        .deeplink(.content(id: self.contentID, projectID: self.projectID))
-    }
-}
-
-private extension ContentRow {
-    var themes: String {
-        self.viewModel.themes(from: self.content.theme)
-    }
-
-    var contentID: String {
-        self.content.identifier.uuidString
-    }
-
-    var projectID: String {
-        self.content.project?.identifier.uuidString ?? ""
+        .deeplink(.content(id: self.viewModel.contentID, projectID: self.viewModel.projectID))
     }
 }
